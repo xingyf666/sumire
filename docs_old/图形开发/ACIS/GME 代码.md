@@ -8,7 +8,7 @@
 
 使用 CMake 最新版本进行配置，勾选除了 BUILD_SAMPLES 以外的其它 BUILD 选项，配置后修改 Qt6_PATH 变量， 然后生成项目。
 
-![[GME 代码.assets/image-20231123145752295.png]]
+![](GME 代码.assets/image-20231123145752295.png)
 
 
 

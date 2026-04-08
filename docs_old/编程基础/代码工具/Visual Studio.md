@@ -15,13 +15,13 @@ url: "https://visualstudio.microsoft.com/zh-hans/visual-cpp-build-tools/"
 
 安装 SDK 的路径无法直接修改，必须在注册表中修改
 
-![[image-20260318233418251.png]]
+![](image-20260318233418251.png)
 
 
 
 ### GME 配置
 
-![[config.pdf#height=800|config]]
+![](config.pdf#height=800|config)
 
 
 
@@ -92,13 +92,13 @@ for (int i = 0; i < 50; i++)
 
 有时由于 Microsoft 安装更新下载太慢，可以更改 DNS 设置。在“控制面板-网络和 Internet-更改适配器选项”中，右击“WLAN-属性”，打开设置
 
-![[Visual Studio.assets/image-20210909231723165.png]]
+![](Visual Studio.assets/image-20210909231723165.png)
 
 
 
 点击“Internet协议版本4(TCP/IPv4)”，进入属性，设置首选和备用DNS服务器为`4:2:2:2`和`4:2:2:1`即可
 
-![[Visual Studio.assets/image-20210909231859770.png]]
+![](Visual Studio.assets/image-20210909231859770.png)
 
 更新完成后切换回默认的 IP 地址。
 
@@ -108,11 +108,11 @@ for (int i = 0; i < 50; i++)
 
 不同版本的 VS 使用的 SDK 完全不同，尤其是当我们编译旧版 VS 项目时，如果不想“升级平台工具集”，就需要下载旧版本的 SDK 文件。找到 Visual Studio Installer 打开，选择对应版本的 SDK 下载
 
-![[Visual Studio.assets/image-20230412142510236.png]]
+![](Visual Studio.assets/image-20230412142510236.png)
 
 例如编译 VS2017 版本的项目，提示缺少 v141 工具和对应版本的 SDK 工具，可以搜索单个组件尝试安装
 
-![[Visual Studio.assets/image-20230412142804429.png]]
+![](Visual Studio.assets/image-20230412142804429.png)
 
 
 
@@ -126,15 +126,15 @@ for (int i = 0; i < 50; i++)
 
 在属性页面的 “VC++ 目录”下设置“包含目录”和“库目录”来配置头文件和静态库文件的路径
 
-![[Visual Studio.assets/image-20230412141717315.png]]
+![](Visual Studio.assets/image-20230412141717315.png)
 
 相较于后面要介绍的引用静态库 .lib 的方法，更好的方法是在“链接器-输入-附加依赖项”设置要使用的静态库名称
 
-![[Visual Studio.assets/image-20230412142108990.png]]
+![](Visual Studio.assets/image-20230412142108990.png)
 
 动态库一般需要放在可执行文件所在目录下，也可以在“调试-环境”中配置动态库的路径
 
-![[Visual Studio.assets/image-20230412142220296.png]]
+![](Visual Studio.assets/image-20230412142220296.png)
 
 
 
@@ -154,15 +154,15 @@ add_subdirectory(src bin)
 
 在 Release 模式下，断点将会无效。有些第三方库是在 Release 模式下编译的，因此也只能在 Release 模式下使用。这样一来就无法进行调试。要解决这个问题，可以在 VS 项目设置中配置：修改 C/C++ 常规选项中的“调试信息格式”
 
-![[Visual Studio.assets/image-20230814234632832.png]]
+![](Visual Studio.assets/image-20230814234632832.png)
 
 禁用任何优化
 
-![[Visual Studio.assets/image-20230814234718660.png]]
+![](Visual Studio.assets/image-20230814234718660.png)
 
 在“链接器”设置中选择生成调试信息
 
-![[Visual Studio.assets/image-20230814234756086.png]]
+![](Visual Studio.assets/image-20230814234756086.png)
 
 然后就可以正常使用断点测试。
 
@@ -172,7 +172,7 @@ add_subdirectory(src bin)
 
 在“工具-选项-环境-导入和导出设置”中可以看到设置保存的路径，用路径下的设置文件覆盖新设备中的设置文件，重新打开即可。
 
-![[Visual Studio.assets/image-20231124232656009.png]]
+![](Visual Studio.assets/image-20231124232656009.png)
 
 
 
@@ -190,11 +190,11 @@ $ dumpbin /dependents xxx.exe
 
 [Dependencies](https://link.zhihu.com/?target=https%3A//github.com/lucasg/Dependencies) 是对随 Windows SDK 一起发布的旧软件 [Dependency Walker](http://www.dependencywalker.com/) Dependencies 的重写，但其开发在 2006 年左右停止。可以帮助 Windows 开发人员解决他们的 dll 加载依赖关系问题。点击上面的链接进入 github 官网，然后下载
 
-![[Visual Studio.assets/image-20220129153115803.png]]
+![](Visual Studio.assets/image-20220129153115803.png)
 
 在解压文件夹中找到 DependenciesGui.exe 文件，就可以打开图形化界面。当然，也可以通过命令行运行 Dependencies.exe 进行操作。我们只需要将可执行文件拖放到 Dependencies 中，就可以直接看到所有主要依赖的动态库：
 
-![[Visual Studio.assets/image-20220129153336139.png]]
+![](Visual Studio.assets/image-20220129153336139.png)
 
 
 
@@ -202,7 +202,7 @@ $ dumpbin /dependents xxx.exe
 
 在“工具-选项-环境-键盘”中，修改“键盘映射方案”为 VSCode 即可
 
-![[image-20250612103807617.png]]
+![](image-20250612103807617.png)
 
 
 
@@ -212,7 +212,7 @@ $ dumpbin /dependents xxx.exe
 
 如果要在 VS 中使用 GitHub 连接，需要在 VS Installer 的单个组件中找到 GitHub 工具进行安装。我们在菜单“视图”中可以找到 Git 的管理窗口，打开后可以看到
 
-![[Visual Studio.assets/image-20230516204149429.png]]
+![](Visual Studio.assets/image-20230516204149429.png)
 
 可以创建 Git 储存库，但是更好的是**直接从远程克隆储存库**，毕竟 VS 不方便使用命令行操作，这样能够避免内容合并冲突的问题。
 
@@ -225,11 +225,11 @@ $ dumpbin /dependents xxx.exe
 * 循环表示同步后推送，即先拉取再推送；
 * `...` 中可以找到更多命令操作；
 
-![[Visual Studio.assets/image-20230516204529152.png]]
+![](Visual Studio.assets/image-20230516204529152.png)
 
 在 `...` 中找到“管理分支”，点击后即可查看分支关系和推送历史
 
-![[Visual Studio.assets/image-20230516204906669.png]]
+![](Visual Studio.assets/image-20230516204906669.png)
 
 右键点击历史版本，可以进行重置等操作；右键点击 remotes 目录下的分支，可以进行分支合并、变基、删除等操作。如果要查看某个分支是从哪个分支发展而来，可以点击上面的左右箭头图标，将会向父分支和子分支移动。
 
@@ -239,11 +239,11 @@ $ dumpbin /dependents xxx.exe
 
 当我们处在 master 分支，要将 testing 分支合并到 master 分支，右键 testing 分支选择合并到 master 分支。可以看到冲突
 
-![[Visual Studio.assets/image-20230516211406220.png]]
+![](Visual Studio.assets/image-20230516211406220.png)
 
 点击“打开合并编辑器”，即可选择合并方式：勾选左边或右边可以选择其中一个版本进行合并；都勾选则会错开冲突部分进行合并；也可以手动调整合并后的代码
 
-![[Visual Studio.assets/image-20230516211523827.png]]
+![](Visual Studio.assets/image-20230516211523827.png)
 
 最后点击“接受合并”，通过 commit 提交，然后推送到远程库即可。
 
@@ -263,25 +263,25 @@ D:\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft
 
 安装 2022 版本的 VS，在“工具-选项”中将 CMake 配置文件修改为“始终使用 CMake 预设”，这是官方推荐的设置。
 
-![[Visual Studio.assets/image-20230924165254275.png]]
+![](Visual Studio.assets/image-20230924165254275.png)
 
 最好安装 UTF8 插件，确保代码都保存为 UTF8 格式
 
-![[Visual Studio.assets/image-20230924165925123.png]]
+![](Visual Studio.assets/image-20230924165925123.png)
 
 然后可以创建 CMake 项目
 
-![[Visual Studio.assets/image-20230924165647486.png]]
+![](Visual Studio.assets/image-20230924165647486.png)
 
 在“工具-选项”中设置主动提交成员列表，提高输入效率
 
-![[Visual Studio.assets/image-20230924170455405.png]]
+![](Visual Studio.assets/image-20230924170455405.png)
 
 
 
 如果需要修改 CMake 任务，可以右键点击 CMakeLists.txt 文件，选择配置任务，就可以通过 json 文件来配置任务信息
 
-![[Visual Studio.assets/image-20230924172029993.png]]
+![](Visual Studio.assets/image-20230924172029993.png)
 
 通过配置任务来设置不同的生成目标。
 
@@ -289,7 +289,7 @@ D:\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft
 
 还可以添加调试配置，同理选择
 
-![[Visual Studio.assets/image-20230924171951691.png]]
+![](Visual Studio.assets/image-20230924171951691.png)
 
 然后可以设置项目目标，任务名称以及工作目录
 
@@ -312,7 +312,7 @@ D:\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft
 
 这时候可以看到自定义的调试配置，选择进行编译即可。
 
-![[Visual Studio.assets/image-20230924172351262.png]]
+![](Visual Studio.assets/image-20230924172351262.png)
 
 
 
@@ -345,7 +345,7 @@ D:\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft
 
 在 VS 下进行 Qt 开发，需要安装插件。在“扩展-管理扩展”中搜索 Qt，找到相关插件进行安装
 
-![[Visual Studio.assets/image-20230824162534626.png]]
+![](Visual Studio.assets/image-20230824162534626.png)
 
 
 
@@ -357,13 +357,13 @@ D:\Qt\Qt5.14.2\5.14.2\msvc2017_64\bin
 
 然后就可以选择 Qt 项目进行创建
 
-![[Visual Studio.assets/image-20230824210425406.png]]
+![](Visual Studio.assets/image-20230824210425406.png)
 
 
 
 要在 VS 中编辑 .ui 文件，需要在“扩展-Qt VS Tools-Options”中将 "run in detached window" 设为 True
 
-![[Visual Studio.assets/image-20230825213414294.png]]
+![](Visual Studio.assets/image-20230825213414294.png)
 
 
 

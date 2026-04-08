@@ -335,8 +335,7 @@ test.TestCtypes()
 
 就可以完成调用。
 
->[!note]
->由于 ctypes 在内部调用 `LoadLibrary` 显式链接动态库，不需要 `lib` 文件 [[基本 Cpp#链接动态库]] 。
+> >由于 ctypes 在内部调用 `LoadLibrary` 显式链接动态库，不需要 `lib` 文件 [基本 Cpp#链接动态库](基本 Cpp#链接动态库) 。
 
 
 
@@ -728,7 +727,7 @@ test.InitDevice(800, 600)
 
 下载源码后，构建编译项目，指定安装目录后，执行 `INSTALL` 项目，将得到的 `include, share` 目录放到固定位置。
 
-![[image-20240813211851510.png]]
+![](image-20240813211851510.png)
 
 这里我们使用 `python3.11` 进行编译安装，因此后续也要使用对应的版本编译代码。
 

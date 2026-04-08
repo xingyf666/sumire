@@ -32,7 +32,7 @@ C:\Program Files\Git\bin\bash.exe
 
 因此将 git 整个文件夹复制到 `C:\Program Files` 路径下，然后可以勾选 Git Bash 作为默认终端。
 
-![[VSCode.assets/image-20231124233017734.png]]
+![](VSCode.assets/image-20231124233017734.png)
 
 
 
@@ -85,7 +85,7 @@ C:\Program Files\Git\bin\bash.exe
 
 在“文件-首选项-键盘快捷方式”下可以设置快捷方式和对应的命令
 
-![[VSCode.assets/image-20240415235411849.png]]
+![](VSCode.assets/image-20240415235411849.png)
 
 
 
@@ -651,11 +651,11 @@ int main()
 
 通过 `Ctrl + Shift + P` 打开命令面板，输入 `cmake:config` 进行配置
 
-![[VSCode.assets/image-20230911171620396.png]]
+![](VSCode.assets/image-20230911171620396.png)
 
 选择要使用的编译器后就会自动配置，在最下方可以看到操作按钮
 
-![[VSCode.assets/image-20230911171730816.png]]
+![](VSCode.assets/image-20230911171730816.png)
 
 点击“生成”就会执行 Build 操作，点击 "CMake: [Debug]" 可以选择生成 Debug 或 Release 项目，还可以点击右边的两个按钮 Debug 和运行。 
 
@@ -665,7 +665,7 @@ int main()
 
 还可以自动生成 CMake 项目。例如
 
-![[VSCode.assets/image-20230925222110903.png]]
+![](VSCode.assets/image-20230925222110903.png)
 
 可以指定项目名称，就会自动生成一个 CMake 项目。
 
@@ -685,11 +685,11 @@ int main()
 
 我们使用 CMake 工程进行单元测试。进入项目以后，可以在下方看到“运行 CTest”的选项
 
-![[VSCode.assets/image-20230927112841706.png]]
+![](VSCode.assets/image-20230927112841706.png)
 
 先生成项目，然后运行 CTest，如果出现找不到 CTest 的错误，应该选择 cmake 文件重新生成。
 
-![[VSCode.assets/image-20230927113110410.png]]
+![](VSCode.assets/image-20230927113110410.png)
 
 
 
@@ -699,7 +699,7 @@ int main()
 
 首先在设置中搜索 Git Path 找相关的设置选项，点击在 settings.json 中编辑
 
-![[VSCode.assets/image-20230515105237564.png]]
+![](VSCode.assets/image-20230515105237564.png)
 
 添加 Git 所在目录
 
@@ -719,7 +719,7 @@ int main()
 
 有两种方法：一种是找到一个空文件夹，在源代码管理位置点击“初始化仓库”，即可生成 .git 文件夹初始化。之后选择添加远程储存库
 
-![[VSCode.assets/image-20230515210807196.png]]
+![](VSCode.assets/image-20230515210807196.png)
 
 另一种是直接 `Ctrl + Shift + P` 调出命令面板，输入 `git clone` 选择克隆远程库。
 
@@ -739,15 +739,15 @@ git pull --rebase Test master
 
 本地添加的文件会显示 `U`，表明该文件还没有被 git 追踪；已经储存到远程库的本地文件被修改后显示 `M`；
 
-![[VSCode.assets/image-20230515211426970.png]]
+![](VSCode.assets/image-20230515211426970.png)
 
 这时候需要点击 `+` 号将修改提交到暂存区，此时 `U` 的文件将显示 `A`，表明文件在暂存区。然后在消息框中输入 commit 信息，点击提交
 
-![[VSCode.assets/image-20230515211634802.png]]
+![](VSCode.assets/image-20230515211634802.png)
 
 此时所有改动已经通过 commit 提交。然后点击“发布 Branch” 将内容推送到远程库。
 
-![[VSCode.assets/image-20230515211929909.png]]
+![](VSCode.assets/image-20230515211929909.png)
 
 注意这个按钮只会出现在第一次将内容推送到远程库时，之后推送都会显示“同步更改”，点击后将会先拉取然后再推送。
 
@@ -757,7 +757,7 @@ git pull --rebase Test master
 
 在源代码管理中显示管理储存库信息，其中点击 "master" 可以创建新的分支，也可以查看项目所有的分支，并点击切换分支。
 
-![[VSCode.assets/image-20230515212311948.png]]
+![](VSCode.assets/image-20230515212311948.png)
 
 所有操作都可以点击 `···` 找到相关的菜单。
 
@@ -767,5 +767,5 @@ git pull --rebase Test master
 
 为了方便查看提交历史、分支关系以及版本回溯，最好安装 Git Graph 插件。点击“源代码管理储存库”下方最右边的按钮即可打开视图，在这里可以查看推送状态，点击不同的版本查看具体信息；右键点击可以进行 reset 操作，还可以切换、合并分支。
 
-![[VSCode.assets/image-20230515212638231.png]]
+![](VSCode.assets/image-20230515212638231.png)
 

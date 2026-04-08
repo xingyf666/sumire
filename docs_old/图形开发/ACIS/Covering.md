@@ -12,17 +12,17 @@ Covering 的两个不同目标是
 
 下图中由 4 条 edge 组成的 wire 被 surface 覆盖，构建出必要的拓扑来创建 sheet 物体。
 
-![[image-20231010173254563.png]]
+![](image-20231010173254563.png)
 
 * 覆盖一个 sheet 或 solid 中的开口。
 
 这通过覆盖一个或更多自由边构成的回路实现。当存在相邻面 faces 时，使用其中之一的底层 surface 来覆盖开口。下图展示了同一个曲面 surface 上的两个 faces 实现的覆盖。
 
-![[image-20231010193054129.png]]
+![](image-20231010193054129.png)
 
 这种覆盖的变体是覆盖 solid 中的一组循环 edge 来创建中间 face 。下图展示了如何使用现有曲面来创建中间 face 。
 
-![[image-20231010210346845.png]]
+![](image-20231010210346845.png)
 
 注意：覆盖 sheet 来创建 solid 时，首先要使用 `api_body_to_1d` 将 sheet 转换为开放 solid 然后执行 covering 操作。
 
@@ -38,7 +38,7 @@ Covering 的两个不同目标是
 outcome api_cover_wire_loops(ENTITY_LIST &wires, BODY *&sheet, AcisOptions *ao = NULL)
 ```
 
-![[image-20231010214722735.png]]
+![](image-20231010214722735.png)
 
 
 
@@ -62,15 +62,15 @@ outcome api_cover_planar_wires(ENTITY_LIST &in_wbs, BODY *&out_bdy, ENTITY_LIST 
 
 下图展示了分支 wire 的覆盖结果。
 
-![[image-20231011124316577.png]]
+![](image-20231011124316577.png)
 
 下图展示了使用嵌套 nesting 的覆盖，在上图的基础上新增加了两个 wire 。如果将 nesting 设为 `TRUE`，则得到下图的两个内部环路；如果设为 `FALSE`，则与上图结果相同。
 
-![[image-20231011133141646.png]]
+![](image-20231011133141646.png)
 
 下图进一步展示了嵌套效果，covering 算法通过 wire 之间的嵌套关系来决定外部环路。
 
-![[image-20231011133420807.png]]
+![](image-20231011133420807.png)
 
 
 
@@ -90,11 +90,11 @@ outcome api_cover_planar_edges(ENTITY_LIST &eds, BODY *&out_bdy, ENTITY_LIST &wi
 
 下图展示了可以通过覆盖线 edge 的封闭回路，然后衔接，将 sheet 转换为 solid 来构建  4 面体。 注意边已经被复制，因此 covering 算法将获得没有更高级别拓扑的边。
 
-![[image-20231011134107182.png]]
+![](image-20231011134107182.png)
 
 此算法可以被更高层的 covering 算法调用。例如用于生成覆盖 sheet 或 solid 中的洞的平面 face：复制自由 edge 然后添加新的 edge 来创建平面区域边界，使用平面 face 覆盖 edge 的平面回路，然后将 face 衔接到现有 body 中。
 
-![[image-20231011134508304.png]]
+![](image-20231011134508304.png)
 
 
 
@@ -107,7 +107,7 @@ outcome api_cover_wire(WIRE *wire, surface const &surf, FACE *&face, AcisOptions
 outcome api_cover_wire(WIRE *wire, cover_options *cov_opts = NULL, AcisOptions *ao = NULL)
 ```
 
-![[image-20231011134902910.png]]
+![](image-20231011134902910.png)
 
 
 
@@ -122,7 +122,7 @@ outcome api_cover_wires(BODY *wire_body, cover_options *cov_opts, AcisOptions *a
 
 使用的 wire 必须封闭、无分支、不交。每个封闭 wire 的 edge 转换为 face 上的 loop 。如果 covering 曲面生成算法不能找到一个曲面符合这些 loop，就会尝试对每个 loop 都产生一个平面。因此此算法可能创建有多个 loop 的单个面，或者有一个 loop 的多个面。下图展示了通过指定的曲面来覆盖多个 wire 的情况；如果没有指定曲面，则算法不能找到这个面，因此产生了两张平面。 
 
-![[image-20231011141552601.png]]
+![](image-20231011141552601.png)
 
 
 
@@ -137,19 +137,19 @@ outcome api_cover_sheet(BODY *sheet, cover_options *cov_opts = NULL, AcisOptions
 
 上面两个 API 具有不同的表现。前者接收 `multiple_cover` 参数，如果为 `TRUE`，则首先识别所有外部边的分离环路，然后检查这些环路能否被多个平面覆盖。如果能，就会返回这些平面；否则就会尝试用一张曲面覆盖。
 
-![[image-20231011143625498.png]]
+![](image-20231011143625498.png)
 
 下图展示了单个开口如何被多个平面覆盖
 
-![[image-20231011145354082.png]]
+![](image-20231011145354082.png)
 
 下图展示了多个开口如何被平面覆盖，但是在这一步操作不能覆盖非平面开口；后续的覆盖操作使用边界边的底层曲线实现。
 
-![[image-20231011150117863.png]]
+![](image-20231011150117863.png)
 
 下图展示了覆盖平面 face 的情况。第一个模型是单侧面，当它被另一张单侧面覆盖，则会产生与原始平面法向相反的面。这导致层状实体结构。虽然它在 ACIS 中非法，但是可能用于其它应用创建更复杂模型的中间过程。第二个模型则会创建另一张有两个 loop 的平面，其法向会原始平面相反。
 
-![[image-20231011150353507.png]]
+![](image-20231011150353507.png)
 
 
 
@@ -164,19 +164,19 @@ outcome api_cover_circuits(int num_circuits, ENTITY_LIST *array_circuits[], cove
 
 每个环路 circuit 是边的有序集，形成 face 上的封闭 loop 。其中的边可能在 face 或 wire 上。所有的边必须在同一个 body 中。下图展示了通过添加 wire 定义 face 的边界，逐步创建 face 的过程。
 
-![[image-20231011153404026.png]]
+![](image-20231011153404026.png)
 
 下图展示给环路指定一张覆盖曲面得到的结果。初始是由一个带有 L 形洞的面构成的 sheet，通过周围 face 底层的 surface 来覆盖洞。注意新创建的 face 是双侧 face，因为周围 face 是双侧面。 
 
-![[image-20231011153531940.png]]
+![](image-20231011153531940.png)
 
 下图展示用单张面覆盖多个环路的结果
 
-![[image-20231011153603874.png]]
+![](image-20231011153603874.png)
 
 下图展示封闭 solid 中的环路被覆盖，这里使用了原始圆柱的底层圆柱面实现覆盖。
 
-![[image-20231011153647085.png]]
+![](image-20231011153647085.png)
 
 
 

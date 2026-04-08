@@ -120,19 +120,19 @@ int main(int argc, char const *argv[]) {
 
 打开 Doxygenwizard 进入 GUI 界面。配置项目名、项目简介、项目版本，项目 logo、源码路径，选择递归搜索源码，最后选择目标路径。
 
-![[image-20231206165637913.png]]
+![](image-20231206165637913.png)
 
 可以在 Expert 界面中修改输出语言
 
-![[image-20231206165748017.png]]
+![](image-20231206165748017.png)
 
 在 Run 界面点击 Run Doxygen 即可生成文档
 
-![[image-20231206165816562.png]]
+![](image-20231206165816562.png)
 
 在生成路径下找到 html 目录下的 index.html 打开，可以看到生成结果：
 
-![[image-20231206165926726.png]]
+![](image-20231206165926726.png)
 
 
 
@@ -140,13 +140,13 @@ int main(int argc, char const *argv[]) {
 
 * 勾选 Build 中的 `EXTRACT_ALL` 选项，这样会将所有文件包含进来；关闭 `SHOW_USED_FILES` 隐藏所属文件信息。勾选 `EXTRACT_PRIVATE` 和 `EXTRACT_STATIC` 选项来显示私有和静态信息。如果需要显示更多信息，勾选对应的选项即可。
 
-![[image-20231206192518143.png]]
+![](image-20231206192518143.png)
 
-![[image-20231206191511533.png]]
+![](image-20231206191511533.png)
 
 * 勾选 HTML 中的 `DISABLE_INDEX` 和 `GENERATE_TREEVIEW` 禁用索引导航，开启树状图导航。
 
-![[image-20231206191351765.png]]
+![](image-20231206191351765.png)
 
 
 
@@ -154,7 +154,7 @@ int main(int argc, char const *argv[]) {
 
 将当前设置保存为设置文件，如果之后还需要使用该设置，重新打开这个文件即可。
 
-![[image-20231206191831767.png]]
+![](image-20231206191831767.png)
 
 
 
@@ -1295,7 +1295,7 @@ Coord add(Coord c1,Coord c2)
 
 在 HTML 设置中启用 `USE_MATHJAX` 选项，这样可以不必在本地配置，由客户端 javascript 进行转换。
 
-![[image-20231206224237166.png]]
+![](image-20231206224237166.png)
 
 
 
@@ -1367,7 +1367,7 @@ Coord add(Coord c1,Coord c2)
 
 Doxygen 内置支持为 C++ 类生成继承图。在 [Graphviz](https://www.graphviz.org/) 官网下载最新版本安装，在 Dot 选项中开启 `HAVE_DOT`，并配置路径
 
-![[image-20231206225827385.png]]
+![](image-20231206225827385.png)
 
 然后 Doxygen 就可以根据类的继承关系，自动生成继承图。注意 `EXTRACT_ALL` 选项需要开启。
 
@@ -1381,7 +1381,7 @@ Doxygen 内置支持为 C++ 类生成继承图。在 [Graphviz](https://www.grap
 
 只需要开启 `GENERATE_HTMLHELP` 选项，指定 hhc.exe 路径即可在 html 文件夹下生成 .chm 帮助文件。
 
-![[image-20231206231614598.png]]
+![](image-20231206231614598.png)
 
 需要下载 [HTML Help Workshop](https://www.helpandmanual.com/downloads_mscomp.html) 找到 hhc.exe 文件。注意开启此选项以后，将不会生成侧边栏目录。
 
@@ -1396,7 +1396,7 @@ Doxygen 内置支持为 C++ 类生成继承图。在 [Graphviz](https://www.grap
 * `DISABLE_INDEX = NO`
 * `GENERATE_TREEVIEW = NO`
 
-![[layout_index_and_notreeview.png]]
+![](layout_index_and_notreeview.png)
 
 可以修改为交互式导航树
 
@@ -1404,7 +1404,7 @@ Doxygen 内置支持为 C++ 类生成继承图。在 [Graphviz](https://www.grap
 * `GENERATE_TREEVIEW = YES`
 * `FULL_SIDEBAR = NO`
 
-![[layout_noindex_and_treeview.png]]
+![](layout_noindex_and_treeview.png)
 
 可以让内容跨越屏幕的标题位置
 
@@ -1412,12 +1412,12 @@ Doxygen 内置支持为 C++ 类生成继承图。在 [Graphviz](https://www.grap
 * `GENERATE_TREEVIEW = YES`
 * `FULL_SIDEBAR = YES`
 
-![[layout_noindex_and_sidebar.png]]
+![](layout_noindex_and_sidebar.png)
 
 甚至同时拥有两种形式的导航：
 
 * `DISABLE_INDEX = NO`
 * `GENERATE_TREEVIEW = YES`
 
-![[layout_index_and_treeview.png]]
+![](layout_index_and_treeview.png)
 

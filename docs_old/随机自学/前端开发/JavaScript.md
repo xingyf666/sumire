@@ -155,7 +155,7 @@ let name = prompt('Enter your name:');
 
 在开发者模式下查看 JS 代码，可以添加断点单步调试。找到代码位置，添加断点后刷新即可。
 
-![[image-20240711231801830.png]]
+![](image-20240711231801830.png)
 
 
 
@@ -1145,7 +1145,7 @@ btn.addEventListener('click', function (e) {
 
 > 实际工作以考虑事件冒泡为主。
 
-![[image-20240713150549672.png|600]]
+![](image-20240713150549672.png|600)
 
 
 
@@ -1317,7 +1317,7 @@ son.addEventListener('click', function(e) {
 
 当鼠标从蓝色移动到红色区域时，由于离开子元素，会触发子元素的 `mouseout` 消息，通过冒泡传递给父元素；同时鼠标进入父元素，触发 `mouseover` 消息。最终导致父元素同时触发 `mouseover, mouseout` 消息（从红色移动到蓝色区域时同理），这可能导致交互上的问题。
 
-![[image-20240713153344786.png]]
+![](image-20240713153344786.png)
 
 为了避免这个消息，最好使用 `mouseenter, mouseleave` 消息，它们能够自动阻止冒泡。
 
@@ -1513,7 +1513,7 @@ window.addEventListener('resize', function() {
 
 BOM (浏览器对象模型) 通过 window 全局对象，即 JS 中的顶级对象管理属性。
 
-![[image-20240819235322189.png|800]]
+![](image-20240819235322189.png|800)
 
 
 
@@ -1630,7 +1630,7 @@ localStorage.removeItem('name');
 
 保存后的数据可以在 Application 选项卡中找到。
 
-![[image-20240820002628166.png]]
+![](image-20240820002628166.png)
 
 
 

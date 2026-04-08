@@ -1218,7 +1218,7 @@ auto new_tuple = std::tuple_cat(student, student);
 
 ### 基本介绍
 
-C++ 中的属性（Attributes）是一种用于向编译器传递特定信息的机制。这些信息可以用于优化、发出警告、启用或禁用某些检查等。C++11 引入了标准化的属性语法，即双方括号 `[[...]]`，这些属性被用来影响编译器的行为而不会改变程序的语义。
+C++ 中的属性（Attributes）是一种用于向编译器传递特定信息的机制。这些信息可以用于优化、发出警告、启用或禁用某些检查等。C++11 引入了标准化的属性语法，即双方括号 `[...](...)`，这些属性被用来影响编译器的行为而不会改变程序的语义。
 
 
 
@@ -1230,16 +1230,16 @@ C++ 中的属性（Attributes）是一种用于向编译器传递特定信息的
 
 ```cpp
 // 类实例化后不能丢弃
-class [[nodiscard]] A {
+class [nodiscard](nodiscard) A {
 
 };
 
 // 返回值不能丢弃
-[[nodiscard]] int add(int a, int b) {
+[nodiscard](nodiscard) int add(int a, int b) {
     return a + b;
 }
 
-// warning C4834: 放弃具有 `[[nodiscard]]` 属性的函数的返回值
+// warning C4834: 放弃具有 `[nodiscard](nodiscard)` 属性的函数的返回值
 add(1, 2);
 ```
 
@@ -1256,7 +1256,7 @@ std::ignore = A();
 标记一个变量可能不会使用
 
 ```cpp
-void example([[maybe_unused]] int x) {
+void example([maybe_unused](maybe_unused) int x) {
     // 即使 x 没有被使用，也不会有警告
 }
 ```
@@ -1271,7 +1271,7 @@ void example([[maybe_unused]] int x) {
 switch(value) {
     case 1:
     // 标记 case 1 直接穿透到 case 2
-        [[fallthrough]];
+        [fallthrough](fallthrough);
     case 2:
         // ...
         break;
@@ -1287,7 +1287,7 @@ switch(value) {
 标记一个分支很有可能执行或很不可能执行
 
 ```cpp
-if ([[likely]] condition) {
+if ([likely](likely) condition) {
     // 更可能执行的代码路径
 } else {
     // 不太可能执行的代码路径
@@ -1301,7 +1301,7 @@ if ([[likely]] condition) {
 标记一个函数没有返回值，用于异常处理函数或程序终止函数
 
 ```cpp
-[[noreturn]] void terminateProgram() { 
+[noreturn](noreturn) void terminateProgram() { 
 	throw std::runtime_error("Program terminated"); 
 	// 后面不返回值
 }
@@ -2828,8 +2828,7 @@ static_for<0, 3>([&](auto i, auto ctrl) {
 });
 ```
 
-> [!note]
-> 在 C++20 中移除了 `std::result_of, std::result_of_t` 模板，被 `std::invoke_result, std::invoke_result_t` 系列模板替代。
+> > 在 C++20 中移除了 `std::result_of, std::result_of_t` 模板，被 `std::invoke_result, std::invoke_result_t` 系列模板替代。
 
 
 
@@ -2931,11 +2930,11 @@ void foo(const T& val)
 
 Type Trait 提供了大量类型判断模板，例如
 
-![[20200411151744849.png]]
+![](20200411151744849.png)
 
 还可以针对类的特性判断
 
-![[20200411152328944.png]]
+![](20200411152328944.png)
 
 
 
@@ -2943,7 +2942,7 @@ Type Trait 提供了大量类型判断模板，例如
 
 用来检测传入类型之间的关系
 
-![[2020041115385278.png]]
+![](2020041115385278.png)
 
 基本数据类型（例如 int ）可能是左值或右值，不能直接赋值，因此只要 `std::is_assignable` 的第一个类型不是类，就一定返回 false_type 类型。不过指定了左值引用的类型可以赋值
 
@@ -2973,7 +2972,7 @@ std::is_same_v<int, double> 	// 返回 false_type
 
 以下操作允许修改传入类型
 
-![[2020041115531190.png]]
+![](2020041115531190.png)
 
 add_value_reference 把将右值引用转换为左值引用，但是 add_rvalue_reference 不能把左值引用转换为右值引用，需要先移除引用，然后转换为右值引用
 
@@ -2987,7 +2986,7 @@ add_rvalue_reference<remove_reference<T>::type>::type;
 
 下面这些模板允许对类型进行更复杂的操作
 
-![[20200411155558199.png]]
+![](20200411155558199.png)
 
 例如 rank 可以返回数组类型的维数，extent 获得数组的宽度，例如
 
@@ -3425,7 +3424,7 @@ template <class T, class Deleter = DefaultDeleter<T>> struct UniquePtr {
     template <class U, class DU>
         requires std::convertible_to<U*, T*>
     UniquePtr& operator=(UniquePtr<U, DU>&& other) {
-        if(this != &other) [[likely]] {
+        if(this != &other) [likely](likely) {
             if(m_p != nullptr) Deleter{}(m_p);
 
             // 交换指针，并将 other 的指针置为 nullptr
@@ -3532,7 +3531,7 @@ int main()
 
 其中 `<int, func_ptr>` 就是在指定删除函数的类型。
 
-> [!note] 类型擦除
+> 类型擦除
 > 使用 `unique_ptr` 创建的指针在删除时默认会按照模板类型删除，这就导致如果将子类指针保存在基类 `unique_ptr` 中，有可能发生内存泄漏。
 
 
@@ -3939,9 +3938,9 @@ person->m_car = car;
 
 为了解决这一问题，可以使用 `weak_ptr` ，它不会增加强引用次数，因此可用于解决 `shared_ptr` 的循环引用问题。
 
-![[image-20240405174701640.png]]
+![](image-20240405174701640.png)
 
-![[image-20240405174820845.png]]
+![](image-20240405174820845.png)
 
 
 
@@ -7879,7 +7878,7 @@ auto fmap(R &&inputs, F &&f)
 
 #### 萃取类型
 
-考虑在[[现代 Cpp#公共类型]]中提出的模板结构
+考虑在[现代 Cpp#公共类型](现代 Cpp#公共类型)中提出的模板结构
 
 ```cpp
 template <class Tup>
