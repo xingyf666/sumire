@@ -4,7 +4,7 @@
 
 高级覆盖 Advanced Covering 包将强大的可变形建模技术 [Deformable Modeling](https://doc.spatial.com/get_doc_page/articles/a/c/i/Component~ACIS_Deformable_Modeling_a9a6.html) 集成到一个简单易用的高级界面中。使用高级覆盖可以以满足约束的方式将 face 放在 edge 的回路上。该算法使初始曲面（默认情况下为平面）变形，直到它位于指定的边上。高级覆盖可以生成沿边界与相邻面 $G^1$ 连续的覆盖。
 
-![[ACovering.assets/image-20231011092551032.png]]
+![](ACovering.assets/image-20231011092551032.png)
 
 
 
@@ -92,7 +92,7 @@
 
 覆盖的工作原理是将初始覆盖面变形到用户输入的电路和引导上。引导点和引导曲线以及覆盖电路必须按照一定规则布局，这些规则控制它们在初始覆盖曲面上的投影。默认的初始覆盖面是最佳拟合平面。大多数情况下，覆盖电路的平面是显然的。下文用约束来指代引导和覆盖电路。
 
-![[ACovering.assets/image-20231017205658516.png]]
+![](ACovering.assets/image-20231017205658516.png)
 
 
 
@@ -100,7 +100,7 @@
 
 在初始曲面上，引导不能投影相交或者投影到覆盖电路上。如下图要求覆盖曲面同时通过引导点和电路。如果引导几乎位于电路边界，则在投影到电路中心的辅助引导能更好地反映设计意图。
 
-![[ACovering.assets/image-20231017210703471.png]]
+![](ACovering.assets/image-20231017210703471.png)
 
 
 
@@ -108,7 +108,7 @@
 
 按 $z$ 深度对初始面、引导曲线和覆盖电路进行排序约束不应产生中间覆盖凸起。
 
-![[ACovering.assets/image-20231017211005756.png]]
+![](ACovering.assets/image-20231017211005756.png)
 
 
 
@@ -116,7 +116,7 @@
 
 此规则仅适用于用户指定的初始面。覆盖电路平面中的默认初始面或用户指定的初始平面会自动计算适当的边界。
 
-![[ACovering.assets/image-20231017211150092.png]]
+![](ACovering.assets/image-20231017211150092.png)
 
 
 

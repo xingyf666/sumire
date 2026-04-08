@@ -20,7 +20,7 @@ pause
 
 其中 `@echo off` 取消路径输出，如果没有这一行，会得到
 
-![[BAT.assets/image-20240216200936083.png]]
+![](BAT.assets/image-20240216200936083.png)
 
 
 
@@ -129,7 +129,7 @@ pause
 
 这样所有命令都会输出
 
-![[BAT.assets/image-20240217165610682.png]]
+![](BAT.assets/image-20240217165610682.png)
 
 而如果关闭 echo 命令
 
@@ -143,7 +143,7 @@ pause
 
 虽然不会输出其它命令，但是仍然会输出它自身
 
-![[BAT.assets/image-20240217165731094.png]]
+![](BAT.assets/image-20240217165731094.png)
 
 
 
@@ -159,7 +159,7 @@ pause
 
 这样就能得到干净的显示结果
 
-![[BAT.assets/image-20240217165939768.png]]
+![](BAT.assets/image-20240217165939768.png)
 
 
 
@@ -524,7 +524,7 @@ netstat -an
 
 注意其中的状态：LISTENING 表示正在监听，ESTABLISHED 表示连接。
 
-![[BAT.assets/image-20240216214134108.png]]
+![](BAT.assets/image-20240216214134108.png)
 
 我们可以筛选出连接的 IP 地址
 
@@ -1201,7 +1201,7 @@ pause > nul
 
 但是实际执行会得到
 
-![[BAT.assets/image-20240217163531005.png]]
+![](BAT.assets/image-20240217163531005.png)
 
 这是因为 `()` 内使用 `%n%` 时查找到的是外部环境变量 `n` 的值，而循环执行完成后，n 的值才被改变，因此最后的输出正确。
 

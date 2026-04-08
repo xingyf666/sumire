@@ -174,7 +174,7 @@ template <class T, bool Destructible = true> class MN_Tree : public Tree<T, std:
 
 在创建定时器时，单独创建一个线程触发计时
 
-![[image-20240909215345152.png|800]]
+![](image-20240909215345152.png|800)
 
 
 ```cpp
@@ -221,7 +221,7 @@ class ThreadTimer {
 
 使用多线程触发会占用其它线程，如果定时器数量过多就会出现问题。更好的方案是使用时间线触发，将定时器按照下一次触发时间排序，每当定时器触发时，就更新其触发时间，然后重新排序。
 
-![[image-20240909215944155.png|800]]
+![](image-20240909215944155.png|800)
 
 ```cpp
 class Timer {
@@ -411,7 +411,7 @@ template <class Ret, class... Args> struct Function<Ret(Args...)> {
 
     // 调用函数
     Ret operator()(Args... args) const {
-        if(!m_base) [[unlikely]]
+        if(!m_base) [unlikely](unlikely)
             throw std::runtime_error("Function not initialized");
         return m_base->call(std::forward<Args>(args)...);
     }
@@ -485,7 +485,7 @@ template <class T, class Deleter = DefaultDeleter<T>> struct UniquePtr {
     template <class U, class DU>
         requires std::convertible_to<U*, T*>
     UniquePtr& operator=(UniquePtr<U, DU>&& other) {
-        if(this != &other) [[likely]] {
+        if(this != &other) [likely](likely) {
             if(m_p != nullptr) Deleter{}(m_p);
 
             // 交换指针，并将 other 的指针置为 nullptr
@@ -545,8 +545,7 @@ int main() {
 }
 ```
 
-> [!note]
-> 在 `vector` 容器扩容时会将原先的元素析构，然后调用拷贝构造在新的内存中创建新对象，因此这里必须删除拷贝构造和赋值，统一使用移动构造和赋值。
+> > 在 `vector` 容器扩容时会将原先的元素析构，然后调用拷贝构造在新的内存中创建新对象，因此这里必须删除拷贝构造和赋值，统一使用移动构造和赋值。
 
 
 
@@ -597,7 +596,7 @@ template <typename T> struct SharedPtr {
     }
 
     SharedPtr& operator=(const SharedPtr& other) noexcept {
-        if(this != &other) [[likely]] {
+        if(this != &other) [likely](likely) {
             m_p->m_ref--;
             if(m_p->m_ref == 0) {
                 delete m_p->m_data;
@@ -610,7 +609,7 @@ template <typename T> struct SharedPtr {
     }
 
     SharedPtr& operator=(SharedPtr&& other) noexcept {
-        if(this != &other) [[likely]] {
+        if(this != &other) [likely](likely) {
             m_p->m_ref--;
             if(m_p->m_ref == 0) {
                 delete m_p->m_data;
@@ -727,7 +726,7 @@ template <class T> struct SharedPtr {
     }
 
     SharedPtr& operator=(const SharedPtr& other) noexcept {
-        if(this != &other) [[likely]] {
+        if(this != &other) [likely](likely) {
             m_bk->deref();
             m_bk = other.m_bk;
             m_bk->incref();
@@ -736,7 +735,7 @@ template <class T> struct SharedPtr {
     }
 
     SharedPtr& operator=(SharedPtr&& other) {
-        if(this != &other) [[likely]] {
+        if(this != &other) [likely](likely) {
             m_bk->deref();
             m_bk = other.m_bk;
             other.m_bk = new SpControlBlockImpl<T, DefaultDeleter<T>>{nullptr};
@@ -845,7 +844,7 @@ int main() {
 
 类结构形如
 
-![[image-20240809113402420.png|800]]
+![](image-20240809113402420.png|800)
 
 
 
@@ -3111,7 +3110,7 @@ A::ObjectPool A::pool;
 * 分配内存时，遍历数组找到尚未使用的内存进行分配，同时将其标记为已使用
 * 释放内存时，计算出内存到数组头部的距离，将对应位置的内存标记为未使用
 
-![[image-20240810163524820.png|800]]
+![](image-20240810163524820.png|800)
 
 具体实现如下
 
@@ -3164,7 +3163,7 @@ template <typename T, int N> class ArrayAllocater : public Allocator<T>
 * 分配内存时，将堆顶的 `Entry` 移动到堆尾，并将剩余元素重新建堆
 * 释放内存时，将内存归还给堆尾后面的元素，然后将这个元素视为堆的一部分重新建堆
 
-![[image-20240810171500214.png|800]]
+![](image-20240810171500214.png|800)
 
 具体实现如下
 
@@ -3253,7 +3252,7 @@ template <typename T, int N> class HeapAllocater : public Allocator<T>
 - 分配内存时，如果内存栈中有内存，就将栈顶内存弹出分配；如果没有，就分配 `allocated` 位置的内存
 - 释放内存时，将内存推入内存栈顶保存
 
-![[image-20240810172437363.png|800]]
+![](image-20240810172437363.png|800)
 
 具体实现如下
 
@@ -3306,7 +3305,7 @@ template <typename T, int N> class StackAllocater : public Allocator<T>
 - 分配内存时，将会分配一整个 `Block`，每个 `Block` 中有固定数量的 `Chunk` 内存。程序首先分配这些 `Chunk`，通过 `next` 指针移动到下一个未分配的 `Chunk`，将其强制转换为 `T` 内存后返回。只有当 `Block` 内存用完时，才会分配新的 `Block` 内存
 - 释放内存时，将传入的 `T` 内存强制转换为 `Chunk` 保存
 
-![[image-20240810173134914.png|800]]
+![](image-20240810173134914.png|800)
 
 具体实现如下
 
@@ -3393,7 +3392,7 @@ template <typename T, int ChunksPerBlock> class BlockAllocater : public Allocato
 
 线程池需要一个管理线程和多个工作线程。将多个任务通过队列保存，管理线程为每个任务分配线程数，如果任务数远多于工作线程数，则会创建新的工作线程；否则销毁多余的空闲线程。
 
-![[image-20240810233642921.png|500]]
+![](image-20240810233642921.png|500)
 
 
 

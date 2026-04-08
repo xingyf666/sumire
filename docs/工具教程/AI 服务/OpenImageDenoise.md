@@ -82,8 +82,7 @@ add_compile_options(-fPIC)
 
 由于之后 OpenImage 的编译使用的是相对路径，因此最好安装两份，一份不添加 `CMAKE_INSTALL_PREFIX` 选项，一份添加选项。
 
-> [!note] 
-> 编译 libpng 时也需要添加 `-fPIC` 标记。
+> > 编译 libpng 时也需要添加 `-fPIC` 标记。
 
 
 
@@ -146,8 +145,7 @@ cmake -S . -B build -DVERBOSE=ON -DCMAKE_BUILD_TYPE=Release -DBoost_USE_STATIC_L
 cmake --build build --config Release --target install
 ```
 
-> [!note]
-> 要确保 python 版本正确，最好在指定版本的虚拟环境下进行编译。
+> > 要确保 python 版本正确，最好在指定版本的虚拟环境下进行编译。
 
 
 

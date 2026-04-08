@@ -24,7 +24,7 @@
 
 可以通过 CPU-Z 查看处理器支持的指令集类型
 
-![[SIMD.assets/image-20240927214840572.png|500]]
+![](SIMD.assets/image-20240927214840572.png|500)
 
 
 
@@ -904,7 +904,7 @@ void scalar_findp_ps(benchmark::State &state) {
       xi = _mm_or_ps(xi, xi3);
       
       // 获得合并后符号位的二进制拼接，如果非零，说明找到了
-      if (_mm_movemask_ps(xi)) [[unlikely]] {
+      if (_mm_movemask_ps(xi)) [unlikely](unlikely) {
         // 重新查找一遍
         __m128 xi = _mm_loadu_ps(x + i);
         __m128 xi2 = _mm_loadu_ps(x + i + 4);

@@ -20,7 +20,7 @@ E:\Desktop\gitee\stable-diffusion-webui\venv\Scripts\python.exe -m pip install -
 
 当模型加载完成后命令行将会停止，可以等待一段时间发现命令行不动以后，关闭窗口。然后重新运行脚本，可以看到
 
-![[image-20230824001638442.png]]
+![](image-20230824001638442.png)
 
 其中生成了本地 URL，复制链接打开即可。
 
@@ -101,7 +101,7 @@ Command: "git" clone "https://github.com/Stability-AI/stablediffusion.git" "E:\D
 
 这是因为没有将 git 路径添加到环境变量，导致 cmd 不能运行对应的命令。
 
-![[image-20230823230656461.png]]
+![](image-20230823230656461.png)
 
 如果出现超时错误，那么手动进行克隆
 
@@ -137,15 +137,15 @@ git clone https://github.com/crowsonkb/k-diffusion.git E:\Desktop\gitee\stable-d
 
 首先需要添加两个环境变量 CARGO_HOME 和 RUSTUP_HOME 指定安装位置
 
-![[image-20230823223503867.png]]
+![](image-20230823223503867.png)
 
 然后在 [Rust](https://www.rust-lang.org/tools/install) 官网下载 Windows-64bit 版本的 installer，双击运行，会显示安装目录
 
-![[image-20230823223433856.png]]
+![](image-20230823223433856.png)
 
 输入 2 按回车进入自定义安装，接着一路回车，直到出现下面 3 个选项，输入 1 回车安装完成。
 
-![[image-20230823223611079.png]]
+![](image-20230823223611079.png)
 
 在命令行输入
 
@@ -161,7 +161,7 @@ $ rustc --version
 
 点击 webui-user.bat 脚本运行，出现 URL 后将其复制后在浏览器打开即可看到 UI 界面。
 
-![[image-20231207190116542.png]]
+![](image-20231207190116542.png)
 
 生成的图片自动保存在 outputs 目录下。注意最好不要挂梯子，否则可能不能生成图片。
 
@@ -183,11 +183,11 @@ https://gitcode.net/rubble7343/sd-webui-extensions/raw/master/index.json
 
 点击 Load from 即可加载插件。
 
-![[image-20231207190351172.png]]
+![](image-20231207190351172.png)
 
 在搜索框输入 zh_CN 查找扩展并安装。在 Settings 选项卡左侧找到 User interface 选项，将 Localization 刷新后选项 zh_CN 后 Apply settings 然后 Reload UI，就可以得到中文界面。
 
-![[image-20231207190808468.png]]
+![](image-20231207190808468.png)
 
 
 

@@ -4,7 +4,7 @@
 
 Git 是一种分布式管理工具，用于进行版本控制，以便将来查询特定版本修订情况的系统。
 
-![[Screenshot_20230412_195240.jpg|300]]
+![](Screenshot_20230412_195240.jpg|300)
 
 代码托管中心是基于网络服务器的远程代码仓库，简称为**远程库**
 
@@ -119,7 +119,7 @@ ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIkiGC8TdhfoXXP+kz1qHgS7SgPq4eVWh9jqHjsjF5zO
 
 在 git clone 时，会要求输入账户和密码。如果输错了就会一直报错，无法 clone 。这时候就需要在控制面板搜索凭据管理器，删除网站的凭据。
 
-![[image-20231214214730353.png]]
+![](image-20231214214730353.png)
 
 
 
@@ -437,8 +437,7 @@ git reset --hard 1690a91
 
 就可以回到初始化时的状态。
 
->[!note]
->利用 `--soft` 选项可以撤销之前的 commit，进而实现 commit 合并。
+> >利用 `--soft` 选项可以撤销之前的 commit，进而实现 commit 合并。
 
 
 
@@ -551,8 +550,7 @@ git checkout <commit-hash>
 git checkout master
 ```
 
->[!note]
->适用于恢复文件以及临时查看历史版本。
+> >适用于恢复文件以及临时查看历史版本。
 
 
 
@@ -651,7 +649,7 @@ git rebase name
 
 使用 merge 可以保留分支分离与合并的时间与关系，但是每次合并会产生多余的 commit 信息；使用 rebase 只会保留一条分支历史，因此没有之前的分离与合并的关系，但是能够使分支推进过程更加清晰。
 
-![[Screenshot_20230513_221156.jpg]]
+![](Screenshot_20230513_221156.jpg)
 
 常用的变基参数有
 
@@ -806,7 +804,7 @@ git config core.ignorecase false
 
 官方提供了常用的 [gitignore](https://github.com/github/gitignore) 文件模板，对不同的编程语言提供了对应的文件。在**创建仓库**时，可以指定 `.gitignore` 的模板
 
-![[image-20230515153115723.png]]
+![](image-20230515153115723.png)
 
 
 
@@ -839,7 +837,7 @@ git merge master	# 将 master 合并到当前分支
 * fix 分支，即**补丁分支**，从 develop 分支中分出。用于 bug 修复，修复完成后合并回 develop 分支，然后将其**删除**；
 * hotfix 分支，**热补丁分支**，从 master 分支中分出。进行线上版本的 bug 修复，修复完成后合并回 develop 和 master 分支；
 
-![[Notepad_202305131557_22661.png]]
+![](Notepad_202305131557_22661.png)
 
 
 
@@ -864,11 +862,11 @@ git merge master	# 将 master 合并到当前分支
 
 从 21 年 8 月 13 以后就不再支持用户名密码的验证方式，需要创建个人访问令牌。在 Settings 中找到 Developer settings，点击 Personal access tokens 中的 Tokens 即个人令牌，选择创建新的令牌。为了避免麻烦，设置有效期 Expiration 为永久。
 
-![[image-20230801132850147.png]]
+![](image-20230801132850147.png)
 
 将下面的选项全部选中，然后生成。在 push 代码时将下面的 Tokens 复制到密码的位置即可成功。
 
-![[image-20230801133059603.png]]
+![](image-20230801133059603.png)
 
 为了方便起见，可以将令牌加入远程仓库链接。修改现有项目的 url
 
@@ -939,7 +937,7 @@ git commit -m "Solve #1"
 
 打开页面后，可以在 commit 中直接跳转到对应的 Issue，非常方便。
 
-![[image-20240317144545593.png]]
+![](image-20240317144545593.png)
 
 
 

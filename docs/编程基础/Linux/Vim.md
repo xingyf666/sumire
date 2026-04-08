@@ -65,8 +65,7 @@ Plug 'scrooloose/nerdte'
 call plug#end()
 ```
 
-> [!note]
-> 在 Windows 上使用时，要取消之后对终端的设置（`set shell=powershell`），否则无法正常运行。
+> > 在 Windows 上使用时，要取消之后对终端的设置（`set shell=powershell`），否则无法正常运行。
 
 
 
@@ -88,7 +87,7 @@ gvim --version
 
 可以看到可使用的功能以及配置文件位置。
 
-![[image-20250218160427819.png]]
+![](image-20250218160427819.png)
 
 
 
@@ -125,8 +124,7 @@ description: "A vim config for windows. Contribute to xingyf666/vim development 
 url: "https://github.com/xingyf666/vim"
 ```
 
->[!note]
->使用 `git clone` 确保在下载时会正确处理换行符为 Windows 换行符。
+> >使用 `git clone` 确保在下载时会正确处理换行符为 Windows 换行符。
 
 
 
@@ -134,8 +132,7 @@ url: "https://github.com/xingyf666/vim"
 
 参考注释，使用 scoop 配合 winget 来安装依赖库。例如 nodejs 环境 `scoop install nodejs`；还可以根据命令提示在 gvim 中安装 clangd。
 
-> [!note] 
-对于 python，输入命令 `:CocInstall coc-pyright` 配置自动补全。
+> 对于 python，输入命令 `:CocInstall coc-pyright` 配置自动补全。
 
 
 
@@ -154,8 +151,7 @@ description: "Nodejs extension host for vim & neovim, load extensions like VSCod
 url: "https://github.com/neoclide/coc.nvim/wiki/Language-servers#javascripttypescript"
 ```
 
-> [!note]
-> 改为使用 `coc-clangd`，按照官方配置即可。通过 scoop 安装 clangd 和 llvm。
+> > 改为使用 `coc-clangd`，按照官方配置即可。通过 scoop 安装 clangd 和 llvm。
 
 
 
@@ -609,8 +605,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 ```
 
->[!note]
->如果报错 `SSL/TLS` 通道问题，可以先执行 `[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
+> >如果报错 `SSL/TLS` 通道问题，可以先执行 `[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12
 ` 修改 TLS 版本。
 
 
@@ -643,8 +638,7 @@ scoop install zig llvm
 
 最后先打开 `C:\Users\81408\AppData\Local\nvim\init.vim` 等待加载配置；然后进入 `C:\Users\81408\AppData\Local\nvim\lua\plugins.lua` 输入命令 `:w` 就会触发插件下载。
 
-> [!note] 
-> 如果插件下载失败，可以修改 github 端口，参照 [[Git#端口管理]] 部分内容。
+> > 如果插件下载失败，可以修改 github 端口，参照 [Git#端口管理](Git#端口管理) 部分内容。
 
 
 
@@ -697,7 +691,7 @@ sudo ln -s  ~/.local/kitty.app/bin/kitty /usr/local/bin/kitty
 
 然后需要修改终端字体设置，在“配置文件首选项”中设置自定义字体为 `Nerd Font` 字体。
 
-![[Vim.assets/image-20240426195104715.png]]
+![](Vim.assets/image-20240426195104715.png)
 
 
 

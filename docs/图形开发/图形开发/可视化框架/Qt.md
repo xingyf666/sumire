@@ -18,7 +18,7 @@ D:\Qt\Qt5.14.2\Tools\QtCreator\share\qtcreator\translations
 
 直接打开 Qt Creator 的“帮助界面”，最上角“目录”下拉框和靠右边的按钮里可以调整视窗，这里我们显示两个最常用的内容：目录和索引。前者方便我们查找不同类型的文档，后者可以快速搜索类的成员和继承关系。
 
-![[Qt.assets/image-20230118234303080.png]]
+![](Qt.assets/image-20230118234303080.png)
 
 
 
@@ -36,7 +36,7 @@ D:\Qt\Qt5.14.2\Tools\QtCreator\share\qtcreator\translations
     * 细节介绍
 * Class 给出类的介绍，所属头文件、编译命令、父类名称等
 
-![[Qt.assets/image-20230118235859389.png]]
+![](Qt.assets/image-20230118235859389.png)
 
 Qt 中最基本的基类是 QObject，其余大部分类都继承自此类。例如 QAppliaction 类继承自 QGuiApplication 类。沿着此类向上，可以得到继承关系
 
@@ -44,7 +44,7 @@ Qt 中最基本的基类是 QObject，其余大部分类都继承自此类。例
 
 通过帮助文档，我们可以看到类所属的头文件；点击 List of all members 可以查看包括继承成员在内的成员函数列表；Obsolete members 表示过时的成员，一般不需要看。
 
-![[Qt.assets/image-20230118235727123.png]]
+![](Qt.assets/image-20230118235727123.png)
 
 
 
@@ -62,19 +62,19 @@ Qt 中最基本的基类是 QObject，其余大部分类都继承自此类。例
 
 选择生成 Qt application ，并选择项目目录，调整基本类名，就能自动产生窗口代码
 
-![[Qt.assets/image-20220118100406623.png]]
+![](Qt.assets/image-20220118100406623.png)
 
 进入项目后，在项目栏点击 Configure Project 配置项目文件
 
-![[Qt.assets/image-20220118100447483.png]]
+![](Qt.assets/image-20220118100447483.png)
 
 打开 .ui 文件进入设计师模式，进行窗口框架设计
 
-![[Qt.assets/image-20220118100719086.png]]
+![](Qt.assets/image-20220118100719086.png)
 
 设计完成后，右击需要槽函数的控件，选择 “转到槽” ，确定需要的信号或槽函数，直接跳转到槽函数编辑界面
 
-![[Qt.assets/image-20220118100815218.png]]
+![](Qt.assets/image-20220118100815218.png)
 
 每次双击下面的 .ui 文件就可以回到设计模式。
 
@@ -92,7 +92,7 @@ Qt 中最基本的基类是 QObject，其余大部分类都继承自此类。例
 
 在界面文件夹下可以右键创建新的 .ui 文件
 
-![[Qt.assets/image-20230119111428789.png]]
+![](Qt.assets/image-20230119111428789.png)
 
 选择 Qt 设计界面类进行创建，会得到自动连接 .ui 和对应的类的各种文件；如果要对已经存在的类添加 ui 界面，就使用 Qt Designer Form 进行创建。
 
@@ -102,7 +102,7 @@ Qt 中最基本的基类是 QObject，其余大部分类都继承自此类。例
 
 右键创建 Qt Resource File，设置文件名称后直接创建完成。首先要添加前缀 Add Prefix，用于对资源进行分类划分
 
-![[Qt.assets/image-20230119140245022.png]]
+![](Qt.assets/image-20230119140245022.png)
 
 
 
@@ -292,11 +292,11 @@ void update(const QRect &rect);		// 更新指定区域
 
 在设计师界面进行窗口设计时，如果需要控制窗口大小不变，可以设置窗口的最大、最小尺寸相同
 
-![[Qt.assets/image-20230119132737928.png]]
+![](Qt.assets/image-20230119132737928.png)
 
 虽然窗口已经不能改变尺寸，但是右下角还是有一个状态栏表示可以拖拽，只需右键移除状态栏
 
-![[Qt.assets/image-20230119132850446.png]]
+![](Qt.assets/image-20230119132850446.png)
 
 左上角的菜单栏也同样可以移除。在使用弹簧时，可以在 sizePolicy 中设置弹簧的“弹性”，设置水平策略、垂直策略。
 
@@ -306,7 +306,7 @@ void update(const QRect &rect);		// 更新指定区域
 
 有些窗口或控件会相互覆盖，我们需要指定它们的覆盖关系，可以通过 lower() 和 raise() 函数降低或提升到最低/最高层级。但是这种指定非常模糊，通常在 UI 界面中右键直接设置窗口层级
 
-![[Qt.assets/image-20230123235313811.png]]
+![](Qt.assets/image-20230123235313811.png)
 
 对于一些被覆盖而无法选择的窗口，在右上方直接点击对象进行设置。
 
@@ -457,11 +457,11 @@ QObject::connect(A1,SIGNAL(sigfun1(int)),A2,SIGNAL(sigfun2(int)));
 
 根据具体的功能，在帮助手册中查找类发射的信号和槽，如果当前类中没有，可以在它的基类中查找。我们实现**点击按钮关闭标签**的功能：首先需要按钮点击的信号：QPushButton 类没有信号相关内容，在它的基类 QAbstractButton 中查找相关信号
 
-![[Qt.assets/image-20220115235902257.png]]
+![](Qt.assets/image-20220115235902257.png)
 
 这里我们找到了与点击按钮相关的信号 clicked() ；紧接着，我们需要接受该信号的槽： QLabel 类虽然有槽相关内容，但是没有我们想要的关闭槽，于是在它的基类 QFrame 中查找；然而， QFrame 没有槽相关内容，于是在基类 QWidget 中查找
 
-![[Qt.assets/image-20220116000437895.png]]
+![](Qt.assets/image-20220116000437895.png)
 
 找到了关闭的槽函数 close() ；最后给出实现的代码
 
@@ -1034,7 +1034,7 @@ int main(int argc, char *argv[])
 
 直接在 Qt Creator 中双击 .ui 文件即可进入设计师界面
 
-![[Qt.assets/image-20220117154629570.png]]
+![](Qt.assets/image-20220117154629570.png)
 
 
 
@@ -1054,7 +1054,7 @@ int main(int argc, char *argv[])
 
 对象查看器中查看不同的对象和其对应的类，点击后在下方的属性编辑器修改控件属性；右击窗口可以调整布局
 
-![[Qt.assets/image-20220117175228695.png]]
+![](Qt.assets/image-20220117175228695.png)
 
 从而实现自动控制控件位置的功能；其它更多的属性根据实际情况调整。
 
@@ -1062,13 +1062,13 @@ int main(int argc, char *argv[])
 
 构建完毕后，点击“窗体-预览”进行预览调试
 
-![[Qt.assets/image-20220117175512022.png]]
+![](Qt.assets/image-20220117175512022.png)
 
 
 
 确认无误后保存为 .ui 文件，可以通过 VSCode 打开看到详细内容
 
-![[Qt.assets/image-20220117175704622.png]]
+![](Qt.assets/image-20220117175704622.png)
 
 
 
@@ -1365,7 +1365,7 @@ CalculatorDialog::~CalculatorDialog()
 
 设计师界面提供了对控件方便的样式调整方法，即右边表格中的 styleSheet
 
-![[Qt.assets/image-20230123234804367.png]]
+![](Qt.assets/image-20230123234804367.png)
 
 例如可以对按钮的样式进行复杂的设计，这里我们给出一个有效的样式表
 
@@ -2025,11 +2025,11 @@ QPushButton::QPushButton(
 
 如果要修改按钮的文本颜色和背景颜色，可以在 styleSheet 选项中设置
 
-![[Qt.assets/image-20230120223156899.png]]
+![](Qt.assets/image-20230120223156899.png)
 
 点击添加颜色，可以设置 color(文本颜色)、background-color(背景颜色)等
 
-![[Qt.assets/image-20230120223300799.png]]
+![](Qt.assets/image-20230120223300799.png)
 
 另一种通过代码设置的方式是
 
@@ -2166,11 +2166,11 @@ QMessageBox::QMessageBox(
 
 与 VS 编写的程序不同，Qt 应用程序需要大量使用 Qt 的动态库等文件，必须使用其自带的打包软件打包。首先要将项目在 Release 模式下编译运行，然后将生成的 exe 文件单独拿出来。在开始菜单找到 Qt 的命令行程序打开
 
-![[Qt.assets/image-20230123235636966.png]]
+![](Qt.assets/image-20230123235636966.png)
 
 然后在命令行中使用 windeployqt 对 exe 文件进行打包，注意这里 exe 文件要提供绝对路径，并且**一定要使用英文路径！！！**
 
-![[Qt.assets/image-20230123235807221.png]]
+![](Qt.assets/image-20230123235807221.png)
 
 打包后就可以运行 exe 文件。如果出现程序运行错误的问题，可能是使用的打包程序的版本与项目编译的版本不同，可以尝试使用不同版本的命令行进行打包。
 
@@ -2328,11 +2328,11 @@ Qt += core gui sql
 
 然后设计窗口界面，这里我们使用了组合框控件 Combo Box ，双击该空间可以编辑组合框
 
-![[Qt.assets/image-20220128153900946.png]]
+![](Qt.assets/image-20220128153900946.png)
 
 在其中添加各种属性；接着我们使用 Table View 控件，直接拖放即可，最终效果为
 
-![[Qt.assets/image-20220128154859812.png]]
+![](Qt.assets/image-20220128154859812.png)
 
 
 
@@ -2692,13 +2692,13 @@ void StudentDialog::on_sortButton_clicked()
 
 服务器设计概要
 
-![[Qt.assets/image-20220129122706324.png]]
+![](Qt.assets/image-20220129122706324.png)
 
 
 
 客户端设计概要
 
-![[Qt.assets/image-20220129122833352.png]]
+![](Qt.assets/image-20220129122833352.png)
 
 
 
@@ -2806,7 +2806,7 @@ Qt += core gui network
 
 然后设计窗口界面，这里使用 List Widget 控件用以显示聊天内容。当创建完成服务器和客户端后，可以同时打开两个项目，然后右击项目分别运行
 
-![[Qt.assets/image-20220129144154607.png]]
+![](Qt.assets/image-20220129144154607.png)
 
 
 

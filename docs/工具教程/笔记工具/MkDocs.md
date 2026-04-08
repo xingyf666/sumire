@@ -284,7 +284,7 @@ material 主题提供的模板包括
 
 构建 site 文件夹，然后上传到网站上即可。
 
-![[MkDocs.assets/image-20230721105200630.png]]
+![](MkDocs.assets/image-20230721105200630.png)
 
 
 

@@ -92,10 +92,13 @@ local b = 'world'
 使用 `[[]]` 声明多行原始字符串
 
 ```lua
-local c = [[abc
+local c = [abc
 csaada\n
 casca
-]]
+](abc
+csaada\n
+casca
+)
 
 print(c)
 ```
@@ -1248,7 +1251,7 @@ print(table.concat(t, " "))
 
 Lua 与 C++ 交互流程如下
 
-![[image-20240819153748895.png|500]]
+![](image-20240819153748895.png|500)
 
 
 

@@ -1600,8 +1600,7 @@ bool IsUsingFixedDt() const
 }
 ```
 
->[!note]
->注意这里用到 `UseAsyncInterpolation`，作为 FPhysicsSolverBase 的默认值为 `CHAOS_API int32 UseAsyncInterpolation = 1;`
+> >注意这里用到 `UseAsyncInterpolation`，作为 FPhysicsSolverBase 的默认值为 `CHAOS_API int32 UseAsyncInterpolation = 1;`
 
 
 
@@ -2289,8 +2288,7 @@ void APlayerController::TickActor( float DeltaSeconds, ELevelTick TickType, FAct
 
 这可能是关键，但是它默认值为 0，并且没有找到调用修改它的函数。因此
 
->[!note]
->从上一帧 GT 生成的所有物理步都会阻塞，当前帧生成的任务则不阻塞。
+> >从上一帧 GT 生成的所有物理步都会阻塞，当前帧生成的任务则不阻塞。
 
 FAutoConsoleVariableRef 类型的成员在 AsyncPhysicsBlockMode 改变时，调用 LambdaAsyncMode
 
@@ -2512,7 +2510,7 @@ FGraphEventRef FPhysicsSolverBase::AdvanceAndDispatch_External(FReal InDt)
 	}
 ```
 
-![[image-20250613131700131.png]]
+![](image-20250613131700131.png)
 
 
 
@@ -3128,11 +3126,11 @@ FGraphEventRef FPhysicsSolverBase::AdvanceAndDispatch_External(FReal InDt)
 
 在同步物理中，每一帧开始时，GameThread (GT) 首先将物理数据交给 Marshalling Manager，分发求解任务给 PhysicsThread，然后 GameThread 将会等待求解任务完成。PhysicsThread 完成计算任务后，将结果返回给 Marshalling Manager，后者将物理数据返回给 GameThread 
 
-![[image-20250613131653232.png]]
+![](image-20250613131653232.png)
 
 在异步物理中，GameThread 不再等待 PhysicsThread 完成。如果物理增量为 33，游戏增量为 16，则正常情况下 2 个游戏帧对应 1 个物理帧。但如果游戏线程卡顿 100，则下一帧会发出 3 个任务而非 1 个来赶上时间，不过游戏线程不会等待这 3 个任务完成后再移动到下一帧。所有内容最终通过时间戳同步，并在需要时插值。
 
-![[image-20250613131700131.png]]
+![](image-20250613131700131.png)
 
 
 

@@ -668,7 +668,7 @@ Mode                 LastWriteTime         Length Name
 
 在对应文件夹下可以看到这些属性文件。
 
-![[PowerShell.assets/image-20240313174224080.png|500]]
+![](PowerShell.assets/image-20240313174224080.png|500)
 
 
 

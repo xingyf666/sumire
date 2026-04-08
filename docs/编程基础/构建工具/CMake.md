@@ -81,8 +81,7 @@ project(helloworld C CXX)
 
 因此使用 project 后就可以直接使用这两个变量，它们分别是编译路径和工程路径。
 
-> [!note]
-> 最好同时指定 C/C++ 两种语言，如果不指定 C 语言就无法链接 `.c` 文件！
+> > 最好同时指定 C/C++ 两种语言，如果不指定 C 语言就无法链接 `.c` 文件！
 
 
 
@@ -282,8 +281,7 @@ set(INPUT_FILES "gtest$<$<NOT:$<CONFIG:Debug>>:d>.lib")
 
 用于配置 Debug 和非 Debug 模式下选取的库文件名。
 
-> [!note]
-> 由于 Config 命令是字符串的一部分，只有当 cmake 运行时才会计算值，因此纯粹的字符串操作是无效的。例如
+> > 由于 Config 命令是字符串的一部分，只有当 cmake 运行时才会计算值，因此纯粹的字符串操作是无效的。例如
 > 
 > ```shell
 > set(OUT_PATH "path$<CONFIG:Debug>:d>")
@@ -2629,8 +2627,7 @@ target_link_libraries(test_modern modern::libb)
 add_test(NAME test1 COMMAND $<TARGET_FILE:test_modern>)
 ```
 
-> [!note]
-> 指定安装路径时需要注意 `/`，例如 `${CMAKE_SOURCE_DIR}/include/` 后的 `/` 如果去掉，就会将 `include` 多嵌套一层。
+> > 指定安装路径时需要注意 `/`，例如 `${CMAKE_SOURCE_DIR}/include/` 后的 `/` 如果去掉，就会将 `include` 多嵌套一层。
 
 
 
@@ -3017,8 +3014,7 @@ message(STATUS ${SRC})
 
 其中 `CONFIGURE_DEPENDS` 参数使得我们创建新的 `.cpp` 文件时，能够自动更新 SRC 变量。
 
-> [!note]
-> 慎用 `GLOB_RECURSE`，尤其是在使用 Qt 时，可能会一次性把 Qt 生成的 ui 文件也包含进来，导致莫名其妙的错误。
+> > 慎用 `GLOB_RECURSE`，尤其是在使用 Qt 时，可能会一次性把 Qt 生成的 ui 文件也包含进来，导致莫名其妙的错误。
 
 
 

@@ -10,7 +10,7 @@ plantUML 是开源的 UML 图绘制工具，支持通过文本来生成图形，
 
 我们在 VSCode 中下载 plantUML 插件和 Graphviz Preview 插件，Ctrl + Shift + P 快捷键打开命令面版，输入 plantuml 即可看到相关指令。常用指令是 Preview Current Diagram 预览图表和 Export Current File Diagrams 导出图表。
 
-![[image-20220716160155569.png]]
+![](image-20220716160155569.png)
 
 
 
@@ -22,7 +22,7 @@ plantUML 是开源的 UML 图绘制工具，支持通过文本来生成图形，
 2. 新建 `CLASSPATH` 变量，路径设置为 `.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar`
 3. 点击 Path 环境变量，新建环境变量如下：
 
-![[image-20220716161033571.png]]
+![](image-20220716161033571.png)
 
 完成后打开 cmd 输入 `java, javac, java -version` 检查是否正常。
 
@@ -60,7 +60,7 @@ usecase usecase
 @enduml
 ```
 
-![[image-20220716173512783.png]]
+![](image-20220716173512783.png)
 
 
 
@@ -91,7 +91,7 @@ Alice ->o Bob
 
 效果图如下：
 
-![[image-20220716162026669.png]]
+![](image-20220716162026669.png)
 
 上面的箭头也可以写成 `x->` 等形式，表示将形状放在箭头的左端；还有 `<->` 表示双向箭头。
 
@@ -108,7 +108,7 @@ Alice -[#0000FF]> Bob : Ok
 @enduml
 ```
 
-![[image-20220716172343962.png]]
+![](image-20220716172343962.png)
 
 
 
@@ -126,7 +126,7 @@ participant Tom order 10
 @enduml
 ```
 
-![[image-20220716175059051.png]]
+![](image-20220716175059051.png)
 
 也可以使用如下关键字声明，这会改变参与者的外观：
 
@@ -154,7 +154,7 @@ Bob -> L : 记录事务日志
 @enduml
 ```
 
-![[image-20220716214433402.png]]
+![](image-20220716214433402.png)
 
 
 
@@ -173,7 +173,7 @@ Alice -->]
 
 效果图如下：
 
-![[image-20220716190915435.png]]
+![](image-20220716190915435.png)
 
 
 
@@ -189,7 +189,7 @@ Long --> "Alice"
 @enduml
 ```
 
-![[image-20220716162753537.png]]
+![](image-20220716162753537.png)
 
 其中双引号用于括住有空格的内容，而单引号开头的文字表示注释。
 
@@ -209,7 +209,7 @@ Alice -> Bob : ok
 @enduml
 ```
 
-![[image-20220716214743782.png]]
+![](image-20220716214743782.png)
 
 
 
@@ -238,7 +238,7 @@ Bob --> Alice : Hello
 @enduml
 ```
 
-![[image-20220716171725692.png]]
+![](image-20220716171725692.png)
 
 使用 autonumber stop 表示停止编号，resume 用于表示接着停止之前的位置开始编号
 
@@ -266,7 +266,7 @@ Bob --> Alice : Hello
 @enduml
 ```
 
-![[image-20220716172050310.png]]
+![](image-20220716172050310.png)
 
 
 
@@ -284,7 +284,7 @@ Bob -> Alice : Authentication Request
 @enduml
 ```
 
-![[image-20220716210930534.png]]
+![](image-20220716210930534.png)
 
 其中双下划线添加下划线，使用星号加粗；甚至可以添加 HTML 元素
 
@@ -303,7 +303,7 @@ Bob -> Alice : Authentication Request
 @enduml
 ```
 
-![[image-20220716212126159.png]]
+![](image-20220716212126159.png)
 
 使用 header 增加页眉，footer 增加页脚
 
@@ -321,7 +321,7 @@ Alice -> Bob : message 2
 @enduml
 ```
 
-![[image-20220716215014794.png]]
+![](image-20220716215014794.png)
 
 
 
@@ -348,11 +348,11 @@ Alice -> Bob : message 6
 @enduml
 ```
 
-![[image-20220716215217605.png]]
+![](image-20220716215217605.png)
 
-![[image-20220716215229457.png]]
+![](image-20220716215229457.png)
 
-![[image-20220716215259361.png]]
+![](image-20220716215259361.png)
 
 
 
@@ -399,7 +399,7 @@ end
 @enduml
 ```
 
-![[image-20220716220453058.png]]
+![](image-20220716220453058.png)
 
 对于 group 而言，在标头处的 `[]` 之间可以显示次级文本或标签
 
@@ -422,7 +422,7 @@ end
 @enduml
 ```
 
-![[image-20220716220807906.png]]
+![](image-20220716220807906.png)
 
 
 
@@ -457,7 +457,7 @@ end note
 @enduml
 ```
 
-![[image-20220716174933429.png]]
+![](image-20220716174933429.png)
 
 note 还有 hnote 六边形，rnote 矩形两个版本
 
@@ -476,7 +476,7 @@ end rnote
 @enduml
 ```
 
-![[image-20220716211549112.png]]
+![](image-20220716211549112.png)
 
 通过 note across 可以在所有参与者之间添加备注
 
@@ -496,7 +496,7 @@ hnote across: 跨越所有参与者的备注。
 @enduml
 ```
 
-![[image-20220716221144073.png]]
+![](image-20220716221144073.png)
 
 利用 \ 在同一级对齐多个注释
 
@@ -510,7 +510,7 @@ Bob -> Alice : hello
 @enduml
 ```
 
-![[image-20220716221321106.png]]
+![](image-20220716221321106.png)
 
 
 
@@ -532,7 +532,7 @@ Alice <-- Bob: 认证响应
 @enduml
 ```
 
-![[image-20220716221426909.png]]
+![](image-20220716221426909.png)
 
 
 
@@ -557,7 +557,7 @@ end ref
 @enduml
 ```
 
-![[image-20220716221523774.png]]
+![](image-20220716221523774.png)
 
 
 
@@ -577,7 +577,7 @@ Bob -> Alice : Bye
 @enduml
 ```
 
-![[image-20220716211226632.png]]
+![](image-20220716211226632.png)
 
 
 
@@ -600,7 +600,7 @@ Bob -> Alice : ok
 @enduml
 ```
 
-![[image-20220716211831481.png]]
+![](image-20220716211831481.png)
 
 
 
@@ -637,7 +637,7 @@ deactivate A
 @enduml
 ```
 
-![[image-20220716173826423.png]]
+![](image-20220716173826423.png)
 
 也可以使用自动激活关键字 autoactivate ，需要与 return 关键字配合
 
@@ -665,7 +665,7 @@ return success
 @enduml
 ```
 
-![[image-20220716221836153.png]]
+![](image-20220716221836153.png)
 
 可以看到自动激活按照消息传递顺序的相反顺序返回。
 
@@ -687,7 +687,7 @@ return bye
 @enduml
 ```
 
-![[image-20220716222528272.png]]
+![](image-20220716222528272.png)
 
 
 
@@ -710,7 +710,7 @@ Alice --> Bob : Ok
 @enduml
 ```
 
-![[image-20220716173124910.png]]
+![](image-20220716173124910.png)
 
 
 
@@ -738,7 +738,7 @@ return success
 @enduml
 ```
 
-![[image-20220716222708989.png]]
+![](image-20220716222708989.png)
 
 
 
@@ -762,7 +762,7 @@ Max -> Bob : something else
 @enduml
 ```
 
-![[image-20220716223120525.png]]
+![](image-20220716223120525.png)
 
 
 
@@ -781,7 +781,7 @@ Bob -> Alice : Message
 @enduml
 ```
 
-![[image-20220716172633626.png]]
+![](image-20220716172633626.png)
 
 
 
@@ -804,7 +804,7 @@ Alice -> Other : hello
 @enduml
 ```
 
-![[image-20220716210705149.png]]
+![](image-20220716210705149.png)
 
 
 
@@ -823,7 +823,7 @@ Bob --> Alice: Authentication Response
 @enduml
 ```
 
-![[image-20220716223347372.png]]
+![](image-20220716223347372.png)
 
 
 
@@ -847,7 +847,7 @@ usecase (Last\nusecase) as UC4
 @enduml
 ```
 
-![[image-20220716223928459.png]]
+![](image-20220716223928459.png)
 
 
 
@@ -869,7 +869,7 @@ actor :Last actor: as Person1
 @enduml
 ```
 
-![[image-20220716224044696.png]]
+![](image-20220716224044696.png)
 
 
 
@@ -904,7 +904,7 @@ This allows large description."
 @enduml
 ```
 
-![[image-20220716224418140.png]]
+![](image-20220716224418140.png)
 
 
 
@@ -939,7 +939,7 @@ g --> UC3
 @enduml
 ```
 
-![[image-20220716224546148.png]]
+![](image-20220716224546148.png)
 
 可以使用 rectangle 改变包的外观
 
@@ -963,7 +963,7 @@ fc --> UC3
 @enduml
 ```
 
-![[image-20220716224637539.png]]
+![](image-20220716224637539.png)
 
 
 
@@ -981,7 +981,7 @@ User --> (Use the application) : A small label
 @enduml
 ```
 
-![[image-20220716224808949.png]]
+![](image-20220716224808949.png)
 
 
 
@@ -1000,7 +1000,7 @@ User <|-- Admin
 @enduml
 ```
 
-![[image-20220716234626825.png]]
+![](image-20220716234626825.png)
 
 
 
@@ -1033,7 +1033,7 @@ N2 .. (Use)
 @enduml
 ```
 
-![[image-20220716234850479.png]]
+![](image-20220716234850479.png)
 
 
 
@@ -1057,7 +1057,7 @@ MySql --> (Use)
 @enduml
 ```
 
-![[image-20220716234953633.png]]
+![](image-20220716234953633.png)
 
 
 
@@ -1077,7 +1077,7 @@ MySql --> (Use)
 @enduml
 ```
 
-![[image-20220716235122740.png]]
+![](image-20220716235122740.png)
 
 也可以用 left, right, up, down 等关键字改变方向
 
@@ -1092,7 +1092,7 @@ MySql --> (Use)
 @enduml
 ```
 
-![[image-20220716235205203.png]]
+![](image-20220716235205203.png)
 
 也可以用关键字首字母或前两个字母缩写代替，但不建议使用。
 
@@ -1128,7 +1128,7 @@ user2 --> (Usecase 2)
 @enduml
 ```
 
-![[image-20220716235546225.png]]
+![](image-20220716235546225.png)
 
 
 
@@ -1152,7 +1152,7 @@ customer -- (checkout)
 @enduml
 ```
 
-![[image-20220716235533806.png]]
+![](image-20220716235533806.png)
 
 
 
@@ -1180,7 +1180,7 @@ interface interface
 @enduml
 ```
 
-![[image-20220716235650074.png]]
+![](image-20220716235650074.png)
 
 
 
@@ -1206,7 +1206,7 @@ Class09 -- Class10
 @enduml
 ```
 
-![[image-20220716235949050.png]]
+![](image-20220716235949050.png)
 
 
 
@@ -1222,7 +1222,7 @@ Class19 <--* Class20
 @enduml
 ```
 
-![[image-20220717000111126.png]]
+![](image-20220717000111126.png)
 
 ```uml
 @startuml
@@ -1236,7 +1236,7 @@ Class29 ^-- Class30
 @enduml
 ```
 
-![[image-20220717000134895.png]]
+![](image-20220717000134895.png)
 
 
 
@@ -1254,7 +1254,7 @@ Class05 --> "1" Class06
 @enduml
 ```
 
-![[image-20220717000308562.png]]
+![](image-20220717000308562.png)
 
 
 
@@ -1271,7 +1271,7 @@ Car -- Person : < owns
 @enduml
 ```
 
-![[image-20220717000423873.png]]
+![](image-20220717000423873.png)
 
 
 
@@ -1291,7 +1291,7 @@ ArrayList : size()
 @enduml
 ```
 
-![[image-20220717000607306.png]]
+![](image-20220717000607306.png)
 
 更直观的是用 `{}` 将字段和方法括起来
 
@@ -1311,7 +1311,7 @@ class Flight {
 @enduml
 ```
 
-![[image-20220717000728442.png]]
+![](image-20220717000728442.png)
 
 
 
@@ -1328,7 +1328,7 @@ class Dummy {
 @enduml
 ```
 
-![[image-20220717000858327.png]]
+![](image-20220717000858327.png)
 
 
 
@@ -1354,7 +1354,7 @@ class Dummy {
 @enduml
 ```
 
-![[image-20220717001031309.png]]
+![](image-20220717001031309.png)
 
 
 
@@ -1373,7 +1373,7 @@ class Dummy {
 @enduml
 ```
 
-![[image-20220717001241949.png]]
+![](image-20220717001241949.png)
 
 
 
@@ -1414,7 +1414,7 @@ class User {
 @enduml
 ```
 
-![[image-20220717001418615.png]]
+![](image-20220717001418615.png)
 
 
 
@@ -1442,7 +1442,7 @@ note left: On last defined class
 @enduml
 ```
 
-![[image-20220717001933537.png]]
+![](image-20220717001933537.png)
 
 
 
@@ -1467,7 +1467,7 @@ end note
 @enduml
 ```
 
-![[image-20220717002037895.png]]
+![](image-20220717002037895.png)
 
 对同名方法添加注释
 
@@ -1495,7 +1495,7 @@ end note
 @enduml
 ```
 
-![[image-20220717002124299.png]]
+![](image-20220717002124299.png)
 
 
 
@@ -1519,7 +1519,7 @@ end note
 @enduml
 ```
 
-![[image-20220717002324301.png]]
+![](image-20220717002324301.png)
 
 
 
@@ -1557,7 +1557,7 @@ annotation SuppressWarnings
 @enduml
 ```
 
-![[image-20220717002444663.png]]
+![](image-20220717002444663.png)
 
 
 
@@ -1578,7 +1578,7 @@ class2 *-- "foo/dummy" : use
 @enduml
 ```
 
-![[image-20220717002613322.png]]
+![](image-20220717002613322.png)
 
 
 
@@ -1598,7 +1598,7 @@ Foo *- Element
 @enduml
 ```
 
-![[image-20220717002708978.png]]
+![](image-20220717002708978.png)
 
 
 
@@ -1615,7 +1615,7 @@ class Date << (D,orchid) >>
 @enduml
 ```
 
-![[image-20220717002914691.png]]
+![](image-20220717002914691.png)
 
 
 
@@ -1638,7 +1638,7 @@ package net.sourceforge.plantuml {
 @enduml
 ```
 
-![[image-20220717003015814.png]]
+![](image-20220717003015814.png)
 
 
 
@@ -1675,7 +1675,7 @@ class Class6
 @enduml
 ```
 
-![[image-20220717003133005.png]]
+![](image-20220717003133005.png)
 
 
 
@@ -1706,7 +1706,7 @@ BaseClass <|-- net.unused.Person
 @enduml
 ```
 
-![[image-20220717003354758.png]]
+![](image-20220717003354758.png)
 
 使用 set namespaceSeperator 自定义命名空间的分隔符
 
@@ -1722,7 +1722,7 @@ class X1::X2::foo {
 @enduml
 ```
 
-![[image-20220717003620333.png]]
+![](image-20220717003620333.png)
 
 
 
@@ -1747,7 +1747,7 @@ foo -down-> dummyDown
 @enduml
 ```
 
-![[image-20220717003813939.png]]
+![](image-20220717003813939.png)
 
 
 
@@ -1775,7 +1775,7 @@ class Enrollment {
 @enduml
 ```
 
-![[image-20220717003923818.png]]
+![](image-20220717003923818.png)
 
 可以将不同的类连接到同一个类
 
@@ -1798,7 +1798,7 @@ diamond - "to 0..* " Station
 @enduml
 ```
 
-![[image-20220717233941258.png]]
+![](image-20220717233941258.png)
 
 
 
@@ -1822,7 +1822,7 @@ several **lines**;
 @enduml
 ```
 
-![[image-20220717094419709.png]]
+![](image-20220717094419709.png)
 
 
 
@@ -1843,7 +1843,7 @@ stop
 @enduml
 ```
 
-![[image-20220717094500461.png]]
+![](image-20220717094500461.png)
 
 
 
@@ -1867,7 +1867,7 @@ stop
 @enduml
 ```
 
-![[image-20220717094611761.png]]
+![](image-20220717094611761.png)
 
 使用 elseif 进行多个分支测试
 
@@ -1894,7 +1894,7 @@ stop
 @enduml
 ```
 
-![[image-20220717094740206.png]]
+![](image-20220717094740206.png)
 
 
 
@@ -1914,7 +1914,7 @@ endif
 @enduml
 ```
 
-![[image-20220717094949328.png]]
+![](image-20220717094949328.png)
 
 
 
@@ -1938,7 +1938,7 @@ stop
 @enduml
 ```
 
-![[image-20220717095312788.png]]
+![](image-20220717095312788.png)
 
 要在某一步循环退出使用 break
 
@@ -1966,7 +1966,7 @@ stop
 @enduml
 ```
 
-![[image-20220717095638482.png]]
+![](image-20220717095638482.png)
 
 还可以用 while 和 end while 实现 while 循环，用 is 添加标注
 
@@ -1981,7 +1981,7 @@ endwhile (empty)
 @enduml
 ```
 
-![[image-20220717095806052.png]]
+![](image-20220717095806052.png)
 
 
 
@@ -2008,7 +2008,7 @@ endif
 @enduml
 ```
 
-![[image-20220717095953974.png]]
+![](image-20220717095953974.png)
 
 
 
@@ -2039,7 +2039,7 @@ end
 @enduml
 ```
 
-![[image-20220717100157566.png]]
+![](image-20220717100157566.png)
 
 
 
@@ -2067,7 +2067,7 @@ end note
 stop
 ```
 
-![[image-20220717100341052.png]]
+![](image-20220717100341052.png)
 
 
 
@@ -2099,7 +2099,7 @@ endif
 @enduml
 ```
 
-![[image-20220717100648592.png]]
+![](image-20220717100648592.png)
 
 
 
@@ -2122,7 +2122,7 @@ detach
 @enduml
 ```
 
-![[image-20220717100836970.png]]
+![](image-20220717100836970.png)
 
 
 
@@ -2150,7 +2150,7 @@ stop
 @enduml
 ```
 
-![[image-20220717100940277.png]]
+![](image-20220717100940277.png)
 
 
 
@@ -2176,7 +2176,7 @@ stop
 @enduml
 ```
 
-![[image-20220717101056826.png]]
+![](image-20220717101056826.png)
 
 
 
@@ -2217,7 +2217,7 @@ end split
 @enduml
 ```
 
-![[image-20220717101410907.png]]
+![](image-20220717101410907.png)
 
 
 
@@ -2241,7 +2241,7 @@ State2 --> [*]
 @enduml
 ```
 
-![[image-20220717101843684.png]]
+![](image-20220717101843684.png)
 
 
 
@@ -2274,7 +2274,7 @@ state Configuring {
 @enduml
 ```
 
-![[image-20220717101950941.png]]
+![](image-20220717101950941.png)
 
 
 
@@ -2307,7 +2307,7 @@ State3 --> [*] : Aborted
 @enduml
 ```
 
-![[image-20220717103036853.png]]
+![](image-20220717103036853.png)
 
 
 
@@ -2334,7 +2334,7 @@ State4 --> [*]
 @enduml
 ```
 
-![[image-20220717103218219.png]]
+![](image-20220717103218219.png)
 
 
 
@@ -2368,7 +2368,7 @@ state Active {
 @enduml
 ```
 
-![[image-20220717103531336.png]]
+![](image-20220717103531336.png)
 
 
 
@@ -2395,7 +2395,7 @@ c --> MajorId : [Id > 10]
 @enduml
 ```
 
-![[image-20220717103821988.png]]
+![](image-20220717103821988.png)
 
 
 
@@ -2424,7 +2424,7 @@ join2 --> [*] : from join\nto end
 @enduml
 ```
 
-![[image-20220717104110314.png]]
+![](image-20220717104110314.png)
 
 
 
@@ -2443,7 +2443,7 @@ Third -left-> Last
 @enduml
 ```
 
-![[image-20220717104321774.png]]
+![](image-20220717104321774.png)
 
 
 
@@ -2467,7 +2467,7 @@ end note
 @enduml
 ```
 
-![[image-20220717105941324.png]]
+![](image-20220717105941324.png)
 
 
 
@@ -2486,7 +2486,7 @@ end note
 @enduml
 ```
 
-![[image-20220717110053781.png]]
+![](image-20220717110053781.png)
 
 可以在合成状态中放置注释
 
@@ -2508,5 +2508,5 @@ note right of NotShooting : This is a note on a composite state
 @enduml
 ```
 
-![[image-20220717110145778.png]]
+![](image-20220717110145778.png)
 

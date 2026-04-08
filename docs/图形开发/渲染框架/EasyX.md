@@ -733,8 +733,7 @@ if (GetAsyncKeyState(VK_RIGHT) || GetAsyncKeyState('D'))
 
 需要包含 `mmsystem.h` 头文件，还需加载静态库 `winmm.lib` 。
 
-> [!note] 
-> 使用 `Mp3tag` 去除播放音乐的封面，否则无法播放；确保路径中没有空格，否则加载会出问题。
+> > 使用 `Mp3tag` 去除播放音乐的封面，否则无法播放；确保路径中没有空格，否则加载会出问题。
 
 ```cpp
 // 调用该函数播放音乐

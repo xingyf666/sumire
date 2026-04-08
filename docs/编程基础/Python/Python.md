@@ -6,15 +6,15 @@
 
 在[官网](https://www.python.org/downloads/release/python-3113/)下载 Windows 64 位版本的 python 安装文件，点击后设置将 `python.exe` 添加到环境路径，然后通过 Customize 安装。
 
-![[image-20230512195451118.png]]
+![](image-20230512195451118.png)
 
 设置高级选项，为所有用户安装，从而赋予写入权限
 
-![[image-20230512195714566.png]]
+![](image-20230512195714566.png)
 
 安装完成后在系统环境变量中可以看到 python 的安装目录已经添加
 
-![[image-20230512195952648.png]]
+![](image-20230512195952648.png)
 
 也可以手动在用户环境变量中添加。注意安装后需要重启才能更新环境变量。
 
@@ -24,7 +24,7 @@
 
 在官网找到 [Windows](https://www.python.org/downloads/windows/) 版本的 Release 列表，注意查找具有 installer 的版本，例如安装 `3.6` 版本时，只有 `3.6.8` 版本具有 installer，下载这个版本，安装到另一个文件夹中即可
 
-![[image-20230820224945548.png]]
+![](image-20230820224945548.png)
 
 同样也需要重启才能更新环境变量。
 
@@ -213,7 +213,7 @@ deactivate
 
 在 vscode 编辑器右下角 `3.11.3 64-bit` 位置可以修改解释器为 `.venv` 文件夹中的解释器
 
-![[image-20230512203916131.png]]
+![](image-20230512203916131.png)
 
 右键点击 `Run Python File in Terminal` 即可运行 `.py` 代码。
 
@@ -301,8 +301,7 @@ uv sync
 
 自动安装其中的所有依赖。
 
->[!note]
->这个命令的另一个作用是在修改配置文件后，重新执行它来刷新环境。
+> >这个命令的另一个作用是在修改配置文件后，重新执行它来刷新环境。
 
 
 
@@ -314,7 +313,7 @@ uv init -p 3.12 proj
 
 完成项目初始化，会自动生成项目所需的配置文件
 
-![[image-20260311114358498.png]]
+![](image-20260311114358498.png)
 
 然后创建虚拟环境
 
@@ -357,8 +356,7 @@ dependencies = [
 uv tree
 ```
 
->[!note]
->注意 uv 可以在全局环境中运行，添加的库自动安装在虚拟环境中。
+> >注意 uv 可以在全局环境中运行，添加的库自动安装在虚拟环境中。
 
 
 
@@ -401,8 +399,7 @@ uvx ruff
 uv tool run ruff
 ```
 
->[!note]
-> `uvx` 是 `uv tool run` 的简写。
+> > `uvx` 是 `uv tool run` 的简写。
 
 
 
@@ -488,8 +485,7 @@ uv tool install .\dist\proj-0.1.0-py3-none-any.whl
 uvx proj
 ```
 
->[!note]
->注意项目名和打包文件名应当相同，这样才能正常执行程序，否则需要在调用时指定额外的参数。
+> >注意项目名和打包文件名应当相同，这样才能正常执行程序，否则需要在调用时指定额外的参数。
 
 
 
@@ -507,7 +503,7 @@ uv pip install -r requirements.txt
 
 使用 ruff 进行格式化和修复。只需要安装 ruff 插件，然后在命令面板可以执行命令
 
-![[image-20260311164151861.png]]
+![](image-20260311164151861.png)
 
 还可以在 `toml` 文件中给出具体的格式化配置
 
@@ -539,7 +535,7 @@ quote-style = 'single'
 
 使用 pyright 进行静态类型检查。只需要安装 pylance 插件，其中内置了 pyright 。在用户设置中搜索 `type checking mode` 切换检查模式
 
-![[image-20260311162942352.png]]
+![](image-20260311162942352.png)
 
 
 
@@ -547,7 +543,7 @@ quote-style = 'single'
 
 安装 Jupyter 插件，通过命令面板输入 `Create: New Jupyter Notebook` 创建一个 `.ipynb` 文件，修改解释器为虚拟环境中的解释器
 
-![[image-20230610110105230.png]]
+![](image-20230610110105230.png)
 
 然后可以通过 `Ctrl + Enter` 运行代码块，`Alt + Enter` 创建新的代码块。
 
@@ -1419,7 +1415,7 @@ f.close()
 
 指定编码对读取内容进行解码，获得字符串。
 
-![[Screenshot_20230517_202119.jpg|500]]
+![](Screenshot_20230517_202119.jpg|500)
 
 
 
@@ -4456,10 +4452,10 @@ dst.save("output.png")
 
 下面是对 360 x 360 分辨率图像（左图）分别使用上述 3 种模型处理后输出 720 x 720 分辨率的效果对比
 
-![[xiang.png]]
-![[output1.png]]
-![[output2.png]]
-![[output3.png]]
+![](xiang.png)
+![](output1.png)
+![](output2.png)
+![](output3.png)
 
 
 
@@ -4483,7 +4479,7 @@ dst.save("output.png")
 
 处理后输出 1440 x 1440 分辨率
 
-![[output4.png|275]]
+![](output4.png|275)
 
 第一次使用模型时会下载模型，要挂梯子才行。
 
@@ -5064,7 +5060,7 @@ df = df.drop('name', axis=1)	# 删除 name 列
 
 ```python
 df['name'][:5]			# 将获得 name 列的前 5 行
-df[['name', 'type']]	# 取出 name, type 列
+df['name', 'type']('name', 'type')	# 取出 name, type 列
 ```
 
 要创建一列元素，使用
