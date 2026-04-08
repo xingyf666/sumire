@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14526,7 +14528,7 @@
 </tr>
 <tr>
 <td>函数说明</td>
-<td>将两个 edge 端点以 $G^1$ 连续组合成一个。edge 都至少要 $G^1$ 连续，否则产生的 edge 不会在其它 ACIS 操作下表现良好</td>
+<td>将两个 edge 端点以 <span class="arithmatex">\(G^1\)</span> 连续组合成一个。edge 都至少要 <span class="arithmatex">\(G^1\)</span> 连续，否则产生的 edge 不会在其它 ACIS 操作下表现良好</td>
 </tr>
 <tr>
 <td>函数归类</td>
@@ -14703,10 +14705,10 @@
 </tr>
 </tbody>
 </table>
-<p>Covering 支持 3/4 边非平面 loop 和 $n$ 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
+<p>Covering 支持 3/4 边非平面 loop 和 <span class="arithmatex">\(n\)</span> 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
 <ul>
 <li>没有退化边</li>
-<li>没有夹角大于 $180^\circ$ 或小于 $0$ 的边</li>
+<li>没有夹角大于 <span class="arithmatex">\(180^\circ\)</span> 或小于 <span class="arithmatex">\(0\)</span> 的边</li>
 <li>边没有过度转动</li>
 </ul>
 <table>
@@ -14775,10 +14777,10 @@
 </tr>
 </tbody>
 </table>
-<p>Covering 支持 3/4 边非平面 loop 和 $n$ 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
+<p>Covering 支持 3/4 边非平面 loop 和 <span class="arithmatex">\(n\)</span> 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
 <ul>
 <li>没有退化边</li>
-<li>没有夹角大于 $180^\circ$ 或小于 $0$ 的边</li>
+<li>没有夹角大于 <span class="arithmatex">\(180^\circ\)</span> 或小于 <span class="arithmatex">\(0\)</span> 的边</li>
 <li>边没有过度转动</li>
 </ul>
 <table>
@@ -15219,10 +15221,10 @@
 </tr>
 </tbody>
 </table>
-<p>Covering 支持 3/4 边非平面 loop 和 $n$ 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
+<p>Covering 支持 3/4 边非平面 loop 和 <span class="arithmatex">\(n\)</span> 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
 <ul>
 <li>没有退化边</li>
-<li>没有夹角大于 $180^\circ$ 或小于 $0$ 的边</li>
+<li>没有夹角大于 <span class="arithmatex">\(180^\circ\)</span> 或小于 <span class="arithmatex">\(0\)</span> 的边</li>
 <li>边没有过度转动</li>
 </ul>
 <table>
@@ -15358,7 +15360,7 @@
 </tr>
 <tr>
 <td>补充说明</td>
-<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 $G^1$ 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 $G^1$ 边</td>
+<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 <span class="arithmatex">\(G^1\)</span> 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 <span class="arithmatex">\(G^1\)</span> 边</td>
 </tr>
 </tbody>
 </table>
@@ -15432,7 +15434,7 @@
 </tr>
 <tr>
 <td>补充说明</td>
-<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 $G^1$ 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 $G^1$ 边</td>
+<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 <span class="arithmatex">\(G^1\)</span> 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 <span class="arithmatex">\(G^1\)</span> 边</td>
 </tr>
 </tbody>
 </table>
@@ -16155,16 +16157,16 @@
 <tr>
 <td></td>
 <td><code>G1_edge_edge_conflict</code></td>
-<td>相邻边不是 $G^1$，与用户输入的切向数据冲突</td>
+<td>相邻边不是 <span class="arithmatex">\(G^1\)</span>，与用户输入的切向数据冲突</td>
 </tr>
 <tr>
 <td></td>
 <td><code>G2_edge_edge_conflict</code></td>
-<td>相邻边不是 $G^2$，与用户输入的切向数据冲突</td>
+<td>相邻边不是 <span class="arithmatex">\(G^2\)</span>，与用户输入的切向数据冲突</td>
 </tr>
 <tr>
 <td>acovr_continuity_level</td>
-<td>指定将由边约束强制施加的连续性（$G^0$ 或 $G^1$）约束</td>
+<td>指定将由边约束强制施加的连续性（<span class="arithmatex">\(G^0\)</span> 或 <span class="arithmatex">\(G^1\)</span>）约束</td>
 <td></td>
 </tr>
 <tr>
@@ -16180,12 +16182,12 @@
 <tr>
 <td></td>
 <td><code>acovr_G0</code></td>
-<td>$G^0$ 连续性</td>
+<td><span class="arithmatex">\(G^0\)</span> 连续性</td>
 </tr>
 <tr>
 <td></td>
 <td><code>acovr_G1</code></td>
-<td>$G^1$ 连续性</td>
+<td><span class="arithmatex">\(G^1\)</span> 连续性</td>
 </tr>
 <tr>
 <td>acovr_tol_type</td>
@@ -16404,7 +16406,7 @@
 <tr>
 <td>double</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#ab6c298cf35853ad9bc28ac67e2ecd1b6">get_guide_tol</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY.html">ENTITY</a> *constraining_ent) const</td>
-<td>返回引导点（顶点）或引导曲线（边）的 $G^0$ 容差</td>
+<td>返回引导点（顶点）或引导曲线（边）的 <span class="arithmatex">\(G^0\)</span> 容差</td>
 </tr>
 <tr>
 <td>const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> *</td>
@@ -16434,7 +16436,7 @@
 <tr>
 <td>void</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#acec329e1f0da2eb0eca473b56d6aa0a0">report_max_gap</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html">acovr_gap_report</a> &amp;gr) const</td>
-<td>检索位置 （$G^0$） 和角度 （$G^1$） 的最大间隙</td>
+<td>检索位置 （<span class="arithmatex">\(G^0\)</span>） 和角度 （<span class="arithmatex">\(G^1\)</span>） 的最大间隙</td>
 </tr>
 <tr>
 <td>void</td>
@@ -16474,7 +16476,7 @@
 <tr>
 <td>void</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a10eee059d7be3c89e66ac7af499c7e99">set_guide</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY.html">ENTITY</a> *constraining_ent)</td>
-<td>指定引导点（顶点）或引导曲线（边）。使用默认 $G^0$ 容差。指定的任何边都必须包含在 ACIS 实体中</td>
+<td>指定引导点（顶点）或引导曲线（边）。使用默认 <span class="arithmatex">\(G^0\)</span> 容差。指定的任何边都必须包含在 ACIS 实体中</td>
 </tr>
 <tr>
 <td>void</td>
@@ -16484,7 +16486,7 @@
 <tr>
 <td>void</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#abe566a582d035c286af5d556b72edada">set_guides</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;constraining_ents)</td>
-<td>指定引导点（顶点）或引导曲线（边）的列表。使用默认 $G^0$ 容差。指定的任何边都必须包含在 ACIS 实体中</td>
+<td>指定引导点（顶点）或引导曲线（边）的列表。使用默认 <span class="arithmatex">\(G^0\)</span> 容差。指定的任何边都必须包含在 ACIS 实体中</td>
 </tr>
 <tr>
 <td>void</td>
@@ -16553,7 +16555,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">SPAunit_vector</span><span class="w"> </span><span class="nf">get_plane_normal</span><span class="w"> </span><span class="p">()</span><span class="w">  </span><span class="k">const</span><span class="p">;</span>
 <a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_plane_normal</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SPAunit_vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dir</span><span class="p">);</span>
 </code></pre></div>
-<p>由于边界电路将投影到该平面中，因此只需要一个法向，与平面的绝对位置无关。高级覆盖根据边界电路的形状自动计算默认初始平面；如果此默认平面不令人满意，则应设置 <code>plane_normal</code> 参数。通常，发生这种情况是因为默认算法选取的平面将导致双值覆盖曲面，或者因为包含边界电路的模型具有边界电路不遵守的对称性（仅限 $G^1$ 覆盖）。例如，考虑对被平面斜切片的圆柱执行 $G^1$ 覆盖。高级覆盖尝试通过在初始曲面的法线方向上向上推覆盖曲面来满足 $G^1$ 约束。切片圆柱体的默认平面将与切片平面具有相同的法线；在这种情况下$G^1$ 约束将导致覆盖面沿圆柱轴线凸起。当法线向量设置为与轴重合时，形状会更自然；在这种情况下，凸起沿轴线，曲面之间的过渡非常平滑。</p>
+<p>由于边界电路将投影到该平面中，因此只需要一个法向，与平面的绝对位置无关。高级覆盖根据边界电路的形状自动计算默认初始平面；如果此默认平面不令人满意，则应设置 <code>plane_normal</code> 参数。通常，发生这种情况是因为默认算法选取的平面将导致双值覆盖曲面，或者因为包含边界电路的模型具有边界电路不遵守的对称性（仅限 <span class="arithmatex">\(G^1\)</span> 覆盖）。例如，考虑对被平面斜切片的圆柱执行 <span class="arithmatex">\(G^1\)</span> 覆盖。高级覆盖尝试通过在初始曲面的法线方向上向上推覆盖曲面来满足 <span class="arithmatex">\(G^1\)</span> 约束。切片圆柱体的默认平面将与切片平面具有相同的法线；在这种情况下<span class="arithmatex">\(G^1\)</span> 约束将导致覆盖面沿圆柱轴线凸起。当法线向量设置为与轴重合时，形状会更自然；在这种情况下，凸起沿轴线，曲面之间的过渡非常平滑。</p>
 <h4 id="report_max_gap">report_max_gap</h4>
 <p>不考虑引导曲线间隙。出于性能原因，报告的间隙 gap 是高级覆盖试图重合的点之间的间隙 gap 。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">report_max_gap</span><span class="w"> </span><span class="p">(</span><span class="n">acovr_gap_report</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">gr</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
@@ -16563,7 +16565,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_final_surf_check</span><span class="w"> </span><span class="p">(</span><span class="n">logical</span><span class="w"> </span><span class="n">new_final_check</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="set_flattening">set_flattening</h4>
-<p>平整参数是正数，控制 $G^1$ 约束对覆盖面形状的影响。当 $G^1$ 约束强制覆盖面和初始曲面的形状发生较大变化时，平整参数控制 $G^1$ 约束的影响区域。较大的（0.7左右）平整参数将导致覆盖面的“旋转”（斜率与初始表面的偏差）控制在 $G^1$ 约束边缘附近，从而产生平整的内部，其形状接近 $G^0$ 覆盖。较小的平整参数将导致 $G^1$ 约束的效果扩散，产生更圆的内部。当在圆柱顶部执行 $G^1$ 覆盖时，圆顶的高度完全由平整参数控制。较小的值产生高而圆的圆顶，较大的值产生短而平的圆顶。通常，当所有 $G^1$ 约束的支撑面已经接近于初始曲面相切时，应使用较小的值（0.1 左右），而当支撑面接近垂直时，应使用较大的值（0.4 到 0.7）（如圆柱顶部的情况）。</p>
+<p>平整参数是正数，控制 <span class="arithmatex">\(G^1\)</span> 约束对覆盖面形状的影响。当 <span class="arithmatex">\(G^1\)</span> 约束强制覆盖面和初始曲面的形状发生较大变化时，平整参数控制 <span class="arithmatex">\(G^1\)</span> 约束的影响区域。较大的（0.7左右）平整参数将导致覆盖面的“旋转”（斜率与初始表面的偏差）控制在 <span class="arithmatex">\(G^1\)</span> 约束边缘附近，从而产生平整的内部，其形状接近 <span class="arithmatex">\(G^0\)</span> 覆盖。较小的平整参数将导致 <span class="arithmatex">\(G^1\)</span> 约束的效果扩散，产生更圆的内部。当在圆柱顶部执行 <span class="arithmatex">\(G^1\)</span> 覆盖时，圆顶的高度完全由平整参数控制。较小的值产生高而圆的圆顶，较大的值产生短而平的圆顶。通常，当所有 <span class="arithmatex">\(G^1\)</span> 约束的支撑面已经接近于初始曲面相切时，应使用较小的值（0.1 左右），而当支撑面接近垂直时，应使用较大的值（0.4 到 0.7）（如圆柱顶部的情况）。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_flattening</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">flattening</span><span class="p">);</span>
 </code></pre></div>
 <h2 id="68-acovr_edge_cstrnhxx">6.8 acovr_edge_cstrn.hxx说明</h2>
@@ -17120,6 +17122,12 @@
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

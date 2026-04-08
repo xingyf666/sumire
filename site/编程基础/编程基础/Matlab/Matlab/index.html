@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -17665,7 +17667,7 @@ ind = find(X)</code></p>
 <p>Matlab 没有内置直接计算数值求导的函数，只能把求导转化为差分格式。例如已知横坐标向量 x 和对应的函数值向量 y ，则导数向量可以被估计为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a><span class="nb">diff</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="o">./</span><span class="nb">diff</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 </code></pre></div>
-<p>对于求梯度的时候， Matlab 有内置的函数，例如求 $u=x^2y^3$ 在点 $(1,-2)$ 处的梯度</p>
+<p>对于求梯度的时候， Matlab 有内置的函数，例如求 <span class="arithmatex">\(u=x^2y^3\)</span> 在点 <span class="arithmatex">\((1,-2)\)</span> 处的梯度</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">:</span><span class="mf">0.2</span><span class="p">:</span><span class="mi">3</span><span class="p">;</span><span class="w">     </span><span class="c">% 将函数在一个 x y 的二维矩阵中离散</span>
 <a id="__codelineno-98-2" name="__codelineno-98-2" href="#__codelineno-98-2"></a><span class="n">y</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">x</span><span class="o">&#39;</span><span class="p">;</span><span class="w">          </span><span class="c">% 这里 y 做了转置</span>
 <a id="__codelineno-98-3" name="__codelineno-98-3" href="#__codelineno-98-3"></a>
@@ -17688,12 +17690,12 @@ ind = find(X)</code></p>
 <p>它会求取矩阵 F 在不同方向上的梯度，默认每个方向的间隔为 1 </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a><span class="n">x</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">gradient</span><span class="p">(</span><span class="n">F</span><span class="p">);</span>
 </code></pre></div>
-<p>它会求出向量 F 的梯度向量 $\partial F/\partial x$  ，默认间隔为 1</p>
+<p>它会求出向量 F 的梯度向量 <span class="arithmatex">\(\partial F/\partial x\)</span>  ，默认间隔为 1</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-101-1" name="__codelineno-101-1" href="#__codelineno-101-1"></a><span class="p">[</span><span class="n">x</span><span class="w"> </span><span class="n">y</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">gradient</span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">,</span><span class="w"> </span><span class="mf">0.2</span><span class="p">);</span>
 </code></pre></div>
-<p>它会求出二维矩阵 F 的两个梯度向量 $\partial F/\partial x$ 和 $\partial F/\partial y$ ，每个方向间隔为 0.2 。</p>
+<p>它会求出二维矩阵 F 的两个梯度向量 <span class="arithmatex">\(\partial F/\partial x\)</span> 和 <span class="arithmatex">\(\partial F/\partial y\)</span> ，每个方向间隔为 0.2 。</p>
 <h3 id="_56">线性方程组</h3>
-<p>设方程组形式为 $Ax=b$ ，分为适定、超定、欠定三种情况讨论。</p>
+<p>设方程组形式为 <span class="arithmatex">\(Ax=b\)</span> ，分为适定、超定、欠定三种情况讨论。</p>
 <p>适定方程组</p>
 <ul>
 <li>
@@ -17736,7 +17738,7 @@ ind = find(X)</code></p>
 </code></pre></div>
 <p>满足 <code>AV = VD</code> 的分解。</p>
 <h2 id="_59">多项式</h2>
-<p>通过向量 $p=[a_0,a_1,\cdots,a_n]$ ，多项式降幂排列系数数组可以直接构造多项式</p>
+<p>通过向量 <span class="arithmatex">\(p=[a_0,a_1,\cdots,a_n]\)</span> ，多项式降幂排列系数数组可以直接构造多项式</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a><span class="n">poly2sym</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 <p>我们可以直接将数组当做一个多项式使用。通过将两个数组补充为相同长度，就可以通过数组加减进行多项式加减；还可以做乘法</p>
@@ -18408,6 +18410,12 @@ ind = find(X)</code></p>
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -7449,7 +7451,7 @@
   <a href="#k1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $k=1$
+        \(k=1\)
       
     </span>
   </a>
@@ -7460,7 +7462,7 @@
   <a href="#k2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $k=2$
+        \(k=2\)
       
     </span>
   </a>
@@ -14937,7 +14939,7 @@
   <a href="#k1" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $k=1$
+        \(k=1\)
       
     </span>
   </a>
@@ -14948,7 +14950,7 @@
   <a href="#k2" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $k=2$
+        \(k=2\)
       
     </span>
   </a>
@@ -15010,29 +15012,29 @@
 <h1 id="_1">开花与离散样条</h1>
 <h2 id="bezier">Bezier 开花</h2>
 <h3 id="_2">引入</h3>
-<p>线性函数 $L(t)=at+b$ 满足
+<p>线性函数 <span class="arithmatex">\(L(t)=at+b\)</span> 满足
 $$
 \begin{aligned}
 L(\mu s+\lambda t) &amp;= \mu L(s)+\lambda L(t)\
 L((1-\lambda) s+\lambda t) &amp;= (1-\lambda) L(s)+\lambda L(t)
 \end{aligned}
 $$
-分别对应线性性质和仿射性质。但是上述性质对于一般的高次多项式并不成立。开花的核心思想是将单个高次多项式 $P(t)$ 转换为多变量线性多项式 $p(u_{1},\cdots,u_{n})$，使得后者对每个 $u_{i}$ 都满足线性和仿射性质，此时 $p$ 就称为 $P$ 的开花 Blossom 。</p>
+分别对应线性性质和仿射性质。但是上述性质对于一般的高次多项式并不成立。开花的核心思想是将单个高次多项式 <span class="arithmatex">\(P(t)\)</span> 转换为多变量线性多项式 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})\)</span>，使得后者对每个 <span class="arithmatex">\(u_{i}\)</span> 都满足线性和仿射性质，此时 <span class="arithmatex">\(p\)</span> 就称为 <span class="arithmatex">\(P\)</span> 的开花 Blossom 。</p>
 <h3 id="_3">开花</h3>
-<p>$n$ 次多项式 $P(t)$ 的开花 Blossom 是唯一对称多仿射函数 $p(u_{1},\cdots,u_{n})$ 使得 $p(t,\cdots,t)=P(t)$ 成立，即</p>
+<p><span class="arithmatex">\(n\)</span> 次多项式 <span class="arithmatex">\(P(t)\)</span> 的开花 Blossom 是唯一对称多仿射函数 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})\)</span> 使得 <span class="arithmatex">\(p(t,\cdots,t)=P(t)\)</span> 成立，即</p>
 <blockquote>
 <p>[!axiom] Blossoming Axioms
-1. 对称性 symmetry $p(u_{1},\cdots,u_{n})=p(u_{\sigma(1)},\cdots,u_{\sigma(n)})$，其中 $\sigma$ 是置换
-2. 多仿射性 multiaffine $p(u_{1},\cdots,(1-\alpha)u_{k}+\alpha v_{k},\cdots,u_{n})=(1-\alpha)p(u_{1},\cdots,u_{k},\cdots,u_{n})+\alpha p(u_{1},\cdots,v_{k},\cdots,u_{n})$
-3. 对角性 diagonal $p(t,\cdots,t)=P(t)$</p>
+1. 对称性 symmetry <span class="arithmatex">\(p(u_{1},\cdots,u_{n})=p(u_{\sigma(1)},\cdots,u_{\sigma(n)})\)</span>，其中 <span class="arithmatex">\(\sigma\)</span> 是置换
+2. 多仿射性 multiaffine <span class="arithmatex">\(p(u_{1},\cdots,(1-\alpha)u_{k}+\alpha v_{k},\cdots,u_{n})=(1-\alpha)p(u_{1},\cdots,u_{k},\cdots,u_{n})+\alpha p(u_{1},\cdots,v_{k},\cdots,u_{n})\)</span>
+3. 对角性 diagonal <span class="arithmatex">\(p(t,\cdots,t)=P(t)\)</span></p>
 </blockquote>
-<p>其中多仿射性意味着 $p$ 对每个变量都是线性。</p>
-<p><strong>对偶泛函性质</strong> 令 $P(t)$ 是 $[a,b]$ 上的 Bezier 曲线，控制点为 $P_{1},\cdots,P_{n}$，则
+<p>其中多仿射性意味着 <span class="arithmatex">\(p\)</span> 对每个变量都是线性。</p>
+<p><strong>对偶泛函性质</strong> 令 <span class="arithmatex">\(P(t)\)</span> 是 <span class="arithmatex">\([a,b]\)</span> 上的 Bezier 曲线，控制点为 <span class="arithmatex">\(P_{1},\cdots,P_{n}\)</span>，则
 $$
 P_{k} = p(\underbrace{a,\cdots,a}<em>{n-k} ,\underbrace{b,\cdots,b}</em>{k})
 $$
 这建立了多项式开花与 Bezier 控制点的关系，我们将在之后证明它。</p>
-<p>考虑由 $1,t,t^2,t^3$ 构成的 3 次多项式。容易给出
+<p>考虑由 <span class="arithmatex">\(1,t,t^2,t^3\)</span> 构成的 3 次多项式。容易给出
 $$
 \begin{aligned}
 P(t) = 1 &amp;\implies p(u_{1},u_{2},u_{3}) = 1\
@@ -15051,36 +15053,36 @@ $$
 即对每个单项式分别开花再线性组合，这样得到的组合多项式仍然满足开花性质。</p>
 <blockquote>
 <p>[!proposition] Blossoming Monomials
-单项式 $M_{k}^n(t)=t^k$ 的开花为
+单项式 <span class="arithmatex">\(M_{k}^n(t)=t^k\)</span> 的开花为
 $$
 m_{k}^n(u_{1},\cdots,u_{n})= \frac{\sum u_{i_{1}}\cdots u_{i_{k}}}{\binom{n}{k}}
 $$
-其中 $i_{1},\cdots,i_{k}$ 取遍 ${1,\cdots,n}$ 的所有 $k$ 元子集。</p>
+其中 <span class="arithmatex">\(i_{1},\cdots,i_{k}\)</span> 取遍 <span class="arithmatex">\(\{1,\cdots,n\}\)</span> 的所有 <span class="arithmatex">\(k\)</span> 元子集。</p>
 <p>[!theorem] Existence of the Blossom
-对任意 $n$ 次多项式 $P(t)$，存在对称多仿射函数 $p(u_{1},\cdots,u_{n})$ 是 $P(t)$ 的开花。</p>
+对任意 <span class="arithmatex">\(n\)</span> 次多项式 <span class="arithmatex">\(P(t)\)</span>，存在对称多仿射函数 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})\)</span> 是 <span class="arithmatex">\(P(t)\)</span> 的开花。</p>
 </blockquote>
 <h3 id="de-casteljau">de Casteljau 算法</h3>
-<p>我们记 $u_{1}\cdots u_{n}=p(u_{1},\cdots,u_{n})$，由于乘法满足交换律和分配律，因此它确实与开花性质类似。使用乘积表示，下图说明从开花值 $p(\underbrace{a,\cdots,a}<em>{n-k} ,\underbrace{b,\cdots,b}</em>{k})$ 递归计算 $p(t,\cdots,t)$ 的过程。每一对值使用它们不同的变量做线性插值，然后将 $t$ 替换到对应位置</p>
+<p>我们记 <span class="arithmatex">\(u_{1}\cdots u_{n}=p(u_{1},\cdots,u_{n})\)</span>，由于乘法满足交换律和分配律，因此它确实与开花性质类似。使用乘积表示，下图说明从开花值 <span class="arithmatex">\(p(\underbrace{a,\cdots,a}_{n-k} ,\underbrace{b,\cdots,b}_{k})\)</span> 递归计算 <span class="arithmatex">\(p(t,\cdots,t)\)</span> 的过程。每一对值使用它们不同的变量做线性插值，然后将 <span class="arithmatex">\(t\)</span> 替换到对应位置</p>
 <p><img alt="" src="image-20251120162005525.png|500" /></p>
 <p>可以看到这个过程与下面的 de Casteljau 算法一致</p>
 <p><img alt="" src="image-20251120162416933.png|500" /></p>
 <blockquote>
 <p>[!theorem] Every Polynomial Curve is a Bezier Curve
-每个多项式都可以表示成 Bezier 形式。对给定多项式 $P(t)$ 和区间 $[a,b]$，都存在 $P_{k} = p(\underbrace{a,\cdots,a}<em>{n-k} ,\underbrace{b,\cdots,b}</em>{k})$ 作为控制点的 Bezier 曲线，在 $[a,b]$ 上与 $P(t)$ 相同。</p>
+每个多项式都可以表示成 Bezier 形式。对给定多项式 <span class="arithmatex">\(P(t)\)</span> 和区间 <span class="arithmatex">\([a,b]\)</span>，都存在 <span class="arithmatex">\(P_{k} = p(\underbrace{a,\cdots,a}_{n-k} ,\underbrace{b,\cdots,b}_{k})\)</span> 作为控制点的 Bezier 曲线，在 <span class="arithmatex">\([a,b]\)</span> 上与 <span class="arithmatex">\(P(t)\)</span> 相同。</p>
 <p>[!theorem] Uniqueness of the Blossom
-令 $P(t)$ 是 $n$ 次多项式，则开花 $p(u_{1},\cdots,u_{n})$ 唯一。</p>
+令 <span class="arithmatex">\(P(t)\)</span> 是 <span class="arithmatex">\(n\)</span> 次多项式，则开花 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})\)</span> 唯一。</p>
 </blockquote>
-<p>若存在两个开花 $p,q$，则 $p(\underbrace{a,\cdots,a}<em>{n-k} ,\underbrace{b,\cdots,b}</em>{k}),q(\underbrace{a,\cdots,a}<em>{n-k} ,\underbrace{b,\cdots,b}</em>{k})$ 都表示 $P(t)$ 的 Bezier 控制点。由于 Bezier 曲线的控制点完全由 $P(t)$ 决定，因此它们相同。并且下图表明开花 $p(u_{1},u_{2},u_{3})$ 由 3 个开花值 $aaa,aab,abb,bbb$ 确定，因此开花唯一。</p>
+<p>若存在两个开花 <span class="arithmatex">\(p,q\)</span>，则 <span class="arithmatex">\(p(\underbrace{a,\cdots,a}_{n-k} ,\underbrace{b,\cdots,b}_{k}),q(\underbrace{a,\cdots,a}_{n-k} ,\underbrace{b,\cdots,b}_{k})\)</span> 都表示 <span class="arithmatex">\(P(t)\)</span> 的 Bezier 控制点。由于 Bezier 曲线的控制点完全由 <span class="arithmatex">\(P(t)\)</span> 决定，因此它们相同。并且下图表明开花 <span class="arithmatex">\(p(u_{1},u_{2},u_{3})\)</span> 由 3 个开花值 <span class="arithmatex">\(aaa,aab,abb,bbb\)</span> 确定，因此开花唯一。</p>
 <p><img alt="" src="image-20251120163630415.png|500" /></p>
 <h3 id="bezier_1">Bezier 细分</h3>
-<p>对于 $[a,b]$ 上的 Bezier 曲线，要在 $t$ 参数值处细分，就需要找到 $[a,t],[t,b]$ 上的控制点。根据对偶泛函性质
+<p>对于 <span class="arithmatex">\([a,b]\)</span> 上的 Bezier 曲线，要在 <span class="arithmatex">\(t\)</span> 参数值处细分，就需要找到 <span class="arithmatex">\([a,t],[t,b]\)</span> 上的控制点。根据对偶泛函性质
 $$
 \begin{aligned}
 Q_{k} &amp;= p(\underbrace{a,\cdots,a}<em>{n-k} ,\underbrace{t,\cdots,t}</em>{k})\
 R_{k} &amp;= p(\underbrace{t,\cdots,t}<em>{n-k} ,\underbrace{b,\cdots,b}</em>{k})
 \end{aligned}
 $$
-根据上述形式，在计算 $ttt$ 的过程中，$Q_{k},R_{k}$ 分别沿着下面三角形的左右侧边出现，即
+根据上述形式，在计算 <span class="arithmatex">\(ttt\)</span> 的过程中，<span class="arithmatex">\(Q_{k},R_{k}\)</span> 分别沿着下面三角形的左右侧边出现，即
 $$
 \begin{aligned}
 Q_{0}&amp;=aaa,Q_{1}=aat,Q_{2}=att,Q_{3}=ttt\
@@ -15095,40 +15097,40 @@ $$
 $$
 P(t)=t^n \implies P(ct)=c^nt^n=c^nP(t)
 $$
-而 $P(t)=a_{n}t^n+\cdots+a_{0}$ 不满足 $P(ct)=c^nP(t)$，因为每一项的次数不同。而齐次化的核心思想是引入新的变量来保证每一项具有相同的次数，从而让开花适用于向量空间。</p>
-<p>构造二元多项式 $P(t,w)=\sum_{k}a_{k}t^kw^{n-k}$，则
+而 <span class="arithmatex">\(P(t)=a_{n}t^n+\cdots+a_{0}\)</span> 不满足 <span class="arithmatex">\(P(ct)=c^nP(t)\)</span>，因为每一项的次数不同。而齐次化的核心思想是引入新的变量来保证每一项具有相同的次数，从而让开花适用于向量空间。</p>
+<p>构造二元多项式 <span class="arithmatex">\(P(t,w)=\sum_{k}a_{k}t^kw^{n-k}\)</span>，则
 $$
 P(ct,cw) = c^nP(t,w),\quad P(t,1)=P(t)
 $$
-这种构造方法称为齐次化，而从 $P(t,w)$ 恢复 $P(t)$ 称为去齐次化。</p>
-<p>对于开花 $p(u_{1},\cdots,u_{n})$，可以齐次化
+这种构造方法称为齐次化，而从 <span class="arithmatex">\(P(t,w)\)</span> 恢复 <span class="arithmatex">\(P(t)\)</span> 称为去齐次化。</p>
+<p>对于开花 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})\)</span>，可以齐次化
 $$
 p((u_{1},v_{1}),\cdots,(u_{n},v_{n}))
 $$
-注意 $p(u_{1},\cdots,u_{n})$ 的每一项中 $u_{i}$ 最多出现一次，因此齐次化后每一项中 $u_{k},v_{k}$ 总共出现一次，从而
+注意 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})\)</span> 的每一项中 <span class="arithmatex">\(u_{i}\)</span> 最多出现一次，因此齐次化后每一项中 <span class="arithmatex">\(u_{k},v_{k}\)</span> 总共出现一次，从而
 $$
 p((u_{1},v_{1}),\cdots,c(u_{k},v_{k}),\cdots,(u_{n},v_{n}))=cp((u_{1},v_{1}),\cdots,(u_{k},v_{k}),\cdots,(u_{n},v_{n}))
 $$
-取所有 $v_{k}=1$ 去齐次化。</p>
+取所有 <span class="arithmatex">\(v_{k}=1\)</span> 去齐次化。</p>
 <blockquote>
 <p>[!axiom] Homogeneous Blossoming Axioms
-1. 对称性 symmetry $p((u_{1},v_{1}),\cdots,(u_{n},v_{n}))=p((u_{\sigma(1)},v_{\sigma(1)}),\cdots,(u_{\sigma(n)},v_{\sigma(n)}))$
-2. 多线性 multilinear $\begin{aligned}p((u_{1},v_{1}),&amp;\cdots,(u_{k},v_{k})+(r_{k},s_{k})\cdots,(u_{n},v_{n}))\&amp;=p((u_{1},v_{1}),\cdots,(u_{k},v_{k})\cdots,(u_{n},v_{n}))+p((u_{1},v_{1}),\cdots,(r_{k},s_{k})\cdots,(u_{n},v_{n}))\p((u_{1},v_{1}),&amp;\cdots,c(u_{k},v_{k})\cdots,(u_{n},v_{n})) = cp((u_{1},v_{1}),\cdots,(u_{k},v_{k})\cdots,(u_{n},v_{n}))\end{aligned}$
-3. 对角性 diagonal $p((t,w),\cdots,(t,w))=P(t,w)$</p>
+1. 对称性 symmetry <span class="arithmatex">\(p((u_{1},v_{1}),\cdots,(u_{n},v_{n}))=p((u_{\sigma(1)},v_{\sigma(1)}),\cdots,(u_{\sigma(n)},v_{\sigma(n)}))\)</span>
+2. 多线性 multilinear <span class="arithmatex">\(\begin{aligned}p((u_{1},v_{1}),&amp;\cdots,(u_{k},v_{k})+(r_{k},s_{k})\cdots,(u_{n},v_{n}))\\&amp;=p((u_{1},v_{1}),\cdots,(u_{k},v_{k})\cdots,(u_{n},v_{n}))+p((u_{1},v_{1}),\cdots,(r_{k},s_{k})\cdots,(u_{n},v_{n}))\\p((u_{1},v_{1}),&amp;\cdots,c(u_{k},v_{k})\cdots,(u_{n},v_{n})) = cp((u_{1},v_{1}),\cdots,(u_{k},v_{k})\cdots,(u_{n},v_{n}))\end{aligned}\)</span>
+3. 对角性 diagonal <span class="arithmatex">\(p((t,w),\cdots,(t,w))=P(t,w)\)</span></p>
 </blockquote>
-<p>齐次化之前 $t,u_{1},\cdots,u_{n}$ 是 1 维仿射空间中的参数，而齐次化引入 $w,v_{1},\cdots,v_{n}$ 提升至 2 维向量空间，因此可以执行线性代数运算。</p>
+<p>齐次化之前 <span class="arithmatex">\(t,u_{1},\cdots,u_{n}\)</span> 是 1 维仿射空间中的参数，而齐次化引入 <span class="arithmatex">\(w,v_{1},\cdots,v_{n}\)</span> 提升至 2 维向量空间，因此可以执行线性代数运算。</p>
 <blockquote>
 <p>[!theorem]
 齐次化和开花可交换。</p>
 </blockquote>
 <p>下图直接给出变换过程得到证明</p>
 <p><img alt="" src="image-20251120200209181.png|500" /></p>
-<p>注意右下角给出齐次开花的存在性，当 $u_{i_{1}}=\cdots=u_{i_{k}}=t,v_{i_{k+1}}=\cdots=v_{i_{n}}=w$ 时简化为左下角形式。去齐次化给出唯一性：如果对齐次开花做去齐次化就得到多仿射开花，后者的唯一性表明前者的唯一性。</p>
+<p>注意右下角给出齐次开花的存在性，当 <span class="arithmatex">\(u_{i_{1}}=\cdots=u_{i_{k}}=t,v_{i_{k+1}}=\cdots=v_{i_{n}}=w\)</span> 时简化为左下角形式。去齐次化给出唯一性：如果对齐次开花做去齐次化就得到多仿射开花，后者的唯一性表明前者的唯一性。</p>
 <p>之前我们通过 de Casteljau 算法构建多仿射开花，现在也可以同理构建。只需要替换为齐次系数
 $$
 b-t\to bw-t,\quad t-a\to t-aw
 $$
-确保每项都具有相同次数。记 $\tilde{t}=(t,w)$，则
+确保每项都具有相同次数。记 <span class="arithmatex">\(\tilde{t}=(t,w)\)</span>，则
 $$
 \tilde{t}=(t,w) = \frac{bw-t}{b-a}(a,1)+\frac{t-aw}{b-a}(b,1)
 $$
@@ -15138,7 +15140,7 @@ p(a,b,\tilde{t})=p\left( a,b,\frac{bw-t}{b-a}a+ \frac{t-aw}{b-a}b\right)=\frac{b
 $$
 对应下图中最下面中间的递归过程，这就是 de Casteljau 的齐次版本</p>
 <p><img alt="" src="image-20251120200805888.png|500" /></p>
-<p>将 $(t,w)$ 替换为 $(u_{k},v_{k})$，记 $\tilde{u}=(u,v)$，则
+<p>将 <span class="arithmatex">\((t,w)\)</span> 替换为 <span class="arithmatex">\((u_{k},v_{k})\)</span>，记 <span class="arithmatex">\(\tilde{u}=(u,v)\)</span>，则
 $$
 \tilde{u}=(u,v) = \frac{bv-u}{b-a}(a,1)+\frac{u-av}{b-a}(b,1)
 $$
@@ -15153,12 +15155,12 @@ $$
 <h4 id="de-casteljau_1">微分 de Casteljau 算法</h4>
 <blockquote>
 <p>[!theorem] Taylor's Theorem
-令 $P(t)$ 是 $n$ 次多项式，则
+令 <span class="arithmatex">\(P(t)\)</span> 是 <span class="arithmatex">\(n\)</span> 次多项式，则
 $$
 P(t+h)=\sum_{k=0}^n \frac{P^{(k)}(t)}{k!}h^k
 $$</p>
 </blockquote>
-<p>令 $t=(t,1),\delta=(1,0)$，则
+<p>令 <span class="arithmatex">\(t=(t,1),\delta=(1,0)\)</span>，则
 $$
 t+h=(t+h,1)=(t,1)+(h,0)=t+h\delta
 $$
@@ -15169,17 +15171,17 @@ $$
 然后将其展开。</p>
 <blockquote>
 <p>[!theorem] Binomial Expansion
-令 $p(u_{1},\cdots,u_{n})$ 为对称多仿射函数，则
+令 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})\)</span> 为对称多仿射函数，则
 $$
 p(t+h\delta,\cdots,t+h\delta)= \sum_{k=0}^n\binom{n}{k}p(\underbrace{t,\cdots,t}<em>{n-k},\underbrace{\delta,\cdots,\delta}</em>{k})h^k
 $$
-其中 $t=(t,1),\delta=(1,0)$ 。</p>
+其中 <span class="arithmatex">\(t=(t,1),\delta=(1,0)\)</span> 。</p>
 </blockquote>
-<p>首先 $n=1$ 时
+<p>首先 <span class="arithmatex">\(n=1\)</span> 时
 $$
 p(t+h\delta) = p(t)+p(\delta)h
 $$
-根据仿射性质显然成立。设 $q(\underbrace{t+h\delta}<em>{n-1})=p(t+h\delta,\underbrace{t+h\delta}</em>{n-1})$，则利用归纳法
+根据仿射性质显然成立。设 <span class="arithmatex">\(q(\underbrace{t+h\delta}_{n-1})=p(t+h\delta,\underbrace{t+h\delta}_{n-1})\)</span>，则利用归纳法
 $$
 \begin{aligned}
 p(t+h\delta,\underbrace{t+h\delta}<em>{n-1})&amp;=q(\underbrace{t+h\delta}</em>{n-1})\
@@ -15193,17 +15195,17 @@ $$
 即证。</p>
 <blockquote>
 <p>[!theorem]
-令 $P$ 是 $n$ 次多项式，$p$ 是齐次开花，则
+令 <span class="arithmatex">\(P\)</span> 是 <span class="arithmatex">\(n\)</span> 次多项式，<span class="arithmatex">\(p\)</span> 是齐次开花，则
 $$
 P^{(k)}(t) = \frac{n!}{(n-k)!}p(\underbrace{t,\cdots,t}<em>{n-k},\underbrace{\delta,\cdots,\delta}</em>{k})
 $$
-其中 $t=(t,1),\delta=(1,0)$ 。</p>
+其中 <span class="arithmatex">\(t=(t,1),\delta=(1,0)\)</span> 。</p>
 </blockquote>
-<p>根据前面二项式展开中 $h^k$ 的系数即证。因此计算 $k$ 阶导数等价于计算开花值 $p(\underbrace{t,\cdots,t}<em>{n-k},\underbrace{\delta,\cdots,\delta}</em>{k})$ 然后乘一个常数。注意到替换 $(t,w)\to(1,0)$ 会得到
+<p>根据前面二项式展开中 <span class="arithmatex">\(h^k\)</span> 的系数即证。因此计算 <span class="arithmatex">\(k\)</span> 阶导数等价于计算开花值 <span class="arithmatex">\(p(\underbrace{t,\cdots,t}_{n-k},\underbrace{\delta,\cdots,\delta}_{k})\)</span> 然后乘一个常数。注意到替换 <span class="arithmatex">\((t,w)\to(1,0)\)</span> 会得到
 $$
 bw-t\to-1,\quad t-aw\to +1
 $$
-这会在 de Casteljau 算法中的一层计算一次差分，于是可以将任何一层替换为 $(1,0)$，其余层不变就可以计算出一阶导数所需的开花值；类似地，二阶导只需要替换两层为 $(1,0)$ 即可。</p>
+这会在 de Casteljau 算法中的一层计算一次差分，于是可以将任何一层替换为 <span class="arithmatex">\((1,0)\)</span>，其余层不变就可以计算出一阶导数所需的开花值；类似地，二阶导只需要替换两层为 <span class="arithmatex">\((1,0)\)</span> 即可。</p>
 <p><img alt="" src="image-20251120210554181.png|500" /></p>
 <h4 id="bezier_2">多项式与 Bezier 形式转换</h4>
 <p>根据泰勒展开式
@@ -15214,7 +15216,7 @@ $$
 $$
 P^{(k)}(0) = \frac{n!}{(n-k)!}p(\underbrace{0,\cdots,0}<em>{n-k},\underbrace{\delta,\cdots,\delta}</em>{k})
 $$
-而我们知道 $p(\underbrace{0,\cdots,0}<em>{n-k} ,\underbrace{1,\cdots,1}</em>{k})$ 给出所有 Bezier 控制点。因此只需要考虑两种开花值之间的转换。下图给出从 Bezier 控制点 $000,001,011,111$ 到多项式系数 $000,00\delta,0\delta \delta,\delta \delta$ 之间的转换</p>
+而我们知道 <span class="arithmatex">\(p(\underbrace{0,\cdots,0}_{n-k} ,\underbrace{1,\cdots,1}_{k})\)</span> 给出所有 Bezier 控制点。因此只需要考虑两种开花值之间的转换。下图给出从 Bezier 控制点 <span class="arithmatex">\(000,001,011,111\)</span> 到多项式系数 <span class="arithmatex">\(000,00\delta,0\delta \delta,\delta \delta\)</span> 之间的转换</p>
 <p><img alt="" src="image-20251120211818010.png" /></p>
 <p>注意到
 $$
@@ -15228,20 +15230,20 @@ $$
 </blockquote>
 <h3 id="_6">习题</h3>
 <ol>
-<li>证明：两个 $n$ 次多项式开花的线性组合等于其线性组合的开花。</li>
+<li>证明：两个 <span class="arithmatex">\(n\)</span> 次多项式开花的线性组合等于其线性组合的开花。</li>
 </ol>
 <p>由于开花的线性组合满足开花公理，因此必然是线性组合的开花，再由开花的唯一性即证。</p>
 <ol>
-<li>令 $P(t)=(t-a)^n$，则 $p(u_{1},\cdots,u_{n})=(u_{1}-a)\cdots(u_{n}-a)$ 。</li>
+<li>令 <span class="arithmatex">\(P(t)=(t-a)^n\)</span>，则 <span class="arithmatex">\(p(u_{1},\cdots,u_{n})=(u_{1}-a)\cdots(u_{n}-a)\)</span> 。</li>
 </ol>
 <p>由于右式满足开花公理立即得证。</p>
 <blockquote>
 <blockquote>
-<p>也可以直接考虑 $x=t-a,P(x)=x^n$ 的开花形式，然后代换 $x$ 即证。</p>
+<p>也可以直接考虑 <span class="arithmatex">\(x=t-a,P(x)=x^n\)</span> 的开花形式，然后代换 <span class="arithmatex">\(x\)</span> 即证。</p>
 </blockquote>
 </blockquote>
 <ol>
-<li>令 $P_{k}^n(t)=\frac{(t-t_{k})^n}{\prod_{j\neq k}(t_{j}-t_{k})},P(t)=\sum_{k=0}^nP_{k}^n(t)P_{k}$，则 $P_{k}=p(t_{0},\cdots,t_{k-1},t_{k+1},\cdots,t_{n})$ 。</li>
+<li>令 <span class="arithmatex">\(P_{k}^n(t)=\frac{(t-t_{k})^n}{\prod_{j\neq k}(t_{j}-t_{k})},P(t)=\sum_{k=0}^nP_{k}^n(t)P_{k}\)</span>，则 <span class="arithmatex">\(P_{k}=p(t_{0},\cdots,t_{k-1},t_{k+1},\cdots,t_{n})\)</span> 。</li>
 </ol>
 <p>利用前两题的结论有
 $$
@@ -15250,16 +15252,16 @@ p(u_{1},\cdots,u_{n}) &amp;= \sum_{k=0}^nP_{k}^n(u_{1},\cdots,u_{n})P_{k}\
 &amp;= \sum_{k=0}^n \frac{\prod_{j}(u_{j}-t_{k})}{\prod_{j\neq k}(t_{j}-t_{k})} P_{k}
 \end{aligned}
 $$
-代入参数 $t_{i},i\neq k$ 即证。</p>
+代入参数 <span class="arithmatex">\(t_{i},i\neq k\)</span> 即证。</p>
 <ol>
-<li>令 $P(t)$ 是 $[a,b]$ 上的 $n$ 次 Bezier 曲线，它可以升次到 $n+1$ 次多项式。令 $p_{n},p_{n+1}$ 分别表示对应 $n,n+1$ 次多项式的开花，以及 $P_{0},\cdots,P_{n},Q_{0},\cdots,Q_{n+1}$ 为对应 $n,n+1$ 次 Bezier 曲线的控制点。证明
+<li>令 <span class="arithmatex">\(P(t)\)</span> 是 <span class="arithmatex">\([a,b]\)</span> 上的 <span class="arithmatex">\(n\)</span> 次 Bezier 曲线，它可以升次到 <span class="arithmatex">\(n+1\)</span> 次多项式。令 <span class="arithmatex">\(p_{n},p_{n+1}\)</span> 分别表示对应 <span class="arithmatex">\(n,n+1\)</span> 次多项式的开花，以及 <span class="arithmatex">\(P_{0},\cdots,P_{n},Q_{0},\cdots,Q_{n+1}\)</span> 为对应 <span class="arithmatex">\(n,n+1\)</span> 次 Bezier 曲线的控制点。证明
 $$
 \begin{aligned}
 p_{n+1}(u_{1},\cdots,u_{n+1}) &amp;= \frac{1}{n+1}\sum_{k=1}^n p_{n}(u_{1},\cdots,u_{k-1},u_{k+1},\cdots,u_{n+1})\
 Q_{k} &amp;= \frac{1}{n+1} [kP_{k-1}+(n+1-k)P_{k}]
 \end{aligned}
 $$
-显然第一式右端满足开花公理，因此它是 $P(t)$ 作为 $n+1$ 次多项式的开花，由唯一性即证第一式。然后
+显然第一式右端满足开花公理，因此它是 <span class="arithmatex">\(P(t)\)</span> 作为 <span class="arithmatex">\(n+1\)</span> 次多项式的开花，由唯一性即证第一式。然后
 $$
 \begin{aligned}
 Q_{k} &amp;= p_{n+1}(\underbrace{a,\cdots,a}<em>{n+1-k},\underbrace{b,\cdots,b}</em>{k})\
@@ -15271,12 +15273,12 @@ $$
 </ol>
 <h2 id="_7">样条曲线开花</h2>
 <h3 id="_8">导数和连续性</h3>
-<p>两个曲线段 $F:[r,s]\to X,G:[s,t]\to X$，其中 $X$ 是仿射空间，称它们在 $s$ 点 $C^k$ 连续当且仅当
+<p>两个曲线段 <span class="arithmatex">\(F:[r,s]\to X,G:[s,t]\to X\)</span>，其中 <span class="arithmatex">\(X\)</span> 是仿射空间，称它们在 <span class="arithmatex">\(s\)</span> 点 <span class="arithmatex">\(C^k\)</span> 连续当且仅当
 $$
 F^{(i)}(s)=G^{(i)}(s),\quad i=0,\cdots,k
 $$
 我们考虑它们的开花之间的关系。</p>
-<p>令 $f,g$ 表示 $F,G$ 的开花，且 $F,G$ 有相同次数 $d$ 。于是
+<p>令 <span class="arithmatex">\(f,g\)</span> 表示 <span class="arithmatex">\(F,G\)</span> 的开花，且 <span class="arithmatex">\(F,G\)</span> 有相同次数 <span class="arithmatex">\(d\)</span> 。于是
 $$
 \begin{aligned}
 F^{(1)}(s) &amp;= \frac{d}{du}F(s+u)\bigg|<em>{u=0}\
@@ -15284,7 +15286,7 @@ F^{(1)}(s) &amp;= \frac{d}{du}F(s+u)\bigg|<em>{u=0}\
 &amp;= \sum_{i=1}^d \frac{\partial f}{\partial u_{i}}(u_{1},\cdots,u_{d})\bigg|<em>{u</em>{1}=\cdots=u_{d}=s} \frac{du_{i}}{du}\bigg|<em>{u=0}
 \end{aligned}
 $$
-其中 $u</em>{i}=s+u$，因此 $\frac{du_{i}}{du}\big|<em>{u=0}=1$，只需要考虑偏导部分
+其中 <span class="arithmatex">\(u_{i}=s+u\)</span>，因此 <span class="arithmatex">\(\frac{du_{i}}{du}\big|_{u=0}=1\)</span>，只需要考虑偏导部分
 $$
 \begin{aligned}
 \frac{\partial f}{\partial u</em>{i}}(u_{1},\cdots,u_{d})\bigg|<em>{u</em>{1}=\cdots=u_{d}=s} &amp;= 
@@ -15298,7 +15300,7 @@ $$
 F^{(k)}(s) = \frac{n!}{(n-k)!}\sum_{i=0}^k(-1)^i\binom{k}{i}f(\underbrace{s,\cdots,s}<em>{n-k},\underbrace{1,\cdots,1}</em>{k-i},\underbrace{0,\cdots,0}_{i})
 $$
 这里的公式是前面齐次形式导数的去齐次化结果。</p>
-<p>考虑 $C^1$ 连续性条件为
+<p>考虑 <span class="arithmatex">\(C^1\)</span> 连续性条件为
 $$
 \begin{aligned}
 f(s,\cdots,s) &amp;= g(s,\cdots,s)\
@@ -15309,36 +15311,36 @@ $$
 $$
 f(s+1,s,\cdots,s) = g(s+1,s,\cdots,s)
 $$
-由于任意 $x$ 都可以写成 $s,s+1$ 的线性组合，根据仿射性质
+由于任意 <span class="arithmatex">\(x\)</span> 都可以写成 <span class="arithmatex">\(s,s+1\)</span> 的线性组合，根据仿射性质
 $$
 f(x,s,\cdots,s)=g(x,s,\cdots,s)
 $$
-对任意 $x$ 恒成立。该式可以反推出上述连续性条件，因此它是充要条件。</p>
+对任意 <span class="arithmatex">\(x\)</span> 恒成立。该式可以反推出上述连续性条件，因此它是充要条件。</p>
 <blockquote>
 <p>[!theorem]
-两个 $n$ 次多项式 $F:[r,s]\to X,G:[s,t]\to X$ 在 $s$ 处 $C^k$ 连续当且仅当它们的开花 $f,g$ 满足
+两个 <span class="arithmatex">\(n\)</span> 次多项式 <span class="arithmatex">\(F:[r,s]\to X,G:[s,t]\to X\)</span> 在 <span class="arithmatex">\(s\)</span> 处 <span class="arithmatex">\(C^k\)</span> 连续当且仅当它们的开花 <span class="arithmatex">\(f,g\)</span> 满足
 $$
 f(x_{1},\cdots,x_{k},s,\cdots,s)=g(x_{1},\cdots,x_{k},s,\cdots,s)
 $$
-对任意 $x_{1},\cdots,x_{k}$ 恒成立。</p>
+对任意 <span class="arithmatex">\(x_{1},\cdots,x_{k}\)</span> 恒成立。</p>
 </blockquote>
 <h3 id="b">B 样条和分段开花</h3>
-<p>若 $t_{i},\cdots,t_{i+5}$ 构成节点 knots，则 4 个控制点
+<p>若 <span class="arithmatex">\(t_{i},\cdots,t_{i+5}\)</span> 构成节点 knots，则 4 个控制点
 $$
 t_{i}t_{i+1}t_{i+2},\quad t_{i+1}t_{i+2}t_{i+3},\quad t_{i+2}t_{i+3}t_{i+4},\quad t_{i+3}t_{i+4}t_{i+5}
 $$
-决定了渐近开花 progressive blossom $f_{i}$ 。注意到
+决定了渐近开花 progressive blossom <span class="arithmatex">\(f_{i}\)</span> 。注意到
 $$
 t_{i+2}t_{i+2}t_{i+2},\quad t_{i+2}t_{i+2}t_{i+3},\quad t_{i+2}t_{i+3}t_{i+3},\quad t_{i+3}t_{i+3}t_{i+3}
 $$
-构成 $[t_{i+2},t_{i+3}]$ 上的 Bezier 控制点。下图给出计算 Bezier 控制点的直观解释</p>
+构成 <span class="arithmatex">\([t_{i+2},t_{i+3}]\)</span> 上的 Bezier 控制点。下图给出计算 Bezier 控制点的直观解释</p>
 <p><img alt="" src="image-20251121122813659.png|500" /></p>
-<p>对于 $d$ 次多项式段，其渐近值
+<p>对于 <span class="arithmatex">\(d\)</span> 次多项式段，其渐近值
 $$
 P_{i+j} = t_{i+j}\cdots t_{i+j+d-1},\quad j=0,\cdots,d
 $$
-决定了每段的开花。如果 $d=3$，则它们决定了 $[t_{i+2},t_{i+3}]$ 上的多项式函数。</p>
-<p>我们希望得到 $F(t)=f_{i}(t,t,t),t\in[t_{i+2},t_{i+3}]$，且具有 $C^2$ 拼接。于是根据前面开花连续性定理有
+决定了每段的开花。如果 <span class="arithmatex">\(d=3\)</span>，则它们决定了 <span class="arithmatex">\([t_{i+2},t_{i+3}]\)</span> 上的多项式函数。</p>
+<p>我们希望得到 <span class="arithmatex">\(F(t)=f_{i}(t,t,t),t\in[t_{i+2},t_{i+3}]\)</span>，且具有 <span class="arithmatex">\(C^2\)</span> 拼接。于是根据前面开花连续性定理有
 $$
 \begin{aligned}
 f_{i-1}(t_{i},t_{i+1},t_{i+2}) &amp;= f_{i}(t_{i},t_{i+1},t_{i+2}) \
@@ -15346,11 +15348,11 @@ f_{i-1}(t_{i+1},t_{i+2},t_{i+3}) &amp;= f_{i}(t_{i+1},t_{i+2},t_{i+3}) \
 f_{i-1}(t_{i+2},t_{i+3},t_{i+4}) &amp;= f_{i}(t_{i+2},t_{i+3},t_{i+4}) 
 \end{aligned}
 $$
-这是 $t_{i+2}$ 处的 $C^2$ 连续条件。再加上左右自由端点
+这是 <span class="arithmatex">\(t_{i+2}\)</span> 处的 <span class="arithmatex">\(C^2\)</span> 连续条件。再加上左右自由端点
 $$
 f_{i-1}(t_{i-1},t_{i},t_{i+1}),\quad f_{i}(t_{i+3},t_{i+4},t_{i+5})
 $$
-不影响连续性，下图给出 $f_{i-1},f_{i},f_{i+1}$ 在 $t_{i+2},t_{i+3}$ 处的拼接</p>
+不影响连续性，下图给出 <span class="arithmatex">\(f_{i-1},f_{i},f_{i+1}\)</span> 在 <span class="arithmatex">\(t_{i+2},t_{i+3}\)</span> 处的拼接</p>
 <p><img alt="" src="image-20251121124238272.png" /></p>
 <p>定义分段开花
 $$
@@ -15361,7 +15363,7 @@ f_{j}(u_{1},u_{2},u_{3}), &amp; u_{i}\mathrm{\ are\ all\ equal},\quad u_{i}\in[t
 \end{cases}
 $$
 其中上下两式分别对应 B 样条曲线和分段 Bezier 曲线。</p>
-<p>对于任意次数 $d$，则 $t_{i+d-1}$ 处的 $C^{d-1}$ 连续性条件为
+<p>对于任意次数 <span class="arithmatex">\(d\)</span>，则 <span class="arithmatex">\(t_{i+d-1}\)</span> 处的 <span class="arithmatex">\(C^{d-1}\)</span> 连续性条件为
 $$
 f_{i-1}(t_{i+d-1},u_{2},\cdots,u_{d})=f_{i}(t_{i+d-1},u_{2},\cdots,u_{d}),\quad \forall u_{2},\cdots,u_{d}
 $$
@@ -15373,7 +15375,7 @@ f_{i-1}(t_{i},\cdots,t_{i+d-1})=f_{i}(t_{i},\cdots,t_{i+d-1})\
 f_{i-1}(t_{i+d-1},\cdots,t_{i+2d-2})=f_{i}(t_{i+d-1},\cdots,t_{i+2d-2})
 \end{matrix}
 $$
-当 $d=3$ 时就得到前面的 $C^2$ 连续性条件。于是
+当 <span class="arithmatex">\(d=3\)</span> 时就得到前面的 <span class="arithmatex">\(C^2\)</span> 连续性条件。于是
 $$
 f(u_{1},\cdots,u_{d}) = 
 \begin{cases}
@@ -15381,14 +15383,14 @@ f_{i}(u_{1},\cdots,u_{d}), &amp; u_{i}\mathrm{\ are\ not\ all\ equal}, \quad u_{
 f_{j}(u_{1},\cdots,u_{d}), &amp; u_{i}\mathrm{\ are\ all\ equal},\quad u_{i}\in[t_{j+d-1},t_{j+d}]
 \end{cases}
 $$
-就是推广到 $d$ 维的分段开花。</p>
+就是推广到 <span class="arithmatex">\(d\)</span> 维的分段开花。</p>
 <h3 id="_9">节点插入</h3>
 <p>有两种节点插入算法</p>
 <ul>
 <li>Boehm 算法限制在单节点重复插入</li>
 <li>Oslo 算法允许任意节点插入</li>
 </ul>
-<p>以 Boehm 算法为例，考虑 3 次 B 样条 $F(u)$，要插入节点 $\hat{t}\in[t_{i},t_{i+1}]$，在原始控制点
+<p>以 Boehm 算法为例，考虑 3 次 B 样条 <span class="arithmatex">\(F(u)\)</span>，要插入节点 <span class="arithmatex">\(\hat{t}\in[t_{i},t_{i+1}]\)</span>，在原始控制点
 $$
 \begin{aligned}
 P_{i-1} &amp;= f(t_{i-1},t_{i},t_{i+1})\
@@ -15410,17 +15412,17 @@ $$
 $$
 F(u,v) = \sum_{i,j}P_{i,j}b_{i}(u)b_{j}(v)
 $$
-它的开花 $f(u_{1},\cdots,u_{d};v_{1},\cdots,v_{d})$ 具有性质</p>
+它的开花 <span class="arithmatex">\(f(u_{1},\cdots,u_{d};v_{1},\cdots,v_{d})\)</span> 具有性质</p>
 <ol>
-<li>$f$ 关于它的 $2d$ 个参数具有仿射性</li>
-<li>$f$ 关于 $u_{i}$ 的置换对称</li>
-<li>$f$ 关于 $v_{i}$ 的置换对称</li>
-<li>$F(u,v)=f(u,\cdots,u;v,\cdots,v)$</li>
+<li><span class="arithmatex">\(f\)</span> 关于它的 <span class="arithmatex">\(2d\)</span> 个参数具有仿射性</li>
+<li><span class="arithmatex">\(f\)</span> 关于 <span class="arithmatex">\(u_{i}\)</span> 的置换对称</li>
+<li><span class="arithmatex">\(f\)</span> 关于 <span class="arithmatex">\(v_{i}\)</span> 的置换对称</li>
+<li><span class="arithmatex">\(F(u,v)=f(u,\cdots,u;v,\cdots,v)\)</span></li>
 </ol>
-<p>如果允许 $u$ 在 $\mathbb{R}^2$ 上取值，则可以得到非张量积曲面，每个 $u$ 通过如下唯一性定理映射到 $Q(u)$ 上</p>
+<p>如果允许 <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 上取值，则可以得到非张量积曲面，每个 <span class="arithmatex">\(u\)</span> 通过如下唯一性定理映射到 <span class="arithmatex">\(Q(u)\)</span> 上</p>
 <blockquote>
 <p>[!theorem]
-令 $Q$ 是 $d$ 次 2 元多项式。若 $D\geq d$，则存在唯一对称 $D$ 变量仿射函数 $q$ 使得 $Q(u)=q(\underbrace{u,\cdots,u}_{D})$ 。</p>
+令 <span class="arithmatex">\(Q\)</span> 是 <span class="arithmatex">\(d\)</span> 次 2 元多项式。若 <span class="arithmatex">\(D\geq d\)</span>，则存在唯一对称 <span class="arithmatex">\(D\)</span> 变量仿射函数 <span class="arithmatex">\(q\)</span> 使得 <span class="arithmatex">\(Q(u)=q(\underbrace{u,\cdots,u}_{D})\)</span> 。</p>
 </blockquote>
 <p>三角形域上的 Bezier 控制点为
 $$
@@ -15429,7 +15431,7 @@ $$
 例如 2 次三角 Bezier 曲面的控制点如下图</p>
 <p><img alt="" src="image-20251121131750078.png|500" /></p>
 <h3 id="_11">求值</h3>
-<p>给定 $u=\alpha_{1} r+\alpha_{2}s+\alpha_{3}t$，则
+<p>给定 <span class="arithmatex">\(u=\alpha_{1} r+\alpha_{2}s+\alpha_{3}t\)</span>，则
 $$
 \begin{aligned}
 q(u,u) &amp;= q(\alpha_{1} r+\alpha_{2}s+\alpha_{3}t, u)\
@@ -15442,9 +15444,9 @@ q(t,u) &amp;= q(t,\alpha_{1} r+\alpha_{2}s+\alpha_{3}t)\
 &amp;= \alpha_{1}q(t,r)+\alpha_{2}(t,s)+\alpha_{3}q(t,t)
 \end{aligned}
 $$
-从而可以递推计算出 $Q(u)=q(u,u)$ 。</p>
+从而可以递推计算出 <span class="arithmatex">\(Q(u)=q(u,u)\)</span> 。</p>
 <h3 id="_12">细分</h3>
-<p>细分过程等价于在计算 $q(u,u)$ 过程中得到的新控制点，其中
+<p>细分过程等价于在计算 <span class="arithmatex">\(q(u,u)\)</span> 过程中得到的新控制点，其中
 $$
 \begin{matrix}
 q(r,r)\
@@ -15467,11 +15469,11 @@ $$
 就是细分出的 3 个子面片。</p>
 <p><img alt="" src="image-20251121132335446.png|500" /></p>
 <h3 id="_13">升阶</h3>
-<p>对于 2 次曲面 $Q(u)$ 和对应的开花 $q(u_{1},u_{2})$，则升阶得到的曲面 $\tilde{Q}(u)$ 的开花满足
+<p>对于 2 次曲面 <span class="arithmatex">\(Q(u)\)</span> 和对应的开花 <span class="arithmatex">\(q(u_{1},u_{2})\)</span>，则升阶得到的曲面 <span class="arithmatex">\(\tilde{Q}(u)\)</span> 的开花满足
 $$
 \tilde{q}(u_{1},u_{2},u_{3}) = \frac{q(u_{1},u_{2})+q(u_{2},u_{3})+q(u_{3},u_{1})}{3}
 $$
-注意这里 $Q(u),\tilde{Q}(u)$ 的参数域分别是 $\mathbb{R}^2,\mathbb{R^3}$，但是开花形式的升阶与曲线升阶相同。例如
+注意这里 <span class="arithmatex">\(Q(u),\tilde{Q}(u)\)</span> 的参数域分别是 <span class="arithmatex">\(\mathbb{R}^2,\mathbb{R^3}\)</span>，但是开花形式的升阶与曲线升阶相同。例如
 $$
 \begin{aligned}
 \tilde{P}<em>{300} &amp;= \tilde{q}(r,r,r) = \frac{q(r,r)+q(r,r)+q(r,r)}{3} = P</em>{200}\
@@ -15481,10 +15483,10 @@ $$
 与 Bezier 曲线曲面不同，B 样条曲线到曲面的简单推广表示还未被发现。</p>
 <h2 id="_14">节点插入</h2>
 <h3 id="blossom-de-boor">Blossom 与 de Boor 算法</h3>
-<p>令 $p(t)$ 是 $n$ 次 B 样条曲线段，控制点为 $P_{0},\cdots,P_{n}$，节点向量为 $t_{1},\cdots,t_{2n}$，则 $p(t)$ 是 $[t_{n},t_{n+1}]$ 上的曲线段。注意这里控制点数恰好比次数多 1，因此是 Bezier 曲线。</p>
+<p>令 <span class="arithmatex">\(p(t)\)</span> 是 <span class="arithmatex">\(n\)</span> 次 B 样条曲线段，控制点为 <span class="arithmatex">\(P_{0},\cdots,P_{n}\)</span>，节点向量为 <span class="arithmatex">\(t_{1},\cdots,t_{2n}\)</span>，则 <span class="arithmatex">\(p(t)\)</span> 是 <span class="arithmatex">\([t_{n},t_{n+1}]\)</span> 上的曲线段。注意这里控制点数恰好比次数多 1，因此是 Bezier 曲线。</p>
 <blockquote>
 <blockquote>
-<p>注意正常的节点 $t_{0},t_{2n+1}$ 在极形式下被忽略。</p>
+<p>注意正常的节点 <span class="arithmatex">\(t_{0},t_{2n+1}\)</span> 在极形式下被忽略。</p>
 </blockquote>
 <p>[!definition] de Boor Algorithm
 $$
@@ -15493,7 +15495,7 @@ p_{i}^0(t) &amp;= P_{i},\quad i=0,\cdots,n\
 p_{i}^r(t) &amp;= \frac{t_{i+n+1-r}-t}{t_{i+n+1-r}-t_{i}}p_{i-1}^{r-1}(t)+\frac{t-t_{i}}{t_{i+n+1-r}-t_{i}}p_{i}^{r-1}(t),\quad r=1,\cdots,n,\quad i=r,\cdots,n
 \end{aligned}
 $$
-则 $p_{n}^n(t)=p(t)$ 。</p>
+则 <span class="arithmatex">\(p_{n}^n(t)=p(t)\)</span> 。</p>
 </blockquote>
 <p><img alt="" src="image-20251122155849252.png|500" /></p>
 <blockquote>
@@ -15503,17 +15505,17 @@ $$
 P_{i}=B_{p}(t_{i+1},\cdots,t_{i+n}),\quad i=0,\cdots,n
 $$</p>
 <p>[!definition] Blossoming Algorithm 1
-开花 $B_{p}(u_{1},\cdots,u_{n})$ 只需要通过将 de Boor 算法中 $r$ 层的 $t$ 替换为 $u_{r}$ 得到，即
+开花 <span class="arithmatex">\(B_{p}(u_{1},\cdots,u_{n})\)</span> 只需要通过将 de Boor 算法中 <span class="arithmatex">\(r\)</span> 层的 <span class="arithmatex">\(t\)</span> 替换为 <span class="arithmatex">\(u_{r}\)</span> 得到，即
 $$
 \begin{aligned}
 B_{i}^0(u_{1},\cdots,u_{n}) &amp;= P_{i},\quad i=0,\cdots,n\
 B_{i}^r(u_{1},\cdots,u_{n}) &amp;= \frac{t_{i+n+1-r}-u_{r}}{t_{i+n+1-r}-t_{i}}B_{i-1}^{r-1}(u_{1},\cdots,u_{n})+\frac{u_{r}-t_{i}}{t_{i+n+1-r}-t_{i}}B_{i}^{r-1}(u_{1},\cdots,u_{n}),\quad r=1,\cdots,n,\quad i=r,\cdots,n
 \end{aligned}
 $$
-则 $B_{n}^n(u_{1},\cdots,u_{n})=B_{p}(u_{1},\cdots,u_{n})$ 。</p>
+则 <span class="arithmatex">\(B_{n}^n(u_{1},\cdots,u_{n})=B_{p}(u_{1},\cdots,u_{n})\)</span> 。</p>
 </blockquote>
 <p><img alt="" src="image-20251122160140154.png|500" /></p>
-<p>从 $n+1$ 个开花值 $B_{p}(t_{1},\cdots,t_{n}),\cdots,B_{p}(t_{n+1},\cdots,t_{2n})$ 开始，多仿射性质可以得到 $B_{p}(u_{1},\cdots,u_{n})$ 的递归公式
+<p>从 <span class="arithmatex">\(n+1\)</span> 个开花值 <span class="arithmatex">\(B_{p}(t_{1},\cdots,t_{n}),\cdots,B_{p}(t_{n+1},\cdots,t_{2n})\)</span> 开始，多仿射性质可以得到 <span class="arithmatex">\(B_{p}(u_{1},\cdots,u_{n})\)</span> 的递归公式
 $$
 \begin{aligned}
 B_{p}(u_{1},\cdots,u_{r},t_{i+1},\cdots,t_{i+n-r}) &amp;= 
@@ -15521,7 +15523,7 @@ B_{p}(u_{1},\cdots,u_{r},t_{i+1},\cdots,t_{i+n-r}) &amp;=
 &amp;+\frac{u_{r}-t_{i}}{t_{i+n+1-r}-t_{i}}B_{p}(u_{1},\cdots,u_{r-1},t_{i+1},\cdots,t_{i+n+1-r})
 \end{aligned}
 $$
-注意右端两项是 $t_{i},t_{i+n+1-r}$ 的仿射组合。</p>
+注意右端两项是 <span class="arithmatex">\(t_{i},t_{i+n+1-r}\)</span> 的仿射组合。</p>
 <blockquote>
 <p>[!definition] Blossoming Algorithm 2
 $$
@@ -15539,35 +15541,35 @@ B_{n}^n(u_{1},\cdots,u_{n}) &amp;= B_{p}(u_{1},\cdots,u_{n})
 $$</p>
 </blockquote>
 <p><img alt="" src="image-20251122161621012.png|500" /></p>
-<p>我们证明前面的断言 $P_{i}=B(t_{i+1},\cdots,t_{i+n})$ 成立。首先 $p(t)=B(t,\cdots,t)$，并且
+<p>我们证明前面的断言 <span class="arithmatex">\(P_{i}=B(t_{i+1},\cdots,t_{i+n})\)</span> 成立。首先 <span class="arithmatex">\(p(t)=B(t,\cdots,t)\)</span>，并且
 $$
 \begin{aligned}
 p(t) &amp;= \sum_{i}P_{i}b_{i}(t)\
 B_{p}(t,\cdots,t) &amp;= \sum_{i}B(t_{i+1},\cdots,t_{i+n})b_{i}(t)
 \end{aligned}
 $$
-两式都是递归公式的结果，又因为 $b_{i}(t)$ 构成 $n$ 次多项式基，因此其中系数对应相等。</p>
+两式都是递归公式的结果，又因为 <span class="arithmatex">\(b_{i}(t)\)</span> 构成 <span class="arithmatex">\(n\)</span> 次多项式基，因此其中系数对应相等。</p>
 <h3 id="_15">节点插入算法</h3>
-<p>考虑将新节点 $u_{j}$ 插入 $[t_{i},t_{i+1}]$，此区间段上的多项式为 $p_{i}(t)$ 。插入过程将 $p_{i}(t)$ 分割为两段，因此新的控制点完全依赖 $p_{i}(t)$ 的控制点。</p>
+<p>考虑将新节点 <span class="arithmatex">\(u_{j}\)</span> 插入 <span class="arithmatex">\([t_{i},t_{i+1}]\)</span>，此区间段上的多项式为 <span class="arithmatex">\(p_{i}(t)\)</span> 。插入过程将 <span class="arithmatex">\(p_{i}(t)\)</span> 分割为两段，因此新的控制点完全依赖 <span class="arithmatex">\(p_{i}(t)\)</span> 的控制点。</p>
 <h4 id="boehm-de-boor">Boehm 节点插入算法是 de Boor 算法</h4>
-<p>假设要在 $[t_{n},t_{n+1}]$ 插入 $u$ 节点，则
+<p>假设要在 <span class="arithmatex">\([t_{n},t_{n+1}]\)</span> 插入 <span class="arithmatex">\(u\)</span> 节点，则
 $$
 \begin{aligned}
 Q_{i} &amp;= B_{q}(t_{i+1},\cdots,t_{n},u,t_{n+1},\cdots,t_{n+i-1}) = B_{p}(t_{i+1},\cdots,t_{n},u,t_{n+1},\cdots,t_{n+i-1})\
 R_{i} &amp;= B_{r}(t_{i+2},\cdots,t_{n},u,t_{n+1},\cdots,t_{n+i}) = B_{p}(t_{i+2},\cdots,t_{n},u,t_{n+1},\cdots,t_{n+i})
 \end{aligned}
 $$
-因此 Boehm 节点插入（单/双）可以表示为下图，在 $[t_{3},t_{4}]$ 中插入 $u$ 节点</p>
+因此 Boehm 节点插入（单/双）可以表示为下图，在 <span class="arithmatex">\([t_{3},t_{4}]\)</span> 中插入 <span class="arithmatex">\(u\)</span> 节点</p>
 <p><img alt="" src="image-20251122164413944.png|500" />
 <img alt="" src="image-20251122164436776.png|500" />
 <img alt="" src="image-20251122164832422.png|500" /></p>
-<p>注意到新的控制点沿着左侧、顶部、右侧边界依次排列。计算 $d$ 次节点插入的开销为
+<p>注意到新的控制点沿着左侧、顶部、右侧边界依次排列。计算 <span class="arithmatex">\(d\)</span> 次节点插入的开销为
 $$
 n+(n-1)+\cdots+(n-d+1) = \frac{d(2n-d+1)}{2} = dn-\frac{d(d-1)}{2} &lt; dn
 $$
 次 Blossom 值。</p>
 <h4 id="oslo">Oslo 算法是开花算法</h4>
-<p>在 $[t_{n},t_{n+1}]$ 上插入 $u_{1},\cdots,u_{d}$ 的开花值为
+<p>在 <span class="arithmatex">\([t_{n},t_{n+1}]\)</span> 上插入 <span class="arithmatex">\(u_{1},\cdots,u_{d}\)</span> 的开花值为
 $$
 \begin{aligned}
 &amp;B(t_{1},\cdots,t_{n}),\cdots,B(t_{i+1},\cdots,t_{n},u_{1},\cdots,u_{i}),\cdots,\
@@ -15575,7 +15577,7 @@ $$
 &amp;B(u_{i+1-n},\cdots,u_{d},t_{n+1},\cdots,t_{n+i-d}),\cdots,B(t_{n+1},\cdots,t_{2n})
 \end{aligned}
 $$
-原始的 Oslo 算法计算 $B(t_{i+1},\cdots,t_{n},u_{1},\cdots,u_{i})$ 的方式是在 $[t_{i},t_{i+1}]$ 上开花，可以在
+原始的 Oslo 算法计算 <span class="arithmatex">\(B(t_{i+1},\cdots,t_{n},u_{1},\cdots,u_{i})\)</span> 的方式是在 <span class="arithmatex">\([t_{i},t_{i+1}]\)</span> 上开花，可以在
 $$
 u_{1},\cdots,u_{i}
 $$
@@ -15583,7 +15585,7 @@ $$
 $$
 n+(n-1)+\cdots+1= \frac{n(n+1)}{2}
 $$
-次仿射组合，插入 $d$ 次需要计算 $d+n-1$ 个新控制点，因此
+次仿射组合，插入 <span class="arithmatex">\(d\)</span> 次需要计算 <span class="arithmatex">\(d+n-1\)</span> 个新控制点，因此
 $$
 \frac{(d+n-1)n(n+1)}{2}
 $$
@@ -15600,7 +15602,7 @@ B(t_{i+1},\cdots,t_{n},u_{1},\cdots,u_{i}) &amp;= B_{i}^i(u_{1},\cdots,u_{i},\cd
 B(u_{i+1-n},\cdots,u_{d},t_{n+1},\cdots,t_{n+i-d}) &amp;= B_{n}^{d+n-i}(u_{i+1-n},\cdots,u_{d},\cdots)
 \end{aligned}
 $$
-分别对应开花的左右边。如果 $d \geq n+1$，例如 $n=3,d=5,[t_{3},t_{4}]$，则开花流程为
+分别对应开花的左右边。如果 <span class="arithmatex">\(d \geq n+1\)</span>，例如 <span class="arithmatex">\(n=3,d=5,[t_{3},t_{4}]\)</span>，则开花流程为
 $$
 \begin{matrix}
 \bbox[red]{B(u_{1},u_{2},u_{3})} \
@@ -15634,8 +15636,8 @@ B(t_{2},t_{3},u_{5}),B(t_{3},t_{4},u_{5}),\bbox[red]{B(t_{4},t_{5},u_{5})}\
 B(t_{1},t_{2},t_{3}),B(t_{2},t_{3},t_{4}),B(t_{3},t_{4},t_{5}),\bbox[red]{B(t_{4},t_{5},t_{6})}
 \end{matrix}\tag{3}
 $$
-新控制点标记为红色。使用 Boehm 算法插入 $n+1$ 次需要 $n(n+1)$ 次仿射组合；改良 Oslo 算法插入 $n+1$ 次需要计算两个相同规模的开花，即上式中 $(1),(3)$，共 $n(n+1)$ 次仿射组合。</p>
-<p>如果 $d&lt;n+1$，例如 $n=3,d=2,[t_{3},t_{4}]$，则开花流程为
+新控制点标记为红色。使用 Boehm 算法插入 <span class="arithmatex">\(n+1\)</span> 次需要 <span class="arithmatex">\(n(n+1)\)</span> 次仿射组合；改良 Oslo 算法插入 <span class="arithmatex">\(n+1\)</span> 次需要计算两个相同规模的开花，即上式中 <span class="arithmatex">\((1),(3)\)</span>，共 <span class="arithmatex">\(n(n+1)\)</span> 次仿射组合。</p>
+<p>如果 <span class="arithmatex">\(d&lt;n+1\)</span>，例如 <span class="arithmatex">\(n=3,d=2,[t_{3},t_{4}]\)</span>，则开花流程为
 $$
 \begin{matrix}
 \bbox[red]{B(t_{3},u_{1},u_{2})},\bbox[red]{B(t_{4},u_{1},u_{2})}\
@@ -15652,14 +15654,14 @@ $$
 B(t_{3},t_{4},t_{5}),\bbox[red]{B(t_{4},t_{5},t_{6})}
 \end{matrix}
 $$
-新控制点标记为红色。使用 Boehm 算法插入 $d$ 次需要 $dn$ 次仿射组合；改良 Oslo 算法插入 $d$ 次需要计算两个开花，第一个开花范围是所有影响控制点，但只需要计算 $d$ 层；第二个开花范围是最后受影响的 $d$ 个控制点，因此
+新控制点标记为红色。使用 Boehm 算法插入 <span class="arithmatex">\(d\)</span> 次需要 <span class="arithmatex">\(dn\)</span> 次仿射组合；改良 Oslo 算法插入 <span class="arithmatex">\(d\)</span> 次需要计算两个开花，第一个开花范围是所有影响控制点，但只需要计算 <span class="arithmatex">\(d\)</span> 层；第二个开花范围是最后受影响的 <span class="arithmatex">\(d\)</span> 个控制点，因此
 $$
 \frac{d(2n-d+1)}{2}+\frac{d(d-1)}{2}=dn
 $$
 就是总开销。</p>
 <blockquote>
 <blockquote>
-<p>Boehm 算法和 Oslo 算法在处理单节点多次插入时都比多次插入相同节点更高效。因此可以先插入重复的相同节点，再插入不同的单节点。此外，考虑到 $d&lt;n+1$ 比 $d\geq n+1$ 时更高效，因此可以优先使用前者。</p>
+<p>Boehm 算法和 Oslo 算法在处理单节点多次插入时都比多次插入相同节点更高效。因此可以先插入重复的相同节点，再插入不同的单节点。此外，考虑到 <span class="arithmatex">\(d&lt;n+1\)</span> 比 <span class="arithmatex">\(d\geq n+1\)</span> 时更高效，因此可以优先使用前者。</p>
 </blockquote>
 </blockquote>
 <h2 id="b_1">离散 B 样条</h2>
@@ -15668,7 +15670,7 @@ $$
 $$
 P = P_{0}P_{1}\cdots P_{n}
 $$
-对应的空间曲线为 $\gamma(r)=\sum_{i=0}^nP_{i}N_{ik}(s)$，其中 $k-1$ 次 B 样条基函数 $N_{ik}(s)$ 定义在节点向量
+对应的空间曲线为 <span class="arithmatex">\(\gamma(r)=\sum_{i=0}^nP_{i}N_{ik}(s)\)</span>，其中 <span class="arithmatex">\(k-1\)</span> 次 B 样条基函数 <span class="arithmatex">\(N_{ik}(s)\)</span> 定义在节点向量
 $$
 \tau=(\tau_{0},\cdots,\tau_{q})
 $$
@@ -15679,33 +15681,33 @@ P_{r}, &amp; i=0\
 \lambda_{i}P_{r}^{[i-1]}(s)+(1-\lambda_{i})P_{r-1}^{[i-1]}(s), &amp; \mathrm{otherwise}
 \end{cases}
 $$
-其中 $\tau_{j}\leq s&lt;\tau_{j+1},\lambda_{i}=(s-\tau_{q}) /(\tau_{q-i+k}-\tau_{q})$ 。</p>
+其中 <span class="arithmatex">\(\tau_{j}\leq s&lt;\tau_{j+1},\lambda_{i}=(s-\tau_{q}) /(\tau_{q-i+k}-\tau_{q})\)</span> 。</p>
 <h3 id="_17">问题</h3>
 <p>离散样条是差分最小化问题的解，并且被证明它收敛到连续问题的解。考虑 B 样条形式的分段多项式
 $$
 f(x)= \sum_{i=1}^nP_{i}B_{ik}(x)
 $$
-节点向量 $\tau={\tau_{1},\cdots,\tau_{n+k}}$ 可以非均匀且有重数。假设要添加节点 $\tau^a={\tau_{1}^a,\cdots,\tau_{l}^a}$，令 $m=n+l$，新的节点向量为 $t={t_{1},\cdots,t_{m+k}}=\tau \cup\tau^a$ 。此时用 $N_{jk}$ 表示 $t$ 上的 B 样条，则
+节点向量 <span class="arithmatex">\(\tau=\{\tau_{1},\cdots,\tau_{n+k}\}\)</span> 可以非均匀且有重数。假设要添加节点 <span class="arithmatex">\(\tau^a=\{\tau_{1}^a,\cdots,\tau_{l}^a\}\)</span>，令 <span class="arithmatex">\(m=n+l\)</span>，新的节点向量为 <span class="arithmatex">\(t=\{t_{1},\cdots,t_{m+k}\}=\tau \cup\tau^a\)</span> 。此时用 <span class="arithmatex">\(N_{jk}\)</span> 表示 <span class="arithmatex">\(t\)</span> 上的 B 样条，则
 $$
 f(x) = \sum_{j=1}^md_{j}N_{jk}(x)
 $$
 现在考虑如下问题</p>
 <blockquote>
 <p>[!problem]
-给定 $k,n,m,\tau,t$ 和 ${P_{1},\cdots,P_{n}}$，计算 ${d_{1},\cdots,d_{m}}$ 。</p>
+给定 <span class="arithmatex">\(k,n,m,\tau,t\)</span> 和 <span class="arithmatex">\(\{P_{1},\cdots,P_{n}\}\)</span>，计算 <span class="arithmatex">\(\{d_{1},\cdots,d_{m}\}\)</span> 。</p>
 </blockquote>
 <h4 id="_18">插值</h4>
-<p>存在多种解法，例如选择 $m$ 个点 $\rho_{1},\cdots,\rho_{m}$，然后求解
+<p>存在多种解法，例如选择 <span class="arithmatex">\(m\)</span> 个点 <span class="arithmatex">\(\rho_{1},\cdots,\rho_{m}\)</span>，然后求解
 $$
 \sum_{j=1}^md_{j}N_{jk}(\rho_{i}) = f(\rho_{i}),\quad i=1,\cdots,m
 $$
-如果 $t_{j}&lt;\rho_{j}&lt;t_{j+k}$，则系数矩阵是带状全正矩阵，上述问题存在唯一解。</p>
+如果 <span class="arithmatex">\(t_{j}&lt;\rho_{j}&lt;t_{j+k}\)</span>，则系数矩阵是带状全正矩阵，上述问题存在唯一解。</p>
 <h4 id="_19">准插值</h4>
 <p>或者使用准插值 quasi-interpolant，定义
 $$
 \lambda_{j}f = \frac{1}{(k-1)!}\sum_{r=0}^{k-1}(-1)^{k-1-r}\Psi_{j}^{(r)}(a_{j})f^{(k-1-r)}(a_{j})
 $$
-其中 $a_{j}\in(t_{j},t_{j+k})$，然后
+其中 <span class="arithmatex">\(a_{j}\in(t_{j},t_{j+k})\)</span>，然后
 $$
 \Psi_{j}(y) = \prod_{r=1}^{k-1}(y-t_{j+r})
 $$
@@ -15713,19 +15715,19 @@ $$
 $$
 \lambda_{j}N_{ik} = \delta_{ij}
 $$
-因此在 $f(x)$ 表达式左右作用 $\lambda_{j}$ 得到
+因此在 <span class="arithmatex">\(f(x)\)</span> 表达式左右作用 <span class="arithmatex">\(\lambda_{j}\)</span> 得到
 $$
 d_{j} = \lambda_{j}f
 $$
-如果 $f$ 具有分段多项式形式，那么这种方法具有优势。</p>
+如果 <span class="arithmatex">\(f\)</span> 具有分段多项式形式，那么这种方法具有优势。</p>
 <h3 id="_20">递归</h3>
 <p>这类似于 Lane-Riesenfeld 对均匀节点样条的细分方法，但是这里提出的方法对任意节点都有效。注意到
 $$
 d_{j} = \sum_{i=1}^n\alpha_{ik}(j)P_{i}
 $$
-即 $d_{j}$ 是所有原控制点的线性组合。</p>
-<h4 id="k1">$k=1$</h4>
-<p>先考虑 $k=1$ 时
+即 <span class="arithmatex">\(d_{j}\)</span> 是所有原控制点的线性组合。</p>
+<h4 id="k1"><span class="arithmatex">\(k=1\)</span></h4>
+<p>先考虑 <span class="arithmatex">\(k=1\)</span> 时
 $$
 f(x) = \sum_{i=1}^nP_{i}B_{i1}(x),\quad
 B_{i1}(x) =
@@ -15755,10 +15757,10 @@ $$
 0, &amp; \mathrm{otherwise}
 \end{cases}
 $$
-注意到 $\alpha_{i1}(j)=B_{i1}(t_{j})$ 。</p>
+注意到 <span class="arithmatex">\(\alpha_{i1}(j)=B_{i1}(t_{j})\)</span> 。</p>
 <p><img alt="" src="image-20251207144314838.png|400" /></p>
-<h4 id="k2">$k=2$</h4>
-<p>考虑 $k=2$，则
+<h4 id="k2"><span class="arithmatex">\(k=2\)</span></h4>
+<p>考虑 <span class="arithmatex">\(k=2\)</span>，则
 $$
 \begin{aligned}
 f(x) &amp;= \sum_{i=1}^nP_{i}B_{i2}(x)\
@@ -15782,7 +15784,7 @@ N_{j2}(x) &amp;=
 \end{cases}
 \end{aligned}
 $$
-若 $i,j$ 满足
+若 <span class="arithmatex">\(i,j\)</span> 满足
 $$
 \tau_{i}\leq t_{j+1}&lt;\tau_{i+1}
 $$
@@ -15799,12 +15801,12 @@ $$
 0, &amp; \mathrm{otherwise}
 \end{cases}
 $$
-注意到 $\alpha_{i2}(j)=B_{i2}(t_{j+1})$ 。</p>
+注意到 <span class="arithmatex">\(\alpha_{i2}(j)=B_{i2}(t_{j+1})\)</span> 。</p>
 <h4 id="_21">一般情况</h4>
-<p>根据上述观察，我们称 $\alpha_{ik}(j)$ 为离散 B 样条。</p>
+<p>根据上述观察，我们称 <span class="arithmatex">\(\alpha_{ik}(j)\)</span> 为离散 B 样条。</p>
 <blockquote>
 <p>[!theorem]
-对任意 $x$ 有
+对任意 <span class="arithmatex">\(x\)</span> 有
 $$
 B_{ik}(x) = \sum_{j=1}^m\alpha_{ik}(j)N_{jk}(x),\quad i=1,\cdots,m
 $$
@@ -15815,17 +15817,17 @@ $$
 \phi_{jk}(y) &amp;= (y-a_{j})<em>{+}\Phi</em>{jk}(y)
 \end{aligned}
 $$
-其中 $(y-a_{j})<em>{+}$ 是截断函数，$[\tau</em>{i},\cdots,\tau_{i+k}]\phi_{jk}$ 表示差分。</p>
+其中 <span class="arithmatex">\((y-a_{j})_{+}\)</span> 是截断函数，<span class="arithmatex">\([\tau_{i},\cdots,\tau_{i+k}]\phi_{jk}\)</span> 表示差分。</p>
 </blockquote>
 <p>证明上述定理需要两个引理</p>
 <blockquote>
 <p>[!lemma]
-对任意 $y\in \mathbb{R}$ 和任意 $x\in[t_{k},t_{m+1})$ 有
+对任意 <span class="arithmatex">\(y\in \mathbb{R}\)</span> 和任意 <span class="arithmatex">\(x\in[t_{k},t_{m+1})\)</span> 有
 $$
 (y-x)^{k-1}=\sum_{j=1}^m\Phi_{jk}(y)N_{jk}(x)
 $$</p>
 <p>[!lemma]
-对任意 $y\in t$ 和任意 $x\in[t_{k},t_{m+1})$ 有
+对任意 <span class="arithmatex">\(y\in t\)</span> 和任意 <span class="arithmatex">\(x\in[t_{k},t_{m+1})\)</span> 有
 $$
 (y-x)<em>{+}^{k-1} = \sum</em>{j=1}^m\phi_{jk}(y)N_{jk}(x)
 $$</p>
@@ -15833,7 +15835,7 @@ $$</p>
 <p>然后可以得到递归公式</p>
 <blockquote>
 <p>[!theorem]
-设 $\tau_{i+k}&gt;\tau_{i}$，则
+设 <span class="arithmatex">\(\tau_{i+k}&gt;\tau_{i}\)</span>，则
 $$
 \begin{aligned}
 \alpha_{i1}(j) &amp;= 
@@ -15845,11 +15847,11 @@ $$
 \end{aligned}
 $$</p>
 <p>[!corollary]
-(A) 若 $t_{j}&lt;\tau_{i}$ 或 $t_{j+k-1}\geq \tau_{i+k}$，则 $\alpha_{ik}(j)=0$
-(B) $\alpha_{ik}(j)\geq 0$
-(C) $\sum_{i=1}^n\alpha_{ik}(j)=1,\tau_{k}\leq t_{j}&lt;\tau_{n+1}$</p>
+(A) 若 <span class="arithmatex">\(t_{j}&lt;\tau_{i}\)</span> 或 <span class="arithmatex">\(t_{j+k-1}\geq \tau_{i+k}\)</span>，则 <span class="arithmatex">\(\alpha_{ik}(j)=0\)</span>
+(B) <span class="arithmatex">\(\alpha_{ik}(j)\geq 0\)</span>
+(C) <span class="arithmatex">\(\sum_{i=1}^n\alpha_{ik}(j)=1,\tau_{k}\leq t_{j}&lt;\tau_{n+1}\)</span></p>
 </blockquote>
-<p>其中 (A) 说明对每个 $j$，最多有 $k$ 个离散 B 样条 $\alpha_{\mu-k+1,k}(j),\cdots,\alpha_{\mu,k}(j)$ 非零，只在
+<p>其中 (A) 说明对每个 <span class="arithmatex">\(j\)</span>，最多有 <span class="arithmatex">\(k\)</span> 个离散 B 样条 <span class="arithmatex">\(\alpha_{\mu-k+1,k}(j),\cdots,\alpha_{\mu,k}(j)\)</span> 非零，只在
 $$
 [t_{j},t_{j+k-1}),\quad [\tau_{i},\tau_{i+k})
 $$
@@ -15859,15 +15861,15 @@ $$
 $$
 d_{j}= \sum_{i=1}^nP_{i}\alpha_{ik}(j)
 $$
-则 $d_{j}$ 称为离散样条，即它是离散 B 样条的线性组合。</p>
-<p>对于 $k\geq 2$，以及 $j,\mu$ 使得
+则 <span class="arithmatex">\(d_{j}\)</span> 称为离散样条，即它是离散 B 样条的线性组合。</p>
+<p>对于 <span class="arithmatex">\(k\geq 2\)</span>，以及 <span class="arithmatex">\(j,\mu\)</span> 使得
 $$
 \begin{aligned}
 \tau_{\mu+2-k} &amp;\leq \cdots\leq \tau_{\mu}&lt;\tau_{\mu+1}\leq\cdots \leq \tau_{\mu+k-1}\
 \tau_{\mu}&amp;\leq t_{j}&lt; \tau_{\mu+1}
 \end{aligned}
 $$
-即从 $\tau_{\mu},\tau_{\mu+1}$ 开始左右分别 $k-1$ 个节点。于是可以计算
+即从 <span class="arithmatex">\(\tau_{\mu},\tau_{\mu+1}\)</span> 开始左右分别 <span class="arithmatex">\(k-1\)</span> 个节点。于是可以计算
 $$
 \alpha_{ir}=\alpha_{ir}(j),\quad r=1,\cdots,k;i=\mu+1-r,\cdots,\mu
 $$
@@ -15875,7 +15877,7 @@ $$
 $$
 d_{j} = \sum_{i=\mu+1-k}^\mu \alpha_{ik}(j)P_{i}
 $$
-我们首先算出所有 $\alpha_{ik}(j)$，然后计算线性组合。</p>
+我们首先算出所有 <span class="arithmatex">\(\alpha_{ik}(j)\)</span>，然后计算线性组合。</p>
 <p>另一种方法注意到
 $$
 \begin{aligned}
@@ -15884,7 +15886,7 @@ d_{j} &amp;= \sum_{i=\mu+1-k}^\mu P_{i}\alpha_{ik}(j)\
 &amp;= \sum_{i=\mu+2-k}^\mu \frac{(t_{j+k-1}-\tau_{i})P_{i}+(\tau_{i+k-1}-t_{j+k-1})P_{i-1}}{\tau_{i+k-1}-\tau_{i}}\alpha_{i,k-1}(j)
 \end{aligned}
 $$
-其中最后一步利用 $i=\mu+1-k,\mu$ 时 $\alpha_{\mu+1-k,k-1}(j)=\alpha_{\mu+1,k-1}(j)=0$ 。对于一般的 $r=1,\cdots,k$ 有
+其中最后一步利用 <span class="arithmatex">\(i=\mu+1-k,\mu\)</span> 时 <span class="arithmatex">\(\alpha_{\mu+1-k,k-1}(j)=\alpha_{\mu+1,k-1}(j)=0\)</span> 。对于一般的 <span class="arithmatex">\(r=1,\cdots,k\)</span> 有
 $$
 \begin{aligned}
 d_{j} &amp;= \sum_{i=\mu-k+r}^\mu P_{i,j}^{[r]}\alpha_{i,k-r+1}(j)\
@@ -15892,14 +15894,14 @@ P_{i,j}^{[1]} &amp;= P_{i}\
 P_{i,j}^{[r+1]} &amp;= \frac{(t_{j+k-r}-\tau_{i})P_{i,j}^{[r]}+(\tau_{i+k-r}-t_{j+k-r})P_{i-1,j}^{[r]}}{\tau_{i+k-r}-\tau_{i}}
 \end{aligned}
 $$
-取 $r=k$ 就有
+取 <span class="arithmatex">\(r=k\)</span> 就有
 $$
 d_{j} = P_{\mu,j}^{[k]}\alpha_{\mu,1}(j)=P_{\mu,j}^{[k]}
 $$
 因此可以递推计算。</p>
 <blockquote>
 <blockquote>
-<p>由于 $\tau_{\mu}&lt;\tau_{\mu+1}$，因此两种方法均不会出现除零问题。</p>
+<p>由于 <span class="arithmatex">\(\tau_{\mu}&lt;\tau_{\mu+1}\)</span>，因此两种方法均不会出现除零问题。</p>
 </blockquote>
 </blockquote>
 
@@ -15955,6 +15957,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

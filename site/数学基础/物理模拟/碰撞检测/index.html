@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -8646,7 +8648,7 @@
   <a href="#case-c_2neq-0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Case $c_{2}\neq 0$
+        Case \(c_{2}\neq 0\)
       
     </span>
   </a>
@@ -8657,7 +8659,7 @@
   <a href="#case-c_20c_1neq-0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Case $c_{2}=0,c_{1}\neq 0$
+        Case \(c_{2}=0,c_{1}\neq 0\)
       
     </span>
   </a>
@@ -8668,7 +8670,7 @@
   <a href="#case-c_20c_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Case $c_{2}=0,c_{1}=0$
+        Case \(c_{2}=0,c_{1}=0\)
       
     </span>
   </a>
@@ -14531,7 +14533,7 @@
   <a href="#case-c_2neq-0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Case $c_{2}\neq 0$
+        Case \(c_{2}\neq 0\)
       
     </span>
   </a>
@@ -14542,7 +14544,7 @@
   <a href="#case-c_20c_1neq-0" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Case $c_{2}=0,c_{1}\neq 0$
+        Case \(c_{2}=0,c_{1}\neq 0\)
       
     </span>
   </a>
@@ -14553,7 +14555,7 @@
   <a href="#case-c_20c_10" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Case $c_{2}=0,c_{1}=0$
+        Case \(c_{2}=0,c_{1}=0\)
       
     </span>
   </a>
@@ -14754,11 +14756,11 @@
 <h1 id="_1">碰撞检测</h1>
 <h2 id="_2">直线与圆锥</h2>
 <h3 id="_3">数学推导</h3>
-<p>令 $\vec{e}$ 为发射点，$\hat{s}$ 是单位向量，则有直线方程
+<p>令 <span class="arithmatex">\(\vec{e}\)</span> 为发射点，<span class="arithmatex">\(\hat{s}\)</span> 是单位向量，则有直线方程
 $$
 \vec{p}(t) = \vec{e}+t\hat{s}
 $$
-再考虑一个放置在 $xy$ 平面上的圆锥，圆心位于原点，半径为 $r_{0}$，轴向为 $\hat{a}$，顶点位于 $H\hat{a},H&gt;0$ 。假设我们只有半径不超过 $r_{1}&lt;r_{0}$ 的一部分高度为 $h$ 的圆锥，于是
+再考虑一个放置在 <span class="arithmatex">\(xy\)</span> 平面上的圆锥，圆心位于原点，半径为 <span class="arithmatex">\(r_{0}\)</span>，轴向为 <span class="arithmatex">\(\hat{a}\)</span>，顶点位于 <span class="arithmatex">\(H\hat{a},H&gt;0\)</span> 。假设我们只有半径不超过 <span class="arithmatex">\(r_{1}&lt;r_{0}\)</span> 的一部分高度为 <span class="arithmatex">\(h\)</span> 的圆锥，于是
 $$
 H = \frac{hr_{0}}{r_{0}-r_{1}}
 $$
@@ -14781,20 +14783,20 @@ $$
 $$
 |\vec{e}+t\hat{s}-(t\hat{s}\cdot \hat{a}+\vec{e}\cdot \hat{a})\hat{a}|^2 = \left( r_{0} + \frac{r_{1}-r_{0}}{h}(t\hat{s}\cdot \hat{a}+\vec{e}\cdot \hat{a}) \right)^2
 $$
-我们可以将其整理为关于 $t$ 的二次方程
+我们可以将其整理为关于 <span class="arithmatex">\(t\)</span> 的二次方程
 $$
 At^2+Bt+C = 0
 $$
-它可能有两个解，需要验证对应的 $z$ 是否在高度范围内。</p>
+它可能有两个解，需要验证对应的 <span class="arithmatex">\(z\)</span> 是否在高度范围内。</p>
 <h3 id="_4">预备知识</h3>
 <h4 id="_5">介绍</h4>
 <p>使用浮点算术时，舍入误差会导致无法得到正确的结果，因此需要对这些特殊情况进行处理。</p>
 <h4 id="_6">定义圆锥</h4>
-<p>无限单边实体圆锥具有顶点 $V$ 和单位方向 $\vec{D}$，以及半顶角 $\theta\in\left[ 0,\frac{\pi}{2} \right]$ 。点 $X$ 在圆锥内当且仅当 $X-V$ 与 $\vec{D}$ 的夹角小于半顶角
+<p>无限单边实体圆锥具有顶点 <span class="arithmatex">\(V\)</span> 和单位方向 <span class="arithmatex">\(\vec{D}\)</span>，以及半顶角 <span class="arithmatex">\(\theta\in\left[ 0,\frac{\pi}{2} \right]\)</span> 。点 <span class="arithmatex">\(X\)</span> 在圆锥内当且仅当 <span class="arithmatex">\(X-V\)</span> 与 <span class="arithmatex">\(\vec{D}\)</span> 的夹角小于半顶角
 $$
 \vec{D}\cdot\frac{(X-V)}{|X-V|} \geq \cos \theta,\quad X\neq V
 $$
-注意只需要去掉分母就可以兼容 $X=V$ 的情况
+注意只需要去掉分母就可以兼容 <span class="arithmatex">\(X=V\)</span> 的情况
 $$
 \vec{D}\cdot(X-V) \geq |X-V|\cos \theta
 $$
@@ -14802,14 +14804,14 @@ $$
 $$
 Q(X) = (\vec{D}\cdot(X-V))^2-\gamma^2|X-V|^2=(X-V)^TM(X-V)\geq 0,\quad \vec{D}\cdot(X-V)\geq 0
 $$
-其中 $\gamma=\cos \theta,M=\vec{D}\vec{D}^T-\gamma^TI$ 是对称矩阵。</p>
+其中 <span class="arithmatex">\(\gamma=\cos \theta,M=\vec{D}\vec{D}^T-\gamma^TI\)</span> 是对称矩阵。</p>
 <p><img alt="" src="image-20250619144421617.png|300" /></p>
-<p>点 $X$ 的相对高度 $h=\vec{D}\cdot(X-V)$ 。有限圆锥可以截断，得到 $[h_{\min},h_{\max}]$，进而将圆锥分为</p>
+<p>点 <span class="arithmatex">\(X\)</span> 的相对高度 <span class="arithmatex">\(h=\vec{D}\cdot(X-V)\)</span> 。有限圆锥可以截断，得到 <span class="arithmatex">\([h_{\min},h_{\max}]\)</span>，进而将圆锥分为</p>
 <ul>
-<li>无限圆锥 $h_{\min}=0,h_{\max}=+\infty$</li>
-<li>无限截断圆锥 $h_{\min}&gt;0,h_{\max}=+\infty$</li>
-<li>有限截断圆锥 $h_{\min}=0,h_{\max}&lt;+\infty$</li>
-<li>圆台 $h_{\min}&gt;0,h_{\max}&lt;+\infty$</li>
+<li>无限圆锥 <span class="arithmatex">\(h_{\min}=0,h_{\max}=+\infty\)</span></li>
+<li>无限截断圆锥 <span class="arithmatex">\(h_{\min}&gt;0,h_{\max}=+\infty\)</span></li>
+<li>有限截断圆锥 <span class="arithmatex">\(h_{\min}=0,h_{\max}&lt;+\infty\)</span></li>
+<li>圆台 <span class="arithmatex">\(h_{\min}&gt;0,h_{\max}&lt;+\infty\)</span></li>
 </ul>
 <p>我们用“圆锥”统称这些不同的情况。</p>
 <h4 id="_7">表示无穷</h4>
@@ -14817,16 +14819,16 @@ $$
 $$
 y = \frac{x}{1+|x|}\in[-1,1],\quad x=\frac{y}{1-|y|}\in[-\infty,+\infty]
 $$
-如果想要比较 $x_{0},x_{1}$，可以将其映射为 $y_{0},y_{1}$ 再比较。由于该双射将有理数映射到有理数，因此在任意精度的算术下，转换为 $y$ 后比较都不存在误差。</p>
+如果想要比较 <span class="arithmatex">\(x_{0},x_{1}\)</span>，可以将其映射为 <span class="arithmatex">\(y_{0},y_{1}\)</span> 再比较。由于该双射将有理数映射到有理数，因此在任意精度的算术下，转换为 <span class="arithmatex">\(y\)</span> 后比较都不存在误差。</p>
 <blockquote>
 <blockquote>
-<p>这种方法也可以应用于涉及形式 $z=x+y\sqrt{ d }$ 的情况，其中 $x,y,d&gt; 0$ 是有理数。</p>
+<p>这种方法也可以应用于涉及形式 <span class="arithmatex">\(z=x+y\sqrt{ d }\)</span> 的情况，其中 <span class="arithmatex">\(x,y,d&gt; 0\)</span> 是有理数。</p>
 </blockquote>
 </blockquote>
 <h4 id="_8">定义直线、射线和线段</h4>
-<p>直线定义为 $X(t) = P+t\vec{U}$，射线约束 $t\geq 0$，线段约束 $t\in[0,t_{\max}]$ 。如果指定端点 $E_{0},E_{1}$，则 $X(t)=(1-t)E_{0}+tE_{1}$ 。</p>
+<p>直线定义为 <span class="arithmatex">\(X(t) = P+t\vec{U}\)</span>，射线约束 <span class="arithmatex">\(t\geq 0\)</span>，线段约束 <span class="arithmatex">\(t\in[0,t_{\max}]\)</span> 。如果指定端点 <span class="arithmatex">\(E_{0},E_{1}\)</span>，则 <span class="arithmatex">\(X(t)=(1-t)E_{0}+tE_{1}\)</span> 。</p>
 <h3 id="_9">与直线求交</h3>
-<p>根据前面的推导，$Q(X)=0$ 描述了圆锥的边界。将直线方程代入得到
+<p>根据前面的推导，<span class="arithmatex">\(Q(X)=0\)</span> 描述了圆锥的边界。将直线方程代入得到
 $$
 \begin{aligned}
 &amp;c_{2}t^2+2c_{1}t+c_{0}=0\
@@ -14836,36 +14838,36 @@ c_{0} &amp;= \vec{\Delta}^TM\vec{\Delta} = (\vec{D}\cdot \vec{\Delta})^2-\gamma^
 \vec{\Delta}&amp;= P-V
 \end{aligned}
 $$
-高度条件 $h_{\min}\leq \vec{D}\cdot(X(t)-\vec{V})\leq h_{\max}$ 变为
+高度条件 <span class="arithmatex">\(h_{\min}\leq \vec{D}\cdot(X(t)-\vec{V})\leq h_{\max}\)</span> 变为
 $$
 h_{\min}\leq t(\vec{D}\cdot \vec{U})+(\vec{D}\cdot \vec{\Delta})\leq h_{\max}
 $$
 要获得满足线性约束的二次多项式的根。</p>
 <blockquote>
 <blockquote>
-<p>选择 $\vec{U}$ 的方向，使得 $\vec{D}\cdot \vec{U}\geq 0$ 可以方便地减少分支情况。</p>
+<p>选择 <span class="arithmatex">\(\vec{U}\)</span> 的方向，使得 <span class="arithmatex">\(\vec{D}\cdot \vec{U}\geq 0\)</span> 可以方便地减少分支情况。</p>
 </blockquote>
 </blockquote>
-<h4 id="case-c_2neq-0">Case $c_{2}\neq 0$</h4>
+<h4 id="case-c_2neq-0">Case <span class="arithmatex">\(c_{2}\neq 0\)</span></h4>
 <p>此时方程还是 2 次，形式根为
 $$
 t=\frac{-c_{1}\pm \sqrt{ \delta }}{c_{2}},\quad \delta=c_{1}^2-c_{0}c_{2}
 $$
-如果 $\delta&lt;0$，则不相交；如果 $\delta=0$，则 $t=-\frac{c_{1}}{c_{2}}$ 是重根，有两种可能</p>
+如果 <span class="arithmatex">\(\delta&lt;0\)</span>，则不相交；如果 <span class="arithmatex">\(\delta=0\)</span>，则 <span class="arithmatex">\(t=-\frac{c_{1}}{c_{2}}\)</span> 是重根，有两种可能</p>
 <ul>
 <li>直线与圆锥相切</li>
-<li>直线经过顶点 $V$</li>
+<li>直线经过顶点 <span class="arithmatex">\(V\)</span></li>
 </ul>
-<p>如果 $\delta&gt;0$，则有互异实根。</p>
+<p>如果 <span class="arithmatex">\(\delta&gt;0\)</span>，则有互异实根。</p>
 <p><img alt="" src="image-20250619153652903.png" /></p>
-<h4 id="case-c_20c_1neq-0">Case $c_{2}=0,c_{1}\neq 0$</h4>
-<p>如果 $c_{2}=0$，此时 $(\vec{D}\cdot \vec{U})^2-\gamma^2(\vec{U}\cdot \vec{U})=0$，意味着 $\vec{U}$ 恰好沿着圆锥边界。如果 $c_{1}\neq 0$，则多项式具有单根
+<h4 id="case-c_20c_1neq-0">Case <span class="arithmatex">\(c_{2}=0,c_{1}\neq 0\)</span></h4>
+<p>如果 <span class="arithmatex">\(c_{2}=0\)</span>，此时 <span class="arithmatex">\((\vec{D}\cdot \vec{U})^2-\gamma^2(\vec{U}\cdot \vec{U})=0\)</span>，意味着 <span class="arithmatex">\(\vec{U}\)</span> 恰好沿着圆锥边界。如果 <span class="arithmatex">\(c_{1}\neq 0\)</span>，则多项式具有单根
 $$
 t = -\frac{c_{0}}{2c_{1}}
 $$
 如果只考虑一侧的圆锥，则需要排除错误的交点。</p>
 <p><img alt="" src="image-20250619153927241.png|500" /></p>
-<h4 id="case-c_20c_10">Case $c_{2}=0,c_{1}=0$</h4>
+<h4 id="case-c_20c_10">Case <span class="arithmatex">\(c_{2}=0,c_{1}=0\)</span></h4>
 <p>此时有
 $$
 \begin{cases}
@@ -14874,31 +14876,31 @@ $$
 \end{cases} \implies
 (\vec{U}\cdot \vec{U})(\vec{D}\cdot \vec{\Delta}) = (\vec{U}\cdot \vec{\Delta})(\vec{D}\cdot \vec{U})
 $$
-后者是直线经过顶点 $V$ 的必要条件。如果 $c_{0}=0$，则直线在圆锥上；否则，可以认为将圆锥上的直线向外侧平移得到当前直线，与圆锥不相交。</p>
+后者是直线经过顶点 <span class="arithmatex">\(V\)</span> 的必要条件。如果 <span class="arithmatex">\(c_{0}=0\)</span>，则直线在圆锥上；否则，可以认为将圆锥上的直线向外侧平移得到当前直线，与圆锥不相交。</p>
 <p><img alt="" src="image-20250619154106587.png|200" /></p>
 <h3 id="_10">限制高度范围</h3>
-<p>计算出 $t$ 后，可以得到 $h=t(\vec{D}\cdot \vec{U})+(\vec{D}\cdot \vec{\Delta})$ 。如果 $\vec{D}\cdot \vec{U}&gt;0$，则给定高度可以反求
+<p>计算出 <span class="arithmatex">\(t\)</span> 后，可以得到 <span class="arithmatex">\(h=t(\vec{D}\cdot \vec{U})+(\vec{D}\cdot \vec{\Delta})\)</span> 。如果 <span class="arithmatex">\(\vec{D}\cdot \vec{U}&gt;0\)</span>，则给定高度可以反求
 $$
 t = \frac{h-\vec{D}\cdot \vec{\Delta}}{\vec{D}\cdot \vec{U}}
 $$
-于是 $t,h$ 同增或同减，如果 $t_{0}&lt;t_{1}$，则 $h_{0}&lt;h_{1}$ 。如果 $\vec{D}\cdot \vec{U}=0$，则直线垂直于轴，高度 $h=\vec{D}\cdot \vec{\Delta}$ 恒定。基本思想是计算 $[h_{0},h_{1}]$ 作为相交集，让它与 $[h_{\min},h_{\max}]$ 相交。</p>
+于是 <span class="arithmatex">\(t,h\)</span> 同增或同减，如果 <span class="arithmatex">\(t_{0}&lt;t_{1}\)</span>，则 <span class="arithmatex">\(h_{0}&lt;h_{1}\)</span> 。如果 <span class="arithmatex">\(\vec{D}\cdot \vec{U}=0\)</span>，则直线垂直于轴，高度 <span class="arithmatex">\(h=\vec{D}\cdot \vec{\Delta}\)</span> 恒定。基本思想是计算 <span class="arithmatex">\([h_{0},h_{1}]\)</span> 作为相交集，让它与 <span class="arithmatex">\([h_{\min},h_{\max}]\)</span> 相交。</p>
 <h2 id="_11">球与圆锥</h2>
 <h3 id="_12">预备知识</h3>
 <h4 id="_13">定义球</h4>
-<p>球具有中心 $C$ 和半径 $r&gt;0$，它是所有满足 $|X-C|=r$ 的点的集合。实体球定义为 ${X:|X-C|\leq r}$ 。</p>
+<p>球具有中心 <span class="arithmatex">\(C\)</span> 和半径 <span class="arithmatex">\(r&gt;0\)</span>，它是所有满足 <span class="arithmatex">\(|X-C|=r\)</span> 的点的集合。实体球定义为 <span class="arithmatex">\(\{X:|X-C|\leq r\}\)</span> 。</p>
 <h4 id="_14">定义圆锥</h4>
 <p>无限圆锥的参数表示为
 $$
 X(h,\phi) = V+h\vec{D}+(h\tan\theta)(\cos \phi \vec{W}<em>{0}+\sin \phi \vec{W}</em>{1}),\quad h\in[0,+\infty),\phi\in[0,2\pi]
 $$
-其中 ${\vec{W}<em>{0},\vec{W}</em>{1},\vec{D}}$ 构成右手正交基。无限实体圆锥的参数表示为
+其中 <span class="arithmatex">\(\{\vec{W}_{0},\vec{W}_{1},\vec{D}\}\)</span> 构成右手正交基。无限实体圆锥的参数表示为
 $$
 X(h,\phi,\rho) = V+h\vec{D}+\rho(\cos \phi \vec{W}<em>{0}+\sin \phi \vec{W}</em>{1}),\quad h\in[0,+\infty),\phi\in[0,2\pi],\rho\in[0,h\tan \theta]
 $$
-判断球与圆锥相交等价于使用闵可夫斯基和，将球缩小为中心 $C$，让球半径扩展圆锥得到 sphere-swept volume 。</p>
+判断球与圆锥相交等价于使用闵可夫斯基和，将球缩小为中心 <span class="arithmatex">\(C\)</span>，让球半径扩展圆锥得到 sphere-swept volume 。</p>
 <blockquote>
 <blockquote>
-<p>后面我们使用 $\vec{A}$ 而非 $\vec{D}$ 作为圆锥的轴向。</p>
+<p>后面我们使用 <span class="arithmatex">\(\vec{A}\)</span> 而非 <span class="arithmatex">\(\vec{D}\)</span> 作为圆锥的轴向。</p>
 </blockquote>
 </blockquote>
 <h3 id="_15">球与无限圆锥</h3>
@@ -14906,7 +14908,7 @@ $$
 $$
 \vec{A}\cdot( X-U ) \geq |X-U|\cos \theta,\quad U=V- \frac{r}{\sin \theta}\vec{A}
 $$
-其中 $U$ 就是超圆锥的顶点。首先检测中心 $C$ 是否在超圆锥中，如果不是则不交；否则，进行进一步的检测。</p>
+其中 <span class="arithmatex">\(U\)</span> 就是超圆锥的顶点。首先检测中心 <span class="arithmatex">\(C\)</span> 是否在超圆锥中，如果不是则不交；否则，进行进一步的检测。</p>
 <blockquote>
 <blockquote>
 <p>使用平方形式的约束来避免开根。</p>
@@ -14917,21 +14919,21 @@ $$
 $$
 M=V-r\sin \theta \vec{A},\quad E=V-rA
 $$
-显然 $M$ 是恰好放置在顶点的球的球心。我们按照如下顺序检查</p>
+显然 <span class="arithmatex">\(M\)</span> 是恰好放置在顶点的球的球心。我们按照如下顺序检查</p>
 <ol>
-<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
-<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;-r$</li>
-<li>$C$ 在经过 $M$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-M)\geq 0$ 或 $\vec{A}\cdot(C-V)\geq -r\sin \theta$</li>
-<li>现在 $C$ 在蓝色或黄色区域，检查 $|C-M|^2\leq r^2$</li>
+<li><span class="arithmatex">\(C\)</span> 在超圆锥外 <span class="arithmatex">\(\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(E\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以下 <span class="arithmatex">\(\vec{A}\cdot(C-E)&lt; 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)&lt;-r\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(M\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以上 <span class="arithmatex">\(\vec{A}\cdot(C-M)\geq 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)\geq -r\sin \theta\)</span></li>
+<li>现在 <span class="arithmatex">\(C\)</span> 在蓝色或黄色区域，检查 <span class="arithmatex">\(|C-M|^2\leq r^2\)</span></li>
 </ol>
 <h3 id="_16">球与无限截断圆锥</h3>
 <p>下图中
 $$
 Q = V+h_{\min}\vec{A},\quad E=Q-r\vec{A},\quad M=Q-r\sin \theta \vec{A}
 $$
-并且 $K$ 是 $h_{\min}$ 平面的边缘，定义了蓝色区域。</p>
+并且 <span class="arithmatex">\(K\)</span> 是 <span class="arithmatex">\(h_{\min}\)</span> 平面的边缘，定义了蓝色区域。</p>
 <p><img alt="" src="image-20250619161058110.png|600" /></p>
-<p>要检查 $C$ 位于蓝色还是黄色区域，定义
+<p>要检查 <span class="arithmatex">\(C\)</span> 位于蓝色还是黄色区域，定义
 $$
 \begin{aligned}
 \vec{\Delta} &amp;= C-Q\
@@ -14942,82 +14944,82 @@ $$
 $$
 K = Q+h_{\min}\tan \theta \vec{A}^{\perp},\quad C=Q+(\vec{A}\cdot \vec{\Delta})\vec{A}+|\vec{A}\times \vec{\Delta}|\vec{A}^{\perp}
 $$
-即我们去掉纵向的分量，将 $Q$ 沿着水平方向移动到 $K$，就得到 $K$ 的表达式。</p>
+即我们去掉纵向的分量，将 <span class="arithmatex">\(Q\)</span> 沿着水平方向移动到 <span class="arithmatex">\(K\)</span>，就得到 <span class="arithmatex">\(K\)</span> 的表达式。</p>
 <p><img alt="" src="image-20250619161134774.png|400" /></p>
 <p>我们按照如下顺序检查</p>
 <ol>
-<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
-<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;h_{\min}-r$</li>
-<li>$C$ 在经过 $M$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-M)\geq 0$ 或 $\vec{A}\cdot(C-V)\geq h_{\min}-r\sin \theta$</li>
-<li>判断紫色区域，检查 $d=|\vec{A}\times \vec{\Delta}|\leq h_{\min}\tan \theta$</li>
-<li>现在 $C$ 在蓝色或黄色区域，检查到 $K$ 的距离 $|C-K|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\min}\tan \theta)^2\leq r^2$</li>
+<li><span class="arithmatex">\(C\)</span> 在超圆锥外 <span class="arithmatex">\(\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(E\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以下 <span class="arithmatex">\(\vec{A}\cdot(C-E)&lt; 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)&lt;h_{\min}-r\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(M\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以上 <span class="arithmatex">\(\vec{A}\cdot(C-M)\geq 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)\geq h_{\min}-r\sin \theta\)</span></li>
+<li>判断紫色区域，检查 <span class="arithmatex">\(d=|\vec{A}\times \vec{\Delta}|\leq h_{\min}\tan \theta\)</span></li>
+<li>现在 <span class="arithmatex">\(C\)</span> 在蓝色或黄色区域，检查到 <span class="arithmatex">\(K\)</span> 的距离 <span class="arithmatex">\(|C-K|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\min}\tan \theta)^2\leq r^2\)</span></li>
 </ol>
 <h3 id="_17">球与有限圆锥</h3>
 <p>下图中
 $$
 E=V-r\vec{A},\quad M=V-r\sin \theta \vec{A},\quad \bar{Q}=\vec{V}+h_{\max}\vec{A},\quad \bar{E}=\bar{Q}+r\vec{A},\quad \bar{M}=\vec{Q}-r\sin \theta \vec{A}
 $$
-计算 $\bar{K}$ 的方法与之前完全相同。</p>
+计算 <span class="arithmatex">\(\bar{K}\)</span> 的方法与之前完全相同。</p>
 <p><img alt="" src="image-20250619161206697.png|600" /></p>
 <p>我们按照如下顺序检查</p>
 <ol>
-<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
-<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;-r$</li>
-<li>$C$ 在经过 $\bar{E}$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-\bar{E})&gt; 0$ 或 $\vec{A}\cdot(C-V)&gt;h_{\max}+r$</li>
-<li>$C$ 在经过 $M,\bar{M}$ 且垂直于 $\vec{A}$ 的两个平面之间 $\vec{A}\cdot(C-M)\geq 0,\vec{A}\cdot(C-\bar{M})\leq 0$ 或 $-r\sin \theta\leq\vec{A}\cdot(C-V)\leq h_{\max}-r\sin \theta$</li>
-<li>下方的蓝色区域，检查 $|C-M|^2\leq r^2$</li>
-<li>判断紫色区域，检查 $d=|\vec{A}\times \vec{\Delta}|\leq h_{\max}\tan \theta$</li>
-<li>现在 $C$ 在上方蓝色或黄色区域，检查到 $\bar{K}$ 的距离 $|C-\bar{K}|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\max}\tan \theta)^2\leq r^2$</li>
+<li><span class="arithmatex">\(C\)</span> 在超圆锥外 <span class="arithmatex">\(\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(E\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以下 <span class="arithmatex">\(\vec{A}\cdot(C-E)&lt; 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)&lt;-r\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(\bar{E}\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以上 <span class="arithmatex">\(\vec{A}\cdot(C-\bar{E})&gt; 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)&gt;h_{\max}+r\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(M,\bar{M}\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的两个平面之间 <span class="arithmatex">\(\vec{A}\cdot(C-M)\geq 0,\vec{A}\cdot(C-\bar{M})\leq 0\)</span> 或 <span class="arithmatex">\(-r\sin \theta\leq\vec{A}\cdot(C-V)\leq h_{\max}-r\sin \theta\)</span></li>
+<li>下方的蓝色区域，检查 <span class="arithmatex">\(|C-M|^2\leq r^2\)</span></li>
+<li>判断紫色区域，检查 <span class="arithmatex">\(d=|\vec{A}\times \vec{\Delta}|\leq h_{\max}\tan \theta\)</span></li>
+<li>现在 <span class="arithmatex">\(C\)</span> 在上方蓝色或黄色区域，检查到 <span class="arithmatex">\(\bar{K}\)</span> 的距离 <span class="arithmatex">\(|C-\bar{K}|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\max}\tan \theta)^2\leq r^2\)</span></li>
 </ol>
 <h3 id="_18">球与有限截断圆锥</h3>
 <p>组合无限截断圆锥和有限圆锥的判定方法确定。</p>
 <p><img alt="" src="image-20250619161240215.png|600" /></p>
 <p>我们按照如下顺序检查</p>
 <ol>
-<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
-<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;h_{\min}-r$</li>
-<li>$C$ 在经过 $\bar{E}$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-\bar{E})&gt; 0$ 或 $\vec{A}\cdot(C-V)&gt;h_{\max}+r$</li>
-<li>$C$ 在经过 $M,\bar{M}$ 且垂直于 $\vec{A}$ 的两个平面之间 $\vec{A}\cdot(C-M)\geq 0,\vec{A}\cdot(C-\bar{M})\leq 0$ 或 $h_{\min}-r\sin \theta\leq\vec{A}\cdot(C-V)\leq h_{\max}-r\sin \theta$</li>
-<li>判断紫色区域，检查 $|\vec{A}\times \vec{\Delta}'|\leq h_{\max}\tan \theta$ 和 $|\vec{A}\times \vec{\Delta}|\leq h_{\min}\tan \theta$</li>
-<li>检查下方蓝色或黄色区域，检查到 $K$ 的距离 $|C-K|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\min}\tan \theta)^2\leq r^2$</li>
-<li>检查上方蓝色或黄色区域，检查到 $\bar{K}$ 的距离 $|C-\bar{K}|^2=(\vec{A}\cdot \vec{\Delta}')^2+(|\vec{A}\times \vec{\Delta}'|-h_{\max}\tan \theta)^2\leq r^2$</li>
+<li><span class="arithmatex">\(C\)</span> 在超圆锥外 <span class="arithmatex">\(\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(E\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以下 <span class="arithmatex">\(\vec{A}\cdot(C-E)&lt; 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)&lt;h_{\min}-r\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(\bar{E}\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的平面以上 <span class="arithmatex">\(\vec{A}\cdot(C-\bar{E})&gt; 0\)</span> 或 <span class="arithmatex">\(\vec{A}\cdot(C-V)&gt;h_{\max}+r\)</span></li>
+<li><span class="arithmatex">\(C\)</span> 在经过 <span class="arithmatex">\(M,\bar{M}\)</span> 且垂直于 <span class="arithmatex">\(\vec{A}\)</span> 的两个平面之间 <span class="arithmatex">\(\vec{A}\cdot(C-M)\geq 0,\vec{A}\cdot(C-\bar{M})\leq 0\)</span> 或 <span class="arithmatex">\(h_{\min}-r\sin \theta\leq\vec{A}\cdot(C-V)\leq h_{\max}-r\sin \theta\)</span></li>
+<li>判断紫色区域，检查 <span class="arithmatex">\(|\vec{A}\times \vec{\Delta}'|\leq h_{\max}\tan \theta\)</span> 和 <span class="arithmatex">\(|\vec{A}\times \vec{\Delta}|\leq h_{\min}\tan \theta\)</span></li>
+<li>检查下方蓝色或黄色区域，检查到 <span class="arithmatex">\(K\)</span> 的距离 <span class="arithmatex">\(|C-K|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\min}\tan \theta)^2\leq r^2\)</span></li>
+<li>检查上方蓝色或黄色区域，检查到 <span class="arithmatex">\(\bar{K}\)</span> 的距离 <span class="arithmatex">\(|C-\bar{K}|^2=(\vec{A}\cdot \vec{\Delta}')^2+(|\vec{A}\times \vec{\Delta}'|-h_{\max}\tan \theta)^2\leq r^2\)</span></li>
 </ol>
 <h2 id="_19">球组碰撞</h2>
 <h3 id="_20">球组定义</h3>
-<p>球组是两个球组成的形状，通过两个球心位置和对应半径完全定义。对应于球组的圆锥半顶角 $\theta$ 满足
+<p>球组是两个球组成的形状，通过两个球心位置和对应半径完全定义。对应于球组的圆锥半顶角 <span class="arithmatex">\(\theta\)</span> 满足
 $$
 \sin \theta = \frac{R_{1}-R_{0}}{|C_{1}-C_{0}|}
 $$
 退化情况</p>
 <ul>
-<li>当 $|R_{1}-R_{0}|\geq|C_{1}-C_{0}|$ 时，$|\sin \theta|\geq 1$，因此球组退化为最大半径的球；</li>
-<li>当 $|R_{1}-R_{0}|&lt;\epsilon$ 时，认为球组退化为胶囊体 </li>
+<li>当 <span class="arithmatex">\(|R_{1}-R_{0}|\geq|C_{1}-C_{0}|\)</span> 时，<span class="arithmatex">\(|\sin \theta|\geq 1\)</span>，因此球组退化为最大半径的球；</li>
+<li>当 <span class="arithmatex">\(|R_{1}-R_{0}|&lt;\epsilon\)</span> 时，认为球组退化为胶囊体 </li>
 </ul>
-<p>通常取 $\epsilon=10^{-6}$ 。</p>
+<p>通常取 <span class="arithmatex">\(\epsilon=10^{-6}\)</span> 。</p>
 <p><img alt="" src="image-20250619104416521.png|150" /></p>
 <h3 id="-">球-球组碰撞</h3>
-<p>可以直接将球的半径加在球组上，然后执行新球组与点的碰撞。对于给定点 $P$，沿着平行于指定径向投影得到 $P_{c}$ 。由于投影方向不明确，因此首先投影到 $C_{0}C_{1}$ 上，得到
+<p>可以直接将球的半径加在球组上，然后执行新球组与点的碰撞。对于给定点 <span class="arithmatex">\(P\)</span>，沿着平行于指定径向投影得到 <span class="arithmatex">\(P_{c}\)</span> 。由于投影方向不明确，因此首先投影到 <span class="arithmatex">\(C_{0}C_{1}\)</span> 上，得到
 $$
 Q = C_{0}+(P-C_{0})\cdot \frac{C_{1}-C_{0}}{|C_{1}-C_{0}|}(C_{1}-C_{0})
 $$
-然后根据半顶角 $\theta$ 计算
+然后根据半顶角 <span class="arithmatex">\(\theta\)</span> 计算
 $$
 \begin{aligned}
 P_{c} &amp;= Q+ |P-Q|\tan \theta \cdot\frac{C_{1}-C_{0}}{|C_{1}-C_{0}|}\
 s_{C} &amp;= \frac{|Q-C_{0}|}{|C_{1}-C_{0}|}
 \end{aligned}
 $$
-如果 $s_{c}\in[0,1]$，则检查 $|P-P_{c}|$ 与 $R_{eff}=R_{0}+s_{C}(R_{1}-R_{0})$ 的大小来判断；否则 $P$ 与单个球碰撞检测。</p>
+如果 <span class="arithmatex">\(s_{c}\in[0,1]\)</span>，则检查 <span class="arithmatex">\(|P-P_{c}|\)</span> 与 <span class="arithmatex">\(R_{eff}=R_{0}+s_{C}(R_{1}-R_{0})\)</span> 的大小来判断；否则 <span class="arithmatex">\(P\)</span> 与单个球碰撞检测。</p>
 <p><img alt="" src="image-20250619105128157.png|200" /></p>
 <h3 id="-_1">胶囊体-球组碰撞</h3>
-<p>可以直接将胶囊体的半径加在球组上，然后执行新球组与线段的碰撞。我们需要找到 $C_{0}C_{1}$ 到 $P_{0}P_{1}$ 沿着径向的最短距离。令
+<p>可以直接将胶囊体的半径加在球组上，然后执行新球组与线段的碰撞。我们需要找到 <span class="arithmatex">\(C_{0}C_{1}\)</span> 到 <span class="arithmatex">\(P_{0}P_{1}\)</span> 沿着径向的最短距离。令
 $$
 \begin{aligned}
 P_{s} &amp;= (1-s)C_{0}+sC_{1}\
 P_{t} &amp;= (1-t)P_{0}+tP_{1}
 \end{aligned}
 $$
-以 $C_{0}C_{1}$ 为 $z$ 轴建立坐标系 $(\vec{x},\vec{y},\vec{z})$，记径向为 $\hat{n}$，则它同时是球组表面某个点的法向，则必有
+以 <span class="arithmatex">\(C_{0}C_{1}\)</span> 为 <span class="arithmatex">\(z\)</span> 轴建立坐标系 <span class="arithmatex">\((\vec{x},\vec{y},\vec{z})\)</span>，记径向为 <span class="arithmatex">\(\hat{n}\)</span>，则它同时是球组表面某个点的法向，则必有
 $$
 \begin{aligned}
 &amp;\hat{n}\cdot (P_{1}-P_{0}) = 0\
@@ -15028,7 +15030,7 @@ $$
 $$
 \hat{z}=\frac{C_{1}-C_{0}}{|C_{1}-C_{0}|},\quad \hat{y} = \frac{(P_{1}-P_{0})\times \hat{z}}{|(P_{1}-P_{0})\times \hat{z}|},\quad \hat{x}=\hat{y}\times \hat{z}
 $$
-如果 $P_{0}P_{1},C_{0}C_{1}$ 几乎平行，则后两个向量直接取零。因此根据 $\hat{n}$ 满足的等式
+如果 <span class="arithmatex">\(P_{0}P_{1},C_{0}C_{1}\)</span> 几乎平行，则后两个向量直接取零。因此根据 <span class="arithmatex">\(\hat{n}\)</span> 满足的等式
 $$
 \begin{aligned}
 0 &amp;= \hat{n}\cdot(P_{1}-P_{0})\
@@ -15036,35 +15038,35 @@ $$
 &amp;= \hat{x}\cdot(P_{1}-P_{0})\cos \theta \sin \alpha -\hat{z}\cdot(P_{1}-P_{0})\sin \theta
 \end{aligned}
 $$
-其中利用了 $\hat{y}$ 与 $P_{1}-P_{0}$ 垂直。进而有
+其中利用了 <span class="arithmatex">\(\hat{y}\)</span> 与 <span class="arithmatex">\(P_{1}-P_{0}\)</span> 垂直。进而有
 $$
 \sin \alpha = \frac{\hat{z}\cdot(P_{1}-P_{0})}{\hat{x}\cdot(P_{1}-P_{0})}\tan \theta = - \frac{\tan \theta}{\tan \theta'}
 $$
-其中 $\theta'$ 是 $P_{1}-P_{0}$ 与 $\hat{z}$ 的夹角，因此上式有解当且仅当 $\theta\leq \theta'$ 。</p>
+其中 <span class="arithmatex">\(\theta'\)</span> 是 <span class="arithmatex">\(P_{1}-P_{0}\)</span> 与 <span class="arithmatex">\(\hat{z}\)</span> 的夹角，因此上式有解当且仅当 <span class="arithmatex">\(\theta\leq \theta'\)</span> 。</p>
 <p><img alt="" src="image-20250619140001218.png|800" /></p>
 <blockquote>
 <blockquote>
-<p>注意当 $|\sin \alpha|&lt;1$ 时，$\alpha$ 可能有两个值，对应的 $\hat{n}$ 也有两个。</p>
+<p>注意当 <span class="arithmatex">\(|\sin \alpha|&lt;1\)</span> 时，<span class="arithmatex">\(\alpha\)</span> 可能有两个值，对应的 <span class="arithmatex">\(\hat{n}\)</span> 也有两个。</p>
 </blockquote>
 </blockquote>
-<p>考虑 $P_{1}-P_{0}$ 与 $\hat{n}$ 张成的平面，平面法向为
+<p>考虑 <span class="arithmatex">\(P_{1}-P_{0}\)</span> 与 <span class="arithmatex">\(\hat{n}\)</span> 张成的平面，平面法向为
 $$
 \hat{n}<em>{p} = \frac{\hat{n}\times(P</em>{1}-P_{0})}{|\hat{n}\times(P_{1}-P_{0})|}
 $$
-该平面与 $C_{0}C_{1}$ 的交点就是 $P_{s}$，于是
+该平面与 <span class="arithmatex">\(C_{0}C_{1}\)</span> 的交点就是 <span class="arithmatex">\(P_{s}\)</span>，于是
 $$
 0 = (P_{s}-P_{0})\cdot \hat{n}<em>{p} = (C</em>{0}+s(C_{1}-C_{0})-P_{0})\cdot \hat{n}<em>{p} \implies s = \frac{\hat{n}</em>{p}\cdot(P_{0}-C_{0})}{\hat{n}<em>{p}\cdot(C</em>{1}-C_{0})}
 $$
-由于 $(P_{s}-P_{t})\cdot(P_{0}-P_{1})=0$，则有
+由于 <span class="arithmatex">\((P_{s}-P_{t})\cdot(P_{0}-P_{1})=0\)</span>，则有
 $$
 [P_{s}-(P_{0}+t(P_{1}-P_{0}))]\cdot(P_{1}-P_{0})=0 \implies t = \frac{(P_{1}-P_{0})\cdot(P_{s}-P_{0})}{|P_{0}-P_{1}|^2}
 $$
-从而我们得到 $P_{s},P_{t}$ 的位置。对于 $s,t$ 的取值，分情况讨论</p>
+从而我们得到 <span class="arithmatex">\(P_{s},P_{t}\)</span> 的位置。对于 <span class="arithmatex">\(s,t\)</span> 的取值，分情况讨论</p>
 <ul>
-<li>$t\in[0,1]$，只需要考虑以 $P_{s}$ 为球心，$R_{eff}=R_{0}+s(R_{1}-R_{0})$ 为半径的球，挤出 $P_{t}$ 点即可</li>
-<li>否则，说明最佳挤出点在线段外，只需要挤出端点 $t=\mathrm{Clamp(t,0,1)}$，使用<a href="#球-球组碰撞">#球-球组碰撞</a>方案</li>
+<li><span class="arithmatex">\(t\in[0,1]\)</span>，只需要考虑以 <span class="arithmatex">\(P_{s}\)</span> 为球心，<span class="arithmatex">\(R_{eff}=R_{0}+s(R_{1}-R_{0})\)</span> 为半径的球，挤出 <span class="arithmatex">\(P_{t}\)</span> 点即可</li>
+<li>否则，说明最佳挤出点在线段外，只需要挤出端点 <span class="arithmatex">\(t=\mathrm{Clamp(t,0,1)}\)</span>，使用<a href="#球-球组碰撞">#球-球组碰撞</a>方案</li>
 </ul>
-<p>注意由于 $\hat{n}$ 可能有两个，此时分别算出分离结果，然后取 $|P_{s}-P_{t}|$ 较大的解，也就是穿透深度最小的解。</p>
+<p>注意由于 <span class="arithmatex">\(\hat{n}\)</span> 可能有两个，此时分别算出分离结果，然后取 <span class="arithmatex">\(|P_{s}-P_{t}|\)</span> 较大的解，也就是穿透深度最小的解。</p>
 
 
 
@@ -15118,6 +15120,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

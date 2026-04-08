@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -17795,14 +17797,14 @@
 <p>给你一个整数数组 <code>prices</code> ，其中 <code>prices[i]</code> 表示某支股票第 <code>i</code> 天的价格。</p>
 <p>在每一天，你可以决定是否购买和/或出售股票。你在任何时候 <strong>最多</strong> 只能持有 <strong>一股</strong> 股票。你也可以先购买，然后在 <strong>同一天</strong> 出售。</p>
 <p>返回 <em>你能获得的 <strong>最大</strong> 利润</em> 。</p>
-<p>题解——动态规划。令 $S(n)$ 表示前 $n$ 天能够获得的最大收益，则
+<p>题解——动态规划。令 <span class="arithmatex">\(S(n)\)</span> 表示前 <span class="arithmatex">\(n\)</span> 天能够获得的最大收益，则
 $$
 S(n+1) = max(S(n),S(n) + prices[n] - prices[n-1] )
 $$
 即增加一天的收益最多是新一天减去前一天的收益。</p>
 <blockquote>
 <blockquote>
-<p>注意到 $S(n)$ 有两种情况：在最后一天卖出以及在之前就卖出。对于前者，说明最后一天是一个高位，如果新增一天更高，则可以延后一天卖出，多收益差额，否则可以忽略新的一天；对于后者，说明最后一天相对之前是低位，如果新增一天更高，则在最后一天买入，新的一天卖出，多收益差额，否则可以忽略新的一天。</p>
+<p>注意到 <span class="arithmatex">\(S(n)\)</span> 有两种情况：在最后一天卖出以及在之前就卖出。对于前者，说明最后一天是一个高位，如果新增一天更高，则可以延后一天卖出，多收益差额，否则可以忽略新的一天；对于后者，说明最后一天相对之前是低位，如果新增一天更高，则在最后一天买入，新的一天卖出，多收益差额，否则可以忽略新的一天。</p>
 </blockquote>
 </blockquote>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
@@ -19687,7 +19689,7 @@ S_{p}(root) &amp;= root + S_{p}(root\to left) + S_{p}(root\to right) \
 S_{i}(root) &amp;= S_{i}(root\to left) + root + S_{i}(root\to right)
 \end{aligned}
 $$
-假设构造函数为 $F(S_{p},S_{i})$，可以得到
+假设构造函数为 <span class="arithmatex">\(F(S_{p},S_{i})\)</span>，可以得到
 $$
 F(S_{p}(root),S_{i}(root)) = 
 \begin{cases}
@@ -20186,7 +20188,7 @@ $$
 </code></pre></div>
 <h4 id="230-k"><a href="https://leetcode.cn/problems/kth-smallest-element-in-a-bst/">230. 二叉搜索树中第 K 小的元素</a></h4>
 <p>给定一个二叉搜索树的根节点 <code>root</code> ，和一个整数 <code>k</code> ，请你设计一个算法查找其中第 <code>k</code> 小的元素（从 1 开始计数）。</p>
-<p>题解——同样利用中序遍历，记录中序元素的个数，第 $k$ 个中序元素就是第 $k$ 小的元素，找到后可以直接返回，避免重复。</p>
+<p>题解——同样利用中序遍历，记录中序元素的个数，第 <span class="arithmatex">\(k\)</span> 个中序元素就是第 <span class="arithmatex">\(k\)</span> 小的元素，找到后可以直接返回，避免重复。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a><span class="k">private</span><span class="o">:</span>
 <a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -20896,7 +20898,7 @@ $$
 $$
 S(i) = \bigcup_{k=i,\cdots n}S(arr[k];i+1)
 $$
-其中 $S(i)$ 表示从 <code>i</code> 位置开始后面所有的全排列，$S(arr[k];i+1)$ 表示选择 <code>arr[k]</code> 后从 <code>i + 1</code> 位置开始后面所有的全排列。注意到后面元素的顺序不影响全排列结果，因此可以将 <code>arr[i], arr[k]</code> 交换来实现选取。</p>
+其中 <span class="arithmatex">\(S(i)\)</span> 表示从 <code>i</code> 位置开始后面所有的全排列，<span class="arithmatex">\(S(arr[k];i+1)\)</span> 表示选择 <code>arr[k]</code> 后从 <code>i + 1</code> 位置开始后面所有的全排列。注意到后面元素的顺序不影响全排列结果，因此可以将 <code>arr[i], arr[k]</code> 交换来实现选取。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-94-2" name="__codelineno-94-2" href="#__codelineno-94-2"></a><span class="k">private</span><span class="o">:</span>
 <a id="__codelineno-94-3" name="__codelineno-94-3" href="#__codelineno-94-3"></a><span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
@@ -20967,7 +20969,7 @@ $$
 </blockquote>
 <h4 id="22"><a href="https://leetcode.cn/problems/generate-parentheses/">22. 括号生成</a></h4>
 <p>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</p>
-<p>题解——回溯法。用 $S(open,close)$ 表示有 <code>open,close</code> 个开/闭括号时的状态，考虑状态方程
+<p>题解——回溯法。用 <span class="arithmatex">\(S(open,close)\)</span> 表示有 <code>open,close</code> 个开/闭括号时的状态，考虑状态方程
 $$
 S(open,close)=S(open+1,close)\cup S(open,close+1)
 $$
@@ -21240,7 +21242,7 @@ $$
 $$
 S(i) = max(arr(i), arr(i)+S(i-1))
 $$
-记录最大的 $S(i)$ 即可。</p>
+记录最大的 <span class="arithmatex">\(S(i)\)</span> 即可。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-103-2" name="__codelineno-103-2" href="#__codelineno-103-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-103-3" name="__codelineno-103-3" href="#__codelineno-103-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSubArray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -21257,7 +21259,7 @@ $$
 <p>给定一个长度为 <code>n</code> 的<strong>环形整数数组</strong> <code>nums</code> ，返回 <em><code>nums</code> 的非空 <strong>子数组</strong> 的最大可能和</em> 。</p>
 <p><strong>环形数组</strong> 意味着数组的末端将会与开头相连呈环状。形式上， <code>nums[i]</code> 的下一个元素是 <code>nums[(i + 1) % n]</code> ， <code>nums[i]</code> 的前一个元素是 <code>nums[(i - 1 + n) % n]</code> 。</p>
 <p><strong>子数组</strong> 最多只能包含固定缓冲区 <code>nums</code> 中的每个元素一次。形式上，对于子数组 <code>nums[i], nums[i + 1], ..., nums[j]</code> ，不存在 <code>i &lt;= k1, k2 &lt;= j</code> 其中 <code>k1 % n == k2 % n</code> 。</p>
-<p>题解——直观的方法是使用滑动窗口，构造一个 <code>2 * n - 1</code> 长度的数组，然后维护一个数组范围，要求范围内元素和递增或者尽可能不减小。这需要 $O(n)$ 空间复杂度。注意到最大和有两种</p>
+<p>题解——直观的方法是使用滑动窗口，构造一个 <code>2 * n - 1</code> 长度的数组，然后维护一个数组范围，要求范围内元素和递增或者尽可能不减小。这需要 <span class="arithmatex">\(O(n)\)</span> 空间复杂度。注意到最大和有两种</p>
 <ul>
 <li>位于数组内部范围</li>
 <li>跨过数组边界范围</li>
@@ -21614,11 +21616,11 @@ $$
 <p>给定两个以 <strong>非递减顺序排列</strong> 的整数数组 <code>nums1</code> 和 <code>nums2</code> , 以及一个整数 <code>k</code> 。</p>
 <p>定义一对值 <code>(u,v)</code>，其中第一个元素来自 <code>nums1</code>，第二个元素来自 <code>nums2</code> 。</p>
 <p>请找到和最小的 <code>k</code> 个数对 <code>(u1,v1)</code>,  <code>(u2,v2)</code>  ...  <code>(uk,vk)</code> 。</p>
-<p>题解——假设 $(i,j)$ 是第 $k$ 小的数对的索引，那么第 $k+1$ 小的数对只能在 $(i+1,j),(i,j+1)$ 之中。所以我们维护一个最小堆，保存数对的索引，索引映射到数对和作为排序函数。如果从 $(0,0)$ 开始，那么后面索引 $(i+1,j),(i,j+1)$ 可能出现重复，例如</p>
+<p>题解——假设 <span class="arithmatex">\((i,j)\)</span> 是第 <span class="arithmatex">\(k\)</span> 小的数对的索引，那么第 <span class="arithmatex">\(k+1\)</span> 小的数对只能在 <span class="arithmatex">\((i+1,j),(i,j+1)\)</span> 之中。所以我们维护一个最小堆，保存数对的索引，索引映射到数对和作为排序函数。如果从 <span class="arithmatex">\((0,0)\)</span> 开始，那么后面索引 <span class="arithmatex">\((i+1,j),(i,j+1)\)</span> 可能出现重复，例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a>(0,0) -&gt; (1,0), (0,1)
 <a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a>      -&gt; (2,0), (1,1), (1,1), (0,1)
 </code></pre></div>
-<p>所以我们可以预先推入 $(0,0),(1,0),\cdots,(k-1,0)$，然后只添加 $(i,j+1)$ 作为新索引，避免重复。容器直接使用优先队列，其内部实现就是堆。</p>
+<p>所以我们可以预先推入 <span class="arithmatex">\((0,0),(1,0),\cdots,(k-1,0)\)</span>，然后只添加 <span class="arithmatex">\((i,j+1)\)</span> 作为新索引，避免重复。容器直接使用优先队列，其内部实现就是堆。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-119-2" name="__codelineno-119-2" href="#__codelineno-119-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-119-3" name="__codelineno-119-3" href="#__codelineno-119-3"></a><span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">kSmallestPairs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums1</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums2</span><span class="p">,</span>
@@ -21852,7 +21854,7 @@ $$
 </code></pre></div>
 <h4 id="50-powx-n"><a href="https://leetcode.cn/problems/powx-n/">50. Pow(x, n)</a></h4>
 <p>实现 <a href="https://www.cplusplus.com/reference/valarray/pow/">pow(<em>x</em>, <em>n</em>)</a> ，即计算 <code>x</code> 的整数 <code>n</code> 次幂函数（即，<code>xn</code> ）。</p>
-<p>题解——将负数幂转换为正数，注意考虑 $|x|=1$ 以及 <code>n</code> 位于负数边界的情况。之后对于奇数幂转换为偶数幂递归，偶数幂通过自乘使指数减半。</p>
+<p>题解——将负数幂转换为正数，注意考虑 <span class="arithmatex">\(|x|=1\)</span> 以及 <code>n</code> 位于负数边界的情况。之后对于奇数幂转换为偶数幂递归，偶数幂通过自乘使指数减半。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-132-1" name="__codelineno-132-1" href="#__codelineno-132-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-132-2" name="__codelineno-132-2" href="#__codelineno-132-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-132-3" name="__codelineno-132-3" href="#__codelineno-132-3"></a><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">myPow</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -21906,7 +21908,7 @@ $$
 $$
 S(i) = \max(S(i-1),S(i-2)+arr[i])
 $$
-其中 $S(i)$ 表示 $i$ 范围内能偷到的最大金额。</p>
+其中 <span class="arithmatex">\(S(i)\)</span> 表示 <span class="arithmatex">\(i\)</span> 范围内能偷到的最大金额。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-134-1" name="__codelineno-134-1" href="#__codelineno-134-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-134-2" name="__codelineno-134-2" href="#__codelineno-134-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-134-3" name="__codelineno-134-3" href="#__codelineno-134-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">rob</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -21926,7 +21928,7 @@ $$
 $$
 S(i) = \lor_{j}(S(j)\land (s[j,i-1]\in Dict))
 $$
-每个元素 $S(i)$ 表示它是否可以是一个字符串的边界，因此遍历每个位置，然后从头开始检查 <code>dp[j]</code>，即先找到一个边界，然后检查 <code>[j, i-1]</code> 范围的字符串是否在字典中，如果在其中，就说明 <code>dp[i]</code> 是可以通过拼接得到的边界，此时可以直接跳出循环。最后只要 <code>dp[s.size()]</code> 是边界，就说明 <code>s</code> 可以拼接得到。</p>
+每个元素 <span class="arithmatex">\(S(i)\)</span> 表示它是否可以是一个字符串的边界，因此遍历每个位置，然后从头开始检查 <code>dp[j]</code>，即先找到一个边界，然后检查 <code>[j, i-1]</code> 范围的字符串是否在字典中，如果在其中，就说明 <code>dp[i]</code> 是可以通过拼接得到的边界，此时可以直接跳出循环。最后只要 <code>dp[s.size()]</code> 是边界，就说明 <code>s</code> 可以拼接得到。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-135-1" name="__codelineno-135-1" href="#__codelineno-135-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-135-2" name="__codelineno-135-2" href="#__codelineno-135-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-135-3" name="__codelineno-135-3" href="#__codelineno-135-3"></a><span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">wordBreak</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">wordDict</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -21981,7 +21983,7 @@ $$
 $$
 S(i) = \max(S(i),\max_{j=0,\cdots,i-1}S(j)+1)
 $$
-只有在 $arr[i]&gt;arr[j]$ 时更新状态，因此后面的元素不一定比前面保存的结果大，需要维护一个最大长度返回。</p>
+只有在 <span class="arithmatex">\(arr[i]&gt;arr[j]\)</span> 时更新状态，因此后面的元素不一定比前面保存的结果大，需要维护一个最大长度返回。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-137-1" name="__codelineno-137-1" href="#__codelineno-137-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-137-2" name="__codelineno-137-2" href="#__codelineno-137-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-137-3" name="__codelineno-137-3" href="#__codelineno-137-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">lengthOfLIS</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -21999,16 +22001,16 @@ $$
 <a id="__codelineno-137-15" name="__codelineno-137-15" href="#__codelineno-137-15"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-137-16" name="__codelineno-137-16" href="#__codelineno-137-16"></a><span class="p">};</span>
 </code></pre></div>
-<p>另一种更好的方法是贪心法：我们希望长度为 $i$ 的子串尽可能以最小的元素结尾，这样后续的子串才可能更长。使用 $d[i]$ 表示这个最小的元素，则 $d[i]$ 显然应当单增。于</p>
+<p>另一种更好的方法是贪心法：我们希望长度为 <span class="arithmatex">\(i\)</span> 的子串尽可能以最小的元素结尾，这样后续的子串才可能更长。使用 <span class="arithmatex">\(d[i]\)</span> 表示这个最小的元素，则 <span class="arithmatex">\(d[i]\)</span> 显然应当单增。于</p>
 <ol>
-<li>初始化 $d[1]=arr[0],n=1$，然后遍历数组 $i=1,2,\cdots$</li>
-<li>对于 $i$ 元素<ol>
-<li>如果 $arr[i]&gt;d[n]$，则令 $d[n+1]=arr[i],n=n+1$ </li>
-<li>否则二分搜索 $d[1],\cdots,d[n]$，找到 $arr[i]$ 的插入位置 $j$，令其替换 $d[j]$ </li>
+<li>初始化 <span class="arithmatex">\(d[1]=arr[0],n=1\)</span>，然后遍历数组 <span class="arithmatex">\(i=1,2,\cdots\)</span></li>
+<li>对于 <span class="arithmatex">\(i\)</span> 元素<ol>
+<li>如果 <span class="arithmatex">\(arr[i]&gt;d[n]\)</span>，则令 <span class="arithmatex">\(d[n+1]=arr[i],n=n+1\)</span> </li>
+<li>否则二分搜索 <span class="arithmatex">\(d[1],\cdots,d[n]\)</span>，找到 <span class="arithmatex">\(arr[i]\)</span> 的插入位置 <span class="arithmatex">\(j\)</span>，令其替换 <span class="arithmatex">\(d[j]\)</span> </li>
 </ol>
 </li>
 </ol>
-<p>这个过程保持 $d$ 的单调性，并且 $i\geq n$，因此每次更新确实可以替换 $d$ 中的元素。</p>
+<p>这个过程保持 <span class="arithmatex">\(d\)</span> 的单调性，并且 <span class="arithmatex">\(i\geq n\)</span>，因此每次更新确实可以替换 <span class="arithmatex">\(d\)</span> 中的元素。</p>
 <h3 id="_21">多维动态规划</h3>
 <h4 id="120"><a href="https://leetcode.cn/problems/triangle/">120. 三角形最小路径和</a></h4>
 <p>给定一个三角形 <code>triangle</code> ，找出自顶向下的最小路径和。</p>
@@ -22154,7 +22156,7 @@ $$
 <li><strong>交错</strong> 是 <code>s1 + t1 + s2 + t2 + s3 + t3 + ...</code> 或者 <code>t1 + s1 + t2 + s2 + t3 + s3 + ...</code></li>
 </ul>
 <p><strong>注意：</strong><code>a + b</code> 意味着字符串 <code>a</code> 和 <code>b</code> 连接。</p>
-<p>题解——动态规划，令 $S(i,j)$ 表示 <code>s1</code> 的前 <code>i</code> 个元素与 <code>s2</code> 的前 <code>j</code> 个元素可以组成 <code>s3</code> 的前 <code>i+j</code> 个元素。于是有
+<p>题解——动态规划，令 <span class="arithmatex">\(S(i,j)\)</span> 表示 <code>s1</code> 的前 <code>i</code> 个元素与 <code>s2</code> 的前 <code>j</code> 个元素可以组成 <code>s3</code> 的前 <code>i+j</code> 个元素。于是有
 $$
 \begin{aligned}
 S(i,j) = &amp;(S(i-1,j)\land (s_{1}[i-1]==s_{3}[i+j-1])) \lor\
@@ -22214,7 +22216,7 @@ $$
 <li>删除一个字符</li>
 <li>替换一个字符</li>
 </ul>
-<p>题解——动态规划。由于对每个单词的操作顺序不影响变换后的结果，因此可以只考虑对最后一个字符的操作。用 $S(i,j)$ 表示将 <code>word1[0,i]</code> 转换成 <code>word2[0,j]</code> 所需的最少操作数。状态方程
+<p>题解——动态规划。由于对每个单词的操作顺序不影响变换后的结果，因此可以只考虑对最后一个字符的操作。用 <span class="arithmatex">\(S(i,j)\)</span> 表示将 <code>word1[0,i]</code> 转换成 <code>word2[0,j]</code> 所需的最少操作数。状态方程
 $$
 S(i,j) =
 \begin{cases}
@@ -22222,13 +22224,13 @@ S(i,j) =
 S(i-1,j-1), &amp; word 1[i]=word 2[j]
 \end{cases}
 $$
-如果 <code>i,j</code> 字符相同，就直接等于 $S(i-1,j-1)$；如果不同，有三种情况</p>
+如果 <code>i,j</code> 字符相同，就直接等于 <span class="arithmatex">\(S(i-1,j-1)\)</span>；如果不同，有三种情况</p>
 <ol>
 <li>先将 <code>word1[0,i-1]</code> 变成 <code>word2[0,j]</code>，然后删掉 <code>word1</code> 最后一个字符</li>
 <li>先将 <code>word1[0,i]</code> 变成 <code>word2[0,j-1]</code>，然后添加 <code>word2</code> 最后一个字符</li>
 <li>先将 <code>word[0,i-1]</code> 变成 <code>word2[0,j-1]</code>，然后将 <code>word1[i]</code> 替换为 <code>word2[j]</code></li>
 </ol>
-<p>还要考虑字符串为空的情况，因此实际代码中用 $S(i,j)$ 表示 <code>word1[0,i+1]</code> 转换为 <code>word2[0,j+1]</code> 的最少操作数，这样可以预先填充 $S(0,j),S(i,0)$ 元素。</p>
+<p>还要考虑字符串为空的情况，因此实际代码中用 <span class="arithmatex">\(S(i,j)\)</span> 表示 <code>word1[0,i+1]</code> 转换为 <code>word2[0,j+1]</code> 的最少操作数，这样可以预先填充 <span class="arithmatex">\(S(0,j),S(i,0)\)</span> 元素。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-143-1" name="__codelineno-143-1" href="#__codelineno-143-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-143-2" name="__codelineno-143-2" href="#__codelineno-143-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-143-3" name="__codelineno-143-3" href="#__codelineno-143-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">minDistance</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">word1</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">word2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -22350,6 +22352,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

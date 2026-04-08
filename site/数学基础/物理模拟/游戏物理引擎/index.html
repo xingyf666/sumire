@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15442,7 +15444,7 @@
 <h1 id="_1">游戏物理引擎</h1>
 <h2 id="_2">弹力</h2>
 <h3 id="-">质点-弹簧系统</h3>
-<p>弹簧的物理模型用胡克定律描述，质点受到弹力和阻力，系数分别为 $k_{s},k_{d}$，其中</p>
+<p>弹簧的物理模型用胡克定律描述，质点受到弹力和阻力，系数分别为 <span class="arithmatex">\(k_{s},k_{d}\)</span>，其中</p>
 <ul>
 <li>弹力和两个质点的相对位置相关</li>
 <li>阻力和两个质点间的相对速度及相对位置相关</li>
@@ -15497,7 +15499,7 @@ $$
 \Delta \vec{x} &amp;= \Delta t(v(t)+\Delta \vec{v})
 \end{aligned}
 $$
-再将 $\Delta \vec{x}$ 消去得到
+再将 <span class="arithmatex">\(\Delta \vec{x}\)</span> 消去得到
 $$
 \Delta \vec{v}= \frac{\Delta t}{m} \left[ \vec{f}(t)+ \frac{\partial \vec{f}}{\partial \vec{x}}\Delta t(v(t)+\Delta \vec{v})+ \frac{\partial \vec{f}}{\partial \vec{v}}\Delta \vec{v} \right]
 $$
@@ -15539,13 +15541,13 @@ $$
 $$
 \vec{x}(t) = \vec{x}<em>{0}\cos(\chi t)+ \frac{\vec{v}</em>{0}}{\chi}\sin(\chi t)
 $$
-对于每一帧，令 $t$ 为这一帧的时长，将开始时的位置和速度信息代入就可以得到结束时的位置。</p>
+对于每一帧，令 <span class="arithmatex">\(t\)</span> 为这一帧的时长，将开始时的位置和速度信息代入就可以得到结束时的位置。</p>
 <h4 id="_8">阻尼简谐运动</h4>
 <p>引入阻尼后的加速度方程为
 $$
 \frac{d^2\vec{x}}{dt^2} = -k\vec{x}-d\vec{v}
 $$
-其中 $d$ 是阻力系数。求解微分方程可得
+其中 <span class="arithmatex">\(d\)</span> 是阻力系数。求解微分方程可得
 $$
 \vec{x}(t) = \left[ \vec{x}<em>{0}\cos(\gamma t)+\frac{1}{2\gamma}( d\vec{x}</em>{0}+2\vec{v}_{0})\sin(\gamma t) \right]e^{-t/2},\quad \gamma = \frac{1}{2}\sqrt{ 4k-d^2 }
 $$
@@ -15557,13 +15559,13 @@ $$
 <li>Shear springs，沿网格对角线的弹簧，模拟布料剪切</li>
 <li>Bend springs，沿横纵但是中间隔一个的弹簧，模拟布弯曲</li>
 </ul>
-<p>在未使用隐式积分时，时间步长不能太大，以避免不稳定。对于弹性系数为 $k_{s}$，质量为 $\mu$ 的质点，自然振荡周期为
+<p>在未使用隐式积分时，时间步长不能太大，以避免不稳定。对于弹性系数为 <span class="arithmatex">\(k_{s}\)</span>，质量为 <span class="arithmatex">\(\mu\)</span> 的质点，自然振荡周期为
 $$
 T_{0} \approx \pi \sqrt{ \frac{\mu}{k_{s}} }
 $$
 模拟步长要小于这个值。</p>
 <p><img alt="" src="image-20250616153125250.png|500" /></p>
-<p>为了防止布料模拟的效果弹性过大，可以再增加约束。例如设置形变参数 $\tau_{C}$，表示允许额外伸展的倍数。令 $\tau_{C}=0.1$ 表示两个粒子之间的距离不能超过原始距离的 1.1 倍。</p>
+<p>为了防止布料模拟的效果弹性过大，可以再增加约束。例如设置形变参数 <span class="arithmatex">\(\tau_{C}\)</span>，表示允许额外伸展的倍数。令 <span class="arithmatex">\(\tau_{C}=0.1\)</span> 表示两个粒子之间的距离不能超过原始距离的 1.1 倍。</p>
 <p><img alt="" src="image-20250616153526825.png|500" /></p>
 <h2 id="_10">刚体动力学</h2>
 <h3 id="_11">处理流程</h3>
@@ -15604,27 +15606,27 @@ I</em>{center} &amp;= \int_{-L / 2}^{L/2}\rho x^2dx = \frac{1}{3}\rho x^3\bigg|<
 I</em>{end} &amp;= \int_{0}^L\rho x^2dx = \frac{1}{3}\rho x^3\bigg|_{0}^L = \frac{1}{3}\rho L^3 = \frac{1}{3}mL^2
 \end{aligned}
 $$
-类似于 $\vec{F}=m\vec{a}$，我们有</p>
+类似于 <span class="arithmatex">\(\vec{F}=m\vec{a}\)</span>，我们有</p>
 <ul>
-<li>$\vec{\tau}=I\vec{\alpha}$，其中 $\vec{\tau}=\vec{r}\times \vec{f}$ 是力矩，$\vec{\alpha}$ 是角加速度</li>
+<li><span class="arithmatex">\(\vec{\tau}=I\vec{\alpha}\)</span>，其中 <span class="arithmatex">\(\vec{\tau}=\vec{r}\times \vec{f}\)</span> 是力矩，<span class="arithmatex">\(\vec{\alpha}\)</span> 是角加速度</li>
 </ul>
-<p>定义角动量 $\vec{L}=\vec{r}<em>{i}\times \vec{p}</em>{i}$，其中 $\vec{p}$ 是线动量。类似于 $\vec{p}=m\vec{v}$，我们有</p>
+<p>定义角动量 <span class="arithmatex">\(\vec{L}=\vec{r}_{i}\times \vec{p}_{i}\)</span>，其中 <span class="arithmatex">\(\vec{p}\)</span> 是线动量。类似于 <span class="arithmatex">\(\vec{p}=m\vec{v}\)</span>，我们有</p>
 <ul>
-<li>$\vec{L}=I\vec{\omega}$，其中 $\vec{\omega}$ 是角速度</li>
+<li><span class="arithmatex">\(\vec{L}=I\vec{\omega}\)</span>，其中 <span class="arithmatex">\(\vec{\omega}\)</span> 是角速度</li>
 </ul>
-<p>类似于直线运动的动能 $E_{v}=\frac{1}{2}m\vec{v}^2$，转动动能 $E_{r}=\frac{1}{2}I\vec{\omega}^2$ 。</p>
+<p>类似于直线运动的动能 <span class="arithmatex">\(E_{v}=\frac{1}{2}m\vec{v}^2\)</span>，转动动能 <span class="arithmatex">\(E_{r}=\frac{1}{2}I\vec{\omega}^2\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>注意到 $\vec{\alpha}=\frac{d\vec{\omega}}{dt}$，因此 $\vec{\tau}=\frac{d\vec{L}}{dt}$ 。</p>
+<p>注意到 <span class="arithmatex">\(\vec{\alpha}=\frac{d\vec{\omega}}{dt}\)</span>，因此 <span class="arithmatex">\(\vec{\tau}=\frac{d\vec{L}}{dt}\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p><strong>平行轴定理</strong> 若质量为 $m$ 的物体以经过质心 $A$ 的直线为轴，其转动惯量为 $I_{A}$ 。再找 $B$ 使得 $AB(|AB|=d)$ 与之前的轴垂直，则以经过 $B$ 且与之前的轴平行的直线为轴，则 $I_{B}=I_{A}+md^2$ 。</p>
+<p><strong>平行轴定理</strong> 若质量为 <span class="arithmatex">\(m\)</span> 的物体以经过质心 <span class="arithmatex">\(A\)</span> 的直线为轴，其转动惯量为 <span class="arithmatex">\(I_{A}\)</span> 。再找 <span class="arithmatex">\(B\)</span> 使得 <span class="arithmatex">\(AB(|AB|=d)\)</span> 与之前的轴垂直，则以经过 <span class="arithmatex">\(B\)</span> 且与之前的轴平行的直线为轴，则 <span class="arithmatex">\(I_{B}=I_{A}+md^2\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>相当于转轴平移了 $d$，则转动惯量增加相对于这段距离的转动惯量。</p>
+<p>相当于转轴平移了 <span class="arithmatex">\(d\)</span>，则转动惯量增加相对于这段距离的转动惯量。</p>
 </blockquote>
 </blockquote>
-<p><strong>垂直轴定理</strong> 如果一个<strong>平面物体</strong>，分别以该平面内垂直的两条交于 $A$ 点的直线为轴，其转动惯量为 $I_{1},I_{2}$ 。若它以经过 $A$ 且垂直于平面的直线为轴，则 $I_{3}=I_{1}+I_{2}$ 。</p>
+<p><strong>垂直轴定理</strong> 如果一个<strong>平面物体</strong>，分别以该平面内垂直的两条交于 <span class="arithmatex">\(A\)</span> 点的直线为轴，其转动惯量为 <span class="arithmatex">\(I_{1},I_{2}\)</span> 。若它以经过 <span class="arithmatex">\(A\)</span> 且垂直于平面的直线为轴，则 <span class="arithmatex">\(I_{3}=I_{1}+I_{2}\)</span> 。</p>
 <p><strong>伸展定理</strong> 若一个物体中的任一质点沿着平行于某条轴的方向发生任意位移，则该物件对该轴的转动惯量不变。</p>
 <blockquote>
 <blockquote>
@@ -15634,16 +15636,16 @@ $$
 <h4 id="_17">二维空间的旋转</h4>
 <p>利用平行轴定理，要计算二维空间多个物体的转动惯量，只需要分别计算每个物体绕质心的转动惯量，再加上轴平移产生的转动惯量，最后求和就得到组合刚体的转动惯量。</p>
 <h4 id="_18">惯性张量</h4>
-<p>记 $\vec{r}<em>{1},\vec{r}</em>{2},\vec{r}<em>{3}$ 为到 $x,y,z$ 轴的距离矢量。定义二阶张量
+<p>记 <span class="arithmatex">\(\vec{r}_{1},\vec{r}_{2},\vec{r}_{3}\)</span> 为到 <span class="arithmatex">\(x,y,z\)</span> 轴的距离矢量。定义二阶张量
 $$
-\vec{I} = I</em>{ij} =
+\vec{I} = I_{ij} =
 \begin{cases}
 \int \vec{r}<em>{i+1}^2+\vec{r}</em>{i+2}^2dm,&amp; i=j \
 -\int |\vec{r}<em>{i}||\vec{r}</em>{j}|dm,&amp; i\neq j
 \end{cases}
 $$
-根据垂直轴定理，$I_{ii}$ 就是绕 $i$ 轴的转动惯量；$I_{ij},i\neq j$ 称为惯量积。</p>
-<p><strong>平行轴定理</strong> 若刚体在质心 $G$ 处的惯性张量为 $I_{G}$，相对 $G$ 点偏移 $\vec{d}$ 处的惯性张量为
+根据垂直轴定理，<span class="arithmatex">\(I_{ii}\)</span> 就是绕 <span class="arithmatex">\(i\)</span> 轴的转动惯量；<span class="arithmatex">\(I_{ij},i\neq j\)</span> 称为惯量积。</p>
+<p><strong>平行轴定理</strong> 若刚体在质心 <span class="arithmatex">\(G\)</span> 处的惯性张量为 <span class="arithmatex">\(I_{G}\)</span>，相对 <span class="arithmatex">\(G\)</span> 点偏移 <span class="arithmatex">\(\vec{d}\)</span> 处的惯性张量为
 $$
 \vec{I}' = I_{ij}' =
 \begin{cases}
@@ -15652,19 +15654,19 @@ I_{ij} - m|\vec{r}<em>{i}||\vec{r}</em>{j}|,&amp; i\neq j
 \end{cases}
 $$
 也相当于直接变动了这段距离对应的的张量值。</p>
-<p><strong>惯性张量的旋转</strong> 已知某个坐标系下的惯性张量 $\vec{I}$ 和坐标系的旋转矩阵 $\mathbf{R}$，可以计算出新的惯性张量
+<p><strong>惯性张量的旋转</strong> 已知某个坐标系下的惯性张量 <span class="arithmatex">\(\vec{I}\)</span> 和坐标系的旋转矩阵 <span class="arithmatex">\(\mathbf{R}\)</span>，可以计算出新的惯性张量
 $$
 \vec{I}' = \mathbf{R}\vec{I}\mathbf{R}^T
 $$
 利用这两个定理，可以计算出任意坐标系下的惯性张量。</p>
 <h4 id="_19">计算转动惯量</h4>
-<p>已知刚体在 $Q-xyz$ 坐标系下的惯性张量为 $\vec{I}$，任取 $QR$ 轴，$\vec{\eta}$ 为沿轴的单位向量，则绕轴的转动惯量为
+<p>已知刚体在 <span class="arithmatex">\(Q-xyz\)</span> 坐标系下的惯性张量为 <span class="arithmatex">\(\vec{I}\)</span>，任取 <span class="arithmatex">\(QR\)</span> 轴，<span class="arithmatex">\(\vec{\eta}\)</span> 为沿轴的单位向量，则绕轴的转动惯量为
 $$
 I_{QR} = \int|\vec{\eta}\times \vec{r}|^2dm = \eta^i\eta^jI_{ij}
 $$
 进而可以得到绕任意轴的转动惯量。</p>
 <h4 id="_20">计算角动量</h4>
-<p>已知刚体相对某个点的惯性张量 $\vec{I}$，相对该点的角动量为
+<p>已知刚体相对某个点的惯性张量 <span class="arithmatex">\(\vec{I}\)</span>，相对该点的角动量为
 $$
 \vec{L}=\int\vec{r}\times \vec{v}dm = \int \vec{r}\times (\vec{\omega}\times \vec{r})dm = \vec{I}\vec{\omega}
 $$
@@ -15683,7 +15685,7 @@ $$
 因此只需要根据角速度和惯性张量就可以算出转动动能。</p>
 <h4 id="_22">三维空间的旋转</h4>
 <p>对于空间中的多个物体，只需要计算在物体局部坐标系下的惯性张量，然后利用惯性张量的平移和旋转，得到组合刚体坐标系下的惯性张量，最后组合各个分量，就得到组合刚体的惯性张量。</p>
-<p>每次循环时，首先计算惯性张量 $\vec{I}$，然后计算力矩 $\vec{\tau}$，由于
+<p>每次循环时，首先计算惯性张量 <span class="arithmatex">\(\vec{I}\)</span>，然后计算力矩 <span class="arithmatex">\(\vec{\tau}\)</span>，由于
 $$
 \frac{d\vec{L}}{dt} = \vec{I} \frac{d\vec{\omega}}{dt} = \vec{I}\vec{\alpha}=\vec{\tau}
 $$
@@ -15692,7 +15694,7 @@ $$
 \vec{\omega}(t_{i+1}) = \omega_{i}+d\vec{\omega}<em>{i} = \vec{I}^{-1}\vec{\tau}(t</em>{i})dt
 $$
 得到角加速度和角速度。</p>
-<p>假设为刚体附加一个单位向量 $\vec{l}$，让这个向量随着刚体旋转，在恒定不变的角速度 $\vec{\omega}$ 下，易得
+<p>假设为刚体附加一个单位向量 <span class="arithmatex">\(\vec{l}\)</span>，让这个向量随着刚体旋转，在恒定不变的角速度 <span class="arithmatex">\(\vec{\omega}\)</span> 下，易得
 $$
 \frac{d\vec{l}}{dt} = \vec{\omega}\times \vec{l}
 $$
@@ -15709,23 +15711,23 @@ $$
 $$
 \vec{\omega}\times \vec{l} = \mathbf{\omega}^</em>\vec{l}
 $$
-要更新旋转矩阵 $\mathbf{R}=(\vec{e}<em>{1}^T,\vec{e}</em>{2}^T,\vec{e}<em>{3}^T)$，实际上就是更新每个单位向量 $\vec{e}</em>{i}$，于是
+要更新旋转矩阵 <span class="arithmatex">\(\mathbf{R}=(\vec{e}_{1}^T,\vec{e}_{2}^T,\vec{e}_{3}^T)\)</span>，实际上就是更新每个单位向量 <span class="arithmatex">\(\vec{e}_{i}\)</span>，于是
 $$
 \frac{d\mathbf{R}}{dt} = \omega^*\mathbf{R}
 $$
-但是这种方式会积累误差，最终 $\mathbf{R}$ 可能不再是旋转矩阵。</p>
-<p>如果使用四元数表示，例如绕单位向量 $\vec{u}$ 旋转 $\theta$ 角
+但是这种方式会积累误差，最终 <span class="arithmatex">\(\mathbf{R}\)</span> 可能不再是旋转矩阵。</p>
+<p>如果使用四元数表示，例如绕单位向量 <span class="arithmatex">\(\vec{u}\)</span> 旋转 <span class="arithmatex">\(\theta\)</span> 角
 $$
 \vec{q}<em>{\vec{u}}(\theta) = \left( \cos \frac{\theta}{2},\vec{u}\sin \frac{\theta}{2} \right)
 $$
-由于刚体在 $dt$ 时间内旋转 $\theta=|\vec{\omega}dt|$，因此
+由于刚体在 <span class="arithmatex">\(dt\)</span> 时间内旋转 <span class="arithmatex">\(\theta=|\vec{\omega}dt|\)</span>，因此
 $$
 \vec{q}(t</em>{i+1}) = \vec{q}(t_{i})\vec{q}_{\vec{\omega} /|\vec{\omega}|}(|\vec{\omega}dt|)
 $$
 直接更新四元数。</p>
 <h2 id="_23">碰撞检测</h2>
 <h3 id="_24">检测流程</h3>
-<p>假设有 $N$ 个物体，则两两碰撞检测需要 $O(N^2)$ 复杂度。要简化计算，我们将流程分为两个阶段</p>
+<p>假设有 <span class="arithmatex">\(N\)</span> 个物体，则两两碰撞检测需要 <span class="arithmatex">\(O(N^2)\)</span> 复杂度。要简化计算，我们将流程分为两个阶段</p>
 <ul>
 <li>Broad-Phase 使用 Bounding Volume 表示刚体的碰撞信息，然后用空间划分的方式保存这些信息</li>
 <li>Narrow-Phase 进行碰撞检测</li>
@@ -15740,7 +15742,7 @@ $$
 </ul>
 <h3 id="_25">空间划分</h3>
 <h4 id="sort-and-sweep">Sort and Sweep</h4>
-<p>将每个 AABB 的 $x,y,z$ 分量表示为区间/间隔，然后排序。之后对排序的列表进行 Sweep</p>
+<p>将每个 AABB 的 <span class="arithmatex">\(x,y,z\)</span> 分量表示为区间/间隔，然后排序。之后对排序的列表进行 Sweep</p>
 <ul>
 <li>从前向后遍历列表，当遇到起点（b）就将间隔添加到当前激活间隔列表中</li>
 <li>当遇到这个间隔的终点（e），就将该间隔从激活间隔列表中移除</li>
@@ -15750,10 +15752,10 @@ $$
 <img alt="" src="image-20250612152121251.jpeg" /></p>
 <p>在实际碰撞检测中，只需要初始化时排序。后续只要将更新的 AABB 重新插入即可，这样</p>
 <ul>
-<li>创建复杂度为 $O(N\log N)$（排序）</li>
-<li>每帧更新期望复杂度为 $O(N)$</li>
+<li>创建复杂度为 <span class="arithmatex">\(O(N\log N)\)</span>（排序）</li>
+<li>每帧更新期望复杂度为 <span class="arithmatex">\(O(N)\)</span></li>
 </ul>
-<p>然而，如果有大量物体在一个轴上聚集，例如地面上的物体会在 $y$ 轴上聚集，此时每帧复杂度可能会提升至 $O(N^2)$，可以考虑舍弃某些轴的检测。</p>
+<p>然而，如果有大量物体在一个轴上聚集，例如地面上的物体会在 <span class="arithmatex">\(y\)</span> 轴上聚集，此时每帧复杂度可能会提升至 <span class="arithmatex">\(O(N^2)\)</span>，可以考虑舍弃某些轴的检测。</p>
 <p><img alt="" src="image-20250612152830698.jpeg" /></p>
 <h4 id="uniform-grid">Uniform Grid</h4>
 <p>将空间划分为均匀网格，如果 AABB 与某个格子相交，则将 AABB 保存在该格子上。最后对每个格子中的 AABB 执行相交测试。</p>
@@ -15796,49 +15798,49 @@ $$
 <p>实际上，如果不相交，则存在直线穿过空隙，取远处垂直于该直线的直线即可；反之，若存在投影不相交的直线，取中间不相交位置作垂线即可分开两个多边形。</p>
 </blockquote>
 </blockquote>
-<p>SAT 算法取一个多边形，遍历所有边，并分别考虑经过端点 $a,b$、沿着法向 $n$ 的两条直线，判断另一个多边形的顶点 $v$ 是否在某条直线的一侧，如果是，则不相交；如果所有直线都不满足要求，则相交，并且最小的 $(v-a)\cdot n$ 是相交的穿透深度。</p>
+<p>SAT 算法取一个多边形，遍历所有边，并分别考虑经过端点 <span class="arithmatex">\(a,b\)</span>、沿着法向 <span class="arithmatex">\(n\)</span> 的两条直线，判断另一个多边形的顶点 <span class="arithmatex">\(v\)</span> 是否在某条直线的一侧，如果是，则不相交；如果所有直线都不满足要求，则相交，并且最小的 <span class="arithmatex">\((v-a)\cdot n\)</span> 是相交的穿透深度。</p>
 <p><img alt="" src="image-20250612155336107.jpeg" /></p>
 <h4 id="gilbert-johnson-heerthi-gjk">Gilbert-Johnson-Heerthi (GJK) 算法</h4>
-<p>对于几何体 $A,B$，定义</p>
+<p>对于几何体 <span class="arithmatex">\(A,B\)</span>，定义</p>
 <ul>
-<li>闵可夫斯基和 $A\oplus B={a+b:a\in A,b\in B}$</li>
-<li>闵可夫斯基差 $A\ominus B={a-b:a\in A,b\in B}=A\oplus(-B)$</li>
+<li>闵可夫斯基和 <span class="arithmatex">\(A\oplus B=\{a+b:a\in A,b\in B\}\)</span></li>
+<li>闵可夫斯基差 <span class="arithmatex">\(A\ominus B=\{a-b:a\in A,b\in B\}=A\oplus(-B)\)</span></li>
 </ul>
-<p>显然如果 $A\ominus B$ 过原点，则 $A,B$ 相交。</p>
-<p>对于几何体 $C$ 和向量 $\vec{v}$，定义支撑函数
+<p>显然如果 <span class="arithmatex">\(A\ominus B\)</span> 过原点，则 <span class="arithmatex">\(A,B\)</span> 相交。</p>
+<p>对于几何体 <span class="arithmatex">\(C\)</span> 和向量 <span class="arithmatex">\(\vec{v}\)</span>，定义支撑函数
 $$
 s_{C}: s_{C}(\vec{v})\in C,\quad \vec{v}\cdot s_{C}(\vec{v})=\max{\vec{v}\cdot \vec{x}:\vec{x}\in C}
 $$</p>
-<p>称 $s_{C}(\vec{v})$ 为支撑点。</p>
+<p>称 <span class="arithmatex">\(s_{C}(\vec{v})\)</span> 为支撑点。</p>
 <blockquote>
 <blockquote>
-<p>考虑 $C$ 中一点，沿着 $\vec{v}$ 方向画直线，与 $C$ 相交得到线段，则目标是找到最长的线段，沿着 $\vec{v}$ 方向的终点是支撑点。</p>
+<p>考虑 <span class="arithmatex">\(C\)</span> 中一点，沿着 <span class="arithmatex">\(\vec{v}\)</span> 方向画直线，与 <span class="arithmatex">\(C\)</span> 相交得到线段，则目标是找到最长的线段，沿着 <span class="arithmatex">\(\vec{v}\)</span> 方向的终点是支撑点。</p>
 </blockquote>
 </blockquote>
 <p><img alt="" src="image-20250612160636024.jpeg" /></p>
 <p>支撑函数满足</p>
 <ul>
-<li>线性性 $s_{A-B}(\vec{v}) = s_{A}(\vec{v})-s_{B}(\vec{v})$</li>
+<li>线性性 <span class="arithmatex">\(s_{A-B}(\vec{v}) = s_{A}(\vec{v})-s_{B}(\vec{v})\)</span></li>
 <li>多边形的支撑点只需要遍历顶点取最大值即可</li>
-<li><strong>支撑点变换</strong> 已知一个几何体 $A$，一个仿射变换 $\mathbf{T}(x)=\mathbf{B}x+c$，则 $\mathbf{T}(A)$ 的支撑点为 $s_{\mathbf{T}(A)}(\vec{v})=T(s_{A}(\mathbf{B}^T\vec{v}))$</li>
+<li><strong>支撑点变换</strong> 已知一个几何体 <span class="arithmatex">\(A\)</span>，一个仿射变换 <span class="arithmatex">\(\mathbf{T}(x)=\mathbf{B}x+c\)</span>，则 <span class="arithmatex">\(\mathbf{T}(A)\)</span> 的支撑点为 <span class="arithmatex">\(s_{\mathbf{T}(A)}(\vec{v})=T(s_{A}(\mathbf{B}^T\vec{v}))\)</span></li>
 </ul>
-<p>GJK 算法循环迭代求 $\vec{v}(A-B)=\min{|x|:x\in A-B}$ 。每次循环使用上次迭代的结果，构建一个在 $A-B$ 中的单纯形。定义 $W_{k}$ 为第 $k$ 次迭代时单纯形的点集，$\vec{v}<em>{k}=\vec{v}(\mathrm{conv}(W</em>{k}))$，其中 $\mathrm{conv}$ 表示取凸包，因此 $\vec{v}<em>{k}$ 是 $W</em>{k}$ 中距离远点最近的点。算法流程如下</p>
+<p>GJK 算法循环迭代求 <span class="arithmatex">\(\vec{v}(A-B)=\min\{\|x\|:x\in A-B\}\)</span> 。每次循环使用上次迭代的结果，构建一个在 <span class="arithmatex">\(A-B\)</span> 中的单纯形。定义 <span class="arithmatex">\(W_{k}\)</span> 为第 <span class="arithmatex">\(k\)</span> 次迭代时单纯形的点集，<span class="arithmatex">\(\vec{v}_{k}=\vec{v}(\mathrm{conv}(W_{k}))\)</span>，其中 <span class="arithmatex">\(\mathrm{conv}\)</span> 表示取凸包，因此 <span class="arithmatex">\(\vec{v}_{k}\)</span> 是 <span class="arithmatex">\(W_{k}\)</span> 中距离远点最近的点。算法流程如下</p>
 <ul>
-<li>取 $W_{0}=\emptyset,\vec{v}_{0}\in A-B$</li>
-<li>令 $\vec{w}<em>{k}=s</em>{A-B}(-\vec{v}_{k})$ 为当前支撑点（注意这里取反其实就是选择 $\vec{v}$ 方向的起点作为支撑点）</li>
-<li>$\vec{v}<em>{k+1}=\vec{v}(\mathrm{conv}(W</em>{k}\cup{\vec{w}_{k}}))$</li>
-<li>$W_{k+1}$ 是满足 $X\subset W_{k}\cup{\vec{w}<em>{k}},\vec{v}</em>{k+1}\in \mathrm{conv}(X)$ 的最小集合</li>
+<li>取 <span class="arithmatex">\(W_{0}=\emptyset,\vec{v}_{0}\in A-B\)</span></li>
+<li>令 <span class="arithmatex">\(\vec{w}_{k}=s_{A-B}(-\vec{v}_{k})\)</span> 为当前支撑点（注意这里取反其实就是选择 <span class="arithmatex">\(\vec{v}\)</span> 方向的起点作为支撑点）</li>
+<li><span class="arithmatex">\(\vec{v}_{k+1}=\vec{v}(\mathrm{conv}(W_{k}\cup\{\vec{w}_{k}\}))\)</span></li>
+<li><span class="arithmatex">\(W_{k+1}\)</span> 是满足 <span class="arithmatex">\(X\subset W_{k}\cup\{\vec{w}_{k}\},\vec{v}_{k+1}\in \mathrm{conv}(X)\)</span> 的最小集合</li>
 </ul>
-<p>对于多边形，GJK 必定在有限次迭代后得到 $\vec{v}_{k}=v(A-B)$ 。而其它情况需要指定停止条件，例如检查迭代步长。</p>
+<p>对于多边形，GJK 必定在有限次迭代后得到 <span class="arithmatex">\(\vec{v}_{k}=v(A-B)\)</span> 。而其它情况需要指定停止条件，例如检查迭代步长。</p>
 <p><img alt="" src="image-20250616143522002.png|500" /></p>
-<p>记 $H(\vec{v},\delta)={x\in \mathbb{R}^3:\vec{v}\cdot \vec{x}+\delta=0}$，在每次迭代中，对于支撑平面 $H(-\vec{v}<em>{k},\vec{v}</em>{k}\cdot \vec{w}<em>{k})$，有向距离 $\delta</em>{k}=\vec{v}<em>{k}\cdot \vec{w}</em>{k}/|\vec{v}<em>{k}|$，取 $\mu</em>{k}=\max(0,\delta_{0},\cdots,\delta_{k})$，当迭代结果满足 $|\vec{v}<em>{k}|-\mu</em>{k}&lt;\epsilon$ 时，停止迭代。</p>
+<p>记 <span class="arithmatex">\(H(\vec{v},\delta)=\{x\in \mathbb{R}^3:\vec{v}\cdot \vec{x}+\delta=0\}\)</span>，在每次迭代中，对于支撑平面 <span class="arithmatex">\(H(-\vec{v}_{k},\vec{v}_{k}\cdot \vec{w}_{k})\)</span>，有向距离 <span class="arithmatex">\(\delta_{k}=\vec{v}_{k}\cdot \vec{w}_{k}/\|\vec{v}_{k}\|\)</span>，取 <span class="arithmatex">\(\mu_{k}=\max(0,\delta_{0},\cdots,\delta_{k})\)</span>，当迭代结果满足 <span class="arithmatex">\(\|\vec{v}_{k}\|-\mu_{k}&lt;\epsilon\)</span> 时，停止迭代。</p>
 <blockquote>
 <blockquote>
-<p>GJK 算法判断原点是否在 $A-B$ 中，如果在就说明相交。如果不在，则 $\vec{v}_{k}$ 的长度就是最近距离。</p>
+<p>GJK 算法判断原点是否在 <span class="arithmatex">\(A-B\)</span> 中，如果在就说明相交。如果不在，则 <span class="arithmatex">\(\vec{v}_{k}\)</span> 的长度就是最近距离。</p>
 </blockquote>
 </blockquote>
 <h4 id="expanding-polytope-algorithm-epa">Expanding Polytope Algorithm (EPA)</h4>
-<p>在 GJK 算法退出后，可以在 GJK 得到的单纯形的基础上使用 EPA 算法，计算穿透深度。从 GJK 得到的包含原点的单纯形开始，每步迭代找到当前凸包上距离原点最近的点，沿着这个方向将 $A-B$ 的支撑点加入凸包。</p>
+<p>在 GJK 算法退出后，可以在 GJK 得到的单纯形的基础上使用 EPA 算法，计算穿透深度。从 GJK 得到的包含原点的单纯形开始，每步迭代找到当前凸包上距离原点最近的点，沿着这个方向将 <span class="arithmatex">\(A-B\)</span> 的支撑点加入凸包。</p>
 <p><img alt="" src="image-20250616145929861.jpeg" /></p>
 <h4 id="continuous-collision-detection-ccd">Continuous Collision Detection (CCD)</h4>
 <p>运动速度很快的微小物体可能出现无法计算到碰撞的隧穿。CCD 尝试找到两个本来应该碰撞的几何体的碰撞时间 Time of Impact (TOI)，并回到那个时间处理碰撞。</p>
@@ -15849,7 +15851,7 @@ d(t) = |x_{1}(t)-x_{2}(t)|-r_{1}-r_{2}
 $$
 CCD 一般非常耗时，默认关闭。</p>
 <h4 id="collision-response">Collision Response</h4>
-<p>考虑最简单的理想小球的情况。对于一维碰撞，两个理想球体的质量为 $m_{1},m_{2}$，碰撞前的速度为 $v_{1},v_{2}$，碰撞后的速度为 $u_{1},u_{2}$ 。在弹性碰撞下，有
+<p>考虑最简单的理想小球的情况。对于一维碰撞，两个理想球体的质量为 <span class="arithmatex">\(m_{1},m_{2}\)</span>，碰撞前的速度为 <span class="arithmatex">\(v_{1},v_{2}\)</span>，碰撞后的速度为 <span class="arithmatex">\(u_{1},u_{2}\)</span> 。在弹性碰撞下，有
 $$
 \begin{aligned}
 m_{1}u_{1}+m_{2}u_{2} &amp;= m_{1}v_{1}+m_{2}v_{2}\
@@ -15863,7 +15865,7 @@ v_{1} &amp;= \frac{m_{1}-m_{2}}{m_{1}+m_{2}}u_{1}+\frac{2m_{2}}{m_{1}+m_{2}}u_{2
 v_{2} &amp;= \frac{2m_{1}}{m_{1}+m_{2}}u_{1}+\frac{m_{2}-m_{1}}{m_{1}+m_{2}}u_{2}
 \end{aligned}
 $$</p>
-<p>如果考虑恢复系数 $C_{r}=\frac{u_{1}-u_{2}}{v_{1}-v_{2}}$，它是两物体碰撞后分离速度和碰撞前接近速度的比值。</p>
+<p>如果考虑恢复系数 <span class="arithmatex">\(C_{r}=\frac{u_{1}-u_{2}}{v_{1}-v_{2}}\)</span>，它是两物体碰撞后分离速度和碰撞前接近速度的比值。</p>
 <h2 id="_28">约束</h2>
 <p>约束是物理引擎中的核心概念。</p>
 <h3 id="_29">硬约束条件</h3>
@@ -15886,13 +15888,13 @@ $$
 $$
 v</em>{s}' = -cv_{s}
 $$
-其中 $c$ 表示回弹系数，通过调整它可以得到不同材质碰撞的效果。</p>
+其中 <span class="arithmatex">\(c\)</span> 表示回弹系数，通过调整它可以得到不同材质碰撞的效果。</p>
 <h4 id="_32">碰撞法向和碰撞法线</h4>
 <h3 id="_33">位置约束</h3>
 <p>物体移动位置的约束，例如滑板必须沿着坡道运动，这就是位置约束。</p>
 <p><img alt="" src="image-20250612161208203.jpeg" /></p>
 <h3 id="_34">接触约束</h3>
-<p>在固定平面上放置盒子，考虑盒子左下角 $p$ 。接触约束要求</p>
+<p>在固定平面上放置盒子，考虑盒子左下角 <span class="arithmatex">\(p\)</span> 。接触约束要求</p>
 <ul>
 <li>两个物体在接触点不能沿着接触的法线方向移动</li>
 </ul>
@@ -15903,11 +15905,11 @@ C &amp;= (p_{B}-p_{A})\cdot \vec{n}\
 \dot{C} &amp;= (\dot{p}<em>{B}-\dot{p}</em>{A})\cdot \vec{n}+(p_{B}-p_{A})\cdot \dot{\vec{n}}
 \end{aligned}
 $$
-其中 $p_{A},p_{B}$ 分别表示 $A,B$ 两个物体在 $p$ 对应的位置，其实是相等的，则 $C=0,\dot{C}=0$ 。而地面不动 $\dot{p}<em>{A}=0$，因此最终得到
+其中 <span class="arithmatex">\(p_{A},p_{B}\)</span> 分别表示 <span class="arithmatex">\(A,B\)</span> 两个物体在 <span class="arithmatex">\(p\)</span> 对应的位置，其实是相等的，则 <span class="arithmatex">\(C=0,\dot{C}=0\)</span> 。而地面不动 <span class="arithmatex">\(\dot{p}_{A}=0\)</span>，因此最终得到
 $$
-\dot{p}</em>{B}\cdot \vec{n} = 0
+\dot{p}_{B}\cdot \vec{n} = 0
 $$
-即 $B$ 不能有沿着法向的加速度。</p>
+即 <span class="arithmatex">\(B\)</span> 不能有沿着法向的加速度。</p>
 <p><img alt="" src="image-20250612161855382.jpeg" /></p>
 <p>考虑加上绕质心的旋转。我们有
 $$
@@ -15916,9 +15918,9 @@ $$
 0 &amp;= (\vec{v}<em>{B}+\vec{\omega}</em>{B}\times \vec{r})\cdot \vec{n}
 \end{aligned}
 $$
-其中第二式由前面 $\dot{p}_{B}\cdot \vec{n}=0$ 得到。</p>
+其中第二式由前面 <span class="arithmatex">\(\dot{p}_{B}\cdot \vec{n}=0\)</span> 得到。</p>
 <p><img alt="" src="image-20250612164414534.jpeg" /></p>
-<p>要让速度约束得到满足，可以沿着接触法向 $\vec{n}$ 在 $p$ 点给 $B$ 一个接触冲量，它将产生速度冲量 $\lambda \vec{n}$ 和角速度冲量 $\lambda(\vec{r}\times \vec{n})$ 。</p>
+<p>要让速度约束得到满足，可以沿着接触法向 <span class="arithmatex">\(\vec{n}\)</span> 在 <span class="arithmatex">\(p\)</span> 点给 <span class="arithmatex">\(B\)</span> 一个接触冲量，它将产生速度冲量 <span class="arithmatex">\(\lambda \vec{n}\)</span> 和角速度冲量 <span class="arithmatex">\(\lambda(\vec{r}\times \vec{n})\)</span> 。</p>
 <p>根据牛顿力学，冲量作用效果为
 $$
 \begin{aligned}
@@ -15943,9 +15945,9 @@ $$
 $$
 解出
 $$
-\lambda = -\frac{\vec{n}\cdot \vec{v}<em>{1}+(\vec{r}\times\vec{n})\cdot\vec{\omega}</em>{1}}{m^{-1}+I^{-1}(\vec{r}\times \vec{n})^2} = -m_{eff}\dot{C}<em>{1}
+\lambda = -\frac{\vec{n}\cdot \vec{v}<em>{1}+(\vec{r}\times\vec{n})\cdot\vec{\omega}</em>{1}}{m^{-1}+I^{-1}(\vec{r}\times \vec{n})^2} = -m_{eff}\dot{C}_{1}
 $$
-其中 $\dot{C}</em>{1}$ 是施加冲量之前的值，而施加冲量之后的值 $\dot{C}_{2}=0$ 。</p>
+其中 <span class="arithmatex">\(\dot{C}_{1}\)</span> 是施加冲量之前的值，而施加冲量之后的值 <span class="arithmatex">\(\dot{C}_{2}=0\)</span> 。</p>
 <blockquote>
 <blockquote>
 <p>施加冲量的目的是让不满足接触约束的物体变得满足约束。</p>
@@ -15961,7 +15963,7 @@ $$
 <h4 id="_37">暖启动</h4>
 <p>如果小球数量很多，或者上方小球的质量比下方小球质量大很多，收敛速度就会下降。可以利用帧的连续性，用上一帧计算的冲量开始计算下一帧。不过如果负载出现突变，就可能没有足够的时间使结果收敛。</p>
 <h3 id="_38">不等约束</h3>
-<p>对于接触约束，要求必须满足 $\lambda\geq 0$，因为我们求得的冲量一定是趋向于让两个物体分离的。只需要最后求得的累积冲量大于 0，而不要求每次迭代时求得的冲量为 0，因为在某些情况下可能出现过冲 (overshot)，所以需要负冲量修正。例如重盒子堆叠在轻盒子上，就可能出现过冲。</p>
+<p>对于接触约束，要求必须满足 <span class="arithmatex">\(\lambda\geq 0\)</span>，因为我们求得的冲量一定是趋向于让两个物体分离的。只需要最后求得的累积冲量大于 0，而不要求每次迭代时求得的冲量为 0，因为在某些情况下可能出现过冲 (overshot)，所以需要负冲量修正。例如重盒子堆叠在轻盒子上，就可能出现过冲。</p>
 <p><img alt="" src="image-20250616151721269.jpeg" /></p>
 <h3 id="_39">加速度约束</h3>
 <p>速度约束通过冲量实现，加速度约束通过调整物体的受力实现。但对于接触约束，两个物体碰撞时，互相之间的力变化很快，而且有一个很大的峰值，所以加速度约束不适用于接触约束。</p>
@@ -16027,6 +16029,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

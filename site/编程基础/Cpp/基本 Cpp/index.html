@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -22581,7 +22583,7 @@
 <h3 id="_5">浮点型</h3>
 <p><strong>超过范围的浮点数</strong></p>
 <ul>
-<li>inf : 超过范围的浮点数 $\pm \infty$ </li>
+<li>inf : 超过范围的浮点数 <span class="arithmatex">\(\pm \infty\)</span> </li>
 <li>nan : 不存在的浮点数</li>
 </ul>
 <h3 id="_6">数组</h3>
@@ -24757,7 +24759,7 @@
 <a id="__codelineno-144-7" name="__codelineno-144-7" href="#__codelineno-144-7"></a>
 <a id="__codelineno-144-8" name="__codelineno-144-8" href="#__codelineno-144-8"></a><span class="k">struct</span><span class="w"> </span><span class="nc">_PRCODE</span><span class="w"> </span><span class="n">prcode</span><span class="p">;</span>
 </code></pre></div>
-<p>这意味着 code1, code2 取值不超过 $2^2$；code3 取值不超过 $2^8$ 。</p>
+<p>这意味着 code1, code2 取值不超过 <span class="arithmatex">\(2^2\)</span>；code3 取值不超过 <span class="arithmatex">\(2^8\)</span> 。</p>
 <p>我们假定系统中 unsigned int 类型为 32 比特，则下面的位域结构只占用 8 比特</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-145-1" name="__codelineno-145-1" href="#__codelineno-145-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">box</span><span class="w"> </span>
 <a id="__codelineno-145-2" name="__codelineno-145-2" href="#__codelineno-145-2"></a><span class="p">{</span>
@@ -24774,7 +24776,7 @@
 <a id="__codelineno-146-4" name="__codelineno-146-4" href="#__codelineno-146-4"></a><span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">field2</span><span class="o">:</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span>
 <a id="__codelineno-146-5" name="__codelineno-146-5" href="#__codelineno-146-5"></a><span class="p">};</span>
 </code></pre></div>
-<p>其中 $30+4$ 超出了 32 比特，因此实际上 field2 会从下一个 32 比特开始，则 stuff 占用 64 比特。</p>
+<p>其中 <span class="arithmatex">\(30+4\)</span> 超出了 32 比特，因此实际上 field2 会从下一个 32 比特开始，则 stuff 占用 64 比特。</p>
 <p>位域可以通过成员赋值</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-147-1" name="__codelineno-147-1" href="#__codelineno-147-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">stuff</span><span class="w"> </span><span class="n">s1</span><span class="p">;</span>
 <a id="__codelineno-147-2" name="__codelineno-147-2" href="#__codelineno-147-2"></a><span class="n">s1</span><span class="p">.</span><span class="n">field1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">;</span>
@@ -29349,7 +29351,7 @@ $$
 <a id="__codelineno-511-4" name="__codelineno-511-4" href="#__codelineno-511-4"></a><span class="p">}</span>
 </code></pre></div>
 <p>虽然这个函数看起来比前面一个版本更具有一般性，但是它不能满足已经定义好的函数指针参数的要求。</p>
-<p>仿函数类可以写成一个抽象基类，用来表示某种概念（比如 $\mathbb{R}\rightarrow\mathbb{R}$ 的连续函数），待后续的派生类来写它的具体实现</p>
+<p>仿函数类可以写成一个抽象基类，用来表示某种概念（比如 <span class="arithmatex">\(\mathbb{R}\rightarrow\mathbb{R}\)</span> 的连续函数），待后续的派生类来写它的具体实现</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-512-1" name="__codelineno-512-1" href="#__codelineno-512-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">simple_func</span>
 <a id="__codelineno-512-2" name="__codelineno-512-2" href="#__codelineno-512-2"></a><span class="p">{</span>
 <a id="__codelineno-512-3" name="__codelineno-512-3" href="#__codelineno-512-3"></a><span class="k">public</span><span class="o">:</span>
@@ -31749,6 +31751,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14688,7 +14690,7 @@
 <p>已知的相关量子算法，核心是量子搜索和量子傅里叶变换。量子计数算法是量子搜索和量子傅里叶变换的结合，能够比经典计算机算法更快地估计搜索问题解的个数。</p>
 <p><img alt="" src="image-20240507115630407.jpeg|775" /></p>
 <h3 id="_3">单量子比特操作</h3>
-<p>单量子比特是形如 $|\psi\rangle=a|0\rangle+b|1\rangle$ 的向量，满足 $|a|^2+|b|^2=1$ 。量子比特上的操作必须保范数，因此是 2 阶酉矩阵。泡利矩阵是其中最重要的矩阵
+<p>单量子比特是形如 <span class="arithmatex">\(|\psi\rangle=a|0\rangle+b|1\rangle\)</span> 的向量，满足 <span class="arithmatex">\(|a|^2+|b|^2=1\)</span> 。量子比特上的操作必须保范数，因此是 2 阶酉矩阵。泡利矩阵是其中最重要的矩阵
 $$
 X = 
 \begin{bmatrix}
@@ -14724,11 +14726,11 @@ T =
 0 &amp; e^{i\pi/4}
 \end{bmatrix}
 $$
-分别是阿达玛门、相位门和 $\frac{\pi}{8}$ 门，满足
+分别是阿达玛门、相位门和 <span class="arithmatex">\(\frac{\pi}{8}\)</span> 门，满足
 $$
 H=\frac{X+Z}{\sqrt{ 2 }},\quad S=T^2
 $$
-其中 $T$ 被称为 $\frac{\pi}{8}$ 门是因为可以提取一个 $e^{i\pi/8}$ 全局相位，得到对角元均为 $e^{\pm i\pi/8}$ 的门。</p>
+其中 <span class="arithmatex">\(T\)</span> 被称为 <span class="arithmatex">\(\frac{\pi}{8}\)</span> 门是因为可以提取一个 <span class="arithmatex">\(e^{i\pi/8}\)</span> 全局相位，得到对角元均为 <span class="arithmatex">\(e^{\pm i\pi/8}\)</span> 的门。</p>
 <blockquote>
 <p>[!exercise]
 找到布洛赫球面上对应于不同泡利矩阵的归一化特征向量的点。</p>
@@ -14767,7 +14769,7 @@ i &amp; 0
 \end{cases}
 \end{aligned}
 $$
-将它们分别表示为布洛赫球面上的点 $(\varphi,\theta)$，得到
+将它们分别表示为布洛赫球面上的点 <span class="arithmatex">\((\varphi,\theta)\)</span>，得到
 $$
 \sigma_{1}:\begin{cases}
 |v_{1}\rangle=\left( 0, \frac{\pi}{2}\right) \
@@ -14782,9 +14784,9 @@ $$
 |v_{2}\rangle=\left( \varphi, \pi \right)
 \end{cases}
 $$
-注意 $\sigma_{3}$ 对应两极，因此 $\varphi$ 的值可以任取。
+注意 <span class="arithmatex">\(\sigma_{3}\)</span> 对应两极，因此 <span class="arithmatex">\(\varphi\)</span> 的值可以任取。
 <img alt="" src="image-20240528140808610.png|350" /></p>
-<p>泡利矩阵出现在指数中时产生了三类有用的酉矩阵，即关于 $\hat{x},\hat{y},\hat{z}$ 的旋转算子，定义为
+<p>泡利矩阵出现在指数中时产生了三类有用的酉矩阵，即关于 <span class="arithmatex">\(\hat{x},\hat{y},\hat{z}\)</span> 的旋转算子，定义为
 $$
 \begin{aligned}
 R_{x}(\theta) &amp;= e^{-i\theta X/2}=\cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}X=
@@ -14804,14 +14806,14 @@ e^{-i\theta/2} &amp; 0 \
 \end{bmatrix}
 \end{aligned}
 $$
-显然除了一个全局相位，$\frac{\pi}{8}$ 门满足 $T=R_{z}\left( \frac{\pi}{4} \right)$ ​ 。</p>
+显然除了一个全局相位，<span class="arithmatex">\(\frac{\pi}{8}\)</span> 门满足 <span class="arithmatex">\(T=R_{z}\left( \frac{\pi}{4} \right)\)</span> ​ 。</p>
 <blockquote>
 <p>[!exercise]
-令 $x$ 为实数，$A$ 为满足 $A^2=I$ 的矩阵，证明
+令 <span class="arithmatex">\(x\)</span> 为实数，<span class="arithmatex">\(A\)</span> 为满足 <span class="arithmatex">\(A^2=I\)</span> 的矩阵，证明
 $$
 e^{iAx}=\cos (x)I+i\sin (x)A
 $$
-利用这一结果验证 $R_{x},R_{y},R_{z}$ 成立。</p>
+利用这一结果验证 <span class="arithmatex">\(R_{x},R_{y},R_{z}\)</span> 成立。</p>
 </blockquote>
 <p>利用泰勒展开重组（解答似乎有问题，本书并未通过泰勒展开给出矩阵指数的定义，仅仅给出了正规算子的指数定义）
 $$
@@ -14822,28 +14824,28 @@ e^{iAx} &amp;= I+ixA-\frac{1}{2}x^2A^2-\frac{1}{6}ix^3A^3+\cdots \
 &amp;= \cos(x)I+i\sin(x)A
 \end{align}
 $$
-其中利用 $A^2=I$ 约去了高阶项。</p>
+其中利用 <span class="arithmatex">\(A^2=I\)</span> 约去了高阶项。</p>
 <blockquote>
 <p>[!exercise]
-给定一个 $\varphi$，将阿达玛门 $H$ 表示为旋转算子 $R_x,R_y,e^{i\varphi}$ 的积。</p>
+给定一个 <span class="arithmatex">\(\varphi\)</span>，将阿达玛门 <span class="arithmatex">\(H\)</span> 表示为旋转算子 <span class="arithmatex">\(R_x,R_y,e^{i\varphi}\)</span> 的积。</p>
 </blockquote>
-<p>考虑 $H$ 作用在 $R_{x},R_{y},R_{z}$ 特征向量上的结果
+<p>考虑 <span class="arithmatex">\(H\)</span> 作用在 <span class="arithmatex">\(R_{x},R_{y},R_{z}\)</span> 特征向量上的结果
 $$
 \sigma_{1}^z\to \sigma_{1}^x,\quad \sigma_{2}^x\to \sigma_{2}^z,\quad \sigma_{1}^y\to\sigma_{2}^y
 $$
-因此从几何上看，$H$ 等价于绕着 $y$ 轴旋转 $\frac{\pi}{2}$ 然后绕 $x$ 轴旋转 $\pi$，因此写成
+因此从几何上看，<span class="arithmatex">\(H\)</span> 等价于绕着 <span class="arithmatex">\(y\)</span> 轴旋转 <span class="arithmatex">\(\frac{\pi}{2}\)</span> 然后绕 <span class="arithmatex">\(x\)</span> 轴旋转 <span class="arithmatex">\(\pi\)</span>，因此写成
 $$
 H = R_{x}(\pi)R_{y}\left( \frac{\pi}{2} \right)e^{i\varphi}
 $$
-展开后容易得到 $\varphi=\frac{3\pi}{2}$ 。</p>
-<p>若 $\hat{n}=(n_{x},n_{y},n_{z})$ 是三维空间中的单位实向量，则可定义</p>
+展开后容易得到 <span class="arithmatex">\(\varphi=\frac{3\pi}{2}\)</span> 。</p>
+<p>若 <span class="arithmatex">\(\hat{n}=(n_{x},n_{y},n_{z})\)</span> 是三维空间中的单位实向量，则可定义</p>
 <p>$$
 R_{\hat{n}}(\theta)=e^{-i\theta \hat{n}\cdot \vec{\sigma}/2}=\cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}(n_{x}X+n_{y}Y+n_{z}Z)
 $$
-其中 $\vec{\sigma}$ 表示泡利矩阵组成的向量 $(X,Y,Z)$ 。</p>
+其中 <span class="arithmatex">\(\vec{\sigma}\)</span> 表示泡利矩阵组成的向量 <span class="arithmatex">\((X,Y,Z)\)</span> 。</p>
 <blockquote>
 <p>[!exercise]
-证明 $(\hat{n}\cdot \vec{\sigma})^2=I$，并由此证明上面定义等式成立。</p>
+证明 <span class="arithmatex">\((\hat{n}\cdot \vec{\sigma})^2=I\)</span>，并由此证明上面定义等式成立。</p>
 </blockquote>
 <p>直接展开得到
 $$
@@ -14856,12 +14858,12 @@ $$
 注意到括号中和均为零，即证。</p>
 <blockquote>
 <p>[!exercise] 旋转的布洛赫球解释
-假设单量子比特态可由布洛赫向量 $\vec{\lambda}$ 表示，则旋转 $R_{\hat{n}}(\theta)$ 对该状态的作用是在布洛赫球面上关于 $\vec{n}$ 轴旋转 $\theta$ 角。</p>
+假设单量子比特态可由布洛赫向量 <span class="arithmatex">\(\vec{\lambda}\)</span> 表示，则旋转 <span class="arithmatex">\(R_{\hat{n}}(\theta)\)</span> 对该状态的作用是在布洛赫球面上关于 <span class="arithmatex">\(\vec{n}\)</span> 轴旋转 <span class="arithmatex">\(\theta\)</span> 角。</p>
 </blockquote>
-<p>容易验证 $R_{x},R_{y},R_{z}$ 是绕 $x,y,z$ 轴的旋转。然后考虑 $R_{\hat{n}}(\theta)$ 的分解：假设 $\hat{n}\neq z$，首先考虑一个将 $\hat{n}=(\varphi_{n},\theta_{n})$ 旋转到 $z$ 轴的变换 $A$，它可由两个旋转构成</p>
+<p>容易验证 <span class="arithmatex">\(R_{x},R_{y},R_{z}\)</span> 是绕 <span class="arithmatex">\(x,y,z\)</span> 轴的旋转。然后考虑 <span class="arithmatex">\(R_{\hat{n}}(\theta)\)</span> 的分解：假设 <span class="arithmatex">\(\hat{n}\neq z\)</span>，首先考虑一个将 <span class="arithmatex">\(\hat{n}=(\varphi_{n},\theta_{n})\)</span> 旋转到 <span class="arithmatex">\(z\)</span> 轴的变换 <span class="arithmatex">\(A\)</span>，它可由两个旋转构成</p>
 <ol>
-<li>绕 $z$ 轴旋转 $-\varphi_{n}$ 角；</li>
-<li>绕 $y$ 轴旋转 $-\theta_{n}$ 角；</li>
+<li>绕 <span class="arithmatex">\(z\)</span> 轴旋转 <span class="arithmatex">\(-\varphi_{n}\)</span> 角；</li>
+<li>绕 <span class="arithmatex">\(y\)</span> 轴旋转 <span class="arithmatex">\(-\theta_{n}\)</span> 角；</li>
 </ol>
 <p>于是有
 $$
@@ -14890,23 +14892,23 @@ R_{y}(\theta_{n})R_{z}(\theta)R_{y}(-\theta_{n}) &amp;= \left[\cos \frac{\theta_
 &amp;= \cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}[\sin \theta_{n}X+\cos \theta_{n}Z]
 \end{align}
 $$
-这里实际上已经出现绕轴 $(\sin \theta_{n},0,\cos \theta_{n})$ 的旋转。同理展开第二部分
+这里实际上已经出现绕轴 <span class="arithmatex">\((\sin \theta_{n},0,\cos \theta_{n})\)</span> 的旋转。同理展开第二部分
 $$
 R_{z}(\varphi_{n})R_{y}(\theta_{n})R_{z}(\theta)R_{y}(-\theta_{n})R_{z}(-\varphi_{n}) = \cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}[\cos \varphi_{n}\sin \theta_{n}X+ \sin \varphi_{n}\sin \theta_{n}Y+\cos \theta_{n}Z]
 $$
-其中 $(\cos \varphi_{n}\sin \theta_{n},\sin \varphi_{n}\sin \theta_{n},\cos \theta_{n})$ 就是 $\hat{n}$ 轴。</p>
+其中 <span class="arithmatex">\((\cos \varphi_{n}\sin \theta_{n},\sin \varphi_{n}\sin \theta_{n},\cos \theta_{n})\)</span> 就是 <span class="arithmatex">\(\hat{n}\)</span> 轴。</p>
 <blockquote>
 <p>[!exercise]
-证明 $XYX=-Y$，并得到 $XR_{y}(\theta)X=R_{y}(-\theta)$ 。</p>
+证明 <span class="arithmatex">\(XYX=-Y\)</span>，并得到 <span class="arithmatex">\(XR_{y}(\theta)X=R_{y}(-\theta)\)</span> 。</p>
 </blockquote>
-<p>利用 $XY=-YX,X^2=I$ 直接展开验证即可。</p>
+<p>利用 <span class="arithmatex">\(XY=-YX,X^2=I\)</span> 直接展开验证即可。</p>
 <blockquote>
 <p>[!exercise]
-对实数 $\alpha,\theta$，三维实单位向量 $\vec{n}$，任意单量子比特酉算子可表示为
+对实数 <span class="arithmatex">\(\alpha,\theta\)</span>，三维实单位向量 <span class="arithmatex">\(\vec{n}\)</span>，任意单量子比特酉算子可表示为
 $$
 U=\exp(i\alpha)R_{\vec{n}}(\theta)
 $$
-并求出阿达玛门 $H$ 和 $S=\mathrm{diag}(1,i)$ 对应的 $\alpha,\theta,\vec{n}$ 。</p>
+并求出阿达玛门 <span class="arithmatex">\(H\)</span> 和 <span class="arithmatex">\(S=\mathrm{diag}(1,i)\)</span> 对应的 <span class="arithmatex">\(\alpha,\theta,\vec{n}\)</span> 。</p>
 </blockquote>
 <p>将右式展开得到
 $$
@@ -14916,7 +14918,7 @@ e^{i\alpha}
 -i\sin \frac{\theta}{2}n_{x}+\sin \frac{\theta}{2}n_{y} &amp; \cos \frac{\theta}{2}+i\sin \frac{\theta}{2}n_{z}
 \end{bmatrix}
 $$
-容易验证这确实是酉矩阵。不妨设 $U=[u_{ij}]$，于是有
+容易验证这确实是酉矩阵。不妨设 <span class="arithmatex">\(U=[u_{ij}]\)</span>，于是有
 $$
 \begin{align}
 u_{11}+u_{22}&amp;=2e^{i\alpha}\cos \frac{\theta}{2} \
@@ -14925,15 +14927,15 @@ u_{12}-u_{21}&amp;=-2e^{i\alpha}\sin \frac{\theta}{2}n_{y} \
 u_{11}-u_{22}&amp;=-2ie^{i\alpha}\sin \frac{\theta}{2}n_{z}
 \end{align}
 $$
-若 $u_{12}=u_{21},u_{11}=u_{22}$，则 $U$ 为对角阵，容易求解；若两个等式至多有一个成立，不妨设 $u_{11}=u_{22}$，则 $n_{z}=0$ 成立，利用中间两式之比可以算出 $\frac{n_{x}}{n_{y}}$，利用 $n$ 为单位向量可算出 $n$，利用 1,3 式之比可以算出 $\theta$，进而算出 $\alpha$ 。</p>
+若 <span class="arithmatex">\(u_{12}=u_{21},u_{11}=u_{22}\)</span>，则 <span class="arithmatex">\(U\)</span> 为对角阵，容易求解；若两个等式至多有一个成立，不妨设 <span class="arithmatex">\(u_{11}=u_{22}\)</span>，则 <span class="arithmatex">\(n_{z}=0\)</span> 成立，利用中间两式之比可以算出 <span class="arithmatex">\(\frac{n_{x}}{n_{y}}\)</span>，利用 <span class="arithmatex">\(n\)</span> 为单位向量可算出 <span class="arithmatex">\(n\)</span>，利用 1,3 式之比可以算出 <span class="arithmatex">\(\theta\)</span>，进而算出 <span class="arithmatex">\(\alpha\)</span> 。</p>
 <blockquote>
-<p>[!theorem] 单量子比特的 $Z-Y$ 分解
-假设 $U$ 是单量子比特上的酉算子，则存在实数 $\alpha,\beta,\gamma,\delta$ 使得
+<p>[!theorem] 单量子比特的 <span class="arithmatex">\(Z-Y\)</span> 分解
+假设 <span class="arithmatex">\(U\)</span> 是单量子比特上的酉算子，则存在实数 <span class="arithmatex">\(\alpha,\beta,\gamma,\delta\)</span> 使得
  $$
 U = e^{i\alpha}R_{z}(\beta)R_{y}(\gamma)R_{z}(\delta)
 $$</p>
 </blockquote>
-<p>由于 $U$ 是酉算子，其行列正交，则存在实数 $\alpha,\beta,\gamma,\delta$ 使得
+<p>由于 <span class="arithmatex">\(U\)</span> 是酉算子，其行列正交，则存在实数 <span class="arithmatex">\(\alpha,\beta,\gamma,\delta\)</span> 使得
 $$
 U = \begin{bmatrix}
 e^{i(\alpha-\beta/2-\delta/2)}\cos \frac{\gamma}{2} &amp; -e^{i(\alpha-\beta/2+\delta/2)}\sin \frac{\gamma}{2} \
@@ -14945,7 +14947,7 @@ $$
 <p>[!exercise] 
 证明任何单量子比特酉算子均可表示为上述形式。</p>
 </blockquote>
-<p>令 $\lambda=\beta+\delta,\mu=\beta-\delta$，将原式变换为
+<p>令 <span class="arithmatex">\(\lambda=\beta+\delta,\mu=\beta-\delta\)</span>，将原式变换为
 $$
 U = e^{i\alpha}
 \begin{bmatrix}
@@ -14953,7 +14955,7 @@ e^{-i\lambda/2}\cos \frac{\gamma}{2} &amp; -e^{-i\mu/2}\sin \frac{\gamma}{2} \
 e^{i\mu/2}\sin \frac{\gamma}{2} &amp; e^{i\lambda/2}\cos \frac{\gamma}{2}
 \end{bmatrix}
 $$
-不妨设 $U=[u_{ij}]$，于是有
+不妨设 <span class="arithmatex">\(U=[u_{ij}]\)</span>，于是有
 $$
 \begin{align}
 u_{11}+u_{22}&amp;=2e^{i\alpha}\cos \frac{\gamma}{2}\cos \frac{\lambda}{2} \
@@ -14962,33 +14964,33 @@ u_{12}-u_{21}&amp;=-2e^{i\alpha}\sin \frac{\gamma}{2}\cos \frac{\mu}{2} \
 u_{11}-u_{22}&amp;=-2ie^{i\alpha}\sin \frac{\gamma}{2}\sin \frac{\lambda}{2}
 \end{align}
 $$
-两两相除即可解得 $\gamma,\mu,\lambda,\alpha$，即证。</p>
+两两相除即可解得 <span class="arithmatex">\(\gamma,\mu,\lambda,\alpha\)</span>，即证。</p>
 <blockquote>
-<p>[!exercise] 旋转 $X-Y$ 分解
-用 $R_{x}$ 代替 $R_{z}$ 得到酉算子的分解式。</p>
+<p>[!exercise] 旋转 <span class="arithmatex">\(X-Y\)</span> 分解
+用 <span class="arithmatex">\(R_{x}\)</span> 代替 <span class="arithmatex">\(R_{z}\)</span> 得到酉算子的分解式。</p>
 </blockquote>
-<p>考虑形式 $U= e^{i\alpha}R_{x}(\beta)R_{y}(\gamma)R_{x}(\delta)$，则右边展开同上可证。</p>
+<p>考虑形式 <span class="arithmatex">\(U= e^{i\alpha}R_{x}(\beta)R_{y}(\gamma)R_{x}(\delta)\)</span>，则右边展开同上可证。</p>
 <blockquote>
 <p>[!exercise]
-假设 $\hat{m},\hat{n}$ 是互不平行的三维实单位向量，证明存在 $\alpha,\beta_{k},\gamma_{k}$ 使得任意单量子比特酉算子可被表示为
+假设 <span class="arithmatex">\(\hat{m},\hat{n}\)</span> 是互不平行的三维实单位向量，证明存在 <span class="arithmatex">\(\alpha,\beta_{k},\gamma_{k}\)</span> 使得任意单量子比特酉算子可被表示为
 $$
 U = e^{i\alpha}R_{\hat{n}}(\beta_{1})R_{\hat{m}}(\gamma_{1})R_{\hat{n}}(\beta_{2})R_{\hat{m}}(\gamma_{2})\cdots
 $$</p>
 </blockquote>
-<p>没有找到解答，只找到证明存在酉算子不能分解为前面的 3 个旋转复合的形式。考虑 $\hat{n}=\hat{z}$，则容易证明
+<p>没有找到解答，只找到证明存在酉算子不能分解为前面的 3 个旋转复合的形式。考虑 <span class="arithmatex">\(\hat{n}=\hat{z}\)</span>，则容易证明
 $$
 U' = e^{i\alpha}R_{\hat{n}}(\beta_{1})R_{\hat{m}}(\gamma_{1})R_{\hat{n}}(\beta_{2})
 $$
-对应 $(1,1)$ 元素的模为
+对应 <span class="arithmatex">\((1,1)\)</span> 元素的模为
 $$
 \sqrt{ \cos^2\frac{\gamma_{1}}{2}+\hat{m}<em>{z}^2\sin^2 \frac{\gamma</em>{2}}{2} }
 $$
-只要 $U$ 对应的 $(1,1)$ 元素模小于此值，则必然不存在上述分解。</p>
+只要 <span class="arithmatex">\(U\)</span> 对应的 <span class="arithmatex">\((1,1)\)</span> 元素模小于此值，则必然不存在上述分解。</p>
 <blockquote>
 <p>[!corollary]
-设 $U$ 是作用在单量子比特上的酉门，则单量子比特上存在酉算子 $A,B,C$ 使得 $ABC=I$ 且 $U=e^{i\alpha}AXBXC$，其中 $\alpha$ 是全局相位因子。</p>
+设 <span class="arithmatex">\(U\)</span> 是作用在单量子比特上的酉门，则单量子比特上存在酉算子 <span class="arithmatex">\(A,B,C\)</span> 使得 <span class="arithmatex">\(ABC=I\)</span> 且 <span class="arithmatex">\(U=e^{i\alpha}AXBXC\)</span>，其中 <span class="arithmatex">\(\alpha\)</span> 是全局相位因子。</p>
 </blockquote>
-<p>设 $A=R_{z}(\beta)R_{y}\left( \frac{\gamma}{2} \right),B=R_{y}\left( -\frac{\gamma}{2} \right)R_{z}\left( -\frac{\delta+\beta}{2} \right),C=R_{z}\left( \frac{\delta-\beta}{2} \right)$，于是 $ABC = I$，并且
+<p>设 <span class="arithmatex">\(A=R_{z}(\beta)R_{y}\left( \frac{\gamma}{2} \right),B=R_{y}\left( -\frac{\gamma}{2} \right)R_{z}\left( -\frac{\delta+\beta}{2} \right),C=R_{z}\left( \frac{\delta-\beta}{2} \right)\)</span>，于是 <span class="arithmatex">\(ABC = I\)</span>，并且
 $$
 XBX = XR_{y}\left( -\frac{\gamma}{2} \right)XXR_{z}\left( -\frac{\delta+\beta}{2} \right)X=R_{y}\left( \frac{\gamma}{2} \right)R_{z}\left( \frac{\delta+\beta}{2} \right)
 $$
@@ -14999,7 +15001,7 @@ $$
 代回即证。</p>
 <blockquote>
 <p>[!exercise] 
-求出阿达玛门 $H$ 对应的 $A,B,C,\alpha$ 。</p>
+求出阿达玛门 <span class="arithmatex">\(H\)</span> 对应的 <span class="arithmatex">\(A,B,C,\alpha\)</span> 。</p>
 </blockquote>
 <p>根据</p>
 <p>$$
@@ -15008,7 +15010,7 @@ e^{i(\alpha-\beta/2-\delta/2)}\cos \frac{\gamma}{2} &amp; -e^{i(\alpha-\beta/2+\
 e^{i(\alpha+\beta/2-\delta/2)}\sin \frac{\gamma}{2} &amp; e^{i(\alpha+\beta/2+\delta/2)}\cos \frac{\gamma}{2}
 \end{bmatrix}
 $$
-不妨取 $\beta=0,\gamma=\frac{\pi}{2}$，于是</p>
+不妨取 <span class="arithmatex">\(\beta=0,\gamma=\frac{\pi}{2}\)</span>，于是</p>
 <p>$$
 H = \frac{1}{\sqrt{ 2 }} e^{i(\alpha-\delta/2)}
 \begin{bmatrix}
@@ -15016,7 +15018,7 @@ H = \frac{1}{\sqrt{ 2 }} e^{i(\alpha-\delta/2)}
 1 &amp; e^{i\delta}
 \end{bmatrix}
 $$
-再取 $\delta=\pi$，于是只需要 $\alpha=\frac{\pi}{2}$ 即可。再根据推论构造 $A,B,C$ 即可。</p>
+再取 <span class="arithmatex">\(\delta=\pi\)</span>，于是只需要 <span class="arithmatex">\(\alpha=\frac{\pi}{2}\)</span> 即可。再根据推论构造 <span class="arithmatex">\(A,B,C\)</span> 即可。</p>
 <blockquote>
 <p>[!exercise] 电路恒等
 运用著名恒等关系检查简化电路很有用处：
@@ -15027,7 +15029,7 @@ $$</p>
 <p>通过矩阵乘法容易验证等式。</p>
 <blockquote>
 <p>[!exercise] 
-在忽略全局相位的情况下 $HTH=R_{x}\left( \frac{\pi}{4} \right)$ 。</p>
+在忽略全局相位的情况下 <span class="arithmatex">\(HTH=R_{x}\left( \frac{\pi}{4} \right)\)</span> 。</p>
 </blockquote>
 <p>考虑矩阵乘积</p>
 <p>$$
@@ -15059,7 +15061,7 @@ $$
 <blockquote>
 <p>[!exercise] 单量子比特运算组合
 布洛赫表示对旋转结合提供了一种可见效果的方法。
-1. 证明如果先绕轴 $\hat{n}<em>{1}$ 旋转 $\beta</em>{1}$ 角，再绕 $\hat{n}<em>{2}$ 旋转 $\beta</em>{2}$ 角，则整个旋转过程可表示为绕 $n_{12}$ 旋转 $\beta_{12}$​ 角，其中
+1. 证明如果先绕轴 <span class="arithmatex">\(\hat{n}_{1}\)</span> 旋转 <span class="arithmatex">\(\beta_{1}\)</span> 角，再绕 <span class="arithmatex">\(\hat{n}_{2}\)</span> 旋转 <span class="arithmatex">\(\beta_{2}\)</span> 角，则整个旋转过程可表示为绕 <span class="arithmatex">\(n_{12}\)</span> 旋转 <span class="arithmatex">\(\beta_{12}\)</span>​ 角，其中
     $$
     \begin{align}
     c_{12}&amp;=c_1c_2-s_1s_2\hat{n}<em>1\cdot\hat{n}_2\
@@ -15067,14 +15069,14 @@ $$
     \end{align}
     $$</p>
 <ol>
-<li>证明若 $\beta_{1}=\beta_{2}$ 且 $\hat{n}<em>{1}=\hat{z}$，则等式可简化为
+<li>证明若 <span class="arithmatex">\(\beta_{1}=\beta_{2}\)</span> 且 <span class="arithmatex">\(\hat{n}_{1}=\hat{z}\)</span>，则等式可简化为
     $$
     \begin{align}
-    c</em>{12}&amp;=c^2-s^2\hat{z}\cdot \hat{n}<em>{2}\
+    c_{12}&amp;=c^2-s^2\hat{z}\cdot \hat{n}<em>{2}\
     s</em>{12}\hat{n}<em>{12}&amp;=sc(\hat{z}+\hat{n}</em>{2})+s^2\hat{n}_{2}\times \hat{z}
     \end{align}
     $$
-    这里 $c=c_1,s=s_1$ 。</li>
+    这里 <span class="arithmatex">\(c=c_1,s=s_1\)</span> 。</li>
 </ol>
 </blockquote>
 <p>利用矩阵表示
@@ -15085,11 +15087,11 @@ U_{1}&amp;=R_{\hat{n}<em>{2}}(\beta</em>{2})R_{\hat{n}<em>{1}}(\beta</em>{1})= \
 &amp;=[c</em>{1}c_{2}-s_{1}s_{2} (\hat{n}<em>{1}\cdot \hat{n}</em>{2})]I-(\hat{n}<em>{2}\times \hat{n}</em>{1})\cdot(YZ,ZX,XY)-i[c_{2}s_{1}(\hat{n}<em>{1}\cdot \vec{\sigma})+c</em>{1}s_{2}(\hat{n}_{2}\cdot \vec{\sigma})]
 \end{align}
 $$
-最后一步利用 $X^2=Y^2=Z^2=I$ 以及 $XY=-YX$ 得到。由于 $2iZ=[X,Y]=XY-YX=2XY$，代回即证。</p>
-<p>常见单量子比特门符号总结如下，用 $/$ 表示一束量子比特</p>
+最后一步利用 <span class="arithmatex">\(X^2=Y^2=Z^2=I\)</span> 以及 <span class="arithmatex">\(XY=-YX\)</span> 得到。由于 <span class="arithmatex">\(2iZ=[X,Y]=XY-YX=2XY\)</span>，代回即证。</p>
+<p>常见单量子比特门符号总结如下，用 <span class="arithmatex">\(/\)</span> 表示一束量子比特</p>
 <p><img alt="" src="image-20240530165859577.jpeg|325" /></p>
 <h3 id="_4">受控操作</h3>
-<p>典型的受控操作是受控非门 $CNOT:|x\rangle|y\rangle\mapsto|x\rangle|y\oplus x\rangle$，矩阵表示为
+<p>典型的受控操作是受控非门 <span class="arithmatex">\(CNOT:|x\rangle|y\rangle\mapsto|x\rangle|y\oplus x\rangle\)</span>，矩阵表示为
 $$
 \begin{bmatrix}
 1 &amp; 0 &amp; 0 &amp; 0 \
@@ -15103,11 +15105,11 @@ $$
 <h2 id="_5">量子傅里叶变换及其应用</h2>
 <p>量子计算机在因子分解问题上可以指数级地快于已知的最好经典算法。而量子傅里叶变换是对量子振幅进行傅里叶变换的有效量子算法，它没有加速经典的傅里叶变换，但是解决了<strong>相位估计</strong>问题——即估计酉算子在特定条件下的特征值。</p>
 <h3 id="_6">量子傅里叶变换</h3>
-<p>离散傅里叶变换以复向量 $x_0,\cdots,x_{N-1}$ 作为输入，变换得到
+<p>离散傅里叶变换以复向量 <span class="arithmatex">\(x_0,\cdots,x_{N-1}\)</span> 作为输入，变换得到
 $$
 y_k = \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}x_je^{2\pi ijk/N}
 $$
-量子傅里叶变换是定义在一组标准正交基 $|0\rangle,\cdots,|N-1\rangle$ 上的线性算子
+量子傅里叶变换是定义在一组标准正交基 <span class="arithmatex">\(|0\rangle,\cdots,|N-1\rangle\)</span> 上的线性算子
 $$
 |j\rangle \mapsto \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}e^{2\pi ijk/N}|k\rangle
 $$
@@ -15115,21 +15117,21 @@ $$
 $$
 \sum_{j=0}^{N-1}x_j|j\rangle \mapsto \sum_{k=0}^{N-1}y_k|k\rangle
 $$
-其中 $y_k$ 是 $x_j$ 离散傅里叶变换后的振幅。</p>
+其中 <span class="arithmatex">\(y_k\)</span> 是 <span class="arithmatex">\(x_j\)</span> 离散傅里叶变换后的振幅。</p>
 <blockquote>
 <p>[!exercise] 
 证明量子傅里叶变换是酉变换。</p>
 </blockquote>
-<p>将变换系数提取为矩阵 $U$，通过共轭转置可得逆变换作用为
+<p>将变换系数提取为矩阵 <span class="arithmatex">\(U\)</span>，通过共轭转置可得逆变换作用为
 $$
 |k\rangle \mapsto \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}e^{-2\pi ikj/N}|j\rangle
 $$
-验证 $U^\dagger U=I$ 即证。</p>
-<p>取 $N=2^n$，且 $|0\rangle,\cdots,|2^n-1\rangle$ 是 $n$ 量子比特的量子计算机的基。将状态 $|j\rangle$ 写成二进制
+验证 <span class="arithmatex">\(U^\dagger U=I\)</span> 即证。</p>
+<p>取 <span class="arithmatex">\(N=2^n\)</span>，且 <span class="arithmatex">\(|0\rangle,\cdots,|2^n-1\rangle\)</span> 是 <span class="arithmatex">\(n\)</span> 量子比特的量子计算机的基。将状态 <span class="arithmatex">\(|j\rangle\)</span> 写成二进制
 $$
 j=j_12^{n-1}+\cdots+ j_n2^0
 $$
-用 $0.j_lj_{l+1}\cdots j_m$ 表示二进制小数。于是量子傅里叶变换的乘积形式为
+用 <span class="arithmatex">\(0.j_lj_{l+1}\cdots j_m\)</span> 表示二进制小数。于是量子傅里叶变换的乘积形式为
 $$
 |j\rangle = |j_1,\cdots,j_n\rangle =\frac{(|0\rangle+e^{2\pi i0.j_n}|1\rangle)(|0\rangle+e^{2\pi i0.j_{n-1}j_n}|1\rangle)\cdots(|0\rangle+e^{2\pi i0.j_1j_2\cdots j_n}|1\rangle)}{2^{n/2}}
 $$
@@ -15144,7 +15146,7 @@ $$
 &amp;=\frac{(|0\rangle+e^{2\pi i0.j_n}|1\rangle)(|0\rangle+e^{2\pi i0.j_{n-1}j_n}|1\rangle)\cdots(|0\rangle+e^{2\pi i0.j_1j_2\cdots j_n}|1\rangle)}{2^{n/2}}
 \end{aligned}
 $$
-其中将 $k/2^{n}$ 看做 $2^n$ 个二进制小数，对应 $|k_1\cdots k_n\rangle$ 的全部可能得量子态。最后一步转换利用了 $e^{2\pi i}=1$，因此 $j/2^l$ 的整数部分可以略去。</p>
+其中将 <span class="arithmatex">\(k/2^{n}\)</span> 看做 <span class="arithmatex">\(2^n\)</span> 个二进制小数，对应 <span class="arithmatex">\(|k_1\cdots k_n\rangle\)</span> 的全部可能得量子态。最后一步转换利用了 <span class="arithmatex">\(e^{2\pi i}=1\)</span>，因此 <span class="arithmatex">\(j/2^l\)</span> 的整数部分可以略去。</p>
 <p>使用旋转门
 $$
 R_k = 
@@ -15153,65 +15155,65 @@ R_k =
 0 &amp; e^{2\pi i/2^k}
 \end{bmatrix}
 $$
-配合阿达玛门可以构建量子傅里叶变换的电路。图中 $|j_1\rangle$ 执行阿达玛门得到
+配合阿达玛门可以构建量子傅里叶变换的电路。图中 <span class="arithmatex">\(|j_1\rangle\)</span> 执行阿达玛门得到
 $$
 \frac{1}{\sqrt{2}}(|0\rangle+e^{2\pi i0.j_1}|1\rangle)
 $$
-注意其中 $0.j_1$ 的含义。之后执行 $n-1$ 个受控旋转门，分别受控于 $|j_2\rangle,\cdots,|j_n\rangle$，因此总计算量为 $n+(n-1)+\cdots+1=(n+1)n/2$；最后还需要翻转乘积顺序，计算量为 $n/2$，每个交换门可由 3 个受控非门构成。因此总计算量 $\Theta(n^2)$ 比经典离散傅里叶算法 $\Theta(n2^n)$ 快指数级。</p>
+注意其中 <span class="arithmatex">\(0.j_1\)</span> 的含义。之后执行 <span class="arithmatex">\(n-1\)</span> 个受控旋转门，分别受控于 <span class="arithmatex">\(|j_2\rangle,\cdots,|j_n\rangle\)</span>，因此总计算量为 <span class="arithmatex">\(n+(n-1)+\cdots+1=(n+1)n/2\)</span>；最后还需要翻转乘积顺序，计算量为 <span class="arithmatex">\(n/2\)</span>，每个交换门可由 3 个受控非门构成。因此总计算量 <span class="arithmatex">\(\Theta(n^2)\)</span> 比经典离散傅里叶算法 <span class="arithmatex">\(\Theta(n2^n)\)</span> 快指数级。</p>
 <p><img alt="" src="Screenshot_20240226_192947.jpg|800" /></p>
 <blockquote>
 <p>[!exercise] 经典快速傅里叶变换
-假设在经典计算机上对一个 $2^n$ 维的复向量进行傅里叶变换，则离散傅里叶变换的原始定义需要 $\Theta(2^{2n})$ 个基本算术运算。借鉴量子傅里叶变换的形式，找到一种方法将这一数量级降为 $\Theta(n2^n)$ 。</p>
+假设在经典计算机上对一个 <span class="arithmatex">\(2^n\)</span> 维的复向量进行傅里叶变换，则离散傅里叶变换的原始定义需要 <span class="arithmatex">\(\Theta(2^{2n})\)</span> 个基本算术运算。借鉴量子傅里叶变换的形式，找到一种方法将这一数量级降为 <span class="arithmatex">\(\Theta(n2^n)\)</span> 。</p>
 <p>[!exercise] 
-将受控 $R_k$ 门分解为单量子比特门和受控非门。</p>
+将受控 <span class="arithmatex">\(R_k\)</span> 门分解为单量子比特门和受控非门。</p>
 <p>[!exercise] 
 给出逆量子傅里叶变换的量子电路。</p>
 <p>[!exercise] 近似量子傅里叶变换 
-量子傅里叶变换的量子电路构造，表面上所用到的门的精度需为量子比特数目的指数级。然而，多项式规模的量子电路不需要这样的精度。例如，令 $U$ 是 $n$ 个量子比特上的理想傅里叶变换，$V$ 是以精度 $\Delta=1/p(n)$ 作用受控 $R_k$ 门后得到的结果，其中 $p(n)$ 是某个多项式。证明误差 $E(U,V)=\max_{|\psi\rangle}|(U-V)|\psi\rangle|$ 大小为 $\Theta(n^2/p(n))$，且每个门的多项式精度足以保证输出的多项式精度。</p>
+量子傅里叶变换的量子电路构造，表面上所用到的门的精度需为量子比特数目的指数级。然而，多项式规模的量子电路不需要这样的精度。例如，令 <span class="arithmatex">\(U\)</span> 是 <span class="arithmatex">\(n\)</span> 个量子比特上的理想傅里叶变换，<span class="arithmatex">\(V\)</span> 是以精度 <span class="arithmatex">\(\Delta=1/p(n)\)</span> 作用受控 <span class="arithmatex">\(R_k\)</span> 门后得到的结果，其中 <span class="arithmatex">\(p(n)\)</span> 是某个多项式。证明误差 <span class="arithmatex">\(E(U,V)=\max_{|\psi\rangle}\|(U-V)|\psi\rangle\|\)</span> 大小为 <span class="arithmatex">\(\Theta(n^2/p(n))\)</span>，且每个门的多项式精度足以保证输出的多项式精度。</p>
 </blockquote>
 <h3 id="_7">相位估计</h3>
-<p>假设酉算子 $U$ 对应特征向量 $|u\rangle$ 的特征值为 $e^{2\pi i\varphi}$，其中 $\varphi$ 未知。 假设有一个黑盒 oracle，能够制备 $|u\rangle$ 以及执行 $U^{2^j}$ 操作。</p>
+<p>假设酉算子 <span class="arithmatex">\(U\)</span> 对应特征向量 <span class="arithmatex">\(|u\rangle\)</span> 的特征值为 <span class="arithmatex">\(e^{2\pi i\varphi}\)</span>，其中 <span class="arithmatex">\(\varphi\)</span> 未知。 假设有一个黑盒 oracle，能够制备 <span class="arithmatex">\(|u\rangle\)</span> 以及执行 <span class="arithmatex">\(U^{2^j}\)</span> 操作。</p>
 <blockquote>
 <p>[!remark] 
 黑盒的存在说明相位估计不是完整的量子算法，而是与其他子程序结合后，可以完成有意义计算任务的子程序或模块。</p>
 </blockquote>
-<p>量子相位估计使用两个寄存器。第一个包含初始态为 $|0\rangle$ 的 t 个量子比特，第二个初始态为 $|u\rangle$，其量子比特数足够多。首先应用下面电路</p>
+<p>量子相位估计使用两个寄存器。第一个包含初始态为 <span class="arithmatex">\(|0\rangle\)</span> 的 t 个量子比特，第二个初始态为 <span class="arithmatex">\(|u\rangle\)</span>，其量子比特数足够多。首先应用下面电路</p>
 <p><img alt="" src="Screenshot_20240226_202505.jpg|600" /></p>
 <p>得到最终状态为
 $$
 \frac{1}{2^{t/2}}\left(|0\rangle+e^{2\pi i2^{t-1}\varphi}|1\rangle \right)\left(|0\rangle+e^{2\pi i2^{t-2}\varphi}|1\rangle \right)\cdots \left(|0\rangle+e^{2\pi i2^0\varphi}|1\rangle \right)=\frac{1}{2^{t/2}}\sum_{k=0}^{2^t-1}e^{2\pi i\varphi k}|k\rangle
 $$
-此过程中我们忽略对第二寄存器的描述，因为 $U|u\rangle=e^{2\pi i\varphi}|u\rangle$，其状态总是不变。</p>
+此过程中我们忽略对第二寄存器的描述，因为 <span class="arithmatex">\(U|u\rangle=e^{2\pi i\varphi}|u\rangle\)</span>，其状态总是不变。</p>
 <blockquote>
 <p>[!exercise] 
-证明上图中受控 $U$ 将 $|j\rangle|u\rangle$ 变为 $|j\rangle U^j|u\rangle$（注意 $|u\rangle$ 不需要是 $U$ 的特征向量）。</p>
+证明上图中受控 <span class="arithmatex">\(U\)</span> 将 <span class="arithmatex">\(|j\rangle|u\rangle\)</span> 变为 <span class="arithmatex">\(|j\rangle U^j|u\rangle\)</span>（注意 <span class="arithmatex">\(|u\rangle\)</span> 不需要是 <span class="arithmatex">\(U\)</span> 的特征向量）。</p>
 </blockquote>
-<p>接下来将逆量子傅里叶变换应用到第一寄存器，最后用计算基测量第一寄存器的状态。事实上，若 $\varphi=0.\varphi_1\cdots \varphi_t$，则第一阶段后得到
+<p>接下来将逆量子傅里叶变换应用到第一寄存器，最后用计算基测量第一寄存器的状态。事实上，若 <span class="arithmatex">\(\varphi=0.\varphi_1\cdots \varphi_t\)</span>，则第一阶段后得到
 $$
 \frac{1}{2^{t/2}}\left(|0\rangle+e^{2\pi i 0.\varphi_t}|1\rangle \right)\left(|0\rangle+e^{2\pi i0.\varphi_{t-1}\varphi_t}|1\rangle \right)\cdots \left(|0\rangle+e^{2\pi i0.\varphi_1\varphi_2\cdots\varphi_t}|1\rangle \right)
 $$
-应用逆量子傅里叶变换立即得到 $|\varphi_1\varphi_2\cdots\varphi_t\rangle$，然后通过计算基测量得到 $\varphi$ 的估计。总结为
+应用逆量子傅里叶变换立即得到 <span class="arithmatex">\(|\varphi_1\varphi_2\cdots\varphi_t\rangle\)</span>，然后通过计算基测量得到 <span class="arithmatex">\(\varphi\)</span> 的估计。总结为
 $$
 \frac{1}{2^{t/2}}\sum_{j=0}^{2^t-1}e^{2\pi i\varphi j}|j\rangle|u\rangle \mapsto |\tilde\varphi\rangle|u\rangle
 $$
-其中 $|\tilde\varphi\rangle$ 是相位估计值。</p>
-<p>如果 $\varphi$ 不能展开为 $t$ 位二进制小数。令 $b$ 是 $0,2^t-1$ 之间的整数，满足 $b/2^t=0.b_1\cdots b_t&lt;\varphi$ 是最大的近似值，只需证明 $\tilde\varphi$ 接近 $b$ 即可。直接对第一阶段后的结果作用逆量子傅里叶变换得到
+其中 <span class="arithmatex">\(|\tilde\varphi\rangle\)</span> 是相位估计值。</p>
+<p>如果 <span class="arithmatex">\(\varphi\)</span> 不能展开为 <span class="arithmatex">\(t\)</span> 位二进制小数。令 <span class="arithmatex">\(b\)</span> 是 <span class="arithmatex">\(0,2^t-1\)</span> 之间的整数，满足 <span class="arithmatex">\(b/2^t=0.b_1\cdots b_t&lt;\varphi\)</span> 是最大的近似值，只需证明 <span class="arithmatex">\(\tilde\varphi\)</span> 接近 <span class="arithmatex">\(b\)</span> 即可。直接对第一阶段后的结果作用逆量子傅里叶变换得到
 $$
 \frac{1}{2^t}\sum_{k,l=0}^{2^t-1}e^{-2\pi ikl/2^t} e^{2\pi i\varphi k}|l\rangle
 $$
-令 $\alpha_l$ 是 $|(b+l)(\mathrm{mod}\ 2^t)\rangle$ 的振幅（用 $l$ 作为到 $b$ 的距离），则
+令 <span class="arithmatex">\(\alpha_l\)</span> 是 <span class="arithmatex">\(|(b+l)(\mathrm{mod}\ 2^t)\rangle\)</span> 的振幅（用 <span class="arithmatex">\(l\)</span> 作为到 <span class="arithmatex">\(b\)</span> 的距离），则
 $$
 \alpha_l = \frac{1}{2^t}\sum_{k=0}^{2^t-1}\left(e^{2\pi i(\varphi-(b+l)/2^t)} \right)^k = \frac{1}{2^t}\left(\frac{1-e^{2\pi i(2^t\varphi-(b+l))}}{1-e^{2\pi i(\varphi-(b+l)/2^t}}\right) = \frac{1}{2^t}\left(\frac{1-e^{2\pi i(2^\delta-l))}}{1-e^{2\pi i(\delta-l/2^t)}}\right)
 $$
-其中 $\delta=\varphi-b/2^t$ 。由于 $|1-e^{i\theta}|\le 2$ 恒成立，因此
+其中 <span class="arithmatex">\(\delta=\varphi-b/2^t\)</span> 。由于 <span class="arithmatex">\(|1-e^{i\theta}|\le 2\)</span> 恒成立，因此
 $$
 |\alpha_l| \le \frac{2}{2^t|1-e^{2\pi i(\delta-l/2^t)}|}
 $$
-又 $|1-e^{i\theta}|\ge 2|\theta|/\pi,\theta\in[-\pi,\pi]$，于是
+又 <span class="arithmatex">\(|1-e^{i\theta}|\ge 2|\theta|/\pi,\theta\in[-\pi,\pi]\)</span>，于是
 $$
 |\alpha_l| \le \frac{1}{2^{t+1}(\delta-l/2^t)}
 $$
-若测量结果为 $m$​，则
+若测量结果为 <span class="arithmatex">\(m\)</span>​，则
 $$
 \begin{aligned}
 p(|m-b|&gt;e) &amp;= \sum_{-2^{t-1}&lt;l\le-(e+1)}|\alpha_l|^2+\sum_{e+1\le l\le 2^t-1}|\alpha_l|^2\
@@ -15222,16 +15224,16 @@ p(|m-b|&gt;e) &amp;= \sum_{-2^{t-1}&lt;l\le-(e+1)}|\alpha_l|^2+\sum_{e+1\le l\le
 &amp;\le \frac{1}{2(e-1)}
 \end{aligned}
 $$
-如果需要 $\varphi$ 近似精度达到 $2^{-n}$，取 $e=2^{t-n}-1$ 即可，此时获得此精度的概率至少为 $1-1/2(2^{t-n}-1) = 1-\epsilon(t)$ 。</p>
+如果需要 <span class="arithmatex">\(\varphi\)</span> 近似精度达到 <span class="arithmatex">\(2^{-n}\)</span>，取 <span class="arithmatex">\(e=2^{t-n}-1\)</span> 即可，此时获得此精度的概率至少为 <span class="arithmatex">\(1-1/2(2^{t-n}-1) = 1-\epsilon(t)\)</span> 。</p>
 <blockquote>
 <p>[!exercise] 
-假设不能制备 $|u\rangle$，而是使用 $|\psi\rangle=\sum_uc_u|u\rangle$ 替代。相位估计算法对输入 $|0\rangle|\psi\rangle$ 输出 $\sum_uc_u|\tilde{\varphi}_u\rangle|u\rangle$，其中 $\tilde\varphi_u$ 对应 $u$ 的相位估计值。给定 $t$，则 $\tilde\varphi_u$ 能够精确到 $n$ 比特的近似量的概率至少为 $|c_u|^2(1-\epsilon)$ 。</p>
+假设不能制备 <span class="arithmatex">\(|u\rangle\)</span>，而是使用 <span class="arithmatex">\(|\psi\rangle=\sum_uc_u|u\rangle\)</span> 替代。相位估计算法对输入 <span class="arithmatex">\(|0\rangle|\psi\rangle\)</span> 输出 <span class="arithmatex">\(\sum_uc_u|\tilde{\varphi}_u\rangle|u\rangle\)</span>，其中 <span class="arithmatex">\(\tilde\varphi_u\)</span> 对应 <span class="arithmatex">\(u\)</span> 的相位估计值。给定 <span class="arithmatex">\(t\)</span>，则 <span class="arithmatex">\(\tilde\varphi_u\)</span> 能够精确到 <span class="arithmatex">\(n\)</span> 比特的近似量的概率至少为 <span class="arithmatex">\(|c_u|^2(1-\epsilon)\)</span> 。</p>
 </blockquote>
 <p>量子相位估计算法流程为</p>
 <p><img alt="" src="Screenshot_20240226_212811.jpg|600" /></p>
 <blockquote>
 <p>[!exercise] 
-设 $U$ 是特征值为 $\pm1$ 的酉变换，作用于状态 $|\psi\rangle$ 上。利用相位估计，构造一个量子电路，使得 $|\psi\rangle$ 坍缩到 $U$ 的两个特征空间之一。</p>
+设 <span class="arithmatex">\(U\)</span> 是特征值为 <span class="arithmatex">\(\pm1\)</span> 的酉变换，作用于状态 <span class="arithmatex">\(|\psi\rangle\)</span> 上。利用相位估计，构造一个量子电路，使得 <span class="arithmatex">\(|\psi\rangle\)</span> 坍缩到 <span class="arithmatex">\(U\)</span> 的两个特征空间之一。</p>
 </blockquote>
 <h3 id="_8">求阶应用</h3>
 <h3 id="_9">因子分解</h3>
@@ -15239,19 +15241,19 @@ $$
 <h3 id="_11">离散对数</h3>
 <h3 id="_12">隐含子群</h3>
 <h2 id="_13">量子搜索</h2>
-<p>假设给定一张包含一些城市的地图，希望确定经过所有城市的最短路径。最简单的算法就是遍历所有的路径，如果有 $N$ 条路径，则需要 $O(N)$ 次操作。然而 Grover 算法能够将其加速到 $O(\sqrt{N})$ 次操作。</p>
+<p>假设给定一张包含一些城市的地图，希望确定经过所有城市的最短路径。最简单的算法就是遍历所有的路径，如果有 <span class="arithmatex">\(N\)</span> 条路径，则需要 <span class="arithmatex">\(O(N)\)</span> 次操作。然而 Grover 算法能够将其加速到 <span class="arithmatex">\(O(\sqrt{N})\)</span> 次操作。</p>
 <h3 id="_14">量子搜索算法</h3>
 <h4 id="oracle">Oracle</h4>
-<p>假设在 $N=2^n$ 个元素的空间搜索，对应到索引 $0,1,\cdots,N-1$，存放在 $n$ 个比特中。假设搜索问题有 $1\le M\le N$ 个解，可定义 $f:{0,1,\cdots,N-1}$ 使得当 $x$ 是解时 $f(x)=1$，否则 $f(x)=0$ 。</p>
-<p>若存在量子 oracle，称为黑盒。它是一个酉算子 $O$，使得
+<p>假设在 <span class="arithmatex">\(N=2^n\)</span> 个元素的空间搜索，对应到索引 <span class="arithmatex">\(0,1,\cdots,N-1\)</span>，存放在 <span class="arithmatex">\(n\)</span> 个比特中。假设搜索问题有 <span class="arithmatex">\(1\le M\le N\)</span> 个解，可定义 <span class="arithmatex">\(f:\{0,1,\cdots,N-1\}\)</span> 使得当 <span class="arithmatex">\(x\)</span> 是解时 <span class="arithmatex">\(f(x)=1\)</span>，否则 <span class="arithmatex">\(f(x)=0\)</span> 。</p>
+<p>若存在量子 oracle，称为黑盒。它是一个酉算子 <span class="arithmatex">\(O\)</span>，使得
 $$
 |x\rangle|q\rangle \xrightarrow{O} |x\rangle|q\oplus f(x)\rangle
 $$
-其中 $|x\rangle$ 是索引寄存器，oracle 比特 $q$ 是单量子比特。我们将 $q$ 初始设为
+其中 <span class="arithmatex">\(|x\rangle\)</span> 是索引寄存器，oracle 比特 <span class="arithmatex">\(q\)</span> 是单量子比特。我们将 <span class="arithmatex">\(q\)</span> 初始设为
 $$
 \frac{|0\rangle-|1\rangle}{\sqrt{2}}
 $$
-则 $f(x)=1$ 时 $q$ 不变，而 $f(x)=0$ 时 $|0\rangle,|1\rangle$ 相位互换。因此
+则 <span class="arithmatex">\(f(x)=1\)</span> 时 <span class="arithmatex">\(q\)</span> 不变，而 <span class="arithmatex">\(f(x)=0\)</span> 时 <span class="arithmatex">\(|0\rangle,|1\rangle\)</span> 相位互换。因此
 $$
 |x\rangle\left(\frac{|0\rangle-|1\rangle}{\sqrt{2}}\right) \xrightarrow{O} (-1)^{f(x)}|x\rangle\left(\frac{|0\rangle-|1\rangle}{\sqrt{2}}\right)
 $$
@@ -15261,70 +15263,70 @@ $$
 $$
 因此 oracle 通过改变解的相位，标记搜索问题的解。</p>
 <h4 id="_15">算法</h4>
-<p>算法开始于状态 $|0\rangle^{\otimes n}$，用阿达玛变换使计算机处于均匀叠加态
+<p>算法开始于状态 <span class="arithmatex">\(|0\rangle^{\otimes n}\)</span>，用阿达玛变换使计算机处于均匀叠加态
 $$
 |\psi\rangle = \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1}|x\rangle
 $$
-量子搜索算法由反复地作用 Grover 迭代算子的程序构成，记 $G$ 为迭代算子。</p>
+量子搜索算法由反复地作用 Grover 迭代算子的程序构成，记 <span class="arithmatex">\(G\)</span> 为迭代算子。</p>
 <p>Grover 迭代可分为 4 步：</p>
 <ol>
-<li>作用 oracle $O$</li>
-<li>作用阿达玛变换 $H^{\otimes n}$</li>
-<li>执行条件相位偏移，使得除 $|0\rangle$ 以外的每个计算基矢态获得 $-1$ 的相位偏移
+<li>作用 oracle <span class="arithmatex">\(O\)</span></li>
+<li>作用阿达玛变换 <span class="arithmatex">\(H^{\otimes n}\)</span></li>
+<li>执行条件相位偏移，使得除 <span class="arithmatex">\(|0\rangle\)</span> 以外的每个计算基矢态获得 <span class="arithmatex">\(-1\)</span> 的相位偏移
 $$
 |x\rangle \to -(-1)^{\delta_{x0}}|x\rangle
 $$</li>
-<li>作用阿达玛变换 $H^{\otimes n}$</li>
+<li>作用阿达玛变换 <span class="arithmatex">\(H^{\otimes n}\)</span></li>
 </ol>
-<p>Grover 迭代中阿达玛变换需要 $n=\log(N)$ 次操作，条件相位偏移需要 $O(n)$ 个门实现。oracle 调用的代价取决于具体的应用，Grover 只需调用一次。</p>
+<p>Grover 迭代中阿达玛变换需要 <span class="arithmatex">\(n=\log(N)\)</span> 次操作，条件相位偏移需要 <span class="arithmatex">\(O(n)\)</span> 个门实现。oracle 调用的代价取决于具体的应用，Grover 只需调用一次。</p>
 <p><img alt="" src="Screenshot_20240226_230815.jpg|600" /></p>
 <blockquote>
 <p>[!exercise] 
-证明在 Grover 迭代中，对应相位偏移的酉算子是 $2|0\rangle\langle 0|-I$ 。</p>
+证明在 Grover 迭代中，对应相位偏移的酉算子是 <span class="arithmatex">\(2|0\rangle\langle 0|-I\)</span> 。</p>
 </blockquote>
 <p>注意到 2,3,4 步合并效果为
 $$
 H^{\otimes n}(2|0\rangle\langle0|-I)H^{\otimes n} = 2|\psi\rangle\langle\psi|-I
 $$
-因此 $G=(2|\psi\rangle\psi|-I)O$ 就是 Grover 算子。</p>
+因此 <span class="arithmatex">\(G=(2|\psi\rangle\psi|-I)O\)</span> 就是 Grover 算子。</p>
 <blockquote>
 <p>[!exercise] 
-证明操作 $2|\psi\rangle\langle\psi|-I$ 作用在一般状态 $\sum_k\alpha_k|k\rangle$ 上得到
+证明操作 <span class="arithmatex">\(2|\psi\rangle\langle\psi|-I\)</span> 作用在一般状态 <span class="arithmatex">\(\sum_k\alpha_k|k\rangle\)</span> 上得到
 $$
 \sum_k[-\alpha_k+2\langle\alpha\rangle]|k\rangle
 $$
-其中 $\langle\alpha\rangle=\sum_k\alpha_k/N$ 是均值，因此 $2|\psi\rangle\langle\psi|-I$ 被称为关于均值的反演操作。</p>
+其中 <span class="arithmatex">\(\langle\alpha\rangle=\sum_k\alpha_k/N\)</span> 是均值，因此 <span class="arithmatex">\(2|\psi\rangle\langle\psi|-I\)</span> 被称为关于均值的反演操作。</p>
 </blockquote>
 <h4 id="_16">几何可视化</h4>
-<p>我们注意到 $G=(2|\psi\rangle\psi|-I)O$，它可以被视为二维空间中的旋转，这个空间由初始态 $|\psi\rangle$ 和搜索问题中解的均匀叠加态张成。令 $\sum_x'$ 表示所有解的和，$\sum_x''$ 表示非解元素的和。定义归一化状态
+<p>我们注意到 <span class="arithmatex">\(G=(2|\psi\rangle\psi|-I)O\)</span>，它可以被视为二维空间中的旋转，这个空间由初始态 <span class="arithmatex">\(|\psi\rangle\)</span> 和搜索问题中解的均匀叠加态张成。令 <span class="arithmatex">\(\sum_x'\)</span> 表示所有解的和，<span class="arithmatex">\(\sum_x''\)</span> 表示非解元素的和。定义归一化状态
 $$
 \begin{aligned}
 |\alpha\rangle &amp;= \frac{1}{\sqrt{N-M}}\sum_x''|x\rangle\
 |\beta\rangle &amp;= \frac{1}{\sqrt{M}}\sum_x'|x\rangle
 \end{aligned}
 $$
-显然 $|\alpha\rangle,|\beta\rangle$ 正交。并且初始态可表示为
+显然 <span class="arithmatex">\(|\alpha\rangle,|\beta\rangle\)</span> 正交。并且初始态可表示为
 $$
 |\psi\rangle = \sqrt{\frac{N-M}{N}}|\alpha\rangle + \sqrt{\frac{M}{N}}|\beta\rangle
 $$
-操作 $O$ 将所有解向量翻转，因此它相当于将 $|\psi\rangle$ 关于 $|\alpha\rangle$ 反射；同理 $2|\psi\rangle\langle\psi|-I$ 相当于关于 $|\psi\rangle$ 反射。并且这两个反射的乘积恰好是一个旋转。</p>
-<p>令 $\cos\frac{\theta}{2}=\sqrt{(N-M)/N}$，使得 $|\psi\rangle=\cos\theta/2|\alpha\rangle+\sin\theta/2|\beta\rangle$，于是
+操作 <span class="arithmatex">\(O\)</span> 将所有解向量翻转，因此它相当于将 <span class="arithmatex">\(|\psi\rangle\)</span> 关于 <span class="arithmatex">\(|\alpha\rangle\)</span> 反射；同理 <span class="arithmatex">\(2|\psi\rangle\langle\psi|-I\)</span> 相当于关于 <span class="arithmatex">\(|\psi\rangle\)</span> 反射。并且这两个反射的乘积恰好是一个旋转。</p>
+<p>令 <span class="arithmatex">\(\cos\frac{\theta}{2}=\sqrt{(N-M)/N}\)</span>，使得 <span class="arithmatex">\(|\psi\rangle=\cos\theta/2|\alpha\rangle+\sin\theta/2|\beta\rangle\)</span>，于是
 $$
 G|\psi\rangle = \cos\frac{3\theta}{2}|\alpha\rangle+\sin\frac{3\theta}{2}|\beta\rangle
 $$</p>
-<p>因此旋转角为 $\theta$ 。连续作用 $G$ 将使态变为
+<p>因此旋转角为 <span class="arithmatex">\(\theta\)</span> 。连续作用 <span class="arithmatex">\(G\)</span> 将使态变为
 $$
 G^k|\psi\rangle = \cos\left(\frac{2k+1}{2}\theta\right)|\alpha\rangle+\sin\left(\frac{2k+1}{2}\theta\right)|\beta\rangle
 $$
-差不多经过 $O(\sqrt{N/M})$ 次旋转，就可以得到接近于 $|\beta\rangle$ 的状态。</p>
+差不多经过 <span class="arithmatex">\(O(\sqrt{N/M})\)</span> 次旋转，就可以得到接近于 <span class="arithmatex">\(|\beta\rangle\)</span> 的状态。</p>
 <blockquote>
 <p>[!remark] 
-注意到应用 Grover 迭代的次数取决于解的个数 $M$，这就导致我们应该先估计出解的个数，然后进行搜索。</p>
+注意到应用 Grover 迭代的次数取决于解的个数 <span class="arithmatex">\(M\)</span>，这就导致我们应该先估计出解的个数，然后进行搜索。</p>
 </blockquote>
 <p><img alt="" src="Screenshot_20240227_131625.jpg|300" /></p>
 <blockquote>
 <p>[!exercise] 
-证明在 $|\alpha\rangle,|\beta\rangle$ 基下，可以把 Grover 迭代写成
+证明在 <span class="arithmatex">\(|\alpha\rangle,|\beta\rangle\)</span> 基下，可以把 Grover 迭代写成
 $$
 G = 
 \begin{bmatrix}
@@ -15332,13 +15334,13 @@ G =
 \sin\theta&amp; \cos\theta
 \end{bmatrix},\quad \sin\theta=\frac{2\sqrt{M(N-M)}}{N}
 $$
-其中 $\theta\in[0,\pi/2]$ 。</p>
+其中 <span class="arithmatex">\(\theta\in[0,\pi/2]\)</span> 。</p>
 </blockquote>
 <h3 id="_17">量子模拟</h3>
 <h3 id="_18">量子计数</h3>
-<p>量子计数可用于判断解的存在性，它应用相位估计来估计 Grover 迭代算子 $G$ 的特征值，进而使我们可以确定解的个数 $M$ 。取 $|\alpha\rangle,|\beta\rangle$ 张成的空间，设 $|a\rangle,|b\rangle$ 是其中 $G$ 的特征向量。设 $\theta$ 是 $G$ 作用的旋转角，则 $e^{i\theta},e^{i(2\pi-\theta)}$ 是对应的两个特征值。将搜索空间扩展到 $2N$，并确保 $\sin^2(\theta/2)=M/2N$ 。量子计数的相位估计电路如下：</p>
+<p>量子计数可用于判断解的存在性，它应用相位估计来估计 Grover 迭代算子 <span class="arithmatex">\(G\)</span> 的特征值，进而使我们可以确定解的个数 <span class="arithmatex">\(M\)</span> 。取 <span class="arithmatex">\(|\alpha\rangle,|\beta\rangle\)</span> 张成的空间，设 <span class="arithmatex">\(|a\rangle,|b\rangle\)</span> 是其中 <span class="arithmatex">\(G\)</span> 的特征向量。设 <span class="arithmatex">\(\theta\)</span> 是 <span class="arithmatex">\(G\)</span> 作用的旋转角，则 <span class="arithmatex">\(e^{i\theta},e^{i(2\pi-\theta)}\)</span> 是对应的两个特征值。将搜索空间扩展到 <span class="arithmatex">\(2N\)</span>，并确保 <span class="arithmatex">\(\sin^2(\theta/2)=M/2N\)</span> 。量子计数的相位估计电路如下：</p>
 <p><img alt="" src="Screenshot_20240227_132651.jpg|600" /></p>
-<p>该电路估计 $\theta$ 精确到 $m$ 位，成功概率至少为 $1-\epsilon$ 。与相位估计算法一样，满足
+<p>该电路估计 <span class="arithmatex">\(\theta\)</span> 精确到 <span class="arithmatex">\(m\)</span> 位，成功概率至少为 <span class="arithmatex">\(1-\epsilon\)</span> 。与相位估计算法一样，满足
 $$
 t = m+\lceil \log(2+1/2\epsilon)\rceil
 $$
@@ -15400,6 +15402,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

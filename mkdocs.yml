@@ -35,10 +35,14 @@ theme:
 repo_name: xingyf666/sumire
 repo_url: https://github.com/xingyf666/sumire
 
-# 数学公式配置
-extra:
-  math:
-    provider: mathjax
+# 数学公式配置 - KaTeX
+extra_javascript:
+  - javascripts/katex.js
+  - https://unpkg.com/katex@0/dist/katex.min.js
+  - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
+
+extra_css:
+  - https://unpkg.com/katex@0/dist/katex.min.css
 
 # Markdown 扩展
 markdown_extensions:
@@ -52,6 +56,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - tables
+  - pymdownx.arithmatex:
+      generic: true
 
 # 搜索配置
 plugins:

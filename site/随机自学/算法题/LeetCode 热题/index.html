@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15938,7 +15940,7 @@ $$
 $$
 S(j,i) == k \implies S(0,i) - k= S(0,j-1)
 $$
-所以我们保存所有的 $S(0,j),j&lt;i$，然后检查 $S(0,i)-k$ 是否已经保存。如果是，说明存在 $S(0,j-1)$ 满足上式。考虑到可能有多个 $S(0,j-1)$ 满足要求，因此记录每个和的个数。注意要保存 $S(0,0)$ 作为起点。</p>
+所以我们保存所有的 <span class="arithmatex">\(S(0,j),j&lt;i\)</span>，然后检查 <span class="arithmatex">\(S(0,i)-k\)</span> 是否已经保存。如果是，说明存在 <span class="arithmatex">\(S(0,j-1)\)</span> 满足上式。考虑到可能有多个 <span class="arithmatex">\(S(0,j-1)\)</span> 满足要求，因此记录每个和的个数。注意要保存 <span class="arithmatex">\(S(0,0)\)</span> 作为起点。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">subarraySum</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -16203,11 +16205,11 @@ $$
 <p>给定一个链表的头节点  <code>head</code> ，返回链表开始入环的第一个节点。 <em>如果链表无环，则返回 <code>null</code>。</em></p>
 <p>如果链表中有某个节点，可以通过连续跟踪 <code>next</code> 指针再次到达，则链表中存在环。 为了表示给定链表中的环，评测系统内部使用整数 <code>pos</code> 来表示链表尾连接到链表中的位置（<strong>索引从 0 开始</strong>）。如果 <code>pos</code> 是 <code>-1</code>，则在该链表中没有环。<strong>注意：<code>pos</code> 不作为参数进行传递</strong>，仅仅是为了标识链表的实际情况。</p>
 <p><strong>不允许修改</strong> 链表。</p>
-<p>题解——使用快慢指针，注意到它们相遇时，快指针移动距离为 $a+n(b+c)$，其中 $n$ 表示在环中转的圈数；慢指针移动距离为 $a+b$ 。于是
+<p>题解——使用快慢指针，注意到它们相遇时，快指针移动距离为 <span class="arithmatex">\(a+n(b+c)\)</span>，其中 <span class="arithmatex">\(n\)</span> 表示在环中转的圈数；慢指针移动距离为 <span class="arithmatex">\(a+b\)</span> 。于是
 $$
 a+n(b+c)=2(a+b)\implies a= (n-1)(b+c)+c
 $$
-即入环位置等于转 $n-1$ 圈以后再转 $c$ 。由于慢指针到入环位置距离为 $c$，因此在快慢指针相遇后，再创建一个头节点，与慢指针一起移动，它们最终会在入环位置相遇。</p>
+即入环位置等于转 <span class="arithmatex">\(n-1\)</span> 圈以后再转 <span class="arithmatex">\(c\)</span> 。由于慢指针到入环位置距离为 <span class="arithmatex">\(c\)</span>，因此在快慢指针相遇后，再创建一个头节点，与慢指针一起移动，它们最终会在入环位置相遇。</p>
 <p><img alt="" src="image-20250417091200831.png|500" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">public</span><span class="o">:</span>
@@ -16926,7 +16928,7 @@ $$
 </code></pre></div>
 <h4 id="230-k"><a href="https://leetcode.cn/problems/kth-smallest-element-in-a-bst/">230. 二叉搜索树中第 K 小的元素</a></h4>
 <p>给定一个二叉搜索树的根节点 <code>root</code> ，和一个整数 <code>k</code> ，请你设计一个算法查找其中第 <code>k</code> 小的元素（从 1 开始计数）。</p>
-<p>题解——同样利用中序遍历，记录中序元素的个数，第 $k$ 个中序元素就是第 $k$ 小的元素，找到后可以直接返回，避免重复。</p>
+<p>题解——同样利用中序遍历，记录中序元素的个数，第 <span class="arithmatex">\(k\)</span> 个中序元素就是第 <span class="arithmatex">\(k\)</span> 小的元素，找到后可以直接返回，避免重复。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">private</span><span class="o">:</span>
 <a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -17074,7 +17076,7 @@ S_{p}(root) &amp;= root + S_{p}(root\to left) + S_{p}(root\to right) \
 S_{i}(root) &amp;= S_{i}(root\to left) + root + S_{i}(root\to right)
 \end{aligned}
 $$
-假设构造函数为 $F(S_{p},S_{i})$，可以得到
+假设构造函数为 <span class="arithmatex">\(F(S_{p},S_{i})\)</span>，可以得到
 $$
 F(S_{p}(root),S_{i}(root)) = 
 \begin{cases}
@@ -17419,7 +17421,7 @@ $$
 $$
 S(i) = \bigcup_{k=i,\cdots n}S(arr[k];i+1)
 $$
-其中 $S(i)$ 表示从 <code>i</code> 位置开始后面所有的全排列，$S(arr[k];i+1)$ 表示选择 <code>arr[k]</code> 后从 <code>i + 1</code> 位置开始后面所有的全排列。注意到后面元素的顺序不影响全排列结果，因此可以将 <code>arr[i], arr[k]</code> 交换来实现选取。</p>
+其中 <span class="arithmatex">\(S(i)\)</span> 表示从 <code>i</code> 位置开始后面所有的全排列，<span class="arithmatex">\(S(arr[k];i+1)\)</span> 表示选择 <code>arr[k]</code> 后从 <code>i + 1</code> 位置开始后面所有的全排列。注意到后面元素的顺序不影响全排列结果，因此可以将 <code>arr[i], arr[k]</code> 交换来实现选取。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="k">private</span><span class="o">:</span>
 <a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
@@ -17554,7 +17556,7 @@ $$
 </blockquote>
 <h4 id="22"><a href="https://leetcode.cn/problems/generate-parentheses/">22. 括号生成</a></h4>
 <p>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</p>
-<p>题解——回溯法。用 $S(open,close)$ 表示有 <code>open,close</code> 个开/闭括号时的状态，考虑状态方程
+<p>题解——回溯法。用 <span class="arithmatex">\(S(open,close)\)</span> 表示有 <code>open,close</code> 个开/闭括号时的状态，考虑状态方程
 $$
 S(open,close)=S(open+1,close)\cup S(open,close+1)
 $$
@@ -18034,6 +18036,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

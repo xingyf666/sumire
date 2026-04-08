@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15389,7 +15391,7 @@
 <li>如果有 4 条边界曲线，其中两条相对的边是直线，则将尝试使用直纹面</li>
 <li>如果有 4 条边界曲线，则尝试 net 曲面</li>
 <li>如果有 2 条边界曲线，则尝试直纹面</li>
-<li>如果有 1,3 或超过 4 条边界曲线，或者 <code>new_cover</code> 选项为 <code>TRUE</code>，则会尝试 $n$ 边曲面。这种 $n$ 边曲面设计用于桥接顶点，并且要求凸边界</li>
+<li>如果有 1,3 或超过 4 条边界曲线，或者 <code>new_cover</code> 选项为 <code>TRUE</code>，则会尝试 <span class="arithmatex">\(n\)</span> 边曲面。这种 <span class="arithmatex">\(n\)</span> 边曲面设计用于桥接顶点，并且要求凸边界</li>
 <li>尝试 B 样条插值</li>
 <li>如果有多个边界环路，且每个环路都是平面，则尝试对每个环路构建平面</li>
 </ul>
@@ -15767,7 +15769,7 @@
 </tr>
 <tr>
 <td>函数说明</td>
-<td>将两个 edge 端点以 $G^1$ 连续组合成一个。edge 都至少要 $G^1$ 连续，否则产生的 edge 不会在其它 ACIS 操作下表现良好</td>
+<td>将两个 edge 端点以 <span class="arithmatex">\(G^1\)</span> 连续组合成一个。edge 都至少要 <span class="arithmatex">\(G^1\)</span> 连续，否则产生的 edge 不会在其它 ACIS 操作下表现良好</td>
 </tr>
 <tr>
 <td>函数归类</td>
@@ -15946,10 +15948,10 @@
 </tbody>
 </table>
 <h4 id="api_cover_planar_edges">api_cover_planar_edges</h4>
-<p>Covering 支持 3/4 边非平面 loop 和 $n$ 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
+<p>Covering 支持 3/4 边非平面 loop 和 <span class="arithmatex">\(n\)</span> 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
 <ul>
 <li>没有退化边</li>
-<li>没有夹角大于 $180^\circ$ 或小于 $0$ 的边</li>
+<li>没有夹角大于 <span class="arithmatex">\(180^\circ\)</span> 或小于 <span class="arithmatex">\(0\)</span> 的边</li>
 <li>边没有过度转动</li>
 </ul>
 <table>
@@ -16019,10 +16021,10 @@
 </tbody>
 </table>
 <h4 id="api_cover_planar_wires">api_cover_planar_wires</h4>
-<p>Covering 支持 3/4 边非平面 loop 和 $n$ 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
+<p>Covering 支持 3/4 边非平面 loop 和 <span class="arithmatex">\(n\)</span> 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
 <ul>
 <li>没有退化边</li>
-<li>没有夹角大于 $180^\circ$ 或小于 $0$ 的边</li>
+<li>没有夹角大于 <span class="arithmatex">\(180^\circ\)</span> 或小于 <span class="arithmatex">\(0\)</span> 的边</li>
 <li>边没有过度转动</li>
 </ul>
 <table>
@@ -16467,10 +16469,10 @@
 </tr>
 </tbody>
 </table>
-<p>Covering 支持 3/4 边非平面 loop 和 $n$ 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
+<p>Covering 支持 3/4 边非平面 loop 和 <span class="arithmatex">\(n\)</span> 边平面 loop 。如果有更多非平面边，则在如下情况下覆盖：</p>
 <ul>
 <li>没有退化边</li>
-<li>没有夹角大于 $180^\circ$ 或小于 $0$ 的边</li>
+<li>没有夹角大于 <span class="arithmatex">\(180^\circ\)</span> 或小于 <span class="arithmatex">\(0\)</span> 的边</li>
 <li>边没有过度转动</li>
 </ul>
 <table>
@@ -16607,7 +16609,7 @@
 </tr>
 <tr>
 <td>补充说明</td>
-<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 $G^1$ 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 $G^1$ 边</td>
+<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 <span class="arithmatex">\(G^1\)</span> 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 <span class="arithmatex">\(G^1\)</span> 边</td>
 </tr>
 </tbody>
 </table>
@@ -16681,7 +16683,7 @@
 </tr>
 <tr>
 <td>补充说明</td>
-<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 $G^1$ 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 $G^1$ 边</td>
+<td>此函数使用给定容差修复共面边的顶点以在平面上形成区域。如果指定了限制长度，则更短的 edge 会被删除。它也能平滑化非 <span class="arithmatex">\(G^1\)</span> 边，可能导致其形状有很大变化。建议先调用 <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__CSTRMAKEEDGEAPI.html#ga386090e5cab1bd9e10d5bb2aeae2988e">api_split_edge_at_disc</a> 分割非 <span class="arithmatex">\(G^1\)</span> 边</td>
 </tr>
 </tbody>
 </table>
@@ -17881,6 +17883,12 @@
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

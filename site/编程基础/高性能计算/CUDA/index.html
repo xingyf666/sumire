@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -16015,7 +16017,7 @@
 <p>线程分块是逻辑上的划分，不是物理上的分块。通过 <code>&lt;&lt;&lt;grid_size, block_size&gt;&gt;&gt;</code> 配置线程</p>
 <ul>
 <li>最大允许线程块大小：1024</li>
-<li>最大允许网格大小：$2^{21}-1$（针对一维网格）</li>
+<li>最大允许网格大小：<span class="arithmatex">\(2^{21}-1\)</span>（针对一维网格）</li>
 </ul>
 <p>在实际使用中，只有当<strong>总的线程数大于计算核心数时才能更充分地利用 GPU 中的计算资源，因为这样能够减少计算核心空闲的时间</strong>。</p>
 <h4 id="_18">一维线程模型</h4>
@@ -16098,9 +16100,9 @@
 <p>需要注意多维情形下，线程的标识是按照 x,y,z 的顺序依次变化，因此与矩阵索引恰好相反。</p>
 <p>多维情形下的规模限制：</p>
 <ul>
-<li><code>gridDim.x</code> 最大值为 $2^{31}-1$​；</li>
-<li><code>gridDim.y</code> 最大值为 $2^{16}-1$；</li>
-<li><code>gridDim.z</code> 最大值为 $2^{16}-1$​；</li>
+<li><code>gridDim.x</code> 最大值为 <span class="arithmatex">\(2^{31}-1\)</span>​；</li>
+<li><code>gridDim.y</code> 最大值为 <span class="arithmatex">\(2^{16}-1\)</span>；</li>
+<li><code>gridDim.z</code> 最大值为 <span class="arithmatex">\(2^{16}-1\)</span>​；</li>
 <li><code>blockDim.x</code> 最大值为 1024；</li>
 <li><code>blockDim.y</code> 最大值为 1024；</li>
 <li><code>blockDim.z</code> 最大值为 64；</li>
@@ -16111,7 +16113,7 @@
 <ol>
 <li>计算当前线程所在的线程块的索引 a；</li>
 <li>计算当前线程在 a 线程块中的索引 b；</li>
-<li>计算当前线程标识 $a\times grid_size + b$；</li>
+<li>计算当前线程标识 <span class="arithmatex">\(a\times grid\_size + b\)</span>；</li>
 </ol>
 <p>定义多维线程时，首先定义线程规模，然后调用核函数</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">dim3</span><span class="w"> </span><span class="nf">grid_size</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
@@ -16950,9 +16952,9 @@
 </ol>
 <p>在并行规模足够大（即调用的总线程数足够多）的前提下：</p>
 <ol>
-<li>在寄存器和共享内存使用很少时，线程块大小不小于 $1536 / 24=64$ 时可以获得 100% 的占用率；</li>
-<li>寄存器数量会影响占有率：当在 SM 上驻留 1536 个线程，则核函数中每个线程最多使用 $64000/1536\approx 42$ 个寄存器；</li>
-<li>共享内存大小会影响占有率：若线程块大小为 64，每个 SM 激活 24 个线程块，使得 SM 上驻留 1536 个线程，占有率达到 100% 时每个线程块可分配 $100 / 24\approx 4.16$ KB 共享内存；反之，如果每个线程块占用 8.32 KB 的共享内存，则占有率不会超过 50%；</li>
+<li>在寄存器和共享内存使用很少时，线程块大小不小于 <span class="arithmatex">\(1536 / 24=64\)</span> 时可以获得 100% 的占用率；</li>
+<li>寄存器数量会影响占有率：当在 SM 上驻留 1536 个线程，则核函数中每个线程最多使用 <span class="arithmatex">\(64000/1536\approx 42\)</span> 个寄存器；</li>
+<li>共享内存大小会影响占有率：若线程块大小为 64，每个 SM 激活 24 个线程块，使得 SM 上驻留 1536 个线程，占有率达到 100% 时每个线程块可分配 <span class="arithmatex">\(100 / 24\approx 4.16\)</span> KB 共享内存；反之，如果每个线程块占用 8.32 KB 的共享内存，则占有率不会超过 50%；</li>
 </ol>
 <p>网格和线程块大小的准则：</p>
 <ol>
@@ -17006,9 +17008,9 @@
 </table>
 <p>可以得到</p>
 <ul>
-<li>16-bit 所需线程束数量为 $512/32=16$​；</li>
-<li>32-bit 所需线程束数量为 $512/32=16$；</li>
-<li>64-bit 所需线程束数量为 $8/32=1$（8 个操作也需要一个线程束）；</li>
+<li>16-bit 所需线程束数量为 <span class="arithmatex">\(512/32=16\)</span>​；</li>
+<li>32-bit 所需线程束数量为 <span class="arithmatex">\(512/32=16\)</span>；</li>
+<li>64-bit 所需线程束数量为 <span class="arithmatex">\(8/32=1\)</span>（8 个操作也需要一个线程束）；</li>
 </ul>
 <h4 id="_45">内存指令隐藏</h4>
 <p>内存访问指令延迟是从命令发出到数据到达目的地的时钟周期，通常为 400-800 个时钟周期。对于内存操作来说，所需的并行可以表示为在每个时钟周期内隐藏内存延迟所需的字节数。例如</p>
@@ -17034,13 +17036,13 @@
 </table>
 <p>其中参数</p>
 <ul>
-<li>$504.2 / 10.0145\approx 50$</li>
-<li>$800\times 50/ 1024=39$</li>
+<li><span class="arithmatex">\(504.2 / 10.0145\approx 50\)</span></li>
+<li><span class="arithmatex">\(800\times 50/ 1024=39\)</span></li>
 </ul>
 <p>假设每个线程都把一个 4 字节浮点数从全局内存移动到 SM 中，则要用非常大量线程来填补每次移动操作的延迟。事实上，有</p>
 <ul>
-<li>$390000/4\approx 10000$ 个线程</li>
-<li>$10000/32\approx 313$ 个线程束</li>
+<li><span class="arithmatex">\(390000/4\approx 10000\)</span> 个线程</li>
+<li><span class="arithmatex">\(10000/32\approx 313\)</span> 个线程束</li>
 </ul>
 <p>即需要 10000 个线程或 313 个线程束来隐藏所有内存延迟。</p>
 <h3 id="_46">并行归约计算</h3>
@@ -17457,6 +17459,12 @@
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

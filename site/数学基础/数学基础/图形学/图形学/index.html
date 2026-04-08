@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -17126,43 +17128,43 @@
 $$
 \Delta = \tan\beta - \tan\alpha = \dfrac{y_P}{x_P} - \dfrac{y_A}{x_A} = \dfrac{y_Px_A-x_Py_A}{x_Px_A}
 $$
-其中 $A$ 是理想点.$P$ 是当前画笔位置。实际上，我们只需要考虑 $\Delta$ 的符号。对于第一象限：</p>
+其中 <span class="arithmatex">\(A\)</span> 是理想点.<span class="arithmatex">\(P\)</span> 是当前画笔位置。实际上，我们只需要考虑 <span class="arithmatex">\(\Delta\)</span> 的符号。对于第一象限：</p>
 <ul>
-<li>$\Delta &lt; 0$，笔在直线下方，应该向 $+Y$ 方向走一步</li>
-<li>$\Delta\ge 0$，笔在直线上方，应该向 $+X$ 方向走一步</li>
+<li><span class="arithmatex">\(\Delta &lt; 0\)</span>，笔在直线下方，应该向 <span class="arithmatex">\(+Y\)</span> 方向走一步</li>
+<li><span class="arithmatex">\(\Delta\ge 0\)</span>，笔在直线上方，应该向 <span class="arithmatex">\(+X\)</span> 方向走一步</li>
 </ul>
-<p>因此，只要计算 $F = x_Ay_P-x_Py_A$ 即可。</p>
-<p>考虑第一象限，其它象限的情况是类似的。由于每一步长度为 1，可以借此简化偏差计算为递推式。设当前位置为 $P_1$，则若</p>
+<p>因此，只要计算 <span class="arithmatex">\(F = x_Ay_P-x_Py_A\)</span> 即可。</p>
+<p>考虑第一象限，其它象限的情况是类似的。由于每一步长度为 1，可以借此简化偏差计算为递推式。设当前位置为 <span class="arithmatex">\(P_1\)</span>，则若</p>
 <p><img alt="" src="Screenshot_20220304_231205.jpg|450" /></p>
-<p>$$
+<div class="arithmatex">\[
 F_1 = y_1x_A - y_Ax_1 &lt; 0
-$$</p>
-<p>应当向 $+Y$ 方向走一格，则新的偏差为
+\]</div>
+<p>应当向 <span class="arithmatex">\(+Y\)</span> 方向走一格，则新的偏差为
 $$
 F_2 = y_2 x_A - y_Ax_2 = y_1x_A-y_Ax_1+x_A = F_1 + x_A
 $$
-而如果 $F_1\ge 0$ 则向 $+X$​ 方向走一格，则新的偏差为</p>
+而如果 <span class="arithmatex">\(F_1\ge 0\)</span> 则向 <span class="arithmatex">\(+X\)</span>​ 方向走一格，则新的偏差为</p>
 <p><img alt="" src="Screenshot_20220304_231324.jpg|450" /></p>
 <p>$$
 F_2 = y_2 x_A - y_Ax_2 = y_1x_A-y_Ax_1-y_A = F_1 - y_A
 $$
 因此我们总结得到</p>
 <ul>
-<li>$F_i\ge 0$，向 $+X$ 方向走一格，新的偏差为 $F_{i+1}=F_i-y_A$ </li>
-<li>$F_i\le 0$，向 $+Y$ 方向走一格，新的偏差为 $F_{i+1}=F_i+x_A$ </li>
+<li><span class="arithmatex">\(F_i\ge 0\)</span>，向 <span class="arithmatex">\(+X\)</span> 方向走一格，新的偏差为 <span class="arithmatex">\(F_{i+1}=F_i-y_A\)</span> </li>
+<li><span class="arithmatex">\(F_i\le 0\)</span>，向 <span class="arithmatex">\(+Y\)</span> 方向走一格，新的偏差为 <span class="arithmatex">\(F_{i+1}=F_i+x_A\)</span> </li>
 </ul>
-<p>其中 $F_1=0$，因为这里是起点。</p>
-<p>最后，我们根据笔画的总步数判断是否终止。令 $N=\Delta X/s +\Delta Y/s$，其中 $s$ 为步长，则总步数为
+<p>其中 <span class="arithmatex">\(F_1=0\)</span>，因为这里是起点。</p>
+<p>最后，我们根据笔画的总步数判断是否终止。令 <span class="arithmatex">\(N=\Delta X/s +\Delta Y/s\)</span>，其中 <span class="arithmatex">\(s\)</span> 为步长，则总步数为
 $$
 N = (|x_A|+|y_A|) /s
 $$
-每走一步 $N=N-1$，直到为 $0$ 就停止。</p>
+每走一步 <span class="arithmatex">\(N=N-1\)</span>，直到为 <span class="arithmatex">\(0\)</span> 就停止。</p>
 <h4 id="dda">数值微分法 (DDA)</h4>
-<p>数值微分法直接计算要绘制的点的位置。我们假设通过端点 $P_0(x_0,y_0),P_1(x_1,y_1)$ 绘制线段，则斜率为
+<p>数值微分法直接计算要绘制的点的位置。我们假设通过端点 <span class="arithmatex">\(P_0(x_0,y_0),P_1(x_1,y_1)\)</span> 绘制线段，则斜率为
 $$
 k = \dfrac{y_1-y_0}{x_1-x_0}
 $$
-我们假设 $|k|\le 1$，此时将 $x$ 作为主导方向，即 $x$ 每次递增 $1$，而 $y$ 递增 $k$，这是因为要保证绘制精度，每个方向的步长不能超过 $1$ ；从而就有递推式
+我们假设 <span class="arithmatex">\(|k|\le 1\)</span>，此时将 <span class="arithmatex">\(x\)</span> 作为主导方向，即 <span class="arithmatex">\(x\)</span> 每次递增 <span class="arithmatex">\(1\)</span>，而 <span class="arithmatex">\(y\)</span> 递增 <span class="arithmatex">\(k\)</span>，这是因为要保证绘制精度，每个方向的步长不能超过 <span class="arithmatex">\(1\)</span> ；从而就有递推式
 $$
 y_{i+1} = kx_{i+1} + b = kx_i+b+k\Delta x = y_i+k\Delta x = y_i + k
 $$
@@ -17204,48 +17206,48 @@ $$
 <p>需要注意几点：</p>
 <ul>
 <li>实际使用时需要先将绘图端点移动到原点位置，方便朝不同象限绘制，在绘图时再将端点移回原位</li>
-<li>由于进行浮点运算后需要转换为整型，因此补充坐标 $0.5$ </li>
+<li>由于进行浮点运算后需要转换为整型，因此补充坐标 <span class="arithmatex">\(0.5\)</span> </li>
 </ul>
 <p>正是因为浮点运算的四舍五入问题，它并不利于硬件实现。</p>
 <h4 id="_5">中点画线法</h4>
-<p>首先假设斜率 $k\in[0,1]$，当前像素点为 $(x_P,y_P)$，则下一个像素点有两种可能性 $P_1(x_P+1,y_P),P_2(x_P+1,y_P+1)$，如图所示</p>
+<p>首先假设斜率 <span class="arithmatex">\(k\in[0,1]\)</span>，当前像素点为 <span class="arithmatex">\((x_P,y_P)\)</span>，则下一个像素点有两种可能性 <span class="arithmatex">\(P_1(x_P+1,y_P),P_2(x_P+1,y_P+1)\)</span>，如图所示</p>
 <p><img alt="" src="image-20220304234350690.png|375" /></p>
 <p>我们根据中点相对直线的位置来判断选择哪个像素点</p>
 <ul>
-<li>当 $M$ 在 $Q$ 下方，则选择 $P_2$ </li>
-<li>当 $M$ 在 $Q$ 上方，则选择 $P_1$ </li>
+<li>当 <span class="arithmatex">\(M\)</span> 在 <span class="arithmatex">\(Q\)</span> 下方，则选择 <span class="arithmatex">\(P_2\)</span> </li>
+<li>当 <span class="arithmatex">\(M\)</span> 在 <span class="arithmatex">\(Q\)</span> 上方，则选择 <span class="arithmatex">\(P_1\)</span> </li>
 </ul>
-<p>我们知道，过点 $(x_0,y_0),(x_1,y_1)$ 的线段方程为 $F(x,y)=ax+by+c=0$，其中
+<p>我们知道，过点 <span class="arithmatex">\((x_0,y_0),(x_1,y_1)\)</span> 的线段方程为 <span class="arithmatex">\(F(x,y)=ax+by+c=0\)</span>，其中
 $$
 a=y_0-y_1,\quad b=x_1-x_0,\quad c = x_0y_1-x_1y_0
 $$
-只需要代入点 $M$ 就可以知道它在 $F$ 的哪个方位。实际上，构造
+只需要代入点 <span class="arithmatex">\(M\)</span> 就可以知道它在 <span class="arithmatex">\(F\)</span> 的哪个方位。实际上，构造
 $$
 d = F(M) = F(x_P+1,y_P+0.5) = a(x_P+1)+b(y_P+0.5)+c
 $$</p>
 <ul>
-<li>当 $d&lt;0$，则选择 $P_2$ </li>
-<li>当 $d\ge 0$，则选择 $P_1$ </li>
+<li>当 <span class="arithmatex">\(d&lt;0\)</span>，则选择 <span class="arithmatex">\(P_2\)</span> </li>
+<li>当 <span class="arithmatex">\(d\ge 0\)</span>，则选择 <span class="arithmatex">\(P_1\)</span> </li>
 </ul>
-<p>由于每次选择的方向只有两种，我们考虑增量计算来提高效率。假设我们选取 $P_1$，新的中点为 $M_1(x_P+2,x_P+0.5)$，从而
+<p>由于每次选择的方向只有两种，我们考虑增量计算来提高效率。假设我们选取 <span class="arithmatex">\(P_1\)</span>，新的中点为 <span class="arithmatex">\(M_1(x_P+2,x_P+0.5)\)</span>，从而
 $$
 d_1 = F(M_1) = F(x_P+2,x_P+0.5) = a(x_P+2)+b(y_P+0.5)+c = d + a
 $$
-选取 $P_2$，新的中点为 $M_2(x_P+2,x_P+1.5)$，从而
+选取 <span class="arithmatex">\(P_2\)</span>，新的中点为 <span class="arithmatex">\(M_2(x_P+2,x_P+1.5)\)</span>，从而
 $$
 d_2 = F(M_2) = F(x_P+2,x_P+1.5) = a(x_P+2)+b(y_P+1.5)+c = d + a + b
 $$
-又从 $(x_0,y_0)$ 出发计算 $d_0$ 为
+又从 <span class="arithmatex">\((x_0,y_0)\)</span> 出发计算 <span class="arithmatex">\(d_0\)</span> 为
 $$
 d_0 = F(x_0+1,y_0+0.5) = F(x_0,y_0) + a + 0.5b = a + 0.5b
 $$
 因此我们总结得到</p>
 <ul>
-<li>$d_i\ge 0$，选取 $P_1$ .$d_{i+1} = d_i+a$ </li>
-<li>$d_i&lt; 0$，选取 $P_2$ .$d_{i+1} = d_i+a+b$ </li>
+<li><span class="arithmatex">\(d_i\ge 0\)</span>，选取 <span class="arithmatex">\(P_1\)</span> .<span class="arithmatex">\(d_{i+1} = d_i+a\)</span> </li>
+<li><span class="arithmatex">\(d_i&lt; 0\)</span>，选取 <span class="arithmatex">\(P_2\)</span> .<span class="arithmatex">\(d_{i+1} = d_i+a+b\)</span> </li>
 </ul>
-<p>其中 $d_0=a+0.5b$，因为这里是起点。</p>
-<p>注意到上面的所有运算中只出现了 $0.5$ 一个浮点数，而我们的判断只与 $d$ 的符号相关，因此用 $2d$ 来代替 $d$，得到只有整数运算的程序：</p>
+<p>其中 <span class="arithmatex">\(d_0=a+0.5b\)</span>，因为这里是起点。</p>
+<p>注意到上面的所有运算中只出现了 <span class="arithmatex">\(0.5\)</span> 一个浮点数，而我们的判断只与 <span class="arithmatex">\(d\)</span> 的符号相关，因此用 <span class="arithmatex">\(2d\)</span> 来代替 <span class="arithmatex">\(d\)</span>，得到只有整数运算的程序：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Midpointline</span><span class="p">(</span><span class="n">HDC</span><span class="w"> </span><span class="n">hdc</span><span class="p">.</span><span class="n">POINT</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">POINT</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">COLORREF</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">y</span><span class="p">).</span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">abs</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">x</span><span class="p">);</span>
@@ -17288,15 +17290,15 @@ $$
 <a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="bresenham">Bresenham 算法</h4>
-<p>Bresenham 算法是计算机图形学领域使用最广泛的直线扫描转换算法。这里仍然假定斜率 $k\in[0,1]$，类似于中点法，由一个误差项符号决定下一个像素点。</p>
+<p>Bresenham 算法是计算机图形学领域使用最广泛的直线扫描转换算法。这里仍然假定斜率 <span class="arithmatex">\(k\in[0,1]\)</span>，类似于中点法，由一个误差项符号决定下一个像素点。</p>
 <p><img alt="" src="image-20220307213949370.png|450" /></p>
-<p>假设当前像素点为 $(x_i,y_i)$，则下一个像素点可能为 $(x_i+1,y_i),(x_i+1,y_i+1)$，我们保存一个误差项 $d$，用于记录直线与网格线交点与 $(x_i+1,y_i)$ 的距离。每当 $x$ 增加 $1$，就将 $d$ 增加 $k$，当 $d\ge1$ 就把它减去 $1$，这样就保证 $d\in[0,1]$ ；然后，当 $d\ge 0.5$，就选择 $(x_i+1,y_i+1)$，否则选择 $(x_i+1,y_i)$ 。</p>
-<p>为了方便计算，我们令 $e=d-0.5$，这样就可以只通过 $e$ 的符号来判断选择点</p>
+<p>假设当前像素点为 <span class="arithmatex">\((x_i,y_i)\)</span>，则下一个像素点可能为 <span class="arithmatex">\((x_i+1,y_i),(x_i+1,y_i+1)\)</span>，我们保存一个误差项 <span class="arithmatex">\(d\)</span>，用于记录直线与网格线交点与 <span class="arithmatex">\((x_i+1,y_i)\)</span> 的距离。每当 <span class="arithmatex">\(x\)</span> 增加 <span class="arithmatex">\(1\)</span>，就将 <span class="arithmatex">\(d\)</span> 增加 <span class="arithmatex">\(k\)</span>，当 <span class="arithmatex">\(d\ge1\)</span> 就把它减去 <span class="arithmatex">\(1\)</span>，这样就保证 <span class="arithmatex">\(d\in[0,1]\)</span> ；然后，当 <span class="arithmatex">\(d\ge 0.5\)</span>，就选择 <span class="arithmatex">\((x_i+1,y_i+1)\)</span>，否则选择 <span class="arithmatex">\((x_i+1,y_i)\)</span> 。</p>
+<p>为了方便计算，我们令 <span class="arithmatex">\(e=d-0.5\)</span>，这样就可以只通过 <span class="arithmatex">\(e\)</span> 的符号来判断选择点</p>
 <ul>
-<li>$e\ge 0$，选择 $(x_i+1,y_i+1)$ </li>
-<li>$e&lt;0$，选择 $(x_i+1,y_i)$ </li>
+<li><span class="arithmatex">\(e\ge 0\)</span>，选择 <span class="arithmatex">\((x_i+1,y_i+1)\)</span> </li>
+<li><span class="arithmatex">\(e&lt;0\)</span>，选择 <span class="arithmatex">\((x_i+1,y_i)\)</span> </li>
 </ul>
-<p>然后，每次增加 $k$ 以及减去 $0.5$ 会导致浮点运算，因此乘上 $2\cdot dx$ 得到 $2\cdot e\cdot dx$ 来进行判断，每次 $e=e+2\cdot dy$，就得到只有整型运算的算法程序：</p>
+<p>然后，每次增加 <span class="arithmatex">\(k\)</span> 以及减去 <span class="arithmatex">\(0.5\)</span> 会导致浮点运算，因此乘上 <span class="arithmatex">\(2\cdot dx\)</span> 得到 <span class="arithmatex">\(2\cdot e\cdot dx\)</span> 来进行判断，每次 <span class="arithmatex">\(e=e+2\cdot dy\)</span>，就得到只有整型运算的算法程序：</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Bresenhamline</span><span class="p">(</span><span class="n">HDC</span><span class="w"> </span><span class="n">hdc</span><span class="p">.</span><span class="n">POINT</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">POINT</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">COLORREF</span><span class="w"> </span><span class="n">color</span><span class="p">)</span>
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
@@ -17375,15 +17377,15 @@ F  = R_P^2-R^2 = (x_P^2+y_P^2) - R^2
 $$
 类似于前，作如下判断</p>
 <ul>
-<li>$F\ge0$，说明 $P$ 在圆弧外，应该向 $+X$ 方向（朝内）移动</li>
-<li>$F&lt;0$，说明 $P$ 在圆弧内，应该向 $+Y$ 方向（朝外）移动</li>
+<li><span class="arithmatex">\(F\ge0\)</span>，说明 <span class="arithmatex">\(P\)</span> 在圆弧外，应该向 <span class="arithmatex">\(+X\)</span> 方向（朝内）移动</li>
+<li><span class="arithmatex">\(F&lt;0\)</span>，说明 <span class="arithmatex">\(P\)</span> 在圆弧内，应该向 <span class="arithmatex">\(+Y\)</span> 方向（朝外）移动</li>
 </ul>
 <p><img alt="" src="image-20220307215921116.png|250" /></p>
-<p>我们从左下角的点 $(-R,0)$ 出发，首先会向 $+X$ 方向移动。然后用递推式简化计算：当向 $+X$ 方向移动
+<p>我们从左下角的点 <span class="arithmatex">\((-R,0)\)</span> 出发，首先会向 <span class="arithmatex">\(+X\)</span> 方向移动。然后用递推式简化计算：当向 <span class="arithmatex">\(+X\)</span> 方向移动
 $$
 F_1 = (x+1)^2 + y^2 - R^2 = F +2x+1
 $$
-当向 $+Y$ 方向移动
+当向 <span class="arithmatex">\(+Y\)</span> 方向移动
 $$
 F_1 = x^2 + (y+1)^2 - R^2 = F +2y+1
 $$
@@ -17438,35 +17440,35 @@ $$
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="n">pointwiseAntiCircle</span><span class="p">(</span><span class="n">hdc</span><span class="p">.{</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="w"> </span><span class="p">}.</span><span class="n">r</span><span class="p">.</span><span class="n">RGB</span><span class="p">(</span><span class="mf">255.0.0</span><span class="p">));</span>
 </code></pre></div>
 <h4 id="_8">中点画圆法</h4>
-<p>如果构造函数 $F(x,y)=x^2+y^2-R^2$，那么就可以用之前的中点法来作为判断标准。</p>
+<p>如果构造函数 <span class="arithmatex">\(F(x,y)=x^2+y^2-R^2\)</span>，那么就可以用之前的中点法来作为判断标准。</p>
 <p><img alt="" src="image-20220307220815384.png|375" /></p>
-<p>对每一当前像素点 $P$，判断选择 $P_1$ 或 $P_2$，只需要计算判别式
+<p>对每一当前像素点 <span class="arithmatex">\(P\)</span>，判断选择 <span class="arithmatex">\(P_1\)</span> 或 <span class="arithmatex">\(P_2\)</span>，只需要计算判别式
 $$
 d = F(M) = F(x+1,y-0.5) = (x+1)^2 + (y-0.5)^2 - R^2
 $$
-如果 $d\ge0$，则 $M$ 在外部，选择向内的点 $P_2$，此时新的<strong>中点 $M_1$ 在 $P_2$ 右下方</strong>
+如果 <span class="arithmatex">\(d\ge0\)</span>，则 <span class="arithmatex">\(M\)</span> 在外部，选择向内的点 <span class="arithmatex">\(P_2\)</span>，此时新的<strong>中点 <span class="arithmatex">\(M_1\)</span> 在 <span class="arithmatex">\(P_2\)</span> 右下方</strong>
 $$
 d_1 = F(M_1) = F(x+2,y-1.5) = d +2(x-y) + 5
 $$
-相反的，如果 $d&lt;0$，则选择 $P_1$，此时新的<strong>中点 $M_1$ 在 $P_1$ 右下方</strong>
+相反的，如果 <span class="arithmatex">\(d&lt;0\)</span>，则选择 <span class="arithmatex">\(P_1\)</span>，此时新的<strong>中点 <span class="arithmatex">\(M_1\)</span> 在 <span class="arithmatex">\(P_1\)</span> 右下方</strong>
 $$
 d_1 = F(M_1) = F(x+2,y-0.5) = d +2x + 3
 $$
-这样就得到了递推关系，假设初始绘制点为 $(0,R)$，则有
+这样就得到了递推关系，假设初始绘制点为 <span class="arithmatex">\((0,R)\)</span>，则有
 $$
 d = F(1,R-0.5) = 1.25 - R
 $$
-可以乘 $8$ 来避免浮点数运算。</p>
+可以乘 <span class="arithmatex">\(8\)</span> 来避免浮点数运算。</p>
 <h4 id="bresenham_1">Bresenham 算法</h4>
-<p>考虑圆心在原点，半径为 $R$，取 $(0,R)$ 为起点，画第一象限顺圆弧。如果当前像素点为 $(x,y)$，则考虑候选像素 $H,D,V$，如图所示</p>
+<p>考虑圆心在原点，半径为 <span class="arithmatex">\(R\)</span>，取 <span class="arithmatex">\((0,R)\)</span> 为起点，画第一象限顺圆弧。如果当前像素点为 <span class="arithmatex">\((x,y)\)</span>，则考虑候选像素 <span class="arithmatex">\(H,D,V\)</span>，如图所示</p>
 <p><img alt="" src="image-20220307222542541.png" /></p>
 <p>共有 5 种可能的关系</p>
 <ul>
-<li>$H,D,V$ 都在圆内</li>
-<li>$H$ 在圆外.$D,V$ 在圆内</li>
-<li>$D$ 在圆上.$H$ 在圆外.$V$ 在圆内</li>
-<li>$H,D$ 在圆外.$V$ 在圆内</li>
-<li>$H,D,V$ 都在圆外</li>
+<li><span class="arithmatex">\(H,D,V\)</span> 都在圆内</li>
+<li><span class="arithmatex">\(H\)</span> 在圆外.<span class="arithmatex">\(D,V\)</span> 在圆内</li>
+<li><span class="arithmatex">\(D\)</span> 在圆上.<span class="arithmatex">\(H\)</span> 在圆外.<span class="arithmatex">\(V\)</span> 在圆内</li>
+<li><span class="arithmatex">\(H,D\)</span> 在圆外.<span class="arithmatex">\(V\)</span> 在圆内</li>
+<li><span class="arithmatex">\(H,D,V\)</span> 都在圆外</li>
 </ul>
 <p>我们保存三个距离差值
 $$
@@ -17477,41 +17479,41 @@ D_v &amp;= x^2+(y-1)^2-R^2
 \end{aligned}
 $$
 它们的符号分别表明了是否在圆内的信息。</p>
-<p>选择 $D_d$ 作为判断的开始：</p>
+<p>选择 <span class="arithmatex">\(D_d\)</span> 作为判断的开始：</p>
 <ul>
 <li>
-<p>如果 $D_d=0$，那么 $D$ 在圆上，直接选择 $D$ 即可；</p>
+<p>如果 <span class="arithmatex">\(D_d=0\)</span>，那么 <span class="arithmatex">\(D\)</span> 在圆上，直接选择 <span class="arithmatex">\(D\)</span> 即可；</p>
 </li>
 <li>
-<p>如果 $D_d&gt;0$，那么 $D$ 在圆外，应该向内靠近</p>
+<p>如果 <span class="arithmatex">\(D_d&gt;0\)</span>，那么 <span class="arithmatex">\(D\)</span> 在圆外，应该向内靠近</p>
 <ul>
-<li>计算 $d_{DV} = D_d+D_v$ 的符号，如果为正，则取 $V$ ；否则取 $D$ </li>
+<li>计算 <span class="arithmatex">\(d_{DV} = D_d+D_v\)</span> 的符号，如果为正，则取 <span class="arithmatex">\(V\)</span> ；否则取 <span class="arithmatex">\(D\)</span> </li>
 </ul>
 </li>
-<li>如果 $D_d&lt;0$，那么 $D$ 在圆内，应该向外移动<ul>
-<li>计算 $d_{DH} = D_d+D_h$ 的符号，如果为正，则取 $D$ ；否则取 $H$ </li>
+<li>如果 <span class="arithmatex">\(D_d&lt;0\)</span>，那么 <span class="arithmatex">\(D\)</span> 在圆内，应该向外移动<ul>
+<li>计算 <span class="arithmatex">\(d_{DH} = D_d+D_h\)</span> 的符号，如果为正，则取 <span class="arithmatex">\(D\)</span> ；否则取 <span class="arithmatex">\(H\)</span> </li>
 </ul>
 </li>
 </ul>
-<p>最后，为了简便计算，推导递推式：若取 $H(x+1,y)$，则新的 $D_1(x+2,y-1)$ 满足</p>
+<p>最后，为了简便计算，推导递推式：若取 <span class="arithmatex">\(H(x+1,y)\)</span>，则新的 <span class="arithmatex">\(D_1(x+2,y-1)\)</span> 满足</p>
 <p>$$
 D_{d_1} = ((x+1)+1)^2 + (y-1)^2 - R^2 = D_d + 2(x+1)+1
 $$
-若取 $D(x+1,y-1)$，则新的 $D_1(x+2,y-2)$ 满足
+若取 <span class="arithmatex">\(D(x+1,y-1)\)</span>，则新的 <span class="arithmatex">\(D_1(x+2,y-2)\)</span> 满足
 $$
 D_{d_1} = ((x+1)+1)^2 + ((y-1)-1)^2 - R^2 = D_d + 2(x+1)-2(y-1)+2
 $$
-若取 $V(x,y-1)$，则新的 $D_1(x+1,y-2)$ 满足
+若取 <span class="arithmatex">\(V(x,y-1)\)</span>，则新的 <span class="arithmatex">\(D_1(x+1,y-2)\)</span> 满足
 $$
 D_{d_1} = (x+1)^2 + ((y-1)-1)^2 - R^2 = D_d - 2(y-1) + 1
 $$
 注意到新选择的点的坐标恰好对应增量，例如</p>
 <ul>
-<li>$H(x+1,y)$ 对应增量 $2(x+1)+1$，因此可以先取 <code>x++</code>，然后直接计算增量 $2x+1$ ；</li>
-<li>类似地，对于 $D(x+1,y-1)$，先取 <code>x++,y--</code>，然后计算增量 $2(x-y+1)$ ；</li>
-<li>对于 $V(x,y-1)$，先取 <code>y--</code>，然后计算增量 $-2(y-1)+1$ </li>
+<li><span class="arithmatex">\(H(x+1,y)\)</span> 对应增量 <span class="arithmatex">\(2(x+1)+1\)</span>，因此可以先取 <code>x++</code>，然后直接计算增量 <span class="arithmatex">\(2x+1\)</span> ；</li>
+<li>类似地，对于 <span class="arithmatex">\(D(x+1,y-1)\)</span>，先取 <code>x++,y--</code>，然后计算增量 <span class="arithmatex">\(2(x-y+1)\)</span> ；</li>
+<li>对于 <span class="arithmatex">\(V(x,y-1)\)</span>，先取 <code>y--</code>，然后计算增量 <span class="arithmatex">\(-2(y-1)+1\)</span> </li>
 </ul>
-<p>接着是 $d_{DV},d_{DH}$ 的计算，根据定义就有
+<p>接着是 <span class="arithmatex">\(d_{DV},d_{DH}\)</span> 的计算，根据定义就有
 $$
 d_{DH} = D_h + D_d = 2D_d+2y-1\
 d_{DV} = D_v + D_d = 2D_d-2x-1
@@ -17636,7 +17638,7 @@ $$
 <a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="_9">屏幕网格坐标</h3>
-<p>由于屏幕由像素组成，当我们表示像素位置时，如果用像素中心点标记，会产生半整数边界的问题。因此通常屏幕坐标 $(x,y)$ 表示使用占据 $(x,y)$ 和 $(x+1,y+1)$ 之间的单位正方形，从而使得所有坐标都是整数。但这带来了新的问题，在绘制直线时，会出现绘制长度大于目标长度的情况。例如我们绘制 $(20,10)$ 到 $(30,18)$ 之间的直线段，根据屏幕坐标会绘制最右上角的多余像素，这就需要我们移动边界位置来补偿宽度。 </p>
+<p>由于屏幕由像素组成，当我们表示像素位置时，如果用像素中心点标记，会产生半整数边界的问题。因此通常屏幕坐标 <span class="arithmatex">\((x,y)\)</span> 表示使用占据 <span class="arithmatex">\((x,y)\)</span> 和 <span class="arithmatex">\((x+1,y+1)\)</span> 之间的单位正方形，从而使得所有坐标都是整数。但这带来了新的问题，在绘制直线时，会出现绘制长度大于目标长度的情况。例如我们绘制 <span class="arithmatex">\((20,10)\)</span> 到 <span class="arithmatex">\((30,18)\)</span> 之间的直线段，根据屏幕坐标会绘制最右上角的多余像素，这就需要我们移动边界位置来补偿宽度。 </p>
 <p><img alt="" src="image-20221116083338336.png|475" /></p>
 <h2 id="_10">区域填充算法</h2>
 <p>填色算法分为两大类：</p>
@@ -17646,17 +17648,17 @@ $$
 </ul>
 <h3 id="_11">凹多边形</h3>
 <p>凹多边形在填充时会产生一些问题，为了提高效率，通常可以将它们分割为多个凸多边形。</p>
-<p>首先我们通过叉积识别凹多边形。如果一个多边形有一个内角大于 $180^\circ$，那么以多边形的边为向量，两两计算叉积，则夹角为钝角的那两个向量的叉积会与其它结果异号。因此我们考虑所有的相邻边的叉积，如果结果不是都同号，就说明是凹多边形。</p>
+<p>首先我们通过叉积识别凹多边形。如果一个多边形有一个内角大于 <span class="arithmatex">\(180^\circ\)</span>，那么以多边形的边为向量，两两计算叉积，则夹角为钝角的那两个向量的叉积会与其它结果异号。因此我们考虑所有的相邻边的叉积，如果结果不是都同号，就说明是凹多边形。</p>
 <p><img alt="" src="image-20221114185108455.png|450" /></p>
 <p>一旦识别出多边形，就可以切割为凸多边形。有两种分割方法：</p>
 <ul>
 <li>向量方法：依次检测叉积，如果有一个异号，那么就用这个向量分割多边形</li>
-<li>旋转方法：沿着多边形的边逆时针方向，逐个将顶点移动到原点，然后顺时针旋转多边形，使得下一个顶点落在 $x$ 轴上，如果再下一个顶点位于 $x$ 轴下方，则用 $x$ 轴分割为两个多边形</li>
+<li>旋转方法：沿着多边形的边逆时针方向，逐个将顶点移动到原点，然后顺时针旋转多边形，使得下一个顶点落在 <span class="arithmatex">\(x\)</span> 轴上，如果再下一个顶点位于 <span class="arithmatex">\(x\)</span> 轴下方，则用 <span class="arithmatex">\(x\)</span> 轴分割为两个多边形</li>
 </ul>
 <p><img alt="" src="image-20221115201536820.png|625" /></p>
 <h3 id="_12">内外检测</h3>
 <h4 id="_13">奇偶检测法</h4>
-<p>从一点 $p$ 引射线，如果与多边形边界交点数为偶数，则 $p$ 在多边形外，否则在多边形内部。</p>
+<p>从一点 <span class="arithmatex">\(p\)</span> 引射线，如果与多边形边界交点数为偶数，则 <span class="arithmatex">\(p\)</span> 在多边形外，否则在多边形内部。</p>
 <p><img alt="" src="image-20221020091026721.png|450" /></p>
 <p>注意需要考虑射线与边界重合的奇异情形。上图的检测结果如下，红色部分是内部，白色部分是外部</p>
 <p><img alt="" src="image-20221020091251529.png|450" /></p>
@@ -17664,7 +17666,7 @@ $$
 <p>非零环绕规则：若环绕数为 0 表示在多边形内，非零表示在多边形外</p>
 <ul>
 <li>首先使多边形的边为矢量，将环绕数初始化为零</li>
-<li>从任意位置 $p$ 作一条射线，当从 $p$ 点沿射线方向移动时，对在每个方向上穿过射线的边计数，每当多边形的边从右向左穿过射线时，环绕数加一，从左到右时，环绕数减一</li>
+<li>从任意位置 <span class="arithmatex">\(p\)</span> 作一条射线，当从 <span class="arithmatex">\(p\)</span> 点沿射线方向移动时，对在每个方向上穿过射线的边计数，每当多边形的边从右向左穿过射线时，环绕数加一，从左到右时，环绕数减一</li>
 <li>根据最终的环绕数决定内外</li>
 </ul>
 <p><img alt="" src="image-20221020091645641.png|475" /></p>
@@ -17673,36 +17675,36 @@ $$
 <p>对于一条扫描线，有如下四个步骤：</p>
 <ol>
 <li>计算扫描线与多边形各边的交点</li>
-<li>把所有交点按 $x$ 值递增排序</li>
+<li>把所有交点按 <span class="arithmatex">\(x\)</span> 值递增排序</li>
 <li>把扫描线交点两两配对得到填色区间</li>
 <li>把相交区间中的像素置为多边形颜色，相交区间外的像素置为背景色</li>
 </ol>
-<p>所谓扫描线，其实就是一系列平行于 $x$ 轴的直线，例如</p>
+<p>所谓扫描线，其实就是一系列平行于 <span class="arithmatex">\(x\)</span> 轴的直线，例如</p>
 <p><img alt="" src="image-20220314222732486.png|450" /></p>
-<p>图中就是一条扫描线，其纵坐标为 $y$，与多边形有两个交点。</p>
-<p>一般来说，在处理一条扫描线时，仅对与它相交的多边形的边进行求交处理。我们把相交的边称为<strong>活性边</strong>，并把它们按照交点 $x$ 坐标递增的顺序存放在一个链表中，称为活性边表 (AET) 。为了方便起见，我们只存放边与交点的 “特征“ ：</p>
+<p>图中就是一条扫描线，其纵坐标为 <span class="arithmatex">\(y\)</span>，与多边形有两个交点。</p>
+<p>一般来说，在处理一条扫描线时，仅对与它相交的多边形的边进行求交处理。我们把相交的边称为<strong>活性边</strong>，并把它们按照交点 <span class="arithmatex">\(x\)</span> 坐标递增的顺序存放在一个链表中，称为活性边表 (AET) 。为了方便起见，我们只存放边与交点的 “特征“ ：</p>
 <ul>
-<li>交点横坐标 $x$ </li>
-<li>与相邻扫描线交点横坐标的差 $\Delta x$ </li>
-<li>边的最大纵坐标 $y_{\max}$ </li>
+<li>交点横坐标 <span class="arithmatex">\(x\)</span> </li>
+<li>与相邻扫描线交点横坐标的差 <span class="arithmatex">\(\Delta x\)</span> </li>
+<li>边的最大纵坐标 <span class="arithmatex">\(y_{\max}\)</span> </li>
 </ul>
 <p>不必存放交点纵坐标，因为扫描线本身就提供这一信息。例如</p>
 <p><img alt="" src="image-20220314223529549.png|425" /></p>
-<p>图中有两条相邻的扫描线，活性边为 $P_1P_2$，可以看出，我们可以通过当前交点推算出下一个交点的位置，并且可以通过当前 $y$ 值与 $y_{\max}$ 进行比较来判断这条边是否绘制完毕。</p>
+<p>图中有两条相邻的扫描线，活性边为 <span class="arithmatex">\(P_1P_2\)</span>，可以看出，我们可以通过当前交点推算出下一个交点的位置，并且可以通过当前 <span class="arithmatex">\(y\)</span> 值与 <span class="arithmatex">\(y_{\max}\)</span> 进行比较来判断这条边是否绘制完毕。</p>
 <p>根据直线方程，我们容易得到
 $$
 \Delta x = \dfrac{x_{P_2}-x_{P_1}}{y_{P_2}-y_{P_1}}
 $$
 也就是斜率的倒数。对于水平线，我们之后进行考虑。</p>
 <p>注意到我们总是需要先得到初始的顶点才能开始上面的操作，因此为了方便活性边表的建立与更新，可以这样考虑：在一开始，对于每一条扫描线，都去寻找在扫描线上出现的多边形顶点，将带有这些顶点的边存放起来，当处理扫描线时，就将存放的边拿出来处理。</p>
-<p>于是我们为每一条扫描线建立一个新边表 (NET)，存放在该扫描线上<strong>第一次出现的边</strong>。具体来说，如果有一条边最低的端点为 $y_{\min}$，就将它添加到扫描线 $y_{min}$ 的新边表中。考虑到效率问题，我们选择遍历多边形的每一条边，记录边的最低端点进行添加。</p>
+<p>于是我们为每一条扫描线建立一个新边表 (NET)，存放在该扫描线上<strong>第一次出现的边</strong>。具体来说，如果有一条边最低的端点为 <span class="arithmatex">\(y_{\min}\)</span>，就将它添加到扫描线 <span class="arithmatex">\(y_{min}\)</span> 的新边表中。考虑到效率问题，我们选择遍历多边形的每一条边，记录边的最低端点进行添加。</p>
 <p>基本的算法流程如下：</p>
 <ol>
 <li>初始化一个边表的数组 NET，用于存放每个扫描线初始边的信息</li>
 <li>初始化活性边表 AET </li>
-<li>对于 NET 中的每个扫描线，将它们的初始边按照 $x$ 坐标的插入排序放进 AET 中</li>
+<li>对于 NET 中的每个扫描线，将它们的初始边按照 <span class="arithmatex">\(x\)</span> 坐标的插入排序放进 AET 中</li>
 <li>将 AET 中的点两两配对，填充区间</li>
-<li>遍历 AET，将其中 $y$ 达到 $y_{\max}$ 的节点删掉，将剩余节点的 $x$ 增加 $\Delta x$ </li>
+<li>遍历 AET，将其中 <span class="arithmatex">\(y\)</span> 达到 <span class="arithmatex">\(y_{\max}\)</span> 的节点删掉，将剩余节点的 <span class="arithmatex">\(x\)</span> 增加 <span class="arithmatex">\(\Delta x\)</span> </li>
 <li>特别地，如果允许多边形的边相交，还需要对 AET 重新排序</li>
 </ol>
 <p>我们暂时不考虑相交情形，那么如图所示</p>
@@ -17716,7 +17718,7 @@ $$
 <li>这里会对调上面的 3 4 步骤，这是因为如果先插入新的边，然后配对填充，有可能在顶点处产生多条边的数据，造成配对错误</li>
 </ol>
 <p><img alt="" src="image-20220314231132638.png|450" /></p>
-<p>例如在上图中，添加新的边后会发现配对出现了问题：在第一个顶点位置的两条边配对了，导致 $AB$ 段无法配对填充。所以我们先配对填充，再插入新的边，然后立即更新边表去掉旧的边，在新的循环中配对填充。当然，这种做法会导致初始顶点无法绘制，不过对于多边形填充而言无伤大雅。</p>
+<p>例如在上图中，添加新的边后会发现配对出现了问题：在第一个顶点位置的两条边配对了，导致 <span class="arithmatex">\(AB\)</span> 段无法配对填充。所以我们先配对填充，再插入新的边，然后立即更新边表去掉旧的边，在新的循环中配对填充。当然，这种做法会导致初始顶点无法绘制，不过对于多边形填充而言无伤大雅。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="cp">#define MAX_SIZE 600</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="c1">// 边表结构</span>
@@ -17941,7 +17943,7 @@ $$
 <li>如果都位于上方，则记 0 个交点；都位于下方，则记 2 个交点</li>
 <li>如果重合，就记一个交点</li>
 </ul>
-<p>具体实现时，只需判断端点和顶点 $y$ 值的关系即可。</p>
+<p>具体实现时，只需判断端点和顶点 <span class="arithmatex">\(y\)</span> 值的关系即可。</p>
 <h3 id="_16">边界标志算法</h3>
 <p>边界标志算法的基本思想是<strong>对多边形的边界经过的像素打上标记，然后用扫描线对每条线上的像素标记区段进行着色</strong>。该算法把边经过的像素都标记为一种颜色，然后保有一个布尔值 inside，如果遇到标记颜色，就将 inside 取反。如果 inside 为 true，就说明在多边形中，需要填色；否则就不在多边形中。</p>
 <p><img alt="" src="image-20221020091811093.png|425" /></p>
@@ -17990,7 +17992,7 @@ $$
 <p>例如选取一个像素，然后将其等分成 16 份，估算其中在三角形中的部分，然后根据比例计算每个像素点的亮度，这就是超采样反走样 (Super Sampling Anti-Aliasing) 。</p>
 <p><img alt="" src="image-20220207162730358.png|300" /></p>
 <h4 id="msaa">MSAA</h4>
-<p>由于 SSAA 要重复计算多次然后平均，导致高昂的计算成本。MSAA 计算像素中心的颜色，然后计算有多少个子像素被覆盖。例如下面一个像素划分成 4 个，其中 2 个被覆盖，于是将像素中心颜色乘 $0.5$ 作为最终的颜色。</p>
+<p>由于 SSAA 要重复计算多次然后平均，导致高昂的计算成本。MSAA 计算像素中心的颜色，然后计算有多少个子像素被覆盖。例如下面一个像素划分成 4 个，其中 2 个被覆盖，于是将像素中心颜色乘 <span class="arithmatex">\(0.5\)</span> 作为最终的颜色。</p>
 <p><img alt="" src="image-20250418165853514.png" /></p>
 <h2 id="_21">裁剪与消隐</h2>
 <p>在使用计算机处理图形信息时，计算机内部存储的图形往往比较大，而屏幕显示的只是图形的一部分。因此需要确定图形中哪些部分落在显示区之内，哪些落在显示区之外，一般只显示落在显示区内部的图形，这个选择过程称为<strong>裁剪</strong>。而当绘制三维图形时，由于观察视角的区别，只有物体靠前的部分应当显示，而后方部分应当被遮挡，这种去除绘制遮挡面部分的过程称为<strong>隐藏面消除</strong>。</p>
@@ -18012,7 +18014,7 @@ $$
 <h4 id="_23">中点分割裁剪</h4>
 <p>此算法使用类似于前的端点编码，但是对于有交点的情况，使用中点分割的方式分别计算交点</p>
 <p><img alt="" src="image-20220409160554591.png|425" /></p>
-<p>本质上是一种二分法，如上图中分别在 $P_0P_m,\ P_mP_1$ 两段上再取中点，选择有交点的部分重复操作，直到线段长度足够小时停止。这种裁剪方式的好处在于它只需要加法和除以 2，便于硬件实现。</p>
+<p>本质上是一种二分法，如上图中分别在 <span class="arithmatex">\(P_0P_m,\ P_mP_1\)</span> 两段上再取中点，选择有交点的部分重复操作，直到线段长度足够小时停止。这种裁剪方式的好处在于它只需要加法和除以 2，便于硬件实现。</p>
 <p>代码实现</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="cp">#define LEFT 1</span>
 <a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="cp">#define RIGHT 2</span>
@@ -18183,7 +18185,7 @@ $$
 <h4 id="sutherland-hodgeman">Sutherland-Hodgeman 算法</h4>
 <p>基本思想是一次用窗口的一条边裁剪多边形。先考虑窗口的一条边的延长线，我们用这条延长线来裁剪多边形的点。按照顺序考虑多边形边的端点，有如下四种情况：</p>
 <p><img alt="" src="image-20220409165241546.png|425" /></p>
-<p>其中箭头方向表示读取端点的顺序，对于情况 1 返回 $P$，情况 2 不返回，情况 3 返回 $I$，情况 4 返回 $I,P$，也就是说我们<strong>对每条边都返回有效的顶点，最后得到的顶点集就构成了封闭图形</strong>。</p>
+<p>其中箭头方向表示读取端点的顺序，对于情况 1 返回 <span class="arithmatex">\(P\)</span>，情况 2 不返回，情况 3 返回 <span class="arithmatex">\(I\)</span>，情况 4 返回 <span class="arithmatex">\(I,P\)</span>，也就是说我们<strong>对每条边都返回有效的顶点，最后得到的顶点集就构成了封闭图形</strong>。</p>
 <p>代码实现</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="cp">#define MAX_SIZE 128</span>
 <a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
@@ -18358,26 +18360,26 @@ $$
 </ul>
 <p>两种过程分别称为面向图像 image-oriented 和面向对象 object-oriented 的过程，也称为先排序 sort-first 和后排序 sort-last 过程。</p>
 <h4 id="_27">画家算法</h4>
-<p>先介绍面向对象的算法。考虑 $n$ 个三维不透明多边形构成的场景。两两考虑对象，检查相对位置</p>
+<p>先介绍面向对象的算法。考虑 <span class="arithmatex">\(n\)</span> 个三维不透明多边形构成的场景。两两考虑对象，检查相对位置</p>
 <p><img alt="" src="image-20221112115926288.png" /></p>
-<p>这种方法最坏情况下要两两比较所有多边形，因此复杂度为 $O(n^2)$ 。</p>
+<p>这种方法最坏情况下要两两比较所有多边形，因此复杂度为 <span class="arithmatex">\(O(n^2)\)</span> 。</p>
 <p>我们考虑把多边形从后到前按顺序绘制，这样处于前面的多边形会覆盖掉后面的多边形，这就是画家算法。首先对多边形进行排序，需要考虑几种情形：</p>
 <ul>
-<li>多边形 $A$ 在所有多边形前面，直接绘制</li>
-<li>多边形在 $z$ 方向有重叠，但是在 $x$ 或 $y$ 方向没有重叠，则分别绘制</li>
+<li>多边形 <span class="arithmatex">\(A\)</span> 在所有多边形前面，直接绘制</li>
+<li>多边形在 <span class="arithmatex">\(z\)</span> 方向有重叠，但是在 <span class="arithmatex">\(x\)</span> 或 <span class="arithmatex">\(y\)</span> 方向没有重叠，则分别绘制</li>
 <li>多边形在所有方向都有重叠，这种情况十分复杂</li>
 </ul>
 <p><img alt="" src="image-20221112120413420.png|325" /></p>
 <h4 id="_28">背面剔除</h4>
-<p>对于规范化的视景体，视线向量是 $v=(0,0,1,0)^T$，只有当平面的法向与 $v$ 不正交时才显示该平面。对于平面
+<p>对于规范化的视景体，视线向量是 <span class="arithmatex">\(v=(0,0,1,0)^T\)</span>，只有当平面的法向与 <span class="arithmatex">\(v\)</span> 不正交时才显示该平面。对于平面
 $$
 ax+by+cz+d = 0
 $$
-由于视线向量的特殊性，只需要考虑 $c$ 是否为零来判断是否绘制。</p>
+由于视线向量的特殊性，只需要考虑 <span class="arithmatex">\(c\)</span> 是否为零来判断是否绘制。</p>
 <h4 id="z-buffer">Z-buffer</h4>
-<p>对于每条投影线，寻找 $k$ 个多边形中最近的一个进行绘制。对于 $n\times m$ 分辨率的缓冲区，有 $nm$ 条投影线，复杂度为 $O(nmk)$ 。我们用一个称为 $z$ 缓冲区或者深度缓冲区的地方存储每个像素到目前为止找到的最近对象的深度。</p>
+<p>对于每条投影线，寻找 <span class="arithmatex">\(k\)</span> 个多边形中最近的一个进行绘制。对于 <span class="arithmatex">\(n\times m\)</span> 分辨率的缓冲区，有 <span class="arithmatex">\(nm\)</span> 条投影线，复杂度为 <span class="arithmatex">\(O(nmk)\)</span> 。我们用一个称为 <span class="arithmatex">\(z\)</span> 缓冲区或者深度缓冲区的地方存储每个像素到目前为止找到的最近对象的深度。</p>
 <p><img alt="" src="image-20221112120929771.png|525" /></p>
-<p>在显示每个多边形时，把它的深度与 $z$ 缓冲区中的深度比较，如果深度更小，就将缓冲区的深度更新为这个更小的值。</p>
+<p>在显示每个多边形时，把它的深度与 <span class="arithmatex">\(z\)</span> 缓冲区中的深度比较，如果深度更小，就将缓冲区的深度更新为这个更小的值。</p>
 <p>如果逐条扫描线遍历，则类似于区域填充中的扫描线算法，可以得到深度改变满足
 $$
 a\Delta x+b\Delta y+c\Delta z = 0
@@ -18386,10 +18388,10 @@ $$
 $$
 \Delta y=0,\quad \Delta z = -\frac{a}{c}\Delta x
 $$
-在屏幕空间上，$\Delta x=1$ 成立。在扫描线算法中将明暗处理算法和隐藏面消除算法结合在一起。</p>
+在屏幕空间上，<span class="arithmatex">\(\Delta x=1\)</span> 成立。在扫描线算法中将明暗处理算法和隐藏面消除算法结合在一起。</p>
 <blockquote>
 <blockquote>
-<p>这种方法的缺点是对每个像素只能记录一个可见面，如果需要表示透明物体就无法处理。$A$ 缓冲区算法通过链表储存像素上的所有可见面信息，这样就可以任意处理这些面的叠加状态。</p>
+<p>这种方法的缺点是对每个像素只能记录一个可见面，如果需要表示透明物体就无法处理。<span class="arithmatex">\(A\)</span> 缓冲区算法通过链表储存像素上的所有可见面信息，这样就可以任意处理这些面的叠加状态。</p>
 </blockquote>
 </blockquote>
 <h2 id="_29">几何变换</h2>
@@ -18407,7 +18409,7 @@ $$
 $$
 我们可以将其写成矩阵形式
 $$
-\vec{a}\times \vec{b} = A^<em>b = \left(
+\vec{a}\times \vec{b} = A^*b = \left(
 \begin{matrix}
     0 &amp; -z_a &amp; y_a\
     z_a &amp; 0 &amp; -x_a\
@@ -18422,14 +18424,14 @@ $$
 \end{matrix}
 \right)
 $$
-其中矩阵 $A^</em>$ 为向量 $\vec{a}$ 的对偶矩阵。</p>
-<p>我们可以利用外积的性质判断一个点是否在给定的三角形中：假设有三个向量顺时针围成一个三角形 $ABC$，如图</p>
+其中矩阵 <span class="arithmatex">\(A^*\)</span> 为向量 <span class="arithmatex">\(\vec{a}\)</span> 的对偶矩阵。</p>
+<p>我们可以利用外积的性质判断一个点是否在给定的三角形中：假设有三个向量顺时针围成一个三角形 <span class="arithmatex">\(ABC\)</span>，如图</p>
 <p><img alt="" src="image-20220206213503451.png|350" /></p>
-<p>要判断点 $P$ 是否在该三角形中，可以利用外积
+<p>要判断点 <span class="arithmatex">\(P\)</span> 是否在该三角形中，可以利用外积
 $$
 \overrightarrow{AP} \times \overrightarrow{AB},\quad \overrightarrow{BP} \times \overrightarrow{BC},\quad \overrightarrow{CP} \times \overrightarrow{CA}
 $$
-如果 $P$ 在三角形中，那么这三个外积应当同号。</p>
+如果 <span class="arithmatex">\(P\)</span> 在三角形中，那么这三个外积应当同号。</p>
 <h3 id="_31">仿射空间</h3>
 <p>仿射空间是点和向量共同构造的空间，它应当满足如下运算性质：</p>
 <ul>
@@ -18440,12 +18442,12 @@ $$
 <li>标量 ? 标量 = 标量</li>
 <li>以上运算与坐标无关</li>
 </ul>
-<p>对任意点 $P$，定义 $1\cdot P = P,0\cdot P = \vec{0}$，即零向量。</p>
-<p>现在我们考虑如何构造满足要求的仿射空间。给定向量 $v_1,\cdots,v_n$ 和标量 $\alpha_1,\cdots,\alpha_n$，则
+<p>对任意点 <span class="arithmatex">\(P\)</span>，定义 <span class="arithmatex">\(1\cdot P = P,0\cdot P = \vec{0}\)</span>，即零向量。</p>
+<p>现在我们考虑如何构造满足要求的仿射空间。给定向量 <span class="arithmatex">\(v_1,\cdots,v_n\)</span> 和标量 <span class="arithmatex">\(\alpha_1,\cdots,\alpha_n\)</span>，则
 $$
 v = \alpha_1v_1+\cdots+\alpha_nv_n
 $$
-是向量，称为 $v_1,\cdots,v_n$ 的线性组合；给定点 $P_1,\cdots,P_2$，我们期望
+是向量，称为 <span class="arithmatex">\(v_1,\cdots,v_n\)</span> 的线性组合；给定点 <span class="arithmatex">\(P_1,\cdots,P_2\)</span>，我们期望
 $$
 P = \alpha_1P_1+\cdots+\alpha_nP_n
 $$
@@ -18454,11 +18456,11 @@ $$
 $$
 \alpha_1P_1+\cdots+\alpha_nP_n = \alpha_2(P_2-P_1)+\cdots +\alpha_n(P_n-P_1)+(\alpha_1+\cdots+\alpha_n)P_n
 $$
-当 $\alpha_1+\cdots+\alpha_n=0$ 时，得到的结果是一个向量；当 $\alpha_1+\cdots+\alpha_n=1$ 时，得到的是一个点，称为给顶点的<strong>仿射组合</strong>。这两种线性组合与坐标系无关，除此之外没有与坐标无关的组合。</p>
-<p>通过 $\alpha_1+\cdots+\alpha_n=1$ 的点的仿射组合称为 $P_1,\cdots,P_n$ 的仿射和；所有满足 $\alpha_i\ge 0$ 的仿射和的集合称为 $P_1,\cdots,P_n$ 的凸包，它是包含 $P_1,\cdots,P_n$ 的最小凸体。</p>
+当 <span class="arithmatex">\(\alpha_1+\cdots+\alpha_n=0\)</span> 时，得到的结果是一个向量；当 <span class="arithmatex">\(\alpha_1+\cdots+\alpha_n=1\)</span> 时，得到的是一个点，称为给顶点的<strong>仿射组合</strong>。这两种线性组合与坐标系无关，除此之外没有与坐标无关的组合。</p>
+<p>通过 <span class="arithmatex">\(\alpha_1+\cdots+\alpha_n=1\)</span> 的点的仿射组合称为 <span class="arithmatex">\(P_1,\cdots,P_n\)</span> 的仿射和；所有满足 <span class="arithmatex">\(\alpha_i\ge 0\)</span> 的仿射和的集合称为 <span class="arithmatex">\(P_1,\cdots,P_n\)</span> 的凸包，它是包含 <span class="arithmatex">\(P_1,\cdots,P_n\)</span> 的最小凸体。</p>
 <h4 id="_32">齐次坐标</h4>
-<p>$n$ 维空间中的坐标系是由基向量 $v_1,\cdots,v_n$ 构建的，它可以表示仿射空间中的所有向量。但是向量没有具体的位置，因此坐标系不足以表示仿射空间中的点，我们可以增加一个点作为<strong>原点</strong>，从而构成一个<strong>标架</strong>。</p>
-<p>标架由 $(O,v_1,\cdots,v_n)$ 确定，每个向量可以表示为
+<p><span class="arithmatex">\(n\)</span> 维空间中的坐标系是由基向量 <span class="arithmatex">\(v_1,\cdots,v_n\)</span> 构建的，它可以表示仿射空间中的所有向量。但是向量没有具体的位置，因此坐标系不足以表示仿射空间中的点，我们可以增加一个点作为<strong>原点</strong>，从而构成一个<strong>标架</strong>。</p>
+<p>标架由 <span class="arithmatex">\((O,v_1,\cdots,v_n)\)</span> 确定，每个向量可以表示为
 $$
 v = \alpha_1v_1+\cdots+\alpha_nv_n
 $$
@@ -18483,10 +18485,10 @@ P = (v_1,\cdots,v_n,O)
 1
 \end{pmatrix}
 $$
-我们将 $v=(\alpha_1,\cdots,\alpha_n,0)^T,P=(\alpha_1,\cdots,\alpha_n,1)^T$ 称为 $v,P$ 的 $n+1$ 维<strong>齐次坐标表示</strong>。</p>
-<p>四维齐次坐标表示的一般形式为 $P=(x,y,z,w)^T$，当 $w=0$ 表示向量；当 $w\neq0$ 可以标准化为 $(x/w,y/w,z/w,1)^T$ 表示三维点。齐次坐标表示中把<strong>四维空间中过原点的直线对应于三维空间中的一个点</strong>。</p>
+我们将 <span class="arithmatex">\(v=(\alpha_1,\cdots,\alpha_n,0)^T,P=(\alpha_1,\cdots,\alpha_n,1)^T\)</span> 称为 <span class="arithmatex">\(v,P\)</span> 的 <span class="arithmatex">\(n+1\)</span> 维<strong>齐次坐标表示</strong>。</p>
+<p>四维齐次坐标表示的一般形式为 <span class="arithmatex">\(P=(x,y,z,w)^T\)</span>，当 <span class="arithmatex">\(w=0\)</span> 表示向量；当 <span class="arithmatex">\(w\neq0\)</span> 可以标准化为 <span class="arithmatex">\((x/w,y/w,z/w,1)^T\)</span> 表示三维点。齐次坐标表示中把<strong>四维空间中过原点的直线对应于三维空间中的一个点</strong>。</p>
 <h4 id="_33">标架变换</h4>
-<p>对于两个标架 $(P_0,v_1,v_2,v_3),(Q_0,u_1,u_2,u_3)$，我们有变换矩阵
+<p>对于两个标架 <span class="arithmatex">\((P_0,v_1,v_2,v_3),(Q_0,u_1,u_2,u_3)\)</span>，我们有变换矩阵
 $$
 \begin{pmatrix}
 u_1\
@@ -18508,7 +18510,7 @@ v_3\
 P_0
 \end{pmatrix}
 $$
-两个标架中 $a=(\alpha_1,\alpha_2,\alpha_3,\alpha_4)^T,b=(\beta_1,\beta_2,\beta_3,\beta_4)^T$ 具有相同形式.满足 $a=M^Tb$，实际上定义了一个仿射变换。</p>
+两个标架中 <span class="arithmatex">\(a=(\alpha_1,\alpha_2,\alpha_3,\alpha_4)^T,b=(\beta_1,\beta_2,\beta_3,\beta_4)^T\)</span> 具有相同形式.满足 <span class="arithmatex">\(a=M^Tb\)</span>，实际上定义了一个仿射变换。</p>
 <h3 id="_34">仿射变换</h3>
 <p>在齐次坐标表示下，任何仿射变换都可以写成矩阵乘法的形式，多种变换复合时只需要将变换矩阵相乘即可得到复合的变换矩阵。因为通常我们需要对所有顶点施加相同的变换，所以通过构造复合变换矩阵的代价比对每个顶点依次作用变换矩阵的代价更小。</p>
 <h4 id="_35">平移变换</h4>
@@ -18549,7 +18551,7 @@ R_{\theta} =
     \sin\theta &amp; \cos\theta
 \end{pmatrix}
 $$
-如果考虑三维空间中的绕轴旋转，这里进行顺时针旋转 $\alpha$ 角</p>
+如果考虑三维空间中的绕轴旋转，这里进行顺时针旋转 <span class="arithmatex">\(\alpha\)</span> 角</p>
 <p><img alt="" src="image-20220206225956109.png" /></p>
 <p>显然，绕轴旋转不改变轴方向的坐标，因此有
 $$
@@ -18568,44 +18570,44 @@ $$
     \
 \end{matrix}
 $$</p>
-<p>$$
+<div class="arithmatex">\[
 \mathbf{R}_y(\alpha) = \left(
 \begin{matrix}
-\cos\alpha &amp; 0 &amp; \sin\alpha &amp; 0\
-0 &amp; 1 &amp; 0 &amp; 0\
--\sin\alpha &amp; 0 &amp; \cos\alpha &amp; 0\
+\cos\alpha &amp; 0 &amp; \sin\alpha &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; 0\\
+-\sin\alpha &amp; 0 &amp; \cos\alpha &amp; 0\\
 0 &amp; 0 &amp; 0 &amp; 1
 \end{matrix}
 \right) \ 
 \begin{matrix}
-    x\
-    \
-    z\
-    \
+    x\\
+    \\
+    z\\
+    \\
 \end{matrix}
-$$</p>
-<p>$$
+\]</div>
+<div class="arithmatex">\[
 \mathbf{R}_z(\alpha) = \left(
 \begin{matrix}
-\cos\alpha &amp; -\sin\alpha &amp; 0 &amp; 0\
-\sin\alpha &amp; \cos\alpha &amp; 0 &amp; 0\
-0 &amp; 0 &amp; 1 &amp; 0\
+\cos\alpha &amp; -\sin\alpha &amp; 0 &amp; 0\\
+\sin\alpha &amp; \cos\alpha &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 1 &amp; 0\\
 0 &amp; 0 &amp; 0 &amp; 1
 \end{matrix}
 \right) \ 
 \begin{matrix}
-    x\
-    y\
-    \
-    \
+    x\\
+    y\\
+    \\
+    \\
 \end{matrix}
-$$</p>
-<p>可以证明这三个旋转变换矩阵相似。三维空间中的旋转矩阵一定有一个特征值为 $1$，注意在二维空间中不一定。</p>
+\]</div>
+<p>可以证明这三个旋转变换矩阵相似。三维空间中的旋转矩阵一定有一个特征值为 <span class="arithmatex">\(1\)</span>，注意在二维空间中不一定。</p>
 <p>需要注意，关于 y 轴的二阶旋转子阵是反向的，这是因为由上面的变换矩阵，旋转作用的平面依次是
 $$
 R_x: yz,\ R_y: xz,\ R_z: xy
 $$
-这个顺序就是矩阵右边标记的 $yz,xz,xy$ 。然而根据叉乘的性质
+这个顺序就是矩阵右边标记的 <span class="arithmatex">\(yz,xz,xy\)</span> 。然而根据叉乘的性质
 $$
 y\times z = x,\ x\times z = -y,\ x\times y = z
 $$
@@ -18621,9 +18623,9 @@ s_x\
 &amp; &amp; &amp; 1
 \end{pmatrix}
 $$
-如果在一个方向上的伸缩因子是 $-1$，那么得到的就是关于其余方向张成空间的反射变换。</p>
+如果在一个方向上的伸缩因子是 <span class="arithmatex">\(-1\)</span>，那么得到的就是关于其余方向张成空间的反射变换。</p>
 <h4 id="_38">错切变换</h4>
-<p>如果要在固定图像一边的情况下，将图像沿着某个方向平行变换，就称为错切。沿 $x$ 轴的错切具有矩阵表示
+<p>如果要在固定图像一边的情况下，将图像沿着某个方向平行变换，就称为错切。沿 <span class="arithmatex">\(x\)</span> 轴的错切具有矩阵表示
 $$
 H(\theta) = 
 \begin{pmatrix}
@@ -18660,17 +18662,17 @@ $$
 <li>首先是物体坐标需要通过模型矩阵<strong>变换到世界坐标</strong>中，作为物体接收光照的实际位置；</li>
 <li>另外，模型矩阵如果有长宽不等比的缩放，就可能导致法向错误，需要进行修正。由于着色器求逆效率低，修正矩阵在外部计算</li>
 </ol>
-<p>任何模型矩阵可以分解为 $M=T \times R\times S$ 即旋转、平移和缩放矩阵。平移不影响法向；旋转直接作用于法向；伸缩反作用于法向。于是</p>
+<p>任何模型矩阵可以分解为 <span class="arithmatex">\(M=T \times R\times S\)</span> 即旋转、平移和缩放矩阵。平移不影响法向；旋转直接作用于法向；伸缩反作用于法向。于是</p>
 <ul>
 <li>修正矩阵忽略平移，作用于法向时第 4 列不起作用</li>
-<li>修正矩阵使用旋转，因此直接乘 $R$</li>
-<li>修正矩阵使用反向伸缩，因此乘 $S^{-1}$</li>
+<li>修正矩阵使用旋转，因此直接乘 <span class="arithmatex">\(R\)</span></li>
+<li>修正矩阵使用反向伸缩，因此乘 <span class="arithmatex">\(S^{-1}\)</span></li>
 </ul>
 <p>因此总作用应该为
 $$
 T\times R\times S^{-1}=T\times S^{-1}\times R =T\times S^{-T}\times R^{-T}
 $$
-由于第 4 列可以忽略，因此实际作用只取决于 $S^{-T}\times R^{-T}=(R\times T)^{-T}$，而忽略第 4 列后右端又等价于 $M^{-T}$，即模型矩阵求逆后转置然后取 <code>3 x 3</code> 子矩阵。</p>
+由于第 4 列可以忽略，因此实际作用只取决于 <span class="arithmatex">\(S^{-T}\times R^{-T}=(R\times T)^{-T}\)</span>，而忽略第 4 列后右端又等价于 <span class="arithmatex">\(M^{-T}\)</span>，即模型矩阵求逆后转置然后取 <code>3 x 3</code> 子矩阵。</p>
 <h2 id="_40">旋转表示</h2>
 <p>四元数可以表示在球面上的光滑旋转，而且非常有效。处理过程为</p>
 <ul>
@@ -18680,7 +18682,7 @@ $$
 </ul>
 <h3 id="_41">三维旋转</h3>
 <h4 id="_42">欧拉角</h4>
-<p>三维空间中绕 $x,y,z$ 轴的旋转矩阵可以表示为
+<p>三维空间中绕 <span class="arithmatex">\(x,y,z\)</span> 轴的旋转矩阵可以表示为
 $$
 R_x(\alpha) =
 \begin{pmatrix}
@@ -18701,36 +18703,36 @@ R_z(\alpha) =
 0 &amp; 0 &amp; 1
 \end{pmatrix}
 $$</p>
-<p>欧拉证明了绕过原点任意轴旋转 $\theta$ 角可以分解为绕 $x,y,z$ 轴旋转的复合：
+<p>欧拉证明了绕过原点任意轴旋转 <span class="arithmatex">\(\theta\)</span> 角可以分解为绕 <span class="arithmatex">\(x,y,z\)</span> 轴旋转的复合：
 $$
 R_z(\gamma)R_y(\beta)R_x(\alpha)
 $$
-其中 $(\alpha,\beta,\gamma)$ 就是<strong>欧拉角</strong>。这种分解按照顺序不是唯一的，也可以分解为绕 $x,y,x$ 轴旋转的复合，事实上存在 $12$ 种分解顺序</p>
+其中 <span class="arithmatex">\((\alpha,\beta,\gamma)\)</span> 就是<strong>欧拉角</strong>。这种分解按照顺序不是唯一的，也可以分解为绕 <span class="arithmatex">\(x,y,x\)</span> 轴旋转的复合，事实上存在 <span class="arithmatex">\(12\)</span> 种分解顺序</p>
 <p><img alt="" src="image-20221114100340438-1695125596942-1.png|500" /></p>
-<p>令 ${0-xyz},{0-XYZ}$ 是 $R^3$ 的两个正交系统，$N$ 是平面 $0-xy$ 与 $0-XY$ 的交线。显然 $N=z\times Z$，定义</p>
+<p>令 <span class="arithmatex">\(\{0-xyz\},\{0-XYZ\}\)</span> 是 <span class="arithmatex">\(R^3\)</span> 的两个正交系统，<span class="arithmatex">\(N\)</span> 是平面 <span class="arithmatex">\(0-xy\)</span> 与 <span class="arithmatex">\(0-XY\)</span> 的交线。显然 <span class="arithmatex">\(N=z\times Z\)</span>，定义</p>
 <ul>
-<li>$\alpha$ 为 $x,N$ 的夹角</li>
-<li>$\beta$ 是 $z,Z$ 的夹角</li>
-<li>$\gamma$ 是 $N,X$ 的夹角 </li>
+<li><span class="arithmatex">\(\alpha\)</span> 为 <span class="arithmatex">\(x,N\)</span> 的夹角</li>
+<li><span class="arithmatex">\(\beta\)</span> 是 <span class="arithmatex">\(z,Z\)</span> 的夹角</li>
+<li><span class="arithmatex">\(\gamma\)</span> 是 <span class="arithmatex">\(N,X\)</span> 的夹角 </li>
 </ul>
 <p><img alt="" src="数学基础/图形学/图形学.assets/image-20221021103659693.png|275" /></p>
-<p>如果将 $0-xyz$ 旋转到 $o-XYZ$，则变换矩阵为 $R_z(\gamma)R_x(\beta)R_z(\alpha)$，其中</p>
+<p>如果将 <span class="arithmatex">\(0-xyz\)</span> 旋转到 <span class="arithmatex">\(o-XYZ\)</span>，则变换矩阵为 <span class="arithmatex">\(R_z(\gamma)R_x(\beta)R_z(\alpha)\)</span>，其中</p>
 <ul>
-<li>$R_z(\alpha)$：绕 $z$ 轴转 $\alpha$ 角，上图 $x,N$ 重合</li>
-<li>$R_x(\beta)$：绕转动后的 $x'$ 轴转 $\beta$ 角，上图 $z,Z$ 重合</li>
-<li>$R_z(\gamma)$：绕重合的 $z'=Z$ 轴转 $\gamma$ 角，上图 $x'=N,X$ 重合</li>
+<li><span class="arithmatex">\(R_z(\alpha)\)</span>：绕 <span class="arithmatex">\(z\)</span> 轴转 <span class="arithmatex">\(\alpha\)</span> 角，上图 <span class="arithmatex">\(x,N\)</span> 重合</li>
+<li><span class="arithmatex">\(R_x(\beta)\)</span>：绕转动后的 <span class="arithmatex">\(x'\)</span> 轴转 <span class="arithmatex">\(\beta\)</span> 角，上图 <span class="arithmatex">\(z,Z\)</span> 重合</li>
+<li><span class="arithmatex">\(R_z(\gamma)\)</span>：绕重合的 <span class="arithmatex">\(z'=Z\)</span> 轴转 <span class="arithmatex">\(\gamma\)</span> 角，上图 <span class="arithmatex">\(x'=N,X\)</span> 重合</li>
 </ul>
-<p>这里 $(\alpha,\beta,\gamma)$ 也是欧拉角，区别在于这里是对坐标系的变换，但是由于坐标系变换和物体坐标变换互逆，因此这等价于固定坐标系下的旋转 $R_z(-\gamma)R_x(-\beta)R_z(-\alpha)$，结果相同。</p>
+<p>这里 <span class="arithmatex">\((\alpha,\beta,\gamma)\)</span> 也是欧拉角，区别在于这里是对坐标系的变换，但是由于坐标系变换和物体坐标变换互逆，因此这等价于固定坐标系下的旋转 <span class="arithmatex">\(R_z(-\gamma)R_x(-\beta)R_z(-\alpha)\)</span>，结果相同。</p>
 <h4 id="_43">万向节死锁</h4>
-<p>使用欧拉角表示会出现问题，当中间旋转的角 $\beta=\frac{\pi}{2}$ 时，会发现转动轴丢失。例如可以验证
+<p>使用欧拉角表示会出现问题，当中间旋转的角 <span class="arithmatex">\(\beta=\frac{\pi}{2}\)</span> 时，会发现转动轴丢失。例如可以验证
 $$
 R_z(\gamma)R_y\left(\frac{\pi}{2}\right)R_x(\alpha) = R_y\left(\frac{\pi}{2}\right)R_x(\alpha-\gamma)
 $$
-这意味着 $x,z$ 轴的转动相互抵消，这是由于使用固定的转动顺序导致的。于是在这种情况下，转动表示不唯一，导致如果对欧拉角进行光滑插值变得很困难。例如 $(0,\frac{\pi}{2},\frac{\pi}{4})$ 和 $(\frac{\pi}{4},\frac{\pi}{2},\frac{\pi}{2})$ 实际上是相同的转动，要将其平滑地变动到另一个转动角 $(0,\frac{\pi}{3},\frac{\pi}{4})$ 的插值不唯一。</p>
+这意味着 <span class="arithmatex">\(x,z\)</span> 轴的转动相互抵消，这是由于使用固定的转动顺序导致的。于是在这种情况下，转动表示不唯一，导致如果对欧拉角进行光滑插值变得很困难。例如 <span class="arithmatex">\((0,\frac{\pi}{2},\frac{\pi}{4})\)</span> 和 <span class="arithmatex">\((\frac{\pi}{4},\frac{\pi}{2},\frac{\pi}{2})\)</span> 实际上是相同的转动，要将其平滑地变动到另一个转动角 <span class="arithmatex">\((0,\frac{\pi}{3},\frac{\pi}{4})\)</span> 的插值不唯一。</p>
 <h4 id="_44">罗德里格旋转公式</h4>
-<p>考虑一种简单的情况：绕过原点的单位长度向量的旋转。对于任意单位向量 $k=(k_x,k_y,k_z)$ 和向量 $v=(x,y,z)$，我们可以先施加变换将 $k,v$ 绕 $z$ 轴旋转到 $xz$ 平面上，然后绕 $y$ 轴旋转使 $k,z$ 重合，此时就可以绕 $z=k$ 轴旋转，最后再逆变换回去。过程如下：</p>
+<p>考虑一种简单的情况：绕过原点的单位长度向量的旋转。对于任意单位向量 <span class="arithmatex">\(k=(k_x,k_y,k_z)\)</span> 和向量 <span class="arithmatex">\(v=(x,y,z)\)</span>，我们可以先施加变换将 <span class="arithmatex">\(k,v\)</span> 绕 <span class="arithmatex">\(z\)</span> 轴旋转到 <span class="arithmatex">\(xz\)</span> 平面上，然后绕 <span class="arithmatex">\(y\)</span> 轴旋转使 <span class="arithmatex">\(k,z\)</span> 重合，此时就可以绕 <span class="arithmatex">\(z=k\)</span> 轴旋转，最后再逆变换回去。过程如下：</p>
 <p><img alt="" src="image-20221112210328691.png|300" /></p>
-<p>注意到 $k_z=\cos\beta,k_y=\sin\beta\sin\alpha,k_x=\sin\beta\cos\alpha$，于是我们有
+<p>注意到 <span class="arithmatex">\(k_z=\cos\beta,k_y=\sin\beta\sin\alpha,k_x=\sin\beta\cos\alpha\)</span>，于是我们有
 $$
 \begin{aligned}
 \begin{pmatrix}
@@ -18761,8 +18763,8 @@ z\
 \end{pmatrix}
 \end{aligned}
 $$
-其中 $c=\cos\theta,s=\sin\theta$，此公式称为 Rodrigues 公式。</p>
-<p>我们也可以通过向量形式进行推导。考虑向量 $\vec{p}$ 绕单位向量 $\vec{n}$ 轴转动 $\alpha$ 角得到 $p'$，于是
+其中 <span class="arithmatex">\(c=\cos\theta,s=\sin\theta\)</span>，此公式称为 Rodrigues 公式。</p>
+<p>我们也可以通过向量形式进行推导。考虑向量 <span class="arithmatex">\(\vec{p}\)</span> 绕单位向量 <span class="arithmatex">\(\vec{n}\)</span> 轴转动 <span class="arithmatex">\(\alpha\)</span> 角得到 <span class="arithmatex">\(p'\)</span>，于是
 $$
 \vec{p}' = \overrightarrow{ON}+\overrightarrow{NQ} + \overrightarrow{QP'}
 $$
@@ -18774,26 +18776,26 @@ $$
 \overrightarrow{QP'} &amp;= (\vec{n}\times\vec{p})\sin\alpha
 \end{aligned}
 $$
-其中 $ON$ 是 $\vec{n}$ 直接乘上投影长度，$NQ$ 是先计算 $NP$ 向量，然后利用夹角 $\alpha$ 计算模长，$QP'$ 则是外积构造 $QP'$ 方向的向量，此时向量长度恰好是半径 $r$，乘上 $\sin\alpha$ 得到投影长度。于是我们得到向量形式的 Rodrigues 公式
+其中 <span class="arithmatex">\(ON\)</span> 是 <span class="arithmatex">\(\vec{n}\)</span> 直接乘上投影长度，<span class="arithmatex">\(NQ\)</span> 是先计算 <span class="arithmatex">\(NP\)</span> 向量，然后利用夹角 <span class="arithmatex">\(\alpha\)</span> 计算模长，<span class="arithmatex">\(QP'\)</span> 则是外积构造 <span class="arithmatex">\(QP'\)</span> 方向的向量，此时向量长度恰好是半径 <span class="arithmatex">\(r\)</span>，乘上 <span class="arithmatex">\(\sin\alpha\)</span> 得到投影长度。于是我们得到向量形式的 Rodrigues 公式
 $$
 \vec{p}' = \vec{p}\cos\alpha + \vec{n}(\vec{n}\cdot\vec{p})(1-\cos\alpha) + (\vec{n}\times\vec{p})\sin\alpha
 $$
 可以验证它与上面的矩阵形式等价。</p>
 <blockquote>
 <blockquote>
-<p>注意到 $\vec{n}(\vec{n}\cdot \vec{p})-\vec{p}=\vec{n}\times(\vec{n}\times p)$，因此
+<p>注意到 <span class="arithmatex">\(\vec{n}(\vec{n}\cdot \vec{p})-\vec{p}=\vec{n}\times(\vec{n}\times p)\)</span>，因此
 $$
 \begin{aligned}
 \vec{p}' &amp;= \vec{p}+(1-\cos \alpha)\vec{n}\times(\vec{n}\times \vec{p})+(\vec{n}\times \vec{p})\sin \alpha\
 &amp;= [I+(1-\cos \alpha)[\vec{n}]^2+\sin \alpha[\vec{n}]]\vec{p}
 \end{aligned}
 $$
-其中 $[]$ 表示叉积对应的矩阵表示。因此 Rodrigues 公式对应旋转算子 $R(\vec{n},\alpha)=I+(1-\cos \alpha)[\vec{n}]^2+\sin \alpha[\vec{n}]$ 。</p>
+其中 <span class="arithmatex">\([]\)</span> 表示叉积对应的矩阵表示。因此 Rodrigues 公式对应旋转算子 <span class="arithmatex">\(R(\vec{n},\alpha)=I+(1-\cos \alpha)[\vec{n}]^2+\sin \alpha[\vec{n}]\)</span> 。</p>
 </blockquote>
 </blockquote>
 <p><img alt="" src="image-20221114102309238.png|300" /></p>
 <h3 id="_45">复数表示</h3>
-<p>我们首先从复数的表示出发。任何一个复数 $a+bi$ 都可以表示为一个有序对 $(a,b)$，我们可以通过有序对定义复数的四则运算
+<p>我们首先从复数的表示出发。任何一个复数 <span class="arithmatex">\(a+bi\)</span> 都可以表示为一个有序对 <span class="arithmatex">\((a,b)\)</span>，我们可以通过有序对定义复数的四则运算
 $$
 \begin{aligned}
 (a,b) \pm (c,d) &amp;= (a\pm c.b\pm d)\
@@ -18812,8 +18814,8 @@ b\begin{pmatrix}
 1
 \end{pmatrix}
 $$
-可以验证 $i$ 矩阵的平方就是 $-1$ 乘 $1$ 矩阵。类似地可以定义矩阵形式的四则运算。</p>
-<p>使用复数可以表示二维复平面上的旋转。对于复数 $z=x+yi$，乘上 $e^{i\theta}=\cos\theta+i\sin\theta$ 表示将 $z$ 逆时针旋转 $\theta$ 角，矩阵形式为
+可以验证 <span class="arithmatex">\(i\)</span> 矩阵的平方就是 <span class="arithmatex">\(-1\)</span> 乘 <span class="arithmatex">\(1\)</span> 矩阵。类似地可以定义矩阵形式的四则运算。</p>
+<p>使用复数可以表示二维复平面上的旋转。对于复数 <span class="arithmatex">\(z=x+yi\)</span>，乘上 <span class="arithmatex">\(e^{i\theta}=\cos\theta+i\sin\theta\)</span> 表示将 <span class="arithmatex">\(z\)</span> 逆时针旋转 <span class="arithmatex">\(\theta\)</span> 角，矩阵形式为
 $$
 \begin{pmatrix}
     x'\
@@ -18829,10 +18831,10 @@ $$
     y
 \end{pmatrix}
 $$
-我们定义 $R_\theta=e^{i\theta},R_\theta^\dagger=e^{-i\theta}$ 为两个转子。</p>
+我们定义 <span class="arithmatex">\(R_\theta=e^{i\theta},R_\theta^\dagger=e^{-i\theta}\)</span> 为两个转子。</p>
 <h3 id="_46">四元数代数</h3>
 <h4 id="_47">定义</h4>
-<p>正如复数表示二维旋转，直觉上三维旋转应该表示为 $a+bi+cj$ 形式，但是当考虑两个三元数相乘时，会出现 $ij,ji$ 项，这两项没有办法还原为 $1,i,j$，因此乘积不封闭。于是考虑四元数
+<p>正如复数表示二维旋转，直觉上三维旋转应该表示为 <span class="arithmatex">\(a+bi+cj\)</span> 形式，但是当考虑两个三元数相乘时，会出现 <span class="arithmatex">\(ij,ji\)</span> 项，这两项没有办法还原为 <span class="arithmatex">\(1,i,j\)</span>，因此乘积不封闭。于是考虑四元数
 $$
 \begin{aligned}
 q &amp;= s+ai+bj+ck,\quad s,a,b,c\in\mathbb{R}\
@@ -18841,19 +18843,19 @@ ij &amp;= k,\quad jk = i,\quad ki = j\
 ji&amp;= -k,\quad kj = -i,\quad ik = -j
 \end{aligned}
 $$
-在这里 $ij$ 项会转化为 $k$，从而任何两个虚单位乘积都是另一个虚单位，运算封闭了。注意到单位笛卡尔积的外积
+在这里 <span class="arithmatex">\(ij\)</span> 项会转化为 <span class="arithmatex">\(k\)</span>，从而任何两个虚单位乘积都是另一个虚单位，运算封闭了。注意到单位笛卡尔积的外积
 $$
 i\times j = k,\quad j\times k=i,\quad k\times i = j
 $$
 会发现这与我们上面定义的转换关于相对应，这使得我们可以把四元数与三维坐标联系起来。</p>
 <p><img alt="" src="image-20221114091336380.png|500" /></p>
-<p>实际上，$i,j,k$ 分别是在 $yz,xz,xy$ 平面上的旋转。</p>
+<p>实际上，<span class="arithmatex">\(i,j,k\)</span> 分别是在 <span class="arithmatex">\(yz,xz,xy\)</span> 平面上的旋转。</p>
 <h4 id="_48">基本运算</h4>
-<p>四元数 $q = s+ai+bj+ck$ 可以表示为有序对 $[s,\vec{v}],\vec{v}=(a,b,c)$ 形式，或者写成 $q=s+\vec{v}$ 也可以。我们可以将虚数项表示为
+<p>四元数 <span class="arithmatex">\(q = s+ai+bj+ck\)</span> 可以表示为有序对 <span class="arithmatex">\([s,\vec{v}],\vec{v}=(a,b,c)\)</span> 形式，或者写成 <span class="arithmatex">\(q=s+\vec{v}\)</span> 也可以。我们可以将虚数项表示为
 $$
 i = [0,\vec{i}],\quad j = [0,\vec{j}],\quad k=[0,\vec{k}]
 $$
-它们被称为<strong>四元数单位</strong>，与 $1=[1,\vec{0}]$ 一起可以表示所有四元数。这种表示方法的优势就在于不需要虚数表示了。</p>
+它们被称为<strong>四元数单位</strong>，与 <span class="arithmatex">\(1=[1,\vec{0}]\)</span> 一起可以表示所有四元数。这种表示方法的优势就在于不需要虚数表示了。</p>
 <p>四元数的加减法就是对应四元数单位的项相加减。考虑两个四元数的乘法
 $$
 \begin{aligned}
@@ -18862,33 +18864,33 @@ $$
 &amp;+(y_az_b-y_bz_a)\vec{i}+(z_ax_b-z_bx_a)\vec{j}+(x_ay_b-x_by_a)\vec{k}]
 \end{aligned}
 $$
-由于 $\vec{a}=(x_a\vec{i}+x_a\vec{j}+x_a\vec{k}),\vec{b}=(x_b\vec{i}+y_b\vec{j}+z_b\vec{k})$，那么
+由于 <span class="arithmatex">\(\vec{a}=(x_a\vec{i}+x_a\vec{j}+x_a\vec{k}),\vec{b}=(x_b\vec{i}+y_b\vec{j}+z_b\vec{k})\)</span>，那么
 $$
 [s_a,\vec{a}][s_b,\vec{b}] = [s_as_b-\vec{a}\cdot\vec{b},s_a\vec{b}+s_b\vec{a}+\vec{a}\times \vec{b}]
 $$
-如果将四元数 $q=[s,\vec{v}]$ 的共轭定义为 $q^<em>=[s,-\vec{v}]$，那么
+如果将四元数 <span class="arithmatex">\(q=[s,\vec{v}]\)</span> 的共轭定义为 <span class="arithmatex">\(q^*=[s,-\vec{v}]\)</span>，那么
 $$
-qq^</em> = [s,\vec{v}][s,-\vec{v}] = [s^2+v^2,0]
+qq^* = [s,\vec{v}][s,-\vec{v}] = [s^2+v^2,0]
 $$
-其中 $v$ 是向量的长度。可以验证</p>
+其中 <span class="arithmatex">\(v\)</span> 是向量的长度。可以验证</p>
 <ul>
-<li>$qq^<em>=q^</em>q$，即共轭乘积具有交换律</li>
-<li>$(q_aq_b)^<em>=q_b^</em>q_a^*$，注意四元数乘法没有交换律</li>
+<li><span class="arithmatex">\(qq^*=q^*q\)</span>，即共轭乘积具有交换律</li>
+<li><span class="arithmatex">\((q_aq_b)^*=q_b^*q_a^*\)</span>，注意四元数乘法没有交换律</li>
 </ul>
 <h4 id="_49">特殊四元数</h4>
 <p>我们定义一些有特殊性质的四元数</p>
 <ul>
-<li><strong>纯四元数</strong>指实部 $s$ 为零的四元数</li>
-<li>如果进一步有 $\vec{v}$ 是单位向量，那么 $\hat{q}=[0,\vec{v}]$ 就称为<strong>单位四元数</strong>，容易验证 $q^2=-1$ 。任何四元数可以表示为 $q=s+v\hat{q}$ 形式</li>
-<li>长度为 $1$ 的四元数称为<strong>规范四元数</strong>，即 $s^2+v^2=1$，因此具有形式 $q=[\cos\frac{\theta}{2},\vec{v}\sin\frac{\theta}{2}]$</li>
+<li><strong>纯四元数</strong>指实部 <span class="arithmatex">\(s\)</span> 为零的四元数</li>
+<li>如果进一步有 <span class="arithmatex">\(\vec{v}\)</span> 是单位向量，那么 <span class="arithmatex">\(\hat{q}=[0,\vec{v}]\)</span> 就称为<strong>单位四元数</strong>，容易验证 <span class="arithmatex">\(q^2=-1\)</span> 。任何四元数可以表示为 <span class="arithmatex">\(q=s+v\hat{q}\)</span> 形式</li>
+<li>长度为 <span class="arithmatex">\(1\)</span> 的四元数称为<strong>规范四元数</strong>，即 <span class="arithmatex">\(s^2+v^2=1\)</span>，因此具有形式 <span class="arithmatex">\(q=[\cos\frac{\theta}{2},\vec{v}\sin\frac{\theta}{2}]\)</span></li>
 </ul>
-<p>可以验证两个规范四元数的乘积仍然是规范四元数。事实上我们有 $|q_aq_b|=|q_a||q_b|$ 成立。</p>
+<p>可以验证两个规范四元数的乘积仍然是规范四元数。事实上我们有 <span class="arithmatex">\(|q_aq_b|=|q_a||q_b|\)</span> 成立。</p>
 <h4 id="_50">除法</h4>
 <p>两个四元数的除法可以看作与一个四元数的逆做乘法，所以只需要考虑逆的计算。
 $$
-qq^{-1}=1\quad\Rightarrow\quad q^<em>qq^{-1} = q^</em>\quad\Rightarrow\quad q^{-1}=\frac{q^<em>}{|q|^2}
+qq^{-1}=1\quad\Rightarrow\quad q^<em>qq^{-1} = q^</em>\quad\Rightarrow\quad q^{-1}=\frac{q^*}{|q|^2}
 $$
-如果 $q$ 是规范四元数，那么 $q^{-1}=q^</em>$ 成立。</p>
+如果 <span class="arithmatex">\(q\)</span> 是规范四元数，那么 <span class="arithmatex">\(q^{-1}=q^*\)</span> 成立。</p>
 <h4 id="_51">矩阵表示</h4>
 <p>矩阵提供了对四元数乘法的另一种表示。例如
 $$
@@ -18906,27 +18908,27 @@ y_b\
 z_b
 \end{pmatrix}
 $$
-如果我们将这一矩阵与四元数对应起来，那么对于规范四元数 $q$，它对应的矩阵是正交矩阵。</p>
+如果我们将这一矩阵与四元数对应起来，那么对于规范四元数 <span class="arithmatex">\(q\)</span>，它对应的矩阵是正交矩阵。</p>
 <h3 id="_52">四元数旋转</h3>
-<p>我们试图通过规范四元数 $q=[s,\lambda\vec{v}]$ 来表示三维空间的转动。用纯四元数 $p=[0,\vec{p}]$ 来储存三维向量 $\vec{p}$ 的信息，计算 $p'=qp$ 的含义
+<p>我们试图通过规范四元数 <span class="arithmatex">\(q=[s,\lambda\vec{v}]\)</span> 来表示三维空间的转动。用纯四元数 <span class="arithmatex">\(p=[0,\vec{p}]\)</span> 来储存三维向量 <span class="arithmatex">\(\vec{p}\)</span> 的信息，计算 <span class="arithmatex">\(p'=qp\)</span> 的含义
 $$
 p' = qp = [-\lambda\vec{v}\cdot\vec{p},s\vec{p}+\lambda\vec{v}\times\vec{p}]
 $$
-注意到有一部分信息被变换到实部上，我们不希望看到这种结果。一种直接的方法是令 $\vec{v}$ 与 $\vec{p}$ 正交，如下图</p>
+注意到有一部分信息被变换到实部上，我们不希望看到这种结果。一种直接的方法是令 <span class="arithmatex">\(\vec{v}\)</span> 与 <span class="arithmatex">\(\vec{p}\)</span> 正交，如下图</p>
 <p><img alt="" src="image-20221114104152377.png|450" /></p>
-<p>我们发现 $p'=[0,s\vec{p}+\lambda\vec{v}\times\vec{p}]$ 是纯四元数，并且其中的向量部分由 $\vec{p},\vec{v}\times\vec{p}$ 张成，而这两个向量正交，意味着它们构成一个平面直角坐标。如果想实现在此平面上转动 $\theta$ 角，就可以考虑 $s = \cos\theta,\lambda=\sin\theta$，得到
+<p>我们发现 <span class="arithmatex">\(p'=[0,s\vec{p}+\lambda\vec{v}\times\vec{p}]\)</span> 是纯四元数，并且其中的向量部分由 <span class="arithmatex">\(\vec{p},\vec{v}\times\vec{p}\)</span> 张成，而这两个向量正交，意味着它们构成一个平面直角坐标。如果想实现在此平面上转动 <span class="arithmatex">\(\theta\)</span> 角，就可以考虑 <span class="arithmatex">\(s = \cos\theta,\lambda=\sin\theta\)</span>，得到
 $$
 q = [\cos\theta,\vec{v}\sin\theta]
 $$
-可以检验它确实将 $\vec{p}$ 转动了 $\theta$ 角。</p>
-<p>我们在转动轴 $\vec{v}$ 与被转动向量 $\vec{p}$ 正交的特殊情况下实现了四元数表示，但对于一般情形，这种表示就不成立了。由于一般情况下，乘一个规范四元数会将部分信息转移到实部，我们可以考虑能否再<strong>乘一个规范四元数的逆</strong>来将实部还原为零。例如
+可以检验它确实将 <span class="arithmatex">\(\vec{p}\)</span> 转动了 <span class="arithmatex">\(\theta\)</span> 角。</p>
+<p>我们在转动轴 <span class="arithmatex">\(\vec{v}\)</span> 与被转动向量 <span class="arithmatex">\(\vec{p}\)</span> 正交的特殊情况下实现了四元数表示，但对于一般情形，这种表示就不成立了。由于一般情况下，乘一个规范四元数会将部分信息转移到实部，我们可以考虑能否再<strong>乘一个规范四元数的逆</strong>来将实部还原为零。例如
 $$
 \begin{aligned}
 qpq^{-1} &amp;= [s,\lambda\vec{v}][0,\vec{p}][s,-\lambda\vec{v}]\
 &amp;= [\lambda^2(\vec{v}\times\vec{p})\cdot\vec{v},\lambda^2(\vec{v}\cdot\vec{p})\vec{v}+s^2\vec{p}+2\lambda s(\vec{v}\times\vec{p})-\lambda^2(\vec{v}\times\vec{p})\times\vec{v}]
 \end{aligned}
 $$
-注意到 $\vec{v},\vec{v}\times\vec{p}$ 正交，因此这是一个纯四元数。利用
+注意到 <span class="arithmatex">\(\vec{v},\vec{v}\times\vec{p}\)</span> 正交，因此这是一个纯四元数。利用
 $$
 (\vec{v}\times\vec{p})\times\vec{v} = (\vec{v}\cdot\vec{v})\vec{p}-(\vec{p}\cdot\vec{v})\vec{v} = \vec{p}-(\vec{p}\cdot\vec{v})\vec{v}
 $$
@@ -18934,17 +18936,17 @@ $$
 $$
 qpq^{-1} = [0,2\lambda^2(\vec{v}\cdot\vec{p})\vec{v}+(s^2-\lambda^2)\vec{p}+2\lambda s(\vec{v}\times\vec{p})]
 $$
-我们尝试将 $q = [\cos\theta,\vec{v}\sin\theta]$ 代入就得到
+我们尝试将 <span class="arithmatex">\(q = [\cos\theta,\vec{v}\sin\theta]\)</span> 代入就得到
 $$
 qpq^{-1} = [0,(1-\cos(2\theta))(\vec{v}\cdot\vec{p})\vec{v}+\cos(2\theta)\vec{p}+\sin(2\theta)\vec{v}\times\vec{p}]
 $$
-对比向量形式的 Rodrigues 公式，会发现它将 $\vec{p}$ 绕 $\vec{v}$ 转动了 $2\theta$ 角，因此我们只需要令
+对比向量形式的 Rodrigues 公式，会发现它将 <span class="arithmatex">\(\vec{p}\)</span> 绕 <span class="arithmatex">\(\vec{v}\)</span> 转动了 <span class="arithmatex">\(2\theta\)</span> 角，因此我们只需要令
 $$
 q = \left[\cos\frac{\theta}{2},\vec{v}\sin\frac{\theta}{2}\right]
 $$
-通过 $qpq^{-1}$ 就实现了将 $\vec{p}$ 绕 $\vec{v}$ 转动 $\theta$ 角的目标。需要注意的是，如果我们使用的转动轴 $\vec{v}$ 不是<strong>单位向量</strong>，那么上述转动公式就不成立了，因此保证转动轴是单位向量非常关键。</p>
+通过 <span class="arithmatex">\(qpq^{-1}\)</span> 就实现了将 <span class="arithmatex">\(\vec{p}\)</span> 绕 <span class="arithmatex">\(\vec{v}\)</span> 转动 <span class="arithmatex">\(\theta\)</span> 角的目标。需要注意的是，如果我们使用的转动轴 <span class="arithmatex">\(\vec{v}\)</span> 不是<strong>单位向量</strong>，那么上述转动公式就不成立了，因此保证转动轴是单位向量非常关键。</p>
 <h4 id="_53">矩阵形式</h4>
-<p>当我们有一个规范四元数 $q=[s,x\vec{i}+y\vec{j}+z\vec{k}]$，可以获得矩阵形式的旋转表示
+<p>当我们有一个规范四元数 <span class="arithmatex">\(q=[s,x\vec{i}+y\vec{j}+z\vec{k}]\)</span>，可以获得矩阵形式的旋转表示
 $$
 \begin{pmatrix}
 2(s^2+x^2)-1 &amp; 2(xy-sz) &amp; 2(xz+sy)\
@@ -18952,7 +18954,7 @@ $$
 2(xz-sy) &amp; 2(yz+sx) &amp; 2(s^2+z^2)-1
 \end{pmatrix}
 $$
-注意这里 $s=\cos\frac{\theta}{2},x=v_{x}\sin\frac{\theta}{2},y=v_{y}\sin\frac{\theta}{2},z=v_{z}\sin\frac{\theta}{2}$，如果对前面的 Rodrigues 公式使用倍角公式也会得到这一表示。</p>
+注意这里 <span class="arithmatex">\(s=\cos\frac{\theta}{2},x=v_{x}\sin\frac{\theta}{2},y=v_{y}\sin\frac{\theta}{2},z=v_{z}\sin\frac{\theta}{2}\)</span>，如果对前面的 Rodrigues 公式使用倍角公式也会得到这一表示。</p>
 <p>现在我们要考虑将旋转矩阵表示为规范四元数，给定旋转矩阵
 $$
 \begin{pmatrix}
@@ -18970,11 +18972,11 @@ y &amp;= \frac{1}{4s}(a_{12}-a_{32})\
 z &amp;= \frac{1}{4s}(a_{21}-a_{12})
 \end{aligned}
 $$
-但是如果 $s$ 非常接近零，在除以 $s$ 时就可能存在溢出问题。通常我们可以确保分母大于 1，考虑
+但是如果 <span class="arithmatex">\(s\)</span> 非常接近零，在除以 <span class="arithmatex">\(s\)</span> 时就可能存在溢出问题。通常我们可以确保分母大于 1，考虑
 $$
 a_{11}+a_{22}+a_{33}=2s^2-1
 $$
-当 $2s^2-1&lt;0$ 时，使用其它的组合方式
+当 <span class="arithmatex">\(2s^2-1&lt;0\)</span> 时，使用其它的组合方式
 $$
 \begin{aligned}
 x &amp;= \pm\frac{1}{2}\sqrt{1+a_{11}-a_{22}-a_{33}}\
@@ -18996,7 +18998,7 @@ s &amp;= \frac{1}{4z}(a_{21}-a_{12})
 \end{aligned}
 $$
 只需要寻找最大的对角元素，将其符号设为正，其余元素符号设为负，就可以确保分母大于 1 。可以看出，同样的旋转存在两个不同的四元数实现。</p>
-<p>考虑将欧拉角转化为四元数变换，例如考虑 $R_z(\gamma)R_y(\beta)R_x(\alpha)$ 对应的四元数
+<p>考虑将欧拉角转化为四元数变换，例如考虑 <span class="arithmatex">\(R_z(\gamma)R_y(\beta)R_x(\alpha)\)</span> 对应的四元数
 $$
 \begin{aligned}
 q_x &amp;= \left[\cos\frac{\alpha}{2},\vec{i}\sin\frac{\alpha}{2}\right]\
@@ -19004,13 +19006,13 @@ q_y &amp;= \left[\cos\frac{\beta}{2},\vec{j}\sin\frac{\beta}{2}\right]\
 q_z &amp;= \left[\cos\frac{\gamma}{2},\vec{k}\sin\frac{\gamma}{2}\right]
 \end{aligned}
 $$
-因此最后组合的四元数就是 $q=q_zq_yq_x$，利用 $qpq^{-1}$ 实现旋转。</p>
+因此最后组合的四元数就是 <span class="arithmatex">\(q=q_zq_yq_x\)</span>，利用 <span class="arithmatex">\(qpq^{-1}\)</span> 实现旋转。</p>
 <h4 id="_54">指数形式</h4>
-<p>在讨论复数时，我们将二维旋转表示为 $e^{i\theta}$，但其实四元数也可以表示为类似的形式。对于单位四元数 $u=[0,\vec{u}]$ 有
+<p>在讨论复数时，我们将二维旋转表示为 <span class="arithmatex">\(e^{i\theta}\)</span>，但其实四元数也可以表示为类似的形式。对于单位四元数 <span class="arithmatex">\(u=[0,\vec{u}]\)</span> 有
 $$
 e^{u\theta} = \cos\theta+u\sin\theta =  \cos\theta+\vec{u}\sin\theta
 $$
-因此 $q=[\cos\theta,\vec{u}\sin\theta]$ 可以表示为 $e^{u\theta}$ 形式。有了指数形式，就可以定义单位四元数的对数运算
+因此 <span class="arithmatex">\(q=[\cos\theta,\vec{u}\sin\theta]\)</span> 可以表示为 <span class="arithmatex">\(e^{u\theta}\)</span> 形式。有了指数形式，就可以定义单位四元数的对数运算
 $$
 \log(q) = \log(e^{u\theta}) = [0,\vec{u}\theta]
 $$
@@ -19018,8 +19020,8 @@ $$
 $$
 q^t = (e^{u\theta})t = e^{ut\theta} = [\cos(t\theta),\vec{u}\sin(t\theta)]
 $$
-它也验证了 $q$ 的 $t$ 次幂是旋转 $t$ 倍的 $\theta$ 角。</p>
-<p>我们使用关于 $\vec{u}$ 做叉积的矩阵形式
+它也验证了 <span class="arithmatex">\(q\)</span> 的 <span class="arithmatex">\(t\)</span> 次幂是旋转 <span class="arithmatex">\(t\)</span> 倍的 <span class="arithmatex">\(\theta\)</span> 角。</p>
+<p>我们使用关于 <span class="arithmatex">\(\vec{u}\)</span> 做叉积的矩阵形式
 $$
 [\vec{u}] = 
 \begin{pmatrix}
@@ -19045,19 +19047,19 @@ $$
 <h4 id="_56">双倍覆盖</h4>
 <p>最后我们介绍四元数的重要优势：插值。在这之前，我们首先要提及一个重要特性：双倍覆盖。</p>
 <p><img alt="" src="image-20221114183825062.png|450" /></p>
-<p>容易验证两个规范四元数 $q,-q$ 对应同一个旋转，如果我们要将 $q_0$ 插值到 $q_1$，就需要将四元数旋转接近 $180^\circ$，这会使得在三维空间中旋转接近 $360^\circ$，但我们没有必要转这么多。我们只需要考虑插值到 $-q_1$ 位置，即通过<strong>弧面最短路径</strong>插值。</p>
+<p>容易验证两个规范四元数 <span class="arithmatex">\(q,-q\)</span> 对应同一个旋转，如果我们要将 <span class="arithmatex">\(q_0\)</span> 插值到 <span class="arithmatex">\(q_1\)</span>，就需要将四元数旋转接近 <span class="arithmatex">\(180^\circ\)</span>，这会使得在三维空间中旋转接近 <span class="arithmatex">\(360^\circ\)</span>，但我们没有必要转这么多。我们只需要考虑插值到 <span class="arithmatex">\(-q_1\)</span> 位置，即通过<strong>弧面最短路径</strong>插值。</p>
 <h4 id="lerp">Lerp</h4>
-<p>假设有两个旋转 $q_0,q_1$，我们希望得到一个插值 $q_t,t\in[0,1]$ 使得 $q_0$ 可以平滑地过渡到 $q_1$ 。为此首先考虑变换 $\Delta q$ 使得 $\Delta qq_0=q_1$，于是 $\Delta q=q_1q_0^<em>$，那么我们自然想到
+<p>假设有两个旋转 <span class="arithmatex">\(q_0,q_1\)</span>，我们希望得到一个插值 <span class="arithmatex">\(q_t,t\in[0,1]\)</span> 使得 <span class="arithmatex">\(q_0\)</span> 可以平滑地过渡到 <span class="arithmatex">\(q_1\)</span> 。为此首先考虑变换 <span class="arithmatex">\(\Delta q\)</span> 使得 <span class="arithmatex">\(\Delta qq_0=q_1\)</span>，于是 <span class="arithmatex">\(\Delta q=q_1q_0^*\)</span>，那么我们自然想到
 $$
-q_t = (\Delta q)^tq_0 = (q_1q_0^</em>)^tq_0,\quad t\in[0,1]
+q_t = (\Delta q)^tq_0 = (q_1q_0^*)^tq_0,\quad t\in[0,1]
 $$
 这种插值方法称为 Lerp，我们现在讨论它的具体意义。</p>
-<p>我们计算一下 $\Delta q$ 的实部会发现
+<p>我们计算一下 <span class="arithmatex">\(\Delta q\)</span> 的实部会发现
 $$
 \Delta q = [\cos\theta_0\cos\theta_1+(\sin\theta_1\vec{u}_1)\cdot(\sin\theta_0\vec{u}_0),\cdots]
 $$
-这实际上就是 $q_0\cdot q_1$ 的结果，因为它们都是规范四元数，因此这恰好是 $q_0,q_1$ 在四维空间中的夹角的余弦。并且 $\Delta q$ 也是规范四元数，它的实部是<strong>旋转半角的余弦</strong>，因此我们得到：$\Delta q$ 旋转角恰好是 $q_0,q_1$ 夹角的两倍。</p>
-<p>利用这一点，我们考虑插值 $q_t$，如果 $q_0,q_1$ 的夹角为 $\theta$，从 $q_0$ 到 $q_1$ 增加的旋转角度就是 $2\theta$ 。只要我们找到一个规范四元数 $q_t$ 与 $q_0$ 夹角为 $t\theta$，与 $q_1$ 夹角为 $(1-t)\theta$，那么就可以保证 $q_t$ 产生的旋转相对于 $q_0$ 是 $2t\theta$，相对于 $q_1$ 是 $2(1-t)\theta$ 。现在，两个规范四元数的插值就被简化为四维空间的超球面上的向量插值，由于 $q_0,q_1$ 可以张成一个平面，实际上可以简化为单位圆上的向量插值。</p>
+这实际上就是 <span class="arithmatex">\(q_0\cdot q_1\)</span> 的结果，因为它们都是规范四元数，因此这恰好是 <span class="arithmatex">\(q_0,q_1\)</span> 在四维空间中的夹角的余弦。并且 <span class="arithmatex">\(\Delta q\)</span> 也是规范四元数，它的实部是<strong>旋转半角的余弦</strong>，因此我们得到：<span class="arithmatex">\(\Delta q\)</span> 旋转角恰好是 <span class="arithmatex">\(q_0,q_1\)</span> 夹角的两倍。</p>
+<p>利用这一点，我们考虑插值 <span class="arithmatex">\(q_t\)</span>，如果 <span class="arithmatex">\(q_0,q_1\)</span> 的夹角为 <span class="arithmatex">\(\theta\)</span>，从 <span class="arithmatex">\(q_0\)</span> 到 <span class="arithmatex">\(q_1\)</span> 增加的旋转角度就是 <span class="arithmatex">\(2\theta\)</span> 。只要我们找到一个规范四元数 <span class="arithmatex">\(q_t\)</span> 与 <span class="arithmatex">\(q_0\)</span> 夹角为 <span class="arithmatex">\(t\theta\)</span>，与 <span class="arithmatex">\(q_1\)</span> 夹角为 <span class="arithmatex">\((1-t)\theta\)</span>，那么就可以保证 <span class="arithmatex">\(q_t\)</span> 产生的旋转相对于 <span class="arithmatex">\(q_0\)</span> 是 <span class="arithmatex">\(2t\theta\)</span>，相对于 <span class="arithmatex">\(q_1\)</span> 是 <span class="arithmatex">\(2(1-t)\theta\)</span> 。现在，两个规范四元数的插值就被简化为四维空间的超球面上的向量插值，由于 <span class="arithmatex">\(q_0,q_1\)</span> 可以张成一个平面，实际上可以简化为单位圆上的向量插值。</p>
 <h4 id="nlerp">NLerp</h4>
 <p>首先考虑最简单的线性插值 Linear Interpolation，称为 Lerp 方法。它沿着单位圆的弦进行插值，得到的不是规范四元数
 $$
@@ -19073,7 +19075,7 @@ $$
 $$
 \theta_t = (1-t)\cdot 0+t\theta = t\theta
 $$
-这称为球面线性插值 Spherical Linear Interpolation，或者 Slerp 方法。我们希望有形式 $q_t=\alpha q_0+\beta q_1$，先做点积
+这称为球面线性插值 Spherical Linear Interpolation，或者 Slerp 方法。我们希望有形式 <span class="arithmatex">\(q_t=\alpha q_0+\beta q_1\)</span>，先做点积
 $$
 \begin{aligned}
 \cos(t\theta) &amp;= q_0\cdot q_t = \alpha q_0\cdot q_0+\beta q_0\cdot q_1 = \alpha+\beta\cos\theta\
@@ -19085,7 +19087,7 @@ $$
 q_t = \frac{\sin((1-t)\theta)}{\sin\theta}q_0+\frac{\sin(t\theta)}{\sin\theta}q_1,\quad t\in[0,1]
 $$
 这一公式要比幂运算高效，但由于涉及三角函数，会比 Nlerp 慢一些。</p>
-<p>需要注意，如果 $q_0,q_1$ 之间夹角很小，就会出现浮点精度的问题，这时候近似为
+<p>需要注意，如果 <span class="arithmatex">\(q_0,q_1\)</span> 之间夹角很小，就会出现浮点精度的问题，这时候近似为
 $$
 q_t \approx \frac{(1-t)\theta}{\theta}q_0+\frac{t\theta}{\theta}q_1 = (1-t)q_0+tq_1
 $$
@@ -19100,8 +19102,8 @@ $$
 <h3 id="_58">照相机参数</h3>
 <p>照相机的位置称为视图参考点 (view-refercen point.VRP)，照相机通过视图平面法向 (view-plane normal.VPN) 和 (view-up vector VUP) 确定定向。如图所示</p>
 <p><img alt="" src="image-20221111162128477.png|500" /></p>
-<p>其中 $(at_x-eye_x,at_y-eye_y,at_z-eye_z)$ 是 VPN，$(up_x,up_y,up_z)$ 是 VUP，$(eye_x,eye_y,eye_z)$ 是 VRP。</p>
-<p>VPN 给出投影面的方向，即投影平面的法向 $n$ 。但是只有法向信息不能完全确定相机定向，因此需要给出 VUP 指定相机上方的朝向。我们将 VUP 投影到投影平面上得到与 $n$ 正交的向量 $v$，令 $u=v\times n$，于是 $(u,v,n)$ 构成的直角坐标系称为视图坐标系，加上 VRP 就构成照相机标架 $(VRP,u,v,n)$ 。假设 $p=(x,y,z,1)^T$，则从标准标架到 $(p,u,v,n)$ 照相机标架的变换矩阵为
+<p>其中 <span class="arithmatex">\((at_x-eye_x,at_y-eye_y,at_z-eye_z)\)</span> 是 VPN，<span class="arithmatex">\((up_x,up_y,up_z)\)</span> 是 VUP，<span class="arithmatex">\((eye_x,eye_y,eye_z)\)</span> 是 VRP。</p>
+<p>VPN 给出投影面的方向，即投影平面的法向 <span class="arithmatex">\(n\)</span> 。但是只有法向信息不能完全确定相机定向，因此需要给出 VUP 指定相机上方的朝向。我们将 VUP 投影到投影平面上得到与 <span class="arithmatex">\(n\)</span> 正交的向量 <span class="arithmatex">\(v\)</span>，令 <span class="arithmatex">\(u=v\times n\)</span>，于是 <span class="arithmatex">\((u,v,n)\)</span> 构成的直角坐标系称为视图坐标系，加上 VRP 就构成照相机标架 <span class="arithmatex">\((VRP,u,v,n)\)</span> 。假设 <span class="arithmatex">\(p=(x,y,z,1)^T\)</span>，则从标准标架到 <span class="arithmatex">\((p,u,v,n)\)</span> 照相机标架的变换矩阵为
 $$
 V = 
 \begin{pmatrix}
@@ -19111,7 +19113,7 @@ n_x &amp; n_y &amp; n_z &amp; n\cdot p\
 0 &amp; 0 &amp; 0 &amp; 1
 \end{pmatrix}
 $$
-对于任意向量 $w$，都有 $Vw=(u\cdot w,v\cdot w,n\cdot w,0)^T$ 是在新标架下的向量；任意点 $q$，都有
+对于任意向量 <span class="arithmatex">\(w\)</span>，都有 <span class="arithmatex">\(Vw=(u\cdot w,v\cdot w,n\cdot w,0)^T\)</span> 是在新标架下的向量；任意点 <span class="arithmatex">\(q\)</span>，都有
 $$
 Vq = 
 \begin{pmatrix}
@@ -19123,7 +19125,7 @@ n\cdot (q+p)\
 $$
 是新标架下的点。</p>
 <h3 id="_59">透视方程</h3>
-<p>考虑投影中心在原点，投影平面为 $z=d,d&lt;0$，于是顶部与侧边视图下的投影关系如图所示</p>
+<p>考虑投影中心在原点，投影平面为 <span class="arithmatex">\(z=d,d&lt;0\)</span>，于是顶部与侧边视图下的投影关系如图所示</p>
 <p><img alt="" src="image-20221112095149854.png|500" /></p>
 <p>齐次坐标形式下为
 $$
@@ -19148,7 +19150,7 @@ z\
 z/d
 \end{pmatrix}
 $$
-如果 $z/d\neq 1$，那么就必须除以它得到表示的点，这就是<strong>透视除法</strong>，结果为
+如果 <span class="arithmatex">\(z/d\neq 1\)</span>，那么就必须除以它得到表示的点，这就是<strong>透视除法</strong>，结果为
 $$
 x_p = \frac{x}{z/d},\quad y_p = \frac{y}{z/d},\quad z_p = d
 $$
@@ -19162,7 +19164,7 @@ $$
 <p>通常观察平面在投影点和物体之间，但也不一定如此，如果物体在投影点的后面，那么投影到平面上会得到倒置的物体。</p>
 <p>我们首先将平截头体映射到一个长方体，然后用正交投影进行变换。这就需要考虑沿着 -z 方向，物体的 xy 平面会进行压缩</p>
 <p><img alt="" src="scale.png|500" /></p>
-<p>由于 4 条侧棱相交于视点 $(0,0,0,1)$，即这 4 条之间交于原点，因此只需要按照比例对 xy 进行缩放即可，于是
+<p>由于 4 条侧棱相交于视点 <span class="arithmatex">\((0,0,0,1)\)</span>，即这 4 条之间交于原点，因此只需要按照比例对 xy 进行缩放即可，于是
 $$
 M_{persp\to ortho} \left(
 \begin{matrix}
@@ -19189,11 +19191,11 @@ n &amp; 0 &amp; 0 &amp; 0\
 \end{matrix}
 \right)
 $$
-接下来，注意到透视投影中，虽然 xy 平面发生了伸缩变换，但是<strong>近平面和远平面的 z 坐标是不变的</strong>。对于近平面上的点 $(x,y,z,1),z=n$，它变换后的 $(nx,ny,?,z)$ 的 z 坐标仍为 $n$，将变换后的 w 坐标标准化得到 $(nx/z,ny/z,?,1)$，于是 $?=n$ 就找到了，因此近平面上的变换为
+接下来，注意到透视投影中，虽然 xy 平面发生了伸缩变换，但是<strong>近平面和远平面的 z 坐标是不变的</strong>。对于近平面上的点 <span class="arithmatex">\((x,y,z,1),z=n\)</span>，它变换后的 <span class="arithmatex">\((nx,ny,?,z)\)</span> 的 z 坐标仍为 <span class="arithmatex">\(n\)</span>，将变换后的 w 坐标标准化得到 <span class="arithmatex">\((nx/z,ny/z,?,1)\)</span>，于是 <span class="arithmatex">\(?=n\)</span> 就找到了，因此近平面上的变换为
 $$
 (x,y,n,1)=(x,y,z,1)\to(nx,ny,nz,z)=(nx,ny,n^2,n)
 $$
-这样就得到第 3 行具有形式 $(0,0,A,B)$，因为
+这样就得到第 3 行具有形式 <span class="arithmatex">\((0,0,A,B)\)</span>，因为
 $$
 (0,0,A,B)\left(
 \begin{matrix}
@@ -19201,7 +19203,7 @@ x\ y\ n\ 1
 \end{matrix}
 \right) = n^2
 $$
-然后，取远平面上的点 $(x,y,z,1),z=f$ 就类似地有变换
+然后，取远平面上的点 <span class="arithmatex">\((x,y,z,1),z=f\)</span> 就类似地有变换
 $$
 (x,y,f,1)=(x,y,z,1)\to(nx,ny,fz,z)=(nx,ny,f^2,f)
 $$
@@ -19212,7 +19214,7 @@ An+B = n^2\
 Af+B = f^2
 \end{aligned}
 $$
-解出 $A,B$ 后代回矩阵
+解出 <span class="arithmatex">\(A,B\)</span> 后代回矩阵
 $$
 M_{persp\to ortho} = \left(
 \begin{matrix}
@@ -19223,7 +19225,7 @@ n &amp; 0 &amp; 0 &amp; 0\
 \end{matrix}
 \right)
 $$
-我们思考对于中间的点 $(0,0,z,1), n&gt;z&gt;f$，它经过该矩阵变换得到
+我们思考对于中间的点 <span class="arithmatex">\((0,0,z,1), n&gt;z&gt;f\)</span>，它经过该矩阵变换得到
 $$
 M_{persp\to ortho} 
 \begin{pmatrix}
@@ -19238,17 +19240,17 @@ M_{persp\to ortho}
 0\ 0\ (n+f)-\frac{nf}{z}\ 1
 \end{pmatrix}
 $$
-注意到 $z=\frac{n+f}{2}$ 时
+注意到 <span class="arithmatex">\(z=\frac{n+f}{2}\)</span> 时
 $$
 z - (n+f)+\frac{nf}{z} = -\frac{n+f}{2}+\frac{2nf}{n+f} = -\frac{(n+f)^2-4nf}{2(n+f)}= -\frac{(n-f)^2}{2(n+f)} &gt;0
 $$
 因此中间的点被映射到更远的地方。</p>
 <h3 id="_60">倾斜投影</h3>
-<p>OpenGL 中没有一般平行投影，即投影线<strong>不垂直</strong>于投影平面的情况。<strong>倾斜投影($P$)等价于先发生错切($H$)，然后再进行正交投影($P_{orth}$)</strong>。</p>
+<p>OpenGL 中没有一般平行投影，即投影线<strong>不垂直</strong>于投影平面的情况。<strong>倾斜投影(<span class="arithmatex">\(P\)</span>)等价于先发生错切(<span class="arithmatex">\(H\)</span>)，然后再进行正交投影(<span class="arithmatex">\(P_{orth}\)</span>)</strong>。</p>
 <p><img alt="" src="image-20221112101301242.png|500" /></p>
-<p>假设投影面为 $z=0$，于是顶视图和侧视图下的倾斜投影如下</p>
+<p>假设投影面为 <span class="arithmatex">\(z=0\)</span>，于是顶视图和侧视图下的倾斜投影如下</p>
 <p><img alt="" src="image-20221112101713181.png|500" /></p>
-<p>得到的投影矩阵为 $P$，显然可以拆分成 $H(\theta,\varphi),M_{orth}$ 两部分
+<p>得到的投影矩阵为 <span class="arithmatex">\(P\)</span>，显然可以拆分成 <span class="arithmatex">\(H(\theta,\varphi),M_{orth}\)</span> 两部分
 $$
 P =
 \begin{pmatrix}
@@ -19271,7 +19273,7 @@ P =
 \end{pmatrix}
 = M_{orth}H(\theta,\varphi)
 $$
-对于 $z\neq 0$ 的倾斜投影，可能还需要进行平移和伸缩变换。</p>
+对于 <span class="arithmatex">\(z\neq 0\)</span> 的倾斜投影，可能还需要进行平移和伸缩变换。</p>
 <h3 id="_61">规范化</h3>
 <p>规范化的目的是更有效地实施隐藏面消除算法。在正交投影中，通常将视景体规范化为 OpenGL 默认的视景体，只需要通过简单的平移和伸缩变换即可；在透视投影中，由于此时深度比较是通过从视点出发的射线上的点的相对位置，不同的投影方式会有不同的影响，所以也需要规范化。</p>
 <p><img alt="" src="image-20221112103043751.png|500" /></p>
@@ -19279,13 +19281,13 @@ $$
 <h3 id="_62">相机视角</h3>
 <p>我们将相机放置在原点，竖直方向为 y 轴，看向 -z 方向</p>
 <p><img alt="" src="image-20250418171659768.png|325" /></p>
-<p>对于任意视角，首先将视点平移到原点，然后分别将观察方向旋转到 -z 方向，再将竖直方向旋转到 y 方向即可得到标准视角。即初始视角 $(\hat{g}\times \hat{t},\hat{t},\hat{g})$ 旋转到 $(\hat{e}<em>{1},\hat{e}</em>{2},-\hat{e}_{3})$ 视角</p>
+<p>对于任意视角，首先将视点平移到原点，然后分别将观察方向旋转到 -z 方向，再将竖直方向旋转到 y 方向即可得到标准视角。即初始视角 <span class="arithmatex">\((\hat{g}\times \hat{t},\hat{t},\hat{g})\)</span> 旋转到 <span class="arithmatex">\((\hat{e}_{1},\hat{e}_{2},-\hat{e}_{3})\)</span> 视角</p>
 <p><img alt="" src="image-20250418171738966.png|325" /></p>
-<p>考虑逆变换：将 $(\hat{e}<em>{1},\hat{e}</em>{2},\hat{e}<em>{3})$ 旋转到 $(\hat{g}\times \hat{t},\hat{t},-\hat{g})$，即
+<p>考虑逆变换：将 <span class="arithmatex">\((\hat{e}_{1},\hat{e}_{2},\hat{e}_{3})\)</span> 旋转到 <span class="arithmatex">\((\hat{g}\times \hat{t},\hat{t},-\hat{g})\)</span>，即
 $$
 R^{-1} =
 \begin{pmatrix}
-x</em>{\widehat{g}\times\widehat{t}} &amp; x_\hat{t} &amp; x_{-\hat{g}} &amp; 0\
+x_{\widehat{g}\times\widehat{t}} &amp; x_\hat{t} &amp; x_{-\hat{g}} &amp; 0\
 y_{\widehat{g}\times\widehat{t}} &amp; y_\hat{t} &amp; y_{-\hat{g}} &amp; 0\
 z_{\widehat{g}\times\widehat{t}} &amp; z_\hat{t} &amp; z_{-\hat{g}} &amp; 0\
 0 &amp; 0 &amp; 0 &amp; 1
@@ -19316,7 +19318,7 @@ $$
 这样就说明我们的逆变换是正确的。</p>
 <h3 id="_63">透视矫正</h3>
 <h4 id="_64">透视错误</h4>
-<p>在纹理采样时，如果使用投影到屏幕空间中的三角形的重心坐标，就会出现透视错误。例如下图中一个正方形中的两个三角形，由于使用投影后的三角形，正中心的纹理本来应该位于 $Q$ 处，现在却绘制在投影后的中点 $P$ 。</p>
+<p>在纹理采样时，如果使用投影到屏幕空间中的三角形的重心坐标，就会出现透视错误。例如下图中一个正方形中的两个三角形，由于使用投影后的三角形，正中心的纹理本来应该位于 <span class="arithmatex">\(Q\)</span> 处，现在却绘制在投影后的中点 <span class="arithmatex">\(P\)</span> 。</p>
 <p><img alt="" src="image-20250418214133851.jpeg|500" /></p>
 <p>最直接的解决方案就是使用空间坐标进行插值，但这样就需要计算后重新投影，我们希望能够直接利用屏幕重心坐标计算正确的透视。</p>
 <h4 id="_65">屏幕重心坐标</h4>
@@ -19331,11 +19333,11 @@ X_{t} &amp;= (1-t)X_{1}+tX_{2},\
 Z_{t} &amp;= (1-t)Z_{1}+tZ_{2}
 \end{aligned}
 $$
-利用第一行将第二行的 $u_{1},u_{s},u_{2}$ 替换掉得到
+利用第一行将第二行的 <span class="arithmatex">\(u_{1},u_{s},u_{2}\)</span> 替换掉得到
 $$
 \frac{X_{t}}{Z_{t}}d=(1-s) \frac{X_{1}}{Z_{1}}d+s\frac{X_{2}}{Z_{2}}d
 $$
-再将 $X_t,Z_{t}$ 替换掉得到
+再将 <span class="arithmatex">\(X_t,Z_{t}\)</span> 替换掉得到
 $$
 \frac{(1-t)X_{1}+tX_{2}}{(1-t)Z_{1}+tZ_{2}} = (1-s) \frac{X_{1}}{Z_{1}}+s\frac{X_{2}}{Z_{2}}
 $$
@@ -19343,14 +19345,14 @@ $$
 $$
 (1-t)X_{1}+tX_{2}=(1-s)\left[ (1-t)+t \frac{Z_{2}}{Z_{1}} \right]X_{1}+s\left[(1-t)\frac{Z_{1}}{Z_{2}}+t \right]X_{2}
 $$
-由 $X_{1},X_{2}$ 的任意性得到
+由 <span class="arithmatex">\(X_{1},X_{2}\)</span> 的任意性得到
 $$
 \begin{aligned}
 1-t &amp;= (1-s)(1-t)+(1-s)t\frac{Z_{2}}{Z_{1}}\
 t &amp;= s(1-t)\frac{Z_{1}}{Z_{2}}+st
 \end{aligned}
 $$
-考虑第二式，两边同时除以 $st$ 得到 $s,t$ 之间的关系
+考虑第二式，两边同时除以 <span class="arithmatex">\(st\)</span> 得到 <span class="arithmatex">\(s,t\)</span> 之间的关系
 $$
 \left( \frac{1}{t}-1 \right) \frac{Z_{1}}{Z_{2}}= \frac{1}{s}-1 \implies t = \frac{sZ_{1}}{sZ_{1}+(1-s)Z_{2}}
 $$
@@ -19358,13 +19360,13 @@ $$
 $$
 Z_{t} = Z_{1}+ t(Z_{2}-Z_{1})= \frac{1}{\frac{1-s}{Z_{1}}+\frac{s}{Z_{2}}}
 $$
-可以类似地得到计算正确的 $Z_{t}$ 的插值公式
+可以类似地得到计算正确的 <span class="arithmatex">\(Z_{t}\)</span> 的插值公式
 $$
 Z_{t} = \frac{1}{\frac{\alpha}{Z_{1}}+\frac{\beta}{Z_{2}}+\frac{\gamma}{Z_{3}}}
 $$
-其中 $\alpha,\beta,\gamma$ 是屏幕坐标下的重心坐标。</p>
+其中 <span class="arithmatex">\(\alpha,\beta,\gamma\)</span> 是屏幕坐标下的重心坐标。</p>
 <h4 id="_66">计算任意属性</h4>
-<p>考虑任意属性 $I$ 在空间中的重心插值结果，将其转换为屏幕重心插值表示
+<p>考虑任意属性 <span class="arithmatex">\(I\)</span> 在空间中的重心插值结果，将其转换为屏幕重心插值表示
 $$
 \begin{aligned}
 I_{t} &amp;= I_{1}+t(I_{2}-I_{1})\
@@ -19377,9 +19379,9 @@ $$
 $$
 I_{t} = \left( \frac{\alpha}{Z_{1}}I_{1} + \frac{\beta}{Z_{2}}I_{2}+\frac{\gamma}{Z_{3}}I_{3} \right)Z_{t} = \frac{\frac{\alpha}{Z_{1}}I_{1} + \frac{\beta}{Z_{2}}I_{2}+\frac{\gamma}{Z_{3}}I_{3}}{\frac{\alpha}{Z_{1}}+\frac{\beta}{Z_{2}}+\frac{\gamma}{Z_{3}}}
 $$
-因此任意属性都可以通过空间 $Z$ 坐标 $(Z_{1},Z_{2},Z_{3})$ 和屏幕重心坐标 $(\alpha,\beta,\gamma)$ 直接计算出正确值。</p>
+因此任意属性都可以通过空间 <span class="arithmatex">\(Z\)</span> 坐标 <span class="arithmatex">\((Z_{1},Z_{2},Z_{3})\)</span> 和屏幕重心坐标 <span class="arithmatex">\((\alpha,\beta,\gamma)\)</span> 直接计算出正确值。</p>
 <h4 id="_67">简化计算</h4>
-<p>屏幕重心坐标已经计算好，但是空间 $Z$ 坐标是否需要额外传入呢？实际上并不需要。考虑到透视方程
+<p>屏幕重心坐标已经计算好，但是空间 <span class="arithmatex">\(Z\)</span> 坐标是否需要额外传入呢？实际上并不需要。考虑到透视方程
 $$
 M = 
 \begin{pmatrix}
@@ -19402,7 +19404,7 @@ z\
 z/d
 \end{pmatrix}
 $$
-我们传入的屏幕齐次坐标的第 4 个分量中已经包含了 $Z$ 坐标信息，所以我们可以使用
+我们传入的屏幕齐次坐标的第 4 个分量中已经包含了 <span class="arithmatex">\(Z\)</span> 坐标信息，所以我们可以使用
 $$
 I_{t} = \frac{\frac{\alpha}{Z_{1}/d}I_{1} + \frac{\beta}{Z_{2}/d}I_{2}+\frac{\gamma}{Z_{3}/d}I_{3}}{\frac{\alpha}{Z_{1}/d}+\frac{\beta}{Z_{2}/d}+\frac{\gamma}{Z_{3}/d}}
 $$
@@ -19425,9 +19427,9 @@ $$
 $$
 I_a = (I_{ar},I_{ag},I_{ab})
 $$
-每一点的 $I_a$ 都是相同的。</p>
+每一点的 <span class="arithmatex">\(I_a\)</span> 都是相同的。</p>
 <h4 id="_71">点光源</h4>
-<p>理想的点光源向所有方向发射的光线强度都相等。一个位于 $p_0$ 的点光源可以表示为
+<p>理想的点光源向所有方向发射的光线强度都相等。一个位于 <span class="arithmatex">\(p_0\)</span> 的点光源可以表示为
 $$
 I(p_0) = (I_r(p_0),I_g(p_0),I_b(p_0))
 $$
@@ -19439,11 +19441,11 @@ $$
 <p>仅依靠点光源照明往往会使场景的明暗反差太大，而真实环境中场景亮度变换很柔和，这是因为大多数光源的尺寸不像点光源那样可以忽略。如图所示</p>
 <p><img alt="" src="image-20221117102439934.png|275" /></p>
 <p>一些区域完全处于阴影中，或者说在<strong>本影</strong>中，另一些区域在部分阴影中，或者说在<strong>半影</strong>中。通过为场景设置环境光，可以减弱由点光源照明引起的过高的对比度。</p>
-<p>把到光源的距离考虑进去也可以帮助解决对比度问题。我们用 $(a+bd+cd^2)^{-1}$ 的距离衰减因子代替 $d^{-2}$，通过选择常数 $a,b,c$ 的值来获得柔和的照明效果。</p>
+<p>把到光源的距离考虑进去也可以帮助解决对比度问题。我们用 <span class="arithmatex">\((a+bd+cd^2)^{-1}\)</span> 的距离衰减因子代替 <span class="arithmatex">\(d^{-2}\)</span>，通过选择常数 <span class="arithmatex">\(a,b,c\)</span> 的值来获得柔和的照明效果。</p>
 <h4 id="_72">聚光灯</h4>
-<p>聚光灯只在一个很小的角度范围内发射光线。如图所示，用一个顶点位于 $p_s$ 的圆锥限制发光角度，如果夹角 $\theta=180^\circ$，那么此聚光灯成为点光源。</p>
+<p>聚光灯只在一个很小的角度范围内发射光线。如图所示，用一个顶点位于 <span class="arithmatex">\(p_s\)</span> 的圆锥限制发光角度，如果夹角 <span class="arithmatex">\(\theta=180^\circ\)</span>，那么此聚光灯成为点光源。</p>
 <p><img alt="" src="image-20221117103313287.png|300" /></p>
-<p>更逼真的聚光灯模型可以通过其发光强度在圆锥内的分布描述，通常越接近圆锥中心，发光强度越大。因此发光强度是光源方向 $l_s$ 和指向表面的向量 $s$ 之间夹角 $\phi\le\theta$ 的函数。通常将其定义为 $\cos^e\phi$，用指数 $e$ 来确定衰减速率。</p>
+<p>更逼真的聚光灯模型可以通过其发光强度在圆锥内的分布描述，通常越接近圆锥中心，发光强度越大。因此发光强度是光源方向 <span class="arithmatex">\(l_s\)</span> 和指向表面的向量 <span class="arithmatex">\(s\)</span> 之间夹角 <span class="arithmatex">\(\phi\le\theta\)</span> 的函数。通常将其定义为 <span class="arithmatex">\(\cos^e\phi\)</span>，用指数 <span class="arithmatex">\(e\)</span> 来确定衰减速率。</p>
 <h4 id="_73">远距离光源</h4>
 <p>如果光源距离很远，就可以近似成平行光源。这样我们就只需要光源的方向，而不需要位置，可以用齐次坐标表示为
 $$
@@ -19455,9 +19457,9 @@ p_0 = (x,y,z,1)
 $$
 图形系统使用远距离光源绘制效率显然会更高。</p>
 <h3 id="phong">Phong 反射模型</h3>
-<p>Phong 反射模型使用 4 个向量计算点 $p$ 的颜色值。如图所示</p>
+<p>Phong 反射模型使用 4 个向量计算点 <span class="arithmatex">\(p\)</span> 的颜色值。如图所示</p>
 <p><img alt="" src="image-20221117103730408.png|375" /></p>
-<p>其中 $l$ 是从 $p$ 指向扩展光源上的点的向量，$n$ 是法向量，$r$ 是 $l$ 的反射向量，$v$ 是从 $p$ 指向观察者的向量。</p>
+<p>其中 <span class="arithmatex">\(l\)</span> 是从 <span class="arithmatex">\(p\)</span> 指向扩展光源上的点的向量，<span class="arithmatex">\(n\)</span> 是法向量，<span class="arithmatex">\(r\)</span> 是 <span class="arithmatex">\(l\)</span> 的反射向量，<span class="arithmatex">\(v\)</span> 是从 <span class="arithmatex">\(p\)</span> 指向观察者的向量。</p>
 <p>Phong 反射模型考虑环境光反射、漫反射和镜面反射。尽管并不自然，我们假定一组点<strong>光源有独立的环境光、漫反射光和镜面反射光</strong>。因此可以用一个矩阵表示这些分量
 $$
 L = 
@@ -19467,7 +19469,7 @@ L_{dr} &amp; L_{dg} &amp; L_{db}\
 L_{sr} &amp; L_{sg} &amp; L_{sb}
 \end{bmatrix}
 $$
-其中 $L_a$ 是环境光，$L_d$ 是漫反射光，$L_s$ 是镜面反射光。这里没有考虑距离衰减因子。</p>
+其中 <span class="arithmatex">\(L_a\)</span> 是环境光，<span class="arithmatex">\(L_d\)</span> 是漫反射光，<span class="arithmatex">\(L_s\)</span> 是镜面反射光。这里没有考虑距离衰减因子。</p>
 <p>假定我们知道每种光分量的反射率，又可以排列成矩阵
 $$
 R =
@@ -19485,9 +19487,9 @@ $$
 $$
 I_r  =\sum_i(I_{iar}+I_{idr}+I_{isr}) + I_{gr}
 $$
-其中 $I_{gr}$ 是全局环境光反射的红色分量。</p>
+其中 <span class="arithmatex">\(I_{gr}\)</span> 是全局环境光反射的红色分量。</p>
 <h4 id="_74">环境光反射</h4>
-<p>环境光在物体表面的光强 $L_a$ 都相同。环境光一部分被表面吸收，一部分被反射，反射系数 $R_a=k_a$，于是反射光强为
+<p>环境光在物体表面的光强 <span class="arithmatex">\(L_a\)</span> 都相同。环境光一部分被表面吸收，一部分被反射，反射系数 <span class="arithmatex">\(R_a=k_a\)</span>，于是反射光强为
 $$
 I_a = k_aL_a,\quad 0\le R_a&lt;1
 $$
@@ -19499,7 +19501,7 @@ $$
 $$
 R_d \propto \cos\theta
 $$
-再考虑漫反射系数 $k_d$，就有
+再考虑漫反射系数 <span class="arithmatex">\(k_d\)</span>，就有
 $$
 I_d = k_d(l\cdot n)L_d
 $$
@@ -19507,32 +19509,32 @@ $$
 $$
 I_d = \frac{k_d}{a+bd+cd^2}(l\cdot n)L_d
 $$
-如果 $l\cdot n&lt;0$，说明光源在水平面以下，因此我们应当取 $\max(l\cdot n,0)$ 。</p>
+如果 <span class="arithmatex">\(l\cdot n&lt;0\)</span>，说明光源在水平面以下，因此我们应当取 <span class="arithmatex">\(\max(l\cdot n,0)\)</span> 。</p>
 <h4 id="_76">镜面反射</h4>
-<p>如果只利用环境光反射和漫反射，生成的图像会没有光泽。图像中缺少的是高光，这是由在观察者方向的某些光源在球体表面形成的反射造成的。于是我们进一步考虑镜面反射分量：<strong>在考虑漫反射分量时，将表面看作是粗糙的；在考虑镜面反射分量时，认为表面是光滑的</strong>。观察者所看到的光线强度取决于出射方向 $r$ 和观察者方向 $v$ 的夹角 $\phi$，使用
+<p>如果只利用环境光反射和漫反射，生成的图像会没有光泽。图像中缺少的是高光，这是由在观察者方向的某些光源在球体表面形成的反射造成的。于是我们进一步考虑镜面反射分量：<strong>在考虑漫反射分量时，将表面看作是粗糙的；在考虑镜面反射分量时，认为表面是光滑的</strong>。观察者所看到的光线强度取决于出射方向 <span class="arithmatex">\(r\)</span> 和观察者方向 <span class="arithmatex">\(v\)</span> 的夹角 <span class="arithmatex">\(\phi\)</span>，使用
 $$
 I_s = k_sL_s\cos^\alpha\phi = k_sL_s\max((r\cdot v)^\alpha,0)
 $$
-其中 $0\le k_s\le 1$ 表示镜面反射系数，$\alpha$ 是高光系数，随着 $\alpha$ 增大，反射光会逐渐靠近出射方向，无限大的 $\alpha$ 对应镜面。</p>
+其中 <span class="arithmatex">\(0\le k_s\le 1\)</span> 表示镜面反射系数，<span class="arithmatex">\(\alpha\)</span> 是高光系数，随着 <span class="arithmatex">\(\alpha\)</span> 增大，反射光会逐渐靠近出射方向，无限大的 <span class="arithmatex">\(\alpha\)</span> 对应镜面。</p>
 <p>我们可以增加一个距离衰减因子，这样环境光反射、漫反射和镜面反射就可以统一地写成
 $$
 I = \frac{1}{a+bd+cd^2}(k_dL_d\max(l\cdot n,0)+k_sL_s\max((r\cdot v)^\alpha,0))+k_aL_a
 $$
 上式适用于每个光源和每个颜色分量。</p>
 <h4 id="phong_1">改进的 Phong 模型</h4>
-<p>如果利用 Phong 模型绘制，计算镜面反射分量时需要计算出射方向 $r$，然后计算点积 $r\cdot v$ 。为了在某些情况下减小计算量，可以考虑<strong>半角向量</strong>
+<p>如果利用 Phong 模型绘制，计算镜面反射分量时需要计算出射方向 <span class="arithmatex">\(r\)</span>，然后计算点积 <span class="arithmatex">\(r\cdot v\)</span> 。为了在某些情况下减小计算量，可以考虑<strong>半角向量</strong>
 $$
 h = \frac{l+v}{|l+v|}
 $$
-它平分 $l,v$ 向量。如图所示</p>
+它平分 <span class="arithmatex">\(l,v\)</span> 向量。如图所示</p>
 <p><img alt="" src="image-20221117124204335.png|375" /></p>
-<p>如果将 $r\cdot v$ 替换成 $n\cdot h$ 就无须计算 $r$ 。当 $v$ 在 $l,n,r$ 的平面上时，容易证明 $2\varphi=\phi$.由于 $\varphi$ 比 $\phi$ 小，我们需要调整到更小的 $\alpha$ 。</p>
+<p>如果将 <span class="arithmatex">\(r\cdot v\)</span> 替换成 <span class="arithmatex">\(n\cdot h\)</span> 就无须计算 <span class="arithmatex">\(r\)</span> 。当 <span class="arithmatex">\(v\)</span> 在 <span class="arithmatex">\(l,n,r\)</span> 的平面上时，容易证明 <span class="arithmatex">\(2\varphi=\phi\)</span>.由于 <span class="arithmatex">\(\varphi\)</span> 比 <span class="arithmatex">\(\phi\)</span> 小，我们需要调整到更小的 <span class="arithmatex">\(\alpha\)</span> 。</p>
 <h3 id="_77">多边形着色</h3>
 <p>假设能够计算法向量，并且在给定观察者和一组光源的情况下，能够计算表面每个点的光照强度。但是上面的代码运行很慢，计算开销太大，不能做到实时渲染。通过多边形建模，可以大大降低计算量。我们将曲面分解成许多小的平面多边形，通过这种多边形逼近的方法可以充分利用对平面多边形着色所带来的的高效性。</p>
 <h4 id="_78">均匀着色</h4>
-<p>平面多边形的法向 $n$ 对于所有点都相同，当多边形的尺寸很小时，可以认为到光源和观察者的距离相对很远，因此 $l,v$ 也可以看作是不变的。这样一来，每个多边形有相同的 $l,n,v$，只需要进行一次明暗计算，多边形上的点颜色都相同。这种着色技术称为均匀着色。但是，如果用多边形建模光滑网格，会产生令人失望的结果：相邻多边形之间的亮度差异即使非常小，在人眼看来也很明显。</p>
+<p>平面多边形的法向 <span class="arithmatex">\(n\)</span> 对于所有点都相同，当多边形的尺寸很小时，可以认为到光源和观察者的距离相对很远，因此 <span class="arithmatex">\(l,v\)</span> 也可以看作是不变的。这样一来，每个多边形有相同的 <span class="arithmatex">\(l,n,v\)</span>，只需要进行一次明暗计算，多边形上的点颜色都相同。这种着色技术称为均匀着色。但是，如果用多边形建模光滑网格，会产生令人失望的结果：相邻多边形之间的亮度差异即使非常小，在人眼看来也很明显。</p>
 <h4 id="_79">平滑着色</h4>
-<p>如果我们指定每个顶点的 $n,v,l$，就可以计算出顶点颜色，然后对每个多边形内部进行插值，这就是平滑着色。但是，由于多边形的法向在顶点处并不连续，这会使顶点法向更加复杂。Gouraud 意识到，可以通过直接对相邻多边形法向计算平均值来获得平滑的插值
+<p>如果我们指定每个顶点的 <span class="arithmatex">\(n,v,l\)</span>，就可以计算出顶点颜色，然后对每个多边形内部进行插值，这就是平滑着色。但是，由于多边形的法向在顶点处并不连续，这会使顶点法向更加复杂。Gouraud 意识到，可以通过直接对相邻多边形法向计算平均值来获得平滑的插值
 $$
 |n| =\frac{n_1+n_2+\cdots+n_k}{|n_1+n_2+\cdots+n_k|}
 $$
@@ -19544,7 +19546,7 @@ $$
 <h2 id="_81">纹理与表面细节</h2>
 <h3 id="_82">纹理映射</h3>
 <h4 id="_83">概念</h4>
-<p>要将一个线性纹理图案映射到场景中，需要将纹理空间的单个 $s$ 坐标值赋予一个空间位置。用于表面区域的纹理通常用矩阵颜色图案定义，而在这一纹理空间的位置用 $(s,t)$ 坐标指定。</p>
+<p>要将一个线性纹理图案映射到场景中，需要将纹理空间的单个 <span class="arithmatex">\(s\)</span> 坐标值赋予一个空间位置。用于表面区域的纹理通常用矩阵颜色图案定义，而在这一纹理空间的位置用 <span class="arithmatex">\((s,t)\)</span> 坐标指定。</p>
 <p><img alt="" src="image-20221122204312637.png|500" /></p>
 <p>表面纹理映射可用两种方法之一实现：将纹理映射到对象表面上，再投影到平面；或者将像素区间映射到对象表面，再将表面区域映射到纹理空间。将一个纹理图案映射到像素坐标有时也称为纹理扫描，而将像素坐标到纹理空间的映射称为像素次序扫描。</p>
 <p><img alt="" src="image-20221122204653971.png|500" /></p>
@@ -19556,7 +19558,7 @@ $$
 $$
 x = r\cos u,\quad y=r\sin u,\quad z =v
 $$
-我们构造映射 $u=s\pi/2,v=t$ 将纹理映射到圆柱面，从而对柱面上任意一点 $(x,y,z)$，首先转换到柱面坐标
+我们构造映射 <span class="arithmatex">\(u=s\pi/2,v=t\)</span> 将纹理映射到圆柱面，从而对柱面上任意一点 <span class="arithmatex">\((x,y,z)\)</span>，首先转换到柱面坐标
 $$
 u = \arctan(y/x),\quad v = z
 $$
@@ -19564,7 +19566,7 @@ $$
 $$
 s = 2u/\pi,\quad t = v 
 $$
-于是像素点 $(x,y,z)$ 的颜色是投影区域颜色的平均。</p>
+于是像素点 <span class="arithmatex">\((x,y,z)\)</span> 的颜色是投影区域颜色的平均。</p>
 <h4 id="_85">盒子映射</h4>
 <p>我们还可以使用矩形盒子作为纹理映射的中间表面，如图所示</p>
 <p><img alt="" src="image-20221124191304321.png|450" /></p>
@@ -19575,7 +19577,7 @@ $$
 <li>如果知道绘制对象的中心，可以从中心出发到对象表面一点画直线，该直线与盒子表面纹理的交点处的纹理绘制到该点</li>
 </ul>
 <h3 id="_86">纹理超采样</h3>
-<p>当采样频率大于纹理信息频率时，可以在任意像素位置 $(x,y)$ 的值通过相邻的 4 个像素位置的值双向插值得到。</p>
+<p>当采样频率大于纹理信息频率时，可以在任意像素位置 <span class="arithmatex">\((x,y)\)</span> 的值通过相邻的 4 个像素位置的值双向插值得到。</p>
 <p><img alt="" src="image-20250417151949023.png|500" /></p>
 <h3 id="_87">多级渐远纹理</h3>
 <h4 id="_88">采样频率</h4>
@@ -19606,19 +19608,19 @@ $$
 <h3 id="_93">凹凸纹理</h3>
 <p>虽然纹理映射可以添加精细的表面细节，但是对于模拟粗糙的物体表面并不合适。生成物体表面凹凸效果的较好方法是使用扰动函数并在光照模型计算中使用扰动法向量，这就是凹凸映射。
 <img alt="" src="image-20250418145025395.png|450" /></p>
-<p>凹凸贴图中保存扰动的高度信息 $b(u,v)$，利用差分方法近似扰动前后曲面的切向。对于参数曲面上的点 $P(u,v)$，对法向量 $N=P_u\times P_v$ 扰动得到
+<p>凹凸贴图中保存扰动的高度信息 <span class="arithmatex">\(b(u,v)\)</span>，利用差分方法近似扰动前后曲面的切向。对于参数曲面上的点 <span class="arithmatex">\(P(u,v)\)</span>，对法向量 <span class="arithmatex">\(N=P_u\times P_v\)</span> 扰动得到
 $$
 P'(u,v) = P(u,v)+b(u,v)n
 $$
-这就是凹凸函数。扰动后的表面法向量为 $N' = P'_u\times P'_v$，其中
+这就是凹凸函数。扰动后的表面法向量为 <span class="arithmatex">\(N' = P'_u\times P'_v\)</span>，其中
 $$
 P'_u = \frac{\partial}{\partial u}(P+bn) = P_u+b_un+bn_u
 $$
-假定凹凸函数 $b$ 很小，就可以忽略最后一项，得到 $P'_u\approx P_u+b_un$，于是扰动的表面法向为
+假定凹凸函数 <span class="arithmatex">\(b\)</span> 很小，就可以忽略最后一项，得到 <span class="arithmatex">\(P'_u\approx P_u+b_un\)</span>，于是扰动的表面法向为
 $$
 N' = P_u\times P_v + b_v(P_u\times n)+b_u(n\times P_v)+b_ub_v(n\times n) = N+b_v(P_u\times n)+b_u(n\times P_v)
 $$
-最后规范化 $N'$ 使用光照模型进行计算。</p>
+最后规范化 <span class="arithmatex">\(N'\)</span> 使用光照模型进行计算。</p>
 <h3 id="_94">位移纹理</h3>
 <p>凹凸贴图并没有真正移动物体的顶点，只是通过对顶点处法向的扰动实现凹凸效果。由于顶点没有变化，因此就缺少了表面的几何信息，在绘制阴影时将会出现问题。使用位移贴图，可以真正地移动顶点，贴图中的位移信息直接附加在顶点上，就可以实现复杂的凹凸阴影，但代价是网格的密度必须足够高。</p>
 <p><img alt="" src="image-20250418145350948.png|500" /></p>
@@ -19638,11 +19640,11 @@ $$
 <h4 id="csg">CSG 树</h4>
 <p>构造实体几何表示法 CSG 用于解决多个属性嵌套的结构。使用并、交、差三种集合运算处理两个对象的结果。例如</p>
 <p><img alt="" src="image-20221116191308501.png|500" /></p>
-<p>存储解析代数表达式，使用后序遍历得到 $(A-B)\cap(C\cup D)$，就是对象的最终属性。</p>
+<p>存储解析代数表达式，使用后序遍历得到 <span class="arithmatex">\((A-B)\cap(C\cup D)\)</span>，就是对象的最终属性。</p>
 <h4 id="bsp">BSP 树</h4>
 <p>在进行可见性测试时，一种方法是通过平面不断划分空间，得到越来越小的空间区分。在二维空间中，使用直线划分空间。例如</p>
 <p><img alt="" src="image-20221116191648919.png|500" /></p>
-<p>用平面 $A,B,\cdots,E,F$ 不断二分空间，用二叉空间区分树来储存划分顺序。只需要通过后向中序遍历：先绘制右子树，再绘制根节点，最后绘制左子树。按照这一顺序就能从后向前绘制多边形。如果观察者的位置移动到这些多边形的另一侧，只需要改成中序遍历就很容易调整为从前向后绘制多边形。</p>
+<p>用平面 <span class="arithmatex">\(A,B,\cdots,E,F\)</span> 不断二分空间，用二叉空间区分树来储存划分顺序。只需要通过后向中序遍历：先绘制右子树，再绘制根节点，最后绘制左子树。按照这一顺序就能从后向前绘制多边形。如果观察者的位置移动到这些多边形的另一侧，只需要改成中序遍历就很容易调整为从前向后绘制多边形。</p>
 <p><img alt="" src="image-20221116191849307.png|500" /></p>
 <h4 id="_98">四叉树和八叉树</h4>
 <p>BSP 树的一个缺点是用于划分多边形的平面可以具有任意的方向，因此计算开销很大。对于一个二维图像，我们可以考虑将其划分为四个象限，对于那些只有一种颜色的象限，我们简单地储存这种颜色；而如果有多种颜色，就针对那个象限再次划分为四个象限，以此类推。我们可以将划分的信息和颜色信息存放在四叉树中，这能够极大地减少内存需求。</p>
@@ -19650,27 +19652,27 @@ $$
 <p>对于三维空间，四叉树扩展为八叉树，储存方式类似于四叉树。</p>
 <h3 id="_99">递归方法与分形</h3>
 <h4 id="_100">分形维数</h4>
-<p>考虑一条长度为 1 的线段、一个单位正方形和一个单位立方体。假定有一把分辨率为 $h$ 的尺子，$h=\frac{1}{n}$ 就是我们能测量的最小单位，假定 $n$ 是整数，可以用 $h$ 将上面三种对象划分成相同的单位。例如线段分成 $k$ 段，正方形分成 $k^2$ 块，立方体则分成 $k^3$ 块。假定 $d$ 是一个对象的维数，那么自然有
+<p>考虑一条长度为 1 的线段、一个单位正方形和一个单位立方体。假定有一把分辨率为 <span class="arithmatex">\(h\)</span> 的尺子，<span class="arithmatex">\(h=\frac{1}{n}\)</span> 就是我们能测量的最小单位，假定 <span class="arithmatex">\(n\)</span> 是整数，可以用 <span class="arithmatex">\(h\)</span> 将上面三种对象划分成相同的单位。例如线段分成 <span class="arithmatex">\(k\)</span> 段，正方形分成 <span class="arithmatex">\(k^2\)</span> 块，立方体则分成 <span class="arithmatex">\(k^3\)</span> 块。假定 <span class="arithmatex">\(d\)</span> 是一个对象的维数，那么自然有
 $$
 \frac{k}{n^d} = 1
 $$
-即我们通过分辨率为 $h$ 的尺子最多能将对象划分成 $k=n^d$ 个相同的部分。于是可以反过来定义
+即我们通过分辨率为 <span class="arithmatex">\(h\)</span> 的尺子最多能将对象划分成 <span class="arithmatex">\(k=n^d\)</span> 个相同的部分。于是可以反过来定义
 $$
 d = \frac{\ln k}{\ln n}
 $$
 称为分形维数。也就是说，一个对象的分形维数由它能够细分为多少个相同对象的数量确定。</p>
-<p>例如分辨率为 $h=\frac{1}{3}$ 的尺子，可以将单位正方形分成最多 $9$ 个相同部分，于是它的维数就是
+<p>例如分辨率为 <span class="arithmatex">\(h=\frac{1}{3}\)</span> 的尺子，可以将单位正方形分成最多 <span class="arithmatex">\(9\)</span> 个相同部分，于是它的维数就是
 $$
 d = \frac{\ln 9}{\ln\frac{1}{3}} = 2
 $$
-对于四面体的细分镂垫，分辨率为 $h=\frac{1}{2}$ 的尺子可将其分成 $4$ 部分，于是
+对于四面体的细分镂垫，分辨率为 <span class="arithmatex">\(h=\frac{1}{2}\)</span> 的尺子可将其分成 <span class="arithmatex">\(4\)</span> 部分，于是
 $$
 d = \frac{\ln 4}{\ln\frac{1}{2}} = 2
 $$
 因此它是 2 维分形结构。</p>
 <p><img alt="" src="image-20221116195109167.png|400" /></p>
 <h4 id="_101">中点划分及布朗运动</h4>
-<p>一条分形曲线的维数可能是 $1\le d&lt;2$：当曲线 $d=2$ 时它会填满平面，因此最多是 $2$ 维。通常低维分形曲线比高维分形曲线更加光滑，这对于二维分形表面也是相同的。有时我们希望创建具有随机性的曲线或表面，而这些曲线或表面上有大量凹凸属性可测量。我们就可以通过分形的方法生成这些图像。</p>
+<p>一条分形曲线的维数可能是 <span class="arithmatex">\(1\le d&lt;2\)</span>：当曲线 <span class="arithmatex">\(d=2\)</span> 时它会填满平面，因此最多是 <span class="arithmatex">\(2\)</span> 维。通常低维分形曲线比高维分形曲线更加光滑，这对于二维分形表面也是相同的。有时我们希望创建具有随机性的曲线或表面，而这些曲线或表面上有大量凹凸属性可测量。我们就可以通过分形的方法生成这些图像。</p>
 <p>直接的思路是通过布朗运动产生粗糙的曲线。一种简单的方法是递归：对于一条线段，先找到它的中点，然后将中点随机地在法向移动，之后再对左右两段线使用相同的操作。每次唯一的随机因子一般要缩小一半，因为线段长度在缩短。</p>
 <p><img alt="" src="image-20221116200147861.png|500" /></p>
 <p>分形最著名的应用就是产生山脉和地形，通过增加在中点的替换，可以通过四面体的细分过程来产生山脉。</p>
@@ -19858,6 +19860,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

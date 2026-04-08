@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14925,7 +14927,7 @@
 $$
 S(i) = max(arr(i), arr(i)+S(i-1))
 $$
-记录最大的 $S(i)$ 即可。</p>
+记录最大的 <span class="arithmatex">\(S(i)\)</span> 即可。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">maxSubArray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -15126,7 +15128,7 @@ $$
 <p>一个机器人位于一个 <code>m x n</code> 网格的左上角 （起始点在下图中标记为 “Start” ）。</p>
 <p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为 “Finish” ）。</p>
 <p>问总共有多少条不同的路径？</p>
-<p>题解——动态规划，用 $S (i, j)$ 表示到达 <code>(i, j)</code> 位置的路径数，它等于到达左边或上边的路径数之和。状态方程
+<p>题解——动态规划，用 <span class="arithmatex">\(S (i, j)\)</span> 表示到达 <code>(i, j)</code> 位置的路径数，它等于到达左边或上边的路径数之和。状态方程
 $$
 S (i, j) = S (i-1, j) + S (i, j-1)
 $$
@@ -15270,7 +15272,7 @@ $$
 <li>删除一个字符</li>
 <li>替换一个字符</li>
 </ul>
-<p>题解——动态规划。由于对每个单词的操作顺序不影响变换后的结果，因此可以只考虑对最后一个字符的操作。用 $S(i,j)$ 表示将 <code>word1[0,i]</code> 转换成 <code>word2[0,j]</code> 所需的最少操作数。状态方程
+<p>题解——动态规划。由于对每个单词的操作顺序不影响变换后的结果，因此可以只考虑对最后一个字符的操作。用 <span class="arithmatex">\(S(i,j)\)</span> 表示将 <code>word1[0,i]</code> 转换成 <code>word2[0,j]</code> 所需的最少操作数。状态方程
 $$
 S(i,j) =
 \begin{cases}
@@ -15278,13 +15280,13 @@ min(S(i-1,j),S(i,j-1),S(i-1,j-1))+1, &amp; word 1[i]\neq word 2[j]\
 S(i-1,j-1), &amp; word 1[i]=word 2[j]
 \end{cases}
 $$
-如果 <code>i,j</code> 字符相同，就直接等于 $S(i-1,j-1)$；如果不同，有三种情况</p>
+如果 <code>i,j</code> 字符相同，就直接等于 <span class="arithmatex">\(S(i-1,j-1)\)</span>；如果不同，有三种情况</p>
 <ol>
 <li>先将 <code>word1[0,i-1]</code> 变成 <code>word2[0,j]</code>，然后删掉 <code>word1</code> 最后一个字符</li>
 <li>先将 <code>word1[0,i]</code> 变成 <code>word2[0,j-1]</code>，然后添加 <code>word2</code> 最后一个字符</li>
 <li>先将 <code>word[0,i-1]</code> 变成 <code>word2[0,j-1]</code>，然后将 <code>word1[i]</code> 替换为 <code>word2[j]</code></li>
 </ol>
-<p>还要考虑字符串为空的情况，因此实际代码中用 $S(i,j)$ 表示 <code>word1[0,i+1]</code> 转换为 <code>word2[0,j+1]</code> 的最少操作数，这样可以预先填充 $S(0,j),S(i,0)$ 元素。</p>
+<p>还要考虑字符串为空的情况，因此实际代码中用 <span class="arithmatex">\(S(i,j)\)</span> 表示 <code>word1[0,i+1]</code> 转换为 <code>word2[0,j+1]</code> 的最少操作数，这样可以预先填充 <span class="arithmatex">\(S(0,j),S(i,0)\)</span> 元素。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">minDistance</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">word1</span><span class="p">,</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="n">word2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -15738,7 +15740,7 @@ $$
 $$
 S(n) = S(0;n-1)\cup S^{-1}(1;n-1)
 $$
-注意到右式中有 $S^{-1}$，这意味着 $S(0;n-1)$ 递归完成后，$S^{-1}$ 应该倒过来执行。然而由于由于异或运算的性质，同一位异或两次就会恢复，因此 $S^{-1}=S$，只不过每一位恢复的顺序相反。</p>
+注意到右式中有 <span class="arithmatex">\(S^{-1}\)</span>，这意味着 <span class="arithmatex">\(S(0;n-1)\)</span> 递归完成后，<span class="arithmatex">\(S^{-1}\)</span> 应该倒过来执行。然而由于由于异或运算的性质，同一位异或两次就会恢复，因此 <span class="arithmatex">\(S^{-1}=S\)</span>，只不过每一位恢复的顺序相反。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">private</span><span class="o">:</span>
 <a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a><span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
@@ -15971,7 +15973,7 @@ $$
 </code></pre></div>
 <h4 id="95-ii"><a href="https://leetcode.cn/problems/unique-binary-search-trees-ii/">95. 不同的二叉搜索树 II</a></h4>
 <p>给你一个整数 <code>n</code> ，请你生成并返回所有由 <code>n</code> 个节点组成且节点值从 <code>1</code> 到 <code>n</code> 互不相同的不同 <strong>二叉搜索树</strong> 。可以按 <strong>任意顺序</strong> 返回答案。</p>
-<p>题解——考虑后面的状态方程，计算出 $S(1,i-1),S(i+1,n)$ 的所有可能的子树，然后双循环拼接到当前节点左右</p>
+<p>题解——考虑后面的状态方程，计算出 <span class="arithmatex">\(S(1,i-1),S(i+1,n)\)</span> 的所有可能的子树，然后双循环拼接到当前节点左右</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="w"> </span><span class="o">*&gt;</span><span class="w"> </span><span class="n">generateTrees</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">end</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -16013,7 +16015,7 @@ S(1,n) &amp;=\sum_{i=1}^{n} S(1,i-1)\times S(i+1,n)\
 &amp;= \sum_{i=1}^{n} S(1,i-1)\times S(1,n - i) 
 \end{aligned}
 $$
-我们只需要依次计算并保存 <code>S(1,j)</code> 即可，并令 $S(i,j)=1,j\leq i$ 表示空的情况</p>
+我们只需要依次计算并保存 <code>S(1,j)</code> 即可，并令 <span class="arithmatex">\(S(i,j)=1,j\leq i\)</span> 表示空的情况</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">numTrees</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -16042,7 +16044,7 @@ $$
 <li><strong>交错</strong> 是 <code>s1 + t1 + s2 + t2 + s3 + t3 + ...</code> 或者 <code>t1 + s1 + t2 + s2 + t3 + s3 + ...</code></li>
 </ul>
 <p><strong>注意：</strong><code>a + b</code> 意味着字符串 <code>a</code> 和 <code>b</code> 连接。</p>
-<p>题解——动态规划，令 $S(i,j)$ 表示 <code>s1</code> 的前 <code>i</code> 个元素与 <code>s2</code> 的前 <code>j</code> 个元素可以组成 <code>s3</code> 的前 <code>i+j</code> 个元素。于是有
+<p>题解——动态规划，令 <span class="arithmatex">\(S(i,j)\)</span> 表示 <code>s1</code> 的前 <code>i</code> 个元素与 <code>s2</code> 的前 <code>j</code> 个元素可以组成 <code>s3</code> 的前 <code>i+j</code> 个元素。于是有
 $$
 \begin{aligned}
 S(i,j) = &amp;(S(i-1,j)\land (s_{1}[i-1]==s_{3}[i+j-1])) \lor\
@@ -16231,6 +16233,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

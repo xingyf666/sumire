@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -17454,14 +17456,14 @@
 $$
 (S_rR_s+D_rR_d,S_gG_s+D_gG_d,S_bB_s+D_bB_d,S_aA_s+D_aA_d)
 $$
-其中 RGBA 源颜色为 $(R_s,G_s,B_s,A_s)$，目标颜色分量为 $(R_d,G_d,B_d,A_d)$，源调和因子为 $(S_r,S_g,S_b,S_a)$，而目标调和因子为 $(D_r,D_g,D_b,D_a)$ 。计算出的组合颜色分量归一到 0 到 1 之间，即任何大于 1 的和设为 1，小于 0 的和设为 0 。</p>
+其中 RGBA 源颜色为 <span class="arithmatex">\((R_s,G_s,B_s,A_s)\)</span>，目标颜色分量为 <span class="arithmatex">\((R_d,G_d,B_d,A_d)\)</span>，源调和因子为 <span class="arithmatex">\((S_r,S_g,S_b,S_a)\)</span>，而目标调和因子为 <span class="arithmatex">\((D_r,D_g,D_b,D_a)\)</span> 。计算出的组合颜色分量归一到 0 到 1 之间，即任何大于 1 的和设为 1，小于 0 的和设为 0 。</p>
 <p>使用下列函数设置调和因子</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">glBlendFunc</span><span class="p">(</span><span class="n">sFactor</span><span class="p">,</span><span class="w"> </span><span class="n">dFactor</span><span class="p">);</span>
 </code></pre></div>
 <p>其中 sFactor 和 dFactor 分别是源和目标因子，通常直接通过 OpenGL 预定义的常量设置。例如</p>
 <ul>
-<li><code>GL_ZERO</code> 表示 $(0,0,0,0)$，是 dFactor 的默认选项</li>
-<li><code>GL_ONE</code> 表示 $(1,1,1,1)$，是 sFactor 的默认选项</li>
+<li><code>GL_ZERO</code> 表示 <span class="arithmatex">\((0,0,0,0)\)</span>，是 dFactor 的默认选项</li>
+<li><code>GL_ONE</code> 表示 <span class="arithmatex">\((1,1,1,1)\)</span>，是 sFactor 的默认选项</li>
 </ul>
 <h4 id="_24">点和线宽</h4>
 <p>通过函数</p>
@@ -17707,7 +17709,7 @@ $$
 <li><code>GL_POINT</code> 顶点绘制</li>
 </ul>
 <h4 id="_36">多边形偏移</h4>
-<p>当我们只绘制三维多边形的边，可能会在边之间产生缝隙。这种称为<strong>缝线</strong>的效果由扫描填充算法和边的画线算法的计算差别造成。在对一个多边形进行填充时，深度值按每一 $(x,y)$ 计算，但是边上的深度值计算与画线算法可能不同。消除缝隙的方法是移动填充子程序计算的深度值，使它们与多边形的边深度值不重叠</p>
+<p>当我们只绘制三维多边形的边，可能会在边之间产生缝隙。这种称为<strong>缝线</strong>的效果由扫描填充算法和边的画线算法的计算差别造成。在对一个多边形进行填充时，深度值按每一 <span class="arithmatex">\((x,y)\)</span> 计算，但是边上的深度值计算与画线算法可能不同。消除缝隙的方法是移动填充子程序计算的深度值，使它们与多边形的边深度值不重叠</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_POLYGON_OFFSET_FILL</span><span class="p">);</span>
 <a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="n">glPolygonOffset</span><span class="p">(</span><span class="n">factor1</span><span class="p">,</span><span class="w"> </span><span class="n">factor2</span><span class="p">);</span>
 </code></pre></div>
@@ -17715,7 +17717,7 @@ $$
 $$
 depthOffset = factor1\cdot maxSlope + factor2\cdot const
 $$
-其中 $maxSlope$ 是多边形的最大斜率，$const$ 是实现常数。两个因子常用的值是 0.75 和 1 。例如</p>
+其中 <span class="arithmatex">\(maxSlope\)</span> 是多边形的最大斜率，<span class="arithmatex">\(const\)</span> 是实现常数。两个因子常用的值是 0.75 和 1 。例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a><span class="c1">// 对于 GL_FILL GL_POINT GL_LINE 三种模式都开启偏移</span>
 <a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_POLYGON_OFFSET_LINE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_POLYGON_OFFSET_POINT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_POLYGON_OFFSET_FILL</span><span class="p">);</span>
 <a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a><span class="n">glPolygonOffset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
@@ -17764,7 +17766,7 @@ $$
 <p>在 glVertex 中的单位由应用程序确定，称为世界坐标系。视景体相对于世界坐标系指定，它确定出现在图像中的对象。在 OpenGL 内部会把世界坐标转化为照相机（视点）坐标，然后转化为屏幕坐标。</p>
 <p>默认情况下，照相机被放置在世界坐标系的原点，<strong>指向 z 轴的负方向</strong>。默认视景体是一个中心在原点，边长为 2 的立方体。</p>
 <p><img alt="" src="图形开发/渲染框架/Glut.assets/image-20221110135125560.png|500" /></p>
-<p>默认的正交视图中，点沿着 z 轴投影到 $z=0$ 的平面上。</p>
+<p>默认的正交视图中，点沿着 z 轴投影到 <span class="arithmatex">\(z=0\)</span> 的平面上。</p>
 <p><img alt="" src="image-20221110135256414.png|500" /></p>
 <p>其中投影是利用投影矩阵乘法进行的。OpenGL 是一个状态机，拥有模型视点 modelview、矩阵栈和投影 projection 矩阵栈。</p>
 <p>使用 glMatrixMode 设置矩阵模式，有三种矩阵模式</p>
@@ -17798,7 +17800,7 @@ $$
 <a id="__codelineno-70-20" name="__codelineno-70-20" href="#__codelineno-70-20"></a><span class="w">    </span><span class="n">GLfloat</span><span class="w"> </span><span class="n">z</span>
 <a id="__codelineno-70-21" name="__codelineno-70-21" href="#__codelineno-70-21"></a><span class="p">);</span>
 </code></pre></div>
-<p>由于每次调用函数都会<strong>右乘上变换矩阵</strong>，最后作用于坐标时的变换顺序与函数调用顺序相反。例如依次作用 $T,R,S$ 做平移、旋转和伸缩变换，最终的变换为 $(TRS)v$，其中 $v$ 是坐标。实际产生的变换是伸缩、旋转，最后平移。</p>
+<p>由于每次调用函数都会<strong>右乘上变换矩阵</strong>，最后作用于坐标时的变换顺序与函数调用顺序相反。例如依次作用 <span class="arithmatex">\(T,R,S\)</span> 做平移、旋转和伸缩变换，最终的变换为 <span class="arithmatex">\((TRS)v\)</span>，其中 <span class="arithmatex">\(v\)</span> 是坐标。实际产生的变换是伸缩、旋转，最后平移。</p>
 <h4 id="_43">变换矩阵</h4>
 <p>我们可以直接载入变换矩阵，例如对不同的矩阵模式载入单位阵</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">);</span>
@@ -18053,7 +18055,7 @@ $$
 <div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">posType</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">};</span>
 <a id="__codelineno-86-2" name="__codelineno-86-2" href="#__codelineno-86-2"></a><span class="n">glLightfv</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">,</span><span class="w"> </span><span class="n">GL_POSITION</span><span class="p">,</span><span class="w"> </span><span class="n">posType</span><span class="p">);</span>
 </code></pre></div>
-<p>这里 <code>GL_POSITION</code> 用于指定光源位置，如果第四个分量设为零，则得到方向光源，否则是点光源。如果不指定位置，默认为负 $z$ 方向的方向光源。</p>
+<p>这里 <code>GL_POSITION</code> 用于指定光源位置，如果第四个分量设为零，则得到方向光源，否则是点光源。如果不指定位置，默认为负 <span class="arithmatex">\(z\)</span> 方向的方向光源。</p>
 <h4 id="_49">光源颜色</h4>
 <p>另一些属性，例如设置光源颜色。可以指定</p>
 <ul>
@@ -18077,7 +18079,7 @@ $$
 <li><code>GL_LINEAR_ATTENUATION</code></li>
 <li><code>GL_QUADRATIC_ATTENUATION</code></li>
 </ul>
-<p>三个系数分别对应 $a+bd+cd^2$ 中不同次项的系数。例如</p>
+<p>三个系数分别对应 <span class="arithmatex">\(a+bd+cd^2\)</span> 中不同次项的系数。例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a><span class="n">glLightf</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">,</span><span class="w"> </span><span class="n">GL_CONSTANT_ATTENUATION</span><span class="p">,</span><span class="w"> </span><span class="mf">0.1f</span><span class="p">);</span>
 <a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a><span class="n">glLightf</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">,</span><span class="w"> </span><span class="n">GL_LINEAR_ATTENUATION</span><span class="p">,</span><span class="w"> </span><span class="mf">0.05f</span><span class="p">);</span>
 <a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a><span class="n">glLightf</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">,</span><span class="w"> </span><span class="n">GL_QUADRATIC_ATTENUATION</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01f</span><span class="p">);</span>
@@ -18089,7 +18091,7 @@ $$
 <li><code>GL_SPOT_CUTOFF</code> 圆锥角</li>
 <li><code>GL_SPOT_EXPONENT</code> 衰减因子</li>
 </ul>
-<p>衰减系数为 $\cos^{a_l}\theta$，其中 $\theta$ 是圆锥角，当入射光线与中心方向夹角超过圆锥角，则光源没有照射该点。</p>
+<p>衰减系数为 <span class="arithmatex">\(\cos^{a_l}\theta\)</span>，其中 <span class="arithmatex">\(\theta\)</span> 是圆锥角，当入射光线与中心方向夹角超过圆锥角，则光源没有照射该点。</p>
 <h4 id="_52">表面特征</h4>
 <p>表面反射系数可以指定</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">glMaterialfv</span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">face</span><span class="p">,</span><span class="w"> </span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">GLfloat</span><span class="w"> </span><span class="n">param</span><span class="p">);</span>
@@ -18424,7 +18426,7 @@ $$
 <a id="__codelineno-111-43" name="__codelineno-111-43" href="#__codelineno-111-43"></a><span class="w">    </span><span class="n">glDrawElements</span><span class="p">(</span><span class="n">GL_TRIANGLES</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">GL_UNSIGNED_INT</span><span class="p">,</span><span class="w"> </span><span class="n">ind</span><span class="p">);</span>
 <a id="__codelineno-111-44" name="__codelineno-111-44" href="#__codelineno-111-44"></a><span class="p">}</span>
 </code></pre></div>
-<p>注意每两个 16 进制数占 16 位，因为每个 16 进制数都使用了两位数，最大是 $255=2^8-1$，因此占 8 位。绘制三角形的效果如下</p>
+<p>注意每两个 16 进制数占 16 位，因为每个 16 进制数都使用了两位数，最大是 <span class="arithmatex">\(255=2^8-1\)</span>，因此占 8 位。绘制三角形的效果如下</p>
 <p><img alt="" src="image-20241105211157998.png" /></p>
 <h3 id="_63">纹理映射</h3>
 <h4 id="_64">线纹理</h4>
@@ -18470,10 +18472,10 @@ $$
 </code></pre></div>
 <p>默认的边界颜色是黑色。</p>
 <h4 id="_66">纹理坐标</h4>
-<p>对于一个一维纹理空间，颜色值用跨越纹理空间的 0 到 1 之间的单个 $s$ 坐标指定，通过将纹理坐标赋给对象位置应用纹理。</p>
+<p>对于一个一维纹理空间，颜色值用跨越纹理空间的 0 到 1 之间的单个 <span class="arithmatex">\(s\)</span> 坐标指定，通过将纹理坐标赋给对象位置应用纹理。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-117-1" name="__codelineno-117-1" href="#__codelineno-117-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">glTexCoord1f</span><span class="p">(</span><span class="n">GLfloat</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
 </code></pre></div>
-<p>此函数指定具体的 $s$ 值，默认 $s$ 为 0，通过指定 $s$ 来获得纹理空间中的颜色。</p>
+<p>此函数指定具体的 <span class="arithmatex">\(s\)</span> 值，默认 <span class="arithmatex">\(s\)</span> 为 0，通过指定 <span class="arithmatex">\(s\)</span> 来获得纹理空间中的颜色。</p>
 <p>例如我们指定红绿交替的一维纹理图案</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">init</span><span class="p">()</span>
 <a id="__codelineno-118-2" name="__codelineno-118-2" href="#__codelineno-118-2"></a><span class="p">{</span>
@@ -18507,10 +18509,10 @@ $$
 <a id="__codelineno-118-30" name="__codelineno-118-30" href="#__codelineno-118-30"></a><span class="w">    </span><span class="n">glEnd</span><span class="p">();</span>
 <a id="__codelineno-118-31" name="__codelineno-118-31" href="#__codelineno-118-31"></a><span class="p">}</span>
 </code></pre></div>
-<p>这里我们指定端点颜色分别是 $s=0,s=1$，会<strong>将纹理坐标 0 到 1 之间的颜色映射到线段上</strong>，得到交替的绿色和红色。</p>
+<p>这里我们指定端点颜色分别是 <span class="arithmatex">\(s=0,s=1\)</span>，会<strong>将纹理坐标 0 到 1 之间的颜色映射到线段上</strong>，得到交替的绿色和红色。</p>
 <p><img alt="" src="image-20241105212531093.png" /></p>
 <h4 id="_67">环绕模式</h4>
-<p>可以使用超出单位区间的 $s$ 值，此时超出部分的整数部分被忽略，只考虑小数部分。通过指定超出范围的 $s$ 值，可以实现对纹理图案的压缩和拉伸，例如</p>
+<p>可以使用超出单位区间的 <span class="arithmatex">\(s\)</span> 值，此时超出部分的整数部分被忽略，只考虑小数部分。通过指定超出范围的 <span class="arithmatex">\(s\)</span> 值，可以实现对纹理图案的压缩和拉伸，例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a><span class="n">glBegin</span><span class="p">(</span><span class="n">GL_LINES</span><span class="p">);</span>
 <a id="__codelineno-119-2" name="__codelineno-119-2" href="#__codelineno-119-2"></a><span class="n">glTexCoord1f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">    </span><span class="n">glVertex3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-119-3" name="__codelineno-119-3" href="#__codelineno-119-3"></a><span class="n">glTexCoord1f</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w">    </span><span class="n">glVertex3f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -18528,7 +18530,7 @@ $$
 <p>如果我们不希望重复，则可以设为截取模式，超出纹理范围将按照边界值截取：超过 1 按照 1 截取，小于 0 按照 0 截取</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-122-1" name="__codelineno-122-1" href="#__codelineno-122-1"></a><span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_1D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span><span class="w"> </span><span class="n">GL_CLAMP</span><span class="p">);</span>
 </code></pre></div>
-<p>对于二维纹理，可在 $s,t$ 两个方向上设定为</p>
+<p>对于二维纹理，可在 <span class="arithmatex">\(s,t\)</span> 两个方向上设定为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a><span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span><span class="w"> </span><span class="n">GL_CLAMP</span><span class="p">);</span>
 <a id="__codelineno-123-2" name="__codelineno-123-2" href="#__codelineno-123-2"></a><span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_WRAP_T</span><span class="p">,</span><span class="w"> </span><span class="n">GL_CLAMP</span><span class="p">);</span>
 </code></pre></div>
@@ -19782,14 +19784,14 @@ $$
 <li>把 3D 坐标转换为 2D 坐标</li>
 <li>把 2D 坐标转化为有实际颜色的像素</li>
 </ul>
-<p>OpenGL 中只有 $[-1,1]^3$ 范围内的坐标会被处理，此范围内的坐标称为标准化设备坐标 (NDC)。例如要渲染一个 2D 三角形，指定</p>
+<p>OpenGL 中只有 <span class="arithmatex">\([-1,1]^3\)</span> 范围内的坐标会被处理，此范围内的坐标称为标准化设备坐标 (NDC)。例如要渲染一个 2D 三角形，指定</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-158-1" name="__codelineno-158-1" href="#__codelineno-158-1"></a><span class="kt">float</span><span class="w"> </span><span class="n">vertices</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-158-2" name="__codelineno-158-2" href="#__codelineno-158-2"></a><span class="w">    </span><span class="mf">-0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">-0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span>
 <a id="__codelineno-158-3" name="__codelineno-158-3" href="#__codelineno-158-3"></a><span class="w">     </span><span class="mf">0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">-0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">,</span>
 <a id="__codelineno-158-4" name="__codelineno-158-4" href="#__codelineno-158-4"></a><span class="w">     </span><span class="mf">0.0f</span><span class="p">,</span><span class="w">  </span><span class="mf">0.5f</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0f</span>
 <a id="__codelineno-158-5" name="__codelineno-158-5" href="#__codelineno-158-5"></a><span class="p">};</span>
 </code></pre></div>
-<p>与之前常用的屏幕坐标不同，这里 $(0,0)$ 是窗口中心位置，使用 $x$ 向右、$y$ 向上为正方向。</p>
+<p>与之前常用的屏幕坐标不同，这里 <span class="arithmatex">\((0,0)\)</span> 是窗口中心位置，使用 <span class="arithmatex">\(x\)</span> 向右、<span class="arithmatex">\(y\)</span> 向上为正方向。</p>
 <blockquote>
 <blockquote>
 <p>2 D 坐标是精确的，而实际像素是对坐标的近似。</p>
@@ -20304,7 +20306,7 @@ $$
 $$
 I_d = k_d(l\cdot n)L_d
 $$
-其中 $k_d$ 表示漫反射系数。</p>
+其中 <span class="arithmatex">\(k_d\)</span> 表示漫反射系数。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-199-1" name="__codelineno-199-1" href="#__codelineno-199-1"></a><span class="c1">// 漫反射</span>
 <a id="__codelineno-199-2" name="__codelineno-199-2" href="#__codelineno-199-2"></a><span class="n">vec3</span><span class="w"> </span><span class="n">norm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">Normal</span><span class="p">);</span>
 <a id="__codelineno-199-3" name="__codelineno-199-3" href="#__codelineno-199-3"></a><span class="n">vec3</span><span class="w"> </span><span class="n">lightDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">lightPos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">FragPos</span><span class="p">);</span>
@@ -20316,11 +20318,11 @@ $$
 <p>其中 diff 就是夹角余弦，作为反射因子。</p>
 <p><img alt="" src="image-20221117122619285-1691161719204-16.png|500" /></p>
 <h4 id="_93">镜面反射</h4>
-<p>考虑镜面反射分量时，认为表面是光滑的。观察者所看到的光线强度取决于出射方向 $r$ 和观察者方向 $v$ 的夹角 $\phi$，我们让反射强度随着角度衰减，就得到
+<p>考虑镜面反射分量时，认为表面是光滑的。观察者所看到的光线强度取决于出射方向 <span class="arithmatex">\(r\)</span> 和观察者方向 <span class="arithmatex">\(v\)</span> 的夹角 <span class="arithmatex">\(\phi\)</span>，我们让反射强度随着角度衰减，就得到
 $$
 I_s = k_sL_s\cos^\alpha\phi = k_sL_s\max((r\cdot v)^\alpha,0)
 $$
-其中 $0\le k_s\le 1$ 表示镜面反射系数，$\alpha$ 是高光系数，随着 $\alpha$ 增大，反射光会逐渐靠近出射方向，无限大的 $\alpha$ 对应镜面。</p>
+其中 <span class="arithmatex">\(0\le k_s\le 1\)</span> 表示镜面反射系数，<span class="arithmatex">\(\alpha\)</span> 是高光系数，随着 <span class="arithmatex">\(\alpha\)</span> 增大，反射光会逐渐靠近出射方向，无限大的 <span class="arithmatex">\(\alpha\)</span> 对应镜面。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-200-1" name="__codelineno-200-1" href="#__codelineno-200-1"></a><span class="c1">// 镜面反射</span>
 <a id="__codelineno-200-2" name="__codelineno-200-2" href="#__codelineno-200-2"></a><span class="n">vec3</span><span class="w"> </span><span class="n">viewDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="n">viewPos</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">FragPos</span><span class="p">);</span>
 <a id="__codelineno-200-3" name="__codelineno-200-3" href="#__codelineno-200-3"></a><span class="n">vec3</span><span class="w"> </span><span class="n">reflectDir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">reflect</span><span class="p">(</span><span class="o">-</span><span class="n">lightDir</span><span class="p">,</span><span class="w"> </span><span class="n">norm</span><span class="p">);</span>
@@ -20637,7 +20639,7 @@ $$
 $$
 F(d) = \frac{1}{a+bd+cd^2}
 $$
-通常 $a=1$ 以确保衰减因子不大于 1，其余的参数选取通常如下：</p>
+通常 <span class="arithmatex">\(a=1\)</span> 以确保衰减因子不大于 1，其余的参数选取通常如下：</p>
 <table>
 <thead>
 <tr>
@@ -20745,7 +20747,7 @@ $$
 </blockquote>
 </blockquote>
 <h4 id="_102">聚光</h4>
-<p>聚光灯只朝向给定的方向发射光线，因此只有在其发光方向的特定角度内才能接收到光线。因此可以设置一个夹角 $\phi$ 与入射角 $\theta$ 进行比较，如果超出夹角范围就不能接收光线。</p>
+<p>聚光灯只朝向给定的方向发射光线，因此只有在其发光方向的特定角度内才能接收到光线。因此可以设置一个夹角 <span class="arithmatex">\(\phi\)</span> 与入射角 <span class="arithmatex">\(\theta\)</span> 进行比较，如果超出夹角范围就不能接收光线。</p>
 <p><img alt="" src="light_casters_spotlight_angles.png" /></p>
 <p>但是这样会导致边缘缺少过渡，所以还需要添加一个外圆锥，在内外夹角之间对进行插值。需要传入 3 个参数</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-213-1" name="__codelineno-213-1" href="#__codelineno-213-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Light</span><span class="w"> </span><span class="p">{</span>
@@ -20764,7 +20766,7 @@ $$
 <a id="__codelineno-213-14" name="__codelineno-213-14" href="#__codelineno-213-14"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">outerCutOff</span><span class="p">;</span><span class="w">  </span><span class="c1">// 外圆锥余弦</span>
 <a id="__codelineno-213-15" name="__codelineno-213-15" href="#__codelineno-213-15"></a><span class="p">};</span>
 </code></pre></div>
-<p>比较入射角余弦和内、外圆锥余弦，进行范围插值。使用 clamp 函数限制 $[0,1]$ 值域</p>
+<p>比较入射角余弦和内、外圆锥余弦，进行范围插值。使用 clamp 函数限制 <span class="arithmatex">\([0,1]\)</span> 值域</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-214-1" name="__codelineno-214-1" href="#__codelineno-214-1"></a><span class="c1">// 计算入射角余弦，比较内、外圆锥余弦</span>
 <a id="__codelineno-214-2" name="__codelineno-214-2" href="#__codelineno-214-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">theta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dot</span><span class="p">(</span><span class="n">lightDir</span><span class="p">,</span><span class="w"> </span><span class="n">normalize</span><span class="p">(</span><span class="o">-</span><span class="n">light</span><span class="p">.</span><span class="n">direction</span><span class="p">));</span>
 <a id="__codelineno-214-3" name="__codelineno-214-3" href="#__codelineno-214-3"></a><span class="kt">float</span><span class="w"> </span><span class="n">epsilon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">light</span><span class="p">.</span><span class="n">cutOff</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">light</span><span class="p">.</span><span class="n">outerCutOff</span><span class="p">;</span>
@@ -20839,7 +20841,7 @@ $$
 </tbody>
 </table>
 <h3 id="_107">深度值精度</h3>
-<p>深度缓冲使用 0 到 1 之间的深度值，因此物体坐标深度会变换到 $[0,1]$ 范围内进行比较。例如线性变换
+<p>深度缓冲使用 0 到 1 之间的深度值，因此物体坐标深度会变换到 <span class="arithmatex">\([0,1]\)</span> 范围内进行比较。例如线性变换
 $$
 d = \frac{z-z_{near}}{z_{far}-z_{near}}
 $$
@@ -20854,7 +20856,7 @@ $$
 <p>要防止深度冲突有 3 种主要的方法</p>
 <ol>
 <li>设置微小偏移值，使两个物体实际上不重合</li>
-<li>设置更远的近平面，即更大的 $z_{near}$ 值。不过近平面太远会导致近处的物体被裁剪，因此需要进行实验调整</li>
+<li>设置更远的近平面，即更大的 <span class="arithmatex">\(z_{near}\)</span> 值。不过近平面太远会导致近处的物体被裁剪，因此需要进行实验调整</li>
 <li>使用更高精度的深度缓冲</li>
 </ol>
 <h2 id="_109">模板测试</h2>
@@ -21061,56 +21063,56 @@ $$
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_SRC_COLOR</code></td>
-<td style="text-align: left;">$Color_{src}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(Color_{src}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_ONE_MINUS_SRC_COLOR</code></td>
-<td style="text-align: left;">$1-Color_{src}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1-Color_{src}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_DST_COLOR</code></td>
-<td style="text-align: left;">$Color_{dest}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(Color_{dest}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_ONE_MINUS_DST_COLOR</code></td>
-<td style="text-align: left;">$1-Color_{dest}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1-Color_{dest}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_SRC_ALPHA</code></td>
-<td style="text-align: left;">$Color_{src}\cdot \alpha$</td>
+<td style="text-align: left;"><span class="arithmatex">\(Color_{src}\cdot \alpha\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_ONE_MINUS_SRC_ALPHA</code></td>
-<td style="text-align: left;">$1-Color_{src}\cdot \alpha$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1-Color_{src}\cdot \alpha\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_DST_ALPHA</code></td>
-<td style="text-align: left;">$Color_{dest}\cdot\alpha$</td>
+<td style="text-align: left;"><span class="arithmatex">\(Color_{dest}\cdot\alpha\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_ONE_MINUS_DST_ALPHA</code></td>
-<td style="text-align: left;">$1-Color_{dest}\cdot\alpha$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1-Color_{dest}\cdot\alpha\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_CONSTANT_COLOR</code></td>
-<td style="text-align: left;">$Color_{constant}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(Color_{constant}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_ONE_MINUS_CONSTANT_COLOR</code></td>
-<td style="text-align: left;">$1-Color_{constant}$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1-Color_{constant}\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_CONSTANT_ALPHA</code></td>
-<td style="text-align: left;">$Color_{constant}\cdot\alpha$</td>
+<td style="text-align: left;"><span class="arithmatex">\(Color_{constant}\cdot\alpha\)</span></td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GL_ONE_MINUS_CONSTANT_ALPHA</code></td>
-<td style="text-align: left;">$1-Color_{constant}\cdot\alpha$</td>
+<td style="text-align: left;"><span class="arithmatex">\(1-Color_{constant}\cdot\alpha\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>其中 $Color_{constant}$ 可通过 <code>glBlendColor</code> 函数设置。</p>
-<p>例如根据不透明度 Alpha 进行混合，取 $\alpha,1-\alpha$ 作为混合因子</p>
+<p>其中 <span class="arithmatex">\(Color_{constant}\)</span> 可通过 <code>glBlendColor</code> 函数设置。</p>
+<p>例如根据不透明度 Alpha 进行混合，取 <span class="arithmatex">\(\alpha,1-\alpha\)</span> 作为混合因子</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-232-1" name="__codelineno-232-1" href="#__codelineno-232-1"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_BLEND</span><span class="p">);</span>
 <a id="__codelineno-232-2" name="__codelineno-232-2" href="#__codelineno-232-2"></a><span class="n">glBlendFunc</span><span class="p">(</span><span class="n">GL_SRC_ALPHA</span><span class="p">,</span><span class="w"> </span><span class="n">GL_ONE_MINUS_SRC_ALPHA</span><span class="p">);</span>
 </code></pre></div>
@@ -21574,7 +21576,7 @@ $$
 <p>由于可以直接通过位置向量对纹理进行采样，因此不用传入纹理坐标。</p>
 <blockquote>
 <blockquote>
-<p>由于天空盒作为背景，为了节省开销，应该放到最后再绘制空白部分。要确保它绘制在所有物体的后面，所以我们直接令 $z=w$，这样进行齐次除法后 $z=1$，则它具有最大深度。<strong>这样就可以利用提前深度测试丢掉被覆盖的内容，避免浪费性能</strong>。</p>
+<p>由于天空盒作为背景，为了节省开销，应该放到最后再绘制空白部分。要确保它绘制在所有物体的后面，所以我们直接令 <span class="arithmatex">\(z=w\)</span>，这样进行齐次除法后 <span class="arithmatex">\(z=1\)</span>，则它具有最大深度。<strong>这样就可以利用提前深度测试丢掉被覆盖的内容，避免浪费性能</strong>。</p>
 </blockquote>
 </blockquote>
 <p>然后是片段着色器</p>
@@ -22954,13 +22956,13 @@ $$
 </blockquote>
 </blockquote>
 <h3 id="_161">衰减</h3>
-<p>真实物理世界中，光照按照平方衰减。然而，对于不进行 Gamma 校正的图像，使用平方衰减速度太快，导致局部高亮而周围迅速变暗。这是因为监视器产生的 <code>2.2</code> 次方压缩，导致实际衰减为 $\frac{1}{2^{2.2}}\approx \frac{1}{4.8}$，因此显示效果衰减很快。执行校正后，抵消掉 <code>2.2</code> 次方的压缩，就能够产生正确的平方衰减。</p>
+<p>真实物理世界中，光照按照平方衰减。然而，对于不进行 Gamma 校正的图像，使用平方衰减速度太快，导致局部高亮而周围迅速变暗。这是因为监视器产生的 <code>2.2</code> 次方压缩，导致实际衰减为 <span class="arithmatex">\(\frac{1}{2^{2.2}}\approx \frac{1}{4.8}\)</span>，因此显示效果衰减很快。执行校正后，抵消掉 <code>2.2</code> 次方的压缩，就能够产生正确的平方衰减。</p>
 <p><img alt="" src="image-20240509232158576.png" /></p>
 <h2 id="_162">阴影</h2>
 <h3 id="_163">阴影映射</h3>
 <p>阴影映射能够展现出景深，并且性能成本不高，能够很容易地扩展到高级阴影算法。阴影映射的想法非常直接：考虑从光源发出一条射线，它最先击中的位置标记为蓝色，后击中的位置标记为黑色，这些黑色部分被渲染为阴影。</p>
 <p><img alt="" src="image-20240509234304431.png" /></p>
-<p>但是这样计算效率很高，更方便的方式是从<strong>点光源</strong>视角，计算投射方向上的最小深度，保存为深度缓冲。当需要渲染 $P$ 点时，首先计算其在点光源视角下的深度为 $0.9$，由于它比深度缓冲中的值大，所以判定其为阴影部分。</p>
+<p>但是这样计算效率很高，更方便的方式是从<strong>点光源</strong>视角，计算投射方向上的最小深度，保存为深度缓冲。当需要渲染 <span class="arithmatex">\(P\)</span> 点时，首先计算其在点光源视角下的深度为 <span class="arithmatex">\(0.9\)</span>，由于它比深度缓冲中的值大，所以判定其为阴影部分。</p>
 <p><img alt="" src="image-20240510223210594.png" /></p>
 <h3 id="_164">改进阴影贴图</h3>
 <h4 id="_165">阴影失真</h4>
@@ -23030,6 +23032,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

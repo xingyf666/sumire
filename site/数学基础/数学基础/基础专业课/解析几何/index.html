@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15230,11 +15232,11 @@
 <h1 id="_1">解析几何</h1>
 <h2 id="_2">空间平面</h2>
 <h3 id="_3">平面</h3>
-<p>给定一个法向 $n$ 和一定点 $P_0$，可以唯一确定一个空间平面
+<p>给定一个法向 <span class="arithmatex">\(n\)</span> 和一定点 <span class="arithmatex">\(P_0\)</span>，可以唯一确定一个空间平面
 $$
 (r-r_0)\cdot n= 0
 $$
-其中 $r,r_0$ 分别是平面上的点和 $P_0$ 对应的向量。通过平面上两个不相关向量 $u,v$ 也可以确定一个平面
+其中 <span class="arithmatex">\(r,r_0\)</span> 分别是平面上的点和 <span class="arithmatex">\(P_0\)</span> 对应的向量。通过平面上两个不相关向量 <span class="arithmatex">\(u,v\)</span> 也可以确定一个平面
 $$
 r = r_0 + \lambda u+\mu v,\quad \lambda,\mu\in\mathbb{R}
 $$
@@ -15242,14 +15244,14 @@ $$
 $$
 A(x-x_0)+B(y-y_0)+C(z-z_0) = 0
 $$
-其中 $n=(A,B,C),\overrightarrow{OP_0}=(x_0,y_0,z_0)$，它是平面的一般方程。</p>
-<p>空间中一点 $P$ 到平面的距离为
+其中 <span class="arithmatex">\(n=(A,B,C),\overrightarrow{OP_0}=(x_0,y_0,z_0)\)</span>，它是平面的一般方程。</p>
+<p>空间中一点 <span class="arithmatex">\(P\)</span> 到平面的距离为
 $$
 d = \frac{|(r-r_0)\cdot n|}{|n|}
 $$
-即为 $P,P_0$ 连线在法向上的投影长度。</p>
+即为 <span class="arithmatex">\(P,P_0\)</span> 连线在法向上的投影长度。</p>
 <h3 id="_4">直线</h3>
-<p>给定一个方向 $v$ 和一定点 $P_0$，可以唯一确定一个空间直线
+<p>给定一个方向 <span class="arithmatex">\(v\)</span> 和一定点 <span class="arithmatex">\(P_0\)</span>，可以唯一确定一个空间直线
 $$
 r = r_0+tv,\quad t\in\mathbb{R}
 $$
@@ -15257,20 +15259,20 @@ $$
 $$
 \frac{x-x_0}{l} = \frac{y-y_0}{m} = \frac{z-z_0}{n} = t
 $$
-其中 $v=(l,m,n)$ 是方向，上式称为直线的标准方程。两个平面相交构成直线
+其中 <span class="arithmatex">\(v=(l,m,n)\)</span> 是方向，上式称为直线的标准方程。两个平面相交构成直线
 $$
 \begin{aligned}
 r_1\cdot n_1 + d_1 &amp;= 0\
 r_2\cdot n_2 + d_2 &amp;= 0
 \end{aligned}
 $$
-事实上，如果已知两个平面，可以通过 $n_1\times n_2$ 获得方向向量，容易得到交线方程。</p>
-<p>空间中一点 $P$ 到直线的距离为
+事实上，如果已知两个平面，可以通过 <span class="arithmatex">\(n_1\times n_2\)</span> 获得方向向量，容易得到交线方程。</p>
+<p>空间中一点 <span class="arithmatex">\(P\)</span> 到直线的距离为
 $$
 d = \frac{|(r-r_0)\times v|}{|v|}
 $$
-即为 $P,P_0$ 连线在法向上的投影长度。</p>
-<p>如果要将直线 $r=r_1+tv$ 投影到平面 $(r-r_2)\cdot n=0$ 上，利用内积得到方向
+即为 <span class="arithmatex">\(P,P_0\)</span> 连线在法向上的投影长度。</p>
+<p>如果要将直线 <span class="arithmatex">\(r=r_1+tv\)</span> 投影到平面 <span class="arithmatex">\((r-r_2)\cdot n=0\)</span> 上，利用内积得到方向
 $$
 v_1 = v-\frac{v\cdot n}{|n|^2}n
 $$
@@ -15278,7 +15280,7 @@ $$
 $$
 (r_1-r_2)\cdot n + tv\cdot n = 0
 $$
-如果 $n,v$ 不垂直，则存在唯一交点 $r_1+t_0v$，其中
+如果 <span class="arithmatex">\(n,v\)</span> 不垂直，则存在唯一交点 <span class="arithmatex">\(r_1+t_0v\)</span>，其中
 $$
 t_0 = \frac{(r_2-r_1)\cdot n}{v\cdot n}
 $$
@@ -15286,7 +15288,7 @@ $$
 $$
 r = r_1+\frac{(r_2-r_1)\cdot n}{v\cdot n}v + t\left(v-\frac{v\cdot n}{|n|^2}n\right)
 $$
-如果 $n,v$ 垂直，那么直线可能在平面上，也可能平行于平面。</p>
+如果 <span class="arithmatex">\(n,v\)</span> 垂直，那么直线可能在平面上，也可能平行于平面。</p>
 <p>两条直线可能有四种关系：平行、相交、重合和异面。我们考虑计算两条异面直线的距离，对于直线
 $$
 \begin{aligned}
@@ -15294,7 +15296,7 @@ r &amp;= r_1 +tv_1\
 r &amp;= r_2 + tv_2
 \end{aligned}
 $$
-首先要找到公垂线，可以通过 $v_3=v_1\times v_2$ 得到方向，由于公垂线是两个平面的交线，我们可以先构造两个平面，然后得到交线
+首先要找到公垂线，可以通过 <span class="arithmatex">\(v_3=v_1\times v_2\)</span> 得到方向，由于公垂线是两个平面的交线，我们可以先构造两个平面，然后得到交线
 $$
 \left{
 \begin{aligned}
@@ -15303,18 +15305,18 @@ $$
 \end{aligned}
 \right.
 $$
-含义是 $r-r_1,v_1,v_3$ 向量共面。但其实我们只需要进行投影
+含义是 <span class="arithmatex">\(r-r_1,v_1,v_3\)</span> 向量共面。但其实我们只需要进行投影
 $$
 d = \frac{|(r_1-r_2)\cdot v_3|}{|v_3|}
 $$
-取 $r_1-r_2$ 向量在 $v_3$ 上的投影得到距离。</p>
+取 <span class="arithmatex">\(r_1-r_2\)</span> 向量在 <span class="arithmatex">\(v_3\)</span> 上的投影得到距离。</p>
 <h3 id="_5">平面束</h3>
-<p>空间中平行于同一平面的一族平面称为平行平面束。显然给定平面 $Ax+By+Cz+D=0$，可以得到平行平面束
+<p>空间中平行于同一平面的一族平面称为平行平面束。显然给定平面 <span class="arithmatex">\(Ax+By+Cz+D=0\)</span>，可以得到平行平面束
 $$
 Ax+By+Cz+\lambda = 0,\quad \lambda\in\mathbb{R}
 $$
 空间中通过同一直线的一族平面称为有轴平面束，其中直线称为平面束的轴。</p>
-<p><strong>定理</strong> 设直线 $l$ 的方程为
+<p><strong>定理</strong> 设直线 <span class="arithmatex">\(l\)</span> 的方程为
 $$
 \left{
 \begin{aligned}
@@ -15323,15 +15325,15 @@ A_2x+B_2y+C_2z+D_2=0
 \end{aligned}
 \right.
 $$
-那么通过 $l$ 的平面束为
+那么通过 <span class="arithmatex">\(l\)</span> 的平面束为
 $$
 \lambda_1(A_1x+B_1y+C_1z+D_1) + \lambda_2(A_2x+B_2y+C_2z+D_2) = 0
 $$
-其中 $\lambda_1,\lambda_2$ 不全为零。</p>
+其中 <span class="arithmatex">\(\lambda_1,\lambda_2\)</span> 不全为零。</p>
 <h2 id="_6">空间曲面</h2>
 <h3 id="_7">柱面</h3>
 <p><strong>定义</strong> 由平行于给定方向且与一条定曲线相交的一族平行直线所构成的曲面称为柱面，其中定曲线称为准线，每条直线称为直母线，定方向称为直母线方向或柱面方向。</p>
-<p>设准线 $C:r(u)=(f(u),g(u),h(u)),u\in[a,b]$，柱面方向 $a=(l,m,n)$，则柱面的向量式参数方程为
+<p>设准线 <span class="arithmatex">\(C:r(u)=(f(u),g(u),h(u)),u\in[a,b]\)</span>，柱面方向 <span class="arithmatex">\(a=(l,m,n)\)</span>，则柱面的向量式参数方程为
 $$
 X(u,v) = r(u) + va,\quad u\in[a,b],v\in\mathbb{R}
 $$
@@ -15339,24 +15341,24 @@ $$
 $$
 \frac{x^2}{a^2}+\frac{y^2}{b^2}=1,\quad \frac{x^2}{a^2}-\frac{y^2}{b^2}=1,\quad x^2=2pz
 $$
-分别表示母线平行于 $z,z,y$ 轴的柱面，分别称为椭圆柱面、双曲柱面和抛物柱面。</p>
-<p>如果已知准线的一般方程和柱面方向，可以任取柱面上的点 $(x,y,z)$，过该点的母线与准线有一个交点 $(x_1,y_1,z_1)$，则该母线为
+分别表示母线平行于 <span class="arithmatex">\(z,z,y\)</span> 轴的柱面，分别称为椭圆柱面、双曲柱面和抛物柱面。</p>
+<p>如果已知准线的一般方程和柱面方向，可以任取柱面上的点 <span class="arithmatex">\((x,y,z)\)</span>，过该点的母线与准线有一个交点 <span class="arithmatex">\((x_1,y_1,z_1)\)</span>，则该母线为
 $$
 \frac{x-x_1}{l}=\frac{y-y_1}{m}=\frac{z-z_1}{n} = t
 $$
-由于 $(x_1,y_1,z_1)$ 满足准线方程，结合两式可以消去 $x_1,y_1,z_1,t$ 得到柱面方程；如果已知柱面上的点和轴的方程，可以利用柱面特性，计算该点到轴的距离，则柱面方程就是到轴距离相等的所有点的方程。</p>
+由于 <span class="arithmatex">\((x_1,y_1,z_1)\)</span> 满足准线方程，结合两式可以消去 <span class="arithmatex">\(x_1,y_1,z_1,t\)</span> 得到柱面方程；如果已知柱面上的点和轴的方程，可以利用柱面特性，计算该点到轴的距离，则柱面方程就是到轴距离相等的所有点的方程。</p>
 <h3 id="_8">锥面</h3>
-<p><strong>定义</strong> 过定点 $M_0$ 且与不过 $M_0$ 的定曲线相交的一族直线构成的曲面称为锥面，其中每条直线称为母线，定曲线称为准线，定点称为锥面的顶点，简称为锥顶。特别地，如果准线是某个平面上的圆，且锥顶与该圆圆心连线与该平面正交，则得到圆锥面。</p>
-<p>设准线 $C:r(u)=(f(u),g(u),h(u)),u\in[a,b]$，向径 $r_0=(x_0,y_0,z_0)$，则锥面的向量式参数方程为
+<p><strong>定义</strong> 过定点 <span class="arithmatex">\(M_0\)</span> 且与不过 <span class="arithmatex">\(M_0\)</span> 的定曲线相交的一族直线构成的曲面称为锥面，其中每条直线称为母线，定曲线称为准线，定点称为锥面的顶点，简称为锥顶。特别地，如果准线是某个平面上的圆，且锥顶与该圆圆心连线与该平面正交，则得到圆锥面。</p>
+<p>设准线 <span class="arithmatex">\(C:r(u)=(f(u),g(u),h(u)),u\in[a,b]\)</span>，向径 <span class="arithmatex">\(r_0=(x_0,y_0,z_0)\)</span>，则锥面的向量式参数方程为
 $$
 X(u,v) = r_0+v(r(u)-r_0),\quad u\in[a,b],v\in\mathbb{R}
 $$
-如果已知准线的一般方程和锥顶，可以考虑锥面上的点 $(x,y,z)$ 与锥顶的直线与准线交于 $(x_1,y_1,z_1)$，联立准线方程和直线方程可以消去 $x_1,y_1,z_1,t$ 得到锥面方程。</p>
-<p><strong>定义</strong> 若给定 $n\in\mathbb{R}$，函数 $F(x,y,z)$ 满足 $F(tx,ty,tz)=t^nF(x,y,z)$，则称 $F(x,y,z)$ 是 $n$ 次齐次函数，$F(x,y,z)=0$ 称为 $n$ 次齐次方程。</p>
-<p><strong>定理</strong> 关于 $x,y,z$ 的 $n$ 次齐次方程表示以坐标原点为顶点的锥面。</p>
-<p><strong>证明</strong> 由齐次形式易得 $F(0,0,0)=0$，从而过原点。任取曲面上的点 $(x,y,z)$，则它与原点的连线为 $r(t)=(tx,ty,tz)$，从而连线上所有点都在曲面上，因此它是锥面。</p>
+如果已知准线的一般方程和锥顶，可以考虑锥面上的点 <span class="arithmatex">\((x,y,z)\)</span> 与锥顶的直线与准线交于 <span class="arithmatex">\((x_1,y_1,z_1)\)</span>，联立准线方程和直线方程可以消去 <span class="arithmatex">\(x_1,y_1,z_1,t\)</span> 得到锥面方程。</p>
+<p><strong>定义</strong> 若给定 <span class="arithmatex">\(n\in\mathbb{R}\)</span>，函数 <span class="arithmatex">\(F(x,y,z)\)</span> 满足 <span class="arithmatex">\(F(tx,ty,tz)=t^nF(x,y,z)\)</span>，则称 <span class="arithmatex">\(F(x,y,z)\)</span> 是 <span class="arithmatex">\(n\)</span> 次齐次函数，<span class="arithmatex">\(F(x,y,z)=0\)</span> 称为 <span class="arithmatex">\(n\)</span> 次齐次方程。</p>
+<p><strong>定理</strong> 关于 <span class="arithmatex">\(x,y,z\)</span> 的 <span class="arithmatex">\(n\)</span> 次齐次方程表示以坐标原点为顶点的锥面。</p>
+<p><strong>证明</strong> 由齐次形式易得 <span class="arithmatex">\(F(0,0,0)=0\)</span>，从而过原点。任取曲面上的点 <span class="arithmatex">\((x,y,z)\)</span>，则它与原点的连线为 <span class="arithmatex">\(r(t)=(tx,ty,tz)\)</span>，从而连线上所有点都在曲面上，因此它是锥面。</p>
 <h3 id="_9">旋转面</h3>
-<p><strong>定义</strong> 一条曲线 $C$ 绕一条定直线 $l$ 旋转所产生的曲面称为旋转面，其中曲线称为母线，定直线称为旋转轴。过旋转面上任一点作垂直于旋转轴的平面，它与旋转面的交线是一个圆，该圆称为旋转面的纬圆或纬线，过旋转轴并以旋转轴为界的半平面与旋转面的交线称为旋转面的母线或经线。</p>
+<p><strong>定义</strong> 一条曲线 <span class="arithmatex">\(C\)</span> 绕一条定直线 <span class="arithmatex">\(l\)</span> 旋转所产生的曲面称为旋转面，其中曲线称为母线，定直线称为旋转轴。过旋转面上任一点作垂直于旋转轴的平面，它与旋转面的交线是一个圆，该圆称为旋转面的纬圆或纬线，过旋转轴并以旋转轴为界的半平面与旋转面的交线称为旋转面的母线或经线。</p>
 <p>设旋转面的母线为
 $$
 C:\left{
@@ -15366,17 +15368,17 @@ G(x,y,z) = 0
 \end{aligned}
 \right.
 $$
-旋转轴 $l$ 方程为
+旋转轴 <span class="arithmatex">\(l\)</span> 方程为
 $$
 \frac{x-x_0}{l}=\frac{y-y_0}{m}=\frac{z-z_0}{n}
 $$
-取旋转面上点 $(x,y,z)$，考虑过该点的纬圆与母线交于 $(x_1,y_1,z_1)$，由于纬圆是到 $l$ 距离相等的点的集合，容易给出它的方程。联立母线方程消去 $(x_1,y_1,z_1)$ 就得到旋转面方程。</p>
+取旋转面上点 <span class="arithmatex">\((x,y,z)\)</span>，考虑过该点的纬圆与母线交于 <span class="arithmatex">\((x_1,y_1,z_1)\)</span>，由于纬圆是到 <span class="arithmatex">\(l\)</span> 距离相等的点的集合，容易给出它的方程。联立母线方程消去 <span class="arithmatex">\((x_1,y_1,z_1)\)</span> 就得到旋转面方程。</p>
 <h3 id="_10">其它二次曲面</h3>
 <p>由方程
 $$
 \frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1,\quad a,b,c&gt;0
 $$
-确定的曲面称为椭球面，当 $a,b,c$ 有两个相同时是旋转椭球面。</p>
+确定的曲面称为椭球面，当 <span class="arithmatex">\(a,b,c\)</span> 有两个相同时是旋转椭球面。</p>
 <p>由方程
 $$
 \frac{x^2}{a^2}+\frac{y^2}{b^2}-\frac{z^2}{c^2}=1,\quad a,b,c&gt;0
@@ -15403,61 +15405,61 @@ $$
 <p><img alt="" src="image-20260115144620099.png" /></p>
 <h2 id="_11">射影几何</h2>
 <h3 id="_12">动机</h3>
-<p>考虑空间中过 $O$ 点的所有直线，这些直线通常与两个相交平面 $\pi_{0},\pi_{1}$ 交于两点 $P,P'$，我们将平面 $\pi_{0}$ 上的点 $P$ 变为平面 $\pi_{1}$ 上的点 $P'$ 的法则称为平面 $\pi_{0}$ 到 $\pi_{1}$ 上以 $O$ 为投影中心的<strong>中心投影</strong>。显然，在中心投影下，点的共线关系仍然保持。但是在两个特殊情况下</p>
+<p>考虑空间中过 <span class="arithmatex">\(O\)</span> 点的所有直线，这些直线通常与两个相交平面 <span class="arithmatex">\(\pi_{0},\pi_{1}\)</span> 交于两点 <span class="arithmatex">\(P,P'\)</span>，我们将平面 <span class="arithmatex">\(\pi_{0}\)</span> 上的点 <span class="arithmatex">\(P\)</span> 变为平面 <span class="arithmatex">\(\pi_{1}\)</span> 上的点 <span class="arithmatex">\(P'\)</span> 的法则称为平面 <span class="arithmatex">\(\pi_{0}\)</span> 到 <span class="arithmatex">\(\pi_{1}\)</span> 上以 <span class="arithmatex">\(O\)</span> 为投影中心的<strong>中心投影</strong>。显然，在中心投影下，点的共线关系仍然保持。但是在两个特殊情况下</p>
 <ul>
-<li>与 $\pi_{1}$ 平行：此时 $P=M$ 没有像</li>
-<li>与 $\pi_{0}$ 平行：此时 $P'=N$ 没有原像</li>
+<li>与 <span class="arithmatex">\(\pi_{1}\)</span> 平行：此时 <span class="arithmatex">\(P=M\)</span> 没有像</li>
+<li>与 <span class="arithmatex">\(\pi_{0}\)</span> 平行：此时 <span class="arithmatex">\(P'=N\)</span> 没有原像</li>
 </ul>
-<p>要让中心投影成为双射，就要在 $\pi_{0},\pi_{1}$ 上添加额外的点，得到<strong>射影平面</strong>。</p>
+<p>要让中心投影成为双射，就要在 <span class="arithmatex">\(\pi_{0},\pi_{1}\)</span> 上添加额外的点，得到<strong>射影平面</strong>。</p>
 <p><img alt="" src="image-20260115144949850.png|300" /></p>
 <h3 id="_13">射影平面</h3>
 <h4 id="_14">扩大的欧氏平面</h4>
-<p>基本的几何元素是点、直线、平面。点 $P$ 在直线 $l$ 上，或直线 $l$ 经过点 $P$ 时，称 $P$ 与 $l$ 关联。类似地，点 $P$ 在平面 $\pi$ 上，或平面 $\pi$ 经过点 $P$ 时，称 $\pi$ 与 $P$ 关联。显然，关联是对称关系。</p>
+<p>基本的几何元素是点、直线、平面。点 <span class="arithmatex">\(P\)</span> 在直线 <span class="arithmatex">\(l\)</span> 上，或直线 <span class="arithmatex">\(l\)</span> 经过点 <span class="arithmatex">\(P\)</span> 时，称 <span class="arithmatex">\(P\)</span> 与 <span class="arithmatex">\(l\)</span> 关联。类似地，点 <span class="arithmatex">\(P\)</span> 在平面 <span class="arithmatex">\(\pi\)</span> 上，或平面 <span class="arithmatex">\(\pi\)</span> 经过点 <span class="arithmatex">\(P\)</span> 时，称 <span class="arithmatex">\(\pi\)</span> 与 <span class="arithmatex">\(P\)</span> 关联。显然，关联是对称关系。</p>
 <blockquote>
 <p>[!definition]
-平面 $\pi$ 可以看作点与直线的集合，记为 $\pi=[P,l]$；与点 $O$ 关联的所有平面和直线的几何称为中心为 $O$ 的把，记为 $O=[\lambda,p]$ 。</p>
+平面 <span class="arithmatex">\(\pi\)</span> 可以看作点与直线的集合，记为 <span class="arithmatex">\(\pi=[P,l]\)</span>；与点 <span class="arithmatex">\(O\)</span> 关联的所有平面和直线的几何称为中心为 <span class="arithmatex">\(O\)</span> 的把，记为 <span class="arithmatex">\(O=[\lambda,p]\)</span> 。</p>
 </blockquote>
-<p>设点 $O$ 不在平面 $\pi$ 上，则</p>
+<p>设点 <span class="arithmatex">\(O\)</span> 不在平面 <span class="arithmatex">\(\pi\)</span> 上，则</p>
 <ul>
-<li>$\pi$ 上每个点 $P$ 决定了把 $O$ 中的一条直线 $OP$</li>
-<li>$\pi$ 上每条直线 $l$ 决定了把 $O$ 中的一张平面 $Ol$</li>
+<li><span class="arithmatex">\(\pi\)</span> 上每个点 <span class="arithmatex">\(P\)</span> 决定了把 <span class="arithmatex">\(O\)</span> 中的一条直线 <span class="arithmatex">\(OP\)</span></li>
+<li><span class="arithmatex">\(\pi\)</span> 上每条直线 <span class="arithmatex">\(l\)</span> 决定了把 <span class="arithmatex">\(O\)</span> 中的一张平面 <span class="arithmatex">\(Ol\)</span></li>
 </ul>
-<p>这种平面 $\pi$ 到把 $O$ 的映射关系称为 $\pi$ 在把 $O$ 上的<strong>射影</strong>，记为
+<p>这种平面 <span class="arithmatex">\(\pi\)</span> 到把 <span class="arithmatex">\(O\)</span> 的映射关系称为 <span class="arithmatex">\(\pi\)</span> 在把 <span class="arithmatex">\(O\)</span> 上的<strong>射影</strong>，记为
 $$
 O[P,l] = [OP,Ol]
 $$
-反过来，从把 $O$ 到平面 $\pi$ 的映射关系称为把 $O$ 在 $\pi$ 上的<strong>截影</strong>，记为
+反过来，从把 <span class="arithmatex">\(O\)</span> 到平面 <span class="arithmatex">\(\pi\)</span> 的映射关系称为把 <span class="arithmatex">\(O\)</span> 在 <span class="arithmatex">\(\pi\)</span> 上的<strong>截影</strong>，记为
 $$
 \pi[\lambda,p]=[\pi \lambda,\pi p]
 $$
 于是，中心投影可以分解为射影和截影：</p>
 <ol>
-<li>平面 $\pi_{0}$ 在 $O$ 上射影，即 $\pi_{0}$ 上的点决定 $O$ 中的直线 $P\mapsto OP$</li>
-<li>$O$ 在平面 $\pi_{1}$ 上截影，即 $O$ 中的直线决定 $\pi_{1}$ 中的点 $OP\mapsto P'$</li>
+<li>平面 <span class="arithmatex">\(\pi_{0}\)</span> 在 <span class="arithmatex">\(O\)</span> 上射影，即 <span class="arithmatex">\(\pi_{0}\)</span> 上的点决定 <span class="arithmatex">\(O\)</span> 中的直线 <span class="arithmatex">\(P\mapsto OP\)</span></li>
+<li><span class="arithmatex">\(O\)</span> 在平面 <span class="arithmatex">\(\pi_{1}\)</span> 上截影，即 <span class="arithmatex">\(O\)</span> 中的直线决定 <span class="arithmatex">\(\pi_{1}\)</span> 中的点 <span class="arithmatex">\(OP\mapsto P'\)</span></li>
 </ol>
-<p>因此中心投影是两者的复合。把 $O$ 中的某些直线在截影下没有像，某些直线在射影下没有原像，是因为<strong>欧氏平面的结构与把的结构不同</strong>。</p>
-<p>在截影下没有像的直线构成一张平面 $\pi_{0}'$，因此</p>
+<p>因此中心投影是两者的复合。把 <span class="arithmatex">\(O\)</span> 中的某些直线在截影下没有像，某些直线在射影下没有原像，是因为<strong>欧氏平面的结构与把的结构不同</strong>。</p>
+<p>在截影下没有像的直线构成一张平面 <span class="arithmatex">\(\pi_{0}'\)</span>，因此</p>
 <ul>
-<li>需要在 $\pi_{0}$ 上加入一条直线与 $\pi_{0}'$ 对应</li>
-<li>需要在 $\pi_{0}$ 上加入一些点与 $\pi_{0}'$ 上的直线对应</li>
+<li>需要在 <span class="arithmatex">\(\pi_{0}\)</span> 上加入一条直线与 <span class="arithmatex">\(\pi_{0}'\)</span> 对应</li>
+<li>需要在 <span class="arithmatex">\(\pi_{0}\)</span> 上加入一些点与 <span class="arithmatex">\(\pi_{0}'\)</span> 上的直线对应</li>
 </ul>
-<p>考虑 $\pi_{0}$ 上的一条直线 $l$ 在 $O$ 中确定一张平面与 $\pi_{0}'$ 相交于直线 $l'$，因此</p>
+<p>考虑 <span class="arithmatex">\(\pi_{0}\)</span> 上的一条直线 <span class="arithmatex">\(l\)</span> 在 <span class="arithmatex">\(O\)</span> 中确定一张平面与 <span class="arithmatex">\(\pi_{0}'\)</span> 相交于直线 <span class="arithmatex">\(l'\)</span>，因此</p>
 <ul>
-<li>在 $\pi_{0}$ 上加入一条<strong>无穷远直线</strong> $l_{\infty}$ 与 $\pi_{0}'$ 对应</li>
-<li>在 $l$ 上加入一个<strong>无穷远点</strong> $P_{\infty}$ 与 $l'$ 对应</li>
+<li>在 <span class="arithmatex">\(\pi_{0}\)</span> 上加入一条<strong>无穷远直线</strong> <span class="arithmatex">\(l_{\infty}\)</span> 与 <span class="arithmatex">\(\pi_{0}'\)</span> 对应</li>
+<li>在 <span class="arithmatex">\(l\)</span> 上加入一个<strong>无穷远点</strong> <span class="arithmatex">\(P_{\infty}\)</span> 与 <span class="arithmatex">\(l'\)</span> 对应</li>
 </ul>
-<p>注意 $\pi$ 上的直线在 $O$ 中确定的平面与 $\pi_{0}'$ 相交于直线 $l'$ 当且仅当它与 $l$ 平行，因此</p>
+<p>注意 <span class="arithmatex">\(\pi\)</span> 上的直线在 <span class="arithmatex">\(O\)</span> 中确定的平面与 <span class="arithmatex">\(\pi_{0}'\)</span> 相交于直线 <span class="arithmatex">\(l'\)</span> 当且仅当它与 <span class="arithmatex">\(l\)</span> 平行，因此</p>
 <blockquote>
 <p>[!proposition]
 平行直线有相同的无穷远点；不平行直线有不同的无穷远点。</p>
 </blockquote>
-<p>由于每个无穷远点对应的直线都在 $\pi_{0}'$ 上，所以规定无穷远点都在无穷远直线上。</p>
+<p>由于每个无穷远点对应的直线都在 <span class="arithmatex">\(\pi_{0}'\)</span> 上，所以规定无穷远点都在无穷远直线上。</p>
 <p><img alt="" src="image-20260115152242928.png|300" /></p>
 <blockquote>
 <p>[!definition]
-补充了无穷远点和无穷远直线的欧氏平面称为扩大的欧氏平面，记为 $\bar{\pi}_{0}$ 。</p>
+补充了无穷远点和无穷远直线的欧氏平面称为扩大的欧氏平面，记为 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 。</p>
 </blockquote>
-<p>显然，$\bar{\pi}_{0}$ 中的点与直线的关联关系映射到把 $O$ 中得到的直线与平面的关联关系保持不变，于是</p>
+<p>显然，<span class="arithmatex">\(\bar{\pi}_{0}\)</span> 中的点与直线的关联关系映射到把 <span class="arithmatex">\(O\)</span> 中得到的直线与平面的关联关系保持不变，于是</p>
 <blockquote>
 <p>[!proposition]
 扩大的欧氏平面的结构与把的结构相同。</p>
@@ -15465,14 +15467,14 @@ $$
 <h4 id="_15">射影平面</h4>
 <blockquote>
 <p>[!definition]
-给定 $S$ 是两类元素——点、直线——的集合，把 $O$ 定义在欧氏空间中。若 $S$ 中的点与直线之间定义了关联关系，并且 $S$ 中的点与 $O$ 中的直线双射对应，$S$ 中的直线与 $O$ 中的平面双射对应，并且这种对应保持关联关系不变，则称 $S$ 是射影平面。</p>
+给定 <span class="arithmatex">\(S\)</span> 是两类元素——点、直线——的集合，把 <span class="arithmatex">\(O\)</span> 定义在欧氏空间中。若 <span class="arithmatex">\(S\)</span> 中的点与直线之间定义了关联关系，并且 <span class="arithmatex">\(S\)</span> 中的点与 <span class="arithmatex">\(O\)</span> 中的直线双射对应，<span class="arithmatex">\(S\)</span> 中的直线与 <span class="arithmatex">\(O\)</span> 中的平面双射对应，并且这种对应保持关联关系不变，则称 <span class="arithmatex">\(S\)</span> 是射影平面。</p>
 </blockquote>
 <p>根据定义，我们有</p>
 <ul>
-<li>把 $O$ 本身是一个射影平面：称 $O$ 中的“直线”为“点”，“平面”为“直线”</li>
-<li>球面是一个射影平面：以球心建立把 $O$，将球面上直径相对的两点称为“点”，大圆称为“直线”，则球面上的“点”与过 $O$ 的直线双射对应，球面上的“直线”与过 $O$ 的平面双射对应</li>
+<li>把 <span class="arithmatex">\(O\)</span> 本身是一个射影平面：称 <span class="arithmatex">\(O\)</span> 中的“直线”为“点”，“平面”为“直线”</li>
+<li>球面是一个射影平面：以球心建立把 <span class="arithmatex">\(O\)</span>，将球面上直径相对的两点称为“点”，大圆称为“直线”，则球面上的“点”与过 <span class="arithmatex">\(O\)</span> 的直线双射对应，球面上的“直线”与过 <span class="arithmatex">\(O\)</span> 的平面双射对应</li>
 </ul>
-<p>由于把 $O$ 中两条不同的直线唯一确定经过它们的平面；反之，两个不同的平面相交于唯一的一条直线。于是，在射影平面上</p>
+<p>由于把 <span class="arithmatex">\(O\)</span> 中两条不同的直线唯一确定经过它们的平面；反之，两个不同的平面相交于唯一的一条直线。于是，在射影平面上</p>
 <ol>
 <li>两个“点”必与唯一的一条“直线”关联</li>
 <li>两条“直线”必与唯一的一个“点”关联</li>
@@ -15482,7 +15484,7 @@ $$
 <p>[!proposition]
 在射影平面上，两个“点”确定一条“直线”，两条“直线”总是相交于一个“点”，平行的概念在射影平面上没有意义。</p>
 </blockquote>
-<p>在射影平面上，直线总是封闭的。例如，考虑平面 $\pi_{0}$ 上的两个点 $P_{0},P_{1}$，它们沿着一条直线朝两端移动到无穷远，则 $P_{0},P_{1}$ 在射影平面上对应的两条直线趋于相同，即 $\bar{\pi}_{0}$ 上同一直线上的两个点沿着相反方向远离时达到同一个无穷远点。</p>
+<p>在射影平面上，直线总是封闭的。例如，考虑平面 <span class="arithmatex">\(\pi_{0}\)</span> 上的两个点 <span class="arithmatex">\(P_{0},P_{1}\)</span>，它们沿着一条直线朝两端移动到无穷远，则 <span class="arithmatex">\(P_{0},P_{1}\)</span> 在射影平面上对应的两条直线趋于相同，即 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上同一直线上的两个点沿着相反方向远离时达到同一个无穷远点。</p>
 <p><img alt="" src="image-20260116010209362.png|300" /></p>
 <blockquote>
 <blockquote>
@@ -15490,25 +15492,25 @@ $$
 </blockquote>
 </blockquote>
 <h4 id="_16">齐次坐标</h4>
-<p>取扩大的欧氏平面 $\bar{\pi}<em>{0}$ 作为射影平面的代表。注意到 $\bar{\pi}</em>{0}$ 中的点与把 $O$ 中的直线双射对应，而 $O$ 中的直线由方向唯一确定，于是有</p>
+<p>取扩大的欧氏平面 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 作为射影平面的代表。注意到 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 中的点与把 <span class="arithmatex">\(O\)</span> 中的直线双射对应，而 <span class="arithmatex">\(O\)</span> 中的直线由方向唯一确定，于是有</p>
 <blockquote>
 <p>[!definition]
-在欧氏平面 $\pi_{0}$ 上取仿射标架 $[O_{1};e_{1},e_{2}]$，在 $\pi_{0}$ 外任取一点 $O$，令 $e_{3}=\overrightarrow{OO_{1}}$，则 $\pi_{0}$ 上任意一点 $M$ 在仿射标架 $[O;e_{1},e_{2},e_{3}]$ 下的坐标 $(x_{1},x_{2},x_{3})$ 称为 $M$ 在 $[O_{1};e_{1},e_{2}]$ 下的齐次仿射坐标，简称为齐次坐标。</p>
+在欧氏平面 <span class="arithmatex">\(\pi_{0}\)</span> 上取仿射标架 <span class="arithmatex">\([O_{1};e_{1},e_{2}]\)</span>，在 <span class="arithmatex">\(\pi_{0}\)</span> 外任取一点 <span class="arithmatex">\(O\)</span>，令 <span class="arithmatex">\(e_{3}=\overrightarrow{OO_{1}}\)</span>，则 <span class="arithmatex">\(\pi_{0}\)</span> 上任意一点 <span class="arithmatex">\(M\)</span> 在仿射标架 <span class="arithmatex">\([O;e_{1},e_{2},e_{3}]\)</span> 下的坐标 <span class="arithmatex">\((x_{1},x_{2},x_{3})\)</span> 称为 <span class="arithmatex">\(M\)</span> 在 <span class="arithmatex">\([O_{1};e_{1},e_{2}]\)</span> 下的齐次仿射坐标，简称为齐次坐标。</p>
 </blockquote>
-<p>之所以称为“齐次”，是因为 $\pi_{0}$ 上的点 $M$ 与把 $O$ 中的直线 $l$ 对应，因此 $(\lambda x_{1},\lambda x_{2},\lambda x_{3}),\lambda\neq 0$ 对应的还是同一个点（直线）。</p>
+<p>之所以称为“齐次”，是因为 <span class="arithmatex">\(\pi_{0}\)</span> 上的点 <span class="arithmatex">\(M\)</span> 与把 <span class="arithmatex">\(O\)</span> 中的直线 <span class="arithmatex">\(l\)</span> 对应，因此 <span class="arithmatex">\((\lambda x_{1},\lambda x_{2},\lambda x_{3}),\lambda\neq 0\)</span> 对应的还是同一个点（直线）。</p>
 <p><img alt="" src="image-20260116002319561.png|300" /></p>
-<p>显然，平面 $\pi_{0}$ 在 $[O;e_{1},e_{2},e_{3}]$ 下的方程是 $z=1$，因此通常点 $M$ 对应的齐次坐标中 $x_{3}\neq 0$，而无穷远点对应的齐次坐标中 $x_{3}=0,x_{1}x_{2}\neq 0$ 。</p>
+<p>显然，平面 <span class="arithmatex">\(\pi_{0}\)</span> 在 <span class="arithmatex">\([O;e_{1},e_{2},e_{3}]\)</span> 下的方程是 <span class="arithmatex">\(z=1\)</span>，因此通常点 <span class="arithmatex">\(M\)</span> 对应的齐次坐标中 <span class="arithmatex">\(x_{3}\neq 0\)</span>，而无穷远点对应的齐次坐标中 <span class="arithmatex">\(x_{3}=0,x_{1}x_{2}\neq 0\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>由于只需要通过 $x_{3}=0,1$ 来区分无穷远点和通常点，而 $e_{1},e_{2}$ 完全由标架 $[O_{1};e_{1},e_{2}]$ 确定，因此齐次坐标与 $O$ 的选取无关，完全由标架 $[O_{1};e_{1},e_{2}]$ 确定。</p>
+<p>由于只需要通过 <span class="arithmatex">\(x_{3}=0,1\)</span> 来区分无穷远点和通常点，而 <span class="arithmatex">\(e_{1},e_{2}\)</span> 完全由标架 <span class="arithmatex">\([O_{1};e_{1},e_{2}]\)</span> 确定，因此齐次坐标与 <span class="arithmatex">\(O\)</span> 的选取无关，完全由标架 <span class="arithmatex">\([O_{1};e_{1},e_{2}]\)</span> 确定。</p>
 </blockquote>
 </blockquote>
 <h4 id="_17">直线方程</h4>
-<p>由于 $\bar{\pi}<em>{0}$ 上每个点都有齐次坐标，因此每条直线可以表示为齐次坐标的方程。例如取
+<p>由于 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上每个点都有齐次坐标，因此每条直线可以表示为齐次坐标的方程。例如取
 $$
-A=(a</em>{1},a_{2},a_{3}),\quad B=(b_{1},b_{2},b_{3}),\quad M=(x_{1},x_{2},x_{3})
+A=(a_{1},a_{2},a_{3}),\quad B=(b_{1},b_{2},b_{3}),\quad M=(x_{1},x_{2},x_{3})
 $$
-设 $M,A,B$ 在把 $O$ 中对应直线 $l_{0},l_{1},l_{2}$，而
+设 <span class="arithmatex">\(M,A,B\)</span> 在把 <span class="arithmatex">\(O\)</span> 中对应直线 <span class="arithmatex">\(l_{0},l_{1},l_{2}\)</span>，而
 $$
 \begin{aligned}
 v_{0} &amp;= (x_{1},x_{2},x_{3})\
@@ -15516,7 +15518,7 @@ v_{1} &amp;= (a_{1},a_{2},a_{3})\
 v_{2} &amp;= (b_{1},b_{2},b_{3})
 \end{aligned}
 $$
-分别是 $l_{0},l_{1},l_{2}$ 的方向向量。于是，$M$ 在直线 $AB$ 上的充要条件是 $l_{0},l_{1},l_{2}$ 共面。由于 $l_{0},l_{1},l_{2}$ 同时过 $O$，则只需要 $v_{0},v_{1},v_{2}$ 共面，即
+分别是 <span class="arithmatex">\(l_{0},l_{1},l_{2}\)</span> 的方向向量。于是，<span class="arithmatex">\(M\)</span> 在直线 <span class="arithmatex">\(AB\)</span> 上的充要条件是 <span class="arithmatex">\(l_{0},l_{1},l_{2}\)</span> 共面。由于 <span class="arithmatex">\(l_{0},l_{1},l_{2}\)</span> 同时过 <span class="arithmatex">\(O\)</span>，则只需要 <span class="arithmatex">\(v_{0},v_{1},v_{2}\)</span> 共面，即
 $$
 \begin{cases}
 x_{1}=\lambda a_{1}+\mu b_{1} \
@@ -15550,13 +15552,13 @@ a_{2} &amp; b_{2}
 \end{vmatrix}
 \end{aligned}
 $$
-由于 $A,B$ 互异，因此 $(a_{1},a_{2},a_{3}),(b_{1},b_{2},b_{3})$ 不成比例，从而 $\eta_{1},\eta_{2},\eta_{3}$ 不全为零。这表明直线 $AB$ 在齐次坐标中表示为三元一次方程。</p>
+由于 <span class="arithmatex">\(A,B\)</span> 互异，因此 <span class="arithmatex">\((a_{1},a_{2},a_{3}),(b_{1},b_{2},b_{3})\)</span> 不成比例，从而 <span class="arithmatex">\(\eta_{1},\eta_{2},\eta_{3}\)</span> 不全为零。这表明直线 <span class="arithmatex">\(AB\)</span> 在齐次坐标中表示为三元一次方程。</p>
 <blockquote>
 <blockquote>
-<p>由于无穷远直线由无穷远点组成，而所有无穷远点表示为 $(x_{1},x_{2},0)$，则无穷远直线方程为 $x_{3}=0$ 。</p>
+<p>由于无穷远直线由无穷远点组成，而所有无穷远点表示为 <span class="arithmatex">\((x_{1},x_{2},0)\)</span>，则无穷远直线方程为 <span class="arithmatex">\(x_{3}=0\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p>根据上面 $M,A,B$ 关系的分析，则 $M,A,B$ 共线的充要条件是
+<p>根据上面 <span class="arithmatex">\(M,A,B\)</span> 关系的分析，则 <span class="arithmatex">\(M,A,B\)</span> 共线的充要条件是
 $$
 \begin{vmatrix}
 x_{1} &amp; a_{1} &amp; b_{1} \
@@ -15571,19 +15573,19 @@ $$
 \eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}&amp;=0
 \end{aligned}
 $$
-对应同一条直线当且仅当 $(\mu_{1},\mu_{2},\mu_{3}),(\eta_{1},\eta_{2},\eta_{3})$ 成比例。这意味着 $(\eta_{1},\eta_{2},\eta_{3})$ 与齐次坐标具有相同的性质，我们可以将其称为<strong>直线的齐次坐标</strong>。于是</p>
+对应同一条直线当且仅当 <span class="arithmatex">\((\mu_{1},\mu_{2},\mu_{3}),(\eta_{1},\eta_{2},\eta_{3})\)</span> 成比例。这意味着 <span class="arithmatex">\((\eta_{1},\eta_{2},\eta_{3})\)</span> 与齐次坐标具有相同的性质，我们可以将其称为<strong>直线的齐次坐标</strong>。于是</p>
 <blockquote>
 <p>[!proposition]
-点 $(x_{1},x_{2},x_{3})$ 与直线 $(\eta_{1},\eta_{2},\eta_{3})$ 关联当且仅当
+点 <span class="arithmatex">\((x_{1},x_{2},x_{3})\)</span> 与直线 <span class="arithmatex">\((\eta_{1},\eta_{2},\eta_{3})\)</span> 关联当且仅当
 $$
 \eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}=0
 $$</p>
 </blockquote>
-<p>对于固定的 $(\eta_{1},\eta_{2},\eta_{3})$，上述方程描述了直线上的所有点，称为<strong>直线的点方程</strong>；对于固定的 $(x_{1},x_{2},x_{3})$，上述方程描述了与其关联的所有直线，称为<strong>点的线方程</strong>。</p>
+<p>对于固定的 <span class="arithmatex">\((\eta_{1},\eta_{2},\eta_{3})\)</span>，上述方程描述了直线上的所有点，称为<strong>直线的点方程</strong>；对于固定的 <span class="arithmatex">\((x_{1},x_{2},x_{3})\)</span>，上述方程描述了与其关联的所有直线，称为<strong>点的线方程</strong>。</p>
 <h4 id="_18">解析模型</h4>
 <blockquote>
 <p>[!definition]
-称有序三元实数组 $(x_{1},x_{2},x_{3})，(y_{1},y_{2},y_{3})$ 等价，如果存在实数 $\lambda\neq 0$，使得 $(y_{1},y_{2},y_{3})=(\lambda x_{1},\lambda x_{2},\lambda x_{3})$，此时记作 $(x_{1},x_{2},x_{3})\sim(y_{1},y_{2},y_{3})$ 。 </p>
+称有序三元实数组 <span class="arithmatex">\((x_{1},x_{2},x_{3})，(y_{1},y_{2},y_{3})\)</span> 等价，如果存在实数 <span class="arithmatex">\(\lambda\neq 0\)</span>，使得 <span class="arithmatex">\((y_{1},y_{2},y_{3})=(\lambda x_{1},\lambda x_{2},\lambda x_{3})\)</span>，此时记作 <span class="arithmatex">\((x_{1},x_{2},x_{3})\sim(y_{1},y_{2},y_{3})\)</span> 。 </p>
 </blockquote>
 <p>该等价关系满足</p>
 <ul>
@@ -15591,48 +15593,48 @@ $$</p>
 <li>对称性</li>
 <li>传递性</li>
 </ul>
-<p>与 $(x_{1},x_{2},x_{3})$ 等价元素的集合称为一个类，记为 $(x_{1}:x_{2}:x_{3})$ 。称 $(0:0:0)$ 为零类，其它类为非零类。</p>
+<p>与 <span class="arithmatex">\((x_{1},x_{2},x_{3})\)</span> 等价元素的集合称为一个类，记为 <span class="arithmatex">\((x_{1}:x_{2}:x_{3})\)</span> 。称 <span class="arithmatex">\((0:0:0)\)</span> 为零类，其它类为非零类。</p>
 <blockquote>
 <p>[!theorem]
-将每个非零类看作“点”，满足方程 $\eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}=0,\eta_{1}\eta_{2}\eta_{3}\neq 0$ 的“点” $(x_{1}:x_{2}:x_{3})$ 组成的集合看作“直线”，相应的直线等价类记为 $[\eta_{1}:\eta_{2}:\eta_{3}]$，即 $(x_{1}:x_{2}:x_{3})$ 与 $[\eta_{1}: \eta_{2}: \eta_{3}]$ 关联当且仅当 $\eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}=0$，则所有这些“点”和“直线”的集合构成射影平面，记为 $PG(2,\mathbb{R})$。</p>
+将每个非零类看作“点”，满足方程 <span class="arithmatex">\(\eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}=0,\eta_{1}\eta_{2}\eta_{3}\neq 0\)</span> 的“点” <span class="arithmatex">\((x_{1}:x_{2}:x_{3})\)</span> 组成的集合看作“直线”，相应的直线等价类记为 <span class="arithmatex">\([\eta_{1}:\eta_{2}:\eta_{3}]\)</span>，即 <span class="arithmatex">\((x_{1}:x_{2}:x_{3})\)</span> 与 <span class="arithmatex">\([\eta_{1}: \eta_{2}: \eta_{3}]\)</span> 关联当且仅当 <span class="arithmatex">\(\eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}=0\)</span>，则所有这些“点”和“直线”的集合构成射影平面，记为 <span class="arithmatex">\(PG(2,\mathbb{R})\)</span>。</p>
 </blockquote>
-<p>在 $\pi_{0}$ 上取仿射标架 $[O_{1};e_{1},e_{2}]$，考虑双射对应</p>
+<p>在 <span class="arithmatex">\(\pi_{0}\)</span> 上取仿射标架 <span class="arithmatex">\([O_{1};e_{1},e_{2}]\)</span>，考虑双射对应</p>
 <ul>
-<li>$\bar{\pi}_{0}\leftrightarrow PG(2,\mathbb{R})$</li>
-<li>$M(x_{1},x_{2},x_{3})\leftrightarrow (x_{1}:x_{2}:x_{3})$</li>
-<li>$l: \eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}=0\leftrightarrow [\eta_{1}: \eta_{2}: \eta_{3}]$</li>
+<li><span class="arithmatex">\(\bar{\pi}_{0}\leftrightarrow PG(2,\mathbb{R})\)</span></li>
+<li><span class="arithmatex">\(M(x_{1},x_{2},x_{3})\leftrightarrow (x_{1}:x_{2}:x_{3})\)</span></li>
+<li><span class="arithmatex">\(l: \eta_{1}x_{1}+\eta_{2}x_{2}+\eta_{3}x_{3}=0\leftrightarrow [\eta_{1}: \eta_{2}: \eta_{3}]\)</span></li>
 </ul>
-<p>则 $M,l$ 关联当且仅当 $(x_{1}:x_{2}:x_{3}),[\eta_{1}: \eta_{2}: \eta_{3}]$ 关联，于是 $PG(2,\mathbb{R})$ 是射影平面。</p>
+<p>则 <span class="arithmatex">\(M,l\)</span> 关联当且仅当 <span class="arithmatex">\((x_{1}:x_{2}:x_{3}),[\eta_{1}: \eta_{2}: \eta_{3}]\)</span> 关联，于是 <span class="arithmatex">\(PG(2,\mathbb{R})\)</span> 是射影平面。</p>
 <blockquote>
 <blockquote>
-<p>注意 $PG(2,\mathbb{R})$ 中没有 $(0:0:0)$ 。</p>
+<p>注意 <span class="arithmatex">\(PG(2,\mathbb{R})\)</span> 中没有 <span class="arithmatex">\((0:0:0)\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p>如果考虑有限域 $(0,1)$，定义
+<p>如果考虑有限域 <span class="arithmatex">\((0,1)\)</span>，定义
 $$
 0+0=0,0+1=1,1+1=0,0\times 0=0,1\times 0=0,1\times 1=1
 $$
-于是可以通过该有限域上的齐次坐标定义 2 阶有限射影平面 $PG(2,2)$，它由 7 个“点”和 7 条“直线”组成，每条“直线”上有 3 个“点”。</p>
+于是可以通过该有限域上的齐次坐标定义 2 阶有限射影平面 <span class="arithmatex">\(PG(2,2)\)</span>，它由 7 个“点”和 7 条“直线”组成，每条“直线”上有 3 个“点”。</p>
 <p><img alt="" src="image-20260116014107393.png|200" /></p>
 <h4 id="_19">习题</h4>
 <ol>
-<li>取一个球面，用一张过球心的平面 $\pi$ 截取一个半球面，然后将半球面上的点投影到 $\pi$ 上，得到一个圆盘。若投影点在圆盘内部，就将其看作一个“点”；否则将直径的两个端点看作一个“点”；球面上的大圆在所取半球面上的部分投影到 $\pi$ 上得到半椭圆或直径，将其看作一条“直线”。证明这样的圆盘是实射影平面。</li>
+<li>取一个球面，用一张过球心的平面 <span class="arithmatex">\(\pi\)</span> 截取一个半球面，然后将半球面上的点投影到 <span class="arithmatex">\(\pi\)</span> 上，得到一个圆盘。若投影点在圆盘内部，就将其看作一个“点”；否则将直径的两个端点看作一个“点”；球面上的大圆在所取半球面上的部分投影到 <span class="arithmatex">\(\pi\)</span> 上得到半椭圆或直径，将其看作一条“直线”。证明这样的圆盘是实射影平面。</li>
 </ol>
 <p>由于球面是实射影平面，投影前后“点”与“直线”的关联关系保持不变，并且球面上的大圆与圆盘上的“直线”、球面上的点（直径两端的点对）与圆盘上的“点”都是双射对应，即证。</p>
 <h3 id="_20">对偶原理</h3>
 <h4 id="_21">对偶原理</h4>
 <blockquote>
 <p>[!theorem] 对偶原理
-设 $\varphi(点,线)$ 是射影平面上点和直线的关联关系的命题，则对偶命题 $\varphi(线,点)$ 成立。</p>
+设 <span class="arithmatex">\(\varphi(点,线)\)</span> 是射影平面上点和直线的关联关系的命题，则对偶命题 <span class="arithmatex">\(\varphi(线,点)\)</span> 成立。</p>
 </blockquote>
-<p>可以将 $\varphi(点,线)$ 的证明写成齐次坐标形式，由于可以将点和线的齐次坐标互换，同时保持相关的关联关系方程不变，因此对偶命题成立。</p>
+<p>可以将 <span class="arithmatex">\(\varphi(点,线)\)</span> 的证明写成齐次坐标形式，由于可以将点和线的齐次坐标互换，同时保持相关的关联关系方程不变，因此对偶命题成立。</p>
 <blockquote>
 <p>[!theorem] Desarguees 定理
 在射影平面上，如果两个三角形对应顶点的连线共点，则它们对应边的交点共线。</p>
 </blockquote>
-<p>考虑 $\Delta ABC$ 与 $\Delta A'B'C'$ 对应顶点连线交于 $D$，考虑</p>
+<p>考虑 <span class="arithmatex">\(\Delta ABC\)</span> 与 <span class="arithmatex">\(\Delta A'B'C'\)</span> 对应顶点连线交于 <span class="arithmatex">\(D\)</span>，考虑</p>
 <ol>
-<li>若 $A,A'$ 重合，而 $BC,B'C'$ 交于 $R$，显然 $A,R$ 共线；其它顶点重合的情况同理</li>
+<li>若 <span class="arithmatex">\(A,A'\)</span> 重合，而 <span class="arithmatex">\(BC,B'C'\)</span> 交于 <span class="arithmatex">\(R\)</span>，显然 <span class="arithmatex">\(A,R\)</span> 共线；其它顶点重合的情况同理</li>
 <li>若每组顶点都不重合，则可以使用齐次坐标表示
 $$
 \begin{aligned}
@@ -15640,7 +15642,7 @@ A(a_{1},a_{2},a_{3}),B(b_{1},b_{2},b_{3}),C(c_{1},c_{2},c_{3})\
 A'(a'<em>{1},a'</em>{2},a'<em>{3}),B'(b'</em>{1},b'<em>{2},b'</em>{3}),C'(c'<em>{1},c'</em>{2},c'<em>{3})
 \end{aligned}
 $$
-由于 $D$ 在 $AA',BB',CC'$ 上，则
+由于 <span class="arithmatex">\(D\)</span> 在 <span class="arithmatex">\(AA',BB',CC'\)</span> 上，则
 $$
 \begin{cases}
 d</em>{i} = \lambda a_{i}+\lambda'a_{i}'\
@@ -15656,22 +15658,22 @@ q_{i}=-\lambda a_{i}+\nu c_{i}=\lambda'a_{i}'-\nu'c_{i}',\quad i=1,2,3 \
 r_{i}=\mu b_{i}-\nu c_{i}=-\mu'b_{i}'+\nu'c_{i}'
 \end{cases}
 $$
-构成 $AB,A'B'$ 的交点 $P$、$AC,A'C'$ 的交点 $Q$ 以及 $BC,B'C'$ 的交点 $R$ 。注意到
+构成 <span class="arithmatex">\(AB,A'B'\)</span> 的交点 <span class="arithmatex">\(P\)</span>、<span class="arithmatex">\(AC,A'C'\)</span> 的交点 <span class="arithmatex">\(Q\)</span> 以及 <span class="arithmatex">\(BC,B'C'\)</span> 的交点 <span class="arithmatex">\(R\)</span> 。注意到
 $$
 p_{i}+q_{i}+r_{i}=0,\quad i=1,2,3
 $$
-于是 $P,Q,R$ 三点共线。</li>
+于是 <span class="arithmatex">\(P,Q,R\)</span> 三点共线。</li>
 </ol>
 <p><img alt="" src="image-20260116012431234.png|300" /></p>
 <h4 id="_22">习题</h4>
 <ol>
-<li>证明：射影平面上若三点 $P_{1},P_{2},P_{3}$ 不共线，则三线 $P_{1}P_{2},P_{2}P_{3},P_{3}P_{1}$ 不共点。</li>
+<li>证明：射影平面上若三点 <span class="arithmatex">\(P_{1},P_{2},P_{3}\)</span> 不共线，则三线 <span class="arithmatex">\(P_{1}P_{2},P_{2}P_{3},P_{3}P_{1}\)</span> 不共点。</li>
 </ol>
-<p>由于三点不共线，则 $P_{1},P_{2},P_{3}$ 不重合。三点共线条件为
+<p>由于三点不共线，则 <span class="arithmatex">\(P_{1},P_{2},P_{3}\)</span> 不重合。三点共线条件为
 $$
 (P_{1},P_{2},P_{3}) =0
 $$
-其中 $(\cdot,\cdot,\cdot)$ 表示混合积。同时过 $P_{i},P_{j}$ 两点的直线齐次坐标为 $\eta_{ij}=P_{i}\times P_{j}$，则三线共点条件为
+其中 <span class="arithmatex">\((\cdot,\cdot,\cdot)\)</span> 表示混合积。同时过 <span class="arithmatex">\(P_{i},P_{j}\)</span> 两点的直线齐次坐标为 <span class="arithmatex">\(\eta_{ij}=P_{i}\times P_{j}\)</span>，则三线共点条件为
 $$
 \eta_{ij1}x_{1}+\eta_{ij2}x_{2}+\eta_{ij3}x_{3}=0,\quad i,j=1,2,3
 $$
@@ -15679,7 +15681,7 @@ $$
 $$
 (P_{i},P_{j},X) = 0,\quad i,j=1,2,3
 $$
-若三点共线，则 $X=P_{k},k\neq i,j$ 是上述方程的解；若上述方程有非零解，则
+若三点共线，则 <span class="arithmatex">\(X=P_{k},k\neq i,j\)</span> 是上述方程的解；若上述方程有非零解，则
 $$
 X = \lambda P_{1}+\mu P_{2}+\nu P_{3},\quad \lambda \mu \nu\neq 0
 $$
@@ -15687,7 +15689,7 @@ $$
 $$
 \lambda(P_{i},P_{j},P_{1})+\mu(P_{i},P_{j},P_{2})+\nu(P_{i},P_{j},P_{3})=0,\quad i,j=1,2,3
 $$
-由 $i,j$ 的任意性，得到
+由 <span class="arithmatex">\(i,j\)</span> 的任意性，得到
 $$
 \begin{cases}
 \lambda(P_{1},P_{2},P_{3})=0 \
@@ -15695,18 +15697,18 @@ $$
 \nu(P_{1},P_{2},P_{3})=0
 \end{cases}
 $$
-由 $\lambda \mu \nu\neq 0$ 得到 $(P_{1},P_{2},P_{3})=0$，即证。</p>
+由 <span class="arithmatex">\(\lambda \mu \nu\neq 0\)</span> 得到 <span class="arithmatex">\((P_{1},P_{2},P_{3})=0\)</span>，即证。</p>
 <ol>
-<li>设 $\varphi(点,线)$ 为：在射影平面上，若 $A,B,C$ 和 $A',B',C'$ 分别是直线 $l_{1},l_{2}$ 上的三个点，并且与 $l_{1},l_{2}$ 的交点 $D$ 不重合。设 $AB',A'B$ 交于点 $P$，$BC',B'C$ 交于点 $Q$，$CA',C'A$ 交于点 $R$，则 $P,Q,R$ 三点共线。写成对偶命题 $\varphi(线,点)$ 。</li>
+<li>设 <span class="arithmatex">\(\varphi(点,线)\)</span> 为：在射影平面上，若 <span class="arithmatex">\(A,B,C\)</span> 和 <span class="arithmatex">\(A',B',C'\)</span> 分别是直线 <span class="arithmatex">\(l_{1},l_{2}\)</span> 上的三个点，并且与 <span class="arithmatex">\(l_{1},l_{2}\)</span> 的交点 <span class="arithmatex">\(D\)</span> 不重合。设 <span class="arithmatex">\(AB',A'B\)</span> 交于点 <span class="arithmatex">\(P\)</span>，<span class="arithmatex">\(BC',B'C\)</span> 交于点 <span class="arithmatex">\(Q\)</span>，<span class="arithmatex">\(CA',C'A\)</span> 交于点 <span class="arithmatex">\(R\)</span>，则 <span class="arithmatex">\(P,Q,R\)</span> 三点共线。写成对偶命题 <span class="arithmatex">\(\varphi(线,点)\)</span> 。</li>
 </ol>
-<p>在射影平面上，若 $a,b,c$ 和 $a',b',c'$ 分别是过 $L_{1},L_{2}$ 的三条直线，并且与 $L_{1}L_{2}$ 构成的直线不重合。设 $ab',a'b$ 构成直线 $p$，$bc',b'c$ 构成直线 $q$，$ca',c'a$ 构成直线 $r$，则 $p,q,r$ 三线共点。</p>
+<p>在射影平面上，若 <span class="arithmatex">\(a,b,c\)</span> 和 <span class="arithmatex">\(a',b',c'\)</span> 分别是过 <span class="arithmatex">\(L_{1},L_{2}\)</span> 的三条直线，并且与 <span class="arithmatex">\(L_{1}L_{2}\)</span> 构成的直线不重合。设 <span class="arithmatex">\(ab',a'b\)</span> 构成直线 <span class="arithmatex">\(p\)</span>，<span class="arithmatex">\(bc',b'c\)</span> 构成直线 <span class="arithmatex">\(q\)</span>，<span class="arithmatex">\(ca',c'a\)</span> 构成直线 <span class="arithmatex">\(r\)</span>，则 <span class="arithmatex">\(p,q,r\)</span> 三线共点。</p>
 <blockquote>
 <blockquote>
-<p>用 $ab'$ 表示 $a,b'$ 的交点。</p>
+<p>用 <span class="arithmatex">\(ab'\)</span> 表示 <span class="arithmatex">\(a,b'\)</span> 的交点。</p>
 </blockquote>
 </blockquote>
 <ol>
-<li>设射影平面上直线 $l_{i}:(\eta_{i1},\eta_{i2},\eta_{i3}),i=1,2,3$，并且 $l_{1}\neq l_{2}$ 。证明：$l_{1},l_{2},l_{3}$ 共点当且仅当存在不全为零的实数 $\lambda,\mu$ 使得 $\eta_{3j}=\lambda \eta_{1j}+\mu \eta_{2j}$ 。</li>
+<li>设射影平面上直线 <span class="arithmatex">\(l_{i}:(\eta_{i1},\eta_{i2},\eta_{i3}),i=1,2,3\)</span>，并且 <span class="arithmatex">\(l_{1}\neq l_{2}\)</span> 。证明：<span class="arithmatex">\(l_{1},l_{2},l_{3}\)</span> 共点当且仅当存在不全为零的实数 <span class="arithmatex">\(\lambda,\mu\)</span> 使得 <span class="arithmatex">\(\eta_{3j}=\lambda \eta_{1j}+\mu \eta_{2j}\)</span> 。</li>
 </ol>
 <p>三线共点条件为
 $$
@@ -15729,44 +15731,44 @@ $$
 $$
 \eta_{1j}x_{1}+\eta_{2j}x_{2}+\eta_{3j}x_{3}=0,\quad j=1,2,3
 $$
-由于 $l_{1}\neq l_{2}$，则 $\eta_{1},\eta_{2}$ 线性无关，上式存在非零解当且仅当 $\eta_{3}$ 可以分解为
+由于 <span class="arithmatex">\(l_{1}\neq l_{2}\)</span>，则 <span class="arithmatex">\(\eta_{1},\eta_{2}\)</span> 线性无关，上式存在非零解当且仅当 <span class="arithmatex">\(\eta_{3}\)</span> 可以分解为
 $$
 \eta_{3}=\lambda \eta_{1}+\mu \eta_{2},\quad \lambda \mu\neq 0
 $$
 即证。</p>
 <ol>
-<li>设 $M$ 是欧氏平面 $\pi_{0}$ 上一点，$l_{1},l_{2}$ 是 $\pi_{0}$ 上两条直线，它们相交于一个不可到达（被阻隔）的点 $N$，试用直尺作出经过 $M,N$ 的直线。</li>
+<li>设 <span class="arithmatex">\(M\)</span> 是欧氏平面 <span class="arithmatex">\(\pi_{0}\)</span> 上一点，<span class="arithmatex">\(l_{1},l_{2}\)</span> 是 <span class="arithmatex">\(\pi_{0}\)</span> 上两条直线，它们相交于一个不可到达（被阻隔）的点 <span class="arithmatex">\(N\)</span>，试用直尺作出经过 <span class="arithmatex">\(M,N\)</span> 的直线。</li>
 </ol>
 <p><img alt="" src="image-20260116021205763.png|200" /></p>
 <h3 id="_23">交比</h3>
 <h4 id="_24">交比及其性质</h4>
-<p>设 $A,B,C$ 是射影平面 $\bar{\pi}_{0}$ 上共线的三点，$A,B$ 为通常点，$C\neq B$ 。在此直线上取单位向量 $e$，若 $\overrightarrow{AB}=\lambda e$，则称 $\lambda$ 是线段 $AB$ 的代数长，记为 $AB$ 。定义
+<p>设 <span class="arithmatex">\(A,B,C\)</span> 是射影平面 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上共线的三点，<span class="arithmatex">\(A,B\)</span> 为通常点，<span class="arithmatex">\(C\neq B\)</span> 。在此直线上取单位向量 <span class="arithmatex">\(e\)</span>，若 <span class="arithmatex">\(\overrightarrow{AB}=\lambda e\)</span>，则称 <span class="arithmatex">\(\lambda\)</span> 是线段 <span class="arithmatex">\(AB\)</span> 的代数长，记为 <span class="arithmatex">\(AB\)</span> 。定义
 $$
 (A,B,C)= \frac{AC}{CB}
 $$
-称为 $A,B,C$ 的简单比值。当 $C$ 是无穷远点时，规定 $(A,B,C)=-1$ 。</p>
+称为 <span class="arithmatex">\(A,B,C\)</span> 的简单比值。当 <span class="arithmatex">\(C\)</span> 是无穷远点时，规定 <span class="arithmatex">\((A,B,C)=-1\)</span> 。</p>
 <blockquote>
 <p>[!definition]
-设 $A,B,C,D$ 是射影平面 $\bar{\pi}_{0}$ 上共线的四点，$A,B$ 为通常点，$C\neq B,D\neq A,B$ 。记
+设 <span class="arithmatex">\(A,B,C,D\)</span> 是射影平面 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上共线的四点，<span class="arithmatex">\(A,B\)</span> 为通常点，<span class="arithmatex">\(C\neq B,D\neq A,B\)</span> 。记
 $$
 (A,B;C,D)=\frac{(A,B,C)}{(B,C,D)}=\frac{AC}{CB}: \frac{AD}{DB}
 $$
-若 $A,B,C$ 各不相同，则规定 $D=B$ 时，$(A,B;C,D)=0$ 。</p>
+若 <span class="arithmatex">\(A,B,C\)</span> 各不相同，则规定 <span class="arithmatex">\(D=B\)</span> 时，<span class="arithmatex">\((A,B;C,D)=0\)</span> 。</p>
 </blockquote>
-<p>设 $l_{1},l_{2},l_{3},l_{4}$ 是通过点 $O$ 的直线，$l_{1}\neq l_{2}$ 。任取不过 $O$ 的直线 $l$，与 $l_{i}$ 相交于 $A_{i}$，则规定直线的交比为
+<p>设 <span class="arithmatex">\(l_{1},l_{2},l_{3},l_{4}\)</span> 是通过点 <span class="arithmatex">\(O\)</span> 的直线，<span class="arithmatex">\(l_{1}\neq l_{2}\)</span> 。任取不过 <span class="arithmatex">\(O\)</span> 的直线 <span class="arithmatex">\(l\)</span>，与 <span class="arithmatex">\(l_{i}\)</span> 相交于 <span class="arithmatex">\(A_{i}\)</span>，则规定直线的交比为
 $$
 (l_{1},l_{2};l_{3},l_{4}) = (A_{1},A_{2};A_{3},A_{4})
 $$
-还需要证明该交比定义与 $l$ 的选取无关。</p>
+还需要证明该交比定义与 <span class="arithmatex">\(l\)</span> 的选取无关。</p>
 <p><img alt="" src="image-20260116051649763.png|300" /></p>
 <blockquote>
 <p>[!lemma]
-在仿射坐标系中，若点 $M_{1}(x_{1},y_{1}),M_{2}(x_{2},y_{2})$ 的连线与直线 $Ax+By+Cz=0$ 相交于 $M$，则
+在仿射坐标系中，若点 <span class="arithmatex">\(M_{1}(x_{1},y_{1}),M_{2}(x_{2},y_{2})\)</span> 的连线与直线 <span class="arithmatex">\(Ax+By+Cz=0\)</span> 相交于 <span class="arithmatex">\(M\)</span>，则
 $$
 \frac{M_{1}M}{MM_{2}} = -\frac{Ax_{1}+By_{1}+C}{Ax_{2}+By_{2}+C}
 $$</p>
 </blockquote>
-<p>取标架 $[O;e_{1},e_{2}]$，设 $l_{i}:(\eta_{i1},\eta_{i2},\eta_{i3}),A_{i}(a_{i1},a_{i2},a_{i3})$，则由三线共点条件得到
+<p>取标架 <span class="arithmatex">\([O;e_{1},e_{2}]\)</span>，设 <span class="arithmatex">\(l_{i}:(\eta_{i1},\eta_{i2},\eta_{i3}),A_{i}(a_{i1},a_{i2},a_{i3})\)</span>，则由三线共点条件得到
 $$
 \begin{cases}
 \eta_{3j} = \lambda_{1}\eta_{1j}+\mu_{1}\eta_{2j}\
@@ -15786,19 +15788,19 @@ $$
 (l_{1},l_{2}:l_{3},l_{4})= \frac{A_{1}A_{3}}{A_{3}A_{2}}: \frac{A_{1}A_{4}}{A_{4}A_{2}} = \frac{\lambda_{2}}{\mu_{2}}\bigg/ \frac{\lambda_{1}}{\mu_{1}}
 $$
 因此共点四线的交比只与它们的相对位置有关。</p>
-<p>设 $[P]$ 是一个点列，$O$ 是 $[P]$ 外一点，则 $P\leftrightarrow OP$ 是点列 $[P]$ 和线束 $[OP]$ 之间的一一对应，并且把线束 $[OP]$ 称为点列 $[P]$ 在 $O$ 上的<strong>射影</strong>，把点列 $[P]$ 称为 $O$ 在 $[OP]$ 上的<strong>截影</strong>。根据共点四线（经过 $O$ 的线束）的交比性质，我们得到</p>
+<p>设 <span class="arithmatex">\([P]\)</span> 是一个点列，<span class="arithmatex">\(O\)</span> 是 <span class="arithmatex">\([P]\)</span> 外一点，则 <span class="arithmatex">\(P\leftrightarrow OP\)</span> 是点列 <span class="arithmatex">\([P]\)</span> 和线束 <span class="arithmatex">\([OP]\)</span> 之间的一一对应，并且把线束 <span class="arithmatex">\([OP]\)</span> 称为点列 <span class="arithmatex">\([P]\)</span> 在 <span class="arithmatex">\(O\)</span> 上的<strong>射影</strong>，把点列 <span class="arithmatex">\([P]\)</span> 称为 <span class="arithmatex">\(O\)</span> 在 <span class="arithmatex">\([OP]\)</span> 上的<strong>截影</strong>。根据共点四线（经过 <span class="arithmatex">\(O\)</span> 的线束）的交比性质，我们得到</p>
 <blockquote>
 <p>[!proposition]
 交比在射影和截影下保持不变。</p>
 </blockquote>
-<p>对于射影平面上任意四个不同的点，如果存在某个点是无穷远点，则可以经过射影和截影将它们变成共线的四个通常点。例如下图将 $A,B,C,D$ 射影为 $OA,OB,OC,OD$，然后截影为 $A_{1},B_{1},C_{1},D_{1}$ 。</p>
+<p>对于射影平面上任意四个不同的点，如果存在某个点是无穷远点，则可以经过射影和截影将它们变成共线的四个通常点。例如下图将 <span class="arithmatex">\(A,B,C,D\)</span> 射影为 <span class="arithmatex">\(OA,OB,OC,OD\)</span>，然后截影为 <span class="arithmatex">\(A_{1},B_{1},C_{1},D_{1}\)</span> 。</p>
 <p><img alt="" src="image-20260116055651786.png|400" /></p>
 <p>于是，可以取消交比定义中某些点不能是无穷远点的限制。</p>
 <blockquote>
 <p>[!theorem]
-设射影平面 $\bar{\pi}<em>{0}$ 上的共线四点 $A,B,C,D$，其中 $A,B,C$ 各不相同，且 $D\neq A$ 。设 $A,B,C,D$ 的齐次坐标为
+设射影平面 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上的共线四点 <span class="arithmatex">\(A,B,C,D\)</span>，其中 <span class="arithmatex">\(A,B,C\)</span> 各不相同，且 <span class="arithmatex">\(D\neq A\)</span> 。设 <span class="arithmatex">\(A,B,C,D\)</span> 的齐次坐标为
 $$
-(a</em>{1},a_{2},a_{3}),(b_{1},b_{2},b_{3}),(c_{1},c_{2},c_{3}),(d_{1},d_{2},d_{3})
+(a_{1},a_{2},a_{3}),(b_{1},b_{2},b_{3}),(c_{1},c_{2},c_{3}),(d_{1},d_{2},d_{3})
 $$
 并且
 $$
@@ -15809,11 +15811,11 @@ $$
 (A,B;C,D) = \frac{\lambda_{2}}{\mu_{2}} \bigg/ \frac{\lambda_{1}}{\mu_{1}}
 $$</p>
 <p>[!theorem]
-设射影平面 $\bar{\pi}<em>{0}$ 上的共线四点 $A,B,C,D$，其中 $A,B,C$ 各不相同，且 $D\neq A$ 。在此直线上取两点
+设射影平面 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上的共线四点 <span class="arithmatex">\(A,B,C,D\)</span>，其中 <span class="arithmatex">\(A,B,C\)</span> 各不相同，且 <span class="arithmatex">\(D\neq A\)</span> 。在此直线上取两点
 $$
-P(p</em>{1},p_{2},p_{3}),Q(q_{1},q_{2},q_{3})
+P(p_{1},p_{2},p_{3}),Q(q_{1},q_{2},q_{3})
 $$
-设 $A,B,C,D$ 的齐次坐标为
+设 <span class="arithmatex">\(A,B,C,D\)</span> 的齐次坐标为
 $$
 (a_{1},a_{2},a_{3}),(b_{1},b_{2},b_{3}),(c_{1},c_{2},c_{3}),(d_{1},d_{2},d_{3})
 $$
@@ -15852,47 +15854,47 @@ $$</p>
 </blockquote>
 <p>根据此定理，容易得到</p>
 <ul>
-<li>$(C,D;A,B)=(A,B;C,D)=(B,A;D,C)$</li>
-<li>若 $D,B$ 也不同，则 $(B,A;C,D)=1 / (A,B;C,D)=(A,B;D,C)$</li>
-<li>$(A,C;B,D)=1-(A,B;C,D)$</li>
+<li><span class="arithmatex">\((C,D;A,B)=(A,B;C,D)=(B,A;D,C)\)</span></li>
+<li>若 <span class="arithmatex">\(D,B\)</span> 也不同，则 <span class="arithmatex">\((B,A;C,D)=1 / (A,B;C,D)=(A,B;D,C)\)</span></li>
+<li><span class="arithmatex">\((A,C;B,D)=1-(A,B;C,D)\)</span></li>
 </ul>
-<p>共点四线的交比也具有上述计算方法和性质。并且，设 $O$ 是 $\bar{\pi}<em>{0}$ 上的通常点，$l</em>{1},l_{2},l_{3},l_{4}$ 是共点于 $O$ 的不同直线，记 $(l_{i},l_{j})$ 表示从 $l_{i}$ 转动到 $l_{j}$ 的角度，则
+<p>共点四线的交比也具有上述计算方法和性质。并且，设 <span class="arithmatex">\(O\)</span> 是 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上的通常点，<span class="arithmatex">\(l_{1},l_{2},l_{3},l_{4}\)</span> 是共点于 <span class="arithmatex">\(O\)</span> 的不同直线，记 <span class="arithmatex">\((l_{i},l_{j})\)</span> 表示从 <span class="arithmatex">\(l_{i}\)</span> 转动到 <span class="arithmatex">\(l_{j}\)</span> 的角度，则
 $$
 (l_{1},l_{2};l_{3},l_{4}) = \frac{\sin(l_{1},l_{3})}{\sin(l_{3},l_{2})}\bigg / \frac{\sin(l_{1},l_{4})}{\sin(l_{4},l_{2})}
 $$</p>
 <h4 id="_25">调和点列与调和线束</h4>
 <blockquote>
 <p>[!theorem]
-射影平面上共线四点 $A,B,C,D$ 若满足 $(A,B;C,D)=-1$，则称它们为调和点列，其中 $D$ 称为 $A,B,C$ 的第四调和点，称 $D$ 是 $C$ 关于点偶 $(A,B)$ 的调和共轭点。</p>
+射影平面上共线四点 <span class="arithmatex">\(A,B,C,D\)</span> 若满足 <span class="arithmatex">\((A,B;C,D)=-1\)</span>，则称它们为调和点列，其中 <span class="arithmatex">\(D\)</span> 称为 <span class="arithmatex">\(A,B,C\)</span> 的第四调和点，称 <span class="arithmatex">\(D\)</span> 是 <span class="arithmatex">\(C\)</span> 关于点偶 <span class="arithmatex">\((A,B)\)</span> 的调和共轭点。</p>
 </blockquote>
-<p>根据交比的性质，调和点列中 $C$ 也是 $D$ 关于点偶 $(A,B)$ 的调和共轭点，因此称 $(C,D)$ 关于 $(A,B)$ 调和共轭。显然，$(A,B)$ 也关于 $(C,D)$ 调和共轭，因此称 $(A,B),(C,D)$ 彼此调和分割。</p>
+<p>根据交比的性质，调和点列中 <span class="arithmatex">\(C\)</span> 也是 <span class="arithmatex">\(D\)</span> 关于点偶 <span class="arithmatex">\((A,B)\)</span> 的调和共轭点，因此称 <span class="arithmatex">\((C,D)\)</span> 关于 <span class="arithmatex">\((A,B)\)</span> 调和共轭。显然，<span class="arithmatex">\((A,B)\)</span> 也关于 <span class="arithmatex">\((C,D)\)</span> 调和共轭，因此称 <span class="arithmatex">\((A,B),(C,D)\)</span> 彼此调和分割。</p>
 <blockquote>
 <p>[!proposition]
-设 $A,B,C$ 是 $\bar{\pi}_{0}$ 上共线的通常点，若 $C$ 是 $A,B$ 的中点，则由 $(A,B;C,D)=-1$ 得到 $D$ 是直线 $AB$ 上的无穷远点。</p>
+设 <span class="arithmatex">\(A,B,C\)</span> 是 <span class="arithmatex">\(\bar{\pi}_{0}\)</span> 上共线的通常点，若 <span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(A,B\)</span> 的中点，则由 <span class="arithmatex">\((A,B;C,D)=-1\)</span> 得到 <span class="arithmatex">\(D\)</span> 是直线 <span class="arithmatex">\(AB\)</span> 上的无穷远点。</p>
 </blockquote>
-<p>根据交比定义，得到 $(B,C,D)=-1$，则 $D$ 只能是无穷远点。因此线段中点和对应直线的无穷远点是调和共轭点。</p>
+<p>根据交比定义，得到 <span class="arithmatex">\((B,C,D)=-1\)</span>，则 <span class="arithmatex">\(D\)</span> 只能是无穷远点。因此线段中点和对应直线的无穷远点是调和共轭点。</p>
 <blockquote>
 <p>[!definition]
-共点四线 $l_{1},l_{2},l_{3},l_{4}$ 若满足 $(l_{1},l_{2};l_{3},l_{4})=-1$，则称它们为调和线束，其中 $l_{4}$ 称为 $l_{1},l_{2},l_{3}$ 的第四调和线。</p>
+共点四线 <span class="arithmatex">\(l_{1},l_{2},l_{3},l_{4}\)</span> 若满足 <span class="arithmatex">\((l_{1},l_{2};l_{3},l_{4})=-1\)</span>，则称它们为调和线束，其中 <span class="arithmatex">\(l_{4}\)</span> 称为 <span class="arithmatex">\(l_{1},l_{2},l_{3}\)</span> 的第四调和线。</p>
 <p>[!proposition]
-给定共线的三个通常点 $A,B,C$，满足 $A\neq B$，取直线 $AB$ 外一点 $S$，取 $CS$ 上与 $C,S$ 不同的点 $G$，连接 $AG,BG$ 交直线 $AS,BS$ 于 $E,F$，连接 $EF$ 交直线 $AB$ 于 $D$，则 $D$ 就是第四调和点。</p>
+给定共线的三个通常点 <span class="arithmatex">\(A,B,C\)</span>，满足 <span class="arithmatex">\(A\neq B\)</span>，取直线 <span class="arithmatex">\(AB\)</span> 外一点 <span class="arithmatex">\(S\)</span>，取 <span class="arithmatex">\(CS\)</span> 上与 <span class="arithmatex">\(C,S\)</span> 不同的点 <span class="arithmatex">\(G\)</span>，连接 <span class="arithmatex">\(AG,BG\)</span> 交直线 <span class="arithmatex">\(AS,BS\)</span> 于 <span class="arithmatex">\(E,F\)</span>，连接 <span class="arithmatex">\(EF\)</span> 交直线 <span class="arithmatex">\(AB\)</span> 于 <span class="arithmatex">\(D\)</span>，则 <span class="arithmatex">\(D\)</span> 就是第四调和点。</p>
 </blockquote>
-<p>设 $EF,CS$ 交于 $H$，分别考虑以 $S,G$ 为中心的线束得到
+<p>设 <span class="arithmatex">\(EF,CS\)</span> 交于 <span class="arithmatex">\(H\)</span>，分别考虑以 <span class="arithmatex">\(S,G\)</span> 为中心的线束得到
 $$
 \begin{aligned}
 (A,B;C,D) &amp;= (SA,SB;SC,SD)=(F,E;H,D)\
 (F,E;H,D) &amp;= (GF,GE;GH,GD)=(B,A;C,D)
 \end{aligned}
 $$
-注意 $SA,SB,SC,SD$ 被直线 $EF$ 截得 $F,E,H,D$；$GF,GE,GH,GD$ 被直线 $AB$ 截得 $B,A,C,D$，最后利用交比性质，得到
+注意 <span class="arithmatex">\(SA,SB,SC,SD\)</span> 被直线 <span class="arithmatex">\(EF\)</span> 截得 <span class="arithmatex">\(F,E,H,D\)</span>；<span class="arithmatex">\(GF,GE,GH,GD\)</span> 被直线 <span class="arithmatex">\(AB\)</span> 截得 <span class="arithmatex">\(B,A,C,D\)</span>，最后利用交比性质，得到
 $$
 (A,B;C,D)=(B,A;C,D) \implies (A,B;C,D)^2=-1
 $$
-若 $(A,B;C,D)=1$，则
+若 <span class="arithmatex">\((A,B;C,D)=1\)</span>，则
 $$
 (A,C;B,D)=0 \implies (A,C,B)=0 \implies A=B
 $$
-矛盾；因此 $(A,B;C,D)=-1$，即证。</p>
+矛盾；因此 <span class="arithmatex">\((A,B;C,D)=-1\)</span>，即证。</p>
 <p><img alt="" src="image-20260120021017420.png|500" /></p>
 <h4 id="_26">习题</h4>
 <h3 id="_27">射影坐标及其变换</h3>
@@ -15967,6 +15969,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15314,27 +15316,27 @@
 $$
 \omega \cdot \nabla u(x,\omega)+\mu_{t}(x)u(x,\omega)=\mu_{s}(x)(Su)(x,\omega)+f(x,\omega)
 $$
-其中 $x\in\mathbb{R}^3$ 是空间变量，$\omega\in\mathbb{S}^2$ 是方向变量，$\mathbb{S}^2$ 是 $\mathbb{R}^3$ 中的单位球，$\mu_{t}=\mu_{a}+\mu_{s}$，算符
+其中 <span class="arithmatex">\(x\in\mathbb{R}^3\)</span> 是空间变量，<span class="arithmatex">\(\omega\in\mathbb{S}^2\)</span> 是方向变量，<span class="arithmatex">\(\mathbb{S}^2\)</span> 是 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的单位球，<span class="arithmatex">\(\mu_{t}=\mu_{a}+\mu_{s}\)</span>，算符
 $$
 (Su)(x,\omega)=\int_{\mathbb{S}^2}\eta(x,\omega \cdot \hat{\omega})u(x,\hat{\omega})d\sigma(\hat{\omega})
 $$
-其中 $\eta$ 是非负规范相位函数
+其中 <span class="arithmatex">\(\eta\)</span> 是非负规范相位函数
 $$
 \int_{\mathbb{S}^2}\eta(x,\omega \cdot \hat{\omega})d\sigma(\hat{\omega})=1
 $$
-我们后面假设 $\eta$ 与 $x$ 无关，因此写成 $\eta(\omega \cdot \hat{\omega})$ 。</p>
+我们后面假设 <span class="arithmatex">\(\eta\)</span> 与 <span class="arithmatex">\(x\)</span> 无关，因此写成 <span class="arithmatex">\(\eta(\omega \cdot \hat{\omega})\)</span> 。</p>
 <h3 id="_4">记号</h3>
 <h4 id="_5">坐标表示</h4>
-<p>对于 $x\in \mathbb{R}^d$，将其写成 $x_{(d)}$，并且
+<p>对于 <span class="arithmatex">\(x\in \mathbb{R}^d\)</span>，将其写成 <span class="arithmatex">\(x_{(d)}\)</span>，并且
 $$
 x_{(d)}=x_{(d-1)}+x_{d}e_{d}
 $$
-其中 $x_{(d-1)}={x_{1},\cdots,x_{d-1},0}^T$，也可以表示 ${x_{1},\cdots,x_{d-1}}^T$ 。</p>
-<p>在 $\mathbb{R}^d$ 中的单位球记为
+其中 <span class="arithmatex">\(x_{(d-1)}=\{x_{1},\cdots,x_{d-1},0\}^T\)</span>，也可以表示 <span class="arithmatex">\(\{x_{1},\cdots,x_{d-1}\}^T\)</span> 。</p>
+<p>在 <span class="arithmatex">\(\mathbb{R}^d\)</span> 中的单位球记为
 $$
 \mathbb{S}^{d-1}={\xi\in \mathbb{R}^d:|\xi|=1}
 $$
-两点 $\xi,\eta\in \mathbb{S}^{d-1}$ 的距离为
+两点 <span class="arithmatex">\(\xi,\eta\in \mathbb{S}^{d-1}\)</span> 的距离为
 $$
 |\xi-\eta|=\sqrt{ 2(1-\xi \cdot \eta) }
 $$
@@ -15348,7 +15350,7 @@ $$
 $$
 其中不等式可求导证明。</p>
 <h4 id="_6">多重指标</h4>
-<p>多重指标 $\alpha=(\alpha_{1},\cdots,\alpha_{d})$ 用来简化书写。例如
+<p>多重指标 <span class="arithmatex">\(\alpha=(\alpha_{1},\cdots,\alpha_{d})\)</span> 用来简化书写。例如
 $$
 \begin{aligned}
 \alpha! &amp;= \alpha_{1}!\cdots\alpha_{d}! \
@@ -15363,9 +15365,9 @@ $$
 $$
 \Delta=\nabla \cdot \nabla=\sum_{j=1}^d\left( \frac{\partial}{\partial x_{j}} \right)^2
 $$
-有时可以用 $\Delta_{(d)},\nabla_{(d)}$ 显式给出空间维数。</p>
+有时可以用 <span class="arithmatex">\(\Delta_{(d)},\nabla_{(d)}\)</span> 显式给出空间维数。</p>
 <h4 id="_7">特殊函数</h4>
-<p>定义 $\Gamma$ 函数
+<p>定义 <span class="arithmatex">\(\Gamma\)</span> 函数
 $$
 \Gamma(x) = \int_{0}^{+\infty}t^{x-1}e^{-t}dt,\quad x\in \mathbb{R}^+
 $$
@@ -15377,7 +15379,7 @@ $$
 \Gamma\left( \frac{1}{2} \right)&amp;= \sqrt{ \pi }
 \end{aligned}
 $$
-定义 $\beta$ 函数
+定义 <span class="arithmatex">\(\beta\)</span> 函数
 $$
 B(x,y) = \int_{0}^1t^{x-1}(1-t)^{y-1}dt,\quad x,y\in \mathbb{R}^+
 $$
@@ -15388,7 +15390,7 @@ $$
 通过转换为二重积分并利用极坐标变换可证。</p>
 <h3 id="_8">基本结论</h3>
 <h4 id="_9">球面元</h4>
-<p>用 $dV^d$ 表示体积元，$dS^{d-1}$ 表示单位球面元，$d\sigma$ 表示曲面元。对于 $d\geq 3,\xi=\xi_{(d)}$ 存在 $t,\xi_{(d-1)}$ 使得
+<p>用 <span class="arithmatex">\(dV^d\)</span> 表示体积元，<span class="arithmatex">\(dS^{d-1}\)</span> 表示单位球面元，<span class="arithmatex">\(d\sigma\)</span> 表示曲面元。对于 <span class="arithmatex">\(d\geq 3,\xi=\xi_{(d)}\)</span> 存在 <span class="arithmatex">\(t,\xi_{(d-1)}\)</span> 使得
 $$
 \xi_{(d)}=te_{d}+\sqrt{ 1-t^2 }\xi_{(d-1)},\quad t\in[-1,1]
 $$ 
@@ -15429,7 +15431,7 @@ $$
 &amp;= |\mathbb{S}^{d-2}|\frac{\sqrt{ \pi }\Gamma\left( \frac{d-1}{2} \right)}{\Gamma\left( \frac{d}{2} \right)}
 \end{aligned}
 $$
-其中 $B,\Gamma$ 分别表示 $\beta$ 函数和 $\Gamma$ 函数。由于 $|\mathbb{S}^1|=2\pi$，于是
+其中 <span class="arithmatex">\(B,\Gamma\)</span> 分别表示 <span class="arithmatex">\(\beta\)</span> 函数和 <span class="arithmatex">\(\Gamma\)</span> 函数。由于 <span class="arithmatex">\(|\mathbb{S}^1|=2\pi\)</span>，于是
 $$
 |\mathbb{S}^{d-1}|= \frac{2\pi^{d/2}}{\Gamma\left( \frac{d}{2} \right)}
 $$
@@ -15440,68 +15442,68 @@ $$
 |\mathbb{S}^{2k}|&amp;= \frac{2^{k+1}\pi^k}{(2k-1)!!}
 \end{aligned}
 $$
-规定 $|\mathbb{S}^0|=2$ 。</p>
+规定 <span class="arithmatex">\(|\mathbb{S}^0|=2\)</span> 。</p>
 <h4 id="_10">坐标变换</h4>
-<p>如果 $A\in \mathbb{R}^{d\times d}$ 是正交变换，则
+<p>如果 <span class="arithmatex">\(A\in \mathbb{R}^{d\times d}\)</span> 是正交变换，则
 $$
 dS^{d-1}(A\xi)=dS^{d-1}(\xi),\quad dV^d(Ax)=dV^d(x)
 $$
-即微元关于正交变换不变。如果 $x_{(d)}=r\xi_{(d)}, r=|x_{(d)}|$，则
+即微元关于正交变换不变。如果 <span class="arithmatex">\(x_{(d)}=r\xi_{(d)}, r=|x_{(d)}|\)</span>，则
 $$
 dV^d(r\xi) = r^{d-1}dS^{d-1}(\xi)
 $$
 表示微元的极坐标变换。</p>
 <h4 id="_11">球面泛函</h4>
-<p>记 $C(\mathbb{S}^{d-1})$ 为球面上的复值或实值连续函数空间，通过范数
+<p>记 <span class="arithmatex">\(C(\mathbb{S}^{d-1})\)</span> 为球面上的复值或实值连续函数空间，通过范数
 $$
 |f|<em>{\infty}=\sup{|f(\xi)|:\xi\in \mathbb{S}^{d-1}}
 $$
-构成 Banach 空间。记 $L^2(\mathbb{S}^{d-1})$ 为球面上的复值或实值平方可积函数空间，通过内积
+构成 Banach 空间。记 <span class="arithmatex">\(L^2(\mathbb{S}^{d-1})\)</span> 为球面上的复值或实值平方可积函数空间，通过内积
 $$
 \langle f,g\rangle= \int</em>{\mathbb{S}^{d-1}}f\bar{g}dS^{d-1}
 $$
 构成 Hilbert 空间。</p>
-<p>如果将 $C(\mathbb{S}^{d-1})$ 配置 $L^2(\mathbb{S}^{d-1})$ 中的内积，则它不完备。并且 $C(\mathbb{S}^{d-1})$ 的闭包是 $L^2(\mathbb{S}^{d-1})$，即任意 $f\in L^2(\mathbb{S}^{d-1})$ 都存在 $C(\mathbb{S}^{d-1})$ 中的序列 ${f_{n}}$ 使得
+<p>如果将 <span class="arithmatex">\(C(\mathbb{S}^{d-1})\)</span> 配置 <span class="arithmatex">\(L^2(\mathbb{S}^{d-1})\)</span> 中的内积，则它不完备。并且 <span class="arithmatex">\(C(\mathbb{S}^{d-1})\)</span> 的闭包是 <span class="arithmatex">\(L^2(\mathbb{S}^{d-1})\)</span>，即任意 <span class="arithmatex">\(f\in L^2(\mathbb{S}^{d-1})\)</span> 都存在 <span class="arithmatex">\(C(\mathbb{S}^{d-1})\)</span> 中的序列 <span class="arithmatex">\(\{f_{n}\}\)</span> 使得
 $$
 |f_{n}-f|<em>{2}\to 0
 $$
-对于 $f\in C(\mathbb{S}^{d-1})$ 可以定义连续性度量
+对于 <span class="arithmatex">\(f\in C(\mathbb{S}^{d-1})\)</span> 可以定义连续性度量
 $$
 \omega(f;\delta)=\sup{|f(\xi)-f(\eta)|:\xi,\eta\in \mathbb{S}^{d-1},|\xi-\eta|\leq \delta},\quad \delta\in(0,1)
 $$
-由于连续性，显然 $\lim</em>{ \delta \to 0 }\omega(f;\delta)=0$；定义
+由于连续性，显然 <span class="arithmatex">\(\lim_{ \delta \to 0 }\omega(f;\delta)=0\)</span>；定义
 $$
-\Omega_{\delta}={x\in \mathbb{R}^d:|x|\in[1-\delta,1+\delta]}
+\Omega</em>{\delta}={x\in \mathbb{R}^d:|x|\in[1-\delta,1+\delta]}
 $$
-则可以将 $f\in \mathbb{S}^{d-1}$ 上的函数延拓
+则可以将 <span class="arithmatex">\(f\in \mathbb{S}^{d-1}\)</span> 上的函数延拓
 $$
 f^<em>(x)= f\left( \frac{x}{|x|} \right)=f(\xi),\quad x\in \Omega_{\delta}
 $$
-如果 $f^</em>$ 是 $k$ 次连续可微函数，则称 $f$ 也是 $k$ 次连续可微函数。于是用 $C^k(\mathbb{S}^{d-1})$ 表示球面上 $k$ 次连续可微函数空间，并定义
+如果 <span class="arithmatex">\(f^*\)</span> 是 <span class="arithmatex">\(k\)</span> 次连续可微函数，则称 <span class="arithmatex">\(f\)</span> 也是 <span class="arithmatex">\(k\)</span> 次连续可微函数。于是用 <span class="arithmatex">\(C^k(\mathbb{S}^{d-1})\)</span> 表示球面上 <span class="arithmatex">\(k\)</span> 次连续可微函数空间，并定义
 $$
-|f|<em>{C^k(\mathbb{S}^{d-1})}=|f^*|</em>{C^k(\Omega_{\delta})}
+|f|_{C^k(\mathbb{S}^{d-1})}=|f^</em>|<em>{C^k(\Omega</em>{\delta})}
 $$
-注意右侧范数与 $\delta$ 取值无关。在此范数下，$C^k(\mathbb{S}^{d-1})$ 是 Banach 空间。</p>
+注意右侧范数与 <span class="arithmatex">\(\delta\)</span> 取值无关。在此范数下，<span class="arithmatex">\(C^k(\mathbb{S}^{d-1})\)</span> 是 Banach 空间。</p>
 <h2 id="_12">球谐函数</h2>
 <h3 id="_13">原始空间中的球谐函数</h3>
 <h4 id="_14">正交变换下的函数空间</h4>
-<p>使用 $\mathbb{O}^d$ 是 $d$ 阶实正交矩阵的集合，将其中行列式为 1 的子集记为 $\mathbb{SO}^d$ 。任意 $\eta\in \mathbb{R}^d$，定义
+<p>使用 <span class="arithmatex">\(\mathbb{O}^d\)</span> 是 <span class="arithmatex">\(d\)</span> 阶实正交矩阵的集合，将其中行列式为 1 的子集记为 <span class="arithmatex">\(\mathbb{SO}^d\)</span> 。任意 <span class="arithmatex">\(\eta\in \mathbb{R}^d\)</span>，定义
 $$
 \mathbb{O}^d(\eta)={A\in \mathbb{O}^d:A\eta=\eta}
 $$
-即它是保持子空间 $\mathrm{span}{\eta}$ 不变的正交矩阵集合。给定 $f:\mathbb{R}^d\to \mathbb{C}$ 和 $A\in \mathbb{R}^{d\times d}$，定义
+即它是保持子空间 <span class="arithmatex">\(\mathrm{span}\{\eta\}\)</span> 不变的正交矩阵集合。给定 <span class="arithmatex">\(f:\mathbb{R}^d\to \mathbb{C}\)</span> 和 <span class="arithmatex">\(A\in \mathbb{R}^{d\times d}\)</span>，定义
 $$
 f_{A}(x)=f(Ax),\quad x\in \mathbb{R}^d
 $$
-用于 $A\in \mathbb{O}^d$ 。</p>
+用于 <span class="arithmatex">\(A\in \mathbb{O}^d\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>$\mathbb{O}^d(\eta)$ 相当于所有绕 $\eta$ 旋转的变换集合。</p>
+<p><span class="arithmatex">\(\mathbb{O}^d(\eta)\)</span> 相当于所有绕 <span class="arithmatex">\(\eta\)</span> 旋转的变换集合。</p>
 </blockquote>
 </blockquote>
-<p><strong>命题</strong> 若 $f_{A}=f,\forall A\in \mathbb{O}^d$，则 $f(x)$ 依赖 $|x|$，因此 $f$ 在任意半径的球面上是常数。</p>
-<p>对任意 $x,y\in \mathbb{R}^d,|x|=|y|$，都存在 $A\in \mathbb{O}^d$ 使得 $Ax=y$，根据定义即证。</p>
-<p>考虑子集 $\mathbb{O}^d(e_{d})$，容易证明任意 $A\in \mathbb{O}^d(e_{d})$ 具有形式
+<p><strong>命题</strong> 若 <span class="arithmatex">\(f_{A}=f,\forall A\in \mathbb{O}^d\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 依赖 <span class="arithmatex">\(|x|\)</span>，因此 <span class="arithmatex">\(f\)</span> 在任意半径的球面上是常数。</p>
+<p>对任意 <span class="arithmatex">\(x,y\in \mathbb{R}^d,|x|=|y|\)</span>，都存在 <span class="arithmatex">\(A\in \mathbb{O}^d\)</span> 使得 <span class="arithmatex">\(Ax=y\)</span>，根据定义即证。</p>
+<p>考虑子集 <span class="arithmatex">\(\mathbb{O}^d(e_{d})\)</span>，容易证明任意 <span class="arithmatex">\(A\in \mathbb{O}^d(e_{d})\)</span> 具有形式
 $$
 A= 
 \begin{pmatrix}
@@ -15509,30 +15511,30 @@ A_{1} &amp; O \
 O^T &amp; 1
 \end{pmatrix},\quad A_{1}\in \mathbb{O}^{d-1}
 $$
-于是根据上述命题，如果 $f_{A}=f,\forall A\in \mathbb{O}^d(e_{d})$，则 $f(x)$ 依赖 $|x_{(d-1)}|,x_{d}$ 。</p>
+于是根据上述命题，如果 <span class="arithmatex">\(f_{A}=f,\forall A\in \mathbb{O}^d(e_{d})\)</span>，则 <span class="arithmatex">\(f(x)\)</span> 依赖 <span class="arithmatex">\(|x_{(d-1)}|,x_{d}\)</span> 。</p>
 <h4 id="_15">不变空间与原始空间</h4>
-<p><strong>定义</strong> 若 $f\in \mathbb{V},A\in \mathbb{O}^d$ 意味着 $f_{A}\in \mathbb{V}$，则称子空间 $\mathbb{V}$ 不变。</p>
-<p>假设不变子空间 $\mathbb{V}$ 具有内积 $(\cdot,\cdot)$，如果
+<p><strong>定义</strong> 若 <span class="arithmatex">\(f\in \mathbb{V},A\in \mathbb{O}^d\)</span> 意味着 <span class="arithmatex">\(f_{A}\in \mathbb{V}\)</span>，则称子空间 <span class="arithmatex">\(\mathbb{V}\)</span> 不变。</p>
+<p>假设不变子空间 <span class="arithmatex">\(\mathbb{V}\)</span> 具有内积 <span class="arithmatex">\((\cdot,\cdot)\)</span>，如果
 $$
 \mathbb{V}=\mathbb{V}<em>{1}+\mathbb{V}</em>{2},\quad \mathbb{V}<em>{1},\mathbb{V}</em>{2}\neq 0,\quad \mathbb{V}<em>{1}\perp \mathbb{V}</em>{2}
 $$
-则称 $\mathbb{V}$ 可约化 reducible，否则不可约化 irreducible 。如果 $\mathbb{V}$ 不变且不可约，则称为原始空间 primitive 。</p>
+则称 <span class="arithmatex">\(\mathbb{V}\)</span> 可约化 reducible，否则不可约化 irreducible 。如果 <span class="arithmatex">\(\mathbb{V}\)</span> 不变且不可约，则称为原始空间 primitive 。</p>
 <blockquote>
 <blockquote>
-<p>$\mathbb{V}<em>{1}\perp \mathbb{V}</em>{2}$ 等价于 $(f,g)=0,\forall f\in \mathbb{V}<em>{1},\forall g\in \mathbb{V}</em>{2}$ 。</p>
+<p><span class="arithmatex">\(\mathbb{V}_{1}\perp \mathbb{V}_{2}\)</span> 等价于 <span class="arithmatex">\((f,g)=0,\forall f\in \mathbb{V}_{1},\forall g\in \mathbb{V}_{2}\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p><strong>定义</strong> 给定 $f:\mathbb{R}^d\to \mathbb{C}$，定义
+<p><strong>定义</strong> 给定 <span class="arithmatex">\(f:\mathbb{R}^d\to \mathbb{C}\)</span>，定义
 $$
 \mathrm{span}{f_{A}:A\in \mathbb{O}^d} = \left{ \sum_{j}c_{j}f_{A_{j}}:A_{j}\in \mathbb{O}^d,c_{j}\in \mathbb{C} \right}
 $$
-它是一个函数子空间。有限维原始空间 $\mathbb{V}$ 可以表示为 $\mathrm{span}{f_{A}:A\in \mathbb{O}^d,0\neq f\in \mathbb{V}}$ 。</p>
+它是一个函数子空间。有限维原始空间 <span class="arithmatex">\(\mathbb{V}\)</span> 可以表示为 <span class="arithmatex">\(\mathrm{span}\{f_{A}:A\in \mathbb{O}^d,0\neq f\in \mathbb{V}\}\)</span> 。</p>
 <h4 id="_16">齐次多项式空间</h4>
-<p>定义 $n$ 次 $d$ 维齐次多项式空间
+<p>定义 <span class="arithmatex">\(n\)</span> 次 <span class="arithmatex">\(d\)</span> 维齐次多项式空间
 $$
 \mathbb{H}<em>{n}^d=\left{ \sum</em>{|\alpha|=n}a_{\alpha}x^\alpha:a_{\alpha}\in \mathbb{C} \right}
 $$
-它是有限维不变空间。由于 $\sum_{i=1}^d\alpha_{i}=n$，根据组合关系相当于在 $n$ 个间隙插入 $d-1$ 个分隔符，即
+它是有限维不变空间。由于 <span class="arithmatex">\(\sum_{i=1}^d\alpha_{i}=n\)</span>，根据组合关系相当于在 <span class="arithmatex">\(n\)</span> 个间隙插入 <span class="arithmatex">\(d-1\)</span> 个分隔符，即
 $$
 \dim\mathbb{H}<em>{n}^d = 
 \binom{n+d-1}{d-1}
@@ -15541,31 +15543,31 @@ $$
 $$
 \sum</em>{n=0}^\infty (\dim\mathbb{H}<em>{n}^d)z^n = \sum</em>{n=0}^\infty \binom{n+d-1}{d-1}z^n = \frac{1}{(1-z)^d},\quad |z|&lt;1
 $$
-对于 $n\geq 2$ 定义
+对于 <span class="arithmatex">\(n\geq 2\)</span> 定义
 $$
-|\cdot|^2\mathbb{H}<em>{n-2}^d={|x|^2H</em>{n-2}(x):H_{n-2}\in \mathbb{H}<em>{n-2}^d }
+|\cdot|^2\mathbb{H}<em>{n-2}^d={|x|^2H</em>{n-2}(x):H_{n-2}\in \mathbb{H}_{n-2}^d }
 $$
-它是 $\mathbb{H}</em>{n}^d$ 的真不变子空间。于是 $|\cdot|^2\mathbb{H}<em>{n-2}^d|</em>{\mathbb{S}<em>{d-1}}\subset\mathbb{H}</em>{n}^d|<em>{\mathbb{S}</em>{d-1}}$ 也是真子空间，只要证明存在不包含 $|x|^2$ 因子的子空间，则 $\mathbb{H}<em>{n}^d|</em>{\mathbb{S}_{d-1}}$ 就是可约的。</p>
-<p>任意 $H_{n}\in \mathbb{H}<em>{n}^d$，定义
+它是 <span class="arithmatex">\(\mathbb{H}_{n}^d\)</span> 的真不变子空间。于是 <span class="arithmatex">\(|\cdot|^2\mathbb{H}_{n-2}^d|_{\mathbb{S}_{d-1}}\subset\mathbb{H}_{n}^d|_{\mathbb{S}_{d-1}}\)</span> 也是真子空间，只要证明存在不包含 <span class="arithmatex">\(|x|^2\)</span> 因子的子空间，则 <span class="arithmatex">\(\mathbb{H}_{n}^d|_{\mathbb{S}_{d-1}}\)</span> 就是可约的。</p>
+<p>任意 <span class="arithmatex">\(H_{n}\in \mathbb{H}_{n}^d\)</span>，定义
 $$
-H</em>{n}(\nabla)=\sum_{|\alpha|=n}a_{\alpha}\nabla^{\alpha}
+H_{n}(\nabla)=\sum_{|\alpha|=n}a_{\alpha}\nabla^{\alpha}
 $$
 于是
 $$
 (H_{n,1},H_{n,2})<em>{{\mathbb{H}</em>{n}^d}}=H_{n,1}(\nabla)\overline{H_{n,2}(x)}
 $$
-构成子空间 $\mathbb{H}_{n}^d$ 的内积，它对 $n$ 次多项式求 $n$ 阶导得到常数。</p>
-<p><strong>引理</strong> 若 $\Delta f=0$，则 $\Delta f_{A}=0,\forall A\in \mathbb{O}^d$ 。</p>
-<p>利用 $y=Ax,\nabla_{x}=A\nabla_{y}$ 即证。</p>
-<p><strong>定义</strong> 所有 $n$ 次 $d$ 维齐次调和多项式构成的空间记为 $\mathbb{Y}_{n}(\mathbb{R}^d)$ 。</p>
-<p>假设 $Y_{n}(x)=|x|^2Y_{n-2}(x)$ 调和，则
+构成子空间 <span class="arithmatex">\(\mathbb{H}_{n}^d\)</span> 的内积，它对 <span class="arithmatex">\(n\)</span> 次多项式求 <span class="arithmatex">\(n\)</span> 阶导得到常数。</p>
+<p><strong>引理</strong> 若 <span class="arithmatex">\(\Delta f=0\)</span>，则 <span class="arithmatex">\(\Delta f_{A}=0,\forall A\in \mathbb{O}^d\)</span> 。</p>
+<p>利用 <span class="arithmatex">\(y=Ax,\nabla_{x}=A\nabla_{y}\)</span> 即证。</p>
+<p><strong>定义</strong> 所有 <span class="arithmatex">\(n\)</span> 次 <span class="arithmatex">\(d\)</span> 维齐次调和多项式构成的空间记为 <span class="arithmatex">\(\mathbb{Y}_{n}(\mathbb{R}^d)\)</span> 。</p>
+<p>假设 <span class="arithmatex">\(Y_{n}(x)=|x|^2Y_{n-2}(x)\)</span> 调和，则
 $$
 (Y_{n},Y_{n})<em>{\mathbb{H}</em>{n}^d}=\Delta Y_{n-2}(\nabla)\overline{Y_{n}(x)}= Y_{n-2}(\nabla)\overline{\Delta Y_{n}(x)}=0
 $$
-因此 $Y_{n}(x)=0$，则 $\mathbb{Y}_{n}$ 中的非平凡函数不包含 $|x|^2$ 因子。</p>
-<p>现在考虑 $N_{n,d}=\dim(\mathbb{Y}<em>{n}(\mathbb{R}^d))$ 。任意 $H</em>{n}\in \mathbb{Y}<em>{n}(\mathbb{R}^d)$ 分解为
+因此 <span class="arithmatex">\(Y_{n}(x)=0\)</span>，则 <span class="arithmatex">\(\mathbb{Y}_{n}\)</span> 中的非平凡函数不包含 <span class="arithmatex">\(|x|^2\)</span> 因子。</p>
+<p>现在考虑 <span class="arithmatex">\(N_{n,d}=\dim(\mathbb{Y}_{n}(\mathbb{R}^d))\)</span> 。任意 <span class="arithmatex">\(H_{n}\in \mathbb{Y}_{n}(\mathbb{R}^d)\)</span> 分解为
 $$
-H</em>{n}(x_{1},\cdots,x_{d}) = \sum_{j=0}^n(x_{d})^jh_{n-j}(x_{1},\cdots,x_{d-1}),\quad h_{n-j}\in H_{n-j}^{d-1}
+H_{n}(x_{1},\cdots,x_{d}) = \sum_{j=0}^n(x_{d})^jh_{n-j}(x_{1},\cdots,x_{d-1}),\quad h_{n-j}\in H_{n-j}^{d-1}
 $$
 应用 Laplace 算子
 $$
@@ -15575,9 +15577,9 @@ $$
 $$
 h_{n-j-2}= -\frac{1}{(j+2)(j+1)}\Delta h_{n-j}
 $$
-只需要 $h_{n}\in \mathbb{H}<em>{n}^{d-1},h</em>{n-1}\in \mathbb{H}<em>{n-1}^{d-1}$ 就可以唯一确定所有函数。于是
+只需要 <span class="arithmatex">\(h_{n}\in \mathbb{H}_{n}^{d-1},h_{n-1}\in \mathbb{H}_{n-1}^{d-1}\)</span> 就可以唯一确定所有函数。于是
 $$
-N</em>{n,d} = \dim\mathbb{H}<em>{n}^{d-1}+\dim\mathbb{H}</em>{n-1}^{d-1} = 
+N_{n,d} = \dim\mathbb{H}<em>{n}^{d-1}+\dim\mathbb{H}</em>{n-1}^{d-1} = 
 \frac{(2n+d-2)(n+d-3)!}{n!(d-2)!}
 $$
 要得到更一般的公式，可以利用前面的数项级数
@@ -15598,7 +15600,7 @@ N_{n,d} = \sum_{m=0}^\infty N_{m,d-1}
 $$
 得到递推公式。</p>
 <h4 id="legendre">调和 Legendre 多项式</h4>
-<p>定义 $n$ 次 $d$ 维 Legendre 调和函数 $L_{n,d}:\mathbb{R}^d\to \mathbb{R}$，满足
+<p>定义 <span class="arithmatex">\(n\)</span> 次 <span class="arithmatex">\(d\)</span> 维 Legendre 调和函数 <span class="arithmatex">\(L_{n,d}:\mathbb{R}^d\to \mathbb{R}\)</span>，满足
 $$
 \begin{aligned}
 L_{n,d} &amp;\in \mathbb{Y}<em>{n}(\mathbb{R}^d)\
@@ -15606,7 +15608,7 @@ L</em>{n,d}(Ax) &amp;= L_{n,d}(x),\quad \forall A\in \mathbb{O}^d(e_{d}),\forall
 L_{n,d}(e_{d}) &amp;= 1
 \end{aligned}
 $$
-其中二式代表了关于 $x_{d}$ 轴的各向同性对称，如果将其写成
+其中二式代表了关于 <span class="arithmatex">\(x_{d}\)</span> 轴的各向同性对称，如果将其写成
 $$
 \begin{aligned}
 L_{n,d}(x_{1},\cdots,x_{d}) &amp;= \sum_{j=0}^n(x_{d})^jh_{n-j}(x_{1},\cdots,x_{d-1}),\quad h_{n-j}\in H_{n-j}^{d-1},\
@@ -15621,7 +15623,7 @@ $$
 $$
 h_{n-j}(A_{1}x_{(d-1)})=h_{n-j}(x_{(d-1)})
 $$
-因此 $h_{n-j}$ 依赖 $|x_{(d-1)}|$ 。由于 $h_{n-j}$ 是齐次多项式，则 $n-j$ 必须是偶数，得到
+因此 <span class="arithmatex">\(h_{n-j}\)</span> 依赖 <span class="arithmatex">\(|x_{(d-1)}|\)</span> 。由于 <span class="arithmatex">\(h_{n-j}\)</span> 是齐次多项式，则 <span class="arithmatex">\(n-j\)</span> 必须是偶数，得到
 $$
 h_{n-j}(x_{(d-1)}) = 
 \begin{cases}
@@ -15641,7 +15643,7 @@ $$
 $$
 c_{k} = -\frac{(n-2k+2)(n-2k+1)}{2k(2k+d-3)}
 $$
-利用归一化条件得到 $c_{0}=1$，于是
+利用归一化条件得到 <span class="arithmatex">\(c_{0}=1\)</span>，于是
 $$
 c_{k} = (-1)^k \frac{n!\Gamma\left( \frac{d-1}{2} \right)}{4^kk!(n-2k)!\Gamma\left( k+\frac{d-1}{2} \right)}
 $$
@@ -15659,20 +15661,20 @@ P_{n,d}(t) &amp;= n!\Gamma\left( \frac{d-1}{2} \right)\sum_{k=0}^{[n/2]}
 L_{n,d}(x) &amp;= L_{n,d}(r\xi_{(d)})=r^nP_{n,d}(t)
 \end{aligned}
 $$
-将 $P_{n,3}(t)$ 称为 $n$ 次标准 Legendre 多项式。</p>
+将 <span class="arithmatex">\(P_{n,3}(t)\)</span> 称为 <span class="arithmatex">\(n\)</span> 次标准 Legendre 多项式。</p>
 <h4 id="_17">球谐函数空间</h4>
-<p><strong>定义</strong> 称 $\mathbb{Y}<em>{n}^d=\mathbb{Y}</em>{n}(\mathbb{R}^d)|_{\mathbb{S}^{d-1}}$ 为 $n$ 次 $d$ 维球谐空间，其中的函数称为球谐函数。</p>
+<p><strong>定义</strong> 称 <span class="arithmatex">\(\mathbb{Y}_{n}^d=\mathbb{Y}_{n}(\mathbb{R}^d)|_{\mathbb{S}^{d-1}}\)</span> 为 <span class="arithmatex">\(n\)</span> 次 <span class="arithmatex">\(d\)</span> 维球谐空间，其中的函数称为球谐函数。</p>
 <blockquote>
 <blockquote>
-<p>注意 $(\cdot,\cdot)<em>{\mathbb{H}</em>{n}^d}$ 是子空间内积，我们只用它证明上述性质。对于 $\mathbb{Y}_{n}^d$ 仍然使用球面积分作为内积。</p>
+<p>注意 <span class="arithmatex">\((\cdot,\cdot)_{\mathbb{H}_{n}^d}\)</span> 是子空间内积，我们只用它证明上述性质。对于 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 仍然使用球面积分作为内积。</p>
 </blockquote>
 </blockquote>
 <p>根据定义可以得到
 $$
 \forall H_{n}\in \mathbb{Y}<em>{n}(\mathbb{R}^d),\exists Y</em>{n}\in \mathbb{Y}<em>{n}^d,\quad \mathrm{s.t.}\quad H</em>{n}(r\xi)=r^nY_{n}(\xi)
 $$
-从而 $\dim\mathbb{Y}<em>{n}^d=N</em>{n,d}$ 。</p>
-<p>考虑 $d=2$ 的特殊情况。由于 $(x_{1}+ix_{2})^n$ 是 $n$ 次齐次调和函数，因此实部和虚部都是调和函数。在极坐标 $(r,\theta)$ 下 $\xi=(\cos \theta,\sin \theta)^T$ 代入得到
+从而 <span class="arithmatex">\(\dim\mathbb{Y}_{n}^d=N_{n,d}\)</span> 。</p>
+<p>考虑 <span class="arithmatex">\(d=2\)</span> 的特殊情况。由于 <span class="arithmatex">\((x_{1}+ix_{2})^n\)</span> 是 <span class="arithmatex">\(n\)</span> 次齐次调和函数，因此实部和虚部都是调和函数。在极坐标 <span class="arithmatex">\((r,\theta)\)</span> 下 <span class="arithmatex">\(\xi=(\cos \theta,\sin \theta)^T\)</span> 代入得到
 $$
 (\cos \theta+i\sin \theta)^n=e^{i n\theta}=\cos(n\theta)+i\sin(n\theta)
 $$
@@ -15680,24 +15682,24 @@ $$
 $$
 y_{n,1}(\xi)=\cos(n\theta),\quad y_{n,2}(\xi)=\sin(n\theta)
 $$
-都是 $\mathbb{Y}_{n}^2$ 中的元素。</p>
-<p><strong>定理</strong> 令 $Y_{n}\in \mathbb{Y}<em>{n}^d,\xi\in \mathbb{S}^{d-1}$，称 $f:\mathbb{S}^{d-1}\to \mathbb{C}$ 关于 $\mathbb{O}^d(\xi)$ 不变，如果
+都是 <span class="arithmatex">\(\mathbb{Y}_{n}^2\)</span> 中的元素。</p>
+<p><strong>定理</strong> 令 <span class="arithmatex">\(Y_{n}\in \mathbb{Y}_{n}^d,\xi\in \mathbb{S}^{d-1}\)</span>，称 <span class="arithmatex">\(f:\mathbb{S}^{d-1}\to \mathbb{C}\)</span> 关于 <span class="arithmatex">\(\mathbb{O}^d(\xi)\)</span> 不变，如果
 $$
 f(A\eta)=f(\eta),\quad \forall A\in \mathbb{O}^d(\xi),\forall \eta\in \mathbb{S}^{d-1}
 $$
-则 $Y</em>{n}$ 关于 $\mathbb{O}^d(\xi)$ 不变当且仅当
+则 <span class="arithmatex">\(Y_{n}\)</span> 关于 <span class="arithmatex">\(\mathbb{O}^d(\xi)\)</span> 不变当且仅当
 $$
 Y_{n}(\eta)=Y_{n}(\xi)P_{n,d}(\xi \cdot \eta),\quad \forall \eta\in \mathbb{S}^{d-1}
 $$
-$\Rightarrow$ 考虑 $A_{1}\in \mathbb{O}^d$ 使得 $\xi=A_{1}e_{d}$，定义
+<span class="arithmatex">\(\Rightarrow\)</span> 考虑 <span class="arithmatex">\(A_{1}\in \mathbb{O}^d\)</span> 使得 <span class="arithmatex">\(\xi=A_{1}e_{d}\)</span>，定义
 $$
 \tilde{Y}<em>{n}(\eta) = Y</em>{n}(A_{1}\eta),\quad \eta\in \mathbb{S}^{d-1}
 $$
-因此 $\tilde{Y}<em>{n}$ 满足 Legendre 多项式的定义的前两条，进而 $r^nY</em>{n}(\eta)$ 与 $L_{n,d}(r\eta)$ 之间是常数倍
+因此 <span class="arithmatex">\(\tilde{Y}_{n}\)</span> 满足 Legendre 多项式的定义的前两条，进而 <span class="arithmatex">\(r^nY_{n}(\eta)\)</span> 与 <span class="arithmatex">\(L_{n,d}(r\eta)\)</span> 之间是常数倍
 $$
 \tilde{Y}<em>{n}(\eta)=c</em>{1}L_{n,d}(\eta)
 $$
-代入 $\eta=e_{d}$ 得到 $c_{1}=\tilde{Y}<em>{n}(e</em>{d})$，于是
+代入 <span class="arithmatex">\(\eta=e_{d}\)</span> 得到 <span class="arithmatex">\(c_{1}=\tilde{Y}_{n}(e_{d})\)</span>，于是
 $$
 \tilde{Y}<em>{n}(\eta)=\tilde{Y}</em>{n}(e_{d})L_{n,d}(\eta)=\tilde{Y}<em>{n}(e</em>{d})P_{n,d}( e_{d}\cdot\eta)
 $$
@@ -15710,32 +15712,32 @@ Y_{n}(\eta) &amp;= \tilde{Y}<em>{n}(A</em>{1}^T\eta)\
 &amp;= Y_{n}(\xi)P_{n,d}(\xi\cdot \eta)
 \end{aligned}
 $$
-$\Leftarrow$ 直接代入
+<span class="arithmatex">\(\Leftarrow\)</span> 直接代入
 $$
 Y_{n}(A\eta) = Y_{n}(\xi)P_{n,d}(\xi \cdot A\eta) = Y_{n}(\xi)P_{n,d}(A^T\xi \cdot \eta)= Y_{n}(A^T\xi)P_{n,d}(A^T\xi \cdot \eta) = Y_{n}(\eta)
 $$
 即证。</p>
 <blockquote>
 <blockquote>
-<p>此定理说明，如果一个球谐函数 $Y_{n}(\eta)$ 关于绕 $\xi$ 的旋转不变，等价于它是 Legendre 多项式的常数倍。并且我们注意到 $P_{n,d}(\xi \cdot)$ 也是球谐函数,，而且还是实值函数。</p>
+<p>此定理说明，如果一个球谐函数 <span class="arithmatex">\(Y_{n}(\eta)\)</span> 关于绕 <span class="arithmatex">\(\xi\)</span> 的旋转不变，等价于它是 Legendre 多项式的常数倍。并且我们注意到 <span class="arithmatex">\(P_{n,d}(\xi \cdot)\)</span> 也是球谐函数,，而且还是实值函数。</p>
 </blockquote>
 </blockquote>
 <h3 id="_18">球谐函数的性质</h3>
 <h4 id="_19">加法定理</h4>
-<p><strong>加法定理</strong> 令 ${Y_{n,j}:1\leq j\leq N_{n,d}}$ 是 $\mathbb{Y}<em>{n}^d$ 的正交基，即
+<p><strong>加法定理</strong> 令 <span class="arithmatex">\(\{Y_{n,j}:1\leq j\leq N_{n,d}\}\)</span> 是 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 的正交基，即
 $$
-\langle Y</em>{n,j},Y_{n,k} \rangle = \int_{\mathbb{S}^{d-1}}Y_{n,j}(\eta)\overline{Y_{n,k}(\eta)}dS^{d-1}(\eta)=\delta_{jk}
+\langle Y_{n,j},Y_{n,k} \rangle = \int_{\mathbb{S}^{d-1}}Y_{n,j}(\eta)\overline{Y_{n,k}(\eta)}dS^{d-1}(\eta)=\delta_{jk}
 $$
 则
 $$
 K_{n,d}(\xi,\eta)= \frac{1}{|\mathbb{S}^{d-1}|}N_{n,d}P_{n,d}(\xi \cdot \eta) =  \sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)},\quad \forall \xi,\eta\in \mathbb{S}^{d-1}
 $$
 它表明 Legendre 多项式可以展开为内积和。</p>
-<p>对于 $d=2$ 有
+<p>对于 <span class="arithmatex">\(d=2\)</span> 有
 $$
 \sum_{j=1}^2Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}=\frac{1}{\pi}P_{n,2}(\xi \cdot \eta)
 $$
-取 $\xi=(\cos \theta,\sin \theta)^T,\eta=(\cos \psi,\sin \psi)^T,\xi \cdot \eta=\cos(\theta-\psi)$ 得到
+取 <span class="arithmatex">\(\xi=(\cos \theta,\sin \theta)^T,\eta=(\cos \psi,\sin \psi)^T,\xi \cdot \eta=\cos(\theta-\psi)\)</span> 得到
 $$
 \begin{aligned}
 Y_{n,1}(\xi)&amp;=\frac{1}{\sqrt{ \pi }}\cos (n\theta),\quad Y_{n,2}(\xi)=\frac{1}{\sqrt{ \pi }}\sin(n\theta)\
@@ -15746,18 +15748,18 @@ $$
 $$
 P_{n,2}(t) = \cos(n\arccos t),\quad |t|\leq 1
 $$
-即 $P_{n,2}$ 是 $n$ 阶 Chebyshev 多项式。</p>
+即 <span class="arithmatex">\(P_{n,2}\)</span> 是 <span class="arithmatex">\(n\)</span> 阶 Chebyshev 多项式。</p>
 <h4 id="_20">重建核函数</h4>
-<p>加法定理可以用来找到 $\mathbb{Y}<em>{n}^d$ 的重建核的紧表示。任意 $Y</em>{n}\in \mathbb{Y}<em>{n}^d$ 满足
+<p>加法定理可以用来找到 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 的重建核的紧表示。任意 <span class="arithmatex">\(Y_{n}\in \mathbb{Y}_{n}^d\)</span> 满足
 $$
 \begin{aligned}
-Y</em>{n}(\xi) &amp;= \sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle Y_{n,j}(\xi)\
+Y_{n}(\xi) &amp;= \sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle Y_{n,j}(\xi)\
 &amp;= \int_{\mathbb{S}^{d-1}}Y_{n}(\eta)\sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\eta)}dS^{d-1}(\eta)\
 &amp;= \int_{\mathbb{S}^{d-1}}Y_{n}(\eta)\frac{1}{|\mathbb{S}^{d-1}|}N_{n,d}P_{n,d}(\xi \cdot \eta)dS^{d-1}(\eta)\
 &amp;= \int_{\mathbb{S}^{d-1}}Y_{n}(\eta)K_{n,d}(\xi,\eta)dS^{d-1}(\eta)
 \end{aligned}
 $$
-其中 $K_{n,d}(\xi,\eta)$ 就是 $\mathbb{Y}_{n}^d$ 的重建核。</p>
+其中 <span class="arithmatex">\(K_{n,d}(\xi,\eta)\)</span> 就是 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 的重建核。</p>
 <blockquote>
 <blockquote>
 <p>核函数是 Legendre 多项式函数的倍数。</p>
@@ -15767,21 +15769,21 @@ $$
 $$
 \mathbb{Y}<em>{0:m}^d = \bigoplus</em>{n=0}^m\mathbb{Y}<em>{n}^d
 $$
-为所有不超过 $m$ 次的球谐函数空间。于是
+为所有不超过 <span class="arithmatex">\(m\)</span> 次的球谐函数空间。于是
 $$
 K</em>{0:m,d}(\xi,\eta) = \frac{1}{|\mathbb{S}^{d-1}|}\sum_{n=0}^mN_{n,d}P_{n,d}(\xi,\eta)
 $$
-就是 $\mathbb{Y}_{0:m}^d$ 的重建核。</p>
+就是 <span class="arithmatex">\(\mathbb{Y}_{0:m}^d\)</span> 的重建核。</p>
 <h4 id="_21">有界性</h4>
-<p>由于 $P_{n,d}(1)=1$，于是
+<p>由于 <span class="arithmatex">\(P_{n,d}(1)=1\)</span>，于是
 $$
 K_{n,d}(\xi,\xi)= \frac{1}{|\mathbb{S}^{d-1}|}N_{n,d} = \sum_{j=1}^{N_{n,d}}Y_{n,j}(\xi)\overline{Y_{n,j}(\xi)} = \sum_{j=1}^{N_{n,d}}|Y_{n,j}(\xi)|^2
 $$
 即所有正交基的平方和是常数，这提供了正交基的上界。</p>
-<p>对任意 $Y_{n}\in \mathbb{Y}<em>{n}^d$ 有
+<p>对任意 <span class="arithmatex">\(Y_{n}\in \mathbb{Y}_{n}^d\)</span> 有
 $$
 \begin{aligned}
-\langle Y</em>{n},Y_{n} \rangle &amp;= \left\langle \sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle Y_{n,j}(\xi),\sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle Y_{n,j}(\xi) \right\rangle \
+\langle Y_{n},Y_{n} \rangle &amp;= \left\langle \sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle Y_{n,j}(\xi),\sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle Y_{n,j}(\xi) \right\rangle \
 &amp;= \sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle^2\
 |Y_{n}(\xi)|^2 &amp;= \left|\sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle Y_{n,j}(\xi)\right|^2\
 &amp;\leq \sum_{j=1}^{N_{n,d}}\langle Y_{n},Y_{n,j} \rangle^2\sum_{j=1}^{N_{n,d}}|Y_{n,j}(\xi)|^2\
@@ -15816,26 +15818,26 @@ $$
 $$
 因此 Legendre 多项式的球面积分是常数。</p>
 <h4 id="_22">不可约性</h4>
-<p><strong>定理</strong> 任意 $n\in \mathbb{N}<em>{0},d\in \mathbb{N}$，球谐空间 $\mathbb{Y}</em>{n}^d$ 不可约。</p>
+<p><strong>定理</strong> 任意 <span class="arithmatex">\(n\in \mathbb{N}_{0},d\in \mathbb{N}\)</span>，球谐空间 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 不可约。</p>
 <h3 id="_23">投影算子</h3>
 <h4 id="_24">表达形式</h4>
-<p>考虑 $f\in L^2(\mathbb{S}^{d-1})$ 在 $\mathbb{Y}<em>{n}^{d}$ 中的最佳逼近问题
+<p>考虑 <span class="arithmatex">\(f\in L^2(\mathbb{S}^{d-1})\)</span> 在 <span class="arithmatex">\(\mathbb{Y}_{n}^{d}\)</span> 中的最佳逼近问题
 $$
-\inf{|f-Y</em>{n}|<em>{{L^2(\mathbb{S}^{d-1})}}:Y</em>{n}\in \mathbb{Y}<em>{n}^d}
+\inf{|f-Y_{n}|<em>{{L^2(\mathbb{S}^{d-1})}}:Y</em>{n}\in \mathbb{Y}<em>{n}^d}
 $$
-取 $\mathbb{Y}</em>{n}^d$ 中的正交基 ${Y_{n,j}:1\leq j\leq N_{n,d}}$，问题的解为
+取 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 中的正交基 <span class="arithmatex">\(\{Y_{n,j}:1\leq j\leq N_{n,d}\}\)</span>，问题的解为
 $$
-(\mathcal{P}<em>{n,d}f)(\xi) = \sum</em>{j=1}^{N_{n,d}}\langle f,Y_{n} \rangle Y_{n,j}(\xi)
+(\mathcal{P}</em>{n,d}f)(\xi) = \sum_{j=1}^{N_{n,d}}\langle f,Y_{n} \rangle Y_{n,j}(\xi)
 $$
-它是 $f$ 在 $\mathbb{Y}_{n}^d$ 中的投影，且 $f\in L^1(\mathbb{S}^{d-1})$ 。这种写法的缺点是需要预先知道正交基。</p>
-<p><strong>定义</strong> $f\in L^1(\mathbb{S}^{d-1})$ 在 $\mathbb{Y}<em>{n}^d$ 中的投影为
+它是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 中的投影，且 <span class="arithmatex">\(f\in L^1(\mathbb{S}^{d-1})\)</span> 。这种写法的缺点是需要预先知道正交基。</p>
+<p><strong>定义</strong> <span class="arithmatex">\(f\in L^1(\mathbb{S}^{d-1})\)</span> 在 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 中的投影为
 $$
-(\mathcal{P}</em>{n,d}f)(\xi) = \int_{\mathbb{S}^{d-1}}K_{n,d}(\xi, \eta)f(\eta)dS^{d-1}(\eta)
+(\mathcal{P}<em>{n,d}f)(\xi) = \int</em>{\mathbb{S}^{d-1}}K_{n,d}(\xi, \eta)f(\eta)dS^{d-1}(\eta)
 $$
-显然算子 $\mathcal{P}_{n,d}$ 线性。</p>
+显然算子 <span class="arithmatex">\(\mathcal{P}_{n,d}\)</span> 线性。</p>
 <blockquote>
 <blockquote>
-<p>注意这里的定义与前面基于内积的分解形式等价，因为我们已经证明了重建基函数 $K_n,d$ 的性质。</p>
+<p>注意这里的定义与前面基于内积的分解形式等价，因为我们已经证明了重建基函数 <span class="arithmatex">\(K_n,d\)</span> 的性质。</p>
 </blockquote>
 </blockquote>
 <h4 id="_25">有界性</h4>
@@ -15864,9 +15866,9 @@ $$
 $$
 它们说明投影函数范数被函数范数控制。</p>
 <h4 id="_26">不变性</h4>
-<p><strong>命题</strong> 投影算子 $\mathcal{P}<em>{n,d}$ 和正交变换 $A$ 可交换
+<p><strong>命题</strong> 投影算子 <span class="arithmatex">\(\mathcal{P}_{n,d}\)</span> 和正交变换 <span class="arithmatex">\(A\)</span> 可交换
 $$
-\mathcal{P}</em>{n,d}f_{A} = (\mathcal{P}<em>{n,d}f)</em>{A},\quad \forall A\in \mathbb{O}^d
+\mathcal{P}<em>{n,d}f</em>{A} = (\mathcal{P}<em>{n,d}f)</em>{A},\quad \forall A\in \mathbb{O}^d
 $$
 根据定义
 $$
@@ -15878,35 +15880,35 @@ $$
 \end{aligned}
 $$
 即证。</p>
-<p><strong>推论</strong> 若 $\mathbb{V}$ 是不变空间，则 $\mathcal{P}<em>{n,d}\mathbb{V}={\mathcal{P}</em>{n,d}f:f\in \mathbb{V}}$ 是 $\mathbb{Y}_{n}^d$ 的不变子空间。</p>
+<p><strong>推论</strong> 若 <span class="arithmatex">\(\mathbb{V}\)</span> 是不变空间，则 <span class="arithmatex">\(\mathcal{P}_{n,d}\mathbb{V}=\{\mathcal{P}_{n,d}f:f\in \mathbb{V}\}\)</span> 是 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 的不变子空间。</p>
 <blockquote>
 <blockquote>
-<p>由于 $\mathbb{Y}<em>{n}^d$ 不可约，则要么 $\mathbb{V}$ 正交于 $\mathbb{Y}</em>{n}^d$，即 $\mathcal{P}<em>{n,d}\mathbb{V} =0$；要么 $\mathcal{P}</em>{n,d}\mathbb{V}=\mathbb{Y}_{n,d}$ 。</p>
+<p>由于 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 不可约，则要么 <span class="arithmatex">\(\mathbb{V}\)</span> 正交于 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span>，即 <span class="arithmatex">\(\mathcal{P}_{n,d}\mathbb{V} =0\)</span>；要么 <span class="arithmatex">\(\mathcal{P}_{n,d}\mathbb{V}=\mathbb{Y}_{n,d}\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p><strong>定理</strong> 若 $\mathbb{V}$ 是 $C(\mathbb{S}^{d-1})$ 的原始子空间，则要么 $\mathbb{V}\perp \mathbb{Y}<em>{n}^d$，要么 $\mathcal{P}</em>{n,d}$ 是 $\mathbb{V}$ 到 $\mathbb{Y}<em>{n}^d$ 的双射。在后一种情况下，$\mathbb{V}=\mathbb{Y}</em>{n}^d$ 。</p>
+<p><strong>定理</strong> 若 <span class="arithmatex">\(\mathbb{V}\)</span> 是 <span class="arithmatex">\(C(\mathbb{S}^{d-1})\)</span> 的原始子空间，则要么 <span class="arithmatex">\(\mathbb{V}\perp \mathbb{Y}_{n}^d\)</span>，要么 <span class="arithmatex">\(\mathcal{P}_{n,d}\)</span> 是 <span class="arithmatex">\(\mathbb{V}\)</span> 到 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 的双射。在后一种情况下，<span class="arithmatex">\(\mathbb{V}=\mathbb{Y}_{n}^d\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>该定理说明不同次球谐函数正交 $\mathbb{Y}<em>{n}^d\perp \mathbb{Y}</em>{m}^d,m\neq n$ 。</p>
+<p>该定理说明不同次球谐函数正交 <span class="arithmatex">\(\mathbb{Y}_{n}^d\perp \mathbb{Y}_{m}^d,m\neq n\)</span> 。</p>
 </blockquote>
 </blockquote>
 <h3 id="_27">多项式空间的关系</h3>
 <h4 id="_28">多项式空间的分解</h4>
-<p><strong>命题</strong> Laplace 算子 $\Delta$ 是从 $\mathbb{H}<em>{n}^d$ 到 $\mathbb{H}</em>{n-2}^d$ 的满射。</p>
+<p><strong>命题</strong> Laplace 算子 <span class="arithmatex">\(\Delta\)</span> 是从 <span class="arithmatex">\(\mathbb{H}_{n}^d\)</span> 到 <span class="arithmatex">\(\mathbb{H}_{n-2}^d\)</span> 的满射。</p>
 <p>只需要注意到
 $$
 \dim\mathbb{H}<em>{n}^d-\dim\mathbb{Y}</em>{n}(\mathbb{R}^d)=\dim\mathbb{H}<em>{n-2}^d
 $$
-因此 $\Delta$ 恰好消去 $\mathbb{H}</em>{n}^d$ 中的调和函数。还可以使用反证法，假设存在非零函数 $H_{n-2}\in \mathbb{H}<em>{n-2}^d$ 不是 $\Delta$ 的像，则它在 $\Delta H</em>{n}$ 上的分量为零
+因此 <span class="arithmatex">\(\Delta\)</span> 恰好消去 <span class="arithmatex">\(\mathbb{H}_{n}^d\)</span> 中的调和函数。还可以使用反证法，假设存在非零函数 <span class="arithmatex">\(H_{n-2}\in \mathbb{H}_{n-2}^d\)</span> 不是 <span class="arithmatex">\(\Delta\)</span> 的像，则它在 <span class="arithmatex">\(\Delta H_{n}\)</span> 上的分量为零
 $$
-(\Delta H_{n},H_{n-2})<em>{\mathbb{H}</em>{n-2}^d} = 0,\quad \forall H_{n}\in \mathbb{H}<em>{n}^d
+(\Delta H</em>{n},H_{n-2})<em>{\mathbb{H}</em>{n-2}^d} = 0,\quad \forall H_{n}\in \mathbb{H}<em>{n}^d
 $$
-取 $H</em>{n}=|x|^2H_{n-2}(x)$ 得到
+取 <span class="arithmatex">\(H_{n}=|x|^2H_{n-2}(x)\)</span> 得到
 $$
-(H_{n},H_{n})<em>{\mathbb{H}</em>{n}^d} = 0 \implies H_{n}(x)=0\implies H_{n-2}(x)=0
+(H</em>{n},H_{n})<em>{\mathbb{H}</em>{n}^d} = 0 \implies H_{n}(x)=0\implies H_{n-2}(x)=0
 $$
 矛盾。</p>
-<p><strong>定理</strong> $\mathbb{H}<em>{n}^d=\mathbb{Y}</em>{n}(\mathbb{R}^d)\oplus|\cdot|^2\mathbb{H}_{n-2}^d$ 。</p>
+<p><strong>定理</strong> <span class="arithmatex">\(\mathbb{H}_{n}^d=\mathbb{Y}_{n}(\mathbb{R}^d)\oplus|\cdot|^2\mathbb{H}_{n-2}^d\)</span> 。</p>
 <p>根据前面反证法的构造以及维数关系，只需要证明正交。由于
 $$
 (Y_{n},|\cdot|^2H_{n-2})<em>{\mathbb{H}</em>{n-2}^d} = (\Delta Y_{n},H_{n-2})<em>{\mathbb{H}</em>{n-2}^d} = 0,\quad \forall Y_{n}\in \mathbb{Y}<em>{n}(\mathbb{R}^d),H</em>{n-2}\in \mathbb{H}_{n-2}^d
@@ -15914,22 +15916,22 @@ $$
 即证。</p>
 <blockquote>
 <blockquote>
-<p>注意到可以将右侧的 $\mathbb{H}_{n-2}^d$ 递归展开，这意味着 $n$ 次齐次多项式可以分解为调和函数与 $|x|^2$ 乘积的组合。</p>
+<p>注意到可以将右侧的 <span class="arithmatex">\(\mathbb{H}_{n-2}^d\)</span> 递归展开，这意味着 <span class="arithmatex">\(n\)</span> 次齐次多项式可以分解为调和函数与 <span class="arithmatex">\(|x|^2\)</span> 乘积的组合。</p>
 </blockquote>
 </blockquote>
-<p><strong>推论</strong> 限制在 $\mathbb{S}^{d-1}$ 上的任意多项式都是球谐函数的和
+<p><strong>推论</strong> 限制在 <span class="arithmatex">\(\mathbb{S}^{d-1}\)</span> 上的任意多项式都是球谐函数的和
 $$
 \left( \sum_{j=0}^n\mathbb{H}<em>{j}^n \right)\bigg|</em>{\mathbb{S}^{d-1}}=\sum_{j=0}^n\mathbb{Y}<em>{j}^d
 $$
-<strong>推论</strong> 多项式 $H</em>{n}\in \mathbb{H}<em>{n}^d$ 调和当且仅当
+<strong>推论</strong> 多项式 <span class="arithmatex">\(H_{n}\in \mathbb{H}_{n}^d\)</span> 调和当且仅当
 $$
 \langle H</em>{n},H_{n-2} \rangle = 0,\quad \forall H_{n-2}\in \mathbb{H}<em>{n-2}^d
 $$
-$\Leftarrow$ 将 $H</em>{n}$ 分解
+<span class="arithmatex">\(\Leftarrow\)</span> 将 <span class="arithmatex">\(H_{n}\)</span> 分解
 $$
-H_{n}(x) = Y_{n}(x)+|x|^2Y_{n-2}(x)+\cdots+|x|^{2[n / 2]}Y_{n-2[n / 2]}(x)
+H</em>{n}(x) = Y_{n}(x)+|x|^2Y_{n-2}(x)+\cdots+|x|^{2[n / 2]}Y_{n-2[n / 2]}(x)
 $$
-其中 $Y_{j}$ 都是调和多项式。限制在 $\mathbb{S}^{d-1}$ 上得到
+其中 <span class="arithmatex">\(Y_{j}\)</span> 都是调和多项式。限制在 <span class="arithmatex">\(\mathbb{S}^{d-1}\)</span> 上得到
 $$
 H_{n}(\xi) = Y_{n}(\xi)+Y_{n-2}(\xi)+\cdots+Y_{n-2[n / 2]}(\xi)
 $$
@@ -15937,22 +15939,22 @@ $$
 $$
 0 = \langle H_{n},Y_{n-2j} \rangle  = \langle Y_{n-2j},Y_{n-2j} \rangle 
 $$
-因此 $Y_{n-2j}=0$，故 $H_{n}=Y_{n}$ 调和。</p>
-<p>$\Leftarrow$ 设 $H_{n}\in \mathbb{Y}<em>{n}(\mathbb{S}^d)$ 调和，则
+因此 <span class="arithmatex">\(Y_{n-2j}=0\)</span>，故 <span class="arithmatex">\(H_{n}=Y_{n}\)</span> 调和。</p>
+<p><span class="arithmatex">\(\Leftarrow\)</span> 设 <span class="arithmatex">\(H_{n}\in \mathbb{Y}_{n}(\mathbb{S}^d)\)</span> 调和，则
 $$
-\langle H</em>{n},H_{n-2} \rangle =\sum_{j=0}^{[(n-2)/2]}\langle H_{n},Y_{n-2-2j} \rangle =0
+\langle H_{n},H_{n-2} \rangle =\sum_{j=0}^{[(n-2)/2]}\langle H_{n},Y_{n-2-2j} \rangle =0
 $$
 这里同样利用不同次球谐函数正交。</p>
 <h4 id="laplace">基于 Laplace 分解</h4>
-<p>对任意 $n$ 次齐次多项式 $H_{n}(x)$ 有
+<p>对任意 <span class="arithmatex">\(n\)</span> 次齐次多项式 <span class="arithmatex">\(H_{n}(x)\)</span> 有
 $$
 H_{n}(\lambda x) = \lambda^nH_{n}(x)
 $$
-对 $\lambda$ 求偏导，取 $\lambda=1$ 得到
+对 <span class="arithmatex">\(\lambda\)</span> 求偏导，取 <span class="arithmatex">\(\lambda=1\)</span> 得到
 $$
 \sum_{i=1}^dx_{i} \nabla_{i}H_{n}(x) = nH_{n}(x)
 $$
-考虑 $r^mH_{n}(x),r=|x|$，注意到
+考虑 <span class="arithmatex">\(r^mH_{n}(x),r=|x|\)</span>，注意到
 $$
 \nabla_{i}r = \frac{x_{i}}{r}
 $$
@@ -15976,7 +15978,7 @@ $$
 $$
 \Delta^kH_{n}(x) = \sum_{j=k}^{[n / 2]} \frac{(2j)!!(d+2n-2j-2)!!}{(2j-2k)!!(d+2n-2j-2k-2)!!}|x|^{2(j-k)}Y_{n-2j}(x)
 $$
-如果 $n$ 为偶，可取 $k=\frac{n}{2}$，则
+如果 <span class="arithmatex">\(n\)</span> 为偶，可取 <span class="arithmatex">\(k=\frac{n}{2}\)</span>，则
 $$
 \Delta^{n/2}H_{n}(x) = \frac{n!!(d+n-2)!!}{(d-2)!!}Y_{0}(x)
 $$
@@ -15984,10 +15986,10 @@ $$
 $$
 Y_{0}(x) = \frac{(d-2)!!}{n!!(d+n-2)!!}\Delta^{n/2}H_{n}(x)
 $$
-从而可以递推计算 $Y_{2j}(x)$ 的表达式。</p>
+从而可以递推计算 <span class="arithmatex">\(Y_{2j}(x)\)</span> 的表达式。</p>
 <h3 id="funk-heche">Funk-Heche 公式</h3>
 <h4 id="_29">加权空间</h4>
-<p>引入加权 $L^1$ 空间
+<p>引入加权 <span class="arithmatex">\(L^1\)</span> 空间
 $$
 L_{(d-3)/2}^1(-1,1) = {f_{measurable}:|f|&lt;\infty}
 $$
@@ -15998,14 +16000,14 @@ $$
 (f,g)<em>{L^1} &amp;= \int</em>{-1}^1f(t)g(t)(1-t^2)^{(d-3)/2}dt
 \end{aligned}
 $$
-注意到 $d\geq 2$ 时，$C[-1,1]\subset L_{(d-3)/2}^1(-1,1)$ 。我们之后都假设 $d\geq 2$ 。</p>
+注意到 <span class="arithmatex">\(d\geq 2\)</span> 时，<span class="arithmatex">\(C[-1,1]\subset L_{(d-3)/2}^1(-1,1)\)</span> 。我们之后都假设 <span class="arithmatex">\(d\geq 2\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>这里 $L^1$ 空间的权函数参考<a href="#球面元">#球面元</a>中将球面积分分离为多变量积分时的变换函数。</p>
+<p>这里 <span class="arithmatex">\(L^1\)</span> 空间的权函数参考<a href="#球面元">#球面元</a>中将球面积分分离为多变量积分时的变换函数。</p>
 </blockquote>
 </blockquote>
 <h4 id="_30">投影分解</h4>
-<p>考虑将 $f\in L_{(d-3)/2}^1(-1,1)$ 投影到 $\mathbb{Y}<em>{n}^d$ 中。定义 $f</em>{\xi}(\eta)=f(\xi \cdot \eta),\eta\in \mathbb{S}^{d-1}$，则
+<p>考虑将 <span class="arithmatex">\(f\in L_{(d-3)/2}^1(-1,1)\)</span> 投影到 <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 中。定义 <span class="arithmatex">\(f_{\xi}(\eta)=f(\xi \cdot \eta),\eta\in \mathbb{S}^{d-1}\)</span>，则
 $$
 \begin{aligned}
 (\mathcal{P}<em>{n,d}f</em>{\xi})<em>{A}(\eta) &amp;= (\mathcal{P}</em>{n,d}(f_{\xi})<em>{A})(\eta)\
@@ -16017,11 +16019,11 @@ $$
 &amp;= (\mathcal{P}<em>{n,d}f</em>{\xi})(\eta),\quad \forall A\in \mathbb{O}^d(\xi)
 \end{aligned}
 $$
-其中第一行利用投影算子和正交变换可交换；第五行利用 $A$ 保持 $\mathrm{\xi}$ 不变，即 $A\xi=\xi$ 。进而
+其中第一行利用投影算子和正交变换可交换；第五行利用 <span class="arithmatex">\(A\)</span> 保持 <span class="arithmatex">\(\mathrm{\xi}\)</span> 不变，即 <span class="arithmatex">\(A\xi=\xi\)</span> 。进而
 $$
 \mathcal{P}<em>{n,d}f</em>{\xi}  = (\mathcal{P}<em>{n,d}f</em>{\xi})<em>{A} \in \mathbb{Y}</em>{n}^d
 $$
-并且 $\mathcal{P}<em>{n,d}f</em>{\xi}$ 关于 $\mathbb{O}^d(\xi)$ 不变。根据<a href="#球谐函数空间">#球谐函数空间</a>的性质，$\mathcal{P}<em>{n,d}f</em>{\xi}$ 是 $P_{n,d}(\xi \cdot)$ 的常数倍，设
+并且 <span class="arithmatex">\(\mathcal{P}_{n,d}f_{\xi}\)</span> 关于 <span class="arithmatex">\(\mathbb{O}^d(\xi)\)</span> 不变。根据<a href="#球谐函数空间">#球谐函数空间</a>的性质，<span class="arithmatex">\(\mathcal{P}_{n,d}f_{\xi}\)</span> 是 <span class="arithmatex">\(P_{n,d}(\xi \cdot)\)</span> 的常数倍，设
 $$
 (\mathcal{P}<em>{n,d}f</em>{\xi})(\eta)=\lambda_{n}\frac{N_{n,d}}{|\mathbb{S}^{d-1}|}P_{n,d}(\xi \cdot \eta)
 $$
@@ -16036,11 +16038,11 @@ $$
 $$
 \lambda_{n}P_{n,d}(\xi \cdot \eta) = \int_{\mathbb{S}^{d-1}}P_{n,d}(\eta \cdot \zeta)f_{\xi}(\zeta)dS^{d-1}(\zeta)\tag{1}
 $$
-取 $\eta=\xi$ 得到
+取 <span class="arithmatex">\(\eta=\xi\)</span> 得到
 $$
 \lambda_{n} = \int_{\mathbb{S}^{d-1}}P_{n,d}(\xi \cdot \zeta)f_{\xi}(\zeta)dS^{d-1}(\zeta)
 $$
-注意到积分与 $\xi$ 无关，取 $\xi=e_{d}$，利用
+注意到积分与 <span class="arithmatex">\(\xi\)</span> 无关，取 <span class="arithmatex">\(\xi=e_{d}\)</span>，利用
 $$
 dS^{d-1}(te_{d}+\sqrt{ 1-t^2 }\zeta_{(d-1)})=(1-t^2)^{(d-3)/2}dtdS^{d-2}(\zeta_{(d-1)})
 $$
@@ -16048,9 +16050,9 @@ $$
 $$
 \lambda_{n} = |\mathbb{S}^{d-2}|\int_{-1}^1P_{n,d}(t)f(t)(1-t^2)^{(d-3)/2}dt = |\mathbb{S}^{d-2}|\cdot (P_{n,d},f)<em>{L^1}
 $$
-现在再考虑 (1) 式，两端乘任意 $Y</em>{n}(\eta)$ 再对 $\eta$ 积分
+现在再考虑 (1) 式，两端乘任意 <span class="arithmatex">\(Y_{n}(\eta)\)</span> 再对 <span class="arithmatex">\(\eta\)</span> 积分
 $$
-\lambda_{n}\int_{\mathbb{S}^{d-1}}P_{n,d}(\xi \cdot \eta)Y_{n}(\eta)dS^{d-1}(\eta) = \int_{\mathbb{S}^{d-1}}\left( \int_{\mathbb{S}^{d-1}}P_{n,d}(\eta \cdot \zeta)Y_{n}(\eta)dS^{d-1}(\eta) \right)f_{\xi}(\zeta)dS^{d-1}(\zeta)
+\lambda</em>{n}\int_{\mathbb{S}^{d-1}}P_{n,d}(\xi \cdot \eta)Y_{n}(\eta)dS^{d-1}(\eta) = \int_{\mathbb{S}^{d-1}}\left( \int_{\mathbb{S}^{d-1}}P_{n,d}(\eta \cdot \zeta)Y_{n}(\eta)dS^{d-1}(\eta) \right)f_{\xi}(\zeta)dS^{d-1}(\zeta)
 $$
 观察到两边积分具有类似的形式，考虑该形式
 $$
@@ -16059,14 +16061,14 @@ $$
 &amp;=\frac{1}{N_{n,d}}|\mathbb{S}^{d-1}|Y_{n}(\zeta)
 \end{aligned}
 $$
-其中第二行利用了 $K_{n,d}$ 的重建特性。因此代回得到
+其中第二行利用了 <span class="arithmatex">\(K_{n,d}\)</span> 的重建特性。因此代回得到
 $$
 \lambda_{n}Y_{n}(\xi) = \int_{\mathbb{S}^{d-1}}Y_{n}(\zeta)f_{\xi}(\zeta)dS^{d-1}(\zeta)
 $$
 于是我们得到</p>
-<p><strong>Funk-Heche 公式</strong> 令 $f\in L_{(d-3)/2}^1(-1,1),\xi\in \mathbb{S}^{d-1},Y_{n}\in \mathbb{Y}<em>{n}^d$，则
+<p><strong>Funk-Heche 公式</strong> 令 <span class="arithmatex">\(f\in L_{(d-3)/2}^1(-1,1),\xi\in \mathbb{S}^{d-1},Y_{n}\in \mathbb{Y}_{n}^d\)</span>，则
 $$
-\int</em>{\mathbb{S}^{d-1}}f(\xi \cdot \eta)Y_{n}(\eta)dS^{d-1}(\eta) = \lambda_{n}Y_{n}(\xi)
+\int_{\mathbb{S}^{d-1}}f(\xi \cdot \eta)Y_{n}(\eta)dS^{d-1}(\eta) = \lambda_{n}Y_{n}(\xi)
 $$
 其中
 $$
@@ -16075,7 +16077,7 @@ $$
 证明过程如前。</p>
 <blockquote>
 <blockquote>
-<p>我们发现 $f$ 起到类似重建核函数 $K_{n,d}$ 的作用，但 $f$ 可以是任意形式，重建后得到球谐函数的倍数。</p>
+<p>我们发现 <span class="arithmatex">\(f\)</span> 起到类似重建核函数 <span class="arithmatex">\(K_{n,d}\)</span> 的作用，但 <span class="arithmatex">\(f\)</span> 可以是任意形式，重建后得到球谐函数的倍数。</p>
 </blockquote>
 </blockquote>
 <h3 id="_31">表示公式</h3>
@@ -16084,7 +16086,7 @@ $$
 $$
 \langle P_{m,d}(\zeta \cdot) ,P_{n,d}(\zeta \cdot) \rangle =\int_{\mathbb{S}^{d-1}}P_{m,d}(\xi \cdot \zeta)P_{n,d}(\xi \cdot \zeta)dS^{d-1}(\xi)=0,\quad m\neq n
 $$
-注意 $P_{n,d}(\zeta \cdot)$ 是实值球谐函数。于是
+注意 <span class="arithmatex">\(P_{n,d}(\zeta \cdot)\)</span> 是实值球谐函数。于是
 $$
 \begin{aligned}
 0 &amp;= \int_{\mathbb{S}^{d-2}}\left( \int_{-1}^1P_{m,d}(t)P_{n,d}(t)(1-t^2)^{(d-3)/2}dt \right)dS^{d-1}(\xi)\
@@ -16094,9 +16096,9 @@ $$
 $$
 因此
 $$
-(P</em>{m,d},P_{n,d})<em>{L^1} = 0,\quad m\neq n \implies (P</em>{m},P_{n,d})<em>{L^1}=0,\quad m&lt;n
+(P</em>{m,d},P_{n,d})<em>{L^1} = 0,\quad m\neq n \implies (P</em>{m},P_{n,d})_{L^1}=0,\quad m&lt;n
 $$
-其中 $P</em>{m}$ 是任意不超过 $m$ 次的多项式。</p>
+其中 <span class="arithmatex">\(P_{m}\)</span> 是任意不超过 <span class="arithmatex">\(m\)</span> 次的多项式。</p>
 <h4 id="rodrigues">Rodrigues 表示公式</h4>
 <p><strong>Rodrigues 表示公式</strong>
 $$
@@ -16111,7 +16113,7 @@ $$
 $$
 p_{n}(t) = (1-t^2)^{(3-d)/2}\left( \frac{d}{dt} \right)^n(1-t^2)^{n+(d-3)/2}
 $$
-容易证明它是 $n$ 次多项式。然后证明 $n&gt;m$ 时，$p_{n},p_{m}$ 正交
+容易证明它是 <span class="arithmatex">\(n\)</span> 次多项式。然后证明 <span class="arithmatex">\(n&gt;m\)</span> 时，<span class="arithmatex">\(p_{n},p_{m}\)</span> 正交
 $$
 (p_{n},p_{m})<em>{L^1} = \int</em>{-1}^1p_{n}(t)p_{m}(t)(1-t^2)^{(d-3)/2}dt = \int_{-1}^1p_{m}(t)\left( \frac{d}{dt} \right)^n(1-t^2)^{n+(d-3)/2}dt = 0
 $$
@@ -16125,11 +16127,11 @@ P_{n,d}(t) = (-1)^nR_{n,d}p_{n}(t)
 $$
 即证。</p>
 <h4 id="_32">特殊多项式</h4>
-<p>当 $d=3$ 时，得到标准 Legendre 多项式
+<p>当 <span class="arithmatex">\(d=3\)</span> 时，得到标准 Legendre 多项式
 $$
 P_{n,3}(t) = \frac{1}{2^nn!}\left( \frac{d}{dt} \right)^n(t^2-1)^n,\quad n\in \mathbb{Z}^+
 $$
-当 $d=2$ 时，利用
+当 <span class="arithmatex">\(d=2\)</span> 时，利用
 $$
 \Gamma\left( n+\frac{1}{2} \right) = \frac{(2n)!}{2^{2n}n!}\Gamma\left( \frac{1}{2} \right)
 $$
@@ -16141,7 +16143,7 @@ $$
 $$
 P_{n,2}(t) = \cos(n \arccos t),\quad t\in(-1,1)
 $$
-也就是 Chebyshev 多项式；当 $d=4$ 时，可以验证
+也就是 Chebyshev 多项式；当 <span class="arithmatex">\(d=4\)</span> 时，可以验证
 $$
 \begin{aligned}
 P_{n,4}(t) &amp;= \frac{1}{n+1}U_{n}(t)= \frac{1}{n+1}P_{n+1,2}'(t),\quad t\in[-1,1]\
@@ -16153,7 +16155,7 @@ $$
 <h3 id="laplace-beltrami">Laplace-Beltrami 算子</h3>
 <p>Laplace-Beltrami 算子是 Laplace 算子在单位球上的约束算子。</p>
 <h4 id="_34">链式法则</h4>
-<p>对于 $\mathbb{R}^d$ 上的双射 $x=x(u)$ 或 $u=u(x)$，定义
+<p>对于 <span class="arithmatex">\(\mathbb{R}^d\)</span> 上的双射 <span class="arithmatex">\(x=x(u)\)</span> 或 <span class="arithmatex">\(u=u(x)\)</span>，定义
 $$
 \begin{aligned}
 g_{ij} &amp;= \frac{\partial x}{\partial u_{i}}\cdot \frac{\partial x}{\partial u_{j}} = \frac{\partial x_{k}}{\partial u_{i}} \frac{\partial x_{k}}{\partial u_{j}}\
@@ -16171,11 +16173,11 @@ $$
 $$
 这一章使用爱因斯坦求和约定。</p>
 <h4 id="_35">极坐标变换</h4>
-<p>设 $\xi_{(d)}=\xi(u_{1},\cdots,u_{d-1})$ 是 $U\subset \mathbb{R}^{d-1}$ 到 $\mathbb{S}^{d-1}$ 的双射，使得在 $U$ 内部 $C^2$ 。使用
+<p>设 <span class="arithmatex">\(\xi_{(d)}=\xi(u_{1},\cdots,u_{d-1})\)</span> 是 <span class="arithmatex">\(U\subset \mathbb{R}^{d-1}\)</span> 到 <span class="arithmatex">\(\mathbb{S}^{d-1}\)</span> 的双射，使得在 <span class="arithmatex">\(U\)</span> 内部 <span class="arithmatex">\(C^2\)</span> 。使用
 $$
 u_{1},\cdots,u_{d-1},\quad u_{d} = r=|x|
 $$
-作为极坐标。于是 $x_{(d)}=r\xi_{(d)}$ 。定义
+作为极坐标。于是 <span class="arithmatex">\(x_{(d)}=r\xi_{(d)}\)</span> 。定义
 $$
 \begin{aligned}
 \gamma_{ij} &amp;= \frac{\partial \xi_{(d)}}{\partial u_{i}}\cdot\frac{\partial \xi_{(d)}}{\partial u_{j}} = \frac{\partial \xi_k}{\partial u_{i}} \frac{\partial \xi_k}{\partial u_{j}}\
@@ -16202,7 +16204,7 @@ $$
 $$
 g=r^{2(d-1)}\gamma,\quad \sqrt{ g } = r^{d-1}\sqrt{ \gamma }
 $$
-根据 $(g^{ij})=(g_{ij})^{-1}$ 得到
+根据 <span class="arithmatex">\((g^{ij})=(g_{ij})^{-1}\)</span> 得到
 $$
 \begin{aligned}
 g^{ij} &amp;= \frac{1}{r^2}\gamma^{ij}\
@@ -16217,31 +16219,31 @@ $$
 \Delta_{(d-1)}^</em> &amp;= \frac{1}{\sqrt{ \gamma }} \frac{\partial}{\partial u_{i}}\left( \gamma^{ij}\sqrt{ \gamma } \frac{\partial}{\partial u_{j}} \right)
 \end{aligned}
 $$
-其中 $\Delta_{(d-1)}^*$ 就是 Laplace-Beltrami 算子。</p>
+其中 <span class="arithmatex">\(\Delta_{(d-1)}^*\)</span> 就是 Laplace-Beltrami 算子。</p>
 <p>利用延拓函数
 $$
 f^<em>(x)= f\left( \frac{x}{|x|} \right)=f(\xi),\quad \xi\in \mathbb{S}^{d-1}
 $$
 得到
 $$
-\Delta_{(d)}f^</em>(x)|<em>{|x|=1} = \Delta</em>{(d-1)}^<em>f(\xi)
+\Delta_{(d)}f^</em>(x)|<em>{|x|=1} = \Delta</em>{(d-1)}^*f(\xi)
 $$
-因此 $\Delta_{(d-1)}^</em>f(\xi)$ 不依赖 $\mathbb{S}^{d-1}$ 上的坐标系。</p>
+因此 <span class="arithmatex">\(\Delta_{(d-1)}^*f(\xi)\)</span> 不依赖 <span class="arithmatex">\(\mathbb{S}^{d-1}\)</span> 上的坐标系。</p>
 <h4 id="beltrami">Beltrami 算子</h4>
-<p>在极坐标 $u_{1},\cdots,u_{d-1},u_{d}=r=|x|$ 下
+<p>在极坐标 <span class="arithmatex">\(u_{1},\cdots,u_{d-1},u_{d}=r=|x|\)</span> 下
 $$
 \begin{aligned}
 \nabla &amp;= \xi \frac{\partial}{\partial r}+ \frac{1}{r}\nabla_{(d-1)}^<em>\
 \nabla_{(d-1)}^</em> &amp;= \gamma^{ij} \frac{\partial \xi}{\partial u_{i}} \frac{\partial}{\partial u_{j}}
 \end{aligned}
 $$
-其中 $\nabla_{(d-1)}^<em>$ 是 $\mathbb{S}^{d-1}$ 上的 1 阶 Beltrami 算子。并且注意到
+其中 <span class="arithmatex">\(\nabla_{(d-1)}^*\)</span> 是 <span class="arithmatex">\(\mathbb{S}^{d-1}\)</span> 上的 1 阶 Beltrami 算子。并且注意到
 $$
-\nabla_{(d-1)}^</em> = r\nabla- \xi r \frac{\partial}{\partial r}
+\nabla_{(d-1)}^* = r\nabla- \xi r \frac{\partial}{\partial r}
 $$
-不依赖 $\mathbb{S}^{d-1}$ 上的坐标系。</p>
+不依赖 <span class="arithmatex">\(\mathbb{S}^{d-1}\)</span> 上的坐标系。</p>
 <h4 id="_36">特殊情况</h4>
-<p>考虑 $d=2$ 的情况
+<p>考虑 <span class="arithmatex">\(d=2\)</span> 的情况
 $$
 x = r\xi,\quad \xi = 
 \begin{pmatrix}
@@ -16249,7 +16251,7 @@ x = r\xi,\quad \xi =
 \sin \theta
 \end{pmatrix}
 $$
-令 $u_{1}=\theta,u_{2}=r$，则
+令 <span class="arithmatex">\(u_{1}=\theta,u_{2}=r\)</span>，则
 $$
 \begin{aligned}
 \gamma=\gamma_{11} &amp;= (-\sin \theta)^2+(\cos \theta)^2=1\
@@ -16266,8 +16268,8 @@ $$
 \frac{\partial}{\partial \theta},\quad
 \Delta_{(1)}^</em> = \frac{\partial^2}{\partial \theta^2}
 $$
-可以验证 $\Delta_{(1)}^<em>=\nabla_{(1)}^</em>\cdot \nabla_{(1)}^*$ 。</p>
-<p>考虑 $d=3$ 的情况
+可以验证 <span class="arithmatex">\(\Delta_{(1)}^*=\nabla_{(1)}^*\cdot \nabla_{(1)}^*\)</span> 。</p>
+<p>考虑 <span class="arithmatex">\(d=3\)</span> 的情况
 $$
 x = r\xi,\quad \xi = 
 \begin{pmatrix}
@@ -16276,7 +16278,7 @@ x = r\xi,\quad \xi =
 \cos \theta
 \end{pmatrix}
 $$
-令 $u_{1}=\theta,u_{2}=\phi,u_{3}=r$，则
+令 <span class="arithmatex">\(u_{1}=\theta,u_{2}=\phi,u_{3}=r\)</span>，则
 $$
 \begin{aligned}
 \gamma_{11} &amp;= 1,\quad \gamma_{22} =\sin^2\theta,\quad \gamma_{12}=\gamma_{21}=0,\
@@ -16301,9 +16303,9 @@ $$
 \Delta_{(2)}^</em> &amp;= \frac{1}{\sin \theta} \frac{\partial}{\partial \theta}\left( \sin\theta  \frac{\partial}{\partial \theta} \right) + \frac{1}{\sin^2\theta} \frac{\partial^2}{\partial \phi^2}
 \end{aligned}
 $$
-可以验证 $\Delta_{(2)}^<em>=\nabla_{(2)}^</em>\cdot \nabla_{(2)}^*$ 。</p>
+可以验证 <span class="arithmatex">\(\Delta_{(2)}^*=\nabla_{(2)}^*\cdot \nabla_{(2)}^*\)</span> 。</p>
 <h4 id="_37">递推公式</h4>
-<p>考虑 $\Delta_{(d-1)}^<em>$ 与 $\Delta_{(d-2)}^</em>$ 之间的关系。将 $\xi=\xi_{(d)}\in\mathbb{S}^{d-1}$ 分解为
+<p>考虑 <span class="arithmatex">\(\Delta_{(d-1)}^*\)</span> 与 <span class="arithmatex">\(\Delta_{(d-2)}^*\)</span> 之间的关系。将 <span class="arithmatex">\(\xi=\xi_{(d)}\in\mathbb{S}^{d-1}\)</span> 分解为
 $$
 \begin{aligned}
 \xi_{(d)} &amp;= te_{d} +\sqrt{ 1-t^2 }\xi_{(d-1)}\
@@ -16327,7 +16329,7 @@ $$
 \gamma_{ij} &amp;= \frac{\partial \xi_{(d)}}{\partial u_{i}}\cdot\frac{\partial \xi_{(d)}}{\partial u_{j}} =(1-t^2) \frac{\partial \xi_{(d-1)}}{\partial u_{i}}\cdot\frac{\partial \xi_{(d-1)}}{\partial u_{j}}
 \end{aligned}
 $$
-也就是说最后一列只有最后一行非零。因此定义前 $d-2$ 个分量的基本形式
+也就是说最后一列只有最后一行非零。因此定义前 <span class="arithmatex">\(d-2\)</span> 个分量的基本形式
 $$
 \begin{aligned}
 \bar{\gamma}<em>{ij} &amp;= \frac{\partial \xi</em>{(d-1)}}{\partial u_{i}}\cdot\frac{\partial \xi_{(d-1)}}{\partial u_{j}},\quad 1\leq i,j\leq d-2\
@@ -16344,18 +16346,18 @@ $$
 \gamma^{ij} &amp;= \frac{1}{1-t^2}\bar{\gamma}^{ij}
 \end{aligned}
 $$
-同样只有最后一列只有最后一行非零，并且得到前 $d-1$ 个分量的基本形式 $\gamma^{ij}$ 与 $\bar{\gamma}^{ij}$ 之间的关系。将 $\Delta</em>{(d-1)}^<em>$ 的前 $d-2$ 个部分拆出来
+同样只有最后一列只有最后一行非零，并且得到前 <span class="arithmatex">\(d-1\)</span> 个分量的基本形式 <span class="arithmatex">\(\gamma^{ij}\)</span> 与 <span class="arithmatex">\(\bar{\gamma}^{ij}\)</span> 之间的关系。将 <span class="arithmatex">\(\Delta_{(d-1)}^*\)</span> 的前 <span class="arithmatex">\(d-2\)</span> 个部分拆出来
 $$
 \begin{aligned}
-\Delta_{(d-1)}^</em> &amp;= \frac{1}{\sqrt{ \gamma }} \frac{\partial}{\partial u_{d-1}}\left( \gamma^{d-1,d-1}\sqrt{ \gamma } \frac{\partial}{\partial u_{d-1}} \right)+ \frac{1}{\sqrt{ \gamma }} \frac{\partial}{\partial u_{i}}\left( \gamma^{ij} \sqrt{ \gamma } \frac{\partial}{\partial u_{j}} \right)\
+\Delta</em>{(d-1)}^<em> &amp;= \frac{1}{\sqrt{ \gamma }} \frac{\partial}{\partial u_{d-1}}\left( \gamma^{d-1,d-1}\sqrt{ \gamma } \frac{\partial}{\partial u_{d-1}} \right)+ \frac{1}{\sqrt{ \gamma }} \frac{\partial}{\partial u_{i}}\left( \gamma^{ij} \sqrt{ \gamma } \frac{\partial}{\partial u_{j}} \right)\
 &amp;= \frac{1}{(1-t^2)^{(d-3)/2}} \frac{\partial}{\partial t}\left( (1-t^2)^{(d-1)/2} \frac{\partial}{\partial t} \right) + \frac{1}{(1-t^2)\sqrt{ \bar{\gamma} }} \frac{\partial}{\partial u_{i}}\left( \bar{\gamma}^{ij} \sqrt{ \bar{\gamma}^{ij} } \frac{\partial}{\partial u_{j}} \right)
 \end{aligned}
 $$
 因此就有
 $$
-\Delta_{(d-1)}^<em> = \frac{1}{(1-t^2)^{(d-3)/2}} \frac{\partial}{\partial t}\left( (1-t^2)^{(d-1)/2} \frac{\partial}{\partial t} \right) + \frac{1}{(1-t^2)}\Delta_{(d-2)}^</em> 
+\Delta_{(d-1)}^</em> = \frac{1}{(1-t^2)^{(d-3)/2}} \frac{\partial}{\partial t}\left( (1-t^2)^{(d-1)/2} \frac{\partial}{\partial t} \right) + \frac{1}{(1-t^2)}\Delta_{(d-2)}^<em> 
 $$
-对于 $d$ 维球坐标
+对于 <span class="arithmatex">\(d\)</span> 维球坐标
 $$
 \begin{aligned}
 x_{1} &amp;= r\cos \theta_{1}\prod_{i=2}^{d-1}\sin \theta_{i}\
@@ -16366,20 +16368,20 @@ x_{d-1} &amp;= r\cos \theta_{d-2}\sin \theta_{d-1}\
 x_{d} &amp;= r\cos \theta_{d-1}
 \end{aligned}
 $$
-取 $t=\cos \theta_{d-1}$ 就有
+取 <span class="arithmatex">\(t=\cos \theta_{d-1}\)</span> 就有
 $$
 \begin{aligned}
-\Delta_{(1)}^<em> &amp;= \frac{\partial^2}{\partial \theta_{1}^2}\
-\Delta_{(d)}^</em> &amp;= \frac{1}{\sin^{d-1}\theta_{d}} \frac{\partial}{\partial \theta_{d}}\left( \sin^{d-1}\theta_{d} \frac{\partial}{\partial \theta_{d}} \right)+ \frac{1}{\sin^2 \theta_{d}}\Delta_{(d-1)}^*
+\Delta_{(1)}^</em> &amp;= \frac{\partial^2}{\partial \theta_{1}^2}\
+\Delta_{(d)}^<em> &amp;= \frac{1}{\sin^{d-1}\theta_{d}} \frac{\partial}{\partial \theta_{d}}\left( \sin^{d-1}\theta_{d} \frac{\partial}{\partial \theta_{d}} \right)+ \frac{1}{\sin^2 \theta_{d}}\Delta_{(d-1)}^</em>
 \end{aligned}
 $$
-注意 $u_{i}=\theta_{i},u_{d-1}=t,u_{d}=r$ 。</p>
+注意 <span class="arithmatex">\(u_{i}=\theta_{i},u_{d-1}=t,u_{d}=r\)</span> 。</p>
 <h4 id="_38">积分恒等式</h4>
-<p><strong>Green-Beltrami 恒等式</strong> 任意 $f\in C^2(\mathbb{S}^{d-1})$ 以及任意 $g\in C^1(\mathbb{S}^{d-1})$ 有
+<p><strong>Green-Beltrami 恒等式</strong> 任意 <span class="arithmatex">\(f\in C^2(\mathbb{S}^{d-1})\)</span> 以及任意 <span class="arithmatex">\(g\in C^1(\mathbb{S}^{d-1})\)</span> 有
 $$
 \int_{\mathbb{S}^{d-1}}g\Delta_{(d-1)}^<em>fdS^{d-1} = -\int_{\mathbb{S}^{d-1}}\nabla_{(d-1)}^</em>g\cdot \nabla_{(d-1)}^<em>fdS^{d-1}
 $$
-考虑延拓 $f^</em>(x)=f\left( \frac{x}{|x|} \right),g^<em>(x)=g\left( \frac{x}{|x|} \right)$，根据 Green 公式，在圆环上积分
+考虑延拓 <span class="arithmatex">\(f^*(x)=f\left( \frac{x}{|x|} \right),g^*(x)=g\left( \frac{x}{|x|} \right)\)</span>，根据 Green 公式，在圆环上积分
 $$
 \int_{1-\delta\leq|x|\leq 1+\delta}(g^</em>\Delta f^<em>+\nabla g^</em>\cdot \nabla f^<em>)dx = 0
 $$
@@ -16397,19 +16399,19 @@ D_{(d)} &amp;= -\frac{1}{2}\left( x_{i} \frac{\partial}{\partial x_{j}}- x_{j} \
 \end{aligned}
 $$
 注意这里使用爱因斯坦求和约定。</p>
-<p>考虑任意可微函数 $f(x)=f(r\xi),\xi\in \mathbb{S}^{d-1}$，则
+<p>考虑任意可微函数 <span class="arithmatex">\(f(x)=f(r\xi),\xi\in \mathbb{S}^{d-1}\)</span>，则
 $$
 \frac{\partial f(r\xi)}{\partial r} = \xi_{i} \frac{\partial f(r\xi)}{\partial x_{i}}
 $$
-同乘 $r$ 并利用 $f$ 的任意性得到
+同乘 <span class="arithmatex">\(r\)</span> 并利用 <span class="arithmatex">\(f\)</span> 的任意性得到
 $$
 r \frac{\partial f}{\partial r}=x_{i} \frac{\partial f}{\partial x_{i}} \implies r \frac{\partial}{\partial r}=x_{i} \frac{\partial}{\partial x_{i}}
 $$
-若 $f$ 二阶可微，则
+若 <span class="arithmatex">\(f\)</span> 二阶可微，则
 $$
 \frac{\partial^2 f(r\xi)}{\partial r^2} = \xi_{i}\xi_{j} \frac{\partial^2 f(r\xi)}{\partial x_{i}\partial x_{j}}
 $$
-同乘 $r^2$ 并利用 $f$ 的任意性得到
+同乘 <span class="arithmatex">\(r^2\)</span> 并利用 <span class="arithmatex">\(f\)</span> 的任意性得到
 $$
 r^2 \frac{\partial^2 f}{\partial^2 r}=x_{i}x_{j} \frac{\partial^2 f}{\partial x_{i}\partial x_{j}} \implies r^2 \frac{\partial}{\partial r^2}=x_{i}x_{j} \frac{\partial^2}{\partial x_{i}\partial x_{j}} 
 $$
@@ -16431,9 +16433,9 @@ $$
 $$
 这就是基本表示形式。</p>
 <h3 id="_40">作为特征函数的球谐函数</h3>
-<p>考虑任意非零函数 $Y_{n}\in \mathbb{Y}<em>{n}^d$，延拓为
+<p>考虑任意非零函数 <span class="arithmatex">\(Y_{n}\in \mathbb{Y}_{n}^d\)</span>，延拓为
 $$
-Y</em>{n}(x) = Y_{n}(r\xi) = r^nY_{n}(\xi)
+Y_{n}(x) = Y_{n}(r\xi) = r^nY_{n}(\xi)
 $$
 于是
 $$
@@ -16443,8 +16445,8 @@ $$
 $$
 -\Delta_{(d-1)}^</em>Y_{n}(\xi) = n(n+d-2)Y_{n}(\xi)
 $$
-这说明 $Y_{n}(\xi)$ 是 $-\Delta_{(d-1)}^*$ 的特征函数，$n(n+d-2)$ 是对应的特征向量。</p>
-<p><strong>命题</strong> $\mathbb{Y}<em>{n}^d$ 中的非零函数是 Laplace-Beltrami 算子 $-\Delta</em>{(d-1)}^*$ 在 $\mathbb{S}^{d-1}$ 上关于特征值 $n(n+d-2)$ 的特征函数。并且 $N_{n,d}=\dim\mathbb{Y}_{n}^d$ 是 $n(n+d-2)$ 的倍数。</p>
+这说明 <span class="arithmatex">\(Y_{n}(\xi)\)</span> 是 <span class="arithmatex">\(-\Delta_{(d-1)}^*\)</span> 的特征函数，<span class="arithmatex">\(n(n+d-2)\)</span> 是对应的特征向量。</p>
+<p><strong>命题</strong> <span class="arithmatex">\(\mathbb{Y}_{n}^d\)</span> 中的非零函数是 Laplace-Beltrami 算子 <span class="arithmatex">\(-\Delta_{(d-1)}^*\)</span> 在 <span class="arithmatex">\(\mathbb{S}^{d-1}\)</span> 上关于特征值 <span class="arithmatex">\(n(n+d-2)\)</span> 的特征函数。并且 <span class="arithmatex">\(N_{n,d}=\dim\mathbb{Y}_{n}^d\)</span> 是 <span class="arithmatex">\(n(n+d-2)\)</span> 的倍数。</p>
 
 
 
@@ -16498,6 +16500,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -8145,7 +8147,7 @@
   <a href="#k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $k$ 近邻法
+        \(k\) 近邻法
       
     </span>
   </a>
@@ -14679,7 +14681,7 @@
   <a href="#k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $k$ 近邻法
+        \(k\) 近邻法
       
     </span>
   </a>
@@ -14897,62 +14899,62 @@
 <h2 id="_2">统计学习概论</h2>
 <h3 id="_3">学习框架</h3>
 <h4 id="_4">监督学习</h4>
-<p>监督学习 supervised learning 从标注数据集中学习预测模型。将输入与输出的所有可能性的集合分别称为输入空间 input space 和输出空间 output space 。监督学习将输入与输出看作是随机变量的取值，将输入随机变量记为 $X$，输出随机变量记为 $Y$，它们遵循联合概率分布 $P(X,Y)$ 。监督学习的模型包括</p>
+<p>监督学习 supervised learning 从标注数据集中学习预测模型。将输入与输出的所有可能性的集合分别称为输入空间 input space 和输出空间 output space 。监督学习将输入与输出看作是随机变量的取值，将输入随机变量记为 <span class="arithmatex">\(X\)</span>，输出随机变量记为 <span class="arithmatex">\(Y\)</span>，它们遵循联合概率分布 <span class="arithmatex">\(P(X,Y)\)</span> 。监督学习的模型包括</p>
 <ul>
-<li>概率模型：条件概率分布 $P(Y| X)$</li>
-<li>非概率模型：决策函数 $Y=f(X)$</li>
+<li>概率模型：条件概率分布 <span class="arithmatex">\(P(Y| X)\)</span></li>
+<li>非概率模型：决策函数 <span class="arithmatex">\(Y=f(X)\)</span></li>
 </ul>
-<p>学习系统从训练数据 training data 中学习模型，对测试数据 test data 进行预测。预测模型的集合称为假设空间 hypothesis space 。若输入为 $x_{N+1}$，则输出为
+<p>学习系统从训练数据 training data 中学习模型，对测试数据 test data 进行预测。预测模型的集合称为假设空间 hypothesis space 。若输入为 <span class="arithmatex">\(x_{N+1}\)</span>，则输出为
 $$
 \begin{aligned}
 y_{N+1} &amp;= \arg\max_{y}\hat{P}(y|x_{{N+1}})\
 y_{N+1} &amp;= \hat{f}(x_{N+1})
 \end{aligned}
 $$
-假设训练数据与测试输出依联合概率分布 $P(X,Y)$ 独立同分布产生。</p>
+假设训练数据与测试输出依联合概率分布 <span class="arithmatex">\(P(X,Y)\)</span> 独立同分布产生。</p>
 <p><img alt="" src="image-20251024222059512.png|400" /></p>
 <h4 id="_5">无监督学习</h4>
-<p>无监督学习 unsupervised learning 从无标注数据中学习预测模型。本质上是学习数据中的统计规律或潜在结构。设 $\mathcal{X}$ 为输入空间，$\mathcal{Z}$ 为隐式结构空间。要学习的模型可表示为</p>
+<p>无监督学习 unsupervised learning 从无标注数据中学习预测模型。本质上是学习数据中的统计规律或潜在结构。设 <span class="arithmatex">\(\mathcal{X}\)</span> 为输入空间，<span class="arithmatex">\(\mathcal{Z}\)</span> 为隐式结构空间。要学习的模型可表示为</p>
 <ul>
-<li>$z=g(x)$</li>
-<li>$P(z|x)$</li>
-<li>$P(x|z)$</li>
+<li><span class="arithmatex">\(z=g(x)\)</span></li>
+<li><span class="arithmatex">\(P(z|x)\)</span></li>
+<li><span class="arithmatex">\(P(x|z)\)</span></li>
 </ul>
 <p>无监督学习从假设空间中选择给定评价标准下的最优模型。</p>
 <p><img alt="" src="image-20251024222559662.png|500" /></p>
 <h4 id="_6">强化学习</h4>
-<p>强化学习 reinforcement learning 要求系统在与环境的连续互动中学习最优行为策略。假设系统与环境的互动基于马尔可夫决策过程 Markov decision process，系统能得到的是与环境互动后的数据序列。随机过程由五元组 $(S,A,P,r,\gamma)$ 组成</p>
+<p>强化学习 reinforcement learning 要求系统在与环境的连续互动中学习最优行为策略。假设系统与环境的互动基于马尔可夫决策过程 Markov decision process，系统能得到的是与环境互动后的数据序列。随机过程由五元组 <span class="arithmatex">\((S,A,P,r,\gamma)\)</span> 组成</p>
 <ul>
-<li>$S$ 有限状态 state 的集合</li>
-<li>$A$ 有限动作 action 的集合</li>
-<li>$P$ 状态转移概率 transition probability 函数 $P(s'|s,a)=P(s_{t+1}=s'|s_{t}=s,a_{t}=a)$，其中 $s,a,t$ 表示状态、动作和时间</li>
-<li>$r$ 奖励函数 reward function $r(s,a)=E(r_{t+1}|s_{t}=s,a_{t}=a)$</li>
-<li>$\gamma$ 衰减系数 discount factor $\gamma\in[0,1]$</li>
+<li><span class="arithmatex">\(S\)</span> 有限状态 state 的集合</li>
+<li><span class="arithmatex">\(A\)</span> 有限动作 action 的集合</li>
+<li><span class="arithmatex">\(P\)</span> 状态转移概率 transition probability 函数 <span class="arithmatex">\(P(s'|s,a)=P(s_{t+1}=s'|s_{t}=s,a_{t}=a)\)</span>，其中 <span class="arithmatex">\(s,a,t\)</span> 表示状态、动作和时间</li>
+<li><span class="arithmatex">\(r\)</span> 奖励函数 reward function <span class="arithmatex">\(r(s,a)=E(r_{t+1}|s_{t}=s,a_{t}=a)\)</span></li>
+<li><span class="arithmatex">\(\gamma\)</span> 衰减系数 discount factor <span class="arithmatex">\(\gamma\in[0,1]\)</span></li>
 </ul>
-<p>策略 $\pi$ 定义为 $a=f(s)$ 或 $P(a|s)$，它说明在不同状态下给出的动作。价值函数 value function 或状态价值函数 state value function 定义为策略 $\pi$ 从某个状态 $s$ 开始积累奖励的数学期望
+<p>策略 <span class="arithmatex">\(\pi\)</span> 定义为 <span class="arithmatex">\(a=f(s)\)</span> 或 <span class="arithmatex">\(P(a|s)\)</span>，它说明在不同状态下给出的动作。价值函数 value function 或状态价值函数 state value function 定义为策略 <span class="arithmatex">\(\pi\)</span> 从某个状态 <span class="arithmatex">\(s\)</span> 开始积累奖励的数学期望
 $$
 v_{\pi}(s) = E_{\pi}\left[ \sum_{i=0}^\infty\gamma^ir_{t+i}\bigg|s_{t}=s \right]
 $$
-动作价值函数 action value function 定义为策略 $\pi$ 从某个状态 $s$ 和动作 $a$ 开始积累奖励的数学期望
+动作价值函数 action value function 定义为策略 <span class="arithmatex">\(\pi\)</span> 从某个状态 <span class="arithmatex">\(s\)</span> 和动作 <span class="arithmatex">\(a\)</span> 开始积累奖励的数学期望
 $$
 q_{\pi}(s,a) = E_{\pi}\left[ \sum_{i=0}^\infty\gamma^ir_{t+i}\bigg|s_{t}=s,a_{t}=a \right]
 $$
-强化学习的目标是从所有可能的策略中选出价值函数最大的策略 $\pi^*$ 。</p>
+强化学习的目标是从所有可能的策略中选出价值函数最大的策略 <span class="arithmatex">\(\pi^*\)</span> 。</p>
 <p><img alt="" src="image-20251024223212735.png|300" /></p>
 <h3 id="_7">学习技巧</h3>
 <h4 id="_8">贝叶斯学习</h4>
-<p>贝叶斯学习找到使后验概率 $P(\theta|D)$ 最大的模型参数 $\theta$，其中 $D$ 表示数据。根据贝叶斯定理
+<p>贝叶斯学习找到使后验概率 <span class="arithmatex">\(P(\theta|D)\)</span> 最大的模型参数 <span class="arithmatex">\(\theta\)</span>，其中 <span class="arithmatex">\(D\)</span> 表示数据。根据贝叶斯定理
 $$
 P(\theta|D) = \frac{P(\theta)P(D|\theta)}{P(D)}
 $$
-其中 $P(\theta)$ 是先验概率，$P(D|\theta)$ 是似然函数。预测时计算后验概率分布的期望
+其中 <span class="arithmatex">\(P(\theta)\)</span> 是先验概率，<span class="arithmatex">\(P(D|\theta)\)</span> 是似然函数。预测时计算后验概率分布的期望
 $$
 P(x|D) = \int P(x|\theta,D)P(\theta|D)d\theta
 $$
-其中 $x$ 就是使 $P(x|D)$ 最大的新样本。</p>
+其中 <span class="arithmatex">\(x\)</span> 就是使 <span class="arithmatex">\(P(x|D)\)</span> 最大的新样本。</p>
 <blockquote>
 <blockquote>
-<p>因为 $P(D)$ 固定，而通常认为 $\theta$ 均匀分布，因此可以通过贝叶斯定理将极大似然估计 $\hat{\theta}=\arg\max_{\theta}P(D|\theta)$ 与贝叶斯估计直接关联。</p>
+<p>因为 <span class="arithmatex">\(P(D)\)</span> 固定，而通常认为 <span class="arithmatex">\(\theta\)</span> 均匀分布，因此可以通过贝叶斯定理将极大似然估计 <span class="arithmatex">\(\hat{\theta}=\arg\max_{\theta}P(D|\theta)\)</span> 与贝叶斯估计直接关联。</p>
 </blockquote>
 </blockquote>
 <h4 id="_9">核方法</h4>
@@ -14967,27 +14969,27 @@ $$
 $$
 R_{exp}(\hat{f}) = E_{P}[L(Y,\hat{f}(X))] = \int_{\mathcal{X}\times \mathcal{Y}}L(y,\hat{f}(x))P(x,y)dxdy
 $$
-其中 $\hat{f}$ 是学习到的模型，$L$ 是损失函数。泛化误差衡量模型的期望风险。</p>
+其中 <span class="arithmatex">\(\hat{f}\)</span> 是学习到的模型，<span class="arithmatex">\(L\)</span> 是损失函数。泛化误差衡量模型的期望风险。</p>
 <h4 id="_12">泛化误差上界</h4>
-<p>考虑二分类问题。已知训练集 $T={(x_{i},y_{i})}<em>{i=1}^N$，它从联合概率分布 $P(X,Y)$ 独立同分布获得，且 $X\in \mathbb{R}^n,Y\in{-1,+1}$，假设空间为 $\mathcal{F}={f</em>{i}}<em>{i=1}^d$，则
+<p>考虑二分类问题。已知训练集 <span class="arithmatex">\(T=\{(x_{i},y_{i})\}_{i=1}^N\)</span>，它从联合概率分布 <span class="arithmatex">\(P(X,Y)\)</span> 独立同分布获得，且 <span class="arithmatex">\(X\in \mathbb{R}^n,Y\in\{-1,+1\}\)</span>，假设空间为 <span class="arithmatex">\(\mathcal{F}=\{f_{i}\}_{i=1}^d\)</span>，则
 $$
 \begin{aligned}
 R(f) &amp;= E[L(Y,f(X))]\
-\hat{R}(f) &amp;= \frac{1}{N} \sum</em>{i=1}^NL(y_{i}f(x_{i}))
+\hat{R}(f) &amp;= \frac{1}{N} \sum_{i=1}^NL(y_{i}f(x_{i}))
 \end{aligned}
 $$
 分别表示期望风险和经验风险。经验风险最小化函数为
 $$
 f_{N} = \arg\min_{f\in \mathcal{F}}\hat{R}(f)
 $$
-我们关系 $f_{N}$ 的泛化能力
+我们关系 <span class="arithmatex">\(f_{N}\)</span> 的泛化能力
 $$
 R(f_{N}) = E[L(Y,f_{N}(X))]
 $$
 则有</p>
 <blockquote>
 <p>[!theorem] 泛化误差上界
-对二分类问题，若假设空间 $|\mathcal{F}|=d$ 有限，对任意 $f\in \mathcal{F}$，至少以概率 $1-\delta,0&lt;\delta&lt;1$ 成立
+对二分类问题，若假设空间 <span class="arithmatex">\(|\mathcal{F}|=d\)</span> 有限，对任意 <span class="arithmatex">\(f\in \mathcal{F}\)</span>，至少以概率 <span class="arithmatex">\(1-\delta,0&lt;\delta&lt;1\)</span> 成立
 $$
 R(f) \leq \hat{R}(f) + \epsilon(d,N,\delta)
 $$
@@ -14999,7 +15001,7 @@ $$</p>
 <p>使用 <a href="数据科学的数学基础#Chernoff-Hoeffding Inequality">数据科学的数学基础#Chernoff-Hoeffding Inequality</a> 可以证明此上界。</p>
 <h2 id="_13">感知机</h2>
 <h3 id="_14">感知机模型</h3>
-<h2 id="k">$k$ 近邻法</h2>
+<h2 id="k"><span class="arithmatex">\(k\)</span> 近邻法</h2>
 <h2 id="_15">朴素贝叶斯法</h2>
 <h2 id="_16">决策树</h2>
 <h2 id="_17">逻辑斯蒂回归与最大熵模型</h2>
@@ -15070,6 +15072,12 @@ $$</p>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

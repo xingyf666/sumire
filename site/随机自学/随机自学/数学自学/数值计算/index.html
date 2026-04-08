@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14169,12 +14171,12 @@
 <h2 id="_2">圆盘定理</h2>
 <blockquote>
 <p>[!theorem] Gerschgorin (戈氏）圆盘第一定理
-设 $A$ 是 $n$ 阶复矩阵，则 $A$ 的特征值在复平面中的一列圆盘（又称戈氏圆盘）中
+设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 阶复矩阵，则 <span class="arithmatex">\(A\)</span> 的特征值在复平面中的一列圆盘（又称戈氏圆盘）中
 $$
 |z-a_{ii}| \le R_{i}=\sum_{j\neq i}^n|a_{ij}|,\quad i=1,2,\cdots,n
 $$</p>
 </blockquote>
-<p>任取 $A$ 的一个特征值 $\lambda_{0}$，设 $\xi$ 为属于 $\lambda_{0}$ 的特征向量，于是 $A\xi=\lambda_{0}\xi$ 可写成
+<p>任取 <span class="arithmatex">\(A\)</span> 的一个特征值 <span class="arithmatex">\(\lambda_{0}\)</span>，设 <span class="arithmatex">\(\xi\)</span> 为属于 <span class="arithmatex">\(\lambda_{0}\)</span> 的特征向量，于是 <span class="arithmatex">\(A\xi=\lambda_{0}\xi\)</span> 可写成
 $$
 \left{
 \begin{aligned}
@@ -14185,7 +14187,7 @@ a_{n 1}\xi_{1}+a_{n 2}\xi_{2}+\cdots+a_{nn}\xi_{n}&amp;=\lambda_{0}\xi_{n}
 \end{aligned}
 \right.
 $$
-设 $|x_{r}|=\max_i|x_{i}|$，于是
+设 <span class="arithmatex">\(|x_{r}|=\max_i|x_{i}|\)</span>，于是
 $$
 (\lambda_{0}-a_{rr})x_{r}=a_{r 1}x_{1}+\cdots+a_{r,r-1}x_{r-1}+a_{r,r+1}x_{r+1}+\cdots+a_{rn}x_{n}
 $$
@@ -14197,18 +14199,18 @@ $$
 &amp;= R_{r}|x_{r}|
 \end{aligned}
 $$
-由于 $|x_{r}|\neq 0$，故 $|\lambda_{0}-a_ {{rr}} |\le R_{r}$ 成立。</p>
+由于 <span class="arithmatex">\(|x_{r}|\neq 0\)</span>，故 <span class="arithmatex">\(|\lambda_{0}-a_ {{rr}} |\le R_{r}\)</span> 成立。</p>
 <blockquote>
 <p>[!lemma]
-设 $f$ 是 $n$ 次复系数多项式
+设 <span class="arithmatex">\(f\)</span> 是 <span class="arithmatex">\(n\)</span> 次复系数多项式
 $$
 f(x)=a_{n} x^{n}+a_{n-1} x^{n-1}+\cdots+a_{1} x+a_{0}
 $$
-则 $f$ 的根 $\lambda_{i}$ 都是 $a_{i}$ 的连续函数。</p>
+则 <span class="arithmatex">\(f\)</span> 的根 <span class="arithmatex">\(\lambda_{i}\)</span> 都是 <span class="arithmatex">\(a_{i}\)</span> 的连续函数。</p>
 <p>[!theorem] Gerschgorin (戈氏）圆盘第二定理
-设 $A$ 是 $n$ 阶复矩阵，其 $n$ 个戈氏圆盘分成若干个连通区域。若其中一个连通区域含有 $k$ 个戈氏圆盘，则有且只有 $k$ 个特征值落在这个连通区域内（若两个戈氏圆盘重合，则计重数；若特征根为重根，则计重数）。</p>
+设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 阶复矩阵，其 <span class="arithmatex">\(n\)</span> 个戈氏圆盘分成若干个连通区域。若其中一个连通区域含有 <span class="arithmatex">\(k\)</span> 个戈氏圆盘，则有且只有 <span class="arithmatex">\(k\)</span> 个特征值落在这个连通区域内（若两个戈氏圆盘重合，则计重数；若特征根为重根，则计重数）。</p>
 </blockquote>
-<p>考虑带参数 $t$ 的矩阵
+<p>考虑带参数 <span class="arithmatex">\(t\)</span> 的矩阵
 $$
 A(t)=\left(\begin{array}{cccc}
 a_{11} &amp; t a_{12} &amp; \cdots &amp; t a_{1 n} \
@@ -14217,7 +14219,7 @@ t a_{21} &amp; a_{22} &amp; \cdots &amp; t a_{2 n} \
 t a_{n 1} &amp; t a_{n 2} &amp; \cdots &amp; a_{n n}
 \end{array}\right)
 $$
-显然 $A(1)=A$，并且
+显然 <span class="arithmatex">\(A(1)=A\)</span>，并且
 $$
 A(0) = 
 \begin{pmatrix}
@@ -14227,15 +14229,15 @@ a_{11} \
  &amp;  &amp;  &amp; a_{nn}
 \end{pmatrix}
 $$
-由戈氏圆盘第一定理，矩阵 $A(t)$ 的特征值满足
+由戈氏圆盘第一定理，矩阵 <span class="arithmatex">\(A(t)\)</span> 的特征值满足
 $$
 |z-a_{ii}|\le tR_{i},\quad i=1,2,\cdots,n
 $$
-随着 $t$ 从 0 取到 1，其特征值满足
+随着 <span class="arithmatex">\(t\)</span> 从 0 取到 1，其特征值满足
 $$
 |z-a_{ii}|\le R_{i},\quad i=1,2,\cdots,n
 $$
-又因为 $A(t)$ 的特征多项式是 $n$ 次复系数多项式，因此其特征值关于 $t$ 连续。若 $k$ 个圆盘组成一个连通区域，由于 $A(0)$ 的 $k$ 个特征值始终在其中，因此 $A$ 在这 $k$ 个圆盘内至少有 $k$ 个特征值。由于这一结论对任意一组连通区域都成立，因此这 $k$ 个圆盘内恰好有 $k$ 个特征值。</p>
+又因为 <span class="arithmatex">\(A(t)\)</span> 的特征多项式是 <span class="arithmatex">\(n\)</span> 次复系数多项式，因此其特征值关于 <span class="arithmatex">\(t\)</span> 连续。若 <span class="arithmatex">\(k\)</span> 个圆盘组成一个连通区域，由于 <span class="arithmatex">\(A(0)\)</span> 的 <span class="arithmatex">\(k\)</span> 个特征值始终在其中，因此 <span class="arithmatex">\(A\)</span> 在这 <span class="arithmatex">\(k\)</span> 个圆盘内至少有 <span class="arithmatex">\(k\)</span> 个特征值。由于这一结论对任意一组连通区域都成立，因此这 <span class="arithmatex">\(k\)</span> 个圆盘内恰好有 <span class="arithmatex">\(k\)</span> 个特征值。</p>
 
 
 
@@ -14289,6 +14291,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

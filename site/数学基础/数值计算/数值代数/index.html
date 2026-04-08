@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15839,7 +15841,7 @@
 $$
 Ly = b
 $$
-其中 $b=(b_1,\cdots,b_n)^T\in\mathbb{R}^n$ 已知，$y=(y_1,\cdots,y_n)^T\in\mathbb{R}^n$ 未知，而
+其中 <span class="arithmatex">\(b=(b_1,\cdots,b_n)^T\in\mathbb{R}^n\)</span> 已知，<span class="arithmatex">\(y=(y_1,\cdots,y_n)^T\in\mathbb{R}^n\)</span> 未知，而
 $$
 L = \left(
 \begin{matrix}
@@ -15850,7 +15852,7 @@ l_{n1} &amp; l_{n2} &amp; \cdots &amp; l_{nn}
 \end{matrix}
 \right)
 $$
-是已知的非奇异下三角阵，且 $l_{ii}\neq 0,\ i=1,\cdots,n$ 。</p>
+是已知的非奇异下三角阵，且 <span class="arithmatex">\(l_{ii}\neq 0,\ i=1,\cdots,n\)</span> 。</p>
 <p>前代法通过公式
 $$
 y_i = \left(b_i-\sum_{j=1}^{i-1}l_{ij}y_j\right)\bigg{/}l_{ii}
@@ -15861,7 +15863,7 @@ $$
 $$
 Ux = y
 $$
-其中 $y=(y_1,\cdots,y_n)^T\in\mathbb{R}^n$ 已知，$x=(x_1,\cdots,x_n)^T\in\mathbb{R}^n$ 未知，而
+其中 <span class="arithmatex">\(y=(y_1,\cdots,y_n)^T\in\mathbb{R}^n\)</span> 已知，<span class="arithmatex">\(x=(x_1,\cdots,x_n)^T\in\mathbb{R}^n\)</span> 未知，而
 $$
 U = \left(
 \begin{matrix}
@@ -15872,18 +15874,18 @@ u_{11} &amp; u_{12} &amp; \cdots &amp; u_{1n}\
 \end{matrix}
 \right)
 $$
-是已知的非奇异上三角阵，且 $u_{ii}\neq 0,\ i=1,\cdots,n$ 。</p>
+是已知的非奇异上三角阵，且 <span class="arithmatex">\(u_{ii}\neq 0,\ i=1,\cdots,n\)</span> 。</p>
 <p>回代法通过公式
 $$
 x_i = \left(y_i-\sum_{j=i+1}^{n}u_{ij}x_j\right)\bigg{/}u_{ii}
 $$
 从下到上求解方程组。</p>
 <h4 id="gauss">Gauss 变换</h4>
-<p>通过一系列初等变换，逐步用下三角阵对 $A$ 进行约化
+<p>通过一系列初等变换，逐步用下三角阵对 <span class="arithmatex">\(A\)</span> 进行约化
 $$
 L_k = I - l_ke_k^T,\quad l_k = (0,\cdots,0,l_{k+1,k},\cdots, l_{nk})^T
 $$
-左乘 $L_k$ 进行行变换
+左乘 <span class="arithmatex">\(L_k\)</span> 进行行变换
 $$
 L_k = \left(
 \begin{matrix}
@@ -15896,8 +15898,8 @@ L_k = \left(
 \end{matrix}
 \right)
 $$
-这种类型的初等下三角阵称为 Gauss 变换，向量 $l_k$ 称为 Gauss 向量。</p>
-<p>高斯向量具有重要性质，因为 $e_k^Tl_k = 0$，从而
+这种类型的初等下三角阵称为 Gauss 变换，向量 <span class="arithmatex">\(l_k\)</span> 称为 Gauss 向量。</p>
+<p>高斯向量具有重要性质，因为 <span class="arithmatex">\(e_k^Tl_k = 0\)</span>，从而
 $$
 (I-l_ke_k^T)(I+l_ke_k^T) = I - l_ke_k^Tl_ke_k^T = I
 $$
@@ -15907,8 +15909,8 @@ L_k^{-1} = I + l_ke_k^T
 $$
 高斯变换的逆容易得到。</p>
 <h4 id="_6">三角分解的计算</h4>
-<p>设 $A\in\mathbb{R}^{n\times n}$，则 $A$ 的三角分解指分解 $A=LU$，其中 $L\in\mathbb{R}^{n\times n}$ 为下三角阵，$U\in\mathbb{R}^{n\times n}$ 为上三角阵，此分解也称为 LU 分解。</p>
-<p>我们通过左乘一系列高斯变换来消去 $A$ 的下三角部分
+<p>设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，则 <span class="arithmatex">\(A\)</span> 的三角分解指分解 <span class="arithmatex">\(A=LU\)</span>，其中 <span class="arithmatex">\(L\in\mathbb{R}^{n\times n}\)</span> 为下三角阵，<span class="arithmatex">\(U\in\mathbb{R}^{n\times n}\)</span> 为上三角阵，此分解也称为 LU 分解。</p>
+<p>我们通过左乘一系列高斯变换来消去 <span class="arithmatex">\(A\)</span> 的下三角部分
 $$
 A^{(k-1)} = L_{k-1}\cdots L_1A = \left(
 \begin{matrix}
@@ -15917,7 +15919,7 @@ A_{11}^{(k-1)} &amp; A_{12}^{(k-1)}\
 \end{matrix}
 \right)
 $$
-其中 $A_{11}^{(k-1)}$ 是 $k-1$ 阶上三角阵，而
+其中 <span class="arithmatex">\(A_{11}^{(k-1)}\)</span> 是 <span class="arithmatex">\(k-1\)</span> 阶上三角阵，而
 $$
 A_{22}^{(k-1)} = \left(
 \begin{matrix}
@@ -15927,7 +15929,7 @@ a_{nk}^{(k-1)} &amp; \cdots &amp; a_{nn}^{(k-1)}
 \end{matrix}
 \right)
 $$
-如果 $a_{kk}^{(k-1)}\neq 0$，则可以再确定一个高斯变换 $L_k = I-l_ke_k^T,\ l_{ki} = a_{ki}^{(k-1)}/a_{kk}^{(k-1)},\ i=k+1,\cdots,n$ 。</p>
+如果 <span class="arithmatex">\(a_{kk}^{(k-1)}\neq 0\)</span>，则可以再确定一个高斯变换 <span class="arithmatex">\(L_k = I-l_ke_k^T,\ l_{ki} = a_{ki}^{(k-1)}/a_{kk}^{(k-1)},\ i=k+1,\cdots,n\)</span> 。</p>
 <p>最终我们得到
 $$
 L= (L_{n-1}L_{n-2}\cdots L_1)^{-1},\quad U = A^{(n-1)},\quad A = LU
@@ -15936,7 +15938,7 @@ $$
 $$
 L = (L_{n-1}L_{n-2}\cdots L_1)^{-1} = L_1^{-1}\cdots L_{n-1}^{-1} = (I+l_1e_1^T)\cdots (I+l_{n-1}e_{n-1}^T) = I + l_1e_1^T + \cdots l_{n-1}e_{n-1}^T
 $$
-即 $L$ 有如下形状
+即 <span class="arithmatex">\(L\)</span> 有如下形状
 $$
 L = \left(
 \begin{matrix}
@@ -15947,9 +15949,9 @@ l_{n1} &amp; l_{n2} &amp; \cdots &amp; 1
 \end{matrix}
 \right)
 $$
-此方法称为 Gauss 消去法；通常称 $a_{kk}^{(k-1)}$ 为主元。</p>
+此方法称为 Gauss 消去法；通常称 <span class="arithmatex">\(a_{kk}^{(k-1)}\)</span> 为主元。</p>
 <h4 id="_7">高斯消去法的存储</h4>
-<p>由于每次消元都与之前的列无关，并且下三角阵对角元为 $1$，可以省略，因此可以将每一步高斯变换的结果直接存放在原先的列中，我们只展示最后的结果
+<p>由于每次消元都与之前的列无关，并且下三角阵对角元为 <span class="arithmatex">\(1\)</span>，可以省略，因此可以将每一步高斯变换的结果直接存放在原先的列中，我们只展示最后的结果
 $$
 A^{(n-1)} = \left(
 \begin{matrix}
@@ -15961,9 +15963,9 @@ l_{n1} &amp; l_{n2} &amp; \cdots &amp; u_{nn}
 \right)
 $$
 高斯消去法是原地消去，不需要额外的存储空间。</p>
-<p><strong>定理 1.1.1</strong> 主元 $a_{ii}^{(i-1)},\ i=1,\cdots,k$ 均不为零的充要条件是 $A$ 的 $i$ 阶顺序主子式 $A_i$ 非奇异。</p>
+<p><strong>定理 1.1.1</strong> 主元 <span class="arithmatex">\(a_{ii}^{(i-1)},\ i=1,\cdots,k\)</span> 均不为零的充要条件是 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(i\)</span> 阶顺序主子式 <span class="arithmatex">\(A_i\)</span> 非奇异。</p>
 <p><strong>证明</strong> 容易应用归纳法证明。</p>
-<p><strong>定理 1.1.1</strong> 若 $A\in\mathbb{R}^{n\times n}$ 的顺序主子式 $A_k\in\mathbb{R}^{k\times k},\ k=1,\cdots,n-1$ 非奇异，则存在唯一分解 $A=LU$ 。</p>
+<p><strong>定理 1.1.1</strong> 若 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 的顺序主子式 <span class="arithmatex">\(A_k\in\mathbb{R}^{k\times k},\ k=1,\cdots,n-1\)</span> 非奇异，则存在唯一分解 <span class="arithmatex">\(A=LU\)</span> 。</p>
 <h3 id="_8">选主元三角分解</h3>
 <p>由于计算机精度的限制，如果主元太小，则会导致高斯变换的误差增大，因此我们需要选取尽可能小的元素作为主元。
 $$
@@ -15974,15 +15976,15 @@ A_{11}^{(k-1)} &amp; A_{12}^{(k-1)}\
 \end{matrix}
 \right)
 $$
-我们在每一步高斯变换前，进行初等变换 $I_{pq}$，左乘 $I_{pq}$ 会交换 $p,q$ 行，右乘 $I_{pq}$ 会交换 $p,q$ 列。选取
+我们在每一步高斯变换前，进行初等变换 <span class="arithmatex">\(I_{pq}\)</span>，左乘 <span class="arithmatex">\(I_{pq}\)</span> 会交换 <span class="arithmatex">\(p,q\)</span> 行，右乘 <span class="arithmatex">\(I_{pq}\)</span> 会交换 <span class="arithmatex">\(p,q\)</span> 列。选取
 $$
 \left|a_{pq}^{(k-1)}\right| = \max\left{\left|a_{ij}^{(k-1)}\right|:k\le i,j\le n\right}
 $$
-如果 $a_{pq}^{(k-1)} = 0$，说明 $A$ 秩为 $k-1$，结束过程；否则利用 $I_{kp}$ 与 $I_{kq}$ 交换 $a_{kk}$ 与 $a_{pq}$，最终得到
+如果 <span class="arithmatex">\(a_{pq}^{(k-1)} = 0\)</span>，说明 <span class="arithmatex">\(A\)</span> 秩为 <span class="arithmatex">\(k-1\)</span>，结束过程；否则利用 <span class="arithmatex">\(I_{kp}\)</span> 与 <span class="arithmatex">\(I_{kq}\)</span> 交换 <span class="arithmatex">\(a_{kk}\)</span> 与 <span class="arithmatex">\(a_{pq}\)</span>，最终得到
 $$
 L_rP_r\cdots L_1P_1AQ_1\cdots Q_r = U
 $$
-其中 $P_k = I_{kp},\ Q_k={I_{kq}}$，此过程称为全主元 Gauss 消去法。</p>
+其中 <span class="arithmatex">\(P_k = I_{kp},\ Q_k={I_{kq}}\)</span>，此过程称为全主元 Gauss 消去法。</p>
 <p>令
 $$
 \begin{aligned}
@@ -15995,15 +15997,15 @@ $$
 $$
 PAQ = LU
 $$
-称为全主元三角分解；注意到 $P_k^{-1}=P_k$，有
+称为全主元三角分解；注意到 <span class="arithmatex">\(P_k^{-1}=P_k\)</span>，有
 $$
 L = P_r\cdots P_1\cdot (L_rP_r\cdots L_1P_1)^{-1} = P_r\cdots P_2L_1^{-1}P_2L_2^{-1}\cdots P_rL_r^{-1}
 $$
-如果我们以 $L_1^{-1}$ 为中心，令
+如果我们以 <span class="arithmatex">\(L_1^{-1}\)</span> 为中心，令
 $$
 L^{(1)} = L_1^{-1},\quad L^{(k)} = P_kL^{(k-1)}P_kL_k^{-1}
 $$
-其中的每一步的 $P_kL^{(k-1)}P_kL_k^{-1}$ 只改变 $I_{n-k+1}$ 而不会改变下三角结构
+其中的每一步的 <span class="arithmatex">\(P_kL^{(k-1)}P_kL_k^{-1}\)</span> 只改变 <span class="arithmatex">\(I_{n-k+1}\)</span> 而不会改变下三角结构
 $$
 L^{(k-1)} = \left(
 \begin{matrix}
@@ -16012,13 +16014,13 @@ L_{21}^{(k-1)} &amp; I_{n-k+1}
 \end{matrix}
 \right)
 $$
-因此结果 $L$ 仍为单位下三角阵；并且由于每一步选取最大的主元，由高斯变换的构造得到 $L$ 中元素的模不会超过 $1$ 。</p>
-<p><strong>定理 1.1.1</strong> 若 $A\in\mathbb{R}^{n\times n}$，则有排列方阵 $P,Q\in\mathbb{R}^{n\times n}$ 使得
+因此结果 <span class="arithmatex">\(L\)</span> 仍为单位下三角阵；并且由于每一步选取最大的主元，由高斯变换的构造得到 <span class="arithmatex">\(L\)</span> 中元素的模不会超过 <span class="arithmatex">\(1\)</span> 。</p>
+<p><strong>定理 1.1.1</strong> 若 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，则有排列方阵 <span class="arithmatex">\(P,Q\in\mathbb{R}^{n\times n}\)</span> 使得
 $$
 PAQ = LU
 $$
-其中 $L$ 中所有元素的模不大于 $1$，$U$ 中非零对角元的个数恰为 $A$ 的秩。</p>
-<p>虽然全主元高斯消去法弥补了不选主元的高斯消去法的不足，但仍需要付出极大的代价，因为在 $A$ 非奇异的情况下，选主元需进行
+其中 <span class="arithmatex">\(L\)</span> 中所有元素的模不大于 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(U\)</span> 中非零对角元的个数恰为 <span class="arithmatex">\(A\)</span> 的秩。</p>
+<p>虽然全主元高斯消去法弥补了不选主元的高斯消去法的不足，但仍需要付出极大的代价，因为在 <span class="arithmatex">\(A\)</span> 非奇异的情况下，选主元需进行
 $$
 \sum_{k=1}^{n-1}(n-k+1)^2 = \dfrac{1}{3}n^3+O(n^2)
 $$
@@ -16029,12 +16031,12 @@ $$
 这样只进行每一列的选主元，能够大量减少时间。</p>
 <h3 id="_9">平方根法</h3>
 <p>平方根法又叫做 Cholesky 分解法，是求解对称正定线性方程组最常用的方法之一。</p>
-<p><strong>定理 1.1.1 (Cholesky 分解定理)</strong> 若 $A\in\mathbb{R}^{n\times n}$ 对称正定，则存在对角元均为正数的下三角阵 $L\in\mathbb{R}^{n\times n}$，使得
+<p><strong>定理 1.1.1 (Cholesky 分解定理)</strong> 若 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 对称正定，则存在对角元均为正数的下三角阵 <span class="arithmatex">\(L\in\mathbb{R}^{n\times n}\)</span>，使得
 $$
 A = LL^T
 $$
-称为 Cholesky 分解，其中 $L$ 称为 $A$ 的 Cholesky 因子。</p>
-<p><strong>证明</strong> 由于对称正定，因此其全部主子阵均正定，则存在 $\widetilde{L},U$ 使得 $A = \widetilde{L}U$，令
+称为 Cholesky 分解，其中 <span class="arithmatex">\(L\)</span> 称为 <span class="arithmatex">\(A\)</span> 的 Cholesky 因子。</p>
+<p><strong>证明</strong> 由于对称正定，因此其全部主子阵均正定，则存在 <span class="arithmatex">\(\widetilde{L},U\)</span> 使得 <span class="arithmatex">\(A = \widetilde{L}U\)</span>，令
 $$
 D = \mathrm{diag}(u_{11},\cdots,u_{nn}),\quad \widetilde{U} = D^{-1}U
 $$
@@ -16042,12 +16044,12 @@ $$
 $$
 \widetilde{U}^TD\widetilde{L}^T = A^T = A = \widetilde{L}D\widetilde{U}\ \Rightarrow\ \widetilde{L}^T\widetilde{U}^{-1} = D^{-1}\widetilde{U}^{-T}\widetilde{L}D
 $$
-注意到左边是单位上三角阵，右边是下三角阵，因此两边均为单位矩阵，于是 $\widetilde{U} = \widetilde{L}^T,\ A=\widetilde{L}D\widetilde{L}^T$；由于 $D$ 对角元为正数，则取
+注意到左边是单位上三角阵，右边是下三角阵，因此两边均为单位矩阵，于是 <span class="arithmatex">\(\widetilde{U} = \widetilde{L}^T,\ A=\widetilde{L}D\widetilde{L}^T\)</span>；由于 <span class="arithmatex">\(D\)</span> 对角元为正数，则取
 $$
 L = \widetilde{L}\mathrm{diag}(\sqrt{u_{11}},\cdots,\sqrt{u_{nn}})
 $$
-有 $A = LL^T$，此即为满足要求的分解。</p>
-<p>平方根法通过比较元素来计算分解，对比 $A$ 和 $LL^T$ 两边的对应元素得到
+有 <span class="arithmatex">\(A = LL^T\)</span>，此即为满足要求的分解。</p>
+<p>平方根法通过比较元素来计算分解，对比 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(LL^T\)</span> 两边的对应元素得到
 $$
 l_{kk} = \left(a_{ik}-\sum_{p=1}^{k-1}l_{kp}^2\right)^{\frac{1}{2}},\quad l_{ik} = \left(a_{ik}-\sum_{p=1}^{k-1}l_{ip}l_{kp}\right)\bigg{/}l_{kk}
 $$
@@ -16056,12 +16058,12 @@ $$
 $$
 A = LDL^T
 $$
-其中 $L$ 是单位下三角阵，$D$ 是对角元均为正的对角阵。</p>
+其中 <span class="arithmatex">\(L\)</span> 是单位下三角阵，<span class="arithmatex">\(D\)</span> 是对角元均为正的对角阵。</p>
 <p>仍然通过对比元素计算分解
 $$
 d_j = a_{jj} - \sum_{k=1}^{j-1}l_{jk}d_kl_{jk},\quad l_{ij} = \left(a_{ij}-\sum_{k=1}^{j-1}l_{ik}d_{k}l_{jk}\right)\bigg{/}d_{j}
 $$
-在实际计算时，将 $L$ 的严格下三角元素存储在 $A$ 的对应位置，$D$ 的对角元存储在 $A$ 的对应对角位置。</p>
+在实际计算时，将 <span class="arithmatex">\(L\)</span> 的严格下三角元素存储在 <span class="arithmatex">\(A\)</span> 的对应位置，<span class="arithmatex">\(D\)</span> 的对角元存储在 <span class="arithmatex">\(A\)</span> 的对应对角位置。</p>
 <h3 id="_10">追赶法</h3>
 <p>三对角阵的分解
 $$
@@ -16092,13 +16094,13 @@ c_{2} &amp; a_{2} &amp; b_3\
 \end{matrix}
 \right)
 $$
-对比元素得到 $\alpha_1 = a_1$，而
+对比元素得到 <span class="arithmatex">\(\alpha_1 = a_1\)</span>，而
 $$
 \gamma_i = c_i,\quad \beta_i = b_i/\alpha_{i-1},\quad \alpha_i = a_i-\gamma_i\beta_i,\quad i=2,\cdots,n
 $$
 此方法称为追赶法。</p>
 <h3 id="_11">矩阵样例</h3>
-<p>使用 Gauss 变换分解为 $LU$ 形式</p>
+<p>使用 Gauss 变换分解为 <span class="arithmatex">\(LU\)</span> 形式</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">A</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">              </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">              </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">};</span>
@@ -16120,7 +16122,7 @@ U = \left(
 \end{matrix}
 \right)
 $$</p>
-<p>用于对称矩阵的分解 $LDL^T$ </p>
+<p>用于对称矩阵的分解 <span class="arithmatex">\(LDL^T\)</span> </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">A</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">              </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">-7</span><span class="p">,</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">              </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">-2</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
@@ -16140,18 +16142,18 @@ $$</p>
 <h2 id="_12">线性方程组的敏度分析与消去法的舍入误差分析</h2>
 <h3 id="_13">向量范数和矩阵范数</h3>
 <h4 id="_14">向量范数</h4>
-<p><strong>定义 2.2.2</strong> 非负函数 $|\cdot|:\mathbb{R}^n\to\mathbb{R}$ 称为 $\mathbb{R}^n$ 上的向量范数，如果有</p>
+<p><strong>定义 2.2.2</strong> 非负函数 <span class="arithmatex">\(\|\cdot\|:\mathbb{R}^n\to\mathbb{R}\)</span> 称为 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上的向量范数，如果有</p>
 <ul>
-<li>正定性： $\forall x\in\mathbb{R}^n,\ |x|\ge 0$，等号成立当且仅当 $x = 0$ 。</li>
-<li>齐次性： $\forall x\in\mathbb{R}^n,\ \forall \alpha\in\mathbb{R},\ |\alpha x| = |\alpha||x|$ 。</li>
-<li>三角不等式： $\forall x,y\in\mathbb{R}^n,\ |x+y|\le |x|+|y|$ 。</li>
+<li>正定性： <span class="arithmatex">\(\forall x\in\mathbb{R}^n,\ \|x\|\ge 0\)</span>，等号成立当且仅当 <span class="arithmatex">\(x = 0\)</span> 。</li>
+<li>齐次性： <span class="arithmatex">\(\forall x\in\mathbb{R}^n,\ \forall \alpha\in\mathbb{R},\ \|\alpha x\| = |\alpha|\|x\|\)</span> 。</li>
+<li>三角不等式： <span class="arithmatex">\(\forall x,y\in\mathbb{R}^n,\ \|x+y\|\le \|x\|+\|y\|\)</span> 。</li>
 </ul>
 <p>容易验证向量范数是连续的。</p>
-<p>最常用的向量范数是 $p$ 范数
+<p>最常用的向量范数是 <span class="arithmatex">\(p\)</span> 范数
 $$
 |x|<em>p = \left(|x_1|^p+\cdots+|x_n|^p\right)^{\frac{1}{p}},\quad p\ge 1
 $$
-其中最重要的是 $p=1,2,\infty$，即
+其中最重要的是 <span class="arithmatex">\(p=1,2,\infty\)</span>，即
 $$
 \begin{aligned}
 &amp;|x|_1 = |x_1|+\cdots+|x_n|\
@@ -16159,7 +16161,7 @@ $$
 &amp;|x|</em>{\infty} = \max{|x_i|:i=1,\cdots,n}
 \end{aligned}
 $$
-分别称为 $1$ 范数，$2$ 范数，$\infty$ 范数，这三个范数的正定性和齐次性是显然的，容易证明 $|\cdot|<em>1$ 和 $|\cdot|</em>{\infty}$ 满足三角不等式，而对于 $|\cdot|_2$ 需要用到 Cauchy-Schwartz 不等式
+分别称为 <span class="arithmatex">\(1\)</span> 范数，<span class="arithmatex">\(2\)</span> 范数，<span class="arithmatex">\(\infty\)</span> 范数，这三个范数的正定性和齐次性是显然的，容易证明 <span class="arithmatex">\(\|\cdot\|_1\)</span> 和 <span class="arithmatex">\(\|\cdot\|_{\infty}\)</span> 满足三角不等式，而对于 <span class="arithmatex">\(\|\cdot\|_2\)</span> 需要用到 Cauchy-Schwartz 不等式
 $$
 |x^Ty| \le |x|_2|y|_2,\quad x,y\in\mathbb{R}^n
 $$
@@ -16168,42 +16170,42 @@ $$
 |x^Ty| \le |x|_p|y|_p,\quad \dfrac{1}{p} + \dfrac{1}{q} = 1
 $$
 的特殊形式。</p>
-<p><strong>定理 2.2.2</strong> 设 $|\cdot|<em>{\alpha},|\cdot|</em>{\beta}$ 是 $\mathbb{R}^n$ 上任意两个范数，则存在 $c_1,c_2\in\mathbb{R}$，使得
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(\|\cdot\|_{\alpha},\|\cdot\|_{\beta}\)</span> 是 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上任意两个范数，则存在 <span class="arithmatex">\(c_1,c_2\in\mathbb{R}\)</span>，使得
 $$
 \forall x\in\mathbb{R}^n,\quad c_1|x|<em>{\alpha} \le |x|</em>{\beta} \le c_2|x|_{\alpha}
 $$
 这一定理的证明较为复杂，它说明所有范数在此意义下都是等价的。</p>
-<p><strong>定理 2.2.2</strong> 设 $x_k\in\mathbb{R}^n$，则 $\lim_{k\to\infty}|x_k-x| = 0$ 的充要条件为
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(x_k\in\mathbb{R}^n\)</span>，则 <span class="arithmatex">\(\lim_{k\to\infty}\|x_k-x\| = 0\)</span> 的充要条件为
 $$
 \lim_{k\to\infty}\left|x_i^{(k)}-x_i\right| = 0,\quad i=1,\cdots,n
 $$
 即向量序列的范数收敛等价于其分量收敛。</p>
 <h4 id="_15">矩阵范数</h4>
-<p>我们可以将全体 $n\times n$ 实矩阵构成的空间看做 $n^2$ 维空间，然后直接推广向量范数到矩阵。但这样并未考虑到矩阵乘法，因此</p>
-<p><strong>定义 2.2.2</strong> 非负函数 $|\cdot|:\mathbb{R}^{n\times n}\to\mathbb{R}$ 称为 $\mathbb{R}^{n\times n}$ 上的矩阵范数，如果有</p>
+<p>我们可以将全体 <span class="arithmatex">\(n\times n\)</span> 实矩阵构成的空间看做 <span class="arithmatex">\(n^2\)</span> 维空间，然后直接推广向量范数到矩阵。但这样并未考虑到矩阵乘法，因此</p>
+<p><strong>定义 2.2.2</strong> 非负函数 <span class="arithmatex">\(\|\cdot\|:\mathbb{R}^{n\times n}\to\mathbb{R}\)</span> 称为 <span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span> 上的矩阵范数，如果有</p>
 <ul>
-<li>正定性： $\forall A\in\mathbb{R}^{n\times n},\ |A|\ge 0$，等号成立当且仅当 $A = 0$ 。</li>
-<li>齐次性： $\forall A\in\mathbb{R}^{n\times n},\ \forall \alpha\in\mathbb{R},\ |\alpha A| = |\alpha||A|$ 。</li>
-<li>三角不等式： $\forall A,B\in\mathbb{R}^{n\times n},\ |A+B|\le |A|+|B|$ 。</li>
-<li>相容性： $\forall A,B\in\mathbb{R}^{n\times n},\ |AB|\le |A||B|$ 。</li>
+<li>正定性： <span class="arithmatex">\(\forall A\in\mathbb{R}^{n\times n},\ \|A\|\ge 0\)</span>，等号成立当且仅当 <span class="arithmatex">\(A = 0\)</span> 。</li>
+<li>齐次性： <span class="arithmatex">\(\forall A\in\mathbb{R}^{n\times n},\ \forall \alpha\in\mathbb{R},\ \|\alpha A\| = |\alpha|\|A\|\)</span> 。</li>
+<li>三角不等式： <span class="arithmatex">\(\forall A,B\in\mathbb{R}^{n\times n},\ \|A+B\|\le \|A\|+\|B\|\)</span> 。</li>
+<li>相容性： <span class="arithmatex">\(\forall A,B\in\mathbb{R}^{n\times n},\ \|AB\|\le \|A\|\|B\|\)</span> 。</li>
 </ul>
 <p>类似的，有</p>
 <ul>
-<li>$\mathbb{R}^{n\times n}$ 上的矩阵范数等价。</li>
+<li><span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span> 上的矩阵范数等价。</li>
 <li>矩阵序列的范数收敛等价于其元素收敛。</li>
 </ul>
-<p><strong>定义 2.2.2</strong> 若矩阵范数 $|\cdot|_M$ 和向量范数 $|\cdot|_v$ 满足
+<p><strong>定义 2.2.2</strong> 若矩阵范数 <span class="arithmatex">\(\|\cdot\|_M\)</span> 和向量范数 <span class="arithmatex">\(\|\cdot\|_v\)</span> 满足
 $$
 |Ax|_v \le |A|_M|x|_v,\quad A\in\mathbb{R}^{n\times n},\ x\in\mathbb{R}^n
 $$
-则称矩阵范数 $|\cdot|_M$ 与向量范数 $|\cdot|_v$ 相容。</p>
-<p><strong>定理 2.2.2</strong> 设 $|\cdot|$ 是 $\mathbb{R}^n$ 上的向量范数，若定义
+则称矩阵范数 <span class="arithmatex">\(\|\cdot\|_M\)</span> 与向量范数 <span class="arithmatex">\(\|\cdot\|_v\)</span> 相容。</p>
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(\|\cdot\|\)</span> 是 <span class="arithmatex">\(\mathbb{R}^n\)</span> 上的向量范数，若定义
 $$
 |A|<em>M = \max</em>{|x|=1}|Ax|,\quad A\in\mathbb{R}^{n\times n}
 $$
-则 $|\cdot|_M$ 是 $\mathbb{R}^{n\times n}$ 上的矩阵范数。</p>
+则 <span class="arithmatex">\(\|\cdot\|_M\)</span> 是 <span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span> 上的矩阵范数。</p>
 <p><strong>证明</strong> 我们只证明两点：</p>
-<p>首先由于 $\mathcal{D}={x\in\mathbb{R}^n:|x|=1}$ 为有界闭集，而 $|\cdot|$ 是连续函数，因此 $|Ax|$ 最大值存在，这样定义的矩阵范数是有意义的；其次，对于任意 $x\in\mathbb{R}^n,\ x\neq 0$，则有
+<p>首先由于 <span class="arithmatex">\(\mathcal{D}=\{x\in\mathbb{R}^n:\|x\|=1\}\)</span> 为有界闭集，而 <span class="arithmatex">\(\|\cdot\|\)</span> 是连续函数，因此 <span class="arithmatex">\(\|Ax\|\)</span> 最大值存在，这样定义的矩阵范数是有意义的；其次，对于任意 <span class="arithmatex">\(x\in\mathbb{R}^n,\ x\neq 0\)</span>，则有
 $$
 \dfrac{|Ax|}{|x|} = \left|A\dfrac{x}{|x|}\right| \le |A|_M
 $$
@@ -16211,8 +16213,8 @@ $$
 $$
 |Ax| \le |A|_M|x|,\quad x\in\mathbb{R}^n
 $$
-利用此性质可以证明 $|\cdot|_M$ 满足矩阵范数的性质。</p>
-<p><strong>定理 2.2.2</strong> 设 $A=[a_{ij}]\in\mathbb{R}^{n\times n}$，则有
+利用此性质可以证明 <span class="arithmatex">\(\|\cdot\|_M\)</span> 满足矩阵范数的性质。</p>
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(A=[a_{ij}]\in\mathbb{R}^{n\times n}\)</span>，则有
 $$
 \begin{aligned}
 &amp;|A|<em>1 = \max</em>{1\le j\le n}\sum_{i=1}^n|a_{ij}|\
@@ -16220,42 +16222,42 @@ $$
 &amp;|A|<em>2 = \sqrt{\lambda</em>{\max}(A^TA)}
 \end{aligned}
 $$
-其中 $\lambda_{\max}(A^TA)$ 表示 $A^TA$ 的最大特征值。</p>
-<p><strong>证明</strong>  $A=0$ 时显然成立；对于 $1$ 范数，我们从结论出发，发现 $|A|<em>1$ 是它所有列向量的 $1$ 范数的最大值，因此我们取
+其中 <span class="arithmatex">\(\lambda_{\max}(A^TA)\)</span> 表示 <span class="arithmatex">\(A^TA\)</span> 的最大特征值。</p>
+<p><strong>证明</strong>  <span class="arithmatex">\(A=0\)</span> 时显然成立；对于 <span class="arithmatex">\(1\)</span> 范数，我们从结论出发，发现 <span class="arithmatex">\(\|A\|_1\)</span> 是它所有列向量的 <span class="arithmatex">\(1\)</span> 范数的最大值，因此我们取
 $$
-A= [a_1,\cdots,a_n],\quad \delta = \max</em>{1\le j\le n}|a_j|<em>1
+A= [a_1,\cdots,a_n],\quad \delta = \max_{1\le j\le n}|a_j|<em>1
 $$
-则任意 $x\in\mathbb{R}^n,\ |x|_1=1$ 有
+则任意 <span class="arithmatex">\(x\in\mathbb{R}^n,\ \|x\|_1=1\)</span> 有
 $$
 |Ax|_1 = \left|\sum</em>{j=1}^nx_ja_j\right|<em>1 \le \sum</em>{j=1}^n|x_j||a_j|<em>1 \le \left(\sum</em>{j=1}^n|x_j|\right)\max_{1\le j\le n}|a_j|<em>1 = \delta
 $$
-设 $\delta$ 是第 $j_0$ 列的范数，可以取 $e</em>{j_0}$，这样
+设 <span class="arithmatex">\(\delta\)</span> 是第 <span class="arithmatex">\(j_0\)</span> 列的范数，可以取 <span class="arithmatex">\(e_{j_0}\)</span>，这样
 $$
-|e_{j_0}| = 1,\quad |Ae_{j_0}| = \delta
+|e</em>{j_0}| = 1,\quad |Ae_{j_0}| = \delta
 $$
-因此可以取得最大值 $\delta$ 。</p>
-<p>对于 $\infty$ 范数，我们从结论出发，发现 $|A|<em>{\infty}$ 是它的每行元素绝对值和的最大值，可以这样考虑：
+因此可以取得最大值 <span class="arithmatex">\(\delta\)</span> 。</p>
+<p>对于 <span class="arithmatex">\(\infty\)</span> 范数，我们从结论出发，发现 <span class="arithmatex">\(\|A\|_{\infty}\)</span> 是它的每行元素绝对值和的最大值，可以这样考虑：
 $$
-|Ax|</em>{\infty} = \left|\left(\sum_{j=1}^na_{1j}x_j,\cdots,\sum_{j=1}^na_{nj}x_j\right)^T\right|<em>{\infty}
+|Ax|<em>{\infty} = \left|\left(\sum</em>{j=1}^na_{1j}x_j,\cdots,\sum_{j=1}^na_{nj}x_j\right)^T\right|<em>{\infty}
 $$
- 因为 $x_j$ 的符号可以根据 $a</em>{ij}$ 调整，使得 $a_{ij}x_j\ge 0$，这样我们只需要取 $\sum_{j=1}^na_{ij}x_j$ 中的最大值，记为 $\eta$， 这意味着
+ 因为 <span class="arithmatex">\(x_j\)</span> 的符号可以根据 <span class="arithmatex">\(a_{ij}\)</span> 调整，使得 <span class="arithmatex">\(a_{ij}x_j\ge 0\)</span>，这样我们只需要取 <span class="arithmatex">\(\sum_{j=1}^na_{ij}x_j\)</span> 中的最大值，记为 <span class="arithmatex">\(\eta\)</span>， 这意味着
 $$
-|Ax|<em>{\infty} \le \max</em>{1\le i\le n}\sum_{j=1}^na_{ij}x_j \le \max_{1\le i\le n}\sum_{j=1}^n|a_{ij}| = \eta
+|Ax|</em>{\infty} \le \max_{1\le i\le n}\sum_{j=1}^na_{ij}x_j \le \max_{1\le i\le n}\sum_{j=1}^n|a_{ij}| = \eta
 $$
-设最大值在 $i=i_0$ 处取得，则我们取 $x = (\mathrm{sgn}(a_{i_0,1}),\cdots,\mathrm{sgn}(a_{i_0,n}))^T$，则有
+设最大值在 <span class="arithmatex">\(i=i_0\)</span> 处取得，则我们取 <span class="arithmatex">\(x = (\mathrm{sgn}(a_{i_0,1}),\cdots,\mathrm{sgn}(a_{i_0,n}))^T\)</span>，则有
 $$
 |x|<em>{\infty} = 1,\quad |Ax|</em>{\infty} = \eta
 $$
-因此可以取得最大值 $\eta$ 。</p>
-<p>对于 $2$ 范数，应用向量范数有
+因此可以取得最大值 <span class="arithmatex">\(\eta\)</span> 。</p>
+<p>对于 <span class="arithmatex">\(2\)</span> 范数，应用向量范数有
 $$
 |A|<em>2 = \max</em>{|x|<em>2=1}|Ax|_2 = \max</em>{|x|<em>2=1}\left(x^TA^TAx\right)^{\frac{1}{2}}
 $$
-注意到 $A^TA$ 对称半正定，因而有特征值
+注意到 <span class="arithmatex">\(A^TA\)</span> 对称半正定，因而有特征值
 $$
 \lambda_1 \ge \lambda_2\ge \cdots \ge \lambda_n \ge 0
 $$
-和对应的正交标准特征向量 $v_1,v_2,\cdots,v_n\in\mathbb{R}^n$，则任意 $|x|_2=1,\ x\in\mathbb{R}^n$ 有
+和对应的正交标准特征向量 <span class="arithmatex">\(v_1,v_2,\cdots,v_n\in\mathbb{R}^n\)</span>，则任意 <span class="arithmatex">\(\|x\|_2=1,\ x\in\mathbb{R}^n\)</span> 有
 $$
 x = \sum</em>{i=1}^n\alpha_iv_i,\quad \sum_{i=1}^n\alpha_i^2 = 1
 $$
@@ -16263,49 +16265,49 @@ $$
 $$
 x^TA^TAx = \sum_{i=1}^n\lambda_i\alpha_i^2 \le \lambda_1
 $$
-另一方面，取 $x=v_1$ 有
+另一方面，取 <span class="arithmatex">\(x=v_1\)</span> 有
 $$
 x^TA^TAx = v_1^TA^TAv_1 = v_1^T\lambda_1v_1 = \lambda_1
 $$
-因此可以取得最大值 $\lambda_1$ 。</p>
-<p><strong>定理 2.2.2</strong> 设 $A\in\mathbb{R}^{n\times n}$，则</p>
+因此可以取得最大值 <span class="arithmatex">\(\lambda_1\)</span> 。</p>
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，则</p>
 <ul>
-<li>$|A|_2 = \max\left{\left|y^TAx\right|:x,y\in\mathbb{C}^n,\ |x|_2=|y|_2=1\right}$</li>
-<li>$|A^T|_2 = |A|_2 = \sqrt{|A^TA|_2}$</li>
-<li>对任意 $n$ 阶正交阵 $U,V$，有 $|UA|_2=|AV|_2 = |A|_2$</li>
+<li><span class="arithmatex">\(\|A\|_2 = \max\left\{\left|y^TAx\right|:x,y\in\mathbb{C}^n,\ \|x\|_2=\|y\|_2=1\right\}\)</span></li>
+<li><span class="arithmatex">\(\|A^T\|_2 = \|A\|_2 = \sqrt{\|A^TA\|_2}\)</span></li>
+<li>对任意 <span class="arithmatex">\(n\)</span> 阶正交阵 <span class="arithmatex">\(U,V\)</span>，有 <span class="arithmatex">\(\|UA\|_2=\|AV\|_2 = \|A\|_2\)</span></li>
 </ul>
 <p><strong>证明</strong> 我们先证明小于关系，再证明可以取得最值
 $$
 \left|y^TAx\right| \le \left|y^T\right||Ax|_2 = |Ax|_2
 $$
-设 $x_0\in\mathbb{R}^n,\ |x_0|_2 = 1,\ |A|_2 = |Ax_0|_2$，取 $y=Ax_0/|A|_2,\ |y|_2=1$，则有
+设 <span class="arithmatex">\(x_0\in\mathbb{R}^n,\ \|x_0\|_2 = 1,\ \|A\|_2 = \|Ax_0\|_2\)</span>，取 <span class="arithmatex">\(y=Ax_0/\|A\|_2,\ \|y\|_2=1\)</span>，则有
 $$
 \left|y^TAx_0\right| = \left|(Ax_0)^TAx_0\right|/|A|_2 = |A|_2
 $$
-从而可以取得最大值 $|A|_2$ 。</p>
-<p>在 $\mathbb{R}^{n\times n}$ 上另一个常用的矩阵范数为
+从而可以取得最大值 <span class="arithmatex">\(\|A\|_2\)</span> 。</p>
+<p>在 <span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span> 上另一个常用的矩阵范数为
 $$
 |A|<em>F = \left(\sum</em>{i,j=1}^n|a_{ij}|^2\right)^{\frac{1}{2}}
 $$
-称为 Frobenius 范数，它是向量 $2$ 范数的自然推广。</p>
-<p><strong>定义 2.2.2</strong> 设 $A\in\mathbb{R}^{n\times n}$，则称
+称为 Frobenius 范数，它是向量 <span class="arithmatex">\(2\)</span> 范数的自然推广。</p>
+<p><strong>定义 2.2.2</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，则称
 $$
 \rho(A) = \max{|\lambda|:\lambda\in\lambda(A)}
 $$
-为 $A$ 的谱半径，这里 $\lambda(A)$ 表示 $A$ 的特征值全体。</p>
-<p><strong>定理 2.2.2</strong> 设 $A\in\mathbb{R}^{n\times n}$，则有</p>
+为 <span class="arithmatex">\(A\)</span> 的谱半径，这里 <span class="arithmatex">\(\lambda(A)\)</span> 表示 <span class="arithmatex">\(A\)</span> 的特征值全体。</p>
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，则有</p>
 <ul>
-<li>对 $\mathbb{C}^{n\times n}$ 上的任意矩阵范数 $|\cdot|$ 有
+<li>对 <span class="arithmatex">\(\mathbb{C}^{n\times n}\)</span> 上的任意矩阵范数 <span class="arithmatex">\(\|\cdot\|\)</span> 有
 $$
 \rho(A) \le |A|
 $$</li>
-<li>对任意 $\epsilon&gt;0$，存在 $\mathbb{C}^{n\times n}$ 上的算子范数 $|\cdot|$ 使得
+<li>对任意 <span class="arithmatex">\(\epsilon&gt;0\)</span>，存在 <span class="arithmatex">\(\mathbb{C}^{n\times n}\)</span> 上的算子范数 <span class="arithmatex">\(\|\cdot\|\)</span> 使得
 $$
 |A|\le \rho(A) + \epsilon
 $$
 这说明谱半径是所有矩阵范数的下确界。</li>
 </ul>
-<p><strong>证明</strong> 注意到 $\rho(A)$ 是特征值 $\lambda$ 的绝对值，我们取特征向量 $x\in\mathbb{C}^{n\times n}$，则有
+<p><strong>证明</strong> 注意到 <span class="arithmatex">\(\rho(A)\)</span> 是特征值 <span class="arithmatex">\(\lambda\)</span> 的绝对值，我们取特征向量 <span class="arithmatex">\(x\in\mathbb{C}^{n\times n}\)</span>，则有
 $$
 \rho(A)\left|xe_1^T\right| = \left|\lambda xe_1^T\right| = \left|Axe_1^T\right| \le |A|\left|xe_1^T\right|
 $$
@@ -16313,7 +16315,7 @@ $$
 $$
 \rho(A) \le |A|
 $$
-第二部分应用若当标准型定义满足条件的算子范数，事实上有非奇异矩阵 $P\in\mathbb{C}^{n\times n}$ 使得
+第二部分应用若当标准型定义满足条件的算子范数，事实上有非奇异矩阵 <span class="arithmatex">\(P\in\mathbb{C}^{n\times n}\)</span> 使得
 $$
 P^{-1}AP = \left(
 \begin{matrix}
@@ -16325,7 +16327,7 @@ P^{-1}AP = \left(
 \end{matrix}
 \right)
 $$
-其中 $\delta_i = 0,1$，即为若当标准型。对任意 $\epsilon&gt;0$，我们作微小扰动 $D_{\epsilon} = \mathrm{diag}(1,\epsilon,\cdots,\epsilon^{n-1})$，则有
+其中 <span class="arithmatex">\(\delta_i = 0,1\)</span>，即为若当标准型。对任意 <span class="arithmatex">\(\epsilon&gt;0\)</span>，我们作微小扰动 <span class="arithmatex">\(D_{\epsilon} = \mathrm{diag}(1,\epsilon,\cdots,\epsilon^{n-1})\)</span>，则有
 $$
 D_{\epsilon}^{-1}P^{-1}APD_{\epsilon} = \left(
 \begin{matrix}
@@ -16345,16 +16347,16 @@ $$
 $$
 |A|</em>{\epsilon} = \left|D_{\epsilon}^{-1}P^{-1}APD_{\epsilon}\right|<em>{\infty} = \max</em>{1\le i\le n}(|\lambda_i|+|\epsilon\delta_i|) \le \rho(A) + \epsilon
 $$
-其中假定 $\delta_0 = 0$ 。</p>
-<p><strong>定理 2.2.2</strong> 设 $A\in\mathbb{C}^{n\times n}$，则
+其中假定 <span class="arithmatex">\(\delta_0 = 0\)</span> 。</p>
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(A\in\mathbb{C}^{n\times n}\)</span>，则
 $$
 \lim_{k\to\infty} A^k = 0\ \Leftrightarrow\ \rho(A) &lt; 1
 $$
-<strong>证明</strong> 首先，如果 $A^k\to 0$，考虑到 $\lambda\in\lambda(A)$ 有 $\lambda^k\in\lambda\left(A^k\right)$，则
+<strong>证明</strong> 首先，如果 <span class="arithmatex">\(A^k\to 0\)</span>，考虑到 <span class="arithmatex">\(\lambda\in\lambda(A)\)</span> 有 <span class="arithmatex">\(\lambda^k\in\lambda\left(A^k\right)\)</span>，则
 $$
 \rho(A)^k \le \rho\left(A^k\right) \le \left|A^k\right|_2 \to 0
 $$
-从而只能有 $\rho(A)&lt;1$；反之，取 $\epsilon = 1-\rho(A)&gt;0$，则有算子范数 $|\cdot|$ 使得
+从而只能有 <span class="arithmatex">\(\rho(A)&lt;1\)</span>；反之，取 <span class="arithmatex">\(\epsilon = 1-\rho(A)&gt;0\)</span>，则有算子范数 <span class="arithmatex">\(\|\cdot\|\)</span> 使得
 $$
 |A| \le \rho(A) + \dfrac{\epsilon}{2} = 1
 $$
@@ -16363,33 +16365,33 @@ $$
 \left|A^k\right| \le |A|^k \to 0
 $$
 即证。</p>
-<p><strong>定理 2.2.2</strong> 设 $A\in\mathbb{C}^{n\times n}$，则</p>
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(A\in\mathbb{C}^{n\times n}\)</span>，则</p>
 <ul>
-<li>$\sum_{k=0}^{\infty}A^k$ 收敛当且仅当 $\rho(A)&lt;1$ 。</li>
-<li>若 $\sum_{k=0}^{\infty}A^k$ 收敛，则
+<li><span class="arithmatex">\(\sum_{k=0}^{\infty}A^k\)</span> 收敛当且仅当 <span class="arithmatex">\(\rho(A)&lt;1\)</span> 。</li>
+<li>若 <span class="arithmatex">\(\sum_{k=0}^{\infty}A^k\)</span> 收敛，则
 $$
 \sum_{k=0}^{\infty}A^k = (I-A)^{-1}
 $$
-且存在 $\mathbb{C}^{n\times n}$ 上的算子范数 $|\cdot|$ 使得
+且存在 <span class="arithmatex">\(\mathbb{C}^{n\times n}\)</span> 上的算子范数 <span class="arithmatex">\(\|\cdot\|\)</span> 使得
 $$
 \left|(I-A)^{-1}-\sum_{k=0}^mA^k\right| \le\dfrac{|A|^{m+1}}{1-|A|}
 $$
-对任意 $m\in\mathbb{N}$ 成立。</li>
+对任意 <span class="arithmatex">\(m\in\mathbb{N}\)</span> 成立。</li>
 </ul>
 <p><strong>证明</strong> 先计算矩阵和
 $$
 S_n = \sum_{k=0}^nA^k\ \Rightarrow\ (I-A)S_n = I - A^{n+1}\ \Rightarrow\ S_n = (I-A)^{-1}\left(I - A^{n+1}\right)
 $$
-则第一部分显然；当 $S_n$ 收敛，必有 $S = (I-A)^{-1}$ 存在，并且
+则第一部分显然；当 <span class="arithmatex">\(S_n\)</span> 收敛，必有 <span class="arithmatex">\(S = (I-A)^{-1}\)</span> 存在，并且
 $$
 \left|(I-A)^{-1}-\sum_{k=0}^mA^k\right| = |S-S_m| = \left|(I-A)^{-1}A^{m+1}\right| \le \dfrac{|A|^{m+1}}{1-|A|}
 $$
 即证。</p>
-<p><strong>推论 2.2.2</strong> 设 $\mathbb{C}^{n\times n}$ 上的算子范数 $|\cdot|$ 满足 $|I|=1$，且 $A\in\mathbb{C}^{n\times n}$ 有 $|A|&lt;1$，则 $I-A$ 可逆，且有
+<p><strong>推论 2.2.2</strong> 设 <span class="arithmatex">\(\mathbb{C}^{n\times n}\)</span> 上的算子范数 <span class="arithmatex">\(\|\cdot\|\)</span> 满足 <span class="arithmatex">\(\|I\|=1\)</span>，且 <span class="arithmatex">\(A\in\mathbb{C}^{n\times n}\)</span> 有 <span class="arithmatex">\(\|A\|&lt;1\)</span>，则 <span class="arithmatex">\(I-A\)</span> 可逆，且有
 $$
 \left|(I-A)^{-1}\right| \le\dfrac{1}{1-|A|}
 $$
-<strong>证明</strong> 由 $\rho(A)\le|A|&lt;1$，则 $(I-A)^{-1}$ 存在，满足上面定理条件，令 $m=0$ 则有
+<strong>证明</strong> 由 <span class="arithmatex">\(\rho(A)\le\|A\|&lt;1\)</span>，则 <span class="arithmatex">\((I-A)^{-1}\)</span> 存在，满足上面定理条件，令 <span class="arithmatex">\(m=0\)</span> 则有
 $$
 \left|(I-A)^{-1}\right|-|I| \le \left|(I-A)^{-1}-I\right| \le \dfrac{|A|}{1-|A|}
 $$
@@ -16399,23 +16401,23 @@ $$
 $$
 即证。</p>
 <h3 id="_16">线性方程组的敏度分析</h3>
-<p>考虑非奇异线性方程组 $Ax=b$ 对系数扰动的敏感性，设有
+<p>考虑非奇异线性方程组 <span class="arithmatex">\(Ax=b\)</span> 对系数扰动的敏感性，设有
 $$
 (A+\delta A)(x+\delta x) = b + \delta b
 $$
-则代入 $b = Ax$ 得
+则代入 <span class="arithmatex">\(b = Ax\)</span> 得
 $$
 (A+\delta A)\delta x = \delta b - \delta Ax
 $$
-由于 $A$ 非奇异，因此 $A+\delta A$ 非奇异，这是由 $\det$ 的连续性得到的；事实上，只要 $\left|A^{-1}\right||\delta A|&lt;1$，就有 $A+\delta A$ 可逆，因为
+由于 <span class="arithmatex">\(A\)</span> 非奇异，因此 <span class="arithmatex">\(A+\delta A\)</span> 非奇异，这是由 <span class="arithmatex">\(\det\)</span> 的连续性得到的；事实上，只要 <span class="arithmatex">\(\left\|A^{-1}\right\|\|\delta A\|&lt;1\)</span>，就有 <span class="arithmatex">\(A+\delta A\)</span> 可逆，因为
 $$
 A+\delta A = A\left(I+A^{-1}\delta A\right)
 $$
-即有 $A+\delta A$ 可逆等价于 $I+A^{-1}\delta A$ 可逆；而且
+即有 <span class="arithmatex">\(A+\delta A\)</span> 可逆等价于 <span class="arithmatex">\(I+A^{-1}\delta A\)</span> 可逆；而且
 $$
 \left|\left(I+A^{-1}\delta A\right)^{-1}\right| \le \dfrac{1}{1-\left|A^{-1}\right||\delta A|}
 $$
-因此此时 $A+\delta A$ 可逆；我们考虑
+因此此时 <span class="arithmatex">\(A+\delta A\)</span> 可逆；我们考虑
 $$
 \delta x = \left(A+\delta A\right)^{-1}(\delta b-\delta Ax) = \left(I+A^{-1}\delta A\right)^{-1}A^{-1}(\delta b-\delta Ax)
 $$
@@ -16423,12 +16425,12 @@ $$
 $$
 |\delta x| \le \left|\left(I+A^{-1}\delta A\right)^{-1}\right|\left|A^{-1}\right|(|\delta b|+|\delta A||x|) \le \dfrac{\left|A^{-1}\right|}{1-\left|A^{-1}\right||\delta A|}(|\delta b|+|\delta A||x|)
 $$
-注意到 $|b|\le |A||x|$，则有
+注意到 <span class="arithmatex">\(\|b\|\le \|A\|\|x\|\)</span>，则有
 $$
 \dfrac{|\delta x|}{|x|} \le \dfrac{\left|A^{-1}\right||A|}{1-\left|A^{-1}\right||\delta A|}\left(\dfrac{|\delta A|}{|A|}+\dfrac{|\delta b|}{|b|}\right)
 $$
 从而我们有如下定理：</p>
-<p><strong>定理 2.2.2</strong> 设 $|\cdot|$ 是 $\mathbb{R}^{n\times n}$  上的一个满足条件 $|I|=1$ 的矩阵范数，且 $A\in\mathbb{R}^{n\times n}$ 可逆，$b\in\mathbb{R}^n$ 非零；再假定 $\delta A\in\mathbb{R}^{n\times n}$ 满足 $\left|A^{-1}\right||\delta A|&lt;1$，若 $x$ 和 $x+\delta x$ 分别是线性方程组
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(\|\cdot\|\)</span> 是 <span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span>  上的一个满足条件 <span class="arithmatex">\(\|I\|=1\)</span> 的矩阵范数，且 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 可逆，<span class="arithmatex">\(b\in\mathbb{R}^n\)</span> 非零；再假定 <span class="arithmatex">\(\delta A\in\mathbb{R}^{n\times n}\)</span> 满足 <span class="arithmatex">\(\left\|A^{-1}\right\|\|\delta A\|&lt;1\)</span>，若 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(x+\delta x\)</span> 分别是线性方程组
 $$
 Ax = b,\quad (A+\delta A)(x+\delta x) = b + \delta b
 $$
@@ -16436,8 +16438,8 @@ $$
 $$
 \dfrac{|\delta x|}{|x|} \le \dfrac{\kappa(A)}{1-\kappa(A)\dfrac{|\delta A|}{|A|}}\left(\dfrac{|\delta A|}{|A|}+\dfrac{|\delta b|}{|b|}\right)
 $$
-其中 $\kappa(A)=\left|A^{-1}\right||A|$ 。</p>
-<p>当 $|\delta A|/|A|$ 较小时，有
+其中 <span class="arithmatex">\(\kappa(A)=\left\|A^{-1}\right\|\|A\|\)</span> 。</p>
+<p>当 <span class="arithmatex">\(\|\delta A\|/\|A\|\)</span> 较小时，有
 $$
 \dfrac{\kappa(A)}{1-\kappa(A)\dfrac{|\delta A|}{|A|}} \approx \kappa(A)
 $$
@@ -16445,10 +16447,10 @@ $$
 $$
 \dfrac{|\delta x|}{|x|} \lessapprox \kappa(A)\left(\dfrac{|\delta A|}{|A|}+\dfrac{|\delta b|}{|b|}\right)
 $$
-因此相对误差由 $\kappa(A)$ 和初始条件的相对扰动限制。</p>
-<p><strong>定义 2.2.2</strong> 称数 $\kappa(A)=|A|\left|A^{-1}\right|$ 为线性方程组 $Ax = b$ 的条件数。</p>
+因此相对误差由 <span class="arithmatex">\(\kappa(A)\)</span> 和初始条件的相对扰动限制。</p>
+<p><strong>定义 2.2.2</strong> 称数 <span class="arithmatex">\(\kappa(A)=\|A\|\left\|A^{-1}\right\|\)</span> 为线性方程组 <span class="arithmatex">\(Ax = b\)</span> 的条件数。</p>
 <p>由于范数的等价性，因此不同范数下的条件数等价。</p>
-<p><strong>推论 2.2.2</strong> 设 $|\cdot|$ 是 $\mathbb{R}^{n\times n}$  上的一个满足条件 $|I|=1$ 的矩阵范数，且 $A\in\mathbb{R}^{n\times n}$ 可逆，$b\in\mathbb{R}^n$ 非零；再假定 $\delta A\in\mathbb{R}^{n\times n}$ 满足 $\left|A^{-1}\right||\delta A|&lt;1$，则有
+<p><strong>推论 2.2.2</strong> 设 <span class="arithmatex">\(\|\cdot\|\)</span> 是 <span class="arithmatex">\(\mathbb{R}^{n\times n}\)</span>  上的一个满足条件 <span class="arithmatex">\(\|I\|=1\)</span> 的矩阵范数，且 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 可逆，<span class="arithmatex">\(b\in\mathbb{R}^n\)</span> 非零；再假定 <span class="arithmatex">\(\delta A\in\mathbb{R}^{n\times n}\)</span> 满足 <span class="arithmatex">\(\left\|A^{-1}\right\|\|\delta A\|&lt;1\)</span>，则有
 $$
 \dfrac{\left|\left(A+\delta A\right)^{-1}-A^{-1}\right|}{\left|A^{-1}\right|} \le \dfrac{\kappa(A)}{1-\kappa(A)\dfrac{|\delta A|}{|A|}}\dfrac{|\delta A|}{|A|}
 $$
@@ -16460,21 +16462,21 @@ $$
 $$
 \left|(A+\delta A)^{-1}-A^{-1}\right| \le \left|\left(I+A^{-1}\delta A\right)^{-1}-I\right|\left|A^{-1}\right| \le \dfrac{\left|A^{-1}\delta A\right|}{1-\left|A^{-1}\delta A\right|}\left|A^{-1}\right| \le \dfrac{\left|A^{-1}\right||\delta A|}{1-\left|A^{-1}\right||\delta A|}\left|A^{-1}\right|
 $$
-两边同时除以 $\left|A^{-1}\right|$ 得到
+两边同时除以 <span class="arithmatex">\(\left\|A^{-1}\right\|\)</span> 得到
 $$
 \dfrac{\left|\left(A+\delta A\right)^{-1}-A^{-1}\right|}{\left|A^{-1}\right|} \le \dfrac{\kappa(A)}{1-\kappa(A)\dfrac{|\delta A|}{|A|}}\dfrac{|\delta A|}{|A|}
 $$
 即证。</p>
-<p><strong>定理 2.2.2</strong> 设 $A\in\mathbb{R}^{n\times n}$ 可逆，则
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 可逆，则
 $$
 \min\left{\dfrac{|\delta A|_2}{|A|_2}:\exists(A+\delta A)^{-1}\right} = \dfrac{1}{|A|_2\left|A^{-1}\right|_2} = \dfrac{1}{\kappa_2(A)}
 $$
-这说明当 $A$ 十分病态时，它与一个奇异矩阵十分靠近。</p>
-<p><strong>证明</strong> 由前容易发现当 $\left|A^{-1}\right||\delta A|&lt;1$ 时，  $A+\delta A$ 可逆，因而 $1/\kappa_2(A)$ 是一个下界，我们说明可以取到这个下界：取 $x\in\mathbb{R}^n$，使得 $\left|A^{-1}x\right|<em>2 = \left|A^{-1}\right|_2,\ |x|_2=1$，令
+这说明当 <span class="arithmatex">\(A\)</span> 十分病态时，它与一个奇异矩阵十分靠近。</p>
+<p><strong>证明</strong> 由前容易发现当 <span class="arithmatex">\(\left\|A^{-1}\right\|\|\delta A\|&lt;1\)</span> 时，  <span class="arithmatex">\(A+\delta A\)</span> 可逆，因而 <span class="arithmatex">\(1/\kappa_2(A)\)</span> 是一个下界，我们说明可以取到这个下界：取 <span class="arithmatex">\(x\in\mathbb{R}^n\)</span>，使得 <span class="arithmatex">\(\left\|A^{-1}x\right\|_2 = \left\|A^{-1}\right\|_2,\ \|x\|_2=1\)</span>，令
 $$
-y = \dfrac{A^{-1}x}{\left|A^{-1}x\right|_2},\quad \delta A = -\dfrac{xy^T}{\left|A^{-1}\right|_2}
+y = \dfrac{A^{-1}x}{\left|A^{-1}x\right|<em>2},\quad \delta A = -\dfrac{xy^T}{\left|A^{-1}\right|_2}
 $$
-则有 $|y|_2=1$，且
+则有 <span class="arithmatex">\(\|y\|_2=1\)</span>，且
 $$
 (A+\delta A)y = \dfrac{x}{\left|A^{-1}x\right|_2} - \dfrac{x}{\left|A^{-1}\right|_2} = 0\
 |\delta A|_2 = \max</em>{|z|<em>2=1}\left|\dfrac{xy^T}{\left|A^{-1}\right|_2}z\right|_2 = \dfrac{|x|_2}{\left|A^{-1}\right|_2}\max</em>{|z|_2=1}\left|y^Tz\right| = \dfrac{1}{\left|A^{-1}\right|_2}
@@ -16482,11 +16484,11 @@ $$
 因而我们取到了这个下界，即证。</p>
 <h3 id="_17">基本运算的舍入误差分析</h3>
 <p>关于浮点数系统的部分我们在数值分析中进行讨论，在这里只列出相关定理。</p>
-<p><strong>定理 2.2.2</strong> 设 $m\le |x|\le M$，其中 $m,M$ 是有效数字，则
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(m\le \|x\|\le M\)</span>，其中 <span class="arithmatex">\(m,M\)</span> 是有效数字，则
 $$
 \mathrm{fl}(x) = x(1+\delta),\quad |\delta| \le \epsilon_u
 $$
-其中 $\epsilon_u$ 为舍入单位
+其中 <span class="arithmatex">\(\epsilon_u\)</span> 为舍入单位
 $$
 \epsilon_u = 
 \begin{cases}
@@ -16495,30 +16497,30 @@ $$
 \end{cases}
 $$
 这里利用相对误差分析即可。</p>
-<p><strong>定理 2.2.2</strong> 设 $a,b\in\mathcal{F}$，则
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(a,b\in\mathcal{F}\)</span>，则
 $$
 \mathrm{fl}(a\odot b) = (a\odot b)(1+\delta),\quad |\delta|\le \epsilon_u
 $$
 四则运算的误差界。</p>
-<p><strong>定理 2.2.2</strong> 若 $|\delta_i|\le \epsilon_u,\ n\epsilon_u\le 0.01$，则
+<p><strong>定理 2.2.2</strong> 若 <span class="arithmatex">\(|\delta_i|\le \epsilon_u,\ n\epsilon_u\le 0.01\)</span>，则
 $$
 1-n\epsilon_u \le \prod_{i=1}^n(1+\delta_i) \le 1+1.01n\epsilon_u
 $$
 此定理在数值分析中有详细证明。</p>
 <h3 id="gauss_1">列主元 Gauss 消去法的舍入误差分析</h3>
 <p>这里进行向后误差分析：首先考虑三角分解的舍入误差</p>
-<p><strong>引理 2.2.2</strong> 设 $n\times n$ 浮点数矩阵 $A=[a_{ij}]$ 有三角分解，且 $1.01n\epsilon_u\le 0.01$，则三角分解满足
+<p><strong>引理 2.2.2</strong> 设 <span class="arithmatex">\(n\times n\)</span> 浮点数矩阵 <span class="arithmatex">\(A=[a_{ij}]\)</span> 有三角分解，且 <span class="arithmatex">\(1.01n\epsilon_u\le 0.01\)</span>，则三角分解满足
 $$
 \widetilde{L}\widetilde{U} = A + E,\quad |E| \le 2.05n\epsilon_u|\widetilde{L}||\widetilde{U}|
 $$
 分析较为繁琐，我们省略这部分。</p>
 <p>注意到交换矩阵的行或列不会引入误差，因此有</p>
-<p><strong>推论 2.2.2</strong> 设 $n\times n$ 浮点数矩阵 $A$ 非奇异，且 $1.01n\epsilon_u\le 0.01$，则列主元 Gauss 消去法计算得到的分解有
+<p><strong>推论 2.2.2</strong> 设 <span class="arithmatex">\(n\times n\)</span> 浮点数矩阵 <span class="arithmatex">\(A\)</span> 非奇异，且 <span class="arithmatex">\(1.01n\epsilon_u\le 0.01\)</span>，则列主元 Gauss 消去法计算得到的分解有
 $$
 \widetilde{L}\widetilde{U} = \widetilde{P}A + E,\quad |E| \le 2.05n\epsilon_u|\widetilde{L}||\widetilde{U}|
 $$
 这是直接推论，接着就是求解三角形方程组。</p>
-<p><strong>引理 2.2.2</strong> 设 $n\times n$ 浮点数三角矩阵 $S$ 非奇异，且 $1.01n\epsilon_u\le 0.01$，则三角形方程组 $Sx=b$ 的计算解 $\widetilde{x}$ 满足
+<p><strong>引理 2.2.2</strong> 设 <span class="arithmatex">\(n\times n\)</span> 浮点数三角矩阵 <span class="arithmatex">\(S\)</span> 非奇异，且 <span class="arithmatex">\(1.01n\epsilon_u\le 0.01\)</span>，则三角形方程组 <span class="arithmatex">\(Sx=b\)</span> 的计算解 <span class="arithmatex">\(\widetilde{x}\)</span> 满足
 $$
 (S+H)\widetilde{x} = b,\quad |H| \le 1.01n\epsilon_u|S|
 $$
@@ -16535,18 +16537,18 @@ $$
 $$
 |\delta A|\le 4.09n\epsilon_u\widetilde{P}^T|\widetilde{L}||\widetilde{U}|
 $$
-注意到 $\widetilde{L}$ 元素绝对值不大于 $1$，则 $|\widetilde{L}|<em>{\infty}\le n$；为了给出 $|\widetilde{U}|</em>{\infty}$ 的估计，我们定义
+注意到 <span class="arithmatex">\(\widetilde{L}\)</span> 元素绝对值不大于 <span class="arithmatex">\(1\)</span>，则 <span class="arithmatex">\(\|\widetilde{L}\|_{\infty}\le n\)</span>；为了给出 <span class="arithmatex">\(\|\widetilde{U}\|_{\infty}\)</span> 的估计，我们定义
 $$
 \rho = \max_{i,j}|\widetilde{u}<em>{ij}|/\max</em>{i,j}|a_{ij}|
 $$
 称为列主元 Gauss 消去法的增长因子。</p>
-<p><strong>定理 2.2.2</strong> 设 $n\times n$ 浮点数矩阵 $A$ 非奇异，且 $1.01n\epsilon_u\le 0.01$，则列主元 Gauss 消去法的计算解满足
+<p><strong>定理 2.2.2</strong> 设 <span class="arithmatex">\(n\times n\)</span> 浮点数矩阵 <span class="arithmatex">\(A\)</span> 非奇异，且 <span class="arithmatex">\(1.01n\epsilon_u\le 0.01\)</span>，则列主元 Gauss 消去法的计算解满足
 $$
 (A+\delta A)\widetilde{x} = b,\quad |\delta A|<em>{\infty}/|A|</em>{\infty} \le 4.09n^3\rho\epsilon_u
 $$
-这是上面过程的直接推论，从而我们可以由 $A$ 的敏度分析来得到解的敏度。</p>
+这是上面过程的直接推论，从而我们可以由 <span class="arithmatex">\(A\)</span> 的敏度分析来得到解的敏度。</p>
 <h3 id="_18">计算解的精度估计和迭代改进</h3>
-<p>假设一种计算线性方程组 $Ax=b$ 的算法得到的计算解为 $\hat{x}$，令
+<p>假设一种计算线性方程组 <span class="arithmatex">\(Ax=b\)</span> 的算法得到的计算解为 <span class="arithmatex">\(\hat{x}\)</span>，令
 $$
 r = b - A\hat{x}\ \Rightarrow\ r = Ax - A\hat{x} = A(x-\hat{x})
 $$
@@ -16562,27 +16564,27 @@ $$
 $$
 \dfrac{|x-\hat{x}|}{|x|} \le \dfrac{\left|A^{-1}\right||r|}{|x|} \le \left|A^{-1}\right||A|\dfrac{|r|}{|b|}
 $$
-在上式中取 $\infty$ 范数有
+在上式中取 <span class="arithmatex">\(\infty\)</span> 范数有
 $$
 \dfrac{|x-\hat{x}|<em>{\infty}}{|x|</em>{\infty}} \le \kappa_{\infty}(A)\dfrac{|r|<em>{\infty}}{|b|</em>{\infty}}
 $$
 这样我们可以通过计算右式来进行精度估计。</p>
-<p>注意到 $\left|A^{-1}\right|_{\infty}$ 是较难计算的，因此我们给出 LAPACK 采用的一种优化方法：</p>
+<p>注意到 <span class="arithmatex">\(\left\|A^{-1}\right\|_{\infty}\)</span> 是较难计算的，因此我们给出 LAPACK 采用的一种优化方法：</p>
 <h4 id="_19">盲人爬山法</h4>
-<p>设 $B\in\mathbb{R}^{n\times n}$，我们估计 $|B|_1$，定义
+<p>设 <span class="arithmatex">\(B\in\mathbb{R}^{n\times n}\)</span>，我们估计 <span class="arithmatex">\(\|B\|_1\)</span>，定义
 $$
 f(x) = |Bx|_1,\quad \mathcal{D} = {x\in\mathbb{R^{n}}:|x|_1\le 1}
 $$
-则可以证明 $f$ 是凸函数，$\mathcal{D}$ 是凸集，并且 $|B|_1$ 就是 $f$ 在 $\mathcal{D}$ 上的最大值。</p>
-<p>设 $f$ 在 $x$ 处的梯度 $\nabla f(x)$ 存在，则由凸函数的性质有
+则可以证明 <span class="arithmatex">\(f\)</span> 是凸函数，<span class="arithmatex">\(\mathcal{D}\)</span> 是凸集，并且 <span class="arithmatex">\(\|B\|_1\)</span> 就是 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(\mathcal{D}\)</span> 上的最大值。</p>
+<p>设 <span class="arithmatex">\(f\)</span> 在 <span class="arithmatex">\(x\)</span> 处的梯度 <span class="arithmatex">\(\nabla f(x)\)</span> 存在，则由凸函数的性质有
 $$
 f(y) \ge f(x) + \nabla f(x)(y-x),\quad y\in\mathbb{R}^n
 $$
-即凸函数总是在它的切线上方；若有 $x_0\in\mathbb{R}^n,\ |x_0|<em>1=1$，使得 $Bx_0$ 的任意分量非零，令
+即凸函数总是在它的切线上方；若有 <span class="arithmatex">\(x_0\in\mathbb{R}^n,\ \|x_0\|_1=1\)</span>，使得 <span class="arithmatex">\(Bx_0\)</span> 的任意分量非零，令
 $$
-\xi_i = \mathrm{sgn}\left(\sum</em>{j=1}^nb_{ij}x_j\right)
+\xi_i = \mathrm{sgn}\left(\sum_{j=1}^nb_{ij}x_j\right)
 $$
-则在 $x_0$ 附近将 $f(x)$ 表示为
+则在 <span class="arithmatex">\(x_0\)</span> 附近将 <span class="arithmatex">\(f(x)\)</span> 表示为
 $$
 f(x) = \sum_{i=1}^n\sum_{j=1}^n\xi_ib_{ij}x_j
 $$
@@ -16590,139 +16592,139 @@ $$
 $$
 \nabla f(x_0) = \left(\dfrac{\partial f(x_0)}{\partial x_1},\cdots,\dfrac{\partial f(x_0)}{\partial x_n}\right) = v^TB = \left(B^Tv\right)^T,\quad v = (\xi_1,\cdots,\xi_n)^T
 $$
-这里 $v$ 是 $\omega$ 的符号向量；再令
+这里 <span class="arithmatex">\(v\)</span> 是 <span class="arithmatex">\(\omega\)</span> 的符号向量；再令
 $$
 \omega = Bx_0,\quad z = B^Tv
 $$
-分别代表 $f(x_0)$ 和 $\nabla f(x_0)$ 的转置。</p>
+分别代表 <span class="arithmatex">\(f(x_0)\)</span> 和 <span class="arithmatex">\(\nabla f(x_0)\)</span> 的转置。</p>
 <p><strong>定理 2.2.2</strong> 根据上面得到的关系，我们有</p>
 <ul>
-<li>若 $|z|_{\infty}\le z^Tx_0$，则 $|\omega|_1=|Bx_0|_1$ 是局部极大值</li>
-<li>若 $|z|_{\infty} &gt; z^Tx_0$，则 $|Be_j|_1 &gt; |Bx_0|_1$，其中 $j$ 满足</li>
+<li>若 <span class="arithmatex">\(\|z\|_{\infty}\le z^Tx_0\)</span>，则 <span class="arithmatex">\(\|\omega\|_1=\|Bx_0\|_1\)</span> 是局部极大值</li>
+<li>若 <span class="arithmatex">\(\|z\|_{\infty} &gt; z^Tx_0\)</span>，则 <span class="arithmatex">\(\|Be_j\|_1 &gt; \|Bx_0\|_1\)</span>，其中 <span class="arithmatex">\(j\)</span> 满足</li>
 </ul>
-<p>$$
-|z_j| = |z|_{\infty}
-$$</p>
-<p><strong>证明</strong> 在 $x_0$ 附近可将 $f$ 看作线性函数
+<div class="arithmatex">\[
+|z_j| = \|z\|_{\infty}
+\]</div>
+<p><strong>证明</strong> 在 <span class="arithmatex">\(x_0\)</span> 附近可将 <span class="arithmatex">\(f\)</span> 看作线性函数
 $$
 f(x) = |\omega|<em>1 + z^T(x-x_0)
 $$
-若 $|z|</em>{\infty}\le z^Tx_0$， 对于$|x|<em>1\le 1$，有
+若 <span class="arithmatex">\(\|z\|_{\infty}\le z^Tx_0\)</span>， 对于<span class="arithmatex">\(\|x\|_1\le 1\)</span>，有
 $$
 z^T(x-x_0) = z^Tx-z^Tx_0 \le |z|</em>{\infty}|x|<em>1 - z^Tx_0 \le |z|</em>{\infty} - z^Tx_0 \le 0
 $$
-因而在 $x_0$ 附近 $f$ 都不大于 $|\omega|<em>1$；反之，对于满足的 $j$ 有
+因而在 <span class="arithmatex">\(x_0\)</span> 附近 <span class="arithmatex">\(f\)</span> 都不大于 <span class="arithmatex">\(\|\omega\|_1\)</span>；反之，对于满足的 <span class="arithmatex">\(j\)</span> 有
 $$
 \begin{aligned}
-f(e_j) &amp;\ge |\omega|_1 + z^T(e_j-x_0) = |\omega|_1 + z^Te_j-z^Tx_0 \
+f(e_j) &amp;\ge |\omega|<em>1 + z^T(e_j-x_0) = |\omega|_1 + z^Te_j-z^Tx_0 \
 &amp;= |\omega|_1 + |z_j| - z^Tx_0\
 &amp;= |\omega|_1 + |z|</em>{\infty} - z^Tx_0 &gt; |\omega|_1
 \end{aligned}
 $$
 即证。</p>
-<p>我们可以应用该定理设计算法求解 $\left|A^{-1}\right|<em>{\infty}$ 的估计值：设有分解 $PA = LU$，只需计算 $|B|</em>{1},\ B = A^{-T}$ 即可，此时
+<p>我们可以应用该定理设计算法求解 <span class="arithmatex">\(\left\|A^{-1}\right\|_{\infty}\)</span> 的估计值：设有分解 <span class="arithmatex">\(PA = LU\)</span>，只需计算 <span class="arithmatex">\(\|B\|_{1},\ B = A^{-T}\)</span> 即可，此时
 $$
 \omega = Bx,\quad z = B^Tv\ \Leftrightarrow\ A^T\omega = x,\quad Az = v
 $$
-因此，给定初始的 $x_0$，可以解出 $\omega$，然后计算 $\omega$ 的符号向量 $v$，解出梯度转置 $z$，根据上述定理判断是否达到最大值，若未达到最大值就调整 $x$，循环计算直到达到最大值。</p>
-<p>注意到一共只有 $n$ 种 $e_j$，因此循环必然在有限步后终止。</p>
+因此，给定初始的 <span class="arithmatex">\(x_0\)</span>，可以解出 <span class="arithmatex">\(\omega\)</span>，然后计算 <span class="arithmatex">\(\omega\)</span> 的符号向量 <span class="arithmatex">\(v\)</span>，解出梯度转置 <span class="arithmatex">\(z\)</span>，根据上述定理判断是否达到最大值，若未达到最大值就调整 <span class="arithmatex">\(x\)</span>，循环计算直到达到最大值。</p>
+<p>注意到一共只有 <span class="arithmatex">\(n\)</span> 种 <span class="arithmatex">\(e_j\)</span>，因此循环必然在有限步后终止。</p>
 <h4 id="_20">迭代改进</h4>
-<p>如果计算解 $\hat{x}$ 精度太低，同时 $A$ 不是非常病态，则可应用 Newton 迭代法改进精度</p>
+<p>如果计算解 <span class="arithmatex">\(\hat{x}\)</span> 精度太低，同时 <span class="arithmatex">\(A\)</span> 不是非常病态，则可应用 Newton 迭代法改进精度</p>
 <ul>
-<li>计算 $r = b-A\hat{x}$ </li>
-<li>求解 $Az = r$ </li>
-<li>计算 $x = \hat{x} + z$ </li>
+<li>计算 <span class="arithmatex">\(r = b-A\hat{x}\)</span> </li>
+<li>求解 <span class="arithmatex">\(Az = r\)</span> </li>
+<li>计算 <span class="arithmatex">\(x = \hat{x} + z\)</span> </li>
 </ul>
 <p>重复迭代直到相对误差足够小。</p>
 <h2 id="_21">最小二乘问题的解法</h2>
 <h3 id="_22">最小二乘问题</h3>
-<p><strong>定义 3.3.3</strong> 给定矩阵 $A\in\mathbb{R}^{m\times n}$ 及向量 $b\in\mathbb{R}^m$，确定 $x\in\mathbb{R}^n$，使得
+<p><strong>定义 3.3.3</strong> 给定矩阵 <span class="arithmatex">\(A\in\mathbb{R}^{m\times n}\)</span> 及向量 <span class="arithmatex">\(b\in\mathbb{R}^m\)</span>，确定 <span class="arithmatex">\(x\in\mathbb{R}^n\)</span>，使得
 $$
 |b-Ax|<em>2 = |r(x)|_2 = \min</em>{y\in\mathbb{R}^n}|Ay-b|_2
 $$
-称为最小二乘问题，简称为 LS 问题，其中 $r(x)$ 称为残向量。</p>
-<p>若 $r$ 线性依赖于 $x$，则称为线性最小二乘问题；否则称为非线性最小二乘问题。</p>
-<p>最小二乘问题的解 $x$ 又可称作线性方程组
+称为最小二乘问题，简称为 LS 问题，其中 <span class="arithmatex">\(r(x)\)</span> 称为残向量。</p>
+<p>若 <span class="arithmatex">\(r\)</span> 线性依赖于 <span class="arithmatex">\(x\)</span>，则称为线性最小二乘问题；否则称为非线性最小二乘问题。</p>
+<p>最小二乘问题的解 <span class="arithmatex">\(x\)</span> 又可称作线性方程组
 $$
 Ax = b,\quad A\in\mathbb{R}^{m\times n}
 $$
-的最小二乘解，当 $m&gt;n$ 时，称为超定方程组或矛盾方程组；当 $m&lt;n$ 时，称为欠定方程组。</p>
-<p>设 $A\in\mathbb{R}^{m\times n}$，$A$ 的值域定义为
+的最小二乘解，当 <span class="arithmatex">\(m&gt;n\)</span> 时，称为超定方程组或矛盾方程组；当 <span class="arithmatex">\(m&lt;n\)</span> 时，称为欠定方程组。</p>
+<p>设 <span class="arithmatex">\(A\in\mathbb{R}^{m\times n}\)</span>，<span class="arithmatex">\(A\)</span> 的值域定义为
 $$
 \mathcal{R}(A) = {y\in\mathbb{R}^m:y=Ax,\ x\in\mathbb{R}^n}
 $$
-容易发现 $\mathcal{R}(A)$ 是由 $A$ 的列向量张成的线性空间； $A$ 的零空间定义为
+容易发现 <span class="arithmatex">\(\mathcal{R}(A)\)</span> 是由 <span class="arithmatex">\(A\)</span> 的列向量张成的线性空间； <span class="arithmatex">\(A\)</span> 的零空间定义为
 $$
 \mathcal{N}(A) = {x\in\mathbb{R}^n:Ax=0}
 $$
-其维数记为 $\mathrm{null}(A)$ 。</p>
-<p>一个子空间 $\mathcal{S}\subset\mathbb{R}^n$ 的正交补定义为
+其维数记为 <span class="arithmatex">\(\mathrm{null}(A)\)</span> 。</p>
+<p>一个子空间 <span class="arithmatex">\(\mathcal{S}\subset\mathbb{R}^n\)</span> 的正交补定义为
 $$
 \mathcal{S}^{\perp} = {y\in\mathbb{R}^n:y^Tx=0,\ \forall x\in\mathcal{S}}
 $$</p>
-<p><strong>定理 3.3.3</strong> 线性方程组 $Ax = b,\ A\in\mathbb{R}^{m\times n}$ 解存在当且仅当
+<p><strong>定理 3.3.3</strong> 线性方程组 <span class="arithmatex">\(Ax = b,\ A\in\mathbb{R}^{m\times n}\)</span> 解存在当且仅当
 $$
 \mathrm{rank}(A) = \mathrm{rank}([A,b])
 $$
-即 $A$ 与其增广矩阵的秩相同。</p>
-<p><strong>证明</strong> 这是非常显然的，如果存在解，那么 $b$ 一定在 $A$ 列向量张成的线性空间中。</p>
-<p><strong>定理 3.3.3</strong> 若上述解存在，且 $x$ 是一个给定的解，则全部解的集合是 $x+\mathcal{N}(A)$ 。</p>
-<p><strong>推论 3.3.3</strong> 上述解存在唯一当且仅当 $\mathcal{N}(A) = {0}$ 。</p>
-<p><strong>定理 3.3.3</strong> 线性最小二乘问题的解总是存在的，并且解唯一当且仅当 $\mathcal{N}(A)={0}$ 。</p>
-<p><strong>证明</strong> 将 $b$ 分为 $b_1+b_2$，其中 $b_1$ 是在 $\mathcal{R}(A)$ 中的分量，简单分析得到
+即 <span class="arithmatex">\(A\)</span> 与其增广矩阵的秩相同。</p>
+<p><strong>证明</strong> 这是非常显然的，如果存在解，那么 <span class="arithmatex">\(b\)</span> 一定在 <span class="arithmatex">\(A\)</span> 列向量张成的线性空间中。</p>
+<p><strong>定理 3.3.3</strong> 若上述解存在，且 <span class="arithmatex">\(x\)</span> 是一个给定的解，则全部解的集合是 <span class="arithmatex">\(x+\mathcal{N}(A)\)</span> 。</p>
+<p><strong>推论 3.3.3</strong> 上述解存在唯一当且仅当 <span class="arithmatex">\(\mathcal{N}(A) = \{0\}\)</span> 。</p>
+<p><strong>定理 3.3.3</strong> 线性最小二乘问题的解总是存在的，并且解唯一当且仅当 <span class="arithmatex">\(\mathcal{N}(A)=\{0\}\)</span> 。</p>
+<p><strong>证明</strong> 将 <span class="arithmatex">\(b\)</span> 分为 <span class="arithmatex">\(b_1+b_2\)</span>，其中 <span class="arithmatex">\(b_1\)</span> 是在 <span class="arithmatex">\(\mathcal{R}(A)\)</span> 中的分量，简单分析得到
 $$
 |r(x)|_2^2 = |b-Ax|_2^2 = |b_1-Ax|_2^2 + |b_2|_2^2
 $$
-显然 $Ax=b_1$ 有解，由推论即证。</p>
-<p>记最小二乘问题的解集为 $\chi_{LS}$，则显然它非空，用 $x_{LS}$ 表示其中 $2$ 范数最小的解，称为最小 $2$ 范数解。下面我们介绍正则化方法：</p>
-<p><strong>定理 3.3.3</strong>  $x\in\chi_{LS}$ 当且仅当
+显然 <span class="arithmatex">\(Ax=b_1\)</span> 有解，由推论即证。</p>
+<p>记最小二乘问题的解集为 <span class="arithmatex">\(\chi_{LS}\)</span>，则显然它非空，用 <span class="arithmatex">\(x_{LS}\)</span> 表示其中 <span class="arithmatex">\(2\)</span> 范数最小的解，称为最小 <span class="arithmatex">\(2\)</span> 范数解。下面我们介绍正则化方法：</p>
+<p><strong>定理 3.3.3</strong>  <span class="arithmatex">\(x\in\chi_{LS}\)</span> 当且仅当
 $$
 A^TAx = A^Tb
 $$
-<strong>证明</strong> 对上式做简单变换 $A^T(Ax-b) = 0$，容易看出，如果 $ x\in\chi_{LS} $，则残向量 $r$ 必然与 $A^T$ 正交，等式成立；反之，满足等式的 $x$，做任意扰动 $y$ 有
+<strong>证明</strong> 对上式做简单变换 <span class="arithmatex">\(A^T(Ax-b) = 0\)</span>，容易看出，如果 $ x\in\chi_{LS} $，则残向量 <span class="arithmatex">\(r\)</span> 必然与 <span class="arithmatex">\(A^T\)</span> 正交，等式成立；反之，满足等式的 <span class="arithmatex">\(x\)</span>，做任意扰动 <span class="arithmatex">\(y\)</span> 有
 $$
 |b-A(x+y)|_2^2 = |b-Ax|_2^2 - 2y^TA^T(b-Ax) + |Ay|_2^2 = |b-Ax|_2^2 + |Ay|_2^2 \ge |b-Ax|_2^2
 $$
-则 $x$ 处就是最小值；事实上，$(b-Ax)^T(b-Ax) = b^Tb - 2x^TA^Tb + x^TA^TAx$，该函数有梯度 $A^TAx-A^Tb=0$，并且二阶导 $A^TA&gt;0$，因此在此处取得极小值。</p>
-<p><strong>定理 3.3.3</strong> 考虑 $b$ 的扰动对 $x$ 的影响，设 $b_1$ 和 $\widetilde{b}_1$ 分别是 $b$ 和 $\widetilde{b}$ 在 $\mathcal{R}(A)$ 上的正交投影，若 $b_1\neq0$，则
+则 <span class="arithmatex">\(x\)</span> 处就是最小值；事实上，<span class="arithmatex">\((b-Ax)^T(b-Ax) = b^Tb - 2x^TA^Tb + x^TA^TAx\)</span>，该函数有梯度 <span class="arithmatex">\(A^TAx-A^Tb=0\)</span>，并且二阶导 <span class="arithmatex">\(A^TA&gt;0\)</span>，因此在此处取得极小值。</p>
+<p><strong>定理 3.3.3</strong> 考虑 <span class="arithmatex">\(b\)</span> 的扰动对 <span class="arithmatex">\(x\)</span> 的影响，设 <span class="arithmatex">\(b_1\)</span> 和 <span class="arithmatex">\(\widetilde{b}_1\)</span> 分别是 <span class="arithmatex">\(b\)</span> 和 <span class="arithmatex">\(\widetilde{b}\)</span> 在 <span class="arithmatex">\(\mathcal{R}(A)\)</span> 上的正交投影，若 <span class="arithmatex">\(b_1\neq0\)</span>，则
 $$
 \dfrac{|\delta x|_2}{|x|_2} \le \kappa_2(A)\dfrac{|b_1-\widetilde{b}_1|_2}{|b_1|_2}
 $$
-其中 $\kappa_2(A) = |A|_2|A^{\dagger}|_2,\ A^{\dagger} = \left(A^TA\right)^{-1}A^T$；这里 $A^{\dagger}$ 其实是 $A$ 的广义逆，
+其中 <span class="arithmatex">\(\kappa_2(A) = \|A\|_2\|A^{\dagger}\|_2,\ A^{\dagger} = \left(A^TA\right)^{-1}A^T\)</span>；这里 <span class="arithmatex">\(A^{\dagger}\)</span> 其实是 <span class="arithmatex">\(A\)</span> 的广义逆，
 $$
 A^TAx = A^Tb\ \Rightarrow\ x = \left(A^TA\right)^{-1}A^Tb
 $$
 并且恰为 Moore-Penrose 广义逆。</p>
 <p><strong>证明</strong> 利用 $\delta x = A^{\dagger}(b-\widetilde{b}) = A^{\dagger}(b_1-\widetilde{b}_1),\ b_1 = Ax $，取范数后由不等式关系即证。</p>
-<p><strong>定理 3.3.3</strong> 设 $A$ 的列向量线性无关，则 $\kappa_2(A)^2 = \kappa_2(A^TA)$ 。</p>
+<p><strong>定理 3.3.3</strong> 设 <span class="arithmatex">\(A\)</span> 的列向量线性无关，则 <span class="arithmatex">\(\kappa_2(A)^2 = \kappa_2(A^TA)\)</span> 。</p>
 <h3 id="_23">初等正交变换</h3>
 <h4 id="householder">Householder 变换</h4>
-<p><strong>定义 3.3.3</strong> 设 $\omega\in\mathbb{R}^{n},\ |\omega|_2=1$，定义
+<p><strong>定义 3.3.3</strong> 设 <span class="arithmatex">\(\omega\in\mathbb{R}^{n},\ \|\omega\|_2=1\)</span>，定义
 $$
 H = I - 2\omega\omega^T
 $$
- 则称 $H$ 为 Householder 变换，也叫做初等反射矩阵或镜像变换。</p>
-<p><strong>定理 3.3.3</strong> 设 $H$ 是 Householder 变换，则有性质</p>
+ 则称 <span class="arithmatex">\(H\)</span> 为 Householder 变换，也叫做初等反射矩阵或镜像变换。</p>
+<p><strong>定理 3.3.3</strong> 设 <span class="arithmatex">\(H\)</span> 是 Householder 变换，则有性质</p>
 <ul>
-<li>对称性： $H^T = H$ </li>
-<li>正交性： $H^TH = I$ </li>
-<li>对合性： $H^2 = I$ </li>
-<li>反射性：对任意的 $x\in\mathbb{R}^n$，$Hx$ 是 $x$ 关于 $\omega$ 的垂直超平面 $\mathrm{span}{\omega}^{\perp}$ 的镜像反射</li>
+<li>对称性： <span class="arithmatex">\(H^T = H\)</span> </li>
+<li>正交性： <span class="arithmatex">\(H^TH = I\)</span> </li>
+<li>对合性： <span class="arithmatex">\(H^2 = I\)</span> </li>
+<li>反射性：对任意的 <span class="arithmatex">\(x\in\mathbb{R}^n\)</span>，<span class="arithmatex">\(Hx\)</span> 是 <span class="arithmatex">\(x\)</span> 关于 <span class="arithmatex">\(\omega\)</span> 的垂直超平面 <span class="arithmatex">\(\mathrm{span}\{\omega\}^{\perp}\)</span> 的镜像反射</li>
 </ul>
-<p><strong>定理 3.3.3</strong> 设 $n\neq x\in\mathbb{R}^n$，则可构造单位向量 $\omega\in\mathbb{R}^n$，使得 Householder 变换 $H$ 满足
+<p><strong>定理 3.3.3</strong> 设 <span class="arithmatex">\(n\neq x\in\mathbb{R}^n\)</span>，则可构造单位向量 <span class="arithmatex">\(\omega\in\mathbb{R}^n\)</span>，使得 Householder 变换 <span class="arithmatex">\(H\)</span> 满足
 $$
 Hx = \alpha e_1,\quad \alpha = \pm|x|_2
 $$
-<strong>证明</strong> 注意到反射性，即 Householder 变换不改变模长，可以确定 $\alpha = \pm|x|_2$，因此我们只需要找到方向
+<strong>证明</strong> 注意到反射性，即 Householder 变换不改变模长，可以确定 <span class="arithmatex">\(\alpha = \pm\|x\|_2\)</span>，因此我们只需要找到方向
 $$
 Hx = \left(I-2\omega\omega^T\right)x = x - 2\left(\omega^Tx\right)\omega,\quad 2\left(\omega^Tx\right)\omega = x - Hx = x - \alpha e_1
 $$
-这样 $\omega$ 与 $x-\alpha e_1$ 方向相同，只需
+这样 <span class="arithmatex">\(\omega\)</span> 与 <span class="arithmatex">\(x-\alpha e_1\)</span> 方向相同，只需
 $$
 \omega = \dfrac{x-\alpha e_1}{|x-\alpha e_1|_2}
 $$
 可以验证这是成立的。</p>
-<p>为了让 $\alpha&gt;0$，我们取 $v = x - |x|_2e_1$，但是如果 $x$ 非常接近 $\alpha e_1$，则可能导致巨大的舍入误差，因此在 $x_1&gt;0$ 时我们计算
+<p>为了让 <span class="arithmatex">\(\alpha&gt;0\)</span>，我们取 <span class="arithmatex">\(v = x - \|x\|_2e_1\)</span>，但是如果 <span class="arithmatex">\(x\)</span> 非常接近 <span class="arithmatex">\(\alpha e_1\)</span>，则可能导致巨大的舍入误差，因此在 <span class="arithmatex">\(x_1&gt;0\)</span> 时我们计算
 $$
 v_1 = x_1 - |x|_2 = \dfrac{x_1^2-|x|_2^2}{x_1+|x|_2} = \dfrac{-(x_2^2+\cdots+x_n^2)}{x_1+|x|_2}
 $$
@@ -16730,18 +16732,18 @@ $$
 $$
 H = I - 2\omega\omega^T = I - \dfrac{2}{v^Tv}vv^T = I - \beta vv^T,\quad \beta = \dfrac{2}{v^Tv}
 $$
-因此我们不需要求出 $\omega$，只需求出 $\beta$ 和 $v$ 即可；在实际计算时，我们将 $v$ 规格化为第一个分量是 $1$ 的向量，这样恰好将 $v$ 存放在 $x$ 的后 $n-1$ 个化为 $0$ 的分量中。</p>
-<p>如果要对 $x\in\mathbb{R}^n$ 从 $k+1$ 到 $j$ 分量引入 $0$，考虑 $Hx = (x_1,\cdots,x_k,0,\cdots,0,x_{j+1},\cdots,x_n)$，这显然是不能保证成立的，因为 $Hx$ 与 $x$ 的模相同，因此我们把一个分量 $x_k$ 替换为未知量 $\alpha$，并比较变换前后的模有
+因此我们不需要求出 <span class="arithmatex">\(\omega\)</span>，只需求出 <span class="arithmatex">\(\beta\)</span> 和 <span class="arithmatex">\(v\)</span> 即可；在实际计算时，我们将 <span class="arithmatex">\(v\)</span> 规格化为第一个分量是 <span class="arithmatex">\(1\)</span> 的向量，这样恰好将 <span class="arithmatex">\(v\)</span> 存放在 <span class="arithmatex">\(x\)</span> 的后 <span class="arithmatex">\(n-1\)</span> 个化为 <span class="arithmatex">\(0\)</span> 的分量中。</p>
+<p>如果要对 <span class="arithmatex">\(x\in\mathbb{R}^n\)</span> 从 <span class="arithmatex">\(k+1\)</span> 到 <span class="arithmatex">\(j\)</span> 分量引入 <span class="arithmatex">\(0\)</span>，考虑 <span class="arithmatex">\(Hx = (x_1,\cdots,x_k,0,\cdots,0,x_{j+1},\cdots,x_n)\)</span>，这显然是不能保证成立的，因为 <span class="arithmatex">\(Hx\)</span> 与 <span class="arithmatex">\(x\)</span> 的模相同，因此我们把一个分量 <span class="arithmatex">\(x_k\)</span> 替换为未知量 <span class="arithmatex">\(\alpha\)</span>，并比较变换前后的模有
 $$
 Hx = (x_1,\cdots,x_{k-1},\alpha,0,\cdots,0,x_{j+1},\cdots,x_n),\quad \alpha^2 = \sum_{i=k}^jx_i^2
 $$
-则 $\alpha$ 已知，代入得到 $Hx$，由
+则 <span class="arithmatex">\(\alpha\)</span> 已知，代入得到 <span class="arithmatex">\(Hx\)</span>，由
 $$
 \omega = \dfrac{x-Hx}{|x-Hx|_2}
 $$
-得到 $\omega$ 即可。</p>
+得到 <span class="arithmatex">\(\omega\)</span> 即可。</p>
 <h4 id="givens">Givens 变换</h4>
-<p>有时我们希望将向量中一个分量化为 $0$，可以考虑变换 
+<p>有时我们希望将向量中一个分量化为 <span class="arithmatex">\(0\)</span>，可以考虑变换 
 $$
 G = \left(
 \begin{matrix}
@@ -16755,7 +16757,7 @@ G = \left(
 \end{matrix}
 \right)
 $$
-这种变换只改变两个分量，只考虑其作用的二维分量 $i,k$ 则有
+这种变换只改变两个分量，只考虑其作用的二维分量 <span class="arithmatex">\(i,k\)</span> 则有
 $$
 \left(
 \begin{matrix}
@@ -16774,7 +16776,7 @@ x_k
 \end{matrix}
 \right)
 $$
-我们希望有 $y_k = 0$，因此可取
+我们希望有 <span class="arithmatex">\(y_k = 0\)</span>，因此可取
 $$
 c = \dfrac{x_i}{\sqrt{x_i^2+x_k^2}},\quad  s = \dfrac{x_k}{\sqrt{x_i^2+x_k^2}}
 $$
@@ -16782,14 +16784,14 @@ $$
 $$
 y_i = \sqrt{x_i^2+x_k^2},\quad y_k = 0
 $$
-在几何上，变换 $G$ 是对 $x$ 在 $(i,k)$ 坐标平面顺时针旋转 $\theta$ 角，事实上有
+在几何上，变换 <span class="arithmatex">\(G\)</span> 是对 <span class="arithmatex">\(x\)</span> 在 <span class="arithmatex">\((i,k)\)</span> 坐标平面顺时针旋转 <span class="arithmatex">\(\theta\)</span> 角，事实上有
 $$
 \cos\theta = \dfrac{x_i}{\sqrt{x_i^2+x_k^2}},\quad \sin\theta = \dfrac{x_k}{\sqrt{x_i^2+x_k^2}}
 $$
 所以称 Givens 变换为平面旋转变换。</p>
 <h3 id="_24">正交变换法</h3>
-<p>由于 $2$ 范数具有正交不变性，因此我们可以对最小二乘法进行正交变换来简化求解</p>
-<p><strong>定理 3.3.3（QR 分解定理）</strong> 设 $A\in\mathbb{R}^{m\times n},\ m\ge n$，则 $A$ 有 QR 分解
+<p>由于 <span class="arithmatex">\(2\)</span> 范数具有正交不变性，因此我们可以对最小二乘法进行正交变换来简化求解</p>
+<p><strong>定理 3.3.3（QR 分解定理）</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{m\times n},\ m\ge n\)</span>，则 <span class="arithmatex">\(A\)</span> 有 QR 分解
 $$
 A = Q\left(
 \begin{matrix}
@@ -16798,8 +16800,8 @@ R\
 \end{matrix}
 \right)
 $$
-其中 $Q\in\mathbb{R}^{m\times m}$ 为正交阵，$R\in\mathbb{R}^{n\times n}$ 是具有非负对角元的上三角阵；若 $m=n$ 且 $A$ 可逆，该分解唯一。</p>
-<p><strong>证明</strong> 应用 Householder 变换和对列 $n$ 的数学归纳法，先对第一列做 Householder 变换有
+其中 <span class="arithmatex">\(Q\in\mathbb{R}^{m\times m}\)</span> 为正交阵，<span class="arithmatex">\(R\in\mathbb{R}^{n\times n}\)</span> 是具有非负对角元的上三角阵；若 <span class="arithmatex">\(m=n\)</span> 且 <span class="arithmatex">\(A\)</span> 可逆，该分解唯一。</p>
+<p><strong>证明</strong> 应用 Householder 变换和对列 <span class="arithmatex">\(n\)</span> 的数学归纳法，先对第一列做 Householder 变换有
 $$
 H_1A = \left(
 \begin{matrix}
@@ -16808,7 +16810,7 @@ H_1A = \left(
 \end{matrix}
 \right)
 $$
-其中 $A_1$ 是 $n-1$ 列矩阵，由归纳假设，存在分解
+其中 <span class="arithmatex">\(A_1\)</span> 是 <span class="arithmatex">\(n-1\)</span> 列矩阵，由归纳假设，存在分解
 $$
 A_1 = Q_2\left(
 \begin{matrix}
@@ -16832,12 +16834,12 @@ Q = H_1\left(
 \end{matrix}
 \right)
 $$
-故分解完成；如果 $m=n$ 且 $A$ 可逆，设有 $A = Q_1R_1 = Q_2R_2$，则 $Q_2^TQ_1 = R_2R_1^{-1}$，对比得到右边是正交且对角元为正的上三角阵，则只能是单位阵，唯一性即证。</p>
+故分解完成；如果 <span class="arithmatex">\(m=n\)</span> 且 <span class="arithmatex">\(A\)</span> 可逆，设有 <span class="arithmatex">\(A = Q_1R_1 = Q_2R_2\)</span>，则 <span class="arithmatex">\(Q_2^TQ_1 = R_2R_1^{-1}\)</span>，对比得到右边是正交且对角元为正的上三角阵，则只能是单位阵，唯一性即证。</p>
 <p>利用 QR 分解，我们得到正交变换法
 $$
 |Ax-b|_2^2 = \left|Q^TAx-Q^Tb\right|_2^2 = |Rx-c_1|_2^2 + |c_2|_2^2
 $$
-这样只需求解上三角阵方程 $Rx = c_1$；通过 Householder 变换进行 QR 分解，注意到
+这样只需求解上三角阵方程 <span class="arithmatex">\(Rx = c_1\)</span>；通过 Householder 变换进行 QR 分解，注意到
 $$
 H_1A = \left(
 \begin{matrix}
@@ -16851,8 +16853,8 @@ H_1A = \left(
 \end{matrix}
 \right)
 $$
-只需每次对右下角的矩阵的第一列做变换 $H_k$，然后补全阶数得到 $\widetilde{H}_k$ 即可。</p>
-<p>完成分解后，我们不需要存放整个 $Q$ 矩阵，而是保存每次变换的 $H_k$，而对于 $H_k$ 又只需要保存 $v_k,\beta_k$，例如
+只需每次对右下角的矩阵的第一列做变换 <span class="arithmatex">\(H_k\)</span>，然后补全阶数得到 <span class="arithmatex">\(\widetilde{H}_k\)</span> 即可。</p>
+<p>完成分解后，我们不需要存放整个 <span class="arithmatex">\(Q\)</span> 矩阵，而是保存每次变换的 <span class="arithmatex">\(H_k\)</span>，而对于 <span class="arithmatex">\(H_k\)</span> 又只需要保存 <span class="arithmatex">\(v_k,\beta_k\)</span>，例如
 $$
 A = \left(
 \begin{matrix}
@@ -16869,15 +16871,15 @@ v_4^{(1)} &amp; v_4^{(2)} &amp; v_4^{(3)}
 \end{matrix}
 \right)
 $$
-其中每次变换的 $v_k$ 第一个分量为 $1$，因此可以省略。</p>
+其中每次变换的 <span class="arithmatex">\(v_k\)</span> 第一个分量为 <span class="arithmatex">\(1\)</span>，因此可以省略。</p>
 <h2 id="_25">线性方程组的古典迭代解法</h2>
 <h3 id="_26">单步线性定常迭代法</h3>
 <h4 id="jacobi">Jacobi 迭代法</h4>
-<p>考虑非奇异线性方程组 $Ax = b$，令
+<p>考虑非奇异线性方程组 <span class="arithmatex">\(Ax = b\)</span>，令
 $$
 A = D - L - U,\quad D = \mathrm{diag}(a_{11},a_{22},\cdots,a_{nn})
 $$
-其中 $L,U$ 分别为对角线为 $0$ 的下三角阵和上三角阵，则有
+其中 <span class="arithmatex">\(L,U\)</span> 分别为对角线为 <span class="arithmatex">\(0\)</span> 的下三角阵和上三角阵，则有
 $$
 x = Bx+g,\quad B = D^{-1}(L+U),\ g = D^{-1}b
 $$
@@ -16885,75 +16887,75 @@ $$
 $$
 x_k = Bx_{k-1} + g,\quad k=1,2,\cdots
 $$
-其中 $B$ 为迭代矩阵，$g$ 为常数项。</p>
+其中 <span class="arithmatex">\(B\)</span> 为迭代矩阵，<span class="arithmatex">\(g\)</span> 为常数项。</p>
 <h4 id="gauss-seidel">Gauss-Seidel 迭代法</h4>
 <p>注意到 Jacobi 迭代法中各分量的计算顺序无关，先算哪个分量都一样。我们考虑每计算一个分量，就直接用算出的分量替代原先的分量
 $$
 x_k = D^{-1}Lx_k + D^{-1}Ux_{k-1} + g,\quad k=1,2,\cdots
 $$
 这是由于下三角阵总是作用于前面算出的分量，上三角阵作用于还未计算的分量；简称为 G-S 迭代法，它的优势在于节省空间。</p>
-<p>如果 $(D-L)^{-1}$ 存在，则有
+<p>如果 <span class="arithmatex">\((D-L)^{-1}\)</span> 存在，则有
 $$
 x_k = (D-L)^{-1}Ux_{k-1} + (D-L)^{-1}b
 $$
-我们将 $L_1 = (D-L)^{-1}U$ 称为迭代矩阵，$(D-L)^{-1}b$ 称为常数项。</p>
+我们将 <span class="arithmatex">\(L_1 = (D-L)^{-1}U\)</span> 称为迭代矩阵，<span class="arithmatex">\((D-L)^{-1}b\)</span> 称为常数项。</p>
 <h4 id="_27">单步线性定常迭代法</h4>
 <p>注意到上述迭代法均有形式
 $$
 x_k = Mx_{k-1} + g,\quad k=1,2,\cdots
 $$
-这类迭代法就称为单步线性定常迭代法。如果任意初始向量迭代都有极限，则称该迭代法收敛；设有极限 $x_<em>$，则
+这类迭代法就称为单步线性定常迭代法。如果任意初始向量迭代都有极限，则称该迭代法收敛；设有极限 <span class="arithmatex">\(x_*\)</span>，则
 $$
-x_</em> = Mx_<em> + g,\quad (I-M)x_</em> = g
+x_<em> = Mx_</em> + g,\quad (I-M)x_* = g
 $$
-得到它是该线性方程组的解，但我们又有 $Ax = b$，则若存在 $G\in\mathbb{R}^{n\times n}$ 可逆，使得
+得到它是该线性方程组的解，但我们又有 <span class="arithmatex">\(Ax = b\)</span>，则若存在 <span class="arithmatex">\(G\in\mathbb{R}^{n\times n}\)</span> 可逆，使得
 $$
 G(I-M) = A,\quad Gg = b
 $$
 则它们等价，称迭代法与线性方程组相容。</p>
 <h3 id="_28">收敛性理论</h3>
-<p>设 $x_<em>$ 为方程组 $Ax = b$ 的解，定义
+<p>设 <span class="arithmatex">\(x_*\)</span> 为方程组 <span class="arithmatex">\(Ax = b\)</span> 的解，定义
 $$
-y_k = x_k - x_</em>,\quad k=1,2,\cdots
+y_k = x_k - x_*,\quad k=1,2,\cdots
 $$
-称为 $x_k$ 的误差向量，则有
+称为 <span class="arithmatex">\(x_k\)</span> 的误差向量，则有
 $$
 y_k = M^ky_0,\quad k=1,2,\cdots
 $$
 从而我们有</p>
-<p><strong>引理 4.4.4</strong> 迭代法收敛当且仅当 $M^k\to 0$ 。</p>
-<p><strong>定理 4.4.4</strong> 迭代法收敛当且仅当 $\rho(M) &lt; 1$ 。</p>
-<p><strong>定理 4.4.4</strong> 若迭代矩阵 $M$ 满足 $|M|=q&lt;1$，则迭代法的近似解 $x_k$ 与准确解 $x_<em>$ 的误差有估计
+<p><strong>引理 4.4.4</strong> 迭代法收敛当且仅当 <span class="arithmatex">\(M^k\to 0\)</span> 。</p>
+<p><strong>定理 4.4.4</strong> 迭代法收敛当且仅当 <span class="arithmatex">\(\rho(M) &lt; 1\)</span> 。</p>
+<p><strong>定理 4.4.4</strong> 若迭代矩阵 <span class="arithmatex">\(M\)</span> 满足 <span class="arithmatex">\(\|M\|=q&lt;1\)</span>，则迭代法的近似解 <span class="arithmatex">\(x_k\)</span> 与准确解 <span class="arithmatex">\(x_*\)</span> 的误差有估计
 $$
-|x_k-x_</em>| \le \dfrac{q^k}{1-q}|x_1-x_0|
+|x_k-x_<em>| \le \dfrac{q^k}{1-q}|x_1-x_0|
 $$
-<strong>证明</strong> 对 $y_k = M^ky_0$ 利用范数的不等式易得。</p>
-<p><strong>定理 4.4.4</strong> 若迭代矩阵 M 满足 $|M|=q&lt;1$ ，则迭代法的近似解 $x_k$ 与准确解 $x_<em>$ 的误差有估计
+</em><em>证明</em>* 对 <span class="arithmatex">\(y_k = M^ky_0\)</span> 利用范数的不等式易得。</p>
+<p><strong>定理 4.4.4</strong> 若迭代矩阵 M 满足 <span class="arithmatex">\(\|M\|=q&lt;1\)</span> ，则迭代法的近似解 <span class="arithmatex">\(x_k\)</span> 与准确解 <span class="arithmatex">\(x_*\)</span> 的误差有估计
 $$
-|x_k-x_</em>| \le \dfrac{q}{1-q}|x_{k-1}-x_{k}|
+|x_k-x_<em>| \le \dfrac{q}{1-q}|x_{k-1}-x_{k}|
 $$
-<strong>证明</strong> 对 $y_k = M^ky_0$ 利用范数的不等式易得；此定理表明我们可以通过判断相邻两次迭代的差范数确定是否达到精度。</p>
-<p><strong>定理 4.4.4</strong> 若 $A$ 对称，且对角元为正，则 Jacobi 迭代法收敛当且仅当 $A$ 和 $2D-A$ 正定。</p>
-<p><strong>证明</strong> 迭代矩阵 $B = D^{-1}(L+U) = D^{-1}(D-A) = I-D^{-1}A$，又对角元均正，则
+</em><em>证明</em>* 对 <span class="arithmatex">\(y_k = M^ky_0\)</span> 利用范数的不等式易得；此定理表明我们可以通过判断相邻两次迭代的差范数确定是否达到精度。</p>
+<p><strong>定理 4.4.4</strong> 若 <span class="arithmatex">\(A\)</span> 对称，且对角元为正，则 Jacobi 迭代法收敛当且仅当 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(2D-A\)</span> 正定。</p>
+<p><strong>证明</strong> 迭代矩阵 <span class="arithmatex">\(B = D^{-1}(L+U) = D^{-1}(D-A) = I-D^{-1}A\)</span>，又对角元均正，则
 $$
 B = I-D^{-1}A = D^{-\frac{1}{2}}\left(I-D^{-\frac{1}{2}}AD^{-\frac{1}{2}}\right)D^{-\frac{1}{2}}
 $$
-由对称性，则 $I-D^{-\frac{1}{2}}AD^{-\frac{1}{2}}$ 也对称，且与 $B$ 相似，故有相同特征值，因而 $B$ 有实特征值。并且
+由对称性，则 <span class="arithmatex">\(I-D^{-\frac{1}{2}}AD^{-\frac{1}{2}}\)</span> 也对称，且与 <span class="arithmatex">\(B\)</span> 相似，故有相同特征值，因而 <span class="arithmatex">\(B\)</span> 有实特征值。并且
 $$
 I-B = D^{-\frac{1}{2}}\left(D^{-\frac{1}{2}}AD^{-\frac{1}{2}}\right)D^{-\frac{1}{2}},\quad I + B = D^{-\frac{1}{2}}\left(2I-D^{-\frac{1}{2}}AD^{-\frac{1}{2}}\right)D^{-\frac{1}{2}}
 $$
-注意到特征值满足关于对角线的性质：若 $\lambda$ 是 $B$ 的特征值，则 $1-\lambda$ 是 $I-B$ 的特征值，类似的 $1+\lambda$ 是 $I+B$ 的特征值。又我们知道迭代法收敛当且仅当 $\rho(B) &lt; 1$，即 $I-B,\ I+B$ 特征值均为正实数，而
+注意到特征值满足关于对角线的性质：若 <span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(B\)</span> 的特征值，则 <span class="arithmatex">\(1-\lambda\)</span> 是 <span class="arithmatex">\(I-B\)</span> 的特征值，类似的 <span class="arithmatex">\(1+\lambda\)</span> 是 <span class="arithmatex">\(I+B\)</span> 的特征值。又我们知道迭代法收敛当且仅当 <span class="arithmatex">\(\rho(B) &lt; 1\)</span>，即 <span class="arithmatex">\(I-B,\ I+B\)</span> 特征值均为正实数，而
 $$
 2I-D^{-\frac{1}{2}}AD^{-\frac{1}{2}} = D^{-\frac{1}{2}}(2D-A)D^{-\frac{1}{2}}
 $$
-这意味着 $A,\ 2D-A$ 均正定。</p>
-<p><strong>定理 4.4.4</strong> 若 $A$ 对称正定，则 G-S 迭代法收敛。</p>
-<p><strong>定义 4.4.4</strong> 设 $A\in\mathbb{R}^{n\times n}$ 满足
+这意味着 <span class="arithmatex">\(A,\ 2D-A\)</span> 均正定。</p>
+<p><strong>定理 4.4.4</strong> 若 <span class="arithmatex">\(A\)</span> 对称正定，则 G-S 迭代法收敛。</p>
+<p><strong>定义 4.4.4</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 满足
 $$
 |a_{ii}| \ge \sum_{j=1;j\neq i}^n|a_{ij}|,\quad i=1,\cdots n
 $$
-并且上式至少对一个 $i$ 严格成立，则称 $A$ 弱严格对角占优；若上式对所有 $i$ 严格成立，则称 $A$ 严格对角占优。</p>
-<p><strong>定义 4.4.4</strong> 设 $A\in\mathbb{R}^{n\times n}$，若有排列方阵 $P$ 使得
+并且上式至少对一个 <span class="arithmatex">\(i\)</span> 严格成立，则称 <span class="arithmatex">\(A\)</span> 弱严格对角占优；若上式对所有 <span class="arithmatex">\(i\)</span> 严格成立，则称 <span class="arithmatex">\(A\)</span> 严格对角占优。</p>
+<p><strong>定义 4.4.4</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，若有排列方阵 <span class="arithmatex">\(P\)</span> 使得
 $$
 PAP^T = \left(
 \begin{matrix}
@@ -16962,40 +16964,40 @@ A_{12} &amp; A_{22}
 \end{matrix}
 \right)
 $$
-其中 $A_{11}$ 是 $r$ 阶方阵，$A_{22}$ 是 $n-r$ 阶方阵，则称 $A$ 可约或可分，否则称为不可约或不可分。</p>
-<p>此定义说明只通过交换行列，就可以将 $A$ 分块，从而简化求解
+其中 <span class="arithmatex">\(A_{11}\)</span> 是 <span class="arithmatex">\(r\)</span> 阶方阵，<span class="arithmatex">\(A_{22}\)</span> 是 <span class="arithmatex">\(n-r\)</span> 阶方阵，则称 <span class="arithmatex">\(A\)</span> 可约或可分，否则称为不可约或不可分。</p>
+<p>此定义说明只通过交换行列，就可以将 <span class="arithmatex">\(A\)</span> 分块，从而简化求解
 $$
 Ax=b\ \Leftrightarrow\ PAP^TPx = Pb
 $$
 将高阶方程简化为低阶方程求解；</p>
-<p>等价地，若 $\mathcal{W} = {1,\cdots,n}$，存在非空子集 $\mathcal{S},\ \mathcal{T}$ 满足
+<p>等价地，若 <span class="arithmatex">\(\mathcal{W} = \{1,\cdots,n\}\)</span>，存在非空子集 <span class="arithmatex">\(\mathcal{S},\ \mathcal{T}\)</span> 满足
 $$
 \mathcal{S}\cup\mathcal{T} = \mathcal{W},\quad \mathcal{S}\cap\mathcal{T} = \emptyset\ \Rightarrow\ a_{ij} = 0,\ i\in\mathcal{S},\ j\in\mathcal{T}
 $$
-则称 $A$ 可约。</p>
+则称 <span class="arithmatex">\(A\)</span> 可约。</p>
 <p>如果一个不可约矩阵弱严格对角占优，则称该矩阵不可约对角占优。</p>
-<p><strong>定理 4.4.4</strong> 若 $A$ 严格对角占优或不可约对角占优，则 $A$ 非奇异。</p>
-<p><strong>推论 4.4.4</strong> 若对称阵 $A$ 严格对角占优或不可约对角占优，且 $A$ 对角元均正，则 $A$ 正定。</p>
-<p><strong>证明</strong> 对任意的 $A-\lambda I,\ \lambda\le 0$，它仍然严格对角占优或不可约对角占优，因而非奇异，即 $|A-\lambda I|\neq 0,\ \lambda\le 0$，故 $A$ 特征值均正。</p>
-<p><strong>定理 4.4.4</strong> 若 $A$ 严格对角占优或不可约对角占优，则 Jacobi 迭代法和 G-S 迭代法收敛。</p>
-<p><strong>证明</strong> 不可约对角占优时，若有 $|a_{ii}|=0$，则该行为 $0$，但由上述定理 $A$ 可逆，矛盾，则显然 $|a_{ii}|&gt;0$，$D$ 可逆；</p>
-<p>下证 $\rho(B) &lt; 1$，考虑 $|\lambda|\ge 1$，则
+<p><strong>定理 4.4.4</strong> 若 <span class="arithmatex">\(A\)</span> 严格对角占优或不可约对角占优，则 <span class="arithmatex">\(A\)</span> 非奇异。</p>
+<p><strong>推论 4.4.4</strong> 若对称阵 <span class="arithmatex">\(A\)</span> 严格对角占优或不可约对角占优，且 <span class="arithmatex">\(A\)</span> 对角元均正，则 <span class="arithmatex">\(A\)</span> 正定。</p>
+<p><strong>证明</strong> 对任意的 <span class="arithmatex">\(A-\lambda I,\ \lambda\le 0\)</span>，它仍然严格对角占优或不可约对角占优，因而非奇异，即 <span class="arithmatex">\(|A-\lambda I|\neq 0,\ \lambda\le 0\)</span>，故 <span class="arithmatex">\(A\)</span> 特征值均正。</p>
+<p><strong>定理 4.4.4</strong> 若 <span class="arithmatex">\(A\)</span> 严格对角占优或不可约对角占优，则 Jacobi 迭代法和 G-S 迭代法收敛。</p>
+<p><strong>证明</strong> 不可约对角占优时，若有 <span class="arithmatex">\(|a_{ii}|=0\)</span>，则该行为 <span class="arithmatex">\(0\)</span>，但由上述定理 <span class="arithmatex">\(A\)</span> 可逆，矛盾，则显然 <span class="arithmatex">\(|a_{ii}|&gt;0\)</span>，<span class="arithmatex">\(D\)</span> 可逆；</p>
+<p>下证 <span class="arithmatex">\(\rho(B) &lt; 1\)</span>，考虑 <span class="arithmatex">\(|\lambda|\ge 1\)</span>，则
 $$
 \lambda I-B = \lambda I - D^{-1}(L+U) = D^{-1}(\lambda D-L-U)
 $$
-注意到 $\lambda D - L - U$ 严格对角占优或不可约对角占优，故非奇异，因此 $B$ 的特征值绝对值不大于 $1$， Jacobi 迭代法收敛。</p>
+注意到 <span class="arithmatex">\(\lambda D - L - U\)</span> 严格对角占优或不可约对角占优，故非奇异，因此 <span class="arithmatex">\(B\)</span> 的特征值绝对值不大于 <span class="arithmatex">\(1\)</span>， Jacobi 迭代法收敛。</p>
 <h3 id="_29">收敛速度</h3>
-<p>由于 $y_k = M^ky_0$，则 $|y_k|\le \left|M^k\right||y_0|$，定义
+<p>由于 <span class="arithmatex">\(y_k = M^ky_0\)</span>，则 <span class="arithmatex">\(\|y_k\|\le \left\|M^k\right\|\|y_0\|\)</span>，定义
 $$
 R_k(M) = -\dfrac{\ln \left|M^k\right|}{k}
 $$
-并称其为 $k$ 次迭代的平均收敛速度。</p>
+并称其为 <span class="arithmatex">\(k\)</span> 次迭代的平均收敛速度。</p>
 <p>自然考虑
 $$
 R_{\infty}(M) = \lim_{k\to\infty}R_k(M)
 $$
 称为渐近收敛速度。</p>
-<p><strong>定理 4.4.4</strong> 设单步线性定常迭代矩阵为 $M$，则有
+<p><strong>定理 4.4.4</strong> 设单步线性定常迭代矩阵为 <span class="arithmatex">\(M\)</span>，则有
 $$
 R_{\infty}(M) = -\ln \rho(M)
 $$
@@ -17012,7 +17014,7 @@ $$
 $$
 B_{\epsilon} = \dfrac{1}{\rho(M)+\epsilon}M,\quad \epsilon&gt;0
 $$
-则 $\rho(B_{\epsilon})&lt;1$，因此 $\lim_{k\to\infty}B_{\epsilon}^k=0$，即
+则 <span class="arithmatex">\(\rho(B_{\epsilon})&lt;1\)</span>，因此 <span class="arithmatex">\(\lim_{k\to\infty}B_{\epsilon}^k=0\)</span>，即
 $$
 \exists K&gt;0,\quad \mathrm{s.t.}\quad \forall k\ge K,\ \left|B_{\epsilon}^k\right|\le 1\ \Rightarrow\ \left|M^k\right|\le (\rho(M)+\epsilon)^k
 $$
@@ -17026,20 +17028,20 @@ $$
 $$
 x_{k+1} = D^{-1}Lx_{k+1} + D^{-1}Ux_{k} + D^{-1}b,\quad \Delta x = x_{k+1} - x_k
 $$
-我们添加一个修正项 $\omega$ 得到
+我们添加一个修正项 <span class="arithmatex">\(\omega\)</span> 得到
 $$
 x_{k+1} = x_k + \omega\Delta x = (1-\omega)x_k + \omega\left(D^{-1}Lx_{k+1}+D^{-1}Ux_k+D^{-1}b\right)
 $$
-其中 $\omega$ 称为松弛因子，当 $\omega&gt;1$，称为超松弛迭代法，当 $\omega&lt;1$，称为低松弛迭代法，我们把超松弛迭代法简称为 SOR 迭代法。</p>
+其中 <span class="arithmatex">\(\omega\)</span> 称为松弛因子，当 <span class="arithmatex">\(\omega&gt;1\)</span>，称为超松弛迭代法，当 <span class="arithmatex">\(\omega&lt;1\)</span>，称为低松弛迭代法，我们把超松弛迭代法简称为 SOR 迭代法。</p>
 <p>我们改写迭代式得到
 $$
 L_{\omega} = (D-\omega L)^{-1}[(1-\omega)D+\omega U]
 $$
  即为迭代矩阵。</p>
-<p><strong>定理 4.4.4</strong>  SOR 迭代法收敛当且仅当 $\rho(L_{\omega})&lt;1$ 。</p>
-<p><strong>定理 4.4.4</strong>  SOR 迭代法收敛的必要条件是 $0&lt;\omega&lt;2$ 。</p>
-<p><strong>定理 4.4.4</strong> 若系数矩阵 $A$ 严格对角占优或不可约对角占优，且 $\omega\in(0,1)$，则 SOR 迭代法收敛。</p>
-<p><strong>定理 4.4.4</strong> 若系数矩阵 $A$ 是实对称正定阵，则 $0&lt;\omega&lt;2$ 时， SOR 迭代法收敛。</p>
+<p><strong>定理 4.4.4</strong>  SOR 迭代法收敛当且仅当 <span class="arithmatex">\(\rho(L_{\omega})&lt;1\)</span> 。</p>
+<p><strong>定理 4.4.4</strong>  SOR 迭代法收敛的必要条件是 <span class="arithmatex">\(0&lt;\omega&lt;2\)</span> 。</p>
+<p><strong>定理 4.4.4</strong> 若系数矩阵 <span class="arithmatex">\(A\)</span> 严格对角占优或不可约对角占优，且 <span class="arithmatex">\(\omega\in(0,1)\)</span>，则 SOR 迭代法收敛。</p>
+<p><strong>定理 4.4.4</strong> 若系数矩阵 <span class="arithmatex">\(A\)</span> 是实对称正定阵，则 <span class="arithmatex">\(0&lt;\omega&lt;2\)</span> 时， SOR 迭代法收敛。</p>
 <h3 id="_31">矩阵样例</h3>
 <h4 id="jacobi_1">Jacobi 迭代法</h4>
 <p>此迭代矩阵对 Jacobi 方法是收敛的，对 G-S 方法发散</p>
@@ -17055,18 +17057,18 @@ $$
 </code></pre></div>
 <h2 id="_32">共轭梯度法</h2>
 <h3 id="_33">最速下降法</h3>
-<p>考虑线性方程组 $Ax=b$，其中 $A$ 是对称正定阵，定义二次泛函
+<p>考虑线性方程组 <span class="arithmatex">\(Ax=b\)</span>，其中 <span class="arithmatex">\(A\)</span> 是对称正定阵，定义二次泛函
 $$
 \varphi(x) = x^TAx - 2b^Tx
 $$
-<strong>定理 5.5.5</strong> 设 $A$ 对称正定，则 $Ax=b$ 的解等价于二次泛函 $\varphi(x)$ 的极小值点。</p>
+<strong>定理 5.5.5</strong> 设 <span class="arithmatex">\(A\)</span> 对称正定，则 <span class="arithmatex">\(Ax=b\)</span> 的解等价于二次泛函 <span class="arithmatex">\(\varphi(x)\)</span> 的极小值点。</p>
 <p><strong>证明</strong> 事实上，直接计算梯度有
 $$
 \mathrm{grad}\ \varphi(x) = 2(Ax-b) = -2r
 $$
-则 $Ax=b$ 的解是 $\varphi(x)$ 的极小值点。</p>
-<p>通常类似于盲人爬山法，给定任意一个初始向量 $x_0$，确定一个下山方向 $p_0$，沿着经过 $x_0$ 方向为 $p_0$ 的直线 $x=x_0+\alpha p_0$ 找一个点 $x_1 = x_0+\alpha_0 p_0$，使得该点是这条直线上 $\varphi(x)$ 的最小值，以此类推，得到一系列 $\alpha_k,\ p_k,\ x_k$；</p>
-<p>我们先考虑如何确定步长 $\alpha_k$，令
+则 <span class="arithmatex">\(Ax=b\)</span> 的解是 <span class="arithmatex">\(\varphi(x)\)</span> 的极小值点。</p>
+<p>通常类似于盲人爬山法，给定任意一个初始向量 <span class="arithmatex">\(x_0\)</span>，确定一个下山方向 <span class="arithmatex">\(p_0\)</span>，沿着经过 <span class="arithmatex">\(x_0\)</span> 方向为 <span class="arithmatex">\(p_0\)</span> 的直线 <span class="arithmatex">\(x=x_0+\alpha p_0\)</span> 找一个点 <span class="arithmatex">\(x_1 = x_0+\alpha_0 p_0\)</span>，使得该点是这条直线上 <span class="arithmatex">\(\varphi(x)\)</span> 的最小值，以此类推，得到一系列 <span class="arithmatex">\(\alpha_k,\ p_k,\ x_k\)</span>；</p>
+<p>我们先考虑如何确定步长 <span class="arithmatex">\(\alpha_k\)</span>，令
 $$
 f(\alpha) = \varphi(x_k+\alpha p_k) = \alpha^2p_k^TAp_k - 2\alpha r_k^T p_k + \varphi(x_k)
 $$
@@ -17074,25 +17076,25 @@ $$
 $$
 \alpha_k = \dfrac{r_k^Tp_k}{p_k^TAp_k}
 $$
-这样就确定了步长，容易验证这恰好就是 $f$ 的极小值点，因此我们得到 $x_{k+1}$；</p>
-<p>接着，由于我们知道梯度 $\mathrm{grad}\ \varphi(x) = -2r$，梯度的负方向就是下降最快的方向，因此 $p_k = r_k$ 。</p>
-<p><strong>定理 5.5.5</strong> 设 $A$ 的特征值为 $0&lt;\lambda_1\le \cdots\le \lambda_n$，则上述方法得到的序列 ${x_k}$ 满足
+这样就确定了步长，容易验证这恰好就是 <span class="arithmatex">\(f\)</span> 的极小值点，因此我们得到 <span class="arithmatex">\(x_{k+1}\)</span>；</p>
+<p>接着，由于我们知道梯度 <span class="arithmatex">\(\mathrm{grad}\ \varphi(x) = -2r\)</span>，梯度的负方向就是下降最快的方向，因此 <span class="arithmatex">\(p_k = r_k\)</span> 。</p>
+<p><strong>定理 5.5.5</strong> 设 <span class="arithmatex">\(A\)</span> 的特征值为 <span class="arithmatex">\(0&lt;\lambda_1\le \cdots\le \lambda_n\)</span>，则上述方法得到的序列 <span class="arithmatex">\(\{x_k\}\)</span> 满足
 $$
-|x_{k} - x_<em>|<em>A = \left(\dfrac{\lambda_n-\lambda_1}{\lambda_n+\lambda_1}\right)^k|x_0-x</em></em>|<em>A
+|x_{k} - x_<em>|<em>A = \left(\dfrac{\lambda_n-\lambda_1}{\lambda_n+\lambda_1}\right)^k|x_0-x</em></em>|_A
 $$
-其中 $x</em>* = A^{-1}b,\ |x|_A = \sqrt{x^TAx}$ 。</p>
-<p><strong>引理 5.5.5</strong> 设 $A$ 的特征值为 $0&lt;\lambda_1\le \cdots\le \lambda_n$，$P(t)$ 是一个 $t$ 的多项式，则
+其中 <span class="arithmatex">\(x_* = A^{-1}b,\ \|x\|_A = \sqrt{x^TAx}\)</span> 。</p>
+<p><strong>引理 5.5.5</strong> 设 <span class="arithmatex">\(A\)</span> 的特征值为 <span class="arithmatex">\(0&lt;\lambda_1\le \cdots\le \lambda_n\)</span>，<span class="arithmatex">\(P(t)\)</span> 是一个 <span class="arithmatex">\(t\)</span> 的多项式，则
 $$
 |P(A)x|<em>A \le \max</em>{1\le i\le n}|P(\lambda_i)||x|_A,\quad x\in\mathbb{R}^n
 $$
-此引理说明了 $A$ 的多项式与其特征值的多项式之间的关系。</p>
+此引理说明了 <span class="arithmatex">\(A\)</span> 的多项式与其特征值的多项式之间的关系。</p>
 <h3 id="_34">共轭梯度法</h3>
 <p>最速下降法虽然保证了每一步都选取最优的下降方向和步长，但是并不一定是整体最优，因此我们需要进行改进：</p>
-<p>给定 $x_0$ 在第一步仍选取 $p_0 = r_0$，则有
+<p>给定 <span class="arithmatex">\(x_0\)</span> 在第一步仍选取 <span class="arithmatex">\(p_0 = r_0\)</span>，则有
 $$
 \alpha_0 = \dfrac{r_0^Tr_0}{p_0^TAp_0},\quad x_1 = x_0 + \alpha_0p_0,\quad r_1 = b-Ax_1
 $$
-在之后第 $k+1$ 步，我们在 $r_k,\ p_{k-1}$ 张成的平面
+在之后第 <span class="arithmatex">\(k+1\)</span> 步，我们在 <span class="arithmatex">\(r_k,\ p_{k-1}\)</span> 张成的平面
 $$
 \pi_2 = {x=x_k+\xi r_k+\eta p_{k-1}: \xi,\eta\in\mathbb{R}}
 $$
@@ -17100,14 +17102,14 @@ $$
 $$
 \psi(\xi,\eta) = \varphi(x_k+\xi r_k+\eta p_{k-1})
 $$
-为了找出极值点，可以令 $\phi$ 的偏导为零
+为了找出极值点，可以令 <span class="arithmatex">\(\phi\)</span> 的偏导为零
 $$
 \begin{aligned}
 0 = \dfrac{\partial \psi}{\partial \xi} &amp;= 2\left(\xi r_k^TA r_k + \eta r_k^TA p_{k-1} - r_k^Tr_k\right)\
 0 = \dfrac{\partial \psi}{\partial \eta} &amp;= 2\left(\xi r_k^TA p_{k-1} + \eta p_{k-1}^TA p_{k-1}\right)
 \end{aligned}
 $$
-其中第二个式子用到了 $r_k,\ p_{k-1}$ 正交，这是因为每当选定了下山方向 $p_{k-1}$，都会按照最速下降法中的方法取
+其中第二个式子用到了 <span class="arithmatex">\(r_k,\ p_{k-1}\)</span> 正交，这是因为每当选定了下山方向 <span class="arithmatex">\(p_{k-1}\)</span>，都会按照最速下降法中的方法取
 $$
 \alpha_{k-1} = \dfrac{r_{k-1}^Tp_{k-1}}{p_{k-1}^TAp_{k-1}},\quad x_k = x_{k-1} + \alpha_{k-1}p_{k-1},\quad r_k = b - Ax_k
 $$
@@ -17124,14 +17126,14 @@ $$
 $$
 \widetilde{x} = x_k+\xi_0r_k + \eta_0p_{k-1}
 $$
-其中 $\xi_0,\ \eta_0$ 满足
+其中 <span class="arithmatex">\(\xi_0,\ \eta_0\)</span> 满足
 $$
 \begin{cases}
 \xi_0r_k^TAr_k + \eta_0r_k^TAp_{k-1} = r_k^Tr_k \
 \xi_0r_k^TAp_{k-1} + \eta_0p_{k-1}^TAp_{k-1} = 0
 \end{cases}
 $$
-注意到上式蕴含着 $r_k\neq0$ 必有 $\xi_0\neq 0$，事实上，若 $\xi_0=0$，则
+注意到上式蕴含着 <span class="arithmatex">\(r_k\neq0\)</span> 必有 <span class="arithmatex">\(\xi_0\neq 0\)</span>，事实上，若 <span class="arithmatex">\(\xi_0=0\)</span>，则
 $$
 \begin{cases}
 \eta_0r_k^TAp_{k-1} = r_k^Tr_k\
@@ -17143,11 +17145,11 @@ $$
 $$
 p_k = \dfrac{1}{\xi_0}(\widetilde{x}-x_k) = r_k+\dfrac{\eta_0}{\xi_0}p_{k-1}
 $$
-作为新的下山方向，令 $\beta_{k-1} = \eta_0/\xi_0$，代入第二个方程得到
+作为新的下山方向，令 <span class="arithmatex">\(\beta_{k-1} = \eta_0/\xi_0\)</span>，代入第二个方程得到
 $$
 p_k = r_k+\beta_{k-1}p_{k-1},\quad \beta_{k-1} = -\dfrac{r_k^TAp_{k-1}}{p_{k-1}^TAp_{k-1}}
 $$
-注意这样确定的 $p_k$ 满足 $p_k^TAp_{k-1} = 0$，即 $p_k,\ p_{k-1}$ 相互共轭，于是有
+注意这样确定的 <span class="arithmatex">\(p_k\)</span> 满足 <span class="arithmatex">\(p_k^TAp_{k-1} = 0\)</span>，即 <span class="arithmatex">\(p_k,\ p_{k-1}\)</span> 相互共轭，于是有
 $$
 \begin{aligned}
 \alpha_k &amp;= \dfrac{r_k^Tp_k}{p_k^TAp_k},\quad x_{k+1} = x_k + \alpha_kp_k,\quad r_{k+1} = b-Ax_{k+1}\
@@ -17171,21 +17173,21 @@ $$
 $$
 \alpha_k = \dfrac{r_k^Tr_k}{p_k^TAp_k},\quad \beta_k = \dfrac{r_{k+1}^Tr_{k+1}}{r_k^Tr_k}
 $$
-这意味着每一步迭代只需使用一次 $A$ 计算 $p_k^TAp_k$ 。</p>
-<p><strong>定理 5.5.5</strong> 共轭梯度法得到的向量组 ${r_i},\ {p_i}$ 满足</p>
-<p>1。  $p_i^Tr_j = 0,\ 0\le i&lt;j\le k$ 
-2。  $r_i^Tr_j = 0,\ i\neq j,\ 0\le i,j\le k$ 
-3。  $p_i^TAp_j = 0,\ i\neq j,\ 0\le i,j\le k$ 
-4。  $\mathrm{span}{r_0,\cdots,r_k} = \mathrm{span}{p_0,\cdots,p_k} = \mathcal{K}(A,r_0,k+1)$，其中</p>
-<p>$$
-\mathcal{K}(A,r_0,k+1) = \mathrm{span}{r_0,Ar_0,\cdots,A^kr_0}
-$$</p>
+这意味着每一步迭代只需使用一次 <span class="arithmatex">\(A\)</span> 计算 <span class="arithmatex">\(p_k^TAp_k\)</span> 。</p>
+<p><strong>定理 5.5.5</strong> 共轭梯度法得到的向量组 <span class="arithmatex">\(\{r_i\},\ \{p_i\}\)</span> 满足</p>
+<p>1。  <span class="arithmatex">\(p_i^Tr_j = 0,\ 0\le i&lt;j\le k\)</span> 
+2。  <span class="arithmatex">\(r_i^Tr_j = 0,\ i\neq j,\ 0\le i,j\le k\)</span> 
+3。  <span class="arithmatex">\(p_i^TAp_j = 0,\ i\neq j,\ 0\le i,j\le k\)</span> 
+4。  <span class="arithmatex">\(\mathrm{span}\{r_0,\cdots,r_k\} = \mathrm{span}\{p_0,\cdots,p_k\} = \mathcal{K}(A,r_0,k+1)\)</span>，其中</p>
+<div class="arithmatex">\[
+\mathcal{K}(A,r_0,k+1) = \mathrm{span}\{r_0,Ar_0,\cdots,A^kr_0\}
+\]</div>
 <p>通常称之为 Krylov 子空间。</p>
-<p><strong>证明</strong> 应用归纳法，可以验证它们对于 $k=1$ 都成立，其中 (1) 式前面已经证明；对于 (2) 式，由归纳假设
+<p><strong>证明</strong> 应用归纳法，可以验证它们对于 <span class="arithmatex">\(k=1\)</span> 都成立，其中 (1) 式前面已经证明；对于 (2) 式，由归纳假设
 $$
 \mathrm{span}{r_0,\cdots,r_k} = \mathrm{span}{p_0,\cdots,p_k}
 $$
-而由 (1) 有 $r_{k+1}$ 与 $\mathrm{span}{p_0,\cdots,p_k}$ 正交，即证； (3) 式利用
+而由 (1) 有 <span class="arithmatex">\(r_{k+1}\)</span> 与 <span class="arithmatex">\(\mathrm{span}\{p_0,\cdots,p_k\}\)</span> 正交，即证； (3) 式利用
 $$
 p_{k+1} = r_{k+1} + \beta_kp_k,\quad Ap_i = \dfrac{1}{\alpha_i}(r_i-r_{i+1})
 $$
@@ -17195,39 +17197,39 @@ r_{k+1} = r_k - \alpha_kAp_k\in\mathcal{K}(A,r_0,k+2)\
 p_{k+1} = r_{k+1} + \beta_kp_k\in\mathcal{K}(A,r_0,k+2)
 $$
 并且由之前的结论，两个向量组是线性无关的，因此即证。</p>
-<p><strong>由于每一步得到的两个向量组正交，因此至多 $n$ 步就可以得到精确的解。</strong></p>
-<p><strong>定理 5.5.5</strong> 共轭梯度法得到的近似解 $x_k$ 满足
+<p><strong>由于每一步得到的两个向量组正交，因此至多 <span class="arithmatex">\(n\)</span> 步就可以得到精确的解。</strong></p>
+<p><strong>定理 5.5.5</strong> 共轭梯度法得到的近似解 <span class="arithmatex">\(x_k\)</span> 满足
 $$
 \varphi(x) = \min{\varphi(x):x\in x_0+\mathcal{K}(A,r_0,k)}
 $$
 或者
 $$
-|x_k-x_<em>|<em>A = \min{|x-x</em></em>|<em>A:x\in x_0+\mathcal{K}(A,r_0,k)}
+|x_k-x_<em>|<em>A = \min{|x-x</em></em>|_A:x\in x_0+\mathcal{K}(A,r_0,k)}
 $$
-其中 $|x|_A=\sqrt{x^TAx}$，$x</em>*$ 是方程组 $Ax=b$ 的解，$\mathcal{K}(A,r_0,k)$ 是 Krylov 子空间。</p>
-<p><strong>定理 5.5.5</strong> 若 $A = I + B$，且 $\mathrm{rank}(B) = r$，则共轭梯度法至多迭代 $r+1$ 步即可得到精确解。</p>
-<p><strong>证明</strong> 注意到 $\mathrm{rank}(B) = r$ 蕴含着
+其中 <span class="arithmatex">\(\|x\|_A=\sqrt{x^TAx}\)</span>，<span class="arithmatex">\(x_*\)</span> 是方程组 <span class="arithmatex">\(Ax=b\)</span> 的解，<span class="arithmatex">\(\mathcal{K}(A,r_0,k)\)</span> 是 Krylov 子空间。</p>
+<p><strong>定理 5.5.5</strong> 若 <span class="arithmatex">\(A = I + B\)</span>，且 <span class="arithmatex">\(\mathrm{rank}(B) = r\)</span>，则共轭梯度法至多迭代 <span class="arithmatex">\(r+1\)</span> 步即可得到精确解。</p>
+<p><strong>证明</strong> 注意到 <span class="arithmatex">\(\mathrm{rank}(B) = r\)</span> 蕴含着
 $$
 \mathrm{span}{r_0,Ar_0,\cdots,A^kr_0} = \mathrm{span}{r_0,Br_0,\cdots,B^kr_0}
 $$
-事实上 $A^k = (I+B)^k$，即 $A$ 的幂总是可以表示为 $B$ 的幂的线性组合，而右边子空间维数不超过 $r+1$，即证。</p>
-<p><strong>定理 5.5.5</strong> 共轭梯度法得到的近似解 $x_k$ 满足
+事实上 <span class="arithmatex">\(A^k = (I+B)^k\)</span>，即 <span class="arithmatex">\(A\)</span> 的幂总是可以表示为 <span class="arithmatex">\(B\)</span> 的幂的线性组合，而右边子空间维数不超过 <span class="arithmatex">\(r+1\)</span>，即证。</p>
+<p><strong>定理 5.5.5</strong> 共轭梯度法得到的近似解 <span class="arithmatex">\(x_k\)</span> 满足
 $$
 |x_k-x_<em>|<em>A\le 2\left(\dfrac{\sqrt{\kappa_2}-1}{\sqrt{\kappa_2}+1}\right)^k|x_0-x</em></em>|_A
 $$
-其中 $\kappa_2=\kappa_2(A)=|A|_2\left|A^{-1}\right|_2$ 。</p>
+其中 <span class="arithmatex">\(\kappa_2=\kappa_2(A)=\|A\|_2\left\|A^{-1}\right\|_2\)</span> 。</p>
 <h2 id="_35">非对称特征值问题的计算方法</h2>
-<p>多项式 $p_A(\lambda) = \det(\lambda I-A)$ 称为 $A$ 的特征多项式，记 $\lambda(A)$ 为 $A$ 的特征值全体，通常称之为 $A$ 的谱集；假定 $p_A(\lambda)$ 有分解
+<p>多项式 <span class="arithmatex">\(p_A(\lambda) = \det(\lambda I-A)\)</span> 称为 <span class="arithmatex">\(A\)</span> 的特征多项式，记 <span class="arithmatex">\(\lambda(A)\)</span> 为 <span class="arithmatex">\(A\)</span> 的特征值全体，通常称之为 <span class="arithmatex">\(A\)</span> 的谱集；假定 <span class="arithmatex">\(p_A(\lambda)\)</span> 有分解
 $$
 p_A(\lambda) = (\lambda-\lambda_1)^{n_1}\cdots(\lambda-\lambda_p)^{n_p}
 $$
-其中 $n_1+n_2+\cdots+n_p=n,\ \lambda_i\neq \lambda_j\ (i\neq j)$，则称 $n_i$ 为 $\lambda_i$ 的代数重数，称数
+其中 <span class="arithmatex">\(n_1+n_2+\cdots+n_p=n,\ \lambda_i\neq \lambda_j\ (i\neq j)\)</span>，则称 <span class="arithmatex">\(n_i\)</span> 为 <span class="arithmatex">\(\lambda_i\)</span> 的代数重数，称数
 $$
 m_i = n -\mathrm{rank}(\lambda_i I-A)
 $$
-为 $\lambda_i$ 的几何重数；若 $n_i=1$，则称 $\lambda_i$ 是 $A$ 的一个单特征值，否则称为重特征值；若 $n_i=m_i$，则称其是半单特征值。</p>
-<p>显然单特征值必是半单特征值，事实上，此时 $\lambda_i$ 的特征子空间是 $1$ 维，故 $\mathrm{rank}(\lambda_i I-A)=n-1,\ m_i = 1$； 如果所有特征值都是半单的，则称 $A$ 是非亏损的； $A$ 非亏损当且仅当 $A$ 可相似对角化。</p>
-<p><strong>定理 6.6.6 （Jordan 分解定理）</strong> 设 $A\in\mathbb{C}^{n\times n}$ 有 $r$ 个互不相同的特征值 $\lambda_1,\cdots, \lambda_r$，其重数分别为 $n(\lambda_1),\cdots, n(\lambda_r)$，则存在非奇异阵 $P\in\mathbb{C}^{n\times n}$，使得
+为 <span class="arithmatex">\(\lambda_i\)</span> 的几何重数；若 <span class="arithmatex">\(n_i=1\)</span>，则称 <span class="arithmatex">\(\lambda_i\)</span> 是 <span class="arithmatex">\(A\)</span> 的一个单特征值，否则称为重特征值；若 <span class="arithmatex">\(n_i=m_i\)</span>，则称其是半单特征值。</p>
+<p>显然单特征值必是半单特征值，事实上，此时 <span class="arithmatex">\(\lambda_i\)</span> 的特征子空间是 <span class="arithmatex">\(1\)</span> 维，故 <span class="arithmatex">\(\mathrm{rank}(\lambda_i I-A)=n-1,\ m_i = 1\)</span>； 如果所有特征值都是半单的，则称 <span class="arithmatex">\(A\)</span> 是非亏损的； <span class="arithmatex">\(A\)</span> 非亏损当且仅当 <span class="arithmatex">\(A\)</span> 可相似对角化。</p>
+<p><strong>定理 6.6.6 （Jordan 分解定理）</strong> 设 <span class="arithmatex">\(A\in\mathbb{C}^{n\times n}\)</span> 有 <span class="arithmatex">\(r\)</span> 个互不相同的特征值 <span class="arithmatex">\(\lambda_1,\cdots, \lambda_r\)</span>，其重数分别为 <span class="arithmatex">\(n(\lambda_1),\cdots, n(\lambda_r)\)</span>，则存在非奇异阵 <span class="arithmatex">\(P\in\mathbb{C}^{n\times n}\)</span>，使得
 $$
 J = P^{-1}AP = \left(
 \begin{aligned}
@@ -17238,22 +17240,22 @@ J(\lambda_1)\
 \end{aligned}
 \right)
 $$
-其中 $J(\lambda_i)$ 是若当块，矩阵 $J$ 称为 $A$ 的若当标准型。</p>
-<p><strong>定理 6.6.6 （Schur 分解定理）</strong> 设 $A\in\mathbb{C}^{n\times n}$，则存在酉矩阵（列向量是 $\mathbb{C}^n$ 中的标准正交基） $U\in\mathbb{C}^{n\times n}$，使得
+其中 <span class="arithmatex">\(J(\lambda_i)\)</span> 是若当块，矩阵 <span class="arithmatex">\(J\)</span> 称为 <span class="arithmatex">\(A\)</span> 的若当标准型。</p>
+<p><strong>定理 6.6.6 （Schur 分解定理）</strong> 设 <span class="arithmatex">\(A\in\mathbb{C}^{n\times n}\)</span>，则存在酉矩阵（列向量是 <span class="arithmatex">\(\mathbb{C}^n\)</span> 中的标准正交基） <span class="arithmatex">\(U\in\mathbb{C}^{n\times n}\)</span>，使得
 $$
 U^*AU = T
 $$
-其中 $T$ 是上三角阵。</p>
+其中 <span class="arithmatex">\(T\)</span> 是上三角阵。</p>
 <h3 id="_36">幂法</h3>
-<p>我们先假定 $A\in\mathbb{C}^{n\times n}$ 可对角化，则有
+<p>我们先假定 <span class="arithmatex">\(A\in\mathbb{C}^{n\times n}\)</span> 可对角化，则有
 $$
 A = X\Lambda X^{-1}
 $$
-其中 $\Lambda$ 是对角阵，$X$ 非奇异，再假定
+其中 <span class="arithmatex">\(\Lambda\)</span> 是对角阵，<span class="arithmatex">\(X\)</span> 非奇异，再假定
 $$
 |\lambda_1| &gt; |\lambda_2|\ge \cdots\ge |\lambda_n|
 $$
-那么任取向量 $u_0\in\mathbb{C}^{n\times n}$，由于 $X$ 的列向量构成一组基，从而
+那么任取向量 <span class="arithmatex">\(u_0\in\mathbb{C}^{n\times n}\)</span>，由于 <span class="arithmatex">\(X\)</span> 的列向量构成一组基，从而
 $$
 u_0 = \alpha_1x_1+\alpha_2x_2+\cdots+\alpha_nx_n
 $$
@@ -17265,26 +17267,26 @@ $$
 $$
 \lim_{k\to\infty}\dfrac{A^ku_0}{\lambda_1^k} = \alpha_1x_1
 $$
-这意味着当 $\alpha_1\neq 0$ 且 $k$ 足够大
+这意味着当 <span class="arithmatex">\(\alpha_1\neq 0\)</span> 且 <span class="arithmatex">\(k\)</span> 足够大
 $$
 u_k = \dfrac{A^ku_0}{\lambda_1^k}
 $$
 是一个很好的近似特征向量。</p>
-<p>观察上述表达式，我们不能事先知道 $A$ 的最大特征值，并且 $A$ 的幂计算量太大。注意到我们只需要 $u_k$ 的方向，因此不必每次用 $\lambda_1$ 进行约化，但是为了防止溢出，约化是必要的；因此我们有迭代格式
+<p>观察上述表达式，我们不能事先知道 <span class="arithmatex">\(A\)</span> 的最大特征值，并且 <span class="arithmatex">\(A\)</span> 的幂计算量太大。注意到我们只需要 <span class="arithmatex">\(u_k\)</span> 的方向，因此不必每次用 <span class="arithmatex">\(\lambda_1\)</span> 进行约化，但是为了防止溢出，约化是必要的；因此我们有迭代格式
 $$
 \begin{aligned}
 y_k &amp;= Au_{k-1}\
-\mu_k &amp;= \zeta_j^{(k)},\quad  |y_k|<em>{\infty} = \left|\zeta_j^{(k)}\right|\
+\mu_k &amp;= \zeta_j^{(k)},\quad  |y_k|_{\infty} = \left|\zeta_j^{(k)}\right|\
 u_k &amp;= y_k/\mu_k
 \end{aligned}
 $$
-其中 $u_0$ 是初始迭代向量，通常要求 $|u_0|</em>{\infty} = 1$ 。</p>
-<p><strong>定理 6.6.6</strong> 设 $A\in\mathbb{C}^{n\times n}$ 有 $p$ 个互不相同的特征值满足 $|\lambda_1|&gt;|\lambda_2|\ge\cdots\ge|\lambda_p|$，且模最大特征值 $\lambda_1$ 是半单的，如果初始向量 $u_0$ 在 $\lambda_1$ 的特征子空间上的投影不为零，则幂法产生的向量序列 ${u_k}$ 收敛到 $\lambda_1$ 的一个特征向量 $x_1$，且数值序列 ${\mu_k}$ 收敛到 $\lambda_1$ 。</p>
+其中 <span class="arithmatex">\(u_0\)</span> 是初始迭代向量，通常要求 <span class="arithmatex">\(\|u_0\|_{\infty} = 1\)</span> 。</p>
+<p><strong>定理 6.6.6</strong> 设 <span class="arithmatex">\(A\in\mathbb{C}^{n\times n}\)</span> 有 <span class="arithmatex">\(p\)</span> 个互不相同的特征值满足 <span class="arithmatex">\(|\lambda_1|&gt;|\lambda_2|\ge\cdots\ge|\lambda_p|\)</span>，且模最大特征值 <span class="arithmatex">\(\lambda_1\)</span> 是半单的，如果初始向量 <span class="arithmatex">\(u_0\)</span> 在 <span class="arithmatex">\(\lambda_1\)</span> 的特征子空间上的投影不为零，则幂法产生的向量序列 <span class="arithmatex">\(\{u_k\}\)</span> 收敛到 <span class="arithmatex">\(\lambda_1\)</span> 的一个特征向量 <span class="arithmatex">\(x_1\)</span>，且数值序列 <span class="arithmatex">\(\{\mu_k\}\)</span> 收敛到 <span class="arithmatex">\(\lambda_1\)</span> 。</p>
 <p><strong>证明</strong> 假设有分解
 $$
 A = X\mathrm{diag}(J_1,\cdots,J_p)X^{-1}
 $$
-其中 $J_i$ 是若当块，且 $n_1+n_2+\cdots+n_p = n$，则 $\lambda_1$ 半单意味着 $J_1 = \lambda_1I_{n1}$，令 $y = X^{-1}u_0$，并作分块
+其中 <span class="arithmatex">\(J_i\)</span> 是若当块，且 <span class="arithmatex">\(n_1+n_2+\cdots+n_p = n\)</span>，则 <span class="arithmatex">\(\lambda_1\)</span> 半单意味着 <span class="arithmatex">\(J_1 = \lambda_1I_{n1}\)</span>，令 <span class="arithmatex">\(y = X^{-1}u_0\)</span>，并作分块
 $$
 y = \left(y_1^T,y_2^T,\cdots,y_p^T\right),\quad X = (X_1,X_2,\cdots,X_p)
 $$
@@ -17297,16 +17299,16 @@ A^ku_0 &amp;= X\mathrm{diag}(J_1,\cdots,J_p)X^{-1}u_0\
 &amp;= \lambda_1^k\left[X_1y_1+X_2\left(\dfrac{J_2}{\lambda_1}\right)^ky_2+\cdots+X_p\left(\dfrac{J_p}{\lambda_1}\right)^ky_p\right]
 \end{aligned}
 $$
-注意到右边 $\lambda_1^{-1}J_i$ 的谱半径小于 $1$，因此有
+注意到右边 <span class="arithmatex">\(\lambda_1^{-1}J_i\)</span> 的谱半径小于 <span class="arithmatex">\(1\)</span>，因此有
 $$
 \lim_{k\to\infty}\dfrac{A^ku_0}{\lambda_1^k} = X_1y_1
 $$
-根据假设 $u_0$ 在 $\lambda_1$ 的特征子空间上的投影不为零，则 $X_1y_1\neq 0$；</p>
-<p>注意到迭代格式中 $|u_k|<em>{\infty}=1$，且
+根据假设 <span class="arithmatex">\(u_0\)</span> 在 <span class="arithmatex">\(\lambda_1\)</span> 的特征子空间上的投影不为零，则 <span class="arithmatex">\(X_1y_1\neq 0\)</span>；</p>
+<p>注意到迭代格式中 <span class="arithmatex">\(\|u_k\|_{\infty}=1\)</span>，且
 $$
-u_k = \dfrac{Au</em>{k-1}}{\mu_k} = \dfrac{A^ku_0}{\mu_k\mu_{k-1}\cdots\mu_1}
+u_k = \dfrac{Au_{k-1}}{\mu_k} = \dfrac{A^ku_0}{\mu_k\mu_{k-1}\cdots\mu_1}
 $$
-每一步 $\mu_k$ 都是模最大分量，则 $\zeta_k = \mu_k\mu_{k-1}\cdots\mu_1$ 是 $A^ku_0$ 的一个模最大分量，从而 $\xi_k/\lambda_1^k$ 是 $A^ku_0/\lambda_1^k$ 的模最大分量，上面我们知道 $A^ku_0/\lambda_1^k$ 的极限存在，因此
+每一步 <span class="arithmatex">\(\mu_k\)</span> 都是模最大分量，则 <span class="arithmatex">\(\zeta_k = \mu_k\mu_{k-1}\cdots\mu_1\)</span> 是 <span class="arithmatex">\(A^ku_0\)</span> 的一个模最大分量，从而 <span class="arithmatex">\(\xi_k/\lambda_1^k\)</span> 是 <span class="arithmatex">\(A^ku_0/\lambda_1^k\)</span> 的模最大分量，上面我们知道 <span class="arithmatex">\(A^ku_0/\lambda_1^k\)</span> 的极限存在，因此
 $$
 \zeta = \lim_{k\to\infty}\dfrac{\zeta_k}{\lambda_1^k}
 $$
@@ -17314,8 +17316,8 @@ $$
 $$
 \lim_{k\to\infty}u_k = \lim_{k\to\infty}\dfrac{A^ku_0}{\zeta_k} = \lim_{k\to\infty}\left(\dfrac{A^ku_0}{\lambda_1^k}\bigg/\dfrac{\zeta_k}{\lambda_1^k}\right) = \dfrac{X_1y_1}{\zeta} = x_1
 $$
-显然 $x_1$ 是属于 $\lambda_1$ 的特征向量，再由 $Au_{k-1} = \mu_ku_k$ 和 $x_1$ 有一个模最大分量为 $1$，则有 $\mu_k\to\lambda_1$ 。</p>
-<p>幂法的收敛速度由 $|\lambda_2|/|\lambda_1|$ 决定。</p>
+显然 <span class="arithmatex">\(x_1\)</span> 是属于 <span class="arithmatex">\(\lambda_1\)</span> 的特征向量，再由 <span class="arithmatex">\(Au_{k-1} = \mu_ku_k\)</span> 和 <span class="arithmatex">\(x_1\)</span> 有一个模最大分量为 <span class="arithmatex">\(1\)</span>，则有 <span class="arithmatex">\(\mu_k\to\lambda_1\)</span> 。</p>
+<p>幂法的收敛速度由 <span class="arithmatex">\(|\lambda_2|/|\lambda_1|\)</span> 决定。</p>
 <h4 id="_37">多项式的根</h4>
 <p>应用幂法求取多项式
 $$
@@ -17352,7 +17354,7 @@ z+\alpha_1 &amp; z+\alpha_2 &amp; \cdots &amp; z+\alpha_{n-1} &amp; z+\alpha_n\
 \right|
 \end{aligned}
 $$
-因此我们得到 $P(z) = \det(zI + A)$，其中
+因此我们得到 <span class="arithmatex">\(P(z) = \det(zI + A)\)</span>，其中
 $$
 A = \left(
 \begin{matrix}
@@ -17364,27 +17366,27 @@ A = \left(
 \end{matrix}
 \right)
 $$
-从而只需对 $A$ 应用幂法求取最大模特征值，则该特征值的相反数就是 $P(z)$ 的根。</p>
+从而只需对 <span class="arithmatex">\(A\)</span> 应用幂法求取最大模特征值，则该特征值的相反数就是 <span class="arithmatex">\(P(z)\)</span> 的根。</p>
 <h3 id="_38">反幂法</h3>
-<p>反幂法又称为反迭代法，也就是应用幂法于 $A^{-1}$ 上求解 $A$ 的模最小特征值和对应的特征向量，因此有迭代格式
+<p>反幂法又称为反迭代法，也就是应用幂法于 <span class="arithmatex">\(A^{-1}\)</span> 上求解 <span class="arithmatex">\(A\)</span> 的模最小特征值和对应的特征向量，因此有迭代格式
 $$
 \begin{aligned}
 &amp;Ay_k= z_{k-1}\
-&amp;\mu_k = \zeta_j^{(k)},\quad  |y_k|<em>{\infty} = \left|\zeta_j^{(k)}\right|\
+&amp;\mu_k = \zeta_j^{(k)},\quad  |y_k|_{\infty} = \left|\zeta_j^{(k)}\right|\
 &amp;z_k = y_k/\mu_k
 \end{aligned}
 $$
-由之前的讨论知道，若 $A$ 有特征值 $|\lambda_n|&lt;|\lambda</em>{n-1}|\le\cdots\le|\lambda_1|$，则 ${z_k}$ 收敛到 $A$ 对应于 $\lambda_n$ 的一个特征向量，而 ${\mu_k}$ 收敛于 $\lambda_n^{-1}$ 。</p>
-<p>在实际应用中，主要应用反幂法求解特征向量，在求得特征值 $\lambda_i$ 的近似值 $\widetilde{\lambda}<em>i$ 后，应用反幂法于 $A-\widetilde{\lambda}_iI$ 上，则有
+由之前的讨论知道，若 <span class="arithmatex">\(A\)</span> 有特征值 <span class="arithmatex">\(|\lambda_n|&lt;|\lambda_{n-1}|\le\cdots\le|\lambda_1|\)</span>，则 <span class="arithmatex">\(\{z_k\}\)</span> 收敛到 <span class="arithmatex">\(A\)</span> 对应于 <span class="arithmatex">\(\lambda_n\)</span> 的一个特征向量，而 <span class="arithmatex">\(\{\mu_k\}\)</span> 收敛于 <span class="arithmatex">\(\lambda_n^{-1}\)</span> 。</p>
+<p>在实际应用中，主要应用反幂法求解特征向量，在求得特征值 <span class="arithmatex">\(\lambda_i\)</span> 的近似值 <span class="arithmatex">\(\widetilde{\lambda}_i\)</span> 后，应用反幂法于 <span class="arithmatex">\(A-\widetilde{\lambda}_iI\)</span> 上，则有
 $$
-(A-\mu I)v_k = z</em>{k-1},\quad z_k = v_k/|v_k|_{\infty}
+(A-\mu I)v_k = z_{k-1},\quad z_k = v_k/|v_k|_{\infty}
 $$
 只需要每次求解线性方程组即可。</p>
 <p>如果假设特征值有
 $$
 0 &lt;|\lambda_1-\mu|&lt;|\lambda_2-\mu|\le|\lambda_3-\mu|\le\cdots\le|\lambda_n-\mu|
 $$
-则收敛速度取决于 $|\lambda_1-\mu|/|\lambda_2-\mu|$，则 $\mu$ 越靠近 $\lambda_1$，收敛越快；但是此时 $A-\mu I$ 会离一个奇异矩阵非常近，每次要解一个非常病态的线性方程组，好在其病态性不影响收敛速度，并且常常只需迭代一次就可以得到相当好的近似特征向量。事实上，求解该线性方程组的误差主要对解在特征子空间上的长度有影响，但我们只关心其方向。</p>
+则收敛速度取决于 <span class="arithmatex">\(|\lambda_1-\mu|/|\lambda_2-\mu|\)</span>，则 <span class="arithmatex">\(\mu\)</span> 越靠近 <span class="arithmatex">\(\lambda_1\)</span>，收敛越快；但是此时 <span class="arithmatex">\(A-\mu I\)</span> 会离一个奇异矩阵非常近，每次要解一个非常病态的线性方程组，好在其病态性不影响收敛速度，并且常常只需迭代一次就可以得到相当好的近似特征向量。事实上，求解该线性方程组的误差主要对解在特征子空间上的长度有影响，但我们只关心其方向。</p>
 <h4 id="_39">半次迭代法</h4>
 <p>我们可以随机地选取向量，进行规范化后作为初始向量，但更好的是采用半次迭代法：首先进行分解
 $$
@@ -17394,13 +17396,13 @@ $$
 $$
 P^TLUv_1 = z_0
 $$
-只需令 $z_0 = P^TLe$，其中 $e$ 是分量全为 $1$ 的向量，这样就只需要求解三角方程组
+只需令 <span class="arithmatex">\(z_0 = P^TLe\)</span>，其中 <span class="arithmatex">\(e\)</span> 是分量全为 <span class="arithmatex">\(1\)</span> 的向量，这样就只需要求解三角方程组
 $$
 Uv_1 = e
 $$
-这样一来，不需要明确给出初始向量 $z_0$，而完成这一次迭代就只需求解 “半次” 线性方程组。</p>
+这样一来，不需要明确给出初始向量 <span class="arithmatex">\(z_0\)</span>，而完成这一次迭代就只需求解 “半次” 线性方程组。</p>
 <h4 id="_40">复特征值迭代</h4>
-<p>应用反幂法于拟上三角阵 $A\in\mathbb{R}^{n\times n}$，具有形式
+<p>应用反幂法于拟上三角阵 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，具有形式
 $$
 A = \left(
 \begin{matrix}
@@ -17411,15 +17413,15 @@ A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1k}\
 \end{matrix}
 \right)
 $$
-其中 $A_{ii}$ 是实数或二阶矩阵，考虑一种求取 $A$ 全部特征向量的数值方法；</p>
-<p>首先，对于其中每一个 $A_{ii}$，如果它是实数，直接应用反幂法即可；否则，我们假设其有特征值 $a+bi$，则反幂法有格式
+其中 <span class="arithmatex">\(A_{ii}\)</span> 是实数或二阶矩阵，考虑一种求取 <span class="arithmatex">\(A\)</span> 全部特征向量的数值方法；</p>
+<p>首先，对于其中每一个 <span class="arithmatex">\(A_{ii}\)</span>，如果它是实数，直接应用反幂法即可；否则，我们假设其有特征值 <span class="arithmatex">\(a+bi\)</span>，则反幂法有格式
 $$
 \begin{aligned}
 &amp;(A-aI-ibI)y_{k+1} = u_k\
 &amp;u_{k+1} = y_{k+1}/\mu_{k+1}
 \end{aligned}
 $$
-可以将虚实部分开迭代，设 $y_{k+1} = x_{k+1}+iz_{k+1},\ u_k=p_k+iq_k$，那么
+可以将虚实部分开迭代，设 <span class="arithmatex">\(y_{k+1} = x_{k+1}+iz_{k+1},\ u_k=p_k+iq_k\)</span>，那么
 $$
 \begin{aligned}
 &amp;(A-aI)x_{k+1}+bz_{k+1} = p_k\
@@ -17437,7 +17439,7 @@ $$
 <h3 id="qr">QR 方法</h3>
 <p>QR 方法是利用正交相似变换将给定矩阵逐步约化为上三角阵或拟上三角阵的迭代方法，其基本收敛速度是二次的。</p>
 <h4 id="_41">基本迭代与收敛性</h4>
-<p>给定 $A_0 = A\in\mathbb{C}^{n\times n}$， QR 算法的基本迭代格式为
+<p>给定 <span class="arithmatex">\(A_0 = A\in\mathbb{C}^{n\times n}\)</span>， QR 算法的基本迭代格式为
 $$
 \begin{aligned}
 &amp;A_{m-1} = Q_mR_m,\
@@ -17445,15 +17447,15 @@ $$
 \end{aligned}
 \quad m = 1,2,\cdots
 $$
-其中 $Q_m$ 为酉矩阵，$R_m$ 为上三角阵。为了分析方便，我们先假定 $R_m$ 对角元非负，则
+其中 <span class="arithmatex">\(Q_m\)</span> 为酉矩阵，<span class="arithmatex">\(R_m\)</span> 为上三角阵。为了分析方便，我们先假定 <span class="arithmatex">\(R_m\)</span> 对角元非负，则
 $$
 A_m = Q_m^<em>A_{m-1}Q_m
 $$
-即矩阵序列 ${A_m}$ 中每个矩阵都与 $A$ 相似。反复应用迭代格式有
+即矩阵序列 <span class="arithmatex">\(\{A_m\}\)</span> 中每个矩阵都与 <span class="arithmatex">\(A\)</span> 相似。反复应用迭代格式有
 $$
 A_m = \widetilde{Q}_m^</em>A\widetilde{Q}<em>m,\quad \widetilde{Q}_m = Q_1Q_2\cdots Q_m
 $$
-再代入 $A_m = R_mQ_m$ 有
+再代入 <span class="arithmatex">\(A_m = R_mQ_m\)</span> 有
 $$
 \widetilde{Q}_mQ</em>{m+1}R_{m+1} = A\widetilde{Q}<em>m
 $$
@@ -17469,15 +17471,15 @@ $$
 $$
 A^m = \widetilde{Q}<em>{m}\widetilde{R}</em>{m}
 $$
-利用这一基本关系式，我们导出 QR 算法和幂法的关系。记 $\widetilde{R}<em>{m}$ 元素为 $\gamma</em>{ij}$，$\widetilde{Q}<em>{m}$ 第一列为 $q_1^{(m)}$，则有
+利用这一基本关系式，我们导出 QR 算法和幂法的关系。记 <span class="arithmatex">\(\widetilde{R}_{m}\)</span> 元素为 <span class="arithmatex">\(\gamma_{ij}\)</span>，<span class="arithmatex">\(\widetilde{Q}_{m}\)</span> 第一列为 <span class="arithmatex">\(q_1^{(m)}\)</span>，则有
 $$
-A^me_1 = \gamma</em>{11}q_1^{(m)}
+A^me_1 = \gamma_{11}q_1^{(m)}
 $$
-那么 $q_1^{(m)}$ 可看做以 $e_1$ 为初始向量的幂法得到的向量。若 $A$ 的模最大特征值 $\lambda_1$ 与其它特征值分离，则 $q_1^{(m)}$ 将收敛到对应的特征向量。</p>
-<p><strong>定理 6.6.6</strong> 设 $A$ 的 $n$ 个特征值满足 $|\lambda_1|&gt;|\lambda_2|&gt;\cdots&gt;|\lambda_n|&gt;0$，并设 $n$ 阶方阵 $Y$ 的第 $i$ 行是 $\lambda_i$ 的特征向量，如果 $Y$ 有 LU 分解，则上述迭代格式得到的矩阵序列 ${A_m}$ 对角线以下元素趋于 $0$，并且对角元 $\alpha_{ii}^{(m)}$ 趋于 $\lambda_i$ 。</p>
+那么 <span class="arithmatex">\(q_1^{(m)}\)</span> 可看做以 <span class="arithmatex">\(e_1\)</span> 为初始向量的幂法得到的向量。若 <span class="arithmatex">\(A\)</span> 的模最大特征值 <span class="arithmatex">\(\lambda_1\)</span> 与其它特征值分离，则 <span class="arithmatex">\(q_1^{(m)}\)</span> 将收敛到对应的特征向量。</p>
+<p><strong>定理 6.6.6</strong> 设 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(n\)</span> 个特征值满足 <span class="arithmatex">\(|\lambda_1|&gt;|\lambda_2|&gt;\cdots&gt;|\lambda_n|&gt;0\)</span>，并设 <span class="arithmatex">\(n\)</span> 阶方阵 <span class="arithmatex">\(Y\)</span> 的第 <span class="arithmatex">\(i\)</span> 行是 <span class="arithmatex">\(\lambda_i\)</span> 的特征向量，如果 <span class="arithmatex">\(Y\)</span> 有 LU 分解，则上述迭代格式得到的矩阵序列 <span class="arithmatex">\(\{A_m\}\)</span> 对角线以下元素趋于 <span class="arithmatex">\(0\)</span>，并且对角元 <span class="arithmatex">\(\alpha_{ii}^{(m)}\)</span> 趋于 <span class="arithmatex">\(\lambda_i\)</span> 。</p>
 <h4 id="schur">实 Schur 标准型</h4>
 <p>我们希望有只涉及实数运算的 QR 迭代，但由于复共轭特征值的存在，我们不能期望迭代格式得到的矩阵序列逼近上三角阵，事实上我们有</p>
-<p><strong>定理 6.6.6 （实 Schur 分解）</strong> 设 $A\in\mathbb{R}^{n\times n}$，则存在正交阵 $Q$ 使得
+<p><strong>定理 6.6.6 （实 Schur 分解）</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，则存在正交阵 <span class="arithmatex">\(Q\)</span> 使得
 $$
 Q^TAQ = \left(
 \begin{matrix}
@@ -17488,7 +17490,7 @@ R_{11} &amp; R_{12} &amp; \cdots &amp; R_{1m}\
 \end{matrix}
 \right)
 $$
-其中 $R_{ii}$ 是一个实数或具有复共轭特征值的 $2$ 阶方阵。</p>
+其中 <span class="arithmatex">\(R_{ii}\)</span> 是一个实数或具有复共轭特征值的 <span class="arithmatex">\(2\)</span> 阶方阵。</p>
 <p>我们自然想到迭代格式
 $$
 \begin{aligned}
@@ -17497,14 +17499,14 @@ $$
 \end{aligned}
 \quad m = 1,2,\cdots
 $$
-其中 $Q_m$ 是正交阵，$R_m$ 是上三角阵，并且此迭代格式收敛于实 Schur 标准型；然而，此迭代格式每次迭代运算量太大，收敛太慢，因此并不实用，我们需要进行优化。</p>
+其中 <span class="arithmatex">\(Q_m\)</span> 是正交阵，<span class="arithmatex">\(R_m\)</span> 是上三角阵，并且此迭代格式收敛于实 Schur 标准型；然而，此迭代格式每次迭代运算量太大，收敛太慢，因此并不实用，我们需要进行优化。</p>
 <h4 id="hessenberg">上 Hessenberg 化</h4>
-<p>实际计算时，总是将 $A$ 约化为准上三角阵，再对约化后的矩阵进行迭代；</p>
-<p>设 $A\in\mathbb{R}^{n\times n}$，我们希望得到一个非奇异矩阵 $Q$ 使得
+<p>实际计算时，总是将 <span class="arithmatex">\(A\)</span> 约化为准上三角阵，再对约化后的矩阵进行迭代；</p>
+<p>设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，我们希望得到一个非奇异矩阵 <span class="arithmatex">\(Q\)</span> 使得
 $$
 \widetilde{A} = QAQ^{-1}
 $$
-具有某种特殊形式，我们考虑 Householder 变换 $H_1$ 使 $A$ 的第一列有尽可能多的零元素，然而为了保证相似变换，还需要右乘 $H_1$，为了保证 $H_1A$ 第一列的零元素不被破坏掉，选取
+具有某种特殊形式，我们考虑 Householder 变换 <span class="arithmatex">\(H_1\)</span> 使 <span class="arithmatex">\(A\)</span> 的第一列有尽可能多的零元素，然而为了保证相似变换，还需要右乘 <span class="arithmatex">\(H_1\)</span>，为了保证 <span class="arithmatex">\(H_1A\)</span> 第一列的零元素不被破坏掉，选取
 $$
 H_1 = \left(
 \begin{matrix}
@@ -17526,7 +17528,7 @@ $$
 $$
 \widetilde{H}_1a_1 = pe_1
 $$
-这样第一列就有 $n-2$ 个零元素，以此类推得到上 Hessenberg 矩阵
+这样第一列就有 <span class="arithmatex">\(n-2\)</span> 个零元素，以此类推得到上 Hessenberg 矩阵
 $$
 H = \left(
 \begin{matrix}
@@ -17547,28 +17549,28 @@ $$
 $$
 Q_0^TAQ_0 = H
 $$
-该分解式就称为 $A$ 的上 Hessenberg 分解。</p>
-<p><strong>定理 6.6.6</strong> 设 $A\in\mathbb{R}^{n\times n}$ 有如下两个上 Hessenberg 分解
+该分解式就称为 <span class="arithmatex">\(A\)</span> 的上 Hessenberg 分解。</p>
+<p><strong>定理 6.6.6</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 有如下两个上 Hessenberg 分解
 $$
 U^TAU = H,\quad V^TAV = G
 $$
-若 $U,\ V$ 第一列相同，且 $H$ 的次对角元 $h_{i+1,i} \neq 0$，则存在对角元均为 $1$ 或 $-1$ 的对角阵 $D$ 使得
+若 <span class="arithmatex">\(U,\ V\)</span> 第一列相同，且 <span class="arithmatex">\(H\)</span> 的次对角元 <span class="arithmatex">\(h_{i+1,i} \neq 0\)</span>，则存在对角元均为 <span class="arithmatex">\(1\)</span> 或 <span class="arithmatex">\(-1\)</span> 的对角阵 <span class="arithmatex">\(D\)</span> 使得
 $$
 U = VD,\quad H = DGD
 $$
- 一个上 Hessenberg 矩阵 $H$，如果次对角元 $h_{i+1,i} \neq 0$，则称它不可约。上述定理表明，如果 $Q^TAQ = H$ 不可约，则 $Q,\ H$ 在相差一个正负号的意义下，由 $Q$ 的第一列确定。</p>
-<p>我们尝试通过平面旋转实现对 $H$ 的 QR 分解，事实上，我们只需要对对角块应用 Givens 变换即可，得到
+ 一个上 Hessenberg 矩阵 <span class="arithmatex">\(H\)</span>，如果次对角元 <span class="arithmatex">\(h_{i+1,i} \neq 0\)</span>，则称它不可约。上述定理表明，如果 <span class="arithmatex">\(Q^TAQ = H\)</span> 不可约，则 <span class="arithmatex">\(Q,\ H\)</span> 在相差一个正负号的意义下，由 <span class="arithmatex">\(Q\)</span> 的第一列确定。</p>
+<p>我们尝试通过平面旋转实现对 <span class="arithmatex">\(H\)</span> 的 QR 分解，事实上，我们只需要对对角块应用 Givens 变换即可，得到
 $$
 P_{n-1,n}P_{n-2,n-1}\cdots P_{12}H = R
 $$
-其中 $P_{ij}$ 是对 $(i,j)$ 平面的旋转变换，$R$ 是上三角阵，令 $Q^T = P_{n-1,n}P_{n-2,n-1}\cdots P_{12}$，则 $H = QR$，完成分解；接着进行的迭代
+其中 <span class="arithmatex">\(P_{ij}\)</span> 是对 <span class="arithmatex">\((i,j)\)</span> 平面的旋转变换，<span class="arithmatex">\(R\)</span> 是上三角阵，令 <span class="arithmatex">\(Q^T = P_{n-1,n}P_{n-2,n-1}\cdots P_{12}\)</span>，则 <span class="arithmatex">\(H = QR\)</span>，完成分解；接着进行的迭代
 $$
 \widetilde{H} = RQ = RP_{12}^TP_{23}^T\cdots P_{n-1,n}^T
 $$
-容易发现 $\widetilde{H}$ 仍为上 Hessenberg 矩阵。</p>
+容易发现 <span class="arithmatex">\(\widetilde{H}\)</span> 仍为上 Hessenberg 矩阵。</p>
 <h4 id="qr_1">带原点位移的 QR 迭代</h4>
 <p>由于基本 QR 迭代是线性收敛的，其收敛速度取决于特征值之间的分离程度。为了加速收敛，可考虑进行原点位移。</p>
-<p>设第 $m$ 步迭代位移为 $\mu_m$，则带原点位移的 QR 迭代格式为
+<p>设第 <span class="arithmatex">\(m\)</span> 步迭代位移为 <span class="arithmatex">\(\mu_m\)</span>，则带原点位移的 QR 迭代格式为
 $$
 \begin{aligned}
 &amp;H_{m}-\mu_m I = Q_mR_m,\
@@ -17576,8 +17578,8 @@ $$
 \end{aligned}
 \quad m = 0,1,\cdots
 $$
-其中 $H_0$ 是给定的上 Hessenberg 矩阵。</p>
-<p>由于 $H_m$ 是上 Hessenberg 阵，因此如果它收敛，那么其最后一行的两个非负元素中 $h_{n,n-1}$ 很小，$h_{nn}$ 接近 $H$ 的特征值，这样我们选取 $\mu_m = h_{nn}^{(m)}$，可以证明若 $h_{n,n-1}^{(m)}=\epsilon$，则 $h_{n,n-1}^{(m+1)}=O(\epsilon^2)$，事实上只需要考虑最后一步 Givens 变换作用于
+其中 <span class="arithmatex">\(H_0\)</span> 是给定的上 Hessenberg 矩阵。</p>
+<p>由于 <span class="arithmatex">\(H_m\)</span> 是上 Hessenberg 阵，因此如果它收敛，那么其最后一行的两个非负元素中 <span class="arithmatex">\(h_{n,n-1}\)</span> 很小，<span class="arithmatex">\(h_{nn}\)</span> 接近 <span class="arithmatex">\(H\)</span> 的特征值，这样我们选取 <span class="arithmatex">\(\mu_m = h_{nn}^{(m)}\)</span>，可以证明若 <span class="arithmatex">\(h_{n,n-1}^{(m)}=\epsilon\)</span>，则 <span class="arithmatex">\(h_{n,n-1}^{(m+1)}=O(\epsilon^2)\)</span>，事实上只需要考虑最后一步 Givens 变换作用于
 $$
 \widetilde{H}<em>{m2} =  \left(
 \begin{matrix}
@@ -17586,14 +17588,14 @@ $$
 \end{matrix}
 \right)
 $$
-注意右下角 $h</em>{nn}^{(m)}$ 已被位移消除，则变换结果得到
+注意右下角 <span class="arithmatex">\(h_{nn}^{(m)}\)</span> 已被位移消除，则变换结果得到
 $$
-h_{n,n-1}^{(m+1)} = -s^2\beta = -\dfrac{\beta}{\sigma^2}\epsilon^2
+h</em>{n,n-1}^{(m+1)} = -s^2\beta = -\dfrac{\beta}{\sigma^2}\epsilon^2
 $$
 从而加速为二次收敛。</p>
 <h4 id="qr_2">双重步位移的 QR 迭代</h4>
-<p>上面的带原点位移的 QR 迭代有严重缺陷：若 $A$ 具有复共轭特征值，则实位移一般不能起到加速作用，于是我们考虑将两步带原点位移的 QR 迭代合为一步，以避免复数运算。</p>
-<p>设 $A\in\mathbb{R}^{n\times n}$，考虑迭代格式
+<p>上面的带原点位移的 QR 迭代有严重缺陷：若 <span class="arithmatex">\(A\)</span> 具有复共轭特征值，则实位移一般不能起到加速作用，于是我们考虑将两步带原点位移的 QR 迭代合为一步，以避免复数运算。</p>
+<p>设 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span>，考虑迭代格式
 $$
 \begin{aligned}
 &amp;H_1 = Q_0^TAQ_0,\
@@ -17603,14 +17605,14 @@ $$
 \quad k = 1,2,\cdots
 $$
 我们假定迭代格式中的上 Hessenberg 阵都不可约，否则可以进行分块迭代；</p>
-<p>由于实矩阵可能有复特征值，因此对于有复共轭特征值 $\mu_1,\ \mu_2$ 的右下角矩阵，不能期望 $h_{nn}^{(k)}$ 收敛于特征值，这时应当选取某个特征值位移，但这样会涉及复数运算。为了避免这一问题，可以同时进行两次位移
+<p>由于实矩阵可能有复特征值，因此对于有复共轭特征值 <span class="arithmatex">\(\mu_1,\ \mu_2\)</span> 的右下角矩阵，不能期望 <span class="arithmatex">\(h_{nn}^{(k)}\)</span> 收敛于特征值，这时应当选取某个特征值位移，但这样会涉及复数运算。为了避免这一问题，可以同时进行两次位移
 $$
 \begin{aligned}
 &amp;H - \mu_1I = U_1R_1,\quad H_1 = R_1U_1 + \mu_1I,\
 &amp;H_1 - \mu_2I = U_2R_2,\quad H_2 = R_2U_2 + \mu_2I
 \end{aligned}
 $$
-记 $H = H_k$，则有
+记 <span class="arithmatex">\(H = H_k\)</span>，则有
 $$
 M = QR,\quad H_2 = Q^<em>HQ
 $$
@@ -17626,14 +17628,14 @@ $$
 $$
 M = H^2 -sH+tI,\quad s = \mu_1+\mu_2 = h_{mm}^{(k)} + h_{nn}^{(k)},\ t = \mu_1\mu_2 = \det G_k\in\mathbb{R}
 $$
-因此 $M$ 是实矩阵，这样一来我们自然想到计算两步迭代的步骤：</p>
-<p>1。 计算 $M = H^2-sH+tI$ 
-2。 计算 $M = QR$ 分解
-3。 计算 $H_2 = Q^THQ$ </p>
+因此 <span class="arithmatex">\(M\)</span> 是实矩阵，这样一来我们自然想到计算两步迭代的步骤：</p>
+<p>1。 计算 <span class="arithmatex">\(M = H^2-sH+tI\)</span> 
+2。 计算 <span class="arithmatex">\(M = QR\)</span> 分解
+3。 计算 <span class="arithmatex">\(H_2 = Q^THQ\)</span> </p>
 <p>但第一步的计算量就已经很大，幸运的是我们有</p>
-<p><strong>定理 6.6.6</strong> 若 $H$ 是不可约上 Hessenberg 矩阵，且 $\mu_1,\ \mu_2$ 均非 $H$ 的特征值，则 $H_2$ 也是不可约上 Hessenberg 矩阵。</p>
-<p>根据之前的定理，只需计算一个正交阵 $\widetilde{Q}$ 使得 $\widetilde{Q}^TH\widetilde{Q} = \widetilde{H}_2$，只要 $\widetilde{Q}$ 和 $Q$ 第一列相同，那么 $\widetilde{H}_2$ 和 $H_2$ 在相差正负号的意义上是相同的。我们通过另外的途径实现 $H$ 到 $H_2$ 的变换；</p>
-<p>首先，由于 $M = QR$，$R$ 为上三角阵，因此 $Q,\ M$ 第一列共线，实际上由于 $Q$ 每个列向量都是标准化的，因此 $Q$ 第一列就是 $M$ 第一列单位化得到的。计算 $M = H^2 -sH + tI$ 得到
+<p><strong>定理 6.6.6</strong> 若 <span class="arithmatex">\(H\)</span> 是不可约上 Hessenberg 矩阵，且 <span class="arithmatex">\(\mu_1,\ \mu_2\)</span> 均非 <span class="arithmatex">\(H\)</span> 的特征值，则 <span class="arithmatex">\(H_2\)</span> 也是不可约上 Hessenberg 矩阵。</p>
+<p>根据之前的定理，只需计算一个正交阵 <span class="arithmatex">\(\widetilde{Q}\)</span> 使得 <span class="arithmatex">\(\widetilde{Q}^TH\widetilde{Q} = \widetilde{H}_2\)</span>，只要 <span class="arithmatex">\(\widetilde{Q}\)</span> 和 <span class="arithmatex">\(Q\)</span> 第一列相同，那么 <span class="arithmatex">\(\widetilde{H}_2\)</span> 和 <span class="arithmatex">\(H_2\)</span> 在相差正负号的意义上是相同的。我们通过另外的途径实现 <span class="arithmatex">\(H\)</span> 到 <span class="arithmatex">\(H_2\)</span> 的变换；</p>
+<p>首先，由于 <span class="arithmatex">\(M = QR\)</span>，<span class="arithmatex">\(R\)</span> 为上三角阵，因此 <span class="arithmatex">\(Q,\ M\)</span> 第一列共线，实际上由于 <span class="arithmatex">\(Q\)</span> 每个列向量都是标准化的，因此 <span class="arithmatex">\(Q\)</span> 第一列就是 <span class="arithmatex">\(M\)</span> 第一列单位化得到的。计算 <span class="arithmatex">\(M = H^2 -sH + tI\)</span> 得到
 $$
 Me_1 = (\xi_1,\xi_2,\xi_3,0,\cdots,0)^T
 $$
@@ -17645,17 +17647,17 @@ $$
 &amp;\xi_2 = h_{21}^{(k)}h_{32}^{(k)}
 \end{aligned}
 $$
-其次，考虑作用于 $Me_1$ 的 Householder 变换 $P_0Me_1 = \alpha e_1$，同样有 $P_0$ 第一列与 $Me_1$ 共线，我们直接把 $P_0$ 的第一列作为 $Q$ 的第一列，即 $P_0e_1 = Qe_1$，而 $P_0$ 可由上面的 $Me_1$ 得到。</p>
-<p>现在， 我们寻找一个正交阵 $\widetilde{Q}$，使其第一列为 $e_1$，那么
+其次，考虑作用于 <span class="arithmatex">\(Me_1\)</span> 的 Householder 变换 <span class="arithmatex">\(P_0Me_1 = \alpha e_1\)</span>，同样有 <span class="arithmatex">\(P_0\)</span> 第一列与 <span class="arithmatex">\(Me_1\)</span> 共线，我们直接把 <span class="arithmatex">\(P_0\)</span> 的第一列作为 <span class="arithmatex">\(Q\)</span> 的第一列，即 <span class="arithmatex">\(P_0e_1 = Qe_1\)</span>，而 <span class="arithmatex">\(P_0\)</span> 可由上面的 <span class="arithmatex">\(Me_1\)</span> 得到。</p>
+<p>现在， 我们寻找一个正交阵 <span class="arithmatex">\(\widetilde{Q}\)</span>，使其第一列为 <span class="arithmatex">\(e_1\)</span>，那么
 $$
 P_0\widetilde{Q}e_1 = P_0e_1 = Qe_1
 $$
-这意味着 $P_0\widetilde{Q}$ 和 $Q$ 第一列相同，那么有
+这意味着 <span class="arithmatex">\(P_0\widetilde{Q}\)</span> 和 <span class="arithmatex">\(Q\)</span> 第一列相同，那么有
 $$
 H_2 = Q^THQ,\quad \widetilde{H}_2 = (P_0\widetilde{Q})^TH(P_0\widetilde{Q}) = \widetilde{Q}^T(P_0^THP_0)\widetilde{Q} = \widetilde{Q}^T(P_0HP_0)\widetilde{Q}
 $$
-根据之前的定理，$H_2$ 和 $\widetilde{H}_2$ 在差正负号的意义下相同，我们就直接取 $H_2 = \widetilde{H}_2$ 即可；</p>
-<p>最后，考虑求取 $\widetilde{Q}$，由 $P_0$ 的形式，它只改变 $H$ 的前三行和前三列，即
+根据之前的定理，<span class="arithmatex">\(H_2\)</span> 和 <span class="arithmatex">\(\widetilde{H}_2\)</span> 在差正负号的意义下相同，我们就直接取 <span class="arithmatex">\(H_2 = \widetilde{H}_2\)</span> 即可；</p>
+<p>最后，考虑求取 <span class="arithmatex">\(\widetilde{Q}\)</span>，由 <span class="arithmatex">\(P_0\)</span> 的形式，它只改变 <span class="arithmatex">\(H\)</span> 的前三行和前三列，即
 $$
 P_0HP_0 = \left(
 \begin{matrix}
@@ -17669,7 +17671,7 @@ P_0HP_0 = \left(
 \end{matrix}
 \right)
 $$
-接着对第一列，进行 Householder 变换 $P_1$，为了不破坏形式，我们只变换第二行到第四行，即 $P_1 = \mathrm{diag}(1, \widetilde{P}<em>1, I</em>{n-4})$，则有
+接着对第一列，进行 Householder 变换 <span class="arithmatex">\(P_1\)</span>，为了不破坏形式，我们只变换第二行到第四行，即 <span class="arithmatex">\(P_1 = \mathrm{diag}(1, \widetilde{P}_1, I_{n-4})\)</span>，则有
 $$
 P_1P_0HP_0P_1 = \left(
 \begin{matrix}
@@ -17683,49 +17685,49 @@ P_1P_0HP_0P_1 = \left(
 \end{matrix}
 \right)
 $$
-以此类推，每一步 $P_k$ 变换三行三列，直到最后一步为
+以此类推，每一步 <span class="arithmatex">\(P_k\)</span> 变换三行三列，直到最后一步为
 $$
 P_{n-2} = \mathrm{diag}(I_{n-2},\widetilde{P}<em>{n-2})
 $$
-这里 $P</em>{n-2}$ 是二阶 Householder 变换。于是
+这里 <span class="arithmatex">\(P_{n-2}\)</span> 是二阶 Householder 变换。于是
 $$
-\widetilde{Q} = P_1P_2\cdots P_{n-2}
+\widetilde{Q} = P_1P_2\cdots P</em>{n-2}
 $$
-观察得到 $\widetilde{Q}e_1 = e_1$，因此得到满足条件的正交阵。</p>
+观察得到 <span class="arithmatex">\(\widetilde{Q}e_1 = e_1\)</span>，因此得到满足条件的正交阵。</p>
 <h4 id="qr_3">隐式 QR 算法</h4>
 <p>我们给出上述方法收敛的判定准则：当
 $$
 |h_{i+1,i}|\le (|h_{ii}|+|h_{i+1,i+1}|)\epsilon_u
 $$
-时，就将 $h_{i+1,i}$ 看做零；接着给出如下隐式 QR 算法，它计算 $n$ 阶实矩阵 $A$ 的实 Schur 分解 $Q^TAQ = T$，其中 $T$ 是拟上三角阵，即对角块为实数或二阶方阵的上三角阵。</p>
+时，就将 <span class="arithmatex">\(h_{i+1,i}\)</span> 看做零；接着给出如下隐式 QR 算法，它计算 <span class="arithmatex">\(n\)</span> 阶实矩阵 <span class="arithmatex">\(A\)</span> 的实 Schur 分解 <span class="arithmatex">\(Q^TAQ = T\)</span>，其中 <span class="arithmatex">\(T\)</span> 是拟上三角阵，即对角块为实数或二阶方阵的上三角阵。</p>
 <p><strong>算法 6.6.6 （隐式 QR）</strong></p>
 <ul>
 <li>
-<p>计算 $A$ 的上 Hessenberg 分解： $H = U_0^TAU_0,\ Q=U_0$ </p>
+<p>计算 <span class="arithmatex">\(A\)</span> 的上 Hessenberg 分解： <span class="arithmatex">\(H = U_0^TAU_0,\ Q=U_0\)</span> </p>
 </li>
 <li>
 <p>收敛性判定</p>
 <ul>
-<li>将满足 $|h_{i+1,i}|\le (|h_{ii}|+|h_{i+1,i+1}|)\epsilon_u$ 的 $h_{i+1,i}$ 归零</li>
-<li>确定最大的非负整数 $m$ 和最小的非负整数 $l$ 使得</li>
+<li>将满足 <span class="arithmatex">\(|h_{i+1,i}|\le (|h_{ii}|+|h_{i+1,i+1}|)\epsilon_u\)</span> 的 <span class="arithmatex">\(h_{i+1,i}\)</span> 归零</li>
+<li>确定最大的非负整数 <span class="arithmatex">\(m\)</span> 和最小的非负整数 <span class="arithmatex">\(l\)</span> 使得</li>
 </ul>
-<p>$$
+<div class="arithmatex">\[
 H = \left(
 \begin{matrix}
-H_{11} &amp; H_{12} &amp; H_{13}\
-0 &amp; H_{22} &amp; H_{23}\
+H_{11} &amp; H_{12} &amp; H_{13}\\
+0 &amp; H_{22} &amp; H_{23}\\
 0 &amp; 0 &amp; H_{33}
 \end{matrix}
 \right)
 \begin{aligned}
-&amp;\tiny{l}\
-&amp;\tiny{n-l-m}\
+&amp;\tiny{l}\\
+&amp;\tiny{n-l-m}\\
 &amp;\tiny{m}
 \end{aligned}
-$$</p>
-<p>其中 $H_{33}$ 是约化完成的拟上三角阵，而 $H_{22}$ 是不可约上 Hessenberg 矩阵</p>
+\]</div>
+<p>其中 <span class="arithmatex">\(H_{33}\)</span> 是约化完成的拟上三角阵，而 <span class="arithmatex">\(H_{22}\)</span> 是不可约上 Hessenberg 矩阵</p>
 <ul>
-<li>如果 $m=n$ 退出，否则继续</li>
+<li>如果 <span class="arithmatex">\(m=n\)</span> 退出，否则继续</li>
 </ul>
 </li>
 <li>
@@ -17734,16 +17736,16 @@ $$</p>
 </ul>
 <h2 id="_42">对称特征值问题的计算方法</h2>
 <h3 id="_43">基本性质</h3>
-<p><strong>定理 7.7.7 （谱分解定理）</strong> 若 $A\in\mathbb{R}^{n\times n}$ 是对称的，则存在正交阵 $Q$ 使得
+<p><strong>定理 7.7.7 （谱分解定理）</strong> 若 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 是对称的，则存在正交阵 <span class="arithmatex">\(Q\)</span> 使得
 $$
 Q^TAQ = \Lambda = \mathrm{diag}(\lambda_1,\cdots,\lambda_n)
 $$
-<strong>定理 7.7.7 （极小极大定理）</strong> 若 $A\in\mathbb{R}^{n\times n}$ 是对称阵，并有特征值 $\lambda_1\ge\cdots\ge\lambda_n$，则有
+<strong>定理 7.7.7 （极小极大定理）</strong> 若 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 是对称阵，并有特征值 <span class="arithmatex">\(\lambda_1\ge\cdots\ge\lambda_n\)</span>，则有
 $$
 \lambda_i = \max_{\mathcal{X}\in\mathcal{G}<em>i^n}\min</em>{0\neq u\in\mathcal{X}}\dfrac{u^TAu}{u^Tu} = \min_{\mathcal{X}\in\mathcal{G}<em>{n-i+1}^n}\max</em>{0\neq u\in\mathcal{X}}\dfrac{u^TAu}{u^Tu}
 $$
-其中 $\mathcal{G}_k^n$ 表示 $\mathbb{R}^n$ 中所有 $k$ 维子空间全体。</p>
-<p><strong>定理 7.7.7 （Weyl 定理）</strong> 设 $n$ 阶对称矩阵 $A$ 和 $B$ 的特征值分别为
+其中 <span class="arithmatex">\(\mathcal{G}_k^n\)</span> 表示 <span class="arithmatex">\(\mathbb{R}^n\)</span> 中所有 <span class="arithmatex">\(k\)</span> 维子空间全体。</p>
+<p><strong>定理 7.7.7 （Weyl 定理）</strong> 设 <span class="arithmatex">\(n\)</span> 阶对称矩阵 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 的特征值分别为
 $$
 \lambda_1\ge\cdots\ge\lambda_n,\quad \mu_1\ge\cdots\ge\mu_n
 $$
@@ -17752,7 +17754,7 @@ $$
 |\lambda_i-\mu_i|\le |A-B|_2,\quad i=1,\cdots,n
 $$
 这一定理表明对称矩阵的特征值总是非常良态的。</p>
-<p><strong>定理 7.7.7</strong> 设 $A$ 和 $A+E$ 是两个 $n$ 阶实对称矩阵，假定 $q_1$ 是 $A$ 的一个单位特征向量，$Q = [q_1,Q_2]$ 是 $n$ 阶正交矩阵，$Q^TAQ$ 和 $Q^TEQ$ 分块如下
+<p><strong>定理 7.7.7</strong> 设 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(A+E\)</span> 是两个 <span class="arithmatex">\(n\)</span> 阶实对称矩阵，假定 <span class="arithmatex">\(q_1\)</span> 是 <span class="arithmatex">\(A\)</span> 的一个单位特征向量，<span class="arithmatex">\(Q = [q_1,Q_2]\)</span> 是 <span class="arithmatex">\(n\)</span> 阶正交矩阵，<span class="arithmatex">\(Q^TAQ\)</span> 和 <span class="arithmatex">\(Q^TEQ\)</span> 分块如下
 $$
 Q^TAQ = \left(
 \begin{matrix}
@@ -17771,13 +17773,13 @@ $$
 $$
 d = \min_{\mu\in\lambda(D_2)}|\lambda-\mu| &gt; 0,\quad |E|_2\le \dfrac{1}{4}d
 $$
-则存在 $A+E$ 的一个单位特征向量 $\widetilde{q}_1$ 使得
+则存在 <span class="arithmatex">\(A+E\)</span> 的一个单位特征向量 <span class="arithmatex">\(\widetilde{q}_1\)</span> 使得
 $$
 \sin\theta = \sqrt{1-\left|q_1^T\widetilde{q}_1\right|^2} \le \dfrac{4}{d}|e|_2 \le \dfrac{4}{d}|E|_2
 $$
-其中 $\theta$ 是 $q_1,\ \widetilde{q}_1$ 之间所夹的锐角；</p>
+其中 <span class="arithmatex">\(\theta\)</span> 是 <span class="arithmatex">\(q_1,\ \widetilde{q}_1\)</span> 之间所夹的锐角；</p>
 <p>此定理表明，特征向量的敏感性依赖于对应的特征值与其它特征值之间的分离程度。</p>
-<p><strong>定理 7。15 （SVD 分解定理）</strong> 设 $A\in\mathbb{R}^{m\times n}$，则存在正交阵 $U\in\mathbb{R}^{m\times m}$ 和 $V\in\mathbb{R}^{n\times n}$，使得
+<p><strong>定理 7。15 （SVD 分解定理）</strong> 设 <span class="arithmatex">\(A\in\mathbb{R}^{m\times n}\)</span>，则存在正交阵 <span class="arithmatex">\(U\in\mathbb{R}^{m\times m}\)</span> 和 <span class="arithmatex">\(V\in\mathbb{R}^{n\times n}\)</span>，使得
 $$
 U^TAV = \left(
 \begin{matrix}
@@ -17786,8 +17788,8 @@ U^TAV = \left(
 \end{matrix}
 \right),\quad \Sigma_r = \mathrm{diag}(\sigma_1,\cdots,\sigma_r),\ \sigma_1\ge\sigma_2\ge\cdots\ge\sigma_r&gt;0
 $$
-称 $\sigma_i$ 为 $A$ 的奇异值，$U,\ V$ 的列向量分别称为 $A$ 的左右奇异向量。</p>
-<p><strong>证明</strong> 我们考虑实对称阵 $A^TA$，则有实特征值 $\lambda_i,\ i=1,\cdots,n$，以及对应的标准正交特征向量 $v_1,\cdots,v_n$，这是由实对称阵合同于对角元全为特征值的对角阵得到的。这样可取 $Av_1,\cdots,Av_n\in\mathbb{R}^m$，我们有
+称 <span class="arithmatex">\(\sigma_i\)</span> 为 <span class="arithmatex">\(A\)</span> 的奇异值，<span class="arithmatex">\(U,\ V\)</span> 的列向量分别称为 <span class="arithmatex">\(A\)</span> 的左右奇异向量。</p>
+<p><strong>证明</strong> 我们考虑实对称阵 <span class="arithmatex">\(A^TA\)</span>，则有实特征值 <span class="arithmatex">\(\lambda_i,\ i=1,\cdots,n\)</span>，以及对应的标准正交特征向量 <span class="arithmatex">\(v_1,\cdots,v_n\)</span>，这是由实对称阵合同于对角元全为特征值的对角阵得到的。这样可取 <span class="arithmatex">\(Av_1,\cdots,Av_n\in\mathbb{R}^m\)</span>，我们有
 $$
 v_i^Tv_j =
 \begin{cases}
@@ -17800,30 +17802,30 @@ v_i^Tv_j =
 0, &amp; i\neq j
 \end{cases}
 $$
-也就是说，只要 $\lambda_j\neq 0$，就有 $Av_i,\ Av_j$ 是正交向量；</p>
-<p>假设特征值按照模从大到小排列，仍记为 $\lambda_1,\cdots,\lambda_n$，令 $\mathrm{rank}(A^TA) = \mathrm{rank}(A) = r$，那么就有
+也就是说，只要 <span class="arithmatex">\(\lambda_j\neq 0\)</span>，就有 <span class="arithmatex">\(Av_i,\ Av_j\)</span> 是正交向量；</p>
+<p>假设特征值按照模从大到小排列，仍记为 <span class="arithmatex">\(\lambda_1,\cdots,\lambda_n\)</span>，令 <span class="arithmatex">\(\mathrm{rank}(A^TA) = \mathrm{rank}(A) = r\)</span>，那么就有
 $$
 Av_1,\ Av_2,\ \cdots,\ Av_r\in\mathbb{R}^m,\quad Av_{r+1} = \cdots = Av_n = 0
 $$
-前 $r$ 项是 $\mathbb{R}^m$ 中的正交向量，剩余项对应于 $\lambda_i=0$ 的特征值，因此为零；</p>
-<p>注意到 $0\le|Av_i|_2^2 = (Av_i)^T(Av_i) = \lambda_i$，重新进行标准化得到
+前 <span class="arithmatex">\(r\)</span> 项是 <span class="arithmatex">\(\mathbb{R}^m\)</span> 中的正交向量，剩余项对应于 <span class="arithmatex">\(\lambda_i=0\)</span> 的特征值，因此为零；</p>
+<p>注意到 <span class="arithmatex">\(0\le\|Av_i\|_2^2 = (Av_i)^T(Av_i) = \lambda_i\)</span>，重新进行标准化得到
 $$
 u_1,\ u_2,\ \cdots,\ u_r,\quad u_i = \dfrac{Av_i}{\sqrt{\lambda_i}},\ i=1,\cdots,r
 $$
-然后扩张为 $\mathbb{R}^m$ 中的基 $u_1,\cdots,u_m$，从而我们有
+然后扩张为 <span class="arithmatex">\(\mathbb{R}^m\)</span> 中的基 <span class="arithmatex">\(u_1,\cdots,u_m\)</span>，从而我们有
 $$
 A(v_1,\cdots,v_n) = (\sqrt{\lambda_1}u_1,\cdots,\sqrt{\lambda_r}u_r,0,\cdots,0) = (u_1,\cdots,u_m)\cdot\mathrm{diag}(\sqrt{\lambda_1},\cdots,\sqrt{\lambda_r},0,\cdots,0)
 $$
-令 $V = (v_1,\cdots,v_n),\ U = (u_1,\cdots,u_m)$，则有分解
+令 <span class="arithmatex">\(V = (v_1,\cdots,v_n),\ U = (u_1,\cdots,u_m)\)</span>，则有分解
 $$
 U^TAV = \mathrm{diag}(\sqrt{\lambda_1},\cdots,\sqrt{\lambda_r},0,\cdots,0)
 $$
-此定理说明 $A$ 作为线性运算满足
+此定理说明 <span class="arithmatex">\(A\)</span> 作为线性运算满足
 $$
 \mathcal{A}:\mathbb{R}^n\to\mathbb{R}^m,\quad (v_1,\cdots,v_n) \mapsto (\sqrt{\lambda_1}u_1,\cdots,\sqrt{\lambda_r}u_r,0,\cdots,0)
 $$
 它将一组正交基映到另一组部分正交基。</p>
-<p><strong>推论 7.7.7</strong> 设 $A,B\in\mathbb{R}^{m\times n}$，假定有奇异值
+<p><strong>推论 7.7.7</strong> 设 <span class="arithmatex">\(A,B\in\mathbb{R}^{m\times n}\)</span>，假定有奇异值
 $$
 \sigma_1\ge\cdots\ge\sigma_n,\quad \tau_1\ge\cdots\ge\tau_n
 $$
@@ -17835,20 +17837,20 @@ $$
 <h3 id="qr_4">对称 QR 方法</h3>
 <p>我们将 QR 方法应用于对称矩阵，并充分利用其对称性。</p>
 <h4 id="_44">三对角化</h4>
-<p>若 $A$ 是 $n$ 阶实对称矩阵，并假定有上 Hessenberg 分解
+<p>若 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 阶实对称矩阵，并假定有上 Hessenberg 分解
 $$
 Q^TAQ = T
 $$
-则 $T$ 必为对称三对角阵。事实上，设 $Q=(\xi_1,\cdots,\xi_n)$，则有
+则 <span class="arithmatex">\(T\)</span> 必为对称三对角阵。事实上，设 <span class="arithmatex">\(Q=(\xi_1,\cdots,\xi_n)\)</span>，则有
 $$
 (Q^TAQ)<em>{ij} = \xi_i^TA\xi_j = \left(\xi_i^TA\xi_j\right)^T = \xi_j^TA\xi_i = (Q^TAQ)</em>{ji}
 $$
-因此 $T$ 是对称阵，由上 Hessenberg 分解的形式即证；</p>
-<p>考虑简化计算每一步 $H_kA_{k-1}H_k$，设
+因此 <span class="arithmatex">\(T\)</span> 是对称阵，由上 Hessenberg 分解的形式即证；</p>
+<p>考虑简化计算每一步 <span class="arithmatex">\(H_kA_{k-1}H_k\)</span>，设
 $$
 H_k = I -\beta vv^T,\quad v\in\mathbb{R}^{n-k}
 $$
-这里 $H_k$ 是作用于 $A$ 后 $n-k$ 行列的元素。由对称性得到
+这里 <span class="arithmatex">\(H_k\)</span> 是作用于 <span class="arithmatex">\(A\)</span> 后 <span class="arithmatex">\(n-k\)</span> 行列的元素。由对称性得到
 $$
 H_kA_{k-1}H_k = A_{k-1} - v\omega^T - \omega v^T
 $$
@@ -17858,14 +17860,14 @@ $$
 $$
 从而简化了计算过程。</p>
 <h4 id="qr_5">隐式对称 QR 迭代</h4>
-<p>由于 $A$ 的特征值均为实数，因此没有必要再使用双重步位移迭代，有迭代格式
+<p>由于 <span class="arithmatex">\(A\)</span> 的特征值均为实数，因此没有必要再使用双重步位移迭代，有迭代格式
 $$
 \begin{aligned}
 &amp;T_k -\mu_kI = Q_kR_k\
 &amp;T_{k+1} = R_kQ_k + \mu_kI
 \end{aligned}
 $$
-在每一步位移时，最简单的选取 $\mu_k$ 的方法是 $T_k(n,n)$，但更好的是取 $T_k$ 右下角的二阶矩阵
+在每一步位移时，最简单的选取 <span class="arithmatex">\(\mu_k\)</span> 的方法是 <span class="arithmatex">\(T_k(n,n)\)</span>，但更好的是取 <span class="arithmatex">\(T_k\)</span> 右下角的二阶矩阵
 $$
 \left(
 \begin{matrix}
@@ -17874,7 +17876,7 @@ $$
 \end{matrix}
 \right)
 $$
-的两个特征值中靠近 $\alpha_n$ 的一个，即为
+的两个特征值中靠近 <span class="arithmatex">\(\alpha_n\)</span> 的一个，即为
 $$
 \mu_k = \alpha_n + \delta - \mathrm{sgn}(\delta)\sqrt{\delta^2+\beta_{n-1}^2},\quad \delta = (\alpha_{n-1}-\alpha_n)/2
 $$
@@ -17883,15 +17885,15 @@ $$
 $$
 T - \mu I = QR,\quad \widetilde{T} = RQ + \mu I
 $$
-容易验证 $\widetilde{T} = Q^TTQ$，事实上
+容易验证 <span class="arithmatex">\(\widetilde{T} = Q^TTQ\)</span>，事实上
 $$
 Q^TTQ = Q^T(\mu I +QR)Q = \mu I + RQ = \widetilde{T}
 $$
-类似于非对称矩阵的隐式迭代，注意到在 QR 分解过程中，$G_1^Te_1 = Qe_1$，只需找到一个第一列为 $e_1$ 的正交阵 $\widetilde{Q}$，则
+类似于非对称矩阵的隐式迭代，注意到在 QR 分解过程中，<span class="arithmatex">\(G_1^Te_1 = Qe_1\)</span>，只需找到一个第一列为 <span class="arithmatex">\(e_1\)</span> 的正交阵 <span class="arithmatex">\(\widetilde{Q}\)</span>，则
 $$
 G_1^T\widetilde{Q}e_1 = G_1^Te_1 = Qe_1,\quad \widetilde{T} = \left(G_1^T\widetilde{Q}\right)^TT\left(G_1^T\widetilde{Q}\right) = \widetilde{Q}^TG_1TG_1^T\widetilde{Q}
 $$
-这意味着 $G_1^T\widetilde{Q}$ 和 $Q$ 变换在差正负号的意义下相同，而
+这意味着 <span class="arithmatex">\(G_1^T\widetilde{Q}\)</span> 和 <span class="arithmatex">\(Q\)</span> 变换在差正负号的意义下相同，而
 $$
 G_1TG_1^T = \left(
 \begin{matrix}
@@ -17903,7 +17905,7 @@ G_1TG_1^T = \left(
 \end{matrix}
 \right)
 $$
-之后每一步 Givens 变换 $G_k$ 都有 $G_k^Te_1 = e_1$，因此最终
+之后每一步 Givens 变换 <span class="arithmatex">\(G_k\)</span> 都有 <span class="arithmatex">\(G_k^Te_1 = e_1\)</span>，因此最终
 $$
 \widetilde{Q} = G_2^T\cdots G_{n-1}^T
 $$
@@ -17911,11 +17913,11 @@ $$
 <h3 id="jacobi_2">Jacobi 方法</h3>
 <p>Jacobi 方法是计算实对称矩阵全部特征值和特征向量最古老的方法之一，它具有编程简单、并行效率高的特点，近年来又重新受到人们的重视。</p>
 <h4 id="jacobi_3">经典 Jacobi 方法</h4>
-<p>设 $A=[\alpha_{ij}]$ 是 $n\times n$ 实对称矩阵， Jacobi 方法的目标是将非对角范数
+<p>设 <span class="arithmatex">\(A=[\alpha_{ij}]\)</span> 是 <span class="arithmatex">\(n\times n\)</span> 实对称矩阵， Jacobi 方法的目标是将非对角范数
 $$
 E(A) = \left(|A|<em>F^2-\sum</em>{i=1}^n\alpha_{ii}^2\right)^{\frac{1}{2}} = \left(\sum_{i=1}^n\sum_{j=1;j\neq i}^n\alpha_{ij}^2 \right)^{\frac{1}{2}}
 $$
-逐步约化为零。我们通过平面旋转来进行约化 $(p,q)$ 平面
+逐步约化为零。我们通过平面旋转来进行约化 <span class="arithmatex">\((p,q)\)</span> 平面
 $$
 \left(
 \begin{matrix}
@@ -17939,11 +17941,11 @@ c &amp; s\
 \end{matrix}
 \right)
 $$
-其中 $\beta_{pq} = \beta_{qp} = 0$，则有
+其中 <span class="arithmatex">\(\beta_{pq} = \beta_{qp} = 0\)</span>，则有
 $$
 0 = \beta_{pq} = \beta_{qp} = \left(c^2-s^2\right)\alpha_{pq} + cs(\alpha_{pp}-\alpha_{qq})
 $$
-如果 $\alpha_{pq} = 0$，只需取 $c=1,\ s=0$ 即可；否则考虑
+如果 <span class="arithmatex">\(\alpha_{pq} = 0\)</span>，只需取 <span class="arithmatex">\(c=1,\ s=0\)</span> 即可；否则考虑
 $$
 \dfrac{s^2}{c^2}\alpha_{pq} + \dfrac{s}{c}(\alpha_{qq}-\alpha_{pp}) - \alpha_{pq} = 0
 $$
@@ -17959,25 +17961,25 @@ $$
 $$
 t = \dfrac{\mathrm{sgn}(\tau)}{|\tau|+\sqrt{1+\tau^2}}
 $$
-这样选择保证了旋转角 $|\theta|\le \pi/4$，这对 Jacobi 方法的收敛性至关重要；接着就可以确定
+这样选择保证了旋转角 <span class="arithmatex">\(|\theta|\le \pi/4\)</span>，这对 Jacobi 方法的收敛性至关重要；接着就可以确定
 $$
 c = \dfrac{1}{\sqrt{1+t^2}},\quad s = tc
 $$
-考虑旋转平面的选取，由于 Frobenius 范数在正交变换下不变，因此 $|B|<em>F=|A|_F$，应用于 $(p,q)$ 平面的二阶矩阵有
+考虑旋转平面的选取，由于 Frobenius 范数在正交变换下不变，因此 <span class="arithmatex">\(\|B\|_F=\|A\|_F\)</span>，应用于 <span class="arithmatex">\((p,q)\)</span> 平面的二阶矩阵有
 $$
-\alpha</em>{pp}^2+\alpha_{qq}^2+2\alpha_{pq}^2 = \beta_{pp}^2+\beta_{qq}^2+2\beta_{pq}^2 = \beta_{pp}^2+\beta_{qq}^2
+\alpha_{pp}^2+\alpha_{qq}^2+2\alpha_{pq}^2 = \beta_{pp}^2+\beta_{qq}^2+2\beta_{pq}^2 = \beta_{pp}^2+\beta_{qq}^2
 $$
 这样就有
 $$
 E(B)^2 = |B|<em>F^2 - \sum</em>{i=1}^n\beta_{ii}^2 = |A|<em>F^2 - \sum</em>{i=1}^n\alpha_{ii}^2 + \alpha_{pp}^2 + \alpha_{qq}^2 - \beta_{pp}^2 - \beta_{qq}^2 = E(A)^2 - 2\alpha_{pq}^2
 $$
-我们的目的就是让 $E(B)$ 尽可能小，因此应当选择模最大的元素 $\alpha_{pq}$，然后选取此 $(p,q)$ 平面；</p>
+我们的目的就是让 <span class="arithmatex">\(E(B)\)</span> 尽可能小，因此应当选择模最大的元素 <span class="arithmatex">\(\alpha_{pq}\)</span>，然后选取此 <span class="arithmatex">\((p,q)\)</span> 平面；</p>
 <p>最终我们得到迭代格式
 $$
 A_k = J_k^TA_{k-1}J_k,\quad k=1,2,\cdots
 $$
-其中 $A_0 = A$，$J_k$ 是由上述方式确定的平面旋转变换。</p>
-<p><strong>定理 7.7.7</strong> 存在 $A$ 的特征值的一个排列 $\lambda_1,\lambda_2,\cdots,\lambda_n$，使得
+其中 <span class="arithmatex">\(A_0 = A\)</span>，<span class="arithmatex">\(J_k\)</span> 是由上述方式确定的平面旋转变换。</p>
+<p><strong>定理 7.7.7</strong> 存在 <span class="arithmatex">\(A\)</span> 的特征值的一个排列 <span class="arithmatex">\(\lambda_1,\lambda_2,\cdots,\lambda_n\)</span>，使得
 $$
 \lim_{k\to\infty}A_k = \mathrm{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)
 $$
@@ -17985,7 +17987,7 @@ $$
 $$
 E(A_{k})^2 = E(A_{k-1})^2-2\left(\alpha_{pq}^{(k-1)}\right)^2
 $$
-这里 $\alpha_{pq}^{(k-1)}$ 是 $A_{k-1}$ 的非对角元中绝对值最大者，又注意到
+这里 <span class="arithmatex">\(\alpha_{pq}^{(k-1)}\)</span> 是 <span class="arithmatex">\(A_{k-1}\)</span> 的非对角元中绝对值最大者，又注意到
 $$
 E(A_{k-1})^2 = |A_{k-1}|<em>F^2 - \sum</em>{i=1}^n\alpha_{ii}^2\le n^2\alpha_{pq}^2- \sum_{i=1}^n\alpha_{ii}^2 \le n(n-1)\left(\alpha_{pq}^{(k-1)}\right)^2
 $$
@@ -17999,13 +18001,13 @@ $$
 $$
 即证；关于特征值的排列证明省略。</p>
 <h4 id="jacobi_4">过关 Jacobi 方法</h4>
-<p>每次旋转平面都只需要 $O(n)$ 的操作，但是选择旋转平面却需要 $O(n^2)$ 的比较操作，这是得不偿失的。因此可以按照一定顺序依次消去每个对角元，而不进行选择，这就得到循环 Jacobi 方法；</p>
+<p>每次旋转平面都只需要 <span class="arithmatex">\(O(n)\)</span> 的操作，但是选择旋转平面却需要 <span class="arithmatex">\(O(n^2)\)</span> 的比较操作，这是得不偿失的。因此可以按照一定顺序依次消去每个对角元，而不进行选择，这就得到循环 Jacobi 方法；</p>
 <p>实际计算中运用最多的是过关 Jacobi 方法：首先确定一个关值，对绝对值超过关值的非对角元进行旋转操作，直到所有非对角元小于关值，此时减小关值，重复操作直到达到足够小的关值。常用关值为
 $$
 \delta_0 = E(A),\quad \delta_k = \dfrac{\delta_{k-1}}{\sigma},\quad k=1,2,\cdots
 $$
-其中 $\sigma\ge n$ 是一个固定的常数。</p>
-<p>Jacobi 方法的优势在于计算特征向量非常方便，对于 $k$ 步变换
+其中 <span class="arithmatex">\(\sigma\ge n\)</span> 是一个固定的常数。</p>
+<p>Jacobi 方法的优势在于计算特征向量非常方便，对于 <span class="arithmatex">\(k\)</span> 步变换
 $$
 A_k = J_k^TJ_{k-1}^T\cdots J_1^TAJ_1J_2\cdots J_k
 $$
@@ -18013,7 +18015,7 @@ $$
 $$
 AQ_k = Q_kA_k,\quad Q_k = J_1J_2\cdots J_k
 $$
-由于 $A_k$ 对角元已经非常小，就可以把它们看做是近似特征值，从而 $Q_k$ 的列向量可以看做对应的近似特征向量。</p>
+由于 <span class="arithmatex">\(A_k\)</span> 对角元已经非常小，就可以把它们看做是近似特征值，从而 <span class="arithmatex">\(Q_k\)</span> 的列向量可以看做对应的近似特征向量。</p>
 <h3 id="_45">二分法</h3>
 <h4 id="_46">正交多项式</h4>
 <p>考虑三对角对称阵
@@ -18028,8 +18030,8 @@ T = \left(
 \end{matrix}
 \right)
 $$
-我们可以假定 $\beta_i\neq 0$，即 $T$ 不可约，否则可以进行分块处理。</p>
-<p>记 $p_i(\lambda)$ 为 $T-\lambda I$ 的 $i$ 阶顺序主子式，则容易验证如下递推关系
+我们可以假定 <span class="arithmatex">\(\beta_i\neq 0\)</span>，即 <span class="arithmatex">\(T\)</span> 不可约，否则可以进行分块处理。</p>
+<p>记 <span class="arithmatex">\(p_i(\lambda)\)</span> 为 <span class="arithmatex">\(T-\lambda I\)</span> 的 <span class="arithmatex">\(i\)</span> 阶顺序主子式，则容易验证如下递推关系
 $$
 \begin{aligned}
 p_0(\lambda) &amp;= 1,\quad p_1(\lambda) = \alpha_1 - \lambda\
@@ -18037,8 +18039,8 @@ p_i(\lambda) &amp;= (\alpha_i-\lambda)p_{i-1}(\lambda) - \beta_i^2p_{i-2}(\lambd
 i &amp;= 2,\cdots, n
 \end{aligned}
 $$
-由实对称，我们知道 $p_i(\lambda)$ 的根都是实根。</p>
-<p>考虑在 $(-1,1)$ 上的 Gauss-Legendre 正交多项式，它满足递推公式
+由实对称，我们知道 <span class="arithmatex">\(p_i(\lambda)\)</span> 的根都是实根。</p>
+<p>考虑在 <span class="arithmatex">\((-1,1)\)</span> 上的 Gauss-Legendre 正交多项式，它满足递推公式
 $$
 (i+1)p_{i+1}-(2i+1)xp_{i}+ip_{i-1} = 0,\quad p_{0}(x)=1,\ p_{1}(x) = x
 $$
@@ -18050,14 +18052,14 @@ $$
 $$
 p_{i+1} = \frac{2i+1}{i+1}xp_{i}-\frac{i}{i+1}p_{i-1}
 $$
-因此我们可以令 $\alpha_{i}=0$，然后假设 $q_{i}=c_{i}p_{i}$，于是
+因此我们可以令 <span class="arithmatex">\(\alpha_{i}=0\)</span>，然后假设 <span class="arithmatex">\(q_{i}=c_{i}p_{i}\)</span>，于是
 $$
 \begin{aligned}
 q_{i+1}&amp;=c_{i+1}p_{i+1}=\frac{2i+1}{i+1} \frac{c_{i+1}}{c_{i}}\cdot xc_{i}p_{i}-\frac{i}{i+1}\frac{c_{i+1}}{c_{i-1}}\cdot c_{i-1} p_{i-1}\
 &amp;= \frac{2i+1}{i+1} \frac{c_{i+1}}{c_{i}}\cdot xq_{i}-\frac{i}{i+1}\frac{c_{i+1}}{c_{i-1}}\cdot q_{i-1}
 \end{aligned}
 $$
-我们需要让 $xq_{i}$ 前面的系数为 1，因此
+我们需要让 <span class="arithmatex">\(xq_{i}\)</span> 前面的系数为 1，因此
 $$
 \frac{c_{i+1}}{c_{i}} = \frac{i+1}{2i+1},\quad \frac{c_{i+1}}{c_{i-1}} = \frac{i+1}{2i+1}\cdot \frac{i}{2i-1}=\frac{i(i+1)}{4i^2-1}
 $$
@@ -18065,27 +18067,27 @@ $$
 $$
 q_{i+1} = xq_{i} - \frac{i^2}{4i^2-1}q_{i-1}
 $$
-这样就得到 $\beta_{i+1}=\sqrt{ \frac{i^2}{4i^2-1} }$，其中 $q_{i}$ 也是正交多项式，并且它的所有根是对应 $T$ 矩阵的所有特征值。</p>
+这样就得到 <span class="arithmatex">\(\beta_{i+1}=\sqrt{ \frac{i^2}{4i^2-1} }\)</span>，其中 <span class="arithmatex">\(q_{i}\)</span> 也是正交多项式，并且它的所有根是对应 <span class="arithmatex">\(T\)</span> 矩阵的所有特征值。</p>
 <h4 id="_47">特征多项式</h4>
-<p><strong>定理 7.7.7</strong> 上述多项式 $p_i(\lambda)$ 满足</p>
+<p><strong>定理 7.7.7</strong> 上述多项式 <span class="arithmatex">\(p_i(\lambda)\)</span> 满足</p>
 <ul>
-<li>$\exists M&gt;0,\quad \mathrm{s.t.}\quad \forall\lambda&gt;M,\ p_i(-\lambda)&gt;0$，并且 $p_i(\lambda)$ 的符号为 $(-1)^i$ </li>
+<li><span class="arithmatex">\(\exists M&gt;0,\quad \mathrm{s.t.}\quad \forall\lambda&gt;M,\ p_i(-\lambda)&gt;0\)</span>，并且 <span class="arithmatex">\(p_i(\lambda)\)</span> 的符号为 <span class="arithmatex">\((-1)^i\)</span> </li>
 <li>相邻两个多项式没有公共根</li>
-<li>若 $p_i(\mu)=0$，则 $p_{i-1}(\mu)p_{i+1}(\mu)&lt;0$ </li>
-<li>$p_i(\lambda)$ 的根全是单重的，且严格分隔 $p_{i+1}(\lambda)$ 的根</li>
+<li>若 <span class="arithmatex">\(p_i(\mu)=0\)</span>，则 <span class="arithmatex">\(p_{i-1}(\mu)p_{i+1}(\mu)&lt;0\)</span> </li>
+<li><span class="arithmatex">\(p_i(\lambda)\)</span> 的根全是单重的，且严格分隔 <span class="arithmatex">\(p_{i+1}(\lambda)\)</span> 的根</li>
 </ul>
-<p><strong>证明</strong> 由顺序主子式的首项 $(-\lambda)^i$ 容易发现 (1) 成立；我们假设有公共根 $\mu$ 使得 $p_{i-1}(\mu) = p_i(\mu)= 0$，则
+<p><strong>证明</strong> 由顺序主子式的首项 <span class="arithmatex">\((-\lambda)^i\)</span> 容易发现 (1) 成立；我们假设有公共根 <span class="arithmatex">\(\mu\)</span> 使得 <span class="arithmatex">\(p_{i-1}(\mu) = p_i(\mu)= 0\)</span>，则
 $$
 0 = p_{i}(\mu) = (\alpha_i-\lambda)p_{i-1}(\mu) - \beta_i^2p_{i-2}(\mu) = -\beta_{i}^2p_{i-2}(\mu)
 $$
-由于 $\beta_i\neq 0$，从而 $p_{i-2}(\mu) = 0$，以此类推有 $p_0(\mu) = 0$，矛盾；</p>
-<p>由上面的关系，若 $p_i(\mu)=0$，则
+由于 <span class="arithmatex">\(\beta_i\neq 0\)</span>，从而 <span class="arithmatex">\(p_{i-2}(\mu) = 0\)</span>，以此类推有 <span class="arithmatex">\(p_0(\mu) = 0\)</span>，矛盾；</p>
+<p>由上面的关系，若 <span class="arithmatex">\(p_i(\mu)=0\)</span>，则
 $$
 p_{i+1}(\mu) = (\alpha_{i+1}-\lambda)p_{i}(\mu) - \beta_{i+1}^2p_{i-1}(\mu) = - \beta_{i+1}^2p_{i-1}(\mu)
 $$
 因此它们异号；</p>
-<p>最后，我们用数学归纳法证明根的分隔。当 $i=1$，显然 $\alpha_1$ 是 $p_1(\lambda)$ 的根，而 $p_2(\alpha_1) = -\beta_2^2&lt;0$，之前得到 $p_2(\lambda)$ 首项为 $\lambda^2$，因此它在 $\alpha_1$ 两边有两个根，这样就证明了 $i=2$ 的情况成立；</p>
-<p>假设对 $i=k$ 成立，设 $p_{k-1}(\lambda),\ p_{k}(\lambda)$ 有严格分隔的根
+<p>最后，我们用数学归纳法证明根的分隔。当 <span class="arithmatex">\(i=1\)</span>，显然 <span class="arithmatex">\(\alpha_1\)</span> 是 <span class="arithmatex">\(p_1(\lambda)\)</span> 的根，而 <span class="arithmatex">\(p_2(\alpha_1) = -\beta_2^2&lt;0\)</span>，之前得到 <span class="arithmatex">\(p_2(\lambda)\)</span> 首项为 <span class="arithmatex">\(\lambda^2\)</span>，因此它在 <span class="arithmatex">\(\alpha_1\)</span> 两边有两个根，这样就证明了 <span class="arithmatex">\(i=2\)</span> 的情况成立；</p>
+<p>假设对 <span class="arithmatex">\(i=k\)</span> 成立，设 <span class="arithmatex">\(p_{k-1}(\lambda),\ p_{k}(\lambda)\)</span> 有严格分隔的根
 $$
 \nu_1&lt;\nu_2&lt;\cdots&lt;\nu_{k-1},\quad \mu_1&lt;\mu_2&lt;\cdots&lt;\mu_k
 $$
@@ -18097,7 +18099,7 @@ $$
 $$
 p_{k+1}(\mu_j) = -\beta_{k+1}^2p_{k-1}(\mu_j),\quad j=1,\cdots,k
 $$
-根据 $p_{k-1}(\nu_j) = 0$，并且由全是单重根，它在根处变号，可以得到
+根据 <span class="arithmatex">\(p_{k-1}(\nu_j) = 0\)</span>，并且由全是单重根，它在根处变号，可以得到
 $$
 (-1)^{j-1}p_{k-1}(\mu_j) &gt; 0,\quad j=1,\cdots,k
 $$
@@ -18105,12 +18107,12 @@ $$
 $$
 (-1)^jp_{k+1}(\mu_j) &gt;0,\quad j=1,\cdots,k
 $$
-这意味着 $p_{k+1}(\lambda)$ 在区间
+这意味着 <span class="arithmatex">\(p_{k+1}(\lambda)\)</span> 在区间
 $$
 (-\infty,\mu_1),(\mu_1,\mu_2),\cdots,(\mu_{k-1},\mu_k),(\mu_k,+\infty)
 $$
-上都有根，根据这 $n+1$ 个区间，每个区间上有一个根，即证。</p>
-<p>给定实数 $\mu$，定义 $s_k(\mu)$ 是数列 $p_0(\mu),\cdots,p_k(\mu)$ 的变号数，并规定：若 $p_i(\mu)=0$，则 $p_i(\mu)$ 与 $p_{i-1}(\mu)$ 同号，例如
+上都有根，根据这 <span class="arithmatex">\(n+1\)</span> 个区间，每个区间上有一个根，即证。</p>
+<p>给定实数 <span class="arithmatex">\(\mu\)</span>，定义 <span class="arithmatex">\(s_k(\mu)\)</span> 是数列 <span class="arithmatex">\(p_0(\mu),\cdots,p_k(\mu)\)</span> 的变号数，并规定：若 <span class="arithmatex">\(p_i(\mu)=0\)</span>，则 <span class="arithmatex">\(p_i(\mu)\)</span> 与 <span class="arithmatex">\(p_{i-1}(\mu)\)</span> 同号，例如
 $$
 T = \left(
 \begin{matrix}
@@ -18129,23 +18131,23 @@ $$
 &amp;p_3(\lambda) = (1-\lambda)^3-2(1-\lambda)
 \end{aligned}
 $$
-于是当 $\mu=1$，就有
+于是当 <span class="arithmatex">\(\mu=1\)</span>，就有
 $$
 p_0(1) = 1,\quad p_1(1) = 0,\quad p_2(1) = -1,\quad p_3(1) = 0
 $$
-这样一来，总共有 $p_1, p_2$ 之间的一次变号，$s_3(1) = 1$ 。</p>
-<p><strong>定理 7.7.7</strong> 在 $T$ 为不可约对称三角阵时，$s_k(\mu)$ 恰好是 $p_k(\mu)$ 在区间 $(-\infty,\mu)$ 内根的个数。</p>
-<p><strong>推论 7.7.7</strong> 若 $T$ 为不可约对称三角阵，则 $s_n(\mu)$ 恰好是该矩阵在区间 $(-\infty,\mu)$ 内特征值的个数。</p>
+这样一来，总共有 <span class="arithmatex">\(p_1, p_2\)</span> 之间的一次变号，<span class="arithmatex">\(s_3(1) = 1\)</span> 。</p>
+<p><strong>定理 7.7.7</strong> 在 <span class="arithmatex">\(T\)</span> 为不可约对称三角阵时，<span class="arithmatex">\(s_k(\mu)\)</span> 恰好是 <span class="arithmatex">\(p_k(\mu)\)</span> 在区间 <span class="arithmatex">\((-\infty,\mu)\)</span> 内根的个数。</p>
+<p><strong>推论 7.7.7</strong> 若 <span class="arithmatex">\(T\)</span> 为不可约对称三角阵，则 <span class="arithmatex">\(s_n(\mu)\)</span> 恰好是该矩阵在区间 <span class="arithmatex">\((-\infty,\mu)\)</span> 内特征值的个数。</p>
 <h4 id="_48">二分法</h4>
-<p>于是我们得到利用二分法求 $T$ 的指定特征值的过程：设有特征值
+<p>于是我们得到利用二分法求 <span class="arithmatex">\(T\)</span> 的指定特征值的过程：设有特征值
 $$
 \lambda_1&lt;\lambda_2&lt;\cdots&lt;\lambda_n
 $$
 则必有
 $$
-|\lambda_i|\le \rho(T) \le |T|<em>{\infty}
+|\lambda_i|\le \rho(T) \le |T|_{\infty}
 $$
-现在假定要求 $\lambda_m$，则可以取区间 $(l_0,u_0) = (-|T|</em>{\infty},|T|_{\infty})$，然后每次取中点 $r$，计算 $s_n(r)$ 判断在 $(-\infty,r)$ 上特征值的个数，选取含有 $\lambda_m$ 的部分，直到最终区间长度达到要求。</p>
+现在假定要求 <span class="arithmatex">\(\lambda_m\)</span>，则可以取区间 <span class="arithmatex">\((l_0,u_0) = (-\|T\|_{\infty},\|T\|_{\infty})\)</span>，然后每次取中点 <span class="arithmatex">\(r\)</span>，计算 <span class="arithmatex">\(s_n(r)\)</span> 判断在 <span class="arithmatex">\((-\infty,r)\)</span> 上特征值的个数，选取含有 <span class="arithmatex">\(\lambda_m\)</span> 的部分，直到最终区间长度达到要求。</p>
 <p>由于高阶多项式计算容易发生溢出，因此定义
 $$
 q_i(\lambda) = \dfrac{p_i(\lambda)}{p_{i-1}(\lambda)},\quad i=1,\cdots,n
@@ -18154,7 +18156,7 @@ $$
 $$
 q_1(\lambda) = p_1(\lambda) = \alpha_1-\lambda,\quad q_i(\lambda) = \alpha_i-\lambda-\dfrac{\beta_i^2}{q_{i-1}(\lambda)},\quad i=2,\cdots, n
 $$
-容易发现 $s_n(\mu)$ 恰为 $q_1(\mu),\cdots,q_n(\mu)$ 中负数的个数；注意到 $q_i(\lambda)$ 可能为 $0$，按照变号数的规则，此时我们将其替换为一个小正数。</p>
+容易发现 <span class="arithmatex">\(s_n(\mu)\)</span> 恰为 <span class="arithmatex">\(q_1(\mu),\cdots,q_n(\mu)\)</span> 中负数的个数；注意到 <span class="arithmatex">\(q_i(\lambda)\)</span> 可能为 <span class="arithmatex">\(0\)</span>，按照变号数的规则，此时我们将其替换为一个小正数。</p>
 <blockquote>
 <blockquote>
 <p>将二分法与三对角化技巧相结合，就可得到求任意实对称阵指定特征值和对应特征向量的数值方法；</p>
@@ -18213,6 +18215,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

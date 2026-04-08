@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14635,9 +14637,9 @@
 <h2 id="_2">打洞</h2>
 <blockquote>
 <p>[!theorem]
-设 $M=\begin{pmatrix}A &amp; B\C &amp; D\end{pmatrix}$ 是方阵，其中 $A$ 可逆，则 $|M|=|A||D-CA^{-1}B|$ 。</p>
+设 <span class="arithmatex">\(M=\begin{pmatrix}A &amp; B\\C &amp; D\end{pmatrix}\)</span> 是方阵，其中 <span class="arithmatex">\(A\)</span> 可逆，则 <span class="arithmatex">\(|M|=|A||D-CA^{-1}B|\)</span> 。</p>
 </blockquote>
-<p>只需要利用 $A$ 可逆来消除 $C$ 即可。事实上，有
+<p>只需要利用 <span class="arithmatex">\(A\)</span> 可逆来消除 <span class="arithmatex">\(C\)</span> 即可。事实上，有
 $$
 \begin{pmatrix}
 A &amp; B \
@@ -14655,9 +14657,9 @@ $$
 就是分块 LU 分解。</p>
 <blockquote>
 <p>[!theorem]
-设 $A\in \mathbb{R}^{n\times m},B\in \mathbb{R}^{m\times n}$，则 $\lambda^m|\lambda I_{n}-AB|=\lambda^n|\lambda I_{m}-BA|$ 。</p>
+设 <span class="arithmatex">\(A\in \mathbb{R}^{n\times m},B\in \mathbb{R}^{m\times n}\)</span>，则 <span class="arithmatex">\(\lambda^m|\lambda I_{n}-AB|=\lambda^n|\lambda I_{m}-BA|\)</span> 。</p>
 </blockquote>
-<p>注意到我们只需要利用 $M$ 中的 $CB$，取
+<p>注意到我们只需要利用 <span class="arithmatex">\(M\)</span> 中的 <span class="arithmatex">\(CB\)</span>，取
 $$
 M = 
 \begin{pmatrix}
@@ -14665,7 +14667,7 @@ I_{n} &amp; A \
 B &amp; I_{m}
 \end{pmatrix}
 $$
-分别按行列打洞，则 $|I_{n}-AB|=|I_{m}-BA|$，即 $\lambda=1$ 时成立。对一般的 $\lambda$，用 $\frac{A}{\lambda}$ 替换 $A$ 即可。</p>
+分别按行列打洞，则 <span class="arithmatex">\(|I_{n}-AB|=|I_{m}-BA|\)</span>，即 <span class="arithmatex">\(\lambda=1\)</span> 时成立。对一般的 <span class="arithmatex">\(\lambda\)</span>，用 <span class="arithmatex">\(\frac{A}{\lambda}\)</span> 替换 <span class="arithmatex">\(A\)</span> 即可。</p>
 <h3 id="_3">对称矩阵打洞</h3>
 <p>对称矩阵行列打洞会得到合同变换
 $$
@@ -14689,40 +14691,40 @@ $$
 由于对称正定矩阵可以看作内积的度量矩阵，因此打洞相当于在做 Schmidt 正交化。</p>
 <blockquote>
 <p>[!theorem] 化二次型为标准型
-设 $A=(a_{ij})$ 对称，则用 $a_{11}\neq 0$ 行列打洞；如果 $a_{11}=0$，则通过行列交换使 $a_{11}\neq 0$；递归操作直到得到对角阵。</p>
+设 <span class="arithmatex">\(A=(a_{ij})\)</span> 对称，则用 <span class="arithmatex">\(a_{11}\neq 0\)</span> 行列打洞；如果 <span class="arithmatex">\(a_{11}=0\)</span>，则通过行列交换使 <span class="arithmatex">\(a_{11}\neq 0\)</span>；递归操作直到得到对角阵。</p>
 <p>[!lemma]
-若对称半正定矩阵 $A$ 的某个对角元为零，则该对角元所在行列都为零。</p>
+若对称半正定矩阵 <span class="arithmatex">\(A\)</span> 的某个对角元为零，则该对角元所在行列都为零。</p>
 </blockquote>
-<p>通过构造特定的 $x$ 使得 $x^TAx&lt;0$ 即可。例如 $a_{ii}=0,a_{ij}\neq 0$，可取 $x=\alpha e_{i}+\beta e_{j}$，则
+<p>通过构造特定的 <span class="arithmatex">\(x\)</span> 使得 <span class="arithmatex">\(x^TAx&lt;0\)</span> 即可。例如 <span class="arithmatex">\(a_{ii}=0,a_{ij}\neq 0\)</span>，可取 <span class="arithmatex">\(x=\alpha e_{i}+\beta e_{j}\)</span>，则
 $$
 x^TAx = \alpha^2a_{ii}+\beta^2a_{jj}+2\alpha \beta a_{ij} = \beta^2a_{jj}+2\alpha \beta a_{ij}
 $$
-显然可以选择适当的 $\alpha,\beta$ 使得 $x^TAx&lt;0$ 。或者利用 Cholesky 分解 $A=L^TL$，则
+显然可以选择适当的 <span class="arithmatex">\(\alpha,\beta\)</span> 使得 <span class="arithmatex">\(x^TAx&lt;0\)</span> 。或者利用 Cholesky 分解 <span class="arithmatex">\(A=L^TL\)</span>，则
 $$
 0 = a_{ii}= L_{i}^TL_{i} \implies L_{i}=0
 $$
 即证。</p>
 <blockquote>
 <p>[!theorem] 
-设 $A$ 是实对称矩阵，$\lambda_{\min},\lambda_{\max}$ 是其最小和最大的特征值，则
+设 <span class="arithmatex">\(A\)</span> 是实对称矩阵，<span class="arithmatex">\(\lambda_{\min},\lambda_{\max}\)</span> 是其最小和最大的特征值，则
 $$
 \lambda_{\min}\leq a_{ii}\leq \lambda_{\max},\quad \forall i
 $$
-并且等号成立当且仅当 $a_{ii}$ 所在行列为零。</p>
+并且等号成立当且仅当 <span class="arithmatex">\(a_{ii}\)</span> 所在行列为零。</p>
 </blockquote>
-<p>利用 $A-\lambda_{\min}I,\lambda_{\max}I-A$ 半正定即证。</p>
+<p>利用 <span class="arithmatex">\(A-\lambda_{\min}I,\lambda_{\max}I-A\)</span> 半正定即证。</p>
 <blockquote>
 <p>[!theorem] 两个对称半正定矩阵同时合同于对角阵
-设 $A,B$ 是 $n$ 阶对称半正定矩阵，则存在可逆矩阵 $P$ 使得 $P^TAP,P^TBP$ 都是对角阵。</p>
+设 <span class="arithmatex">\(A,B\)</span> 是 <span class="arithmatex">\(n\)</span> 阶对称半正定矩阵，则存在可逆矩阵 <span class="arithmatex">\(P\)</span> 使得 <span class="arithmatex">\(P^TAP,P^TBP\)</span> 都是对角阵。</p>
 </blockquote>
-<p>不妨设 $A$ 初始就是对角阵，形如
+<p>不妨设 <span class="arithmatex">\(A\)</span> 初始就是对角阵，形如
 $$
 A = \begin{pmatrix}
 I_{r} \
  &amp; O_{n-r}
 \end{pmatrix}
 $$
-首先取一个 $n-r$ 阶正交矩阵 $Q$，使得
+首先取一个 <span class="arithmatex">\(n-r\)</span> 阶正交矩阵 <span class="arithmatex">\(Q\)</span>，使得
 $$
 \begin{pmatrix}
 I_{r} \
@@ -14748,16 +14750,16 @@ B_{11} &amp; * \
  &amp;  &amp; O_{n-r}
 \end{pmatrix}
 $$
-注意这里已经利用半正定矩阵对角元为零的行列都为零。显然左上角还是半正定矩阵，并且对其做合同变换不改变 $A$，即证。</p>
+注意这里已经利用半正定矩阵对角元为零的行列都为零。显然左上角还是半正定矩阵，并且对其做合同变换不改变 <span class="arithmatex">\(A\)</span>，即证。</p>
 <h3 id="_4">正定矩阵</h3>
 <p>正定矩阵具有如下特性：</p>
 <ol>
 <li>对角元非零：代表基向量的模平方</li>
-<li>最大元位于对角线上：$(v_{i},v_{j})^2\leq (v_{i},v_{i})(v_{j},v_{j})\implies a_{ij}^2\leq a_{ii}a_{jj}$</li>
+<li>最大元位于对角线上：<span class="arithmatex">\((v_{i},v_{j})^2\leq (v_{i},v_{i})(v_{j},v_{j})\implies a_{ij}^2\leq a_{ii}a_{jj}\)</span></li>
 </ol>
 <blockquote>
 <p>[!proposition]
-设 $A$ 是 $n$ 阶对称正定矩阵，则 $|A|\leq a_{11}a_{22}\cdots a_{nn}$，等号成立当且仅当 $A$ 是对角阵。</p>
+设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 阶对称正定矩阵，则 <span class="arithmatex">\(|A|\leq a_{11}a_{22}\cdots a_{nn}\)</span>，等号成立当且仅当 <span class="arithmatex">\(A\)</span> 是对角阵。</p>
 </blockquote>
 <p>利用归纳法，设
 $$
@@ -14766,7 +14768,7 @@ A_{1}  &amp; a \
 a^T &amp; a_{n}
 \end{pmatrix} \implies |A| = |A_{1}||a_{n}-a^TA_{1}^{-1}a|
 $$
-考虑正交矩阵 $U_{1}$ 使得 $U_{1}^TA_{1}U_{1}=I_{n-1}$，则
+考虑正交矩阵 <span class="arithmatex">\(U_{1}\)</span> 使得 <span class="arithmatex">\(U_{1}^TA_{1}U_{1}=I_{n-1}\)</span>，则
 $$
 \begin{pmatrix}
 U_{1} \
@@ -14786,7 +14788,7 @@ I_{n-1} &amp; b \
 b^T &amp; a_{n}
 \end{pmatrix}
 $$
-注意到 $a^TA_{1}^{-1}a=b^TI_{n-1}^{-1}b=b^Tb$，并且根据变换后的形式，可以取该度量矩阵的一组基 $v_{i}$ 使得前 $n-1$ 个向量两两单位正交，于是 $b_{i} = (v_{i}, v_{n})$ 表明 $b$ 是 $v_{n}$ 在 $v_{1},\cdots,v_{n-1}$ 张成空间中的投影，设正交补空间由单位向量 $v_{\perp}$ 张成，则
+注意到 <span class="arithmatex">\(a^TA_{1}^{-1}a=b^TI_{n-1}^{-1}b=b^Tb\)</span>，并且根据变换后的形式，可以取该度量矩阵的一组基 <span class="arithmatex">\(v_{i}\)</span> 使得前 <span class="arithmatex">\(n-1\)</span> 个向量两两单位正交，于是 <span class="arithmatex">\(b_{i} = (v_{i}, v_{n})\)</span> 表明 <span class="arithmatex">\(b\)</span> 是 <span class="arithmatex">\(v_{n}\)</span> 在 <span class="arithmatex">\(v_{1},\cdots,v_{n-1}\)</span> 张成空间中的投影，设正交补空间由单位向量 <span class="arithmatex">\(v_{\perp}\)</span> 张成，则
 $$
 v_{n} = (v_{n},v_{\perp})v_{\perp}+\sum_{i=1}^{n-1}b_{i}v_{i} 
 $$
@@ -14794,19 +14796,19 @@ $$
 $$
 a_{n} = (v_{n},v_{n}) = (v_{n},v_{\perp})^2+b^Tb \implies 0 \leq a_{n}-b^Tb \leq a_{n}
 $$
-因此 $|A|=|A_{1}||a_{n}-b^Tb|\leq|A_{1}|a_{n}$，等号成立当且仅当 $b^Tb=0$，反推回去得到 $A$ 是对角阵，再由归纳假设即证。</p>
+因此 <span class="arithmatex">\(|A|=|A_{1}||a_{n}-b^Tb|\leq|A_{1}|a_{n}\)</span>，等号成立当且仅当 <span class="arithmatex">\(b^Tb=0\)</span>，反推回去得到 <span class="arithmatex">\(A\)</span> 是对角阵，再由归纳假设即证。</p>
 <blockquote>
 <blockquote>
-<p>上述分析表明 $a^TA_{1}^{-1}a$ 是某个基向量在 $n-1$ 维子空间中的投影模平方，它自然不大于自身的模平方。此外，几何上看，该命题意味着任意 $n$ 维平行体的体积不超过其棱长之积。</p>
+<p>上述分析表明 <span class="arithmatex">\(a^TA_{1}^{-1}a\)</span> 是某个基向量在 <span class="arithmatex">\(n-1\)</span> 维子空间中的投影模平方，它自然不大于自身的模平方。此外，几何上看，该命题意味着任意 <span class="arithmatex">\(n\)</span> 维平行体的体积不超过其棱长之积。</p>
 </blockquote>
 </blockquote>
 <h3 id="_5">斜对称矩阵</h3>
 <p>斜对称矩阵具有如下性质：</p>
 <ol>
-<li>$A$ 斜对称当且仅当任意 $x$ 有 $x^TAx=0$</li>
-<li>奇数阶斜对称矩阵行列式为零：利用 $\det A=(-1)^n\det (-A)$ 即证</li>
-<li>$I+A$ 可逆：若存在 $x\neq 0,(I+A)x=0$，则 $0=x^T(I+A)x=x^Tx&gt;0$ 矛盾</li>
-<li>实斜对称矩阵的特征值只能是零或纯虚数：设 $(a+ib,u+iv)$ 是特征对，则
+<li><span class="arithmatex">\(A\)</span> 斜对称当且仅当任意 <span class="arithmatex">\(x\)</span> 有 <span class="arithmatex">\(x^TAx=0\)</span></li>
+<li>奇数阶斜对称矩阵行列式为零：利用 <span class="arithmatex">\(\det A=(-1)^n\det (-A)\)</span> 即证</li>
+<li><span class="arithmatex">\(I+A\)</span> 可逆：若存在 <span class="arithmatex">\(x\neq 0,(I+A)x=0\)</span>，则 <span class="arithmatex">\(0=x^T(I+A)x=x^Tx&gt;0\)</span> 矛盾</li>
+<li>实斜对称矩阵的特征值只能是零或纯虚数：设 <span class="arithmatex">\((a+ib,u+iv)\)</span> 是特征对，则
 $$
 \begin{aligned}
 A(u+iv) &amp;= (a+ib)(u+iv) = au-bv+i(bu+av)\
@@ -14814,8 +14816,8 @@ A(u+iv) &amp;= (a+ib)(u+iv) = au-bv+i(bu+av)\
 (u+iv)^TA^T\overline{(u+iv)} &amp;= -(a-ib)(u^Tu+v^Tv)
 \end{aligned}
 $$
-注意到后两行是相等的，因此只能有 $a=0$ 。</li>
-<li>实斜对称矩阵对应不同特征值的特征向量两两正交：设 $u_{1}+iv_{1},u_{2}+iv_{2}$ 是不同特征值 $i\lambda_{1},i\lambda_{2}$ 对应的特征向量。下面记 $(\xi,\eta)=\xi^H\eta$，则
+注意到后两行是相等的，因此只能有 <span class="arithmatex">\(a=0\)</span> 。</li>
+<li>实斜对称矩阵对应不同特征值的特征向量两两正交：设 <span class="arithmatex">\(u_{1}+iv_{1},u_{2}+iv_{2}\)</span> 是不同特征值 <span class="arithmatex">\(i\lambda_{1},i\lambda_{2}\)</span> 对应的特征向量。下面记 <span class="arithmatex">\((\xi,\eta)=\xi^H\eta\)</span>，则
 $$
 \begin{aligned}
 i\lambda_{2}(u_{1}+iv_{1},u_{2}+iv_{2}) &amp;= (u_{1}+iv_{1},A(u_{2}+iv_{2}))\
@@ -14824,22 +14826,22 @@ i\lambda_{2}(u_{1}+iv_{1},u_{2}+iv_{2}) &amp;= (u_{1}+iv_{1},A(u_{2}+iv_{2}))\
 &amp;= i\lambda_{1}(u_{1}+iv_{1},u_{2}+iv_{2})
 \end{aligned}
 $$
-由 $\lambda_{1}\neq \lambda_{2}$ 即证。</li>
-<li>实斜对称阵可相似对角化：设 $A$ 有特征对 $(i\lambda_{1},\xi_{1})$，则考虑 $\xi_{1}$ 的正交补空间 $\xi_{1}^{\perp}$，则
+由 <span class="arithmatex">\(\lambda_{1}\neq \lambda_{2}\)</span> 即证。</li>
+<li>实斜对称阵可相似对角化：设 <span class="arithmatex">\(A\)</span> 有特征对 <span class="arithmatex">\((i\lambda_{1},\xi_{1})\)</span>，则考虑 <span class="arithmatex">\(\xi_{1}\)</span> 的正交补空间 <span class="arithmatex">\(\xi_{1}^{\perp}\)</span>，则
 $$
 0 = i\lambda_{1}x^H\xi_{1} = x^HA\xi_{1} = \xi_{1}^TA^T\bar{x} = -\overline{\xi_{1}^HAx} \implies \xi_{1}\perp Ax,\forall x\in \xi_{1}^{\perp}
 $$
-这表明 $\xi_{1}^{\perp}$ 是 $A$ 的不变子空间。利用数学归纳法，可以取 $\xi_{1}^{\perp}$ 中的标准正交基 $\xi_{2},\cdots,\xi_{n}$，于是可以得到 $A$ 的一组标准正交基，进而 $A$ 可相似对角化。</li>
+这表明 <span class="arithmatex">\(\xi_{1}^{\perp}\)</span> 是 <span class="arithmatex">\(A\)</span> 的不变子空间。利用数学归纳法，可以取 <span class="arithmatex">\(\xi_{1}^{\perp}\)</span> 中的标准正交基 <span class="arithmatex">\(\xi_{2},\cdots,\xi_{n}\)</span>，于是可以得到 <span class="arithmatex">\(A\)</span> 的一组标准正交基，进而 <span class="arithmatex">\(A\)</span> 可相似对角化。</li>
 </ol>
 <blockquote>
 <p>[!definition] Pfaffian
-设 $A=(a_{ij})$ 是 $2n$ 阶方阵，则
+设 <span class="arithmatex">\(A=(a_{ij})\)</span> 是 <span class="arithmatex">\(2n\)</span> 阶方阵，则
 $$
 \mathrm{Pf}(A) = \sum_{\sigma\in S_{2n}}(-1)^{\tau(\sigma)}\prod_{k=1}^{n}a_{\sigma_{2k-1},\sigma_{2k}}
 $$
-称为 $A$ 的 Pfaffian 行列式，其中 $S_{2n}$ 是 $2n$ 元置换群，$\tau(\sigma)$ 是置换 $\sigma$ 的逆序数。</p>
+称为 <span class="arithmatex">\(A\)</span> 的 Pfaffian 行列式，其中 <span class="arithmatex">\(S_{2n}\)</span> 是 <span class="arithmatex">\(2n\)</span> 元置换群，<span class="arithmatex">\(\tau(\sigma)\)</span> 是置换 <span class="arithmatex">\(\sigma\)</span> 的逆序数。</p>
 <p>[!theorem]
-任意两个 $2n$ 阶可逆斜对称矩阵 $A,B$ 都存在可逆矩阵 $P$ 使得 $P^TAP=B$ 。</p>
+任意两个 <span class="arithmatex">\(2n\)</span> 阶可逆斜对称矩阵 <span class="arithmatex">\(A,B\)</span> 都存在可逆矩阵 <span class="arithmatex">\(P\)</span> 使得 <span class="arithmatex">\(P^TAP=B\)</span> 。</p>
 </blockquote>
 <p>由于合同之间的等价关系，设
 $$
@@ -14848,7 +14850,7 @@ B=\begin{pmatrix}
 -I_{n}
 \end{pmatrix}
 $$
-取 $A$ 的特征对 $(i\lambda_{j},u_{j}+iv_{j})$，其中特征向量构成标准正交基。于是
+取 <span class="arithmatex">\(A\)</span> 的特征对 <span class="arithmatex">\((i\lambda_{j},u_{j}+iv_{j})\)</span>，其中特征向量构成标准正交基。于是
 $$
 \begin{aligned}
 A(u_{j}+iv_{j}) &amp;= i\lambda_{j}(u_{j}+iv_{j}) \implies 
@@ -14862,11 +14864,11 @@ $$
 $$
 \lambda_{j}|u_{j}|^2=\lambda_{j}u_{j}^Tu_{j}=u_{j}^TAv_{j} = v_{j}^TA^Tu_{j} = -v_{j}^TAu_{j}= \lambda_{j}v_{j}^Tv_{j}=\lambda_{j}|v_{j}|^2
 $$
-由可逆性，特征值均非零，因此 $|u_{j}|=|v_{j}|$；而
+由可逆性，特征值均非零，因此 <span class="arithmatex">\(|u_{j}|=|v_{j}|\)</span>；而
 $$
 \lambda_{j}u_{j}^Tv_{j} = -u_{j}^TAu_{j} = -u_{j}^TA^Tu_{j} = u_{j}^TAu_{j} = -\lambda_{j}u_{j}^Tv_{j}
 $$
-因此 $u_{j}\perp v_{j}$；注意 $A\xi=\lambda \xi\implies A\bar{\xi}=\bar{\lambda}\bar{\xi}$，因此 $i\lambda_{j}$ 的共轭特征值对应共轭特征向量，再由正交性有
+因此 <span class="arithmatex">\(u_{j}\perp v_{j}\)</span>；注意 <span class="arithmatex">\(A\xi=\lambda \xi\implies A\bar{\xi}=\bar{\lambda}\bar{\xi}\)</span>，因此 <span class="arithmatex">\(i\lambda_{j}\)</span> 的共轭特征值对应共轭特征向量，再由正交性有
 $$
 \begin{cases}
 (u_{j}+iv_{j})^H(u_{k}+iv_{k}) = 0 \
@@ -14877,7 +14879,7 @@ u_{j}^Tu_{k}+v_{j}^Tv_{k} = 0 \
 u_{j}^Tu_{k}-v_{j}^Tv_{k} = 0
 \end{cases}
 $$
-因此 $u_{j}\perp u_{k},v_{j}\perp v_{k}$ 。综上可得 ${u_{j},v_{j}}$ 构成 $\mathbb{R}^{2n}$ 中的正交基，不妨通过归一化得到标准正交基。于是取 $P = (u_{1},\cdots, u_{n}, v_{1},\cdots, v_{n})$，记
+因此 <span class="arithmatex">\(u_{j}\perp u_{k},v_{j}\perp v_{k}\)</span> 。综上可得 <span class="arithmatex">\(\{u_{j},v_{j}\}\)</span> 构成 <span class="arithmatex">\(\mathbb{R}^{2n}\)</span> 中的正交基，不妨通过归一化得到标准正交基。于是取 <span class="arithmatex">\(P = (u_{1},\cdots, u_{n}, v_{1},\cdots, v_{n})\)</span>，记
 $$
 \begin{aligned}
 U &amp;= (u_{1},\cdots,u_{n})\
@@ -14885,7 +14887,7 @@ V &amp;= (v_{1},\cdots,v_{n})\
 \Lambda &amp;= \mathrm{diag}(\lambda_{1},\cdots,\lambda_{n})
 \end{aligned}
 $$
-则 $U^TU=V^TV=I,U^TV=V^TV=O$，因此
+则 <span class="arithmatex">\(U^TU=V^TV=I,U^TV=V^TV=O\)</span>，因此
 $$
 \begin{aligned}
 P^TAP &amp;= (U,V)^TA(-V,U)\ 
@@ -14900,53 +14902,53 @@ P^TAP &amp;= (U,V)^TA(-V,U)\
 \end{pmatrix}
 \end{aligned}
 $$
-显然容易进一步合同变换为 $B$ 形式，即证。</p>
+显然容易进一步合同变换为 <span class="arithmatex">\(B\)</span> 形式，即证。</p>
 <blockquote>
 <p>[!corollary]
-设 $A$ 是 $2n$ 阶非退化斜对称矩阵，则存在矩阵 $P$ 使得
+设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(2n\)</span> 阶非退化斜对称矩阵，则存在矩阵 <span class="arithmatex">\(P\)</span> 使得
 $$
 P^TAP = \begin{pmatrix}
 &amp; -I_{n} \
 I_{n}
 \end{pmatrix}
 $$
-进而 $(\det P)^2\det A=1$ 。</p>
+进而 <span class="arithmatex">\((\det P)^2\det A=1\)</span> 。</p>
 <p>[!proposition]
-设 $A$ 是元素均为整数的斜对称矩阵，则 $|A|$ 是完全平方数。</p>
+设 <span class="arithmatex">\(A\)</span> 是元素均为整数的斜对称矩阵，则 <span class="arithmatex">\(|A|\)</span> 是完全平方数。</p>
 </blockquote>
-<p>由于 $\det A=(-1)^n\det (-A)$，则 $n$ 为奇数时 $\det A=0$ 显然成立；若 $n$ 为偶数，则 $\det A$ 必然是整数，进而 $\det A=(1 /\det P)^2$ 是完全平方数。</p>
+<p>由于 <span class="arithmatex">\(\det A=(-1)^n\det (-A)\)</span>，则 <span class="arithmatex">\(n\)</span> 为奇数时 <span class="arithmatex">\(\det A=0\)</span> 显然成立；若 <span class="arithmatex">\(n\)</span> 为偶数，则 <span class="arithmatex">\(\det A\)</span> 必然是整数，进而 <span class="arithmatex">\(\det A=(1 /\det P)^2\)</span> 是完全平方数。</p>
 <h2 id="jordan">Jordan 标准型</h2>
 <h3 id="jordan_1">Jordan 表示</h3>
 <blockquote>
 <p>[!lemma]
-设 $A$ 是线性变换，若 $v$ 满足 $A^kv\neq 0,A^{k+1}v=0$，则 $v,Av,\cdots,A^kv$ 线性无关。</p>
+设 <span class="arithmatex">\(A\)</span> 是线性变换，若 <span class="arithmatex">\(v\)</span> 满足 <span class="arithmatex">\(A^kv\neq 0,A^{k+1}v=0\)</span>，则 <span class="arithmatex">\(v,Av,\cdots,A^kv\)</span> 线性无关。</p>
 </blockquote>
-<p>设存在不全为零的系数 $\alpha_{i}$ 使得
+<p>设存在不全为零的系数 <span class="arithmatex">\(\alpha_{i}\)</span> 使得
 $$
 \sum_{i=0}^k\alpha_{i}A^iv = 0
 $$
-取下标最小的非零 $\alpha_{i}$，不妨设为 $\alpha_{r}$，则
+取下标最小的非零 <span class="arithmatex">\(\alpha_{i}\)</span>，不妨设为 <span class="arithmatex">\(\alpha_{r}\)</span>，则
 $$
 0 = A^{k-r}\sum_{i=0}^k\alpha_{i}A^iv = \alpha_{r}A^{k}v
 $$
 矛盾。</p>
 <blockquote>
 <p>[!theorem]
-设 $A$ 是 $V$ 上的幂零线性变换，则存在 $V$ 中的一组基使得 $A$ 在该基下可以表示为 Jordan 标准型。</p>
+设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(V\)</span> 上的幂零线性变换，则存在 <span class="arithmatex">\(V\)</span> 中的一组基使得 <span class="arithmatex">\(A\)</span> 在该基下可以表示为 Jordan 标准型。</p>
 </blockquote>
-<p>由于 $A$ 是幂零线性变换，则 $A(V)$ 是一个真不变子空间。利用数学归纳法，可取其中的一组基
+<p>由于 <span class="arithmatex">\(A\)</span> 是幂零线性变换，则 <span class="arithmatex">\(A(V)\)</span> 是一个真不变子空间。利用数学归纳法，可取其中的一组基
 $$
 {A^kv_{i}},\quad i=1,\cdots,m,\quad k=0,\cdots,a_{i}-1
 $$
-其中 $v_{i}$ 满足 $A^{a_{i}-1}v_{i}\neq 0,A^{a_{i}}v_{i}=0$，使得 $A$ 限制在 $A(V)$ 的这组基上得到 Jordan 标准型。根据同态基本定理，$\dim V=\dim \mathrm{Ker}A+\dim A(V)$，因此考虑取 $\mathrm{Ker}A,A(V)$ 中的基合并。注意到
+其中 <span class="arithmatex">\(v_{i}\)</span> 满足 <span class="arithmatex">\(A^{a_{i}-1}v_{i}\neq 0,A^{a_{i}}v_{i}=0\)</span>，使得 <span class="arithmatex">\(A\)</span> 限制在 <span class="arithmatex">\(A(V)\)</span> 的这组基上得到 Jordan 标准型。根据同态基本定理，<span class="arithmatex">\(\dim V=\dim \mathrm{Ker}A+\dim A(V)\)</span>，因此考虑取 <span class="arithmatex">\(\mathrm{Ker}A,A(V)\)</span> 中的基合并。注意到
 $$
 A^{a_{i}-1}v_{i}\in \mathrm{Ker}A,\quad i=1,\cdots,m
 $$
-可以将它们扩展为 $\mathrm{Ker}A$ 的基
+可以将它们扩展为 <span class="arithmatex">\(\mathrm{Ker}A\)</span> 的基
 $$
 A^{a_{1}-1}v_{1},\cdots,A^{a_{m}-1}v_{m},w_{1},\cdots,w_{r}
 $$
-由于 $A(V)\backslash{A^{a_{i}-1}v_{i}}$ 都不在 $\mathrm{Ker}A$ 中，因此将所有的 ${A^kv_{i}}$ 全部并入仍然得到线性无关向量组。现在共有 $\sum_{i=1}^ma_{m}+r$ 个向量。而 $\dim A(V)=\sum_{i=1}^ma_{m},\dim \mathrm{Ker}A=m+r$，因此还缺少 $m$ 个向量。我们注意到 ${A^kv_{i}}$ 是 $A(V)$ 中的基，因此每个 $v_{i}$ 存在 $V$ 中的原像 $u_{i}$，将这 $m$ 个向量并入得到 $V$ 的一组基。进而
+由于 <span class="arithmatex">\(A(V)\backslash\{A^{a_{i}-1}v_{i}\}\)</span> 都不在 <span class="arithmatex">\(\mathrm{Ker}A\)</span> 中，因此将所有的 <span class="arithmatex">\(\{A^kv_{i}\}\)</span> 全部并入仍然得到线性无关向量组。现在共有 <span class="arithmatex">\(\sum_{i=1}^ma_{m}+r\)</span> 个向量。而 <span class="arithmatex">\(\dim A(V)=\sum_{i=1}^ma_{m},\dim \mathrm{Ker}A=m+r\)</span>，因此还缺少 <span class="arithmatex">\(m\)</span> 个向量。我们注意到 <span class="arithmatex">\(\{A^kv_{i}\}\)</span> 是 <span class="arithmatex">\(A(V)\)</span> 中的基，因此每个 <span class="arithmatex">\(v_{i}\)</span> 存在 <span class="arithmatex">\(V\)</span> 中的原像 <span class="arithmatex">\(u_{i}\)</span>，将这 <span class="arithmatex">\(m\)</span> 个向量并入得到 <span class="arithmatex">\(V\)</span> 的一组基。进而
 $$
 \begin{aligned}
 &amp;A(A^{a_{1}}u_{1},\cdots,u_{1},\cdots,A^{a_{m}}u_{m},\cdots,u_{m},w_{1},\cdots,w_{r})\
@@ -14984,11 +14986,11 @@ a_{0} &amp; a_{1} &amp; \cdots &amp; a_{n-1} \
  &amp;  &amp;  &amp; a_{0}
 \end{pmatrix}
 $$
-其中利用 $J^k(0)$ 在第 $k$ 次对角元全一。</p>
+其中利用 <span class="arithmatex">\(J^k(0)\)</span> 在第 <span class="arithmatex">\(k\)</span> 次对角元全一。</p>
 <h3 id="jordan_3">与 Jordan 块交换的矩阵</h3>
 <blockquote>
 <p>[!theorem]
-记 $J=J(0)$，若 $A$ 满足 $AJ=JA$，则 $A$ 形如
+记 <span class="arithmatex">\(J=J(0)\)</span>，若 <span class="arithmatex">\(A\)</span> 满足 <span class="arithmatex">\(AJ=JA\)</span>，则 <span class="arithmatex">\(A\)</span> 形如
 $$
 \begin{pmatrix}
 a_{0} &amp; a_{1} &amp; \cdots &amp; a_{n-1} \
@@ -14997,9 +14999,9 @@ a_{0} &amp; a_{1} &amp; \cdots &amp; a_{n-1} \
 &amp;  &amp;  &amp; a_{0}
 \end{pmatrix}
 $$
-即 $A$ 必然是 $J$ 的多项式。</p>
+即 <span class="arithmatex">\(A\)</span> 必然是 <span class="arithmatex">\(J\)</span> 的多项式。</p>
 </blockquote>
-<p>设 ${J^i\epsilon}$ 构成一组基，则
+<p>设 <span class="arithmatex">\(\{J^i\epsilon\}\)</span> 构成一组基，则
 $$
 A\epsilon = \sum_{i=0}^{n-1}a_{i}J^i\epsilon = f(J)\epsilon
 $$
@@ -15007,24 +15009,24 @@ $$
 $$
 A(J^i\epsilon)=J^i(A\epsilon)=J^i(f(J)\epsilon)=f(J)(J^i\epsilon)
 $$
-因此在该基上 $A=f(J)$ 。</p>
+因此在该基上 <span class="arithmatex">\(A=f(J)\)</span> 。</p>
 <h3 id="jordan_4">Jordan 块的不可分解性</h3>
 <blockquote>
 <p>[!theorem]
-设 $J$ 是有限维空间 $V$ 上的线性变换，且在一组基下表示为 Jordan 块，则不存在 $J$ 不变真子空间 $U,W$ 使得 $V=U\oplus W$ 。</p>
+设 <span class="arithmatex">\(J\)</span> 是有限维空间 <span class="arithmatex">\(V\)</span> 上的线性变换，且在一组基下表示为 Jordan 块，则不存在 <span class="arithmatex">\(J\)</span> 不变真子空间 <span class="arithmatex">\(U,W\)</span> 使得 <span class="arithmatex">\(V=U\oplus W\)</span> 。</p>
 </blockquote>
-<p>不妨设该 Jordan 块对角元为零。由于 $\mathrm{rank}(J)=n-1$，因此 $JX=0$ 的解空间只有一维，即对应零特征值的特征空间只有一维，不可能分配给两个真子空间。若对角元为 $\lambda$，则由 $\mathrm{rank}(J-\lambda I)=0$ 同理可证。</p>
+<p>不妨设该 Jordan 块对角元为零。由于 <span class="arithmatex">\(\mathrm{rank}(J)=n-1\)</span>，因此 <span class="arithmatex">\(JX=0\)</span> 的解空间只有一维，即对应零特征值的特征空间只有一维，不可能分配给两个真子空间。若对角元为 <span class="arithmatex">\(\lambda\)</span>，则由 <span class="arithmatex">\(\mathrm{rank}(J-\lambda I)=0\)</span> 同理可证。</p>
 <blockquote>
 <p>[!exercise]
-设 $A$ 是复数域上有限维空间 $V$ 上的线性变换，则 $A$ 可对角化当且仅当 $A$ 的任意不变子空间 $U$ 都存在不变子空间分解。</p>
+设 <span class="arithmatex">\(A\)</span> 是复数域上有限维空间 <span class="arithmatex">\(V\)</span> 上的线性变换，则 <span class="arithmatex">\(A\)</span> 可对角化当且仅当 <span class="arithmatex">\(A\)</span> 的任意不变子空间 <span class="arithmatex">\(U\)</span> 都存在不变子空间分解。</p>
 </blockquote>
-<p>必要性：取 $U$ 中的一组基，扩充为 $V$ 中的基，然后利用可对角化，可以找到该基中每个向量对应的特征值，进而完成分解；充分性：将 $V$ 分解为 $n$ 个不变子空间，即证。</p>
+<p>必要性：取 <span class="arithmatex">\(U\)</span> 中的一组基，扩充为 <span class="arithmatex">\(V\)</span> 中的基，然后利用可对角化，可以找到该基中每个向量对应的特征值，进而完成分解；充分性：将 <span class="arithmatex">\(V\)</span> 分解为 <span class="arithmatex">\(n\)</span> 个不变子空间，即证。</p>
 <h3 id="jordan_5">Jordan 块的分裂</h3>
-<p>设 ${J^i\epsilon}$ 构成一组基，则 $J$ 是一个位移算子
+<p>设 <span class="arithmatex">\(\{J^i\epsilon\}\)</span> 构成一组基，则 <span class="arithmatex">\(J\)</span> 是一个位移算子
 $$
 J: \epsilon \to \epsilon_{1} \to \cdots\to\epsilon_{n-1}\to 0
 $$
-但是 $J^k$ 每次跳 $k$ 步，因此存在 $k$ 条轨道，每条轨道都是一个 Jordan 块。分解 $n=qk+r$，则其中有 $r$ 个 $q+1$ 阶和 $k-r$ 个 $q$ 阶 Jordan 块。</p>
+但是 <span class="arithmatex">\(J^k\)</span> 每次跳 <span class="arithmatex">\(k\)</span> 步，因此存在 <span class="arithmatex">\(k\)</span> 条轨道，每条轨道都是一个 Jordan 块。分解 <span class="arithmatex">\(n=qk+r\)</span>，则其中有 <span class="arithmatex">\(r\)</span> 个 <span class="arithmatex">\(q+1\)</span> 阶和 <span class="arithmatex">\(k-r\)</span> 个 <span class="arithmatex">\(q\)</span> 阶 Jordan 块。</p>
 <blockquote>
 <p>[!theorem]
 设
@@ -15036,12 +15038,12 @@ A=\begin{pmatrix}
 &amp;  &amp;  &amp; 0
 \end{pmatrix}
 $$
-并且 $a_{12}a_{23}\cdots a_{n-1,n}\neq 0$，则 $A$ 的 Jordan 标准型是 $n$ 阶 Jordan 块。</p>
+并且 <span class="arithmatex">\(a_{12}a_{23}\cdots a_{n-1,n}\neq 0\)</span>，则 <span class="arithmatex">\(A\)</span> 的 Jordan 标准型是 <span class="arithmatex">\(n\)</span> 阶 Jordan 块。</p>
 </blockquote>
-<p>注意到 $\exists \epsilon,A^{n-1}\epsilon\neq 0,A^n\epsilon=0$，则 ${A^i\epsilon}$ 构成一组基，并且在这组基下 $A$ 是 $n$ 阶 Jordan 块。</p>
+<p>注意到 <span class="arithmatex">\(\exists \epsilon,A^{n-1}\epsilon\neq 0,A^n\epsilon=0\)</span>，则 <span class="arithmatex">\(\{A^i\epsilon\}\)</span> 构成一组基，并且在这组基下 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 阶 Jordan 块。</p>
 <blockquote>
 <p>[!corollary]
-设 $J=J(\lambda),\lambda\neq 0$，则 $J^k-\lambda^kI$ 的 Jordan 标准型是 $n$ 阶 Jordan 块，进而 $J^k$ 的 Jordan 标准型也是 $n$ 阶 Jordan 块。</p>
+设 <span class="arithmatex">\(J=J(\lambda),\lambda\neq 0\)</span>，则 <span class="arithmatex">\(J^k-\lambda^kI\)</span> 的 Jordan 标准型是 <span class="arithmatex">\(n\)</span> 阶 Jordan 块，进而 <span class="arithmatex">\(J^k\)</span> 的 Jordan 标准型也是 <span class="arithmatex">\(n\)</span> 阶 Jordan 块。</p>
 </blockquote>
 <p>这表明零特征值的若当块的幂可以均匀地分解；非零特征值的若当块的任意幂都不可分解。</p>
 <blockquote>
@@ -15055,9 +15057,9 @@ $$
 <h2 id="_6">秩不等式</h2>
 <blockquote>
 <p>[!lemma]
-设 $M=\begin{pmatrix}A &amp; O\ C &amp; B\end{pmatrix}$，其中 $A,B$ 都是方阵，则 $\mathrm{rank}(M)\geq \mathrm{rank}(A)+\mathrm{rank}(B)$ 。</p>
+设 <span class="arithmatex">\(M=\begin{pmatrix}A &amp; O\\ C &amp; B\end{pmatrix}\)</span>，其中 <span class="arithmatex">\(A,B\)</span> 都是方阵，则 <span class="arithmatex">\(\mathrm{rank}(M)\geq \mathrm{rank}(A)+\mathrm{rank}(B)\)</span> 。</p>
 <p>[!theorem] Frobenius
-设 $A$ 是数域 $\mathbb{F}$ 上的 $m\times n$ 矩阵，$B$ 是 $n\times k$ 矩阵，$C$ 是 $k\times s$ 矩阵，则
+设 <span class="arithmatex">\(A\)</span> 是数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(m\times n\)</span> 矩阵，<span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(n\times k\)</span> 矩阵，<span class="arithmatex">\(C\)</span> 是 <span class="arithmatex">\(k\times s\)</span> 矩阵，则
 $$
 \mathrm{rank}(AB)+\mathrm{rank}(BC)\leq \mathrm{rank}(ABC)+\mathrm{rank}(B)
 $$</p>
@@ -15083,12 +15085,12 @@ $$
 <p>注意到只需要将相加的块矩阵放在对角线上，然后尝试变换为另一侧相加的块矩阵形式。</p>
 </blockquote>
 <p>[!exercise]
-设 $A$ 是数域 $\mathbb{F}$ 上 $n$ 维空间上的线性变换，证明
+设 <span class="arithmatex">\(A\)</span> 是数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上 <span class="arithmatex">\(n\)</span> 维空间上的线性变换，证明
 $$
 A^3=I \Leftrightarrow \mathrm{rank}(I-A)+\mathrm{rank}(I+A+A^2)=n
 $$</p>
 </blockquote>
-<p>注意到存在 $u(x),v(x)$ 使得 $u(x)(1-x)+v(x)(1+x+x^2)=1$，利用
+<p>注意到存在 <span class="arithmatex">\(u(x),v(x)\)</span> 使得 <span class="arithmatex">\(u(x)(1-x)+v(x)(1+x+x^2)=1\)</span>，利用
 $$
 \begin{pmatrix}
 I-A \
@@ -15110,16 +15112,16 @@ $$
 即证。</p>
 <blockquote>
 <p>[!exercise]
-设 $A,B$ 是数域 $\mathbb{F}$ 上的 $n$ 阶方阵，且满足 $AB=BA=O,\mathrm{rank}(A)=\mathrm{rank}(A^2)$，证明
+设 <span class="arithmatex">\(A,B\)</span> 是数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(n\)</span> 阶方阵，且满足 <span class="arithmatex">\(AB=BA=O,\mathrm{rank}(A)=\mathrm{rank}(A^2)\)</span>，证明
 $$
 \mathrm{rank}(A+B)=\mathrm{rank}(A)+\mathrm{rank}(B)
 $$</p>
 </blockquote>
-<p>只需要证明 $\mathrm{rank}(A+B)\geq \mathrm{rank}(A)+\mathrm{rank}(B)$ 即可。利用 $\mathrm{rank}(A)=\mathrm{rank}(A^2)$ 时，有
+<p>只需要证明 <span class="arithmatex">\(\mathrm{rank}(A+B)\geq \mathrm{rank}(A)+\mathrm{rank}(B)\)</span> 即可。利用 <span class="arithmatex">\(\mathrm{rank}(A)=\mathrm{rank}(A^2)\)</span> 时，有
 $$
 \mathrm{rank}(A)=\mathrm{rank}(A^i)
 $$
-并且存在可逆矩阵 $P$ 使得 $A^2P=A$ 。考虑
+并且存在可逆矩阵 <span class="arithmatex">\(P\)</span> 使得 <span class="arithmatex">\(A^2P=A\)</span> 。考虑
 $$
 \begin{pmatrix}
 A+B \
@@ -15138,35 +15140,35 @@ B &amp; A^2 \
  &amp; A^3
 \end{pmatrix}
 $$
-最后一步用第二列右乘 $P$ 消去左下角。于是有
+最后一步用第二列右乘 <span class="arithmatex">\(P\)</span> 消去左下角。于是有
 $$
 \mathrm{rank}(A+B) \geq \mathrm{rank}(B)+\mathrm{rank}(A^3) = \mathrm{rank}(B)+\mathrm{rank}(A)
 $$
 即证。</p>
 <blockquote>
 <blockquote>
-<p>从 Jordan 标准型的角度出发，设 $A$ 是 Jordan 标准型，则 $\mathrm{rank}(A)=\mathrm{rank}(A^2)$ 表明 $A$ 的零特征值对应的 Jordan 块都是一阶，则 $A=\begin{pmatrix}A_{1}\&amp;O\end{pmatrix}$；再由 $AB=BA=O$ 得到 $\underset{  }{ A }=\begin{pmatrix}O\&amp;B_{1}\end{pmatrix}$，即证。</p>
+<p>从 Jordan 标准型的角度出发，设 <span class="arithmatex">\(A\)</span> 是 Jordan 标准型，则 <span class="arithmatex">\(\mathrm{rank}(A)=\mathrm{rank}(A^2)\)</span> 表明 <span class="arithmatex">\(A\)</span> 的零特征值对应的 Jordan 块都是一阶，则 <span class="arithmatex">\(A=\begin{pmatrix}A_{1}\\&amp;O\end{pmatrix}\)</span>；再由 <span class="arithmatex">\(AB=BA=O\)</span> 得到 <span class="arithmatex">\(\underset{  }{ A }=\begin{pmatrix}O\\&amp;B_{1}\end{pmatrix}\)</span>，即证。</p>
 </blockquote>
 <p>[!lemma]
 幂等矩阵的秩等于其秩。</p>
 </blockquote>
-<p>考虑 $A$ 的特征对 $(\lambda,\xi)$，则
+<p>考虑 <span class="arithmatex">\(A\)</span> 的特征对 <span class="arithmatex">\((\lambda,\xi)\)</span>，则
 $$
 \lambda \xi = A\xi = A^2\xi = \lambda^2\xi \implies \lambda=0,1
 $$
 即证。</p>
 <blockquote>
 <p>[!theorem]
-设 $A_{1},\cdots,A_{m}$ 是 $n$ 阶方阵，且 $A_{1}+\cdots+A_{m}=I$ 。证明如下三个条件等价：
-1. $A_{1},\cdots,A_{m}$ 是幂等矩阵
-2. $\mathrm{rank}(A_{1})+\cdots+\mathrm{rank}(A_{m})=n$
-3. $A_{i}A_{j}=A_{j}A_{i}=0,i\neq j$</p>
+设 <span class="arithmatex">\(A_{1},\cdots,A_{m}\)</span> 是 <span class="arithmatex">\(n\)</span> 阶方阵，且 <span class="arithmatex">\(A_{1}+\cdots+A_{m}=I\)</span> 。证明如下三个条件等价：
+1. <span class="arithmatex">\(A_{1},\cdots,A_{m}\)</span> 是幂等矩阵
+2. <span class="arithmatex">\(\mathrm{rank}(A_{1})+\cdots+\mathrm{rank}(A_{m})=n\)</span>
+3. <span class="arithmatex">\(A_{i}A_{j}=A_{j}A_{i}=0,i\neq j\)</span></p>
 </blockquote>
-<p>$1\implies 2$ 由于幂等矩阵的秩等于其迹，因此
+<p><span class="arithmatex">\(1\implies 2\)</span> 由于幂等矩阵的秩等于其迹，因此
 $$
 \sum_{i=1}^m\mathrm{rank}(A_{i})=\sum_{i=1}^m\mathrm{tr}(A_{i})=\mathrm{tr}(I)=n
 $$
-$2\implies 3$ 考虑对角块方阵，分别加到第一行、第一列，然后打洞消去第一行、第一列，得到
+<span class="arithmatex">\(2\implies 3\)</span> 考虑对角块方阵，分别加到第一行、第一列，然后打洞消去第一行、第一列，得到
 $$
 \begin{aligned}
 \begin{pmatrix}
@@ -15196,65 +15198,65 @@ I \
 \end{pmatrix}
 \end{aligned}
 $$
-原矩阵秩为 $n$，则右下角大矩阵只能是零矩阵，即证；</p>
-<p>$3 \implies 1$ 在 $A_{1}+\cdots+A_{m}=I$ 两端同乘 $A_{i}$ 即证。</p>
+原矩阵秩为 <span class="arithmatex">\(n\)</span>，则右下角大矩阵只能是零矩阵，即证；</p>
+<p><span class="arithmatex">\(3 \implies 1\)</span> 在 <span class="arithmatex">\(A_{1}+\cdots+A_{m}=I\)</span> 两端同乘 <span class="arithmatex">\(A_{i}\)</span> 即证。</p>
 <blockquote>
 <p>[!Corollary] Cochran
-设 $X_{1},\cdots,X_{n}$ 是相互独立且服从正态分布 $N(0,1)$ 的随机变量。若
+设 <span class="arithmatex">\(X_{1},\cdots,X_{n}\)</span> 是相互独立且服从正态分布 <span class="arithmatex">\(N(0,1)\)</span> 的随机变量。若
 $$
 Q_{1}+\cdots+Q_{k}=\sum_{i=1}^nX_{i}^2
 $$
-其中 $Q_{i}$ 是秩为 $n_{i}$ 的关于 $X_{1},\cdots,X_{n}$ 的二次型，则如下三个条件等价：
-- $Q_{1},\cdots,Q_{k}$ 相互独立
-- $Q_{i}\sim \chi^2(n_{i})$
-- $\sum_{i=1}^kn_{i}=n$</p>
+其中 <span class="arithmatex">\(Q_{i}\)</span> 是秩为 <span class="arithmatex">\(n_{i}\)</span> 的关于 <span class="arithmatex">\(X_{1},\cdots,X_{n}\)</span> 的二次型，则如下三个条件等价：
+- <span class="arithmatex">\(Q_{1},\cdots,Q_{k}\)</span> 相互独立
+- <span class="arithmatex">\(Q_{i}\sim \chi^2(n_{i})\)</span>
+- <span class="arithmatex">\(\sum_{i=1}^kn_{i}=n\)</span></p>
 <p>[!exercise]
-设 $A,B$ 是两个 $n$ 阶矩阵，满足 $AB=BA$，证明
+设 <span class="arithmatex">\(A,B\)</span> 是两个 <span class="arithmatex">\(n\)</span> 阶矩阵，满足 <span class="arithmatex">\(AB=BA\)</span>，证明
 $$
 \mathrm{rank}(A)+\mathrm{rank}(B)\geq \mathrm{rank}(A+B)+\mathrm{rank}(AB)
 $$</p>
 </blockquote>
-<p>从解空间的角度出发，$A,B$ 的解空间交集是 $A+B$ 的解空间的子集，$A,B$ 的解空间是 $AB,BA$ 的解空间的子集。根据维度公式
+<p>从解空间的角度出发，<span class="arithmatex">\(A,B\)</span> 的解空间交集是 <span class="arithmatex">\(A+B\)</span> 的解空间的子集，<span class="arithmatex">\(A,B\)</span> 的解空间是 <span class="arithmatex">\(AB,BA\)</span> 的解空间的子集。根据维度公式
 $$
 \dim A+\dim B = \dim (A\cap B) + \dim (A+ B) \leq \dim(A+B)+\dim(AB)
 $$
-其中 $+$ 表示空间直和。利用 $\dim A=n-\mathrm{rank}(A)$ 即证。</p>
+其中 <span class="arithmatex">\(+\)</span> 表示空间直和。利用 <span class="arithmatex">\(\dim A=n-\mathrm{rank}(A)\)</span> 即证。</p>
 <blockquote>
 <blockquote>
-<p>设 $A,B$ 都是 $n$ 阶方阵，且 $AB=BA$，则
+<p>设 <span class="arithmatex">\(A,B\)</span> 都是 <span class="arithmatex">\(n\)</span> 阶方阵，且 <span class="arithmatex">\(AB=BA\)</span>，则
 $$
 \mathrm{rank}(A^2)+\mathrm{rank}(B^2)\geq 2\mathrm{rank}(AB)
 $$</p>
 </blockquote>
 </blockquote>
-<p>注意到 $\mathrm{rank}(AB)\leq \min{\mathrm{rank}(A),\mathrm{rank}(B)}$，因此 $2\mathrm{rank}(AB)\leq \mathrm{rank}(A)+\mathrm{rank}(B)$ 。</p>
+<p>注意到 <span class="arithmatex">\(\mathrm{rank}(AB)\leq \min\{\mathrm{rank}(A),\mathrm{rank}(B)\}\)</span>，因此 <span class="arithmatex">\(2\mathrm{rank}(AB)\leq \mathrm{rank}(A)+\mathrm{rank}(B)\)</span> 。</p>
 <h2 id="_7">交结数</h2>
-<p>这一节总是假定 $A,B$ 是数域 $\mathbb{F}$ 上的 $n$ 阶和 $m$ 阶方阵，$\mathbb{K}$ 是 $\mathbb{F}$ 的扩域。</p>
+<p>这一节总是假定 <span class="arithmatex">\(A,B\)</span> 是数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(n\)</span> 阶和 <span class="arithmatex">\(m\)</span> 阶方阵，<span class="arithmatex">\(\mathbb{K}\)</span> 是 <span class="arithmatex">\(\mathbb{F}\)</span> 的扩域。</p>
 <blockquote>
 <p>[!definition] 
-考虑 $AX=XB$ 在 $\mathbb{F}$ 上的解空间 $U_{\mathbb{F}}$ 维数，称为 $A,B$ 的交结数，记为 $i(A,B)$ 。</p>
+考虑 <span class="arithmatex">\(AX=XB\)</span> 在 <span class="arithmatex">\(\mathbb{F}\)</span> 上的解空间 <span class="arithmatex">\(U_{\mathbb{F}}\)</span> 维数，称为 <span class="arithmatex">\(A,B\)</span> 的交结数，记为 <span class="arithmatex">\(i(A,B)\)</span> 。</p>
 <p>[!theorem]
-$i(A,B)$ 是关于数域的不变量。</p>
+<span class="arithmatex">\(i(A,B)\)</span> 是关于数域的不变量。</p>
 </blockquote>
-<p>矩阵定义在 $\mathbb{F}$ 上，因此基础解系也在 $\mathbb{F}$ 上。对于 $X\in \mathbb{F}$ 或 $X\in \mathbb{K}$，都可以表示为基础解系在 $\mathbb{F},\mathbb{K}$ 上的线性组合，即证。</p>
+<p>矩阵定义在 <span class="arithmatex">\(\mathbb{F}\)</span> 上，因此基础解系也在 <span class="arithmatex">\(\mathbb{F}\)</span> 上。对于 <span class="arithmatex">\(X\in \mathbb{F}\)</span> 或 <span class="arithmatex">\(X\in \mathbb{K}\)</span>，都可以表示为基础解系在 <span class="arithmatex">\(\mathbb{F},\mathbb{K}\)</span> 上的线性组合，即证。</p>
 <blockquote>
 <p>[!theorem]
-若 $C,A$ 相似，$D,B$ 相似，则 $i(A,B)=i(C,D)$ 。</p>
+若 <span class="arithmatex">\(C,A\)</span> 相似，<span class="arithmatex">\(D,B\)</span> 相似，则 <span class="arithmatex">\(i(A,B)=i(C,D)\)</span> 。</p>
 </blockquote>
 <p>根据相似关系
 $$
 AX=XB \Leftrightarrow P^{-1}APX=XQ^{-1}BQ \Leftrightarrow APXQ^{-1}=PXQ^{-1}B
 $$
-令 $Y=PXQ^{-1}$ 即证。</p>
+令 <span class="arithmatex">\(Y=PXQ^{-1}\)</span> 即证。</p>
 <blockquote>
 <p>[!theorem]
-若 $A,B$ 在 $\mathbb{K}$ 上相似，则它们在 $\mathbb{F}$ 上相似。</p>
+若 <span class="arithmatex">\(A,B\)</span> 在 <span class="arithmatex">\(\mathbb{K}\)</span> 上相似，则它们在 <span class="arithmatex">\(\mathbb{F}\)</span> 上相似。</p>
 </blockquote>
 <p>根据相似关系
 $$
 P^{-1}AP = B \implies AP=PB
 $$
-即 $AX=XB$ 存在 $\mathbb{K}$ 上的可逆解。设 $X_{i}$ 是 $U_{\mathbb{F}}$ 中的基，则它也是 $U_{\mathbb{K}}$ 中的基。于是
+即 <span class="arithmatex">\(AX=XB\)</span> 存在 <span class="arithmatex">\(\mathbb{K}\)</span> 上的可逆解。设 <span class="arithmatex">\(X_{i}\)</span> 是 <span class="arithmatex">\(U_{\mathbb{F}}\)</span> 中的基，则它也是 <span class="arithmatex">\(U_{\mathbb{K}}\)</span> 中的基。于是
 $$
 P = \sum_{i}a_{i}X_{i},\quad a_i\in \mathbb{K},i=1,\cdots,s
 $$
@@ -15262,11 +15264,11 @@ $$
 $$
 f(t_{1},\cdots,t_{s}) = \det\left|\sum_{i}t_{i}X_{i}\right|,\quad t_{i}\in \mathbb{F}
 $$
-由于 $f(0,\cdots,0)=0,f(a_{1},\cdots,a_{s})\neq 0$，因此 $f$ 不是零多项式。不妨设 $t_{1}$ 有非零系数，则
+由于 <span class="arithmatex">\(f(0,\cdots,0)=0,f(a_{1},\cdots,a_{s})\neq 0\)</span>，因此 <span class="arithmatex">\(f\)</span> 不是零多项式。不妨设 <span class="arithmatex">\(t_{1}\)</span> 有非零系数，则
 $$
 f(t_{1},\cdots,t_{s}) = \sum_{i=0}^nc_{i}(t_{2},\cdots,t_{s})t_{1}^i
 $$
-其中 $c_{i}$ 不全为零多项式。若 $f$ 不存在非零值，则可取 $t_{1k},k=1,\cdots,n+1$ 互不相同，使得
+其中 <span class="arithmatex">\(c_{i}\)</span> 不全为零多项式。若 <span class="arithmatex">\(f\)</span> 不存在非零值，则可取 <span class="arithmatex">\(t_{1k},k=1,\cdots,n+1\)</span> 互不相同，使得
 $$
 \begin{pmatrix}
 1 &amp; 1 &amp; \cdots &amp; 1 \
@@ -15281,35 +15283,35 @@ c_{1} \
 c_{n}
 \end{pmatrix} = O
 $$
-因此 $c_{i}$ 全为零，矛盾。于是存在 $\mathbb{F}$ 中的 $b_{1},\cdots,b_{s}$ 使得 $f(b_{1},\cdots,b_{s})\neq 0$，则 $AX=XB$ 存在 $\mathbb{F}$ 上的可逆解。</p>
+因此 <span class="arithmatex">\(c_{i}\)</span> 全为零，矛盾。于是存在 <span class="arithmatex">\(\mathbb{F}\)</span> 中的 <span class="arithmatex">\(b_{1},\cdots,b_{s}\)</span> 使得 <span class="arithmatex">\(f(b_{1},\cdots,b_{s})\neq 0\)</span>，则 <span class="arithmatex">\(AX=XB\)</span> 存在 <span class="arithmatex">\(\mathbb{F}\)</span> 上的可逆解。</p>
 <blockquote>
 <p>[!theorem]
-设 $A_{1},\cdots,A_{m},B_{1},\cdots,B_{m}$ 是 $\mathbb{F}$ 上的 $n$ 阶方阵。如果存在 $\mathbb{K}$ 上的可逆矩阵 $S$ 使得 $S^{-1}A_{i}S=B_{i}$，则存在 $\mathbb{F}$ 上的可逆矩阵 $T$ 使得 $T^{-1}A_{i}T=B_{i}$ 。</p>
+设 <span class="arithmatex">\(A_{1},\cdots,A_{m},B_{1},\cdots,B_{m}\)</span> 是 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(n\)</span> 阶方阵。如果存在 <span class="arithmatex">\(\mathbb{K}\)</span> 上的可逆矩阵 <span class="arithmatex">\(S\)</span> 使得 <span class="arithmatex">\(S^{-1}A_{i}S=B_{i}\)</span>，则存在 <span class="arithmatex">\(\mathbb{F}\)</span> 上的可逆矩阵 <span class="arithmatex">\(T\)</span> 使得 <span class="arithmatex">\(T^{-1}A_{i}T=B_{i}\)</span> 。</p>
 <p>[!theorem] Sylverster
-矩阵方程 $AX=XB$ 只有零解当且仅当 $A,B$ 没有公共特征值。</p>
+矩阵方程 <span class="arithmatex">\(AX=XB\)</span> 只有零解当且仅当 <span class="arithmatex">\(A,B\)</span> 没有公共特征值。</p>
 </blockquote>
-<p>必要性：如果 $AX=XB$ 只有零解。根据方程的形式，可以考虑 $X=uv^T$，此时
+<p>必要性：如果 <span class="arithmatex">\(AX=XB\)</span> 只有零解。根据方程的形式，可以考虑 <span class="arithmatex">\(X=uv^T\)</span>，此时
 $$
 (Au)v^T=u(v^TB) = u(B^Tv)^T
 $$
-设 $\lambda$ 是 $A,B$ 的公共特征值，则由 $B$ 是方阵，$\lambda$ 是 $B^T$ 的特征值。于是我们可以考虑 $A,B$ 关于 $\lambda$ 的（非零）特征向量 $u,v$，代回得到
+设 <span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(A,B\)</span> 的公共特征值，则由 <span class="arithmatex">\(B\)</span> 是方阵，<span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(B^T\)</span> 的特征值。于是我们可以考虑 <span class="arithmatex">\(A,B\)</span> 关于 <span class="arithmatex">\(\lambda\)</span> 的（非零）特征向量 <span class="arithmatex">\(u,v\)</span>，代回得到
 $$
 \lambda uv^T=(Au)v^T=u(B^Tv)^T=\lambda uv^T
 $$
-这意味着 $X=uv^T\neq O$ 是非零解，矛盾；充分性：如果 $A,B$ 没有公共特征值。假设 $X$ 是非零解，则
+这意味着 <span class="arithmatex">\(X=uv^T\neq O\)</span> 是非零解，矛盾；充分性：如果 <span class="arithmatex">\(A,B\)</span> 没有公共特征值。假设 <span class="arithmatex">\(X\)</span> 是非零解，则
 $$
 A^2X=A(XB)=AXB=XB^2
 $$
-以此类推 $A^kX=XB^k$ 。考虑 $A$ 的特征多项式 $f_{A}(\lambda)$，则
+以此类推 <span class="arithmatex">\(A^kX=XB^k\)</span> 。考虑 <span class="arithmatex">\(A\)</span> 的特征多项式 <span class="arithmatex">\(f_{A}(\lambda)\)</span>，则
 $$
 O=f_{A}(A)X = Xf_{A}(B) = X\prod_{i}(B-\lambda_{i}I)
 $$
-由于 $A,B$ 没有公共特征值，则 $B-\lambda_{i}I$ 可逆，于是 $X=O$ 矛盾。</p>
+由于 <span class="arithmatex">\(A,B\)</span> 没有公共特征值，则 <span class="arithmatex">\(B-\lambda_{i}I\)</span> 可逆，于是 <span class="arithmatex">\(X=O\)</span> 矛盾。</p>
 <blockquote>
 <p>[!corollary]
-若 $A$ 相似于分块对角阵，且 $AB=BA$，则 $A,B$ 可同时相似变换为相同尺寸的分块对角阵。</p>
+若 <span class="arithmatex">\(A\)</span> 相似于分块对角阵，且 <span class="arithmatex">\(AB=BA\)</span>，则 <span class="arithmatex">\(A,B\)</span> 可同时相似变换为相同尺寸的分块对角阵。</p>
 <p>[!theorem]
-设 $f_{1}(x),\cdots,f_{p}(x)$ 是 $A$ 的全部不变因子，$g_{1}(x),\cdots,g_{q}(x)$ 是 $B$ 的全部不变因子，则
+设 <span class="arithmatex">\(f_{1}(x),\cdots,f_{p}(x)\)</span> 是 <span class="arithmatex">\(A\)</span> 的全部不变因子，<span class="arithmatex">\(g_{1}(x),\cdots,g_{q}(x)\)</span> 是 <span class="arithmatex">\(B\)</span> 的全部不变因子，则
 $$
 i(A,B)=\sum_{i=1}^p\sum_{j=1}^q\deg\gcd(f_{i}(x),g_{j}(x))
 $$</p>
@@ -15327,30 +15329,30 @@ J_{m_{1}}'(\mu_{1}) \
  &amp;  &amp; J_{m_{s}}(\mu_{s})
 \end{pmatrix}
 $$
-然后将 $X$ 分块为 $(X_{ij})<em>{rs}$，就可以将 $AX=XB$ 拆分成
+然后将 <span class="arithmatex">\(X\)</span> 分块为 <span class="arithmatex">\((X_{ij})_{rs}\)</span>，就可以将 <span class="arithmatex">\(AX=XB\)</span> 拆分成
 $$
-J</em>{i}X_{ij}=X_{ij}L_{j}
+J_{i}X_{ij}=X_{ij}L_{j}
 $$
-则 $AX=XB$ 的解空间维数是每块解空间维数之和。显然子块的解空间维数是
+则 <span class="arithmatex">\(AX=XB\)</span> 的解空间维数是每块解空间维数之和。显然子块的解空间维数是
 $$
 \deg\gcd((x-\lambda_{i})^{k_{i}},(x-\mu_{j})^{m_{j}})
 $$
 即证。</p>
 <blockquote>
 <blockquote>
-<p>可以看出 $A,B$ 越相似，交结数越大，因此交结数刻画了相似程度。</p>
+<p>可以看出 <span class="arithmatex">\(A,B\)</span> 越相似，交结数越大，因此交结数刻画了相似程度。</p>
 </blockquote>
 </blockquote>
 <h2 id="_8">同时上三角化</h2>
 <blockquote>
 <p>[!lemma]
-设 $\mathcal{F}$ 是复数域上线性空间 $V$ 的一族线性变换，并且 $\mathcal{F}$ 中元素两两可交换，则存在一组基使得 $\mathcal{F}$ 中所有元素在该基下的矩阵是上三角阵。</p>
+设 <span class="arithmatex">\(\mathcal{F}\)</span> 是复数域上线性空间 <span class="arithmatex">\(V\)</span> 的一族线性变换，并且 <span class="arithmatex">\(\mathcal{F}\)</span> 中元素两两可交换，则存在一组基使得 <span class="arithmatex">\(\mathcal{F}\)</span> 中所有元素在该基下的矩阵是上三角阵。</p>
 </blockquote>
-<p>考虑 $AB=BA$，则对 $A$ 的特征对 $(\lambda_{A},\xi)$ 有
+<p>考虑 <span class="arithmatex">\(AB=BA\)</span>，则对 <span class="arithmatex">\(A\)</span> 的特征对 <span class="arithmatex">\((\lambda_{A},\xi)\)</span> 有
 $$
 A(B\xi) = B(A\xi) = \lambda_{A} (B\xi)
 $$
-即 $B\xi$ 是特征空间 $V_{\lambda_{A}}$ 的元素。由于 $V_{\lambda_{A}}$ 是 $B$ 的不变子空间，可取 $B|<em>{V</em>{\lambda_{A}}}$ 的特征向量 $\eta\in V_{\lambda_{A}}$，则 $\eta$ 是 $A,B$ 的公共特征向量。于是存在可逆矩阵 $P=(\eta,P_{1})$ 使得
+即 <span class="arithmatex">\(B\xi\)</span> 是特征空间 <span class="arithmatex">\(V_{\lambda_{A}}\)</span> 的元素。由于 <span class="arithmatex">\(V_{\lambda_{A}}\)</span> 是 <span class="arithmatex">\(B\)</span> 的不变子空间，可取 <span class="arithmatex">\(B|_{V_{\lambda_{A}}}\)</span> 的特征向量 <span class="arithmatex">\(\eta\in V_{\lambda_{A}}\)</span>，则 <span class="arithmatex">\(\eta\)</span> 是 <span class="arithmatex">\(A,B\)</span> 的公共特征向量。于是存在可逆矩阵 <span class="arithmatex">\(P=(\eta,P_{1})\)</span> 使得
 $$
 \begin{aligned}
 A(\eta,P_{1}) &amp;= (\eta,P_{1})
@@ -15388,12 +15390,12 @@ $$
 \end{pmatrix}
 \end{aligned}
 $$
-则两个分块矩阵也是可交换的，进而 $A_{1}B_{1}=B_{1}A_{1}$，然后由归纳假设即证。</p>
+则两个分块矩阵也是可交换的，进而 <span class="arithmatex">\(A_{1}B_{1}=B_{1}A_{1}\)</span>，然后由归纳假设即证。</p>
 <blockquote>
 <p>[!lemma]
-设 $\mathcal{F}$ 是复数域上线性空间 $V$ 的一族线性变换，并且 $\mathcal{F}$ 中元素两两可交换。若 $\mathcal{F}$ 中所有元素可对角化，则存在一组基使得 $\mathcal{F}$ 中所有元素在该基下的矩阵是对角阵。</p>
+设 <span class="arithmatex">\(\mathcal{F}\)</span> 是复数域上线性空间 <span class="arithmatex">\(V\)</span> 的一族线性变换，并且 <span class="arithmatex">\(\mathcal{F}\)</span> 中元素两两可交换。若 <span class="arithmatex">\(\mathcal{F}\)</span> 中所有元素可对角化，则存在一组基使得 <span class="arithmatex">\(\mathcal{F}\)</span> 中所有元素在该基下的矩阵是对角阵。</p>
 </blockquote>
-<p>考虑 $AB=BA$，由于相似变换不改变可交换性，不妨设 $A$ 是对角阵，形如
+<p>考虑 <span class="arithmatex">\(AB=BA\)</span>，由于相似变换不改变可交换性，不妨设 <span class="arithmatex">\(A\)</span> 是对角阵，形如
 $$
 A=\begin{pmatrix}
 \lambda_{1}I_{1} \
@@ -15401,7 +15403,7 @@ A=\begin{pmatrix}
  &amp;  &amp; \lambda_{s}I_{s}
 \end{pmatrix}
 $$
-可以将 $B$ 对应分块
+可以将 <span class="arithmatex">\(B\)</span> 对应分块
 $$
 B = 
 \begin{pmatrix}
@@ -15410,7 +15412,7 @@ B_{11} &amp; \cdots &amp; B_{1s} \
 B_{s1} &amp; \cdots &amp; B_{ss}
 \end{pmatrix}
 $$
-根据 $AB=BA$ 容易验证 $B$ 是分块对角阵，只有 $B_{ii}$ 非零。根据可对角化性质，可取 $P_{1},\cdots,P_{s}$ 使得
+根据 <span class="arithmatex">\(AB=BA\)</span> 容易验证 <span class="arithmatex">\(B\)</span> 是分块对角阵，只有 <span class="arithmatex">\(B_{ii}\)</span> 非零。根据可对角化性质，可取 <span class="arithmatex">\(P_{1},\cdots,P_{s}\)</span> 使得
 $$
 P_{i}^{-1}B_{ii}P_{i}
 $$
@@ -15422,92 +15424,92 @@ P_{1} \
  &amp;  &amp; P_{s}
 \end{pmatrix}
 $$
-容易验证 $P^{-1}AP=A$，并且 $P^{-1}BP$ 是对角阵。</p>
+容易验证 <span class="arithmatex">\(P^{-1}AP=A\)</span>，并且 <span class="arithmatex">\(P^{-1}BP\)</span> 是对角阵。</p>
 <blockquote>
 <p>[!lemma]
-酉空间上的线性变换 $A$ 是正规变换当且仅当 $A$ 的特征向量都是 $A^*$ 的特征向量。 </p>
+酉空间上的线性变换 <span class="arithmatex">\(A\)</span> 是正规变换当且仅当 <span class="arithmatex">\(A\)</span> 的特征向量都是 <span class="arithmatex">\(A^*\)</span> 的特征向量。 </p>
 </blockquote>
-<p>必要性：由正规变换条件有 $AA^<em>=A^</em>A$，任取 $A$ 的特征对 $(\lambda,\xi)$，则有
+<p>必要性：由正规变换条件有 <span class="arithmatex">\(AA^*=A^*A\)</span>，任取 <span class="arithmatex">\(A\)</span> 的特征对 <span class="arithmatex">\((\lambda,\xi)\)</span>，则有
 $$
 (A\xi,A\xi)=(\xi,A^<em>A\xi) = (\xi,AA^</em>\xi) = (A^<em>\xi,A^</em>\xi)
 $$
-因此 $|A\xi|=|A^<em>\xi|$，注意到 $A-\lambda I$ 也是正规变换，则
+因此 <span class="arithmatex">\(\|A\xi\|=\|A^*\xi\|\)</span>，注意到 <span class="arithmatex">\(A-\lambda I\)</span> 也是正规变换，则
 $$
-0 =|(A-\lambda I)\xi| = |(A^</em>-\bar{\lambda}I)\xi|
+0 =|(A-\lambda I)\xi| = |(A^<em>-\bar{\lambda}I)\xi|
 $$
-故 $A^<em>$ 有特征对 $(\bar{\lambda},\xi)$ 。充分性：任取 $A$ 的特征对 $(\lambda,\xi)$，则有
+故 <span class="arithmatex">\(A^*\)</span> 有特征对 <span class="arithmatex">\((\bar{\lambda},\xi)\)</span> 。充分性：任取 <span class="arithmatex">\(A\)</span> 的特征对 <span class="arithmatex">\((\lambda,\xi)\)</span>，则有
 $$
 \lambda(\xi,\xi)=(\xi,\lambda\xi) = (\xi,A\xi) = (A^</em>\xi,\xi) = (\lambda^<em>\xi,\xi)=\bar{\lambda}^</em>(\xi,\xi)
 $$
-因此 $\lambda^<em>=\bar{\lambda}$ 。充分性：只需要证明 $A,A^</em>$ 可同时对角化，此时有
+因此 <span class="arithmatex">\(\lambda^*=\bar{\lambda}\)</span> 。充分性：只需要证明 <span class="arithmatex">\(A,A^*\)</span> 可同时对角化，此时有
 $$
 P^{-1}(AA^<em>)P = (P^{-1}AP)(P^{-1}A^</em>P) = (P^{-1}A^<em>P)(P^{-1}AP) = P^{-1}(A^</em>A)P
 $$
-已知 $A,A^<em>$ 具有公共特征向量，则只需要说明 $A$ 可对角化。我们需要证明 Jordan 块总是 1 维，则特征子空间是 1 维。根据 $(A-\lambda I)^2$ 的解空间是 $A-\lambda I$ 的解空间的子空间，则前者的解空间也只能是 1 维，从而两者相同，于是只要证明
+已知 <span class="arithmatex">\(A,A^*\)</span> 具有公共特征向量，则只需要说明 <span class="arithmatex">\(A\)</span> 可对角化。我们需要证明 Jordan 块总是 1 维，则特征子空间是 1 维。根据 <span class="arithmatex">\((A-\lambda I)^2\)</span> 的解空间是 <span class="arithmatex">\(A-\lambda I\)</span> 的解空间的子空间，则前者的解空间也只能是 1 维，从而两者相同，于是只要证明
 $$
 (A-\lambda I)^2x=0 \implies (A-\lambda I)x=0
 $$
-对于满足左式的 $x$，设 $y=(A-\lambda I)x$，则 $y$ 是 $A,A^</em>$ 的特征向量，不妨设特征值为 $\lambda,\bar{\lambda}$，于是
+对于满足左式的 <span class="arithmatex">\(x\)</span>，设 <span class="arithmatex">\(y=(A-\lambda I)x\)</span>，则 <span class="arithmatex">\(y\)</span> 是 <span class="arithmatex">\(A,A^*\)</span> 的特征向量，不妨设特征值为 <span class="arithmatex">\(\lambda,\bar{\lambda}\)</span>，于是
 $$
 \begin{aligned}
 (Ax,y) &amp;= (x,A^*y) = (x,\bar{\lambda}y)= \bar{\lambda}(x,y)\
 &amp;= (\lambda x+y,y) = \bar{\lambda}(x,y)+(y,y)
 \end{aligned}
 $$
-只能有 $(y,y)=0$，故 $(A-\lambda I)x=0$，即证。</p>
+只能有 <span class="arithmatex">\((y,y)=0\)</span>，故 <span class="arithmatex">\((A-\lambda I)x=0\)</span>，即证。</p>
 <blockquote>
 <blockquote>
 <p>这表明正规变换（可交换性）等价于可同时对角化。</p>
-<p>设 $A$ 是酉空间上的正规变换，$A^<em>$ 是其共轭变换，则 $A^</em>$ 是 $A$ 的多项式。</p>
+<p>设 <span class="arithmatex">\(A\)</span> 是酉空间上的正规变换，<span class="arithmatex">\(A^*\)</span> 是其共轭变换，则 <span class="arithmatex">\(A^*\)</span> 是 <span class="arithmatex">\(A\)</span> 的多项式。</p>
 </blockquote>
 </blockquote>
-<p>根据前面的引理，有 $A,A^<em>$ 都可交换、可同时对角化，不妨设 $A,A^</em>$ 都是对角阵，则通过拉格朗日插值可以解出两者的关系，最后相似变换还原矩阵即可。</p>
+<p>根据前面的引理，有 <span class="arithmatex">\(A,A^*\)</span> 都可交换、可同时对角化，不妨设 <span class="arithmatex">\(A,A^*\)</span> 都是对角阵，则通过拉格朗日插值可以解出两者的关系，最后相似变换还原矩阵即可。</p>
 <blockquote>
 <blockquote>
-<p>设 $A$ 是数域 $\mathbb{F}$ 上的 $n$ 阶矩阵，考虑矩阵线性空间 $\mathrm{Mat}_{n}(\mathbb{F})$ 上的线性变换 $T:X\to AX-XA$ 。若 $A$ 是幂零矩阵，则 $T$ 是幂零变换；若 $A$ 可对角化，则 $T$ 可对角化。</p>
+<p>设 <span class="arithmatex">\(A\)</span> 是数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(n\)</span> 阶矩阵，考虑矩阵线性空间 <span class="arithmatex">\(\mathrm{Mat}_{n}(\mathbb{F})\)</span> 上的线性变换 <span class="arithmatex">\(T:X\to AX-XA\)</span> 。若 <span class="arithmatex">\(A\)</span> 是幂零矩阵，则 <span class="arithmatex">\(T\)</span> 是幂零变换；若 <span class="arithmatex">\(A\)</span> 可对角化，则 <span class="arithmatex">\(T\)</span> 可对角化。</p>
 </blockquote>
 </blockquote>
-<p>考虑线性变换 $l_{A}(X)=AX,r_{A}(X)=XA$，则 $T=l_{A}-r_{A}$，并且 $l_{A},r_{A}$ 可交换。于是</p>
+<p>考虑线性变换 <span class="arithmatex">\(l_{A}(X)=AX,r_{A}(X)=XA\)</span>，则 <span class="arithmatex">\(T=l_{A}-r_{A}\)</span>，并且 <span class="arithmatex">\(l_{A},r_{A}\)</span> 可交换。于是</p>
 <ol>
-<li>若 $A$ 是幂零矩阵，则 $(l_{A})^n(A)=A^nX=0$，则 $l_{A}$ 是幂零线性变换；同理 $r_{A}$ 也是。由于它们可交换，则它们的矩阵可同时上三角化，并且对角元全为零，则它们的差也相似于对角元全为零的上三角阵；</li>
-<li>若 $A$ 可对角化，则 $l_{A}$ 可对角化；同理 $r_{A}$ 也是。由于它们可交换，则可同时对角化，从而 $T$ 可对角化；</li>
+<li>若 <span class="arithmatex">\(A\)</span> 是幂零矩阵，则 <span class="arithmatex">\((l_{A})^n(A)=A^nX=0\)</span>，则 <span class="arithmatex">\(l_{A}\)</span> 是幂零线性变换；同理 <span class="arithmatex">\(r_{A}\)</span> 也是。由于它们可交换，则它们的矩阵可同时上三角化，并且对角元全为零，则它们的差也相似于对角元全为零的上三角阵；</li>
+<li>若 <span class="arithmatex">\(A\)</span> 可对角化，则 <span class="arithmatex">\(l_{A}\)</span> 可对角化；同理 <span class="arithmatex">\(r_{A}\)</span> 也是。由于它们可交换，则可同时对角化，从而 <span class="arithmatex">\(T\)</span> 可对角化；</li>
 </ol>
 <p>即证。</p>
 <blockquote>
 <blockquote>
-<p>注意幂零变换这一部分，$r_{A}$ 使用的变换矩阵不是 $A$，因此不要考虑 $AX,XA$ 的可交换性。</p>
+<p>注意幂零变换这一部分，<span class="arithmatex">\(r_{A}\)</span> 使用的变换矩阵不是 <span class="arithmatex">\(A\)</span>，因此不要考虑 <span class="arithmatex">\(AX,XA\)</span> 的可交换性。</p>
 </blockquote>
 <p>[!theorem]
-设 $A,B$ 是两个 $n$ 阶复矩阵，且存在复数 $a,b$ 使得 $AB-BA=aA+bB$，则 $A,B$ 可同时上三角化。</p>
+设 <span class="arithmatex">\(A,B\)</span> 是两个 <span class="arithmatex">\(n\)</span> 阶复矩阵，且存在复数 <span class="arithmatex">\(a,b\)</span> 使得 <span class="arithmatex">\(AB-BA=aA+bB\)</span>，则 <span class="arithmatex">\(A,B\)</span> 可同时上三角化。</p>
 </blockquote>
-<p>设 $a=1$，记 $C=AB-BA=A+bB$，则 $CB-BC=C$ 。只需要证明 $B,C$ 可同时上三角化，则 $A$ 同时被上三角化。关键在于找到 $B,C$ 的公共特征向量。取 $B$ 的特征对 $(\lambda,\xi)$，则
+<p>设 <span class="arithmatex">\(a=1\)</span>，记 <span class="arithmatex">\(C=AB-BA=A+bB\)</span>，则 <span class="arithmatex">\(CB-BC=C\)</span> 。只需要证明 <span class="arithmatex">\(B,C\)</span> 可同时上三角化，则 <span class="arithmatex">\(A\)</span> 同时被上三角化。关键在于找到 <span class="arithmatex">\(B,C\)</span> 的公共特征向量。取 <span class="arithmatex">\(B\)</span> 的特征对 <span class="arithmatex">\((\lambda,\xi)\)</span>，则
 $$
 C\xi = (CB-BC)\xi \implies (I-\lambda I+B)C\xi = 0
 $$
-即 $(\lambda-1,C\xi)$ 也是 $B$ 的特征对。于是可以不断递推得到 $(\lambda-i,C^i\xi)$ 都是 $B$ 的特征对，但是 $B$ 是有限阶矩阵，因此必然存在某个 $k$ 使得 $C^{k+1}\xi=0$，因此 $(\lambda-k,C^k\xi)$ 是 $B$ 的特征对，$C^k\xi$ 是 $C$ 的特征向量，即 $B,C$ 有公共特征向量。参考前面同时上三角化的引理，即证。</p>
+即 <span class="arithmatex">\((\lambda-1,C\xi)\)</span> 也是 <span class="arithmatex">\(B\)</span> 的特征对。于是可以不断递推得到 <span class="arithmatex">\((\lambda-i,C^i\xi)\)</span> 都是 <span class="arithmatex">\(B\)</span> 的特征对，但是 <span class="arithmatex">\(B\)</span> 是有限阶矩阵，因此必然存在某个 <span class="arithmatex">\(k\)</span> 使得 <span class="arithmatex">\(C^{k+1}\xi=0\)</span>，因此 <span class="arithmatex">\((\lambda-k,C^k\xi)\)</span> 是 <span class="arithmatex">\(B\)</span> 的特征对，<span class="arithmatex">\(C^k\xi\)</span> 是 <span class="arithmatex">\(C\)</span> 的特征向量，即 <span class="arithmatex">\(B,C\)</span> 有公共特征向量。参考前面同时上三角化的引理，即证。</p>
 <blockquote>
 <p>[!theorem]
-若 $\mathrm{rank}(AB-BA)\leq 1$，则 $A,B$ 可同时上三角化。</p>
+若 <span class="arithmatex">\(\mathrm{rank}(AB-BA)\leq 1\)</span>，则 <span class="arithmatex">\(A,B\)</span> 可同时上三角化。</p>
 </blockquote>
-<p>我们需要找到公共特征向量，然后应用归纳法。若 $\mathrm{rank}(AB-BA)= 0$，则 $AB=BA$，由前面的引理即证；若 $\mathrm{rank}(AB-BA)= 1$，则 $\mathrm{Im}(AB-BA)$ 是 1 维。考虑 $A$ 的特征对 $(\lambda,\xi)$，则
+<p>我们需要找到公共特征向量，然后应用归纳法。若 <span class="arithmatex">\(\mathrm{rank}(AB-BA)= 0\)</span>，则 <span class="arithmatex">\(AB=BA\)</span>，由前面的引理即证；若 <span class="arithmatex">\(\mathrm{rank}(AB-BA)= 1\)</span>，则 <span class="arithmatex">\(\mathrm{Im}(AB-BA)\)</span> 是 1 维。考虑 <span class="arithmatex">\(A\)</span> 的特征对 <span class="arithmatex">\((\lambda,\xi)\)</span>，则
 $$
 (AB-BA)\xi = (A-\lambda I)(B\xi)
 $$
-若左端为零，则 $(\lambda,B\xi)$ 也是 $A$ 的特征对，这表明 $A,B$ 有公共的特征子空间；若左端不为零，则考虑在左端凑出 $B\xi$：若 $\xi\in \mathrm{Ker}A$，则 $A(B\xi)$ 张成 $\mathrm{Im}(AB-BA)$，于是</p>
+若左端为零，则 <span class="arithmatex">\((\lambda,B\xi)\)</span> 也是 <span class="arithmatex">\(A\)</span> 的特征对，这表明 <span class="arithmatex">\(A,B\)</span> 有公共的特征子空间；若左端不为零，则考虑在左端凑出 <span class="arithmatex">\(B\xi\)</span>：若 <span class="arithmatex">\(\xi\in \mathrm{Ker}A\)</span>，则 <span class="arithmatex">\(A(B\xi)\)</span> 张成 <span class="arithmatex">\(\mathrm{Im}(AB-BA)\)</span>，于是</p>
 <ul>
-<li>$\mathrm{Im}(AB-BA)\subset \mathrm{Im}A$</li>
-<li>$\mathrm{Im}(AB)\subset \mathrm{Im}A$</li>
+<li><span class="arithmatex">\(\mathrm{Im}(AB-BA)\subset \mathrm{Im}A\)</span></li>
+<li><span class="arithmatex">\(\mathrm{Im}(AB)\subset \mathrm{Im}A\)</span></li>
 </ul>
-<p>进而 $\mathrm{Im}(BA)\subset \mathrm{Im}A$，这表明 $\mathrm{Im}A$ 是 $B$ 的不变子空间，则可以在 $\mathrm{Im}A$ 中找到 $A,B$ 的公共特征向量。注意到我们可以用 $A-\lambda I$ 替换 $A$，从而 $A$ 必然有关于零特征值的特征向量 $\xi\in \mathrm{Ker}A$，即证。</p>
+<p>进而 <span class="arithmatex">\(\mathrm{Im}(BA)\subset \mathrm{Im}A\)</span>，这表明 <span class="arithmatex">\(\mathrm{Im}A\)</span> 是 <span class="arithmatex">\(B\)</span> 的不变子空间，则可以在 <span class="arithmatex">\(\mathrm{Im}A\)</span> 中找到 <span class="arithmatex">\(A,B\)</span> 的公共特征向量。注意到我们可以用 <span class="arithmatex">\(A-\lambda I\)</span> 替换 <span class="arithmatex">\(A\)</span>，从而 <span class="arithmatex">\(A\)</span> 必然有关于零特征值的特征向量 <span class="arithmatex">\(\xi\in \mathrm{Ker}A\)</span>，即证。</p>
 <blockquote>
 <p>交换矩阵空间的最大维数
-设 $M$ 是 $\mathrm{Mat}_{n}(\mathbb{C})$ 的子空间，且其中矩阵两两可交换，则 $M$ 的最大维数是 $\left[ \frac{n^2}{4} \right]+1$ 。</p>
+设 <span class="arithmatex">\(M\)</span> 是 <span class="arithmatex">\(\mathrm{Mat}_{n}(\mathbb{C})\)</span> 的子空间，且其中矩阵两两可交换，则 <span class="arithmatex">\(M\)</span> 的最大维数是 <span class="arithmatex">\(\left[ \frac{n^2}{4} \right]+1\)</span> 。</p>
 </blockquote>
-<p>由两两可交换，则可同时上三角化，不妨设都是上三角阵。对每个 $A\in M$，可取上 $n-1$ 阶 $f(A)$ 和下 $n-1$ 阶矩阵 $g(A)$ 分别构成两两可交换的子空间。由归纳法设
+<p>由两两可交换，则可同时上三角化，不妨设都是上三角阵。对每个 <span class="arithmatex">\(A\in M\)</span>，可取上 <span class="arithmatex">\(n-1\)</span> 阶 <span class="arithmatex">\(f(A)\)</span> 和下 <span class="arithmatex">\(n-1\)</span> 阶矩阵 <span class="arithmatex">\(g(A)\)</span> 分别构成两两可交换的子空间。由归纳法设
 $$
 \dim f(M)\leq \left[ \frac{(n-1)^2}{4} \right],\quad \dim g(M) \leq \left[ \frac{(n-1)^2}{4} \right]
 $$
-显然 $\mathrm{Ker}f,\mathrm{Ker}g$ 中的元素形如 $\begin{pmatrix}O_{n\times (n-1)} &amp; \alpha\end{pmatrix},\begin{pmatrix}\beta^T \O_{(n-1)\times n}\end{pmatrix}\in M$，再由可交换性得 $\beta^T\alpha=0$，于是
+显然 <span class="arithmatex">\(\mathrm{Ker}f,\mathrm{Ker}g\)</span> 中的元素形如 <span class="arithmatex">\(\begin{pmatrix}O_{n\times (n-1)} &amp; \alpha\end{pmatrix},\begin{pmatrix}\beta^T \\O_{(n-1)\times n}\end{pmatrix}\in M\)</span>，再由可交换性得 <span class="arithmatex">\(\beta^T\alpha=0\)</span>，于是
 $$
 \dim\mathrm{Ker}f+\dim\mathrm{Ker}g\leq n
 $$
@@ -15534,74 +15536,74 @@ $$
 作为具体的构造。</p>
 <blockquote>
 <p>[!theorem]
-设 $M$ 是 $\mathrm{Mat}_{n}(\mathbb{R})$ 的子空间，且其中矩阵可逆，则 $M$ 的最大维数是 $\rho(n)=2^d+8c-1$，其中有
+设 <span class="arithmatex">\(M\)</span> 是 <span class="arithmatex">\(\mathrm{Mat}_{n}(\mathbb{R})\)</span> 的子空间，且其中矩阵可逆，则 <span class="arithmatex">\(M\)</span> 的最大维数是 <span class="arithmatex">\(\rho(n)=2^d+8c-1\)</span>，其中有
 $$
 n=2^ab,\quad a=4c+d(0\leq d\leq 3)
 $$
-称 $\rho(n)$ 为 Radon-Hurwitz 数。</p>
+称 <span class="arithmatex">\(\rho(n)\)</span> 为 Radon-Hurwitz 数。</p>
 <blockquote>
-<p>注意对于任意两个复数域可逆矩阵 $A,B$，二元 $n$ 次多项式 $f(\alpha,\beta)=\det(\alpha A+\beta B)$ 不是零多项式，并且显然有非零根，则复数域可逆矩阵张成的子空间最大是 1 维。</p>
+<p>注意对于任意两个复数域可逆矩阵 <span class="arithmatex">\(A,B\)</span>，二元 <span class="arithmatex">\(n\)</span> 次多项式 <span class="arithmatex">\(f(\alpha,\beta)=\det(\alpha A+\beta B)\)</span> 不是零多项式，并且显然有非零根，则复数域可逆矩阵张成的子空间最大是 1 维。</p>
 </blockquote>
 </blockquote>
 <h2 id="_9">覆盖定理</h2>
 <blockquote>
 <p>[!theorem]
-数域 $\mathbb{F}$ 上的有限维线性空间 $V$ 不能被它的有限个真子空间覆盖。</p>
+数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的有限维线性空间 <span class="arithmatex">\(V\)</span> 不能被它的有限个真子空间覆盖。</p>
 <blockquote>
-<p>数域 $\mathbb{F}$ 上的 $n$ 维线性空间 $V$ 上的线性变换构成 $\mathrm{End}<em>{\mathbb{F}}(V)$，若 $\mathcal{T}\in\mathrm{End}</em>{\mathbb{F}}(V)$ 满足任意 $A,B\in V$ 有
+<p>数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(n\)</span> 维线性空间 <span class="arithmatex">\(V\)</span> 上的线性变换构成 <span class="arithmatex">\(\mathrm{End}_{\mathbb{F}}(V)\)</span>，若 <span class="arithmatex">\(\mathcal{T}\in\mathrm{End}_{\mathbb{F}}(V)\)</span> 满足任意 <span class="arithmatex">\(A,B\in V\)</span> 有
 $$
 \mathcal{T}(AB)=\mathcal{T}(A)\mathcal{T}(B)\quad \mathrm{or}\quad \mathcal{T}(AB)=\mathcal{T}(B)\mathcal{T}(A)
 $$
-则对任意 $A,B\in V$ 有 $\mathcal{T}(AB)=\mathcal{T}(A)\mathcal{T}(B)$ 或者对任意 $A,B\in V$ 有 $\mathcal{T}(AB)=\mathcal{T}(B)\mathcal{T}(A)$ 成立。</p>
+则对任意 <span class="arithmatex">\(A,B\in V\)</span> 有 <span class="arithmatex">\(\mathcal{T}(AB)=\mathcal{T}(A)\mathcal{T}(B)\)</span> 或者对任意 <span class="arithmatex">\(A,B\in V\)</span> 有 <span class="arithmatex">\(\mathcal{T}(AB)=\mathcal{T}(B)\mathcal{T}(A)\)</span> 成立。</p>
 </blockquote>
 </blockquote>
-<p>给定 $A$，前者称为正手型，后者称为反手型。满足 $\mathcal{T}(AB)=\mathcal{T}(A)\mathcal{T}(B)$ 的方阵 $B$ 构成 $\mathrm{Mat}<em>{n}(\mathbb{F})$ 的子空间 $U</em>{A}$，同理满足 $\mathcal{T}(AB)=\mathcal{T}(B)\mathcal{T}(A)$ 的方阵 $B$ 构成子空间 $W_{A}$ 。显然 $U_{A}\cup W_{A}=\mathrm{Mat}<em>{n}(\mathbb{F})$，因此两者不可能都是真子空间，因此 $U</em>{A}=\mathrm{Mat}<em>{n}(\mathbb{F})$ 或者 $W</em>{A}=\mathrm{Mat}<em>{n}(\mathbb{F})$，即 $A$ 要么是正手型，要么是反手型。再考虑由正手型构成的子空间 $U</em>{1}$，以及反手型构成的子空间 $W_{1}$，同理 $U_{1}=\mathrm{Mat}<em>{n}(\mathbb{F})$ 或者 $W</em>{1}=\mathrm{Mat}_{n}(\mathbb{F})$，即证。</p>
+<p>给定 <span class="arithmatex">\(A\)</span>，前者称为正手型，后者称为反手型。满足 <span class="arithmatex">\(\mathcal{T}(AB)=\mathcal{T}(A)\mathcal{T}(B)\)</span> 的方阵 <span class="arithmatex">\(B\)</span> 构成 <span class="arithmatex">\(\mathrm{Mat}_{n}(\mathbb{F})\)</span> 的子空间 <span class="arithmatex">\(U_{A}\)</span>，同理满足 <span class="arithmatex">\(\mathcal{T}(AB)=\mathcal{T}(B)\mathcal{T}(A)\)</span> 的方阵 <span class="arithmatex">\(B\)</span> 构成子空间 <span class="arithmatex">\(W_{A}\)</span> 。显然 <span class="arithmatex">\(U_{A}\cup W_{A}=\mathrm{Mat}_{n}(\mathbb{F})\)</span>，因此两者不可能都是真子空间，因此 <span class="arithmatex">\(U_{A}=\mathrm{Mat}_{n}(\mathbb{F})\)</span> 或者 <span class="arithmatex">\(W_{A}=\mathrm{Mat}_{n}(\mathbb{F})\)</span>，即 <span class="arithmatex">\(A\)</span> 要么是正手型，要么是反手型。再考虑由正手型构成的子空间 <span class="arithmatex">\(U_{1}\)</span>，以及反手型构成的子空间 <span class="arithmatex">\(W_{1}\)</span>，同理 <span class="arithmatex">\(U_{1}=\mathrm{Mat}_{n}(\mathbb{F})\)</span> 或者 <span class="arithmatex">\(W_{1}=\mathrm{Mat}_{n}(\mathbb{F})\)</span>，即证。</p>
 <blockquote>
 <p>[!theorem]
-设 $A$ 是 $n$ 维线性空间 $V$ 上的线性变换。对 $v\in V$，记 $m_{v}(x)$ 为使得 $m_{v}(A)v=0$ 成立的次数最低的首一多项式，也称为 $v$ 的极小多项式。证明：存在 $v\in V$ 使得 $m_{v}(x)$ 也是 $A$ 的极小多项式。</p>
+设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n\)</span> 维线性空间 <span class="arithmatex">\(V\)</span> 上的线性变换。对 <span class="arithmatex">\(v\in V\)</span>，记 <span class="arithmatex">\(m_{v}(x)\)</span> 为使得 <span class="arithmatex">\(m_{v}(A)v=0\)</span> 成立的次数最低的首一多项式，也称为 <span class="arithmatex">\(v\)</span> 的极小多项式。证明：存在 <span class="arithmatex">\(v\in V\)</span> 使得 <span class="arithmatex">\(m_{v}(x)\)</span> 也是 <span class="arithmatex">\(A\)</span> 的极小多项式。</p>
 </blockquote>
-<p>记 $A$ 的极小多项式为 $m(x)$，显然 $m_{v}(x)|m(x)$，但是 $m(x)$ 只有有限个因式，则 $m_{v}(x)$ 只能由有限个不同的可能 $m_{1}(x),\cdots,m_{k}(x)$，考虑
+<p>记 <span class="arithmatex">\(A\)</span> 的极小多项式为 <span class="arithmatex">\(m(x)\)</span>，显然 <span class="arithmatex">\(m_{v}(x)|m(x)\)</span>，但是 <span class="arithmatex">\(m(x)\)</span> 只有有限个因式，则 <span class="arithmatex">\(m_{v}(x)\)</span> 只能由有限个不同的可能 <span class="arithmatex">\(m_{1}(x),\cdots,m_{k}(x)\)</span>，考虑
 $$
 V_{i}={v\in V:m_{i}(A)v=0}
 $$
-则 $V$ 是 $V_{i}$ 的并，并且它们不能都是真子空间，必然存在某个 $V_{i}=V$，即证。</p>
+则 <span class="arithmatex">\(V\)</span> 是 <span class="arithmatex">\(V_{i}\)</span> 的并，并且它们不能都是真子空间，必然存在某个 <span class="arithmatex">\(V_{i}=V\)</span>，即证。</p>
 <blockquote>
 <p>[!theorem]
-$A$ 的特征多项式 $f(x)$ 与极小多项式 $m(x)$ 相等当且仅当存在 $v\in V$ 使得 $v,Av,\cdots,A^{n-1}v$ 构成 $V$ 的基。</p>
+<span class="arithmatex">\(A\)</span> 的特征多项式 <span class="arithmatex">\(f(x)\)</span> 与极小多项式 <span class="arithmatex">\(m(x)\)</span> 相等当且仅当存在 <span class="arithmatex">\(v\in V\)</span> 使得 <span class="arithmatex">\(v,Av,\cdots,A^{n-1}v\)</span> 构成 <span class="arithmatex">\(V\)</span> 的基。</p>
 </blockquote>
-<p>必要性：存在某个 $v\in V$ 使得 $m(x)=m_{v}(x)$，且它是 $n$ 次多项式。若 $v,Av,\cdots,A^{n-1}v$ 线性相关，则存在不全为零的 $a_{i}$ 使得
+<p>必要性：存在某个 <span class="arithmatex">\(v\in V\)</span> 使得 <span class="arithmatex">\(m(x)=m_{v}(x)\)</span>，且它是 <span class="arithmatex">\(n\)</span> 次多项式。若 <span class="arithmatex">\(v,Av,\cdots,A^{n-1}v\)</span> 线性相关，则存在不全为零的 <span class="arithmatex">\(a_{i}\)</span> 使得
 $$
 g(A)=\sum_{i=0}^{n-1}a_{i}A^iv=0
 $$
-则 $g(x)$ 是 $n-1$ 次多项式，这与极小多项式为 $n$ 次矛盾；充分性：显然 $m_{v}(x)$ 是 $n$ 次多项式，而
+则 <span class="arithmatex">\(g(x)\)</span> 是 <span class="arithmatex">\(n-1\)</span> 次多项式，这与极小多项式为 <span class="arithmatex">\(n\)</span> 次矛盾；充分性：显然 <span class="arithmatex">\(m_{v}(x)\)</span> 是 <span class="arithmatex">\(n\)</span> 次多项式，而
 $$
 m_{v}(x)|m(x)|f(x)
 $$
 它们次数相同，即证。</p>
 <blockquote>
 <blockquote>
-<p>若存在 $v,Av,\cdots,A^{n-1}v$ 构成基，则称 $V$ 在 $A$ 作用下是循环空间，$v$ 是其生成元，记 $V={v}$ 。</p>
+<p>若存在 <span class="arithmatex">\(v,Av,\cdots,A^{n-1}v\)</span> 构成基，则称 <span class="arithmatex">\(V\)</span> 在 <span class="arithmatex">\(A\)</span> 作用下是循环空间，<span class="arithmatex">\(v\)</span> 是其生成元，记 <span class="arithmatex">\(V=\{v\}\)</span> 。</p>
 </blockquote>
 </blockquote>
 <h2 id="_10">有理标准型和交换矩阵</h2>
 <h3 id="frobenius">Frobenius 有理标准型</h3>
 <blockquote>
 <p>[!theorem] Frobenius
-设 $V$ 是域 $\mathbb{F}$ 上的 $n$ 维线性空间，$A$ 是 $V$ 上的线性变换，则存在 $v_{1},\cdots,v_{r}$ 使得
-- $V=\bigoplus_{i}{v_{i}}$
-- 设 $A$ 在子空间 ${v_{i}}$ 上的特征多项式为 $p_{i}(x)$，则 $p_{r}|\cdots|p_{2}|p_{1}$
-并且 $v_{i}$ 通常不唯一，但 $p_{i}(x)$ 唯一，称为 $A$ 的不变因子。线性变换 $A,B$ 相似当且仅当它们有相同的不变因子。</p>
+设 <span class="arithmatex">\(V\)</span> 是域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(n\)</span> 维线性空间，<span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(V\)</span> 上的线性变换，则存在 <span class="arithmatex">\(v_{1},\cdots,v_{r}\)</span> 使得
+- <span class="arithmatex">\(V=\bigoplus_{i}\{v_{i}\}\)</span>
+- 设 <span class="arithmatex">\(A\)</span> 在子空间 <span class="arithmatex">\(\{v_{i}\}\)</span> 上的特征多项式为 <span class="arithmatex">\(p_{i}(x)\)</span>，则 <span class="arithmatex">\(p_{r}|\cdots|p_{2}|p_{1}\)</span>
+并且 <span class="arithmatex">\(v_{i}\)</span> 通常不唯一，但 <span class="arithmatex">\(p_{i}(x)\)</span> 唯一，称为 <span class="arithmatex">\(A\)</span> 的不变因子。线性变换 <span class="arithmatex">\(A,B\)</span> 相似当且仅当它们有相同的不变因子。</p>
 </blockquote>
-<p>首先，存在 $v_{1}\in V$ 使得 $p_{1}(x)=m_{v_{1}}(x)$ 是 $A$ 的极小多项式。现在要找到剩余的 $v_{2},\cdots,v_{r}$，我们考虑商空间 $V/{v_{1}}$，则利用归纳假设得到 $n-1$ 维的商空间上的 Frobenius 定理</p>
+<p>首先，存在 <span class="arithmatex">\(v_{1}\in V\)</span> 使得 <span class="arithmatex">\(p_{1}(x)=m_{v_{1}}(x)\)</span> 是 <span class="arithmatex">\(A\)</span> 的极小多项式。现在要找到剩余的 <span class="arithmatex">\(v_{2},\cdots,v_{r}\)</span>，我们考虑商空间 <span class="arithmatex">\(V/\{v_{1}\}\)</span>，则利用归纳假设得到 <span class="arithmatex">\(n-1\)</span> 维的商空间上的 Frobenius 定理</p>
 <ul>
-<li>$V /{v_{1}}={\bar{v}<em>{2}}\oplus \cdots\oplus {\bar{v}</em>{r}}$</li>
-<li>设 $\bar{A}$ 在子空间 ${\bar{v}<em>{i}}$ 上的特征多项式为 $p</em>{2},\cdots,p_{r}$，则 $p_{r}|\cdots|p_{2}$</li>
+<li><span class="arithmatex">\(V /\{v_{1}\}=\{\bar{v}_{2}\}\oplus \cdots\oplus \{\bar{v}_{r}\}\)</span></li>
+<li>设 <span class="arithmatex">\(\bar{A}\)</span> 在子空间 <span class="arithmatex">\(\{\bar{v}_{i}\}\)</span> 上的特征多项式为 <span class="arithmatex">\(p_{2},\cdots,p_{r}\)</span>，则 <span class="arithmatex">\(p_{r}|\cdots|p_{2}\)</span></li>
 </ul>
-<p>其中 $\bar{}$ 表示在商空间中的代表元。考虑 $W={v_{1}}$ 中的一组基，扩充为 $V$ 中的基，得到
+<p>其中 <span class="arithmatex">\(\bar{}\)</span> 表示在商空间中的代表元。考虑 <span class="arithmatex">\(W=\{v_{1}\}\)</span> 中的一组基，扩充为 <span class="arithmatex">\(V\)</span> 中的基，得到
 $$
 \alpha_{1},\cdots,\alpha_{s},\beta_{1},\cdots,\beta_{n-s}
 $$
-于是在此基下，$A$ 变为分块上三角阵
+于是在此基下，<span class="arithmatex">\(A\)</span> 变为分块上三角阵
 $$
 A = 
 \begin{pmatrix}
@@ -15613,130 +15615,130 @@ $$
 $$
 \bar{v}\in V /{v_{1}}, v=\sum_{i}c_{i}\beta_{i} +W
 $$
-其中 $c_{i}$ 对应 $A_{n-s}$ 中的元素，$W$ 对应在 $*$ 中的元素。显然 $A$ 约束在商空间 $V /{v_{1}}$ 中得到 $A_{n-s}$，类似地可以将 $A_{n-s}$ 约束在子空间 ${\bar{v}<em>{i}}$ 中，则 $A$ 在 $W$ 中的特征多项式 $p</em>{1}$ 整除 $p_{i}$ 。接下来只需要证明 ${v_{1}}$ 与 ${\bar{v}<em>{2}}\oplus \cdots\oplus {\bar{v}</em>{r}}$ 可以直和。首先给出引理</p>
+其中 <span class="arithmatex">\(c_{i}\)</span> 对应 <span class="arithmatex">\(A_{n-s}\)</span> 中的元素，<span class="arithmatex">\(W\)</span> 对应在 <span class="arithmatex">\(*\)</span> 中的元素。显然 <span class="arithmatex">\(A\)</span> 约束在商空间 <span class="arithmatex">\(V /\{v_{1}\}\)</span> 中得到 <span class="arithmatex">\(A_{n-s}\)</span>，类似地可以将 <span class="arithmatex">\(A_{n-s}\)</span> 约束在子空间 <span class="arithmatex">\(\{\bar{v}_{i}\}\)</span> 中，则 <span class="arithmatex">\(A\)</span> 在 <span class="arithmatex">\(W\)</span> 中的特征多项式 <span class="arithmatex">\(p_{1}\)</span> 整除 <span class="arithmatex">\(p_{i}\)</span> 。接下来只需要证明 <span class="arithmatex">\(\{v_{1}\}\)</span> 与 <span class="arithmatex">\(\{\bar{v}_{2}\}\oplus \cdots\oplus \{\bar{v}_{r}\}\)</span> 可以直和。首先给出引理</p>
 <blockquote>
 <p>[!lemma]
-对每个 $i\geq 2$，存在 $\bar{v}<em>{i}$ 在 $V$ 中的代表元 $v</em>{i}$ 使得 $v_{i}$ 在 $V$ 中的极小多项式为 $p_{i}(x)$ 。</p>
+对每个 <span class="arithmatex">\(i\geq 2\)</span>，存在 <span class="arithmatex">\(\bar{v}_{i}\)</span> 在 <span class="arithmatex">\(V\)</span> 中的代表元 <span class="arithmatex">\(v_{i}\)</span> 使得 <span class="arithmatex">\(v_{i}\)</span> 在 <span class="arithmatex">\(V\)</span> 中的极小多项式为 <span class="arithmatex">\(p_{i}(x)\)</span> 。</p>
 </blockquote>
-<p>随便给 $\bar{v}<em>{i}$ 指定代表元 $v</em>{i}$，例如取 $p_{2}(\bar{A})\bar{v}<em>{2}=\bar{0}$，则
+<p>随便给 <span class="arithmatex">\(\bar{v}_{i}\)</span> 指定代表元 <span class="arithmatex">\(v_{i}\)</span>，例如取 <span class="arithmatex">\(p_{2}(\bar{A})\bar{v}_{2}=\bar{0}\)</span>，则
 $$
-p</em>{2}(A)v_{2}\in{v_{1}}\implies p_{2}(A)v_{2}=r_{2}(A)v_{1},\quad r_{2}(x)\in \mathbb{F}[x]
+p_{2}(A)v_{2}\in{v_{1}}\implies p_{2}(A)v_{2}=r_{2}(A)v_{1},\quad r_{2}(x)\in \mathbb{F}[x]
 $$
-由于 $p_{2}|p_{1}$，则 $p_{1}=p_{2}m_{2}$，于是
+由于 <span class="arithmatex">\(p_{2}|p_{1}\)</span>，则 <span class="arithmatex">\(p_{1}=p_{2}m_{2}\)</span>，于是
 $$
 0 = r_{2}(A)m_{2}(A)v_{1}
 $$
-因此 $p_{1}|r_{2}m_{2}$，即 $p_{2}|r_{2}$ 。令 $r_{2}=p_{2}l_{2}$，则可以将 $r_{2}$ 替换为
+因此 <span class="arithmatex">\(p_{1}|r_{2}m_{2}\)</span>，即 <span class="arithmatex">\(p_{2}|r_{2}\)</span> 。令 <span class="arithmatex">\(r_{2}=p_{2}l_{2}\)</span>，则可以将 <span class="arithmatex">\(r_{2}\)</span> 替换为
 $$
 p_{2}(A)(v_{2}-l_{2}(A)v_{1})=0
 $$
-则 $v_{2}-l_{2}(A)v_{1}$ 就是被 $p_{2}(A)$ 零化的代表元，设其极小多项式为 $h(x)|p_{2}(x)$，则
+则 <span class="arithmatex">\(v_{2}-l_{2}(A)v_{1}\)</span> 就是被 <span class="arithmatex">\(p_{2}(A)\)</span> 零化的代表元，设其极小多项式为 <span class="arithmatex">\(h(x)|p_{2}(x)\)</span>，则
 $$
 h(A)(v_{2}-l_{2}(A)v_{1})=0
 $$
-转移到商空间 $V/{v_{1}}$ 中就有
+转移到商空间 <span class="arithmatex">\(V/\{v_{1}\}\)</span> 中就有
 $$
-h(\bar{A})\bar{v}<em>{2}=0
+h(\bar{A})\bar{v}_{2}=0
 $$
-因此 $p</em>{2}|h_{2}$，于是 $h_{2}=p_{2}$，即证。</p>
+因此 <span class="arithmatex">\(p_{2}|h_{2}\)</span>，于是 <span class="arithmatex">\(h_{2}=p_{2}\)</span>，即证。</p>
 <blockquote>
 <blockquote>
-<p>注意 ${v_{i}}$ 是循环子空间。</p>
+<p>注意 <span class="arithmatex">\(\{v_{i}\}\)</span> 是循环子空间。</p>
 </blockquote>
 </blockquote>
-<p>考虑 $u_{i}=f_{i}(A)v_{i}\in{v_{i}}$ 满足
+<p>考虑 <span class="arithmatex">\(u_{i}=f_{i}(A)v_{i}\in\{v_{i}\}\)</span> 满足
 $$
-\sum_{i=1}^ra_{i}u_{i}=0 \implies \sum_{i=2}^ra_{i}f_{i}(\bar{A})\bar{v}<em>{i}=\bar{0}
+\sum_{i=1}^ra_{i}u_{i}=0 \implies \sum_{i=2}^ra_{i}f_{i}(\bar{A})\bar{v}_{i}=\bar{0}
 $$
-由于 ${\bar{v}</em>{2}}\oplus \cdots\oplus {\bar{v}<em>{r}}$ 是直和，则 $a</em>{i}f_{i}(\bar{A})=\bar{0}$，故 $a_{i}f_{i}(x)$ 被 $p_{i}$ 整除，注意已经证明 $p_{i}$ 是 $v_{i},\bar{v}<em>{i}$ 的极小多项式。于是 $a</em>{i}u_{i}=a_{i}f_{i}(A)v_{i}=0$，则 $a_{i}=0$，即证。</p>
+由于 <span class="arithmatex">\(\{\bar{v}_{2}\}\oplus \cdots\oplus \{\bar{v}_{r}\}\)</span> 是直和，则 <span class="arithmatex">\(a_{i}f_{i}(\bar{A})=\bar{0}\)</span>，故 <span class="arithmatex">\(a_{i}f_{i}(x)\)</span> 被 <span class="arithmatex">\(p_{i}\)</span> 整除，注意已经证明 <span class="arithmatex">\(p_{i}\)</span> 是 <span class="arithmatex">\(v_{i},\bar{v}_{i}\)</span> 的极小多项式。于是 <span class="arithmatex">\(a_{i}u_{i}=a_{i}f_{i}(A)v_{i}=0\)</span>，则 <span class="arithmatex">\(a_{i}=0\)</span>，即证。</p>
 <blockquote>
 <blockquote>
-<p>Frobenius 定理表明 $V$ 可以分解为 $A$ 的循环子空间的直和。</p>
+<p>Frobenius 定理表明 <span class="arithmatex">\(V\)</span> 可以分解为 <span class="arithmatex">\(A\)</span> 的循环子空间的直和。</p>
 </blockquote>
 <p>[!exercise]
-证明：$A$ 的特征多项式 $f(x)=p_{1}\cdots p_{r}$，$A$ 的极小多项式 $m(x)=p_{1}(x)$ 。</p>
+证明：<span class="arithmatex">\(A\)</span> 的特征多项式 <span class="arithmatex">\(f(x)=p_{1}\cdots p_{r}\)</span>，<span class="arithmatex">\(A\)</span> 的极小多项式 <span class="arithmatex">\(m(x)=p_{1}(x)\)</span> 。</p>
 </blockquote>
-<p>由定理的构造，$m(x)=p_{1}(x)$；然后由 $A_{s},A_{n-s}$ 的分块构造方式，可以反复取商空间得到特征多项式。</p>
+<p>由定理的构造，<span class="arithmatex">\(m(x)=p_{1}(x)\)</span>；然后由 <span class="arithmatex">\(A_{s},A_{n-s}\)</span> 的分块构造方式，可以反复取商空间得到特征多项式。</p>
 <h3 id="_11">交换变换的多项式表示</h3>
-<p>设与 $A$ 交换的线性变换 $B$ 都是 $A$ 的多项式，那么 $A$ 应当具有什么性质？</p>
-<p>由于 $B$ 是 $A$ 的多项式，则 $B$ 以 ${v_{i}}$ 为不变子空间。然而，我们有</p>
+<p>设与 <span class="arithmatex">\(A\)</span> 交换的线性变换 <span class="arithmatex">\(B\)</span> 都是 <span class="arithmatex">\(A\)</span> 的多项式，那么 <span class="arithmatex">\(A\)</span> 应当具有什么性质？</p>
+<p>由于 <span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(A\)</span> 的多项式，则 <span class="arithmatex">\(B\)</span> 以 <span class="arithmatex">\(\{v_{i}\}\)</span> 为不变子空间。然而，我们有</p>
 <blockquote>
 <p>[!lemma]
-设 $r&gt;1$，则存在与 $A$ 交换的线性变换 $B$ 使得 $Bv_{1}=v_{2}$ 。</p>
+设 <span class="arithmatex">\(r&gt;1\)</span>，则存在与 <span class="arithmatex">\(A\)</span> 交换的线性变换 <span class="arithmatex">\(B\)</span> 使得 <span class="arithmatex">\(Bv_{1}=v_{2}\)</span> 。</p>
 </blockquote>
-<p>给定 $v_{1},v_{2}$，则对任意 $u=f(A)v_{1}\in{v_{1}}$，令
+<p>给定 <span class="arithmatex">\(v_{1},v_{2}\)</span>，则对任意 <span class="arithmatex">\(u=f(A)v_{1}\in\{v_{1}\}\)</span>，令
 $$
 Bu=f(A)v_{2}\in{v_{2}}
 $$
-而 $B$ 对 ${v_{i}},i\neq 1$ 的作用为零，则它满足要求。但是 $u=f(A)v_{1}$ 中 $f(x)$ 的形式不唯一，因为 $A$ 的多项式幂不一定可逆。我们证明 $B$ 的定义与 $f(x)$ 的形式无关。设 $u=f_{1}(A)v_{1}=f_{2}(A)v_{1}$，则
+而 <span class="arithmatex">\(B\)</span> 对 <span class="arithmatex">\(\{v_{i}\},i\neq 1\)</span> 的作用为零，则它满足要求。但是 <span class="arithmatex">\(u=f(A)v_{1}\)</span> 中 <span class="arithmatex">\(f(x)\)</span> 的形式不唯一，因为 <span class="arithmatex">\(A\)</span> 的多项式幂不一定可逆。我们证明 <span class="arithmatex">\(B\)</span> 的定义与 <span class="arithmatex">\(f(x)\)</span> 的形式无关。设 <span class="arithmatex">\(u=f_{1}(A)v_{1}=f_{2}(A)v_{1}\)</span>，则
 $$
 p_{2}|p_{1}|(f_{1}-f_{2})
 $$
-于是 $f_{1}(A)v_{2}=f_{2}(A)v_{2}$，因此使用不同 $f(x)$ 定义的 $B$ 一致。</p>
+于是 <span class="arithmatex">\(f_{1}(A)v_{2}=f_{2}(A)v_{2}\)</span>，因此使用不同 <span class="arithmatex">\(f(x)\)</span> 定义的 <span class="arithmatex">\(B\)</span> 一致。</p>
 <blockquote>
 <p>[!corollary]
-若与 $A$ 交换的线性变换都是 $A$ 的多项式，则 $V$ 是 $A$ 的一个循环子空间，即存在 $v\in V$ 使得 $V={v}$ 。</p>
+若与 <span class="arithmatex">\(A\)</span> 交换的线性变换都是 <span class="arithmatex">\(A\)</span> 的多项式，则 <span class="arithmatex">\(V\)</span> 是 <span class="arithmatex">\(A\)</span> 的一个循环子空间，即存在 <span class="arithmatex">\(v\in V\)</span> 使得 <span class="arithmatex">\(V=\{v\}\)</span> 。</p>
 </blockquote>
-<p>若 $B$ 与 $A$ 交换，且是 $A$ 的多项式，则 ${v_{i}}$ 是 $B$ 的不变子空间，它不能将 $v_{1}$ 映射到 $v_{2}$，矛盾。只能有 $r=1$，即证。</p>
+<p>若 <span class="arithmatex">\(B\)</span> 与 <span class="arithmatex">\(A\)</span> 交换，且是 <span class="arithmatex">\(A\)</span> 的多项式，则 <span class="arithmatex">\(\{v_{i}\}\)</span> 是 <span class="arithmatex">\(B\)</span> 的不变子空间，它不能将 <span class="arithmatex">\(v_{1}\)</span> 映射到 <span class="arithmatex">\(v_{2}\)</span>，矛盾。只能有 <span class="arithmatex">\(r=1\)</span>，即证。</p>
 <blockquote>
 <p>[!theorem]
-若 $V$ 有一个关于 $A$ 的循环向量 $v$，则任何与 $A$ 交换的线性变换都可以表示为 $A$ 的多项式。</p>
+若 <span class="arithmatex">\(V\)</span> 有一个关于 <span class="arithmatex">\(A\)</span> 的循环向量 <span class="arithmatex">\(v\)</span>，则任何与 <span class="arithmatex">\(A\)</span> 交换的线性变换都可以表示为 <span class="arithmatex">\(A\)</span> 的多项式。</p>
 </blockquote>
-<p>由于 $B$ 可由 $v$ 直接定义，并且 $Bv=f(A)v\in{v}$，由 $v$ 的任意性有 $B=f(A)$ 。</p>
+<p>由于 <span class="arithmatex">\(B\)</span> 可由 <span class="arithmatex">\(v\)</span> 直接定义，并且 <span class="arithmatex">\(Bv=f(A)v\in\{v\}\)</span>，由 <span class="arithmatex">\(v\)</span> 的任意性有 <span class="arithmatex">\(B=f(A)\)</span> 。</p>
 <h4 id="_12">矩阵视角</h4>
-<p>注意到交结数 $i(A,A)$ 就是与 $A$ 交换的矩阵构成的空间的维数。而
+<p>注意到交结数 <span class="arithmatex">\(i(A,A)\)</span> 就是与 <span class="arithmatex">\(A\)</span> 交换的矩阵构成的空间的维数。而
 $$
 i(A,A)= \sum_{i=1}^p\sum_{j=1}^q\deg(f_{i}(x),f_{j}(x))\geq
 \sum_{i=1}^p\deg(f_{i}(x),f_{i}(x)) = \sum_{i=1}^p\deg f_{i}(x)=n
 $$
-由于 $A$ 的多项式空间维数不超过 $n$，则两个空间维数相等当且仅当上式等号成立，即 $A$ 只有一个不变因子，其特征多项式等于其极小多项式，这就证明了上述定理。</p>
+由于 <span class="arithmatex">\(A\)</span> 的多项式空间维数不超过 <span class="arithmatex">\(n\)</span>，则两个空间维数相等当且仅当上式等号成立，即 <span class="arithmatex">\(A\)</span> 只有一个不变因子，其特征多项式等于其极小多项式，这就证明了上述定理。</p>
 <blockquote>
 <blockquote>
-<p>若 $A$ 有 $n$ 个互不相同的特征值，则与 $A$ 交换的矩阵可以表示为 $A$ 的多项式。</p>
+<p>若 <span class="arithmatex">\(A\)</span> 有 <span class="arithmatex">\(n\)</span> 个互不相同的特征值，则与 <span class="arithmatex">\(A\)</span> 交换的矩阵可以表示为 <span class="arithmatex">\(A\)</span> 的多项式。</p>
 </blockquote>
 </blockquote>
-<p>设 $Av_{i}=\lambda_{i}v_{i}$，则 $v_{1}+\cdots+v_{n}$ 是循环向量。</p>
+<p>设 <span class="arithmatex">\(Av_{i}=\lambda_{i}v_{i}\)</span>，则 <span class="arithmatex">\(v_{1}+\cdots+v_{n}\)</span> 是循环向量。</p>
 <h3 id="_13">双中心化子定理</h3>
 <blockquote>
 <p>[!lemma]
-若方阵 $C$ 和每个与 $A$ 可交换的方阵都可交换，则 $A$ 的不变子空间直和分解必定是 $C$ 的不变子空间直和分解。</p>
+若方阵 <span class="arithmatex">\(C\)</span> 和每个与 <span class="arithmatex">\(A\)</span> 可交换的方阵都可交换，则 <span class="arithmatex">\(A\)</span> 的不变子空间直和分解必定是 <span class="arithmatex">\(C\)</span> 的不变子空间直和分解。</p>
 </blockquote>
-<p>设 $V$ 在 $A$ 的作用下分解为 $V_{1}\oplus \cdots\oplus V_{r}$，定义 $P_{i}$ 是 $V$ 到 $V_{i}$ 的投影，则由 $V_{i}$ 在 $A$ 作用下的不变性，有 $AP=PA$，根据条件有 $CP=PC$，因此 $V_{i}$ 在 $C$ 作用下不变，即证。</p>
+<p>设 <span class="arithmatex">\(V\)</span> 在 <span class="arithmatex">\(A\)</span> 的作用下分解为 <span class="arithmatex">\(V_{1}\oplus \cdots\oplus V_{r}\)</span>，定义 <span class="arithmatex">\(P_{i}\)</span> 是 <span class="arithmatex">\(V\)</span> 到 <span class="arithmatex">\(V_{i}\)</span> 的投影，则由 <span class="arithmatex">\(V_{i}\)</span> 在 <span class="arithmatex">\(A\)</span> 作用下的不变性，有 <span class="arithmatex">\(AP=PA\)</span>，根据条件有 <span class="arithmatex">\(CP=PC\)</span>，因此 <span class="arithmatex">\(V_{i}\)</span> 在 <span class="arithmatex">\(C\)</span> 作用下不变，即证。</p>
 <blockquote>
 <p>[!theorem] 双中心化子
-设 $A$ 是任一给定的方阵，若方阵 $C$ 和每个与 $A$ 可交换的方阵都可交换，则 $C$ 可以表示为 $A$ 的多项式。</p>
+设 <span class="arithmatex">\(A\)</span> 是任一给定的方阵，若方阵 <span class="arithmatex">\(C\)</span> 和每个与 <span class="arithmatex">\(A\)</span> 可交换的方阵都可交换，则 <span class="arithmatex">\(C\)</span> 可以表示为 <span class="arithmatex">\(A\)</span> 的多项式。</p>
 </blockquote>
-<p>注意到对 $v_{1}$ 可定义 $B$ 与 $A$ 交换，使得 $Bv_{1}=v_{i}$，则
+<p>注意到对 <span class="arithmatex">\(v_{1}\)</span> 可定义 <span class="arithmatex">\(B\)</span> 与 <span class="arithmatex">\(A\)</span> 交换，使得 <span class="arithmatex">\(Bv_{1}=v_{i}\)</span>，则
 $$
 \begin{aligned}
 &amp;v_{1} \xrightarrow{B} v_{i} \xrightarrow{C} g_{i}(A)v_{i}\
 &amp;v_{1} \xrightarrow{C} g_{1}(A)v_{1} \xrightarrow{B} g_{1}(A)v_{i}
 \end{aligned}
 $$
-由于 $BC=CB$，则 $g_{i}(A)v_{i}=g_{1}(A)v_{i}$，于是 $C=g_{1}(A)$ 。</p>
+由于 <span class="arithmatex">\(BC=CB\)</span>，则 <span class="arithmatex">\(g_{i}(A)v_{i}=g_{1}(A)v_{i}\)</span>，于是 <span class="arithmatex">\(C=g_{1}(A)\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>注意利用了循环空间上与 $A$ 交换的线性变换由生成元处的取值完全确定，因此可以用 $g_{1}$ 替换 $g_{i}$ 。</p>
+<p>注意利用了循环空间上与 <span class="arithmatex">\(A\)</span> 交换的线性变换由生成元处的取值完全确定，因此可以用 <span class="arithmatex">\(g_{1}\)</span> 替换 <span class="arithmatex">\(g_{i}\)</span> 。</p>
 </blockquote>
 </blockquote>
 <h2 id="_14">解题的艺术</h2>
 <blockquote>
 <blockquote>
-<p>伴随矩阵 $A^*$ 是 $A$ 的多项式。</p>
+<p>伴随矩阵 <span class="arithmatex">\(A^*\)</span> 是 <span class="arithmatex">\(A\)</span> 的多项式。</p>
 </blockquote>
 </blockquote>
-<p>若 $\mathrm{rank}(A)=n$，则 $AA^<em>=A^</em>A=|A|I$，从而它们可同时上三角化，注意到
+<p>若 <span class="arithmatex">\(\mathrm{rank}(A)=n\)</span>，则 <span class="arithmatex">\(AA^*=A^*A=|A|I\)</span>，从而它们可同时上三角化，注意到
 $$
 |A|I=P^{-1}AA^<em>P =(P^{-1}AP)(P^{-1}A^</em>P)
 $$
-两个上三角阵相乘是对角阵，则它们是对角阵，从而可以拉格朗日插值构造多项式。若 $\mathrm{rank}(A)&lt;n-1$，则 $\mathrm{rank}(A^<em>)=0$，进而 $A^</em>=O$，显然是 $A$ 的多项式。若 $\mathrm{rank}(A)=n-1$，由 $AA^<em>=A^</em>A=O$，从而可同时上三角化，进而只需要考虑 Jordan 标准型。不妨提取<strong>唯一</strong>零特征值对应的块
+两个上三角阵相乘是对角阵，则它们是对角阵，从而可以拉格朗日插值构造多项式。若 <span class="arithmatex">\(\mathrm{rank}(A)&lt;n-1\)</span>，则 <span class="arithmatex">\(\mathrm{rank}(A^*)=0\)</span>，进而 <span class="arithmatex">\(A^*=O\)</span>，显然是 <span class="arithmatex">\(A\)</span> 的多项式。若 <span class="arithmatex">\(\mathrm{rank}(A)=n-1\)</span>，由 <span class="arithmatex">\(AA^*=A^*A=O\)</span>，从而可同时上三角化，进而只需要考虑 Jordan 标准型。不妨提取<strong>唯一</strong>零特征值对应的块
 $$
 A = \begin{pmatrix}
 B \
  &amp; J
 \end{pmatrix}
 $$
-其中 $B$ 是 $m$ 阶可逆矩阵，$J$ 是零特征值对应的 $l$ 阶 Jordan 块。根据同时上三角化，得到
+其中 <span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(m\)</span> 阶可逆矩阵，<span class="arithmatex">\(J\)</span> 是零特征值对应的 <span class="arithmatex">\(l\)</span> 阶 Jordan 块。根据同时上三角化，得到
 $$
 A^<em> = \begin{pmatrix}
 O \
@@ -15750,24 +15752,24 @@ C = |B|J^</em> =
  &amp;  &amp; 0
 \end{pmatrix} = (-1)^{l+1}|B|J^{l-1}
 $$
-其中 $C$ 的形式由代数余子式的定义推导。现在我们要找到多项式 $f(x)$ 使得
+其中 <span class="arithmatex">\(C\)</span> 的形式由代数余子式的定义推导。现在我们要找到多项式 <span class="arithmatex">\(f(x)\)</span> 使得
 $$
 f(B)=O,\quad f(J)=(-1)^{l+1}|B|J^{l-1}
 $$
-设 $f(x)=\sum_{i}a_{i}x^i$，根据 $f(J)$ 的形式得到
+设 <span class="arithmatex">\(f(x)=\sum_{i}a_{i}x^i\)</span>，根据 <span class="arithmatex">\(f(J)\)</span> 的形式得到
 $$
 \begin{aligned}
 f(x)&amp;=(-1)^{m+l+1}x^{l-1}\left[ (-1)^m|B|+\sum_{i=l}^\infty a_{i}x^{i-l}\right]\
 &amp;=(-1)^{n+1}x^{l-1}g(x)
 \end{aligned}
 $$
-其中 $g(x)$ 是 $B$ 的特征多项式。</p>
+其中 <span class="arithmatex">\(g(x)\)</span> 是 <span class="arithmatex">\(B\)</span> 的特征多项式。</p>
 <blockquote>
 <blockquote>
-<p>设 $A,B$ 是 $n$ 阶矩阵，$C=AB-BA$ 。若 $AC=CA$，则 $C$ 幂零。</p>
+<p>设 <span class="arithmatex">\(A,B\)</span> 是 <span class="arithmatex">\(n\)</span> 阶矩阵，<span class="arithmatex">\(C=AB-BA\)</span> 。若 <span class="arithmatex">\(AC=CA\)</span>，则 <span class="arithmatex">\(C\)</span> 幂零。</p>
 </blockquote>
 </blockquote>
-<p>考虑 $C$ 的 Jordan 标准型，合并相同特征值的 Jordan 块，则
+<p>考虑 <span class="arithmatex">\(C\)</span> 的 Jordan 标准型，合并相同特征值的 Jordan 块，则
 $$
 C = \begin{pmatrix}
 C_{1} \
@@ -15775,7 +15777,7 @@ C_{1} \
  &amp;  &amp; C_{r}
 \end{pmatrix}
 $$
-由可交换性，此时 $A$ 也被分块对角化
+由可交换性，此时 <span class="arithmatex">\(A\)</span> 也被分块对角化
 $$
 A = \begin{pmatrix}
 A_{1} \
@@ -15783,20 +15785,20 @@ A_{1} \
  &amp;  &amp; A_{r}
 \end{pmatrix}
 $$
-再将 $B$ 按照上述尺寸分块，则
+再将 <span class="arithmatex">\(B\)</span> 按照上述尺寸分块，则
 $$
 C_{i}=A_{i}B_{ii}-B_{ii}A_{i}
 $$
-这表明 $\mathrm{tr}(C_{i})=0$，但我们注意到每个 $C_{i}$ 都是对角元相同的 Jordan 块，则特征值全为零，即证。</p>
+这表明 <span class="arithmatex">\(\mathrm{tr}(C_{i})=0\)</span>，但我们注意到每个 <span class="arithmatex">\(C_{i}\)</span> 都是对角元相同的 Jordan 块，则特征值全为零，即证。</p>
 <blockquote>
 <blockquote>
-<p>若 $A,B$ 的特征值都是正数，且 $A^2=B^2$，则 $A=B$ 。</p>
+<p>若 <span class="arithmatex">\(A,B\)</span> 的特征值都是正数，且 <span class="arithmatex">\(A^2=B^2\)</span>，则 <span class="arithmatex">\(A=B\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p>构造 $A(A-B)=(A-B)(-B)$，若 $A-B\neq O$，则它是 $AX=X(-B)$ 的非零解，进而 $A,B$ 有公共特征值，矛盾。</p>
+<p>构造 <span class="arithmatex">\(A(A-B)=(A-B)(-B)\)</span>，若 <span class="arithmatex">\(A-B\neq O\)</span>，则它是 <span class="arithmatex">\(AX=X(-B)\)</span> 的非零解，进而 <span class="arithmatex">\(A,B\)</span> 有公共特征值，矛盾。</p>
 <blockquote>
 <blockquote>
-<p>设 $A,B$ 是数域 $\mathbb{F}$ 上的 $n$ 阶矩阵，若 $I-BA$ 可逆，则 $I-AB$ 也可逆，并求其逆。</p>
+<p>设 <span class="arithmatex">\(A,B\)</span> 是数域 <span class="arithmatex">\(\mathbb{F}\)</span> 上的 <span class="arithmatex">\(n\)</span> 阶矩阵，若 <span class="arithmatex">\(I-BA\)</span> 可逆，则 <span class="arithmatex">\(I-AB\)</span> 也可逆，并求其逆。</p>
 </blockquote>
 </blockquote>
 <p>可以直接做形式推导
@@ -15810,59 +15812,59 @@ $$
 构造出逆。</p>
 <blockquote>
 <blockquote>
-<p>在 $n$ 维欧氏空间中两两成钝角的单位向量最多有 $n+1$ 个。</p>
+<p>在 <span class="arithmatex">\(n\)</span> 维欧氏空间中两两成钝角的单位向量最多有 <span class="arithmatex">\(n+1\)</span> 个。</p>
 </blockquote>
 </blockquote>
-<p>设已经有 $\alpha_1,\cdots,\alpha_{n+1}$ 两两成钝角，于是存在 $c_i$ 不全为零使得
+<p>设已经有 <span class="arithmatex">\(\alpha_1,\cdots,\alpha_{n+1}\)</span> 两两成钝角，于是存在 <span class="arithmatex">\(c_i\)</span> 不全为零使得
 $$
 c_1\alpha_1+\cdots+c_{n+1}\alpha_{n+1} =\theta
 $$
-假设存在 $\beta$ 与 $\alpha_1,\cdots,\alpha_{n+1}$ 两两成钝角，则
+假设存在 <span class="arithmatex">\(\beta\)</span> 与 <span class="arithmatex">\(\alpha_1,\cdots,\alpha_{n+1}\)</span> 两两成钝角，则
 $$
 0 = (\theta,\beta) = (c_1\alpha_1+\cdots+c_{n+1}\alpha_{n+1},\beta) = c_1 (\alpha_1,\beta)+\cdots+c_{n+1}(\alpha_{n+1},\beta)
 $$
-由于 $(\alpha_i,\beta)&lt;0$，因此 $c_i$ 不是同号。不妨设 $c_1,\cdots,c_k&gt;0,\ c_{k+1},\cdots,c_{n+1}\le 0$，令
+由于 <span class="arithmatex">\((\alpha_i,\beta)&lt;0\)</span>，因此 <span class="arithmatex">\(c_i\)</span> 不是同号。不妨设 <span class="arithmatex">\(c_1,\cdots,c_k&gt;0,\ c_{k+1},\cdots,c_{n+1}\le 0\)</span>，令
 $$
 v = c_1\alpha_1+\cdots+c_k\alpha_k = (-c_{k+1})\alpha_{k+1}+\cdots +(-c_{n+1})\alpha_{n+1}
 $$
-于是利用 $(\alpha_i,\alpha_j)&lt;0$ 我们有
+于是利用 <span class="arithmatex">\((\alpha_i,\alpha_j)&lt;0\)</span> 我们有
 $$
 0 \le (v, v) = (c_1\alpha_1+\cdots+c_k\alpha_k, (-c_{k+1})\alpha_{k+1}+\cdots +(-c_{n+1})\alpha_{n+1}) &lt; 0
 $$
-矛盾。因此 $\beta$ 不存在，即证。这里还要证明可以取得 $n+1$ 个两两成钝角的单位向量。利用归纳法，取单位向量 $\beta$ 以及正交补空间中两两成钝角的单位向量 $\alpha_{1},\cdots,\alpha_{n}$，则 $\beta$ 与它们正交，可以将它们沿着负方向移动得到钝角。设移动后有
+矛盾。因此 <span class="arithmatex">\(\beta\)</span> 不存在，即证。这里还要证明可以取得 <span class="arithmatex">\(n+1\)</span> 个两两成钝角的单位向量。利用归纳法，取单位向量 <span class="arithmatex">\(\beta\)</span> 以及正交补空间中两两成钝角的单位向量 <span class="arithmatex">\(\alpha_{1},\cdots,\alpha_{n}\)</span>，则 <span class="arithmatex">\(\beta\)</span> 与它们正交，可以将它们沿着负方向移动得到钝角。设移动后有
 $$
 \alpha_{i}-\lambda \beta,\beta\quad i=1,\cdots,n
 $$
-只需验证 $\alpha_{i}-\lambda \beta$ 两两成钝角，即
+只需验证 <span class="arithmatex">\(\alpha_{i}-\lambda \beta\)</span> 两两成钝角，即
 $$
 (\alpha_{i}-\lambda \beta,\alpha_{j}-\lambda \beta) = (\alpha_{i},\alpha_{j})+\lambda^2(\beta,\beta)= (\alpha_{i},\alpha_{j})+\lambda^2
 $$
-因此 $\lambda^2&lt;\max_{i,j}|(\alpha_{i},\alpha_{j})|$ 即可。</p>
+因此 <span class="arithmatex">\(\lambda^2&lt;\max_{i,j}|(\alpha_{i},\alpha_{j})|\)</span> 即可。</p>
 <blockquote>
 <blockquote>
-<p>若 $A$ 是实方阵且 $AA^T=A^2$，则 $A$ 是对称矩阵。</p>
+<p>若 <span class="arithmatex">\(A\)</span> 是实方阵且 <span class="arithmatex">\(AA^T=A^2\)</span>，则 <span class="arithmatex">\(A\)</span> 是对称矩阵。</p>
 </blockquote>
 </blockquote>
-<p>定义内积 $(A,B)=\mathrm{tr}(AB)$，则要证明 $A=A^T$，只需要验证 $(A-A^T,A-A^T)=0$，则差是零向量。</p>
+<p>定义内积 <span class="arithmatex">\((A,B)=\mathrm{tr}(AB)\)</span>，则要证明 <span class="arithmatex">\(A=A^T\)</span>，只需要验证 <span class="arithmatex">\((A-A^T,A-A^T)=0\)</span>，则差是零向量。</p>
 <blockquote>
 <blockquote>
-<p>设 $A$ 是实对称矩阵，正负惯性指数分别为 $p,q$，$T$ 是实矩阵。考虑 $V=T^TAT$ 的正负惯性指数与 $A$ 相比的大小。</p>
+<p>设 <span class="arithmatex">\(A\)</span> 是实对称矩阵，正负惯性指数分别为 <span class="arithmatex">\(p,q\)</span>，<span class="arithmatex">\(T\)</span> 是实矩阵。考虑 <span class="arithmatex">\(V=T^TAT\)</span> 的正负惯性指数与 <span class="arithmatex">\(A\)</span> 相比的大小。</p>
 </blockquote>
 </blockquote>
 <p>实对称矩阵的合同变换不会增大正负惯性指数。</p>
 <blockquote>
 <blockquote>
-<p>设 $V$ 是线性空间，是否存在 $V$ 上的线性变换使得 $AB-BA=I$ 。</p>
+<p>设 <span class="arithmatex">\(V\)</span> 是线性空间，是否存在 <span class="arithmatex">\(V\)</span> 上的线性变换使得 <span class="arithmatex">\(AB-BA=I\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p>对于有限维空间，取迹就有不存在；对于无限维空间，例如在 $C^1(\mathbb{R})$ 上定义
+<p>对于有限维空间，取迹就有不存在；对于无限维空间，例如在 <span class="arithmatex">\(C^1(\mathbb{R})\)</span> 上定义
 $$
 Af= f'(x),\quad Bf=xf(x)
 $$
-则 $AB-BA=I$ 。</p>
+则 <span class="arithmatex">\(AB-BA=I\)</span> 。</p>
 <blockquote>
 <p>Wielandt
-如果存在 $A,B$ 满足上述条件，则可归纳证明
+如果存在 <span class="arithmatex">\(A,B\)</span> 满足上述条件，则可归纳证明
 $$
 A^{k+1}B-BA^{k+1}=(k+1)A^k
 $$
@@ -15875,11 +15877,11 @@ $$
 &amp;\leq 2|A^k||A||B|
 \end{aligned}
 $$
-于是 $A^k$ 的范数被 $A^{k+1}$ 的范数控制。同时由最后一个不等式得到
+于是 <span class="arithmatex">\(A^k\)</span> 的范数被 <span class="arithmatex">\(A^{k+1}\)</span> 的范数控制。同时由最后一个不等式得到
 $$
 k+1\leq 2|A||B|,\quad |A^k|\neq 0
 $$
-由 $k$ 的任意性，必然存在 $|A^k|=0$ 。由范数控制，进而 $|A|=0$ 成立，矛盾。</p>
+由 <span class="arithmatex">\(k\)</span> 的任意性，必然存在 <span class="arithmatex">\(\|A^k\|=0\)</span> 。由范数控制，进而 <span class="arithmatex">\(\|A\|=0\)</span> 成立，矛盾。</p>
 </blockquote>
 
 
@@ -15934,6 +15936,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -18459,7 +18461,7 @@
 <a id="__codelineno-46-37" name="__codelineno-46-37" href="#__codelineno-46-37"></a><span class="p">};</span>
 </code></pre></div>
 <h4 id="_40">堆策略</h4>
-<p>数组策略在分配内存时需要遍历，因此具有 $O(n)$ 复杂度。利用最大堆算法，可以实现 $O(\log n)$ 复杂度。初始化建堆</p>
+<p>数组策略在分配内存时需要遍历，因此具有 <span class="arithmatex">\(O(n)\)</span> 复杂度。利用最大堆算法，可以实现 <span class="arithmatex">\(O(\log n)\)</span> 复杂度。初始化建堆</p>
 <ul>
 <li>分配内存时，将堆顶的 <code>Entry</code> 移动到堆尾，并将剩余元素重新建堆</li>
 <li>释放内存时，将内存归还给堆尾后面的元素，然后将这个元素视为堆的一部分重新建堆</li>
@@ -18540,7 +18542,7 @@
 </code></pre></div>
 <p>当我们分配内存后，<code>Entry</code> 中的指针就悬空了，直到某个内存（不一定是之前分配的内存）被归还时，<code>Entry</code> 中的指针指向这个内存。</p>
 <h4 id="_41">栈策略</h4>
-<p>栈策略能够实现 $O(1)$ 复杂度的内存分配。利用栈机制，将内存逐渐移动到栈上标记并进行分配。</p>
+<p>栈策略能够实现 <span class="arithmatex">\(O(1)\)</span> 复杂度的内存分配。利用栈机制，将内存逐渐移动到栈上标记并进行分配。</p>
 <ul>
 <li>分配内存时，如果内存栈中有内存，就将栈顶内存弹出分配；如果没有，就分配 <code>allocated</code> 位置的内存</li>
 <li>释放内存时，将内存推入内存栈顶保存</li>
@@ -18585,7 +18587,7 @@
 <a id="__codelineno-48-36" name="__codelineno-48-36" href="#__codelineno-48-36"></a><span class="p">};</span>
 </code></pre></div>
 <h4 id="_42">区块策略</h4>
-<p>上述策略中，即使是最好的栈策略，虽然能够实现 $O(1)$ 复杂度，但是长度固定，不够灵活。区块策略能够动态地管理内存</p>
+<p>上述策略中，即使是最好的栈策略，虽然能够实现 <span class="arithmatex">\(O(1)\)</span> 复杂度，但是长度固定，不够灵活。区块策略能够动态地管理内存</p>
 <ul>
 <li>每个对象 <code>T</code> 所分配的内存被强制视为 <code>Chunk</code> 结构内存，这个结构保存指向下一块内存的指针</li>
 <li>分配内存时，将会分配一整个 <code>Block</code>，每个 <code>Block</code> 中有固定数量的 <code>Chunk</code> 内存。程序首先分配这些 <code>Chunk</code>，通过 <code>next</code> 指针移动到下一个未分配的 <code>Chunk</code>，将其强制转换为 <code>T</code> 内存后返回。只有当 <code>Block</code> 内存用完时，才会分配新的 <code>Block</code> 内存</li>
@@ -18653,10 +18655,10 @@
 <h3 id="_43">策略总结</h3>
 <p>我们总结上述提出的策略</p>
 <ul>
-<li>数组策略：大小固定，分配效率低（$O(n)$）</li>
-<li>堆策略：大小固定，分配效率一般（$O(\log n)$）</li>
-<li>栈策略：大小固定，分配效率高（$O(1)$）</li>
-<li>区块策略：动态扩容，分配效率高（$O(1)$）</li>
+<li>数组策略：大小固定，分配效率低（<span class="arithmatex">\(O(n)\)</span>）</li>
+<li>堆策略：大小固定，分配效率一般（<span class="arithmatex">\(O(\log n)\)</span>）</li>
+<li>栈策略：大小固定，分配效率高（<span class="arithmatex">\(O(1)\)</span>）</li>
+<li>区块策略：动态扩容，分配效率高（<span class="arithmatex">\(O(1)\)</span>）</li>
 </ul>
 <h2 id="_44">线程池</h2>
 <h3 id="_45">基本概念</h3>
@@ -19673,6 +19675,12 @@
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

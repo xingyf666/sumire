@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14490,15 +14492,15 @@
 <h1 id="_1">微积分</h1>
 <h2 id="_2">不等式</h2>
 <h3 id="_3">琴生不等式</h3>
-<p>Ex 1. 若 $abc=1$，则
+<p>Ex 1. 若 <span class="arithmatex">\(abc=1\)</span>，则
 $$
 \frac{1}{\sqrt{ 1+a }}+\frac{1}{\sqrt{ 1+b }}+\frac{1}{\sqrt{ 1+c }} \leq \frac{3}{\sqrt{ 2 }}
 $$
-做齐次换元 $a=\frac{x}{y},b=\frac{y}{z},c=\frac{z}{x}$，设 $x+y+z=w$，则
+做齐次换元 <span class="arithmatex">\(a=\frac{x}{y},b=\frac{y}{z},c=\frac{z}{x}\)</span>，设 <span class="arithmatex">\(x+y+z=w\)</span>，则
 $$
 a = \frac{x / w}{y / w},\quad b =\frac{y / w}{z / w},\quad c = \frac{z / w}{x / w}
 $$
-因此可以直接设 $x+y+z=1$ 。代换得到
+因此可以直接设 <span class="arithmatex">\(x+y+z=1\)</span> 。代换得到
 $$
 LHS=\sqrt{ \frac{y}{x+y} }+\sqrt{ \frac{z}{y+z} }+\sqrt{ \frac{x}{x+z} }
 $$
@@ -14512,7 +14514,7 @@ $$
 LHS &amp;= \frac{y+z}{2}\sqrt{ \frac{4y}{(x+y)(y+z)^2} } + \frac{x+z}{2}\sqrt{ \frac{4z}{(x+z)^2(y+z)} }+\frac{x+y}{2}\sqrt{ \frac{4x}{(x+y)^2(x+z)} }
 \end{aligned}
 $$
-其中所有权重和为 $1$，则根据琴声不等式
+其中所有权重和为 <span class="arithmatex">\(1\)</span>，则根据琴声不等式
 $$
 \begin{aligned}
 LHS &amp;= \frac{y+z}{2}\sqrt{ \frac{4y}{(x+y)(y+z)^2} } + \frac{x+y}{2}\sqrt{ \frac{4z}{(x+y)^2(y+z)} }+\frac{y+z}{2}\sqrt{ \frac{4x}{(x+z)(y+z)^2} }\
@@ -14530,14 +14532,14 @@ $$
 $$
 \arg\min_{x,y,z} \frac{1}{x}+\frac{1}{y}+\frac{1}{z},\quad \mathrm{s.t.}\quad x+y+z=1
 $$
-其最值取在 $x=y=z$ 处。</p>
+其最值取在 <span class="arithmatex">\(x=y=z\)</span> 处。</p>
 <h2 id="_4">数列</h2>
 <h3 id="_5">不动点法</h3>
-<p>若数列 ${a_{n}}$ 满足 $a_{n}=f(a_{n-1})$，且 $a=f(a)$ 有解 $a_{1},\cdots,a_{k}$，则
+<p>若数列 <span class="arithmatex">\(\{a_{n}\}\)</span> 满足 <span class="arithmatex">\(a_{n}=f(a_{n-1})\)</span>，且 <span class="arithmatex">\(a=f(a)\)</span> 有解 <span class="arithmatex">\(a_{1},\cdots,a_{k}\)</span>，则
 $$
 a_n-a_{i}=f(a_{n-1})-a_{i},\quad i=1,\cdots,k
 $$
-不妨考虑 $f(x)-x=(x-a_{1})\cdots(x-a_{k})$，则
+不妨考虑 <span class="arithmatex">\(f(x)-x=(x-a_{1})\cdots(x-a_{k})\)</span>，则
 $$
 f(x)-a_{i}= (x-a_{1})\cdots(x-a_{k})+x-a_{i}=(x-a_{i})\left[ \prod_{j\neq i}(x-a_{j})+1 \right]
 $$
@@ -14545,9 +14547,9 @@ $$
 $$
 a_{n}-a_{i}=(a_{n-1}-a_{i})\left[ \prod_{j\neq i}(a_{n-1}-a_{j})+1 \right]
 $$
-考虑这些等式可以解出 ${a_{n}}$ 的表达式。</p>
-<p>Ex. 设 $a_{0}=2,a_{n}=\frac{3a_{n-1}+1}{a_{n-1}+3}$.</p>
-<p>考虑 $f(x)=\frac{3x+1}{x+3}$，于是 $f(x)-x=0$ 有解 $x=\pm 1$, 则
+考虑这些等式可以解出 <span class="arithmatex">\(\{a_{n}\}\)</span> 的表达式。</p>
+<p>Ex. 设 <span class="arithmatex">\(a_{0}=2,a_{n}=\frac{3a_{n-1}+1}{a_{n-1}+3}\)</span>.</p>
+<p>考虑 <span class="arithmatex">\(f(x)=\frac{3x+1}{x+3}\)</span>，于是 <span class="arithmatex">\(f(x)-x=0\)</span> 有解 <span class="arithmatex">\(x=\pm 1\)</span>, 则
 $$
 \begin{cases}
 a_{n}-1 = \frac{2(a_{n-1}-1)}{a_{n-1}+3} \
@@ -14558,9 +14560,9 @@ $$
 $$
 \frac{a_{n}-1}{a_{n}+1} = \frac{a_{n-1}-1}{2(a_{n-1}+1)}
 $$
-因此 $\left{ \frac{a_{n}-1}{a_{n}+1} \right}$ 是等比数列。</p>
+因此 <span class="arithmatex">\(\left\{ \frac{a_{n}-1}{a_{n}+1} \right\}\)</span> 是等比数列。</p>
 <h3 id="_6">通项</h3>
-<p>Ex 1. 设 $a_{n+2}=2a_{n+1}-2a_{n},a_{1}=1,a_{2}=2$，考虑两边凑配
+<p>Ex 1. 设 <span class="arithmatex">\(a_{n+2}=2a_{n+1}-2a_{n},a_{1}=1,a_{2}=2\)</span>，考虑两边凑配
 $$
 a_{n+2}-\lambda a_{n+1}=(2-\lambda)a_{n+1}-2a_{n}=(2-\lambda)\left( a_{n+1}-\frac{2}{2-\lambda}a_{n} \right)
 $$
@@ -14568,20 +14570,20 @@ $$
 $$
 \lambda = \frac{2}{2-\lambda}
 $$
-得到 $\lambda=1\pm i$，于是
+得到 <span class="arithmatex">\(\lambda=1\pm i\)</span>，于是
 $$
 \begin{align}
 a_{n+2}-(1-i)a_{n+1} &amp;= (1+i)(a_{n+1}-(1-i)a_{n}) \
 a_{n+2}-(1+i)a_{n+1} &amp;= (1-i)(a_{n+1}-(1+i)a_{n})
 \end{align}
 $$
-考虑数列 $p_{n}=a_{n+1}-(1-i)a_{n},q_{n}=a_{n+1}-(1+i)a_{n}$，于是根据上式易得 $p_{n}=(1+i)^n,q_{n}=(1-i)^n$，从而
+考虑数列 <span class="arithmatex">\(p_{n}=a_{n+1}-(1-i)a_{n},q_{n}=a_{n+1}-(1+i)a_{n}\)</span>，于是根据上式易得 <span class="arithmatex">\(p_{n}=(1+i)^n,q_{n}=(1-i)^n\)</span>，从而
 $$
 a_{n}= \frac{(1+i)^n-(1-i)^n}{2i} = \frac{(\sqrt{ 2 }e^{i\pi/4})^n-(\sqrt{ 2 }e^{-i\pi/4})^n}{2i}=(\sqrt{ 2 })^n\sin\left( \frac{n\pi}{4} \right)
 $$
 第二步利用了欧拉公式。</p>
-<p>Ex 2. 数列 $1,2,2,3,3,3,\cdots$ 的通项公式。</p>
-<p>正整数 $n$ 第一次出现位置为 $\frac{n^2-n+2}{2}$，最后一次出现位置为 $\frac{n^2+n}{2}$，于是
+<p>Ex 2. 数列 <span class="arithmatex">\(1,2,2,3,3,3,\cdots\)</span> 的通项公式。</p>
+<p>正整数 <span class="arithmatex">\(n\)</span> 第一次出现位置为 <span class="arithmatex">\(\frac{n^2-n+2}{2}\)</span>，最后一次出现位置为 <span class="arithmatex">\(\frac{n^2+n}{2}\)</span>，于是
 $$
 \frac{a_{n}^2-a_{n}+2}{2}\le n \le \frac{a_{n}^2+a_{n}}{2}
 $$
@@ -14593,11 +14595,11 @@ $$
 $$
 0 \le \frac{1+\sqrt{ 8n-7 }}{2}-\frac{-1+\sqrt{ 8n+1 }}{2}\le 1
 $$
-因此如果 $a_{n}$ 存在，则必然唯一。考虑存在性：首先当 $a_{n}$ 取正整数时，$b_{n}=\frac{a_{n}^2-a_{n}+2}{2},c_{n}=\frac{a_{n}^2+a_{n}}{2}$ 都是正整数；并且
+因此如果 <span class="arithmatex">\(a_{n}\)</span> 存在，则必然唯一。考虑存在性：首先当 <span class="arithmatex">\(a_{n}\)</span> 取正整数时，<span class="arithmatex">\(b_{n}=\frac{a_{n}^2-a_{n}+2}{2},c_{n}=\frac{a_{n}^2+a_{n}}{2}\)</span> 都是正整数；并且
 $$
 c_{n}-b_{n}=a_{n}-1\ge 0,\quad b_{n+1}=c_{n}+1
 $$
-由于 $c_{1}=b_{1}=1$，令 $a_{n}$ 取遍正整数集，则 $b_{n}\le n\le c_{n}$ 中的 $n$ 也取遍正整数集。通项公式
+由于 <span class="arithmatex">\(c_{1}=b_{1}=1\)</span>，令 <span class="arithmatex">\(a_{n}\)</span> 取遍正整数集，则 <span class="arithmatex">\(b_{n}\le n\le c_{n}\)</span> 中的 <span class="arithmatex">\(n\)</span> 也取遍正整数集。通项公式
 $$
 a_{n} = \left\lfloor  \frac{1+\sqrt{ 8n-7 }}{2}  \right\rfloor
 $$
@@ -14605,11 +14607,11 @@ $$
 $$
 \left\lfloor  \frac{1+2\sqrt{ 2n }}{2}  \right\rfloor \ge \left\lfloor  \frac{1+\sqrt{ 8n-7 }}{2}  \right\rfloor
 $$
-其次，若 $\frac{-1+\sqrt{ 8n+1 }}{2}$ 不是整数，则
+其次，若 <span class="arithmatex">\(\frac{-1+\sqrt{ 8n+1 }}{2}\)</span> 不是整数，则
 $$
 \left\lceil  \frac{-1+\sqrt{ 8n+1 }}{2}  \right\rceil = \left\lfloor  \frac{1+\sqrt{ 8n+1 }}{2}  \right\rfloor \ge \left\lfloor  \frac{1+2\sqrt{ 2n }}{2}  \right\rfloor
 $$
-若 $\frac{-1+\sqrt{ 8n+1 }}{2}$ 是整数，则
+若 <span class="arithmatex">\(\frac{-1+\sqrt{ 8n+1 }}{2}\)</span> 是整数，则
 $$
 0 &lt; \frac{-1+2\sqrt{ 2 }}{2} \le \frac{1+2 \sqrt{ 2n }}{2} - \frac{-1+\sqrt{ 8n+1 }}{2} &lt;1
 $$
@@ -14623,37 +14625,37 @@ a_{n} = \left\lfloor  \frac{1+2\sqrt{ 2n }}{2}  \right\rfloor
 $$
 为通项公式。</p>
 <h3 id="_7">稠密性</h3>
-<p>Ex 1. 无理数 $A$ 的整数倍的小数部分 $R(A)$ 在 $[0,1]$ 上稠密。</p>
-<p>首先证明 $A$ 的整数倍可以任意接近（模一的情况下）。考虑 $N\in \mathbb{Z}^+$，则 ${nA}<em>{N}$ 模一点集必然互不相同，且分布在 $[0,1]$ 上，因此存在 $m,n$ 使得
+<p>Ex 1. 无理数 <span class="arithmatex">\(A\)</span> 的整数倍的小数部分 <span class="arithmatex">\(R(A)\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上稠密。</p>
+<p>首先证明 <span class="arithmatex">\(A\)</span> 的整数倍可以任意接近（模一的情况下）。考虑 <span class="arithmatex">\(N\in \mathbb{Z}^+\)</span>，则 <span class="arithmatex">\(\{nA\}_{N}\)</span> 模一点集必然互不相同，且分布在 <span class="arithmatex">\([0,1]\)</span> 上，因此存在 <span class="arithmatex">\(m,n\)</span> 使得
 $$
 R(mA)-R(nA)&lt; \frac{1}{N}
 $$
-由于 $N$ 可以任取，即证。然后，由于
+由于 <span class="arithmatex">\(N\)</span> 可以任取，即证。然后，由于
 $$
 R(mA)-R(nA)=R((m-n)A)
 $$
-因此存在 $k$ 使得 $0&lt;R(kA)&lt; \frac{1}{N}$，于是 ${iR(kA)}</em>{N}$ 在 $[0,1]$ 上是 $\frac{1}{N}$ 稠密点集。并且
+因此存在 <span class="arithmatex">\(k\)</span> 使得 <span class="arithmatex">\(0&lt;R(kA)&lt; \frac{1}{N}\)</span>，于是 <span class="arithmatex">\(\{iR(kA)\}_{N}\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上是 <span class="arithmatex">\(\frac{1}{N}\)</span> 稠密点集。并且
 $$
 iR(kA) &lt; 1 \implies iR(kA)=R(ikA)
 $$
-故 $A$ 的整数倍在 $[0,1]$ 上是 $\frac{1}{N}$ 稠密点集，再由 $N$ 可取任意大即证。</p>
+故 <span class="arithmatex">\(A\)</span> 的整数倍在 <span class="arithmatex">\([0,1]\)</span> 上是 <span class="arithmatex">\(\frac{1}{N}\)</span> 稠密点集，再由 <span class="arithmatex">\(N\)</span> 可取任意大即证。</p>
 <h3 id="_8">数列极限</h3>
 <h4 id="_9">房子游戏</h4>
-<p>设有 $n$ 间房，每个房间有若干人，规定只能从人少的房间移动到不少于该房间人数的房间。证明：经过足够长时间，所有人在同一个房间内。</p>
-<p>令 $a_{i,j}$ 表示 $i$ 次移动后第 $j$ 间房的人数，考虑目标数列 $S_{i}=\sum_{j=1}^na_{i,j}^2$，注意到它严格单增有上界，因此存在极限。最终必然无法再移动，因此所有人在同一个房间内。</p>
+<p>设有 <span class="arithmatex">\(n\)</span> 间房，每个房间有若干人，规定只能从人少的房间移动到不少于该房间人数的房间。证明：经过足够长时间，所有人在同一个房间内。</p>
+<p>令 <span class="arithmatex">\(a_{i,j}\)</span> 表示 <span class="arithmatex">\(i\)</span> 次移动后第 <span class="arithmatex">\(j\)</span> 间房的人数，考虑目标数列 <span class="arithmatex">\(S_{i}=\sum_{j=1}^na_{i,j}^2\)</span>，注意到它严格单增有上界，因此存在极限。最终必然无法再移动，因此所有人在同一个房间内。</p>
 <h4 id="_10">指数极限</h4>
-<p>Ex 1. 设 $f(x)$ 在 $[a,b]$ 上非负严格单增，且存在 $x_n\in[a,b]$ 使得
+<p>Ex 1. 设 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\([a,b]\)</span> 上非负严格单增，且存在 <span class="arithmatex">\(x_n\in[a,b]\)</span> 使得
 $$
 [f(x_{n})]^n = \frac{1}{b-a}\int_{a}^b[f(x)]^ndx
 $$
-试求 $\lim_{ n \to \infty }x_{n}$.</p>
-<p>先考虑特殊情况，令 $f(x)=x$，易得 $x_{n}\to b$，由于严格单增性，自然有 $f(x_n)\to f(b)$ 。注意到 $f(x_{n})&lt;f(b)$ 成立，我们只需要证明 $f(x_{n})\to f(b)$ 成立。考虑逼近 $b$ 的序列 $a_{n}$，要求 $a_{n}\in[a,b]$，不妨令 $a_{n}=b-\frac{b-a}{n}$，然而
+试求 <span class="arithmatex">\(\lim_{ n \to \infty }x_{n}\)</span>.</p>
+<p>先考虑特殊情况，令 <span class="arithmatex">\(f(x)=x\)</span>，易得 <span class="arithmatex">\(x_{n}\to b\)</span>，由于严格单增性，自然有 <span class="arithmatex">\(f(x_n)\to f(b)\)</span> 。注意到 <span class="arithmatex">\(f(x_{n})&lt;f(b)\)</span> 成立，我们只需要证明 <span class="arithmatex">\(f(x_{n})\to f(b)\)</span> 成立。考虑逼近 <span class="arithmatex">\(b\)</span> 的序列 <span class="arithmatex">\(a_{n}\)</span>，要求 <span class="arithmatex">\(a_{n}\in[a,b]\)</span>，不妨令 <span class="arithmatex">\(a_{n}=b-\frac{b-a}{n}\)</span>，然而
 $$
 \begin{align}
 \left[ f\left( b-\frac{b-a}{n} \right) \right]^n &amp;= \frac{1}{b-a}\int_{a}^b\left[ f\left( b- \frac{b-a}{n} \right) \right]^ndx 
 \end{align}
 $$
-右边形式很难放缩，因此我们使用一个带有 $n$ 的下边界，使得积分限趋于 $b$，即有
+右边形式很难放缩，因此我们使用一个带有 <span class="arithmatex">\(n\)</span> 的下边界，使得积分限趋于 <span class="arithmatex">\(b\)</span>，即有
 $$
 \begin{align}
 \left[ f\left( b-\frac{b-a}{n} \right) \right]^n &amp;= \frac{n}{b-a}\int_{b-\frac{b-a}{n}}^b \left[ f\left( b- \frac{b-a}{n} \right) \right]^ndx  \
@@ -14666,14 +14668,14 @@ $$
 $$
 f(b) \ge f(x_{n}) \ge \frac{1}{\sqrt[n]{ n }}f\left( b - \frac{b-a}{n} \right)
 $$
-令 $n\to \infty$，再由迫敛性即证。</p>
+令 <span class="arithmatex">\(n\to \infty\)</span>，再由迫敛性即证。</p>
 <h4 id="_11">优化条件</h4>
-<p>Ex 1. 设 $f(0)=0,f(1)=1,\int_{0}^1f(x)dx=1$，则存在 $\eta\in(0,1)$ 使得 $f''(\eta)&lt;-2$.</p>
-<p>考虑辅助函数 $g(x)=f(x)+ax^2+bx+c$，根据 $f$ 满足的条件，容易得到 $a=1,b=c=0$，于是 $g''(x)=f''(x)+2$ 。反设 $g''(x)\ge 0$，则 $g$ 为凸函数，并且 $g(0)=0,g(1)=2$，且有
+<p>Ex 1. 设 <span class="arithmatex">\(f(0)=0,f(1)=1,\int_{0}^1f(x)dx=1\)</span>，则存在 <span class="arithmatex">\(\eta\in(0,1)\)</span> 使得 <span class="arithmatex">\(f''(\eta)&lt;-2\)</span>.</p>
+<p>考虑辅助函数 <span class="arithmatex">\(g(x)=f(x)+ax^2+bx+c\)</span>，根据 <span class="arithmatex">\(f\)</span> 满足的条件，容易得到 <span class="arithmatex">\(a=1,b=c=0\)</span>，于是 <span class="arithmatex">\(g''(x)=f''(x)+2\)</span> 。反设 <span class="arithmatex">\(g''(x)\ge 0\)</span>，则 <span class="arithmatex">\(g\)</span> 为凸函数，并且 <span class="arithmatex">\(g(0)=0,g(1)=2\)</span>，且有
 $$
 \int_{0}^1g(x)dx = 1+\int_{0}^1x^2dx=\frac{4}{3}
 $$
-但由于凸性 $g(x)&lt;2x,x\in(0,1)$，故 $\int_{0}^1g(x)dx&lt; \frac{1}{2}\cdot 1 \cdot 2=1$ 矛盾。</p>
+但由于凸性 <span class="arithmatex">\(g(x)&lt;2x,x\in(0,1)\)</span>，故 <span class="arithmatex">\(\int_{0}^1g(x)dx&lt; \frac{1}{2}\cdot 1 \cdot 2=1\)</span> 矛盾。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">\begin</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>[scale=1.5]
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">\filldraw</span> [fill=green!20,domain=0:1] plot(<span class="k">\x</span>,<span class="nb">{</span><span class="k">\x*\x*</span>2<span class="nb">}</span>) -- (1,0) -- cycle;
@@ -14689,51 +14691,51 @@ $$
 <a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">\end</span><span class="nb">{</span>tikzpicture<span class="nb">}</span>
 <a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
 </code></pre></div>
-<p>也可考虑 $g(x)=f(x)+ax^2+bx+c$ 使得 $g(0)=g(1)=\int_{0}^1g(x)dx=0$，解出 $g(x)$ 后利用中值定理，存在 $\xi \in(0,1)$ 使得 $g(\xi)=0$，再用一次即证。</p>
+<p>也可考虑 <span class="arithmatex">\(g(x)=f(x)+ax^2+bx+c\)</span> 使得 <span class="arithmatex">\(g(0)=g(1)=\int_{0}^1g(x)dx=0\)</span>，解出 <span class="arithmatex">\(g(x)\)</span> 后利用中值定理，存在 <span class="arithmatex">\(\xi \in(0,1)\)</span> 使得 <span class="arithmatex">\(g(\xi)=0\)</span>，再用一次即证。</p>
 <h4 id="_12">幂级数</h4>
-<p>Ex 1. 计算 $\sum \arctan \frac{1}{1+n+n^2}$.</p>
+<p>Ex 1. 计算 <span class="arithmatex">\(\sum \arctan \frac{1}{1+n+n^2}\)</span>.</p>
 <p>利用分解
 $$
 \frac{1}{1+n+n^2} = \frac{(n+1)-n}{1+(n+1)n}
 $$
-令 $\tan a=n+1,\tan b=n$，于是
+令 <span class="arithmatex">\(\tan a=n+1,\tan b=n\)</span>，于是
 $$
 \arctan \frac{1}{1+n+n^2} = \arctan(\tan(\arctan(n+1)-\arctan(n))) = \arctan(n+1)-\arctan(n)
 $$
 这里利用正切函数的差角公式。</p>
-<p>Ex 2. 若 $\frac{1}{1+x+x^2}=\sum a_{n}x^n$，试求 ${a_{n}}$ 通项。</p>
-<p>由于 $1-x^3=(1-x)(1+x+x^2)$，因此上下同乘 $1-x$ 得到
+<p>Ex 2. 若 <span class="arithmatex">\(\frac{1}{1+x+x^2}=\sum a_{n}x^n\)</span>，试求 <span class="arithmatex">\(\{a_{n}\}\)</span> 通项。</p>
+<p>由于 <span class="arithmatex">\(1-x^3=(1-x)(1+x+x^2)\)</span>，因此上下同乘 <span class="arithmatex">\(1-x\)</span> 得到
 $$
 \frac{1}{1+x+x^2}= \frac{1-x}{1-x^3}
 $$
-然后利用 $\frac{1}{1-x}$ 的级数展开即可。</p>
+然后利用 <span class="arithmatex">\(\frac{1}{1-x}\)</span> 的级数展开即可。</p>
 <h2 id="_13">多元极值</h2>
-<p>Ex 1. 设 $f(x,y)$ 在包含 $D={(x,y)\mid x^2+y^2\le 1}$ 的开集上有连续偏导，且 $\forall (x,y)\in D,|f(x,y)|\le 1$，证明：
+<p>Ex 1. 设 <span class="arithmatex">\(f(x,y)\)</span> 在包含 <span class="arithmatex">\(D=\{(x,y)\mid x^2+y^2\le 1\}\)</span> 的开集上有连续偏导，且 <span class="arithmatex">\(\forall (x,y)\in D,|f(x,y)|\le 1\)</span>，证明：
 $$
 \exists(x^<em>,y^</em>)\in D^\circ,\quad [f_{1}(x^<em>,y^</em>)]^2+[f_{2}(x^<em>,y^</em>)]^2 \le 16
 $$
-构造 $g(x,y)=f(x,y)+2(x^2+y^2)$，则在 $\partial D$ 上 $|g(x,y)|=|f(x,y)+2|\ge 1$，且 $|g(0,0)|=|f(0,0)|\le 1$，因此要么 $g\equiv 1$ 要么 $g$ 的最小值在 $D$ 内部取得，故存在 $(x^<em>,y^</em>)$ 使得 $g_{1}(x^<em>,y^</em>)=g_{2}(x^<em>,y^</em>)=0$，于是
+构造 <span class="arithmatex">\(g(x,y)=f(x,y)+2(x^2+y^2)\)</span>，则在 <span class="arithmatex">\(\partial D\)</span> 上 <span class="arithmatex">\(|g(x,y)|=|f(x,y)+2|\ge 1\)</span>，且 <span class="arithmatex">\(|g(0,0)|=|f(0,0)|\le 1\)</span>，因此要么 <span class="arithmatex">\(g\equiv 1\)</span> 要么 <span class="arithmatex">\(g\)</span> 的最小值在 <span class="arithmatex">\(D\)</span> 内部取得，故存在 <span class="arithmatex">\((x^*,y^*)\)</span> 使得 <span class="arithmatex">\(g_{1}(x^*,y^*)=g_{2}(x^*,y^*)=0\)</span>，于是
 $$
 f_{1}(x^<em>,y^</em>)+4x^<em>=0,\quad f_{2}(x^</em>,y^<em>)+4y^</em>=0
 $$
 两式联立即证。</p>
 <h2 id="_14">特殊函数</h2>
-<p>Ex 1. 若非零函数 $f(x)$ 在 $x&gt;0$ 处连续，且 $f(xy)=f(x)+f(y)$，证明 $f$ 是对数函数。</p>
-<p>利用 $f$ 的特性有</p>
+<p>Ex 1. 若非零函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(x&gt;0\)</span> 处连续，且 <span class="arithmatex">\(f(xy)=f(x)+f(y)\)</span>，证明 <span class="arithmatex">\(f\)</span> 是对数函数。</p>
+<p>利用 <span class="arithmatex">\(f\)</span> 的特性有</p>
 <ul>
-<li>$f(1)=f(1)+f(1)$，则 $f(1)=0$；</li>
-<li>$f(x^n)=f(x^{n-1})+f(x)=nf(x)$；</li>
-<li>$f(x^{-n})=f(x^{-n+1})+f(x^{-1})=nf(x^{-1})$；</li>
-<li>$f(x^{-1})+f(x)=f(1)=0$；</li>
-<li>$f(x)=f((x^{1/n})^n)=nf(x^{1/n})$；</li>
+<li><span class="arithmatex">\(f(1)=f(1)+f(1)\)</span>，则 <span class="arithmatex">\(f(1)=0\)</span>；</li>
+<li><span class="arithmatex">\(f(x^n)=f(x^{n-1})+f(x)=nf(x)\)</span>；</li>
+<li><span class="arithmatex">\(f(x^{-n})=f(x^{-n+1})+f(x^{-1})=nf(x^{-1})\)</span>；</li>
+<li><span class="arithmatex">\(f(x^{-1})+f(x)=f(1)=0\)</span>；</li>
+<li><span class="arithmatex">\(f(x)=f((x^{1/n})^n)=nf(x^{1/n})\)</span>；</li>
 </ul>
-<p>综上可得 $f(x^a)=af(x),a\in \mathbb{Q}$，由连续性容易推广到 $f(x^r)=rf(x),r\in\mathbb{R}$. 于是 $f(e^t)=tf(e)$，令 $x=e^t$ 得 $f(x)=f(e)\ln x$ 为对数函数。</p>
-<p>Ex 2. 已知 $f(x)=\sqrt{ x }$，计算 $f(9.05)$ 的近似值。</p>
+<p>综上可得 <span class="arithmatex">\(f(x^a)=af(x),a\in \mathbb{Q}\)</span>，由连续性容易推广到 <span class="arithmatex">\(f(x^r)=rf(x),r\in\mathbb{R}\)</span>. 于是 <span class="arithmatex">\(f(e^t)=tf(e)\)</span>，令 <span class="arithmatex">\(x=e^t\)</span> 得 <span class="arithmatex">\(f(x)=f(e)\ln x\)</span> 为对数函数。</p>
+<p>Ex 2. 已知 <span class="arithmatex">\(f(x)=\sqrt{ x }\)</span>，计算 <span class="arithmatex">\(f(9.05)\)</span> 的近似值。</p>
 <p>考虑均值不等式
 $$
 \sqrt{ x } = \frac{\sqrt{ 9x }}{3} \le \frac{x+9}{6}
 $$
-等式在 $x=9$ 时成立。变换得到
+等式在 <span class="arithmatex">\(x=9\)</span> 时成立。变换得到
 $$
 \sqrt{ x } \ge \frac{6x}{x+9}
 $$
@@ -14741,10 +14743,10 @@ $$
 $$
 \frac{6x}{x+9} \le \sqrt{ x } \le \frac{x+9}{6}
 $$
-代入 $x=9.05$ 得到 $x\approx 3.0083$.</p>
+代入 <span class="arithmatex">\(x=9.05\)</span> 得到 <span class="arithmatex">\(x\approx 3.0083\)</span>.</p>
 <h2 id="_15">菲涅耳积分</h2>
-<p>Ex 1. 证明：$\int_{0}^{+\infty}\cos x^2dx=\int_{0}^{+\infty}\sin x^2dx=\sqrt{ \frac{\pi}{8} }$.</p>
-<p>设 $t&gt;0$，令
+<p>Ex 1. 证明：<span class="arithmatex">\(\int_{0}^{+\infty}\cos x^2dx=\int_{0}^{+\infty}\sin x^2dx=\sqrt{ \frac{\pi}{8} }\)</span>.</p>
+<p>设 <span class="arithmatex">\(t&gt;0\)</span>，令
 $$
 F(t) = \int_{0}^{+\infty}e^{-tx^2}\cos x^2dx,\quad G(t) = \int_{0}^{+\infty}e^{-tx^2}\sin x^2dx
 $$
@@ -14774,7 +14776,7 @@ $$
 $$
 F(t) = \sqrt{ \frac{\pi}{8} \frac{\sqrt{ t^2+1 }+t}{t^2+1} },\quad G(t) =\sqrt{ \frac{\pi}{8} \frac{\sqrt{ t^2+1 }-t}{t^2+1} }
 $$
-于是 $\int_{0}^{+\infty}\cos x^2dx=F(0)=\sqrt{ \frac{\pi}{8} },\int_{0}^{+\infty}\sin x^2dx=G(0)=\sqrt{ \frac{\pi}{8} }$，即证。</p>
+于是 <span class="arithmatex">\(\int_{0}^{+\infty}\cos x^2dx=F(0)=\sqrt{ \frac{\pi}{8} },\int_{0}^{+\infty}\sin x^2dx=G(0)=\sqrt{ \frac{\pi}{8} }\)</span>，即证。</p>
 
 
 
@@ -14828,6 +14830,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

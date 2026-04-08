@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -16404,7 +16406,7 @@
 <a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="p">}</span><span class="w">     </span>
 </code></pre></div>
-<p>编译器会发现 $4\mid n$，从而不会生成多余的边界判断分支。</p>
+<p>编译器会发现 <span class="arithmatex">\(4\mid n\)</span>，从而不会生成多余的边界判断分支。</p>
 <h4 id="_11">字节对齐</h4>
 <p>在 C++20 中引入了标准化的 <code>std::assume_aligned</code>，用来表明指针是字节对齐的</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="o">*</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -18322,7 +18324,7 @@ $$
 <a id="__codelineno-91-57" name="__codelineno-91-57" href="#__codelineno-91-57"></a><span class="p">}</span>
 <a id="__codelineno-91-58" name="__codelineno-91-58" href="#__codelineno-91-58"></a><span class="n">BENCHMARK</span><span class="p">(</span><span class="n">mult_sparse_rw</span><span class="p">);</span>
 </code></pre></div>
-<p>其中使用了常用且高效的 2 维哈希算法是利用两个超越数 $e, \pi$ 计算哈希值。</p>
+<p>其中使用了常用且高效的 2 维哈希算法是利用两个超越数 <span class="arithmatex">\(e, \pi\)</span> 计算哈希值。</p>
 <h3 id="_64">向量化</h3>
 <p>如果不需要根据坐标索引元素，每次使用只需要遍历所有元素，那么可以直接将坐标和值统一封装在向量中。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Sparse_Vec</span><span class="w"> </span><span class="p">{</span>
@@ -18638,7 +18640,7 @@ $$
 <ul>
 <li>一种方案是使用 <code>(a + b) % b</code> 形式，但如果 <code>a &lt; -b</code> 还是会出错</li>
 <li>正确的写法是 <code>(a % b + b) % b</code></li>
-<li>若 $b=2^n$，则高效的解决方案是 <code>a % b = a &amp; (b - 1)</code>，相当截取 a 的后 n 位</li>
+<li>若 <span class="arithmatex">\(b=2^n\)</span>，则高效的解决方案是 <code>a % b = a &amp; (b - 1)</code>，相当截取 a 的后 n 位</li>
 </ul>
 <p>对负数取余时，能够确保得到正数
 $$
@@ -18837,9 +18839,9 @@ $$
 $$
 1234000.0 + 0.01 = 1234000.0
 $$
-这是因为 $1234000.1$ 需要 9 位有效数字。</p>
+这是因为 <span class="arithmatex">\(1234000.1\)</span> 需要 9 位有效数字。</p>
 <h3 id="_78">定点数</h3>
-<p>定点数是指固定位系数，然后将有效位数储存为整型。例如指定位系数为 $100$，则 $123.4$ 表示为 $12340$，只需要将定点数除以 100 就得到浮点数。定点数的表示范围比浮点数小，但是由于使用整型和固定位数存储，因此精度均匀。</p>
+<p>定点数是指固定位系数，然后将有效位数储存为整型。例如指定位系数为 <span class="arithmatex">\(100\)</span>，则 <span class="arithmatex">\(123.4\)</span> 表示为 <span class="arithmatex">\(12340\)</span>，只需要将定点数除以 100 就得到浮点数。定点数的表示范围比浮点数小，但是由于使用整型和固定位数存储，因此精度均匀。</p>
 
 
 
@@ -18893,6 +18895,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

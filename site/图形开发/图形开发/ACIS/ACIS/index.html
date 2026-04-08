@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -17056,7 +17058,7 @@
 </code></pre></div>
 <h2 id="_4">拓扑</h2>
 <h3 id="acis_2">ACIS 拓扑</h3>
-<p>边界表示模型的基本概念是拓扑描述元素如何连接。几何描述了每个独立元素的形状，而拓扑告诉我们它们之间的连接关系。例如边 $E_1$ 以 $V_1,V_2$ 为边界，边 $E_2$ 以 $V_2,V_3$ 为边界，那么 $E_1,E_2$ 就相邻。</p>
+<p>边界表示模型的基本概念是拓扑描述元素如何连接。几何描述了每个独立元素的形状，而拓扑告诉我们它们之间的连接关系。例如边 <span class="arithmatex">\(E_1\)</span> 以 <span class="arithmatex">\(V_1,V_2\)</span> 为边界，边 <span class="arithmatex">\(E_2\)</span> 以 <span class="arithmatex">\(V_2,V_3\)</span> 为边界，那么 <span class="arithmatex">\(E_1,E_2\)</span> 就相邻。</p>
 <p><img alt="" src="../ACIS.assets/450px-ACIS_Tutorial3_Intro1.jpg" /></p>
 <p>拓扑数据结构中的许多邻接关系通过遍历数据结构获得。</p>
 <h4 id="bodies"><a href="https://doc.spatial.com/get_doc_page/articles/b/o/d/Body.html">Bodies</a></h4>
@@ -17682,15 +17684,15 @@
 <h3 id="spaparameter">SPAparameter</h3>
 <p>曲线参数值，本质上是 double，但是为了一致性声明为类。它参与所有与 double 相关的操作，定义在 <code>param.hxx</code> 中。</p>
 <h3 id="spapar_pos">SPApar_pos</h3>
-<p>曲面上参数空间中的位置。定义 $(u,v)$ 参数坐标，在曲面上求值时获得 3 维坐标。定义在 <code>param.hxx</code> 中。</p>
+<p>曲面上参数空间中的位置。定义 <span class="arithmatex">\((u,v)\)</span> 参数坐标，在曲面上求值时获得 3 维坐标。定义在 <code>param.hxx</code> 中。</p>
 <h3 id="spapar_vec">SPApar_vec</h3>
-<p>曲面上参数空间中的向量 $(du,dv)$，定义在 <code>param.hxx</code> 中。</p>
+<p>曲面上参数空间中的向量 <span class="arithmatex">\((du,dv)\)</span>，定义在 <code>param.hxx</code> 中。</p>
 <h3 id="spapar_dir">SPApar_dir</h3>
-<p>曲面上参数空间中的方向向量 $(du,dv)$，继承自 <code>SPApar_vec</code> 类，定义在 <code>param.hxx</code> 中。</p>
+<p>曲面上参数空间中的方向向量 <span class="arithmatex">\((du,dv)\)</span>，继承自 <code>SPApar_vec</code> 类，定义在 <code>param.hxx</code> 中。</p>
 <h3 id="spainterval">SPAinterval</h3>
 <p>实轴上的区间，可以有界或无界，定义在 <code>interval.hxx</code> 中。</p>
 <blockquote>
-<p>可以对区间取反，例如 $(1,2)$ 取反得到 $(-2,-1)$，会交换上下界。</p>
+<p>可以对区间取反，例如 <span class="arithmatex">\((1,2)\)</span> 取反得到 <span class="arithmatex">\((-2,-1)\)</span>，会交换上下界。</p>
 </blockquote>
 <h3 id="spabox">SPAbox</h3>
 <p>包围盒，用 3 个 <code>SPAinterval</code> 来表示，定义在 <code>box.hxx</code> 中。包围盒只在需要的时候计算，因为任何更改都可能使包围盒无效。</p>
@@ -17740,9 +17742,9 @@
 </table>
 <p>其中 <code>CURVE</code>, <code>curve</code>, <code>SURFACE</code> 和 <code>surface</code> 是抽象基类，其它都不是基类。使用 <code>APOINT</code> 和 <code>SPAposition</code> 是为了防止与第三方库命名冲突。</p>
 <h3 id="points">Points</h3>
-<p>3 维空间点用 <code>SPAposition</code> 表示，包括 $x,y,z$ 三个值。在持续 ACIS 模型中 <code>APOINT</code> 是 <code>VERTEX</code> 的底层几何。每个 <code>VERTEX</code> 包含指向 <code>APOINT</code> 的指针，后者的几何定义保存在 <code>SPAposition</code> 中。没有表示 1,2 维点的持续类，因为 ACIS 建模不需要。</p>
+<p>3 维空间点用 <code>SPAposition</code> 表示，包括 <span class="arithmatex">\(x,y,z\)</span> 三个值。在持续 ACIS 模型中 <code>APOINT</code> 是 <code>VERTEX</code> 的底层几何。每个 <code>VERTEX</code> 包含指向 <code>APOINT</code> 的指针，后者的几何定义保存在 <code>SPAposition</code> 中。没有表示 1,2 维点的持续类，因为 ACIS 建模不需要。</p>
 <h3 id="curves">Curves</h3>
-<p>ACIS 中的 <code>curve</code> 和 <code>CURVE</code> 类实现了 curve 的概念。继承自 <code>curve</code> 的类不是持续的；而继承自 <code>CURVE</code> 的类是持续的。模型中的 <code>EDGE</code> 包含指向 <code>CURVE</code> 的指针。有几种不同的 <code>CURVE</code>，每种都有对应的 <code>curve</code> 类型。曲线可以是 open, closed, periodic，其中 periodic 意味着曲线在接缝 seam 处至少 $G^1$ 连续。</p>
+<p>ACIS 中的 <code>curve</code> 和 <code>CURVE</code> 类实现了 curve 的概念。继承自 <code>curve</code> 的类不是持续的；而继承自 <code>CURVE</code> 的类是持续的。模型中的 <code>EDGE</code> 包含指向 <code>CURVE</code> 的指针。有几种不同的 <code>CURVE</code>，每种都有对应的 <code>curve</code> 类型。曲线可以是 open, closed, periodic，其中 periodic 意味着曲线在接缝 seam 处至少 <span class="arithmatex">\(G^1\)</span> 连续。</p>
 <p>ACIS 定义了 3 类解析曲线：直线、椭圆、螺旋线。它定义了 NURBS 曲线、相交曲线和复合曲线。</p>
 <table>
 <thead>
@@ -17861,7 +17863,7 @@
 <h4 id="curve_1">CURVE 高层类</h4>
 <p>CURVE 用于 ACIS 模型结构，是 <code>EDGE</code> 的底层几何。有 4 种类型 <code>STRAIGHT</code>, <code>ELLIPSE</code>, <code>HELIX</code>, <code>INTCURVE</code>，每个类型都包含对应底层几何类的实例。</p>
 <h3 id="surfaces">Surfaces</h3>
-<p>ACIS 中的 <code>surface</code> 和 <code>SURFACE</code> 类实现了 surface 的概念。继承自 <code>surface</code> 的类不是持续的；而继承自 <code>SURFACE</code> 的类是持续的。模型中的 <code>FACE</code> 包含指向 <code>SURFACE</code> 的指针。有几种不同的 <code>SURFACE</code>，每种都有对应的 <code>surface</code> 类型。曲面可以是 open, closed, periodic，其中 periodic 意味着曲面在接缝 seam 处至少 $G^1$ 连续。</p>
+<p>ACIS 中的 <code>surface</code> 和 <code>SURFACE</code> 类实现了 surface 的概念。继承自 <code>surface</code> 的类不是持续的；而继承自 <code>SURFACE</code> 的类是持续的。模型中的 <code>FACE</code> 包含指向 <code>SURFACE</code> 的指针。有几种不同的 <code>SURFACE</code>，每种都有对应的 <code>surface</code> 类型。曲面可以是 open, closed, periodic，其中 periodic 意味着曲面在接缝 seam 处至少 <span class="arithmatex">\(G^1\)</span> 连续。</p>
 <p>ACIS 定义了 4 类解析曲面：平面、锥面、球面、环面。它定义了 NURBS 曲面等各种程序曲面。</p>
 <table>
 <thead>
@@ -17912,8 +17914,8 @@
 <p>特殊的曲线类型包括：</p>
 <ul>
 <li><code>plane</code> 表示平面的部分，总是 open 的</li>
-<li><code>cone</code> 表示椭圆锥的部分，常用来表示柱面，可能是 open, closed, 在 $v$ 方向 periodic 的。锥面在 $u$ 方向是 open 的</li>
-<li><code>sphere</code> 表示球面的部分，可能是 open, closed, 在 $v$ 方向 periodic 的</li>
+<li><code>cone</code> 表示椭圆锥的部分，常用来表示柱面，可能是 open, closed, 在 <span class="arithmatex">\(v\)</span> 方向 periodic 的。锥面在 <span class="arithmatex">\(u\)</span> 方向是 open 的</li>
+<li><code>sphere</code> 表示球面的部分，可能是 open, closed, 在 <span class="arithmatex">\(v\)</span> 方向 periodic 的</li>
 <li><code>torus</code> 表示环面的部分，非退化 torus 可能是 open, closed, periodic 的</li>
 <li><code>spline</code> 表示参数曲面，可能是 open, closed, periodic 的。它是对 <code>spl_sur</code> 的封装</li>
 </ul>
@@ -18034,7 +18036,7 @@
 <p>计算参数空间包围盒时，需要注意周期曲面或带有奇点的曲面可能不会给出与 <code>sg_get_face_par_box</code> 相同的结果，因为周期曲面参数空间中的 <code>PCURVE</code> 可能不封闭。</p>
 <h3 id="_15">其它几何主题</h3>
 <h4 id="_16">连续性</h4>
-<p>ACIS 中许多算法在曲线或曲面光滑时更高效。建议具有 $C^2$ 连续性，至少要有 $G^1$ 连续。不连续信息记录在 <code>intcurve</code>, <code>int_cur</code>, <code>spline</code>, <code>spl_sur</code> 中。</p>
+<p>ACIS 中许多算法在曲线或曲面光滑时更高效。建议具有 <span class="arithmatex">\(C^2\)</span> 连续性，至少要有 <span class="arithmatex">\(G^1\)</span> 连续。不连续信息记录在 <code>intcurve</code>, <code>int_cur</code>, <code>spline</code>, <code>spl_sur</code> 中。</p>
 <h4 id="senses">Senses</h4>
 <p>Sence 信息使得物体具有与底层几何相同或相反的方向。例如 <code>FACE</code> 可能与底层 <code>SURFACE</code> 具有相同或相反的方向。如果在 <code>FACE</code> 上计算点的法向，可能需要翻转 <code>SURFACE</code> 法向的方向。使用 <code>FACE::sense</code> 返回 <code>REVBIT</code> 类型，取值 <code>FORWARD</code> 或 <code>REVERSED</code>，表明方向。</p>
 <p>常用的 sence 函数如下</p>
@@ -18075,7 +18077,7 @@
 <tr>
 <td style="text-align: center;"><code>PCURVE</code></td>
 <td style="text-align: center;"><code>bs2_curve</code></td>
-<td style="text-align: center;"><code>int PCURVE::index()</code> （如果 index 是 $-1,-2$，则 <code>PCURVE</code> 与 <code>bs2_curve</code> 反向）</td>
+<td style="text-align: center;"><code>int PCURVE::index()</code> （如果 index 是 <span class="arithmatex">\(-1,-2\)</span>，则 <code>PCURVE</code> 与 <code>bs2_curve</code> 反向）</td>
 </tr>
 <tr>
 <td style="text-align: center;"><code>pcurve</code></td>
@@ -19260,6 +19262,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

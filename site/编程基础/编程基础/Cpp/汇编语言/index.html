@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -17722,7 +17724,7 @@
 <h4 id="_7">内存读写</h4>
 <p>CPU 要从内存中读取数据，需要指定储存单元的地址，并且需要指定对外部器件的交互。计算机通过连接 CPU 和其它芯片的导线，称为<strong>总线</strong>实现交互。总线分为 3 类：</p>
 <ol>
-<li>地址总线：CPU 通过地址总线来指定存储单元，决定寻址能力。地址总线上能传送多少个不同的信息，CPU 就可以对多少个储存单元寻址。一个 CPU 有 N 根地址总线，则这个 CPU 的<strong>地址总线宽度</strong>为 N，它可以寻找 $2^N$ 个内存单元；</li>
+<li>地址总线：CPU 通过地址总线来指定存储单元，决定寻址能力。地址总线上能传送多少个不同的信息，CPU 就可以对多少个储存单元寻址。一个 CPU 有 N 根地址总线，则这个 CPU 的<strong>地址总线宽度</strong>为 N，它可以寻找 <span class="arithmatex">\(2^N\)</span> 个内存单元；</li>
 <li>数据总线：CPU 通过数据总线与内存或其它器件进行数据传送。数据总线的宽度决定了 CPU 和外界的数据传送速度；</li>
 <li>控制总线：CPU 通过控制总线实现对外部器件的控制，控制总线是一些不同控制线的集合，决定了对各器件的控制能力；</li>
 </ol>
@@ -17747,7 +17749,7 @@
 <li><code>8000H~9FFFH</code> 的 8 KB 空间为显存地址空间；</li>
 <li><code>A000H~FFFFH</code> 的 24 KB 空间为各个 ROM 的地址空间；</li>
 </ul>
-<p>于是向 <code>1000H</code> 的读写操作，就是对主随机存储器的操作；对 <code>8000H</code> 的读写操作，就是对显存的操作。对于 8086 PC，其地址总线宽度为 20，可以定位 $2^{20}$ 个内存单元，则内存地址空间大小为 1 MB 。</p>
+<p>于是向 <code>1000H</code> 的读写操作，就是对主随机存储器的操作；对 <code>8000H</code> 的读写操作，就是对显存的操作。对于 8086 PC，其地址总线宽度为 20，可以定位 <span class="arithmatex">\(2^{20}\)</span> 个内存单元，则内存地址空间大小为 1 MB 。</p>
 <h4 id="_11">内存模式</h4>
 <p>在 <code>x86</code> 下有 3 种内存模式：</p>
 <ul>
@@ -19835,7 +19837,7 @@ $$</p>
 <ul>
 <li><code>FLD1</code> 将 <code>+1.0</code> 推入 <code>x87</code> FPU 寄存器栈</li>
 <li>FLDZ 将 <code>+0.0</code> 推入 <code>x87</code> FPU 寄存器栈</li>
-<li>FLDPI 将 $\pi$ 推入 <code>x87</code> FPU 寄存器栈</li>
+<li>FLDPI 将 <span class="arithmatex">\(\pi\)</span> 推入 <code>x87</code> FPU 寄存器栈</li>
 </ul>
 <p>还有更多常用常量，参见 <a href="ia32.pdf">ia32</a> 文档。</p>
 <h4 id="control">Control</h4>
@@ -20103,7 +20105,7 @@ $$</p>
 </blockquote>
 </blockquote>
 <h4 id="_67">三数幂和</h4>
-<p>实现计算 $a+b+c,a^2+b^2+c^2,a^3+b^3+c^3$ 的汇编程序。首先给出 C 程序框架</p>
+<p>实现计算 <span class="arithmatex">\(a+b+c,a^2+b^2+c^2,a^3+b^3+c^3\)</span> 的汇编程序。首先给出 C 程序框架</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span>
 <a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <a id="__codelineno-91-3" name="__codelineno-91-3" href="#__codelineno-91-3"></a>
@@ -22813,6 +22815,12 @@ $$</p>
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

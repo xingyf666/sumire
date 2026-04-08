@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14505,7 +14507,7 @@ $$
 $$
 X_{d}(u,v) =X(u,v)+N(u,v)d
 $$
-其中 $N$ 是单位法向。</p>
+其中 <span class="arithmatex">\(N\)</span> 是单位法向。</p>
 <h2 id="_3">平面等距曲线的解析性质</h2>
 <h3 id="_4">解析性质</h3>
 <p>容易得到平面等距曲线为
@@ -14515,11 +14517,11 @@ x_{d}(t) &amp;= x(t) \pm d \frac{y'(t)}{\sqrt{ x'^2(t)+y'^2(t) }}\
 y_{d}(t) &amp;= y(t) \mp d \frac{x'(t)}{\sqrt{ x'^2(t)+y'^2(t) }}
 \end{aligned}
 $$
-在相同参数值 $t$ 处，两条曲线具有平行切向
+在相同参数值 <span class="arithmatex">\(t\)</span> 处，两条曲线具有平行切向
 $$
 X'<em>{d}(t)=X'(t)(1+\kappa(t)d)
 $$
-因此即使初始曲线正则，其等距曲线在 $1+\kappa d=0$ 处存在尖角 cusps 。通过上式可得
+因此即使初始曲线正则，其等距曲线在 <span class="arithmatex">\(1+\kappa d=0\)</span> 处存在尖角 cusps 。通过上式可得
 $$
 \kappa</em>{d}= \frac{\kappa}{1+\kappa d},\quad \rho_{d}=\rho+d
 $$
@@ -14528,13 +14530,13 @@ $$
 <h3 id="_5">碰撞问题</h3>
 <p>如果等距曲线发生碰撞，就需要移除特定的部分</p>
 <p><img alt="" src="image-20251205231541362.png|500" /></p>
-<p>可以首先估计它们的位置，然后应用迭代方法。给定两条曲线 $X_{1}(t),X_{2}(\tau)$，选择恰当的 $t=t_{0}$，取 $X_{1}(t_{0})$ 处的切线
+<p>可以首先估计它们的位置，然后应用迭代方法。给定两条曲线 <span class="arithmatex">\(X_{1}(t),X_{2}(\tau)\)</span>，选择恰当的 <span class="arithmatex">\(t=t_{0}\)</span>，取 <span class="arithmatex">\(X_{1}(t_{0})\)</span> 处的切线
 $$
 T_{1}:\frac{x-x(t_{0})}{y-y(t_{0})} = \frac{x'(t_{0})}{y'(t)}
 $$
-然后取 $T_{1}$ 与 $X_{2}$ 的交点得到 $\tau=\tau_{1}$，继续取 $X_{2}(\tau_{1})$ 处的切线 $T_{2}$，取 $T_{2}$ 与 $X_{1}$ 的交点，以此类推。这一过程将获得 $X_{1}(t),X_{2}(\tau)$ 的交点</p>
+然后取 <span class="arithmatex">\(T_{1}\)</span> 与 <span class="arithmatex">\(X_{2}\)</span> 的交点得到 <span class="arithmatex">\(\tau=\tau_{1}\)</span>，继续取 <span class="arithmatex">\(X_{2}(\tau_{1})\)</span> 处的切线 <span class="arithmatex">\(T_{2}\)</span>，取 <span class="arithmatex">\(T_{2}\)</span> 与 <span class="arithmatex">\(X_{1}\)</span> 的交点，以此类推。这一过程将获得 <span class="arithmatex">\(X_{1}(t),X_{2}(\tau)\)</span> 的交点</p>
 <p><img alt="" src="image-20251205232159260.png|500" /></p>
-<p>另一种方法是定义沿着曲线移动的圆，然后取包络部分。这同时定义了内侧和外侧的等距曲线。对于初始曲线 $X(t)$ 和半径为 $d$ 的圆，得到
+<p>另一种方法是定义沿着曲线移动的圆，然后取包络部分。这同时定义了内侧和外侧的等距曲线。对于初始曲线 <span class="arithmatex">\(X(t)\)</span> 和半径为 <span class="arithmatex">\(d\)</span> 的圆，得到
 $$
 X_{d}(t,\tau) = 
 \begin{pmatrix}
@@ -14554,27 +14556,27 @@ $$
 $$
 \tan \tau= -\frac{x'}{y'}
 $$
-在尖点上 $x'=y'=0$，因此 $\tau$ 未定。</p>
+在尖点上 <span class="arithmatex">\(x'=y'=0\)</span>，因此 <span class="arithmatex">\(\tau\)</span> 未定。</p>
 <p><img alt="" src="image-20251205233453670.png|300" /></p>
 <h2 id="_6">空间中的等距曲线</h2>
-<p>令 $s$ 是初始曲线的弧长参数，$v_{1}$ 是单位切向，主法向 $v_{2}$ 和次法向 $v_{3}$ 是，则
+<p>令 <span class="arithmatex">\(s\)</span> 是初始曲线的弧长参数，<span class="arithmatex">\(v_{1}\)</span> 是单位切向，主法向 <span class="arithmatex">\(v_{2}\)</span> 和次法向 <span class="arithmatex">\(v_{3}\)</span> 是，则
 $$
 X_{d}(s,\tau) =X(s)+d(v_{2}\cos \tau+v_{3}\sin \tau)
 $$
-在任意 $s$ 处距离 $X$ 距离为 $d$ 。但由于弧长参数不容易得到，可以考虑曲面片 $X(u,v)$ 上的 $X(t)$，则
+在任意 <span class="arithmatex">\(s\)</span> 处距离 <span class="arithmatex">\(X\)</span> 距离为 <span class="arithmatex">\(d\)</span> 。但由于弧长参数不容易得到，可以考虑曲面片 <span class="arithmatex">\(X(u,v)\)</span> 上的 <span class="arithmatex">\(X(t)\)</span>，则
 $$
 (Y-X(u(t_{0}),v(t_{0})))\cdot X'(t_{0})=0\tag{<em>}
 $$
-定义了与 $X(t)$ 在 $t_{0}$ 处正交的平面，然后我们要求
+定义了与 <span class="arithmatex">\(X(t)\)</span> 在 <span class="arithmatex">\(t_{0}\)</span> 处正交的平面，然后我们要求
 $$
 |X(u,v)-X(t_{0})|-d=0\tag{</em>*}
 $$
-即在 $X(u,v)$ 上找等距点。上述两个方程构成非线性系统。</p>
-<p>或者可以只要求 $(<strong>)$，取曲面片上的曲线 $X_{q}$，使得
+即在 <span class="arithmatex">\(X(u,v)\)</span> 上找等距点。上述两个方程构成非线性系统。</p>
+<p>或者可以只要求 <span class="arithmatex">\((**)\)</span>，取曲面片上的曲线 <span class="arithmatex">\(X_{q}\)</span>，使得
 $$
 X_{q}' = \frac{X'\times N}{|X'\times N|}
 $$
-即 $X_{q}$ 处的切向恰好是 $X$ 的次法向，与 $X$ 正交。在曲面上分解得到
+即 <span class="arithmatex">\(X_{q}\)</span> 处的切向恰好是 <span class="arithmatex">\(X\)</span> 的次法向，与 <span class="arithmatex">\(X\)</span> 正交。在曲面上分解得到
 $$
 X_{q}' = X_{u}\Delta u+X_{v}\Delta v = 
 (X_{u},X_{v})
@@ -14591,11 +14593,11 @@ u(t_{0}) \
 v(t_{0})
 \end{pmatrix} + \lambda q
 $$
-则 $(</strong>)$ 变为
+则 <span class="arithmatex">\((**)\)</span> 变为
 $$
 |X(u(t_{0})+\lambda \Delta u,v(t_{0})+\lambda \Delta v)-X(t_{0})|-d=0
 $$
-给定方向 $q$，上述方程是单变量，可以用 Newton 法求解。</p>
+给定方向 <span class="arithmatex">\(q\)</span>，上述方程是单变量，可以用 Newton 法求解。</p>
 <p><img alt="" src="image-20251205235623556.png|400" /></p>
 <h2 id="_7">等距曲面</h2>
 <p>对等距曲面求导得到
@@ -14611,7 +14613,7 @@ $$
 $$
 \rho_{1,d}=\rho_{1}+d,\quad \rho_{2,d}=\rho_{2}+d
 $$
-其中 $\rho_{i}$ 是主曲率半径。Gauss 曲率和平均曲率为
+其中 <span class="arithmatex">\(\rho_{i}\)</span> 是主曲率半径。Gauss 曲率和平均曲率为
 $$
 K_{d} = \frac{K}{1+2Hd+Kd^2},\quad H_{d}= \frac{H+Kd}{|Kd^2+2Hd+1|}
 $$
@@ -14619,7 +14621,7 @@ $$
 $$
 |N_{d}| = |1+2Hd+Kd^2||X_{u}\times X_{v}|
 $$
-则奇异点会出现在 $-\rho_{i}=d$ 处。</p>
+则奇异点会出现在 <span class="arithmatex">\(-\rho_{i}=d\)</span> 处。</p>
 <p>如果使用移动球构造，则得到
 $$
 F=(\xi-x(u,v))^2+(\eta-y(u,v))^2+(\zeta-z(u,v))^2-d^2=0
@@ -14639,18 +14641,18 @@ $$
 结合移动球方程求解。</p>
 <h2 id="_8">隐式化</h2>
 <h3 id="_9">多项式结式</h3>
-<p>给定多项式 $f(t)=\sum_{i}a_{i}t^i,g(t)=\sum_{i}b_{i}t^i$，且
+<p>给定多项式 <span class="arithmatex">\(f(t)=\sum_{i}a_{i}t^i,g(t)=\sum_{i}b_{i}t^i\)</span>，且
 $$
 f(t)=\prod_{i}(t-f_{i}),\quad g(t)=\prod_{i}(t-g_{i})
 $$
-则 $f,g$ 的结式定义为
+则 <span class="arithmatex">\(f,g\)</span> 的结式定义为
 $$
 R(f,g) = \prod_{i}\prod_{j}(f_{i}-g_{j})
 $$
 我们有</p>
 <blockquote>
 <p>[!theorem]
-多项式 $f,g$ 有公共根当且仅当 $R(f,g)=0$ 。</p>
+多项式 <span class="arithmatex">\(f,g\)</span> 有公共根当且仅当 <span class="arithmatex">\(R(f,g)=0\)</span> 。</p>
 </blockquote>
 <p>定义 Sylvester 结式
 $$
@@ -14669,14 +14671,14 @@ $$
 我们有</p>
 <blockquote>
 <p>[!theorem]
-设 $r(t)=(f(t),g(t))$ 是 $f,g$ 的最大公因式，则 $\mathrm{deg}(r(t))=m+n-\mathrm{rank}(R_{t}(f,g))$ 。</p>
+设 <span class="arithmatex">\(r(t)=(f(t),g(t))\)</span> 是 <span class="arithmatex">\(f,g\)</span> 的最大公因式，则 <span class="arithmatex">\(\mathrm{deg}(r(t))=m+n-\mathrm{rank}(R_{t}(f,g))\)</span> 。</p>
 </blockquote>
 <h3 id="_10">参数曲线隐式化</h3>
-<p>给定 $x= \frac{x(t)}{w(t)},y = \frac{y(t)}{w(t)}$，其中 $x,y,w$ 是 $n$ 次多项式。构造
+<p>给定 <span class="arithmatex">\(x= \frac{x(t)}{w(t)},y = \frac{y(t)}{w(t)}\)</span>，其中 <span class="arithmatex">\(x,y,w\)</span> 是 <span class="arithmatex">\(n\)</span> 次多项式。构造
 $$
 p(x,t)=w(t)x-x(t),\quad q(y,t)=w(t)y-y(t)
 $$
-则 $p=q=0$ 当且仅当 $x,y,t$ 同时满足参数方程。重写为多项式
+则 <span class="arithmatex">\(p=q=0\)</span> 当且仅当 <span class="arithmatex">\(x,y,t\)</span> 同时满足参数方程。重写为多项式
 $$
 p(x,t)=\sum_{i}(d_{i}x-a_{i})t^i,\quad 
 q(y,t)=\sum_{i}(d_{i}y-b_{i})t^i
@@ -14688,19 +14690,19 @@ $$
 就是参数曲线的隐式方程。于是有</p>
 <blockquote>
 <p>[!theorem]
-任何平面 $n$ 次有理参数曲线都可表示为平面 $n$ 次代数曲线。</p>
+任何平面 <span class="arithmatex">\(n\)</span> 次有理参数曲线都可表示为平面 <span class="arithmatex">\(n\)</span> 次代数曲线。</p>
 </blockquote>
 <h3 id="_11">参数曲面隐式化</h3>
-<p>给定 $x= \frac{x(s,t)}{w(s,t)},y = \frac{y(s,t)}{w(s,t)},z = \frac{z(s,t)}{w(s,t)}$，可以构造
+<p>给定 <span class="arithmatex">\(x= \frac{x(s,t)}{w(s,t)},y = \frac{y(s,t)}{w(s,t)},z = \frac{z(s,t)}{w(s,t)}\)</span>，可以构造
 $$
 F(x,s,t)=0,\quad G(y,s,t)=0,\quad H(z,s,t)=0
 $$
-利用结式法得到 $R_{1}(x,y,s)=0,R_{2}(y,z,s)=0$，最后联立得到 $R(x,y,z)=0$ 。</p>
+利用结式法得到 <span class="arithmatex">\(R_{1}(x,y,s)=0,R_{2}(y,z,s)=0\)</span>，最后联立得到 <span class="arithmatex">\(R(x,y,z)=0\)</span> 。</p>
 <h3 id="ph">PH 曲线</h3>
 <h4 id="_12">动机</h4>
 <blockquote>
 <p>[!theorem]
-平面 $n$ 次多项式曲线 $r(t)=(a(t),b(t))$，其距离为 $d$ 的等距曲线为
+平面 <span class="arithmatex">\(n\)</span> 次多项式曲线 <span class="arithmatex">\(r(t)=(a(t),b(t))\)</span>，其距离为 <span class="arithmatex">\(d\)</span> 的等距曲线为
 $$
 f_{d}(x,y)=R_{t}(P(t,x,y),Q(t,x,y))=0
 $$
@@ -14711,41 +14713,41 @@ Q(t,x,y) &amp;= a'(t)(x-a(t))+b'(t)(y-b(t))
 \end{aligned}
 $$</p>
 </blockquote>
-<p>注意到平面等距曲线的分母为 $\sqrt{ x'^2(t)+y'^2(t) }$，因此我们考虑该分母是多项式的情况</p>
+<p>注意到平面等距曲线的分母为 <span class="arithmatex">\(\sqrt{ x'^2(t)+y'^2(t) }\)</span>，因此我们考虑该分母是多项式的情况</p>
 <blockquote>
 <p>[!definition]
-参数曲线 $r(t)=(x(t),y(t))$，如果存在多项式 $\sigma(t)$ 使得 $x'^2(t)+y'^2(t)=\sigma^2(t)$，则称 $r(t)$ 为 PH 曲线。</p>
+参数曲线 <span class="arithmatex">\(r(t)=(x(t),y(t))\)</span>，如果存在多项式 <span class="arithmatex">\(\sigma(t)\)</span> 使得 <span class="arithmatex">\(x'^2(t)+y'^2(t)=\sigma^2(t)\)</span>，则称 <span class="arithmatex">\(r(t)\)</span> 为 PH 曲线。</p>
 <p>[!lemma]
-实多项式 $a(t),b(t),c(t)$ 满足 $a^2(t)+b^2(t)=c^2(t)$ 当且仅当存在实多项式 $u(t),v(t),w(t)$，使得
+实多项式 <span class="arithmatex">\(a(t),b(t),c(t)\)</span> 满足 <span class="arithmatex">\(a^2(t)+b^2(t)=c^2(t)\)</span> 当且仅当存在实多项式 <span class="arithmatex">\(u(t),v(t),w(t)\)</span>，使得
 $$
 a(t)=w(t)(u^2(t)-v^2(t)),\quad b(t)=2w(t)u(t)v(t),\quad c(t)=w(t)(u^2(t)+v^2(t))
 $$</p>
 </blockquote>
-<p>充分性显然；设 $w(t)=\mathrm{gcd}(a(t),b(t),c(t))$ 并考虑
+<p>充分性显然；设 <span class="arithmatex">\(w(t)=\mathrm{gcd}(a(t),b(t),c(t))\)</span> 并考虑
 $$
 \tilde{a}(t)= \frac{a(t)}{w(t)},\quad \tilde{b}(t)=\frac{b(t)}{w(t)},\quad \tilde{c}(t)=\frac{c(t)}{w(t)}
 $$
-则 $\tilde{a}^2(t)+\tilde{b}^2(t)=\tilde{c}^2(t)$ 。重写为
+则 <span class="arithmatex">\(\tilde{a}^2(t)+\tilde{b}^2(t)=\tilde{c}^2(t)\)</span> 。重写为
 $$
 \tilde{b}^2(t)=\tilde{c}^2(t)-\tilde{a}^2(t)=(\tilde{c}(t)+\tilde{a}(t))(\tilde{c}(t)-\tilde{a}(t))
 $$
-约去最大公因式后 $\tilde{a}(t),\tilde{b}(t),\tilde{c}(t)$ 没有公共根，则上式右端两项也没有公共根。因此 $\tilde{b}(t)$ 的每个根只属于右端的某一项的根。因此存在互质多项式 $u(t),v(t)$ 使得
+约去最大公因式后 <span class="arithmatex">\(\tilde{a}(t),\tilde{b}(t),\tilde{c}(t)\)</span> 没有公共根，则上式右端两项也没有公共根。因此 <span class="arithmatex">\(\tilde{b}(t)\)</span> 的每个根只属于右端的某一项的根。因此存在互质多项式 <span class="arithmatex">\(u(t),v(t)\)</span> 使得
 $$
 \tilde{c}(t)+\tilde{a}(t)=2u^2(t),\quad \tilde{c}(t)-\tilde{a}(t)=2v^2(t)
 $$
-可以解出 $a,b,c$ 的表达式。</p>
+可以解出 <span class="arithmatex">\(a,b,c\)</span> 的表达式。</p>
 <blockquote>
 <p>[!corollary]
-PH 曲线可表示为 $r(t)=(x(t),y(t))=\left( \int w(t)(u^2(t)-v^2(t))dt,\int 2w(t)u(t)v(t)dt \right)$ 。</p>
+PH 曲线可表示为 <span class="arithmatex">\(r(t)=(x(t),y(t))=\left( \int w(t)(u^2(t)-v^2(t))dt,\int 2w(t)u(t)v(t)dt \right)\)</span> 。</p>
 <p>[!theorem]
-PH 曲线的次数为 $\mathrm{deg}(w(t))+2\max(\mathrm{deg}(u(t)),\mathrm{deg}(v(t)))+1$ 。</p>
+PH 曲线的次数为 <span class="arithmatex">\(\mathrm{deg}(w(t))+2\max(\mathrm{deg}(u(t)),\mathrm{deg}(v(t)))+1\)</span> 。</p>
 <p>[!corollary]
-$n$ 次 PH 曲线最多有 $n+3$ 个自由度，而 $n$ 次 Bezier 曲线有 $2(n+1)$ 个自由度。</p>
+<span class="arithmatex">\(n\)</span> 次 PH 曲线最多有 <span class="arithmatex">\(n+3\)</span> 个自由度，而 <span class="arithmatex">\(n\)</span> 次 Bezier 曲线有 <span class="arithmatex">\(2(n+1)\)</span> 个自由度。</p>
 </blockquote>
-<p>若 $\mu=\max(\mathrm{deg}(u(t),\mathrm{deg}(v(t))),\lambda=\mathrm{deg}(w(t))$，则共有 $2(\mu+1)+\lambda$ 个自由度（假设 $w(t)$ 首一）。积分增加两个自由度（$x,y$ 常数）。</p>
+<p>若 <span class="arithmatex">\(\mu=\max(\mathrm{deg}(u(t),\mathrm{deg}(v(t))),\lambda=\mathrm{deg}(w(t))\)</span>，则共有 <span class="arithmatex">\(2(\mu+1)+\lambda\)</span> 个自由度（假设 <span class="arithmatex">\(w(t)\)</span> 首一）。积分增加两个自由度（<span class="arithmatex">\(x,y\)</span> 常数）。</p>
 <blockquote>
 <p>[!theorem]
-设 $r(t)=\sum_{i=0}^3P_{i}B_{i,3}(t)$ 为平面 3 次 Bezier 曲线，$L_{j}$ 是控制多边形边长，$\theta_{1},\theta_{2}$ 是 $P_{1}P_{0},P_{1}P_{2}$ 的转角与 $P_{2}P_{1},P_{2}P_{3}$ 的转角，则 $r(t)$ 为 PH 曲线当且仅当 $L_{1}=\sqrt{ L_{0}L_{2} },\theta_{1}=\theta_{2}$ 。</p>
+设 <span class="arithmatex">\(r(t)=\sum_{i=0}^3P_{i}B_{i,3}(t)\)</span> 为平面 3 次 Bezier 曲线，<span class="arithmatex">\(L_{j}\)</span> 是控制多边形边长，<span class="arithmatex">\(\theta_{1},\theta_{2}\)</span> 是 <span class="arithmatex">\(P_{1}P_{0},P_{1}P_{2}\)</span> 的转角与 <span class="arithmatex">\(P_{2}P_{1},P_{2}P_{3}\)</span> 的转角，则 <span class="arithmatex">\(r(t)\)</span> 为 PH 曲线当且仅当 <span class="arithmatex">\(L_{1}=\sqrt{ L_{0}L_{2} },\theta_{1}=\theta_{2}\)</span> 。</p>
 </blockquote>
 <p>平面 3 次 PH 曲线曲率
 $$
@@ -14755,20 +14757,20 @@ $$
 <h4 id="_13">有理等距曲线</h4>
 <blockquote>
 <p>[!theorem]
-设 $Z(t)=x(t)+y(t)i$ 是以 $t$ 为实参数的多项式曲线，则它的等距曲线可有理参数化当且仅当
+设 <span class="arithmatex">\(Z(t)=x(t)+y(t)i\)</span> 是以 <span class="arithmatex">\(t\)</span> 为实参数的多项式曲线，则它的等距曲线可有理参数化当且仅当
 $$
 Z'(t)= \rho(t)(Mt+1)G^2(t)
 $$
-其中 $\rho(t),G(t)$ 分别表示实、复多项式，$M$ 为 0 或虚部不为 0 的常数。</p>
+其中 <span class="arithmatex">\(\rho(t),G(t)\)</span> 分别表示实、复多项式，<span class="arithmatex">\(M\)</span> 为 0 或虚部不为 0 的常数。</p>
 </blockquote>
-<p>设 $M=\lambda+\mu i,G(t)=u(t)+v(t)i$，则
+<p>设 <span class="arithmatex">\(M=\lambda+\mu i,G(t)=u(t)+v(t)i\)</span>，则
 $$
 \begin{cases}
 x(t) = \int \rho(t)[(\lambda t+1)(u^2(t)-v^2(t))-2\mu tu(t)v(t)]dt\
 y(t) = \int \rho(t)[2(\lambda t+1)u(t)v(t)+\mu t(u^2(t)-v^2(t))]dt
 \end{cases}
 $$
-是 $Z(t)$ 的多项式表示。</p>
+是 <span class="arithmatex">\(Z(t)\)</span> 的多项式表示。</p>
 <h4 id="hermite">几何 Hermite 插值</h4>
 <p>给定端点和端点处的切向和曲率，构造插值端点数据的 PH 曲线。有两种方法</p>
 <ol>
@@ -14779,11 +14781,11 @@ $$
 $$
 n(t) = \left( -\frac{\eta(t)}{\omega(t)}, \frac{\xi(t)}{\omega(t)} \right)
 $$
-令 $U(t)=(\xi(t),\eta(t))$，则 $|U(t)|=\omega(t)$ 。以 $n(t)$ 为法向场的 PH 曲线为
+令 <span class="arithmatex">\(U(t)=(\xi(t),\eta(t))\)</span>，则 <span class="arithmatex">\(\|U(t)\|=\omega(t)\)</span> 。以 <span class="arithmatex">\(n(t)\)</span> 为法向场的 PH 曲线为
 $$
 P(t) = \int_{0}^t\rho(\tau)U(\tau)d\tau+P_{0}
 $$
-若 $\rho(t)&gt;0$，则 $U(t)$ 是 $P(t)$ 的切方向。该 PH 曲线的弧长为
+若 <span class="arithmatex">\(\rho(t)&gt;0\)</span>，则 <span class="arithmatex">\(U(t)\)</span> 是 <span class="arithmatex">\(P(t)\)</span> 的切方向。该 PH 曲线的弧长为
 $$
 L(t) = \int_{0}^t\rho(\tau)\omega(\tau)d\tau
 $$
@@ -14798,7 +14800,7 @@ $$
 于是</p>
 <blockquote>
 <p>[!proposition]
-若 $\rho(t)\neq 0$，则由切向场积分定义得到的 PH 曲线非奇异。</p>
+若 <span class="arithmatex">\(\rho(t)\neq 0\)</span>，则由切向场积分定义得到的 PH 曲线非奇异。</p>
 </blockquote>
 
 
@@ -14853,6 +14855,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

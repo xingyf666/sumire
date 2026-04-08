@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14703,238 +14705,238 @@
 <h1 id="latex">LaTex 数学符号</h1>
 <h2 id="_1">常用语法</h2>
 <h3 id="_2">上下标</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
-a_1 &amp;\verb|a_1|\
-x^2 &amp;\verb|x^2|\
-e^{-\alpha t} &amp;\verb|e^{-\alpha t}| \
-a^3_{ij} &amp;\verb|a^3_{ij}| \
+a_1 &amp;\verb|a_1|\\
+x^2 &amp;\verb|x^2|\\
+e^{-\alpha t} &amp;\verb|e^{-\alpha t}| \\
+a^3_{ij} &amp;\verb|a^3_{ij}| \\
 e^{x^2}\neq e^{x^2} &amp;\verb|e^{x^2}\neq e^{x^2}|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_3">方根</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
-\sqrt{x} &amp; \verb|\sqrt{x}|\
-\sqrt{x^2+\sqrt{y}} &amp; \verb|\sqrt{x^2+\sqrt{y}}|\
-\sqrt[3]{2} &amp; \verb|\sqrt[3]{2}|\
+\sqrt{x} &amp; \verb|\sqrt{x}|\\
+\sqrt{x^2+\sqrt{y}} &amp; \verb|\sqrt{x^2+\sqrt{y}}|\\
+\sqrt[3]{2} &amp; \verb|\sqrt[3]{2}|\\
 \surd[x^2+y^2] &amp; \verb|\surd[x^2+y^2]|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_4">水平线</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
-\overline{m+n} &amp; \verb|\overline{m+n}|\
+\overline{m+n} &amp; \verb|\overline{m+n}|\\
 \underline{m+n} &amp; \verb|\underline{m+n}|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_5">水平括号</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
 \underbrace{a+b+\cdots+z}_{26}
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_6">向量</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
-\vec a &amp;  \verb|\vec a|\
+\vec a &amp;  \verb|\vec a|\\
 \overrightarrow{AB} &amp; \verb|\overrightarrow{AB}|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_7">分数</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
-\frac{1}{2} &amp; \verb|\frac{1}{2}| \
-\frac{x^2}{k+1} &amp; \verb|\frac{x^2}{k+1}|\
-x^{\frac{2}{k+1}} &amp; \verb|x^{\frac{2}{k+1}}|\
+\frac{1}{2} &amp; \verb|\frac{1}{2}| \\
+\frac{x^2}{k+1} &amp; \verb|\frac{x^2}{k+1}|\\
+x^{\frac{2}{k+1}} &amp; \verb|x^{\frac{2}{k+1}}|\\
 x^{1/2} &amp; \verb|x^{1/2}|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_8">巨算符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
-\sum_{i=1}^n &amp; \verb|\sum_{i=1}^n|\
-\int_0^{\frac{\pi}{2}} &amp; \verb|\int_0^{\frac{\pi}{2}}|\
-\iint_S &amp; \verb|\iint_S|\
-\iiint_D &amp; \verb|\iiint_D|\
-\oint_{\partial S} &amp; \verb|\oint_{\partial S}|\
+\sum_{i=1}^n &amp; \verb|\sum_{i=1}^n|\\
+\int_0^{\frac{\pi}{2}} &amp; \verb|\int_0^{\frac{\pi}{2}}|\\
+\iint_S &amp; \verb|\iint_S|\\
+\iiint_D &amp; \verb|\iiint_D|\\
+\oint_{\partial S} &amp; \verb|\oint_{\partial S}|\\
 \prod_\epsilon &amp; \verb|\prod_\epsilon|
 \end{array}
-$$</p>
+\]</div>
 <h2 id="_9">数学符号表</h2>
 <h3 id="_10">重音符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-\hat{a} &amp; \verb|\hat{a}| &amp; \check{a} &amp; \verb|\check{a}| &amp; \tilde{a} &amp; \verb|\tilde{a}| &amp; \acute{a} &amp; \verb|\acute{a}|\
-\grave{a} &amp; \verb|\grave{a}| &amp; \dot{a} &amp; \verb|\dot{a}| &amp; \ddot{a} &amp; \verb|\ddot{a}| &amp; \breve{a} &amp; \verb|\breve{a}|\
+\hat{a} &amp; \verb|\hat{a}| &amp; \check{a} &amp; \verb|\check{a}| &amp; \tilde{a} &amp; \verb|\tilde{a}| &amp; \acute{a} &amp; \verb|\acute{a}|\\
+\grave{a} &amp; \verb|\grave{a}| &amp; \dot{a} &amp; \verb|\dot{a}| &amp; \ddot{a} &amp; \verb|\ddot{a}| &amp; \breve{a} &amp; \verb|\breve{a}|\\
 \bar{a} &amp; \verb|\bar{a}| &amp; \vec{a} &amp; \verb|\vec{a}| &amp; \widehat{A} &amp; \verb|\widehat{A}| &amp; \widetilde{A} &amp; \verb|\widetilde{A}|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_11">小写希腊字母</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-\alpha &amp; \verb|\alpha| &amp; \theta &amp; \verb|\theta| &amp; o &amp; \verb|o| &amp; \upsilon &amp; \verb|\upsilon|\
-\beta &amp; \verb|\beta| &amp; \vartheta &amp; \verb|\vartheta| &amp; \pi &amp; \verb|\pi| &amp; \phi &amp; \verb|\phi|\
-\gamma &amp; \verb|\gamma| &amp; \iota &amp; \verb|\iota| &amp; \varpi &amp; \verb|\varpi| &amp; \varphi &amp; \verb|\varphi|\
-\delta &amp; \verb|\delta| &amp; \kappa &amp; \verb|\kappa| &amp; \rho &amp; \verb|\rho| &amp; \chi &amp; \verb|\chi|\
-\epsilon &amp; \verb|\epsilon| &amp; \lambda &amp; \verb|\lambda| &amp; \varrho &amp; \verb|\varrho| &amp; \psi &amp; \verb|\psi|\
-\varepsilon &amp; \verb|\varepsilon| &amp; \mu &amp; \verb|\mu| &amp; \sigma &amp; \verb|\sigma| &amp; \omega &amp; \verb|\omega|\
-\zeta &amp; \verb|\zeta| &amp; \nu &amp; \verb|\nu| &amp; \varsigma &amp; \verb|\varsigma|\
+\alpha &amp; \verb|\alpha| &amp; \theta &amp; \verb|\theta| &amp; o &amp; \verb|o| &amp; \upsilon &amp; \verb|\upsilon|\\
+\beta &amp; \verb|\beta| &amp; \vartheta &amp; \verb|\vartheta| &amp; \pi &amp; \verb|\pi| &amp; \phi &amp; \verb|\phi|\\
+\gamma &amp; \verb|\gamma| &amp; \iota &amp; \verb|\iota| &amp; \varpi &amp; \verb|\varpi| &amp; \varphi &amp; \verb|\varphi|\\
+\delta &amp; \verb|\delta| &amp; \kappa &amp; \verb|\kappa| &amp; \rho &amp; \verb|\rho| &amp; \chi &amp; \verb|\chi|\\
+\epsilon &amp; \verb|\epsilon| &amp; \lambda &amp; \verb|\lambda| &amp; \varrho &amp; \verb|\varrho| &amp; \psi &amp; \verb|\psi|\\
+\varepsilon &amp; \verb|\varepsilon| &amp; \mu &amp; \verb|\mu| &amp; \sigma &amp; \verb|\sigma| &amp; \omega &amp; \verb|\omega|\\
+\zeta &amp; \verb|\zeta| &amp; \nu &amp; \verb|\nu| &amp; \varsigma &amp; \verb|\varsigma|\\
 \eta &amp; \verb|eta| &amp; \xi &amp; \verb|\xi| &amp; \tau &amp; \verb|\tau|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_12">大写希腊字母</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-\Gamma &amp; \verb|\Gamma| &amp; \Lambda &amp; \verb|\Lambda| &amp; \Sigma &amp; \verb|\Sigma| &amp; \Psi &amp; \verb|\Psi|\
-\Delta &amp; \verb|\Delta| &amp; \Xi &amp; \verb|\Xi| &amp; \Upsilon &amp; \verb|\Upsilon| &amp; \Omega &amp; \verb|\Omega|\
+\Gamma &amp; \verb|\Gamma| &amp; \Lambda &amp; \verb|\Lambda| &amp; \Sigma &amp; \verb|\Sigma| &amp; \Psi &amp; \verb|\Psi|\\
+\Delta &amp; \verb|\Delta| &amp; \Xi &amp; \verb|\Xi| &amp; \Upsilon &amp; \verb|\Upsilon| &amp; \Omega &amp; \verb|\Omega|\\
 \Theta &amp; \verb|\Theta| &amp; \Pi &amp; \verb|\Pi| &amp; \Phi &amp; \verb|\Phi|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_13">二元关系符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclcl}
-&lt; &amp; \verb|&lt;| &amp; &gt; &amp; \verb|&gt;| &amp; = &amp; \verb|=|\
-\le &amp; \verb|\le| &amp; \ge &amp; \verb|\ge| &amp; \equiv &amp; \verb|\equiv|\
-\ll &amp; \verb|\ll| &amp; \gg &amp; \verb|\gg| &amp; \doteq &amp; \verb|\doteq|\
-\preceq &amp; \verb|\preceq| &amp; \succeq &amp; \verb|\succeq| &amp; \simeq &amp; \verb|\simeq|\
-\subset &amp; \verb|\subset| &amp; \supset &amp; \verb|\supset| &amp; \approx &amp; \verb|\approx|\
-\subseteq &amp; \verb|\subseteq| &amp; \supseteq &amp; \verb|\supseteq| &amp; \cong &amp; \verb|\cong|\
-\sqsubset &amp; \verb|\sqsubset| &amp; \sqsupset &amp; \verb|\sqsupset| &amp; \Join &amp; \verb|\Join|\
-\sqsubseteq &amp; \verb|\sqsubseteq| &amp; \sqsupseteq &amp; \verb|\sqsubpseteq| &amp; \bowtie &amp; \verb|\bowtie|\
-\in &amp; \verb|\in| &amp; \ni &amp; \verb|\ni| &amp; \propto &amp; \verb|\propto|\
-\vdash &amp; \verb|\vdash| &amp; \dashv &amp; \verb|\dashv| &amp; \models &amp; \verb|\models|\
-\mid &amp; \verb|\mid| &amp; \parallel &amp; \verb|\parallel| &amp; \perp &amp; \verb|\perp|\
-\smile &amp; \verb|\smile| &amp; \frown &amp; \verb|\frown| &amp; \asymp &amp; \verb|\asymp|\
+&lt; &amp; \verb|&lt;| &amp; &gt; &amp; \verb|&gt;| &amp; = &amp; \verb|=|\\
+\le &amp; \verb|\le| &amp; \ge &amp; \verb|\ge| &amp; \equiv &amp; \verb|\equiv|\\
+\ll &amp; \verb|\ll| &amp; \gg &amp; \verb|\gg| &amp; \doteq &amp; \verb|\doteq|\\
+\preceq &amp; \verb|\preceq| &amp; \succeq &amp; \verb|\succeq| &amp; \simeq &amp; \verb|\simeq|\\
+\subset &amp; \verb|\subset| &amp; \supset &amp; \verb|\supset| &amp; \approx &amp; \verb|\approx|\\
+\subseteq &amp; \verb|\subseteq| &amp; \supseteq &amp; \verb|\supseteq| &amp; \cong &amp; \verb|\cong|\\
+\sqsubset &amp; \verb|\sqsubset| &amp; \sqsupset &amp; \verb|\sqsupset| &amp; \Join &amp; \verb|\Join|\\
+\sqsubseteq &amp; \verb|\sqsubseteq| &amp; \sqsupseteq &amp; \verb|\sqsubpseteq| &amp; \bowtie &amp; \verb|\bowtie|\\
+\in &amp; \verb|\in| &amp; \ni &amp; \verb|\ni| &amp; \propto &amp; \verb|\propto|\\
+\vdash &amp; \verb|\vdash| &amp; \dashv &amp; \verb|\dashv| &amp; \models &amp; \verb|\models|\\
+\mid &amp; \verb|\mid| &amp; \parallel &amp; \verb|\parallel| &amp; \perp &amp; \verb|\perp|\\
+\smile &amp; \verb|\smile| &amp; \frown &amp; \verb|\frown| &amp; \asymp &amp; \verb|\asymp|\\
 : &amp; \verb|:| &amp; \notin &amp; \verb|\notin| &amp; \neq &amp; \verb|\neq|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_14">二元运算符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclcl}
-+ &amp; \verb|+| &amp; - &amp; \verb|-|\
-\pm &amp; \verb|\pm| &amp; \mp &amp; \verb|\mp| &amp; \triangleleft &amp; \verb|\triangleleft|\
-\cdot &amp; \verb|\cdot| &amp; \div &amp; \verb|\div| &amp; \triangleright &amp; \verb|\triangleright|\
-\times &amp; \verb|\times| &amp; \setminus &amp; \verb|\setminus| &amp; \star &amp; \verb|\star|\
-\cup &amp; \verb|\cup| &amp; \cap &amp; \verb|\cap| &amp; \ast &amp; \verb|\ast|\
-\sqcup &amp; \verb|\sqcup| &amp; \sqcap &amp; \verb|\sqcap| &amp; \circ &amp; \verb|\circ|\
-\lor &amp; \verb|\lor| &amp; \land &amp; \verb|\land| &amp; \bullet &amp; \verb|\bullet|\
-\oplus &amp; \verb|\oplus| &amp; \ominus &amp; \verb|\ominus| &amp; \diamond &amp; \verb|\diamond|\
-\odot &amp; \verb|\odot| &amp; \oslash &amp; \verb|\oslash| &amp; \uplus &amp; \verb|\uplus|\
-\otimes &amp; \verb|\otimes| &amp; \bigcirc &amp; \verb|\bigcirc| &amp; \amalg &amp; \verb|\amalg|\
-\bigtriangleup &amp; \verb|\bigtriangleup| &amp; \bigtriangledown &amp; \verb|\bigtriangledown| &amp; \dagger &amp; \verb|\dagger|\
-\lhd &amp; \verb|\lhd| &amp; \rhd &amp; \verb|\rhd| &amp; \ddagger &amp; \verb|\ddagger|\
++ &amp; \verb|+| &amp; - &amp; \verb|-|\\
+\pm &amp; \verb|\pm| &amp; \mp &amp; \verb|\mp| &amp; \triangleleft &amp; \verb|\triangleleft|\\
+\cdot &amp; \verb|\cdot| &amp; \div &amp; \verb|\div| &amp; \triangleright &amp; \verb|\triangleright|\\
+\times &amp; \verb|\times| &amp; \setminus &amp; \verb|\setminus| &amp; \star &amp; \verb|\star|\\
+\cup &amp; \verb|\cup| &amp; \cap &amp; \verb|\cap| &amp; \ast &amp; \verb|\ast|\\
+\sqcup &amp; \verb|\sqcup| &amp; \sqcap &amp; \verb|\sqcap| &amp; \circ &amp; \verb|\circ|\\
+\lor &amp; \verb|\lor| &amp; \land &amp; \verb|\land| &amp; \bullet &amp; \verb|\bullet|\\
+\oplus &amp; \verb|\oplus| &amp; \ominus &amp; \verb|\ominus| &amp; \diamond &amp; \verb|\diamond|\\
+\odot &amp; \verb|\odot| &amp; \oslash &amp; \verb|\oslash| &amp; \uplus &amp; \verb|\uplus|\\
+\otimes &amp; \verb|\otimes| &amp; \bigcirc &amp; \verb|\bigcirc| &amp; \amalg &amp; \verb|\amalg|\\
+\bigtriangleup &amp; \verb|\bigtriangleup| &amp; \bigtriangledown &amp; \verb|\bigtriangledown| &amp; \dagger &amp; \verb|\dagger|\\
+\lhd &amp; \verb|\lhd| &amp; \rhd &amp; \verb|\rhd| &amp; \ddagger &amp; \verb|\ddagger|\\
 \unlhd &amp; \verb|\unlhd| &amp; \unrhd &amp; \verb|\unrhd| &amp; \wr &amp; \verb|\wr|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_15">巨型运算符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-\sum &amp; \verb|\sum| &amp; \bigcup &amp; \verb|\bigcup| &amp; \bigvee &amp; \verb|\bigvee| &amp; \bigoplus &amp; \verb|\bigoplus|\
-\prod &amp; \verb|\prod| &amp; \bigcap &amp; \verb|\bigcap| &amp; \bigwedge &amp; \verb|\bigwedge| &amp; \bigotimes &amp; \verb|\bigotimes|\
-\coprod &amp; \verb|\coprod| &amp; \bigsqcup &amp; \verb|\bigsqcup| &amp; &amp; &amp; \bigodot &amp; \verb|\bigodot|\
+\sum &amp; \verb|\sum| &amp; \bigcup &amp; \verb|\bigcup| &amp; \bigvee &amp; \verb|\bigvee| &amp; \bigoplus &amp; \verb|\bigoplus|\\
+\prod &amp; \verb|\prod| &amp; \bigcap &amp; \verb|\bigcap| &amp; \bigwedge &amp; \verb|\bigwedge| &amp; \bigotimes &amp; \verb|\bigotimes|\\
+\coprod &amp; \verb|\coprod| &amp; \bigsqcup &amp; \verb|\bigsqcup| &amp; &amp; &amp; \bigodot &amp; \verb|\bigodot|\\
 \int &amp; \verb|\int| &amp; \oint &amp; \verb|\oint| &amp; &amp; &amp; \biguplus &amp; \verb|\biguplus|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_16">箭头</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclcl}
-\leftarrow &amp; \verb|\leftarrow| &amp; \longleftarrow &amp; \verb|\longleftarrow| &amp; \uparrow &amp; \verb|\uparrow|\
-\rightarrow &amp; \verb|\rightarrow| &amp; \longrightarrow &amp; \verb|\longrightarrow| &amp; \downarrow &amp; \verb|\downarrow|\
-\leftrightarrow &amp; \verb|\leftrightarrow| &amp; \longleftrightarrow &amp; \verb|\longleftrightarrow| &amp; \updownarrow &amp; \verb|\updownarrow|\
-\Leftarrow &amp; \verb|\Leftarrow| &amp; \Longleftarrow &amp; \verb|\Longleftarrow| &amp; \Uparrow &amp; \verb|\Uparrow|\
-\Rightarrow &amp; \verb|\Rightarrow| &amp; \Longrightarrow &amp; \verb|\Longrightarrow| &amp; \Downarrow &amp; \verb|\Downarrow|\
-\Leftrightarrow &amp; \verb|\Leftrightarrow| &amp; \Longleftrightarrow &amp; \verb|\Longleftrightarrow| &amp; \Updownarrow &amp; \verb|\Updownarrow|\
-\mapsto &amp; \verb|\mapsto| &amp; \longmapsto &amp; \verb|\longmapsto| &amp; \nearrow &amp; \verb|\nearrow|\
-\hookleftarrow &amp; \verb|\hookleftarrow| &amp; \hookrightarrow &amp; \verb|\hookrightarrow| &amp; \searrow &amp; \verb|\searrow|\
-\leftharpoonup &amp; \verb|\leftharpoonup| &amp; \rightharpoonup &amp; \verb|\rightharpoonup| &amp; \swarrow &amp; \verb|\swarrow|\
-\leftharpoondown &amp; \verb|\leftharpoondown| &amp; \rightharpoondown &amp; \verb|\rightharpoondown| &amp; \nwarrow &amp; \verb|\nwarrow|\
+\leftarrow &amp; \verb|\leftarrow| &amp; \longleftarrow &amp; \verb|\longleftarrow| &amp; \uparrow &amp; \verb|\uparrow|\\
+\rightarrow &amp; \verb|\rightarrow| &amp; \longrightarrow &amp; \verb|\longrightarrow| &amp; \downarrow &amp; \verb|\downarrow|\\
+\leftrightarrow &amp; \verb|\leftrightarrow| &amp; \longleftrightarrow &amp; \verb|\longleftrightarrow| &amp; \updownarrow &amp; \verb|\updownarrow|\\
+\Leftarrow &amp; \verb|\Leftarrow| &amp; \Longleftarrow &amp; \verb|\Longleftarrow| &amp; \Uparrow &amp; \verb|\Uparrow|\\
+\Rightarrow &amp; \verb|\Rightarrow| &amp; \Longrightarrow &amp; \verb|\Longrightarrow| &amp; \Downarrow &amp; \verb|\Downarrow|\\
+\Leftrightarrow &amp; \verb|\Leftrightarrow| &amp; \Longleftrightarrow &amp; \verb|\Longleftrightarrow| &amp; \Updownarrow &amp; \verb|\Updownarrow|\\
+\mapsto &amp; \verb|\mapsto| &amp; \longmapsto &amp; \verb|\longmapsto| &amp; \nearrow &amp; \verb|\nearrow|\\
+\hookleftarrow &amp; \verb|\hookleftarrow| &amp; \hookrightarrow &amp; \verb|\hookrightarrow| &amp; \searrow &amp; \verb|\searrow|\\
+\leftharpoonup &amp; \verb|\leftharpoonup| &amp; \rightharpoonup &amp; \verb|\rightharpoonup| &amp; \swarrow &amp; \verb|\swarrow|\\
+\leftharpoondown &amp; \verb|\leftharpoondown| &amp; \rightharpoondown &amp; \verb|\rightharpoondown| &amp; \nwarrow &amp; \verb|\nwarrow|\\
 \rightleftharpoons &amp; \verb|\rightleftharpoons| &amp; \iff &amp; \verb|\iff| &amp; \leadsto &amp; \verb|\leadsto|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_17">定界符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-( &amp; \verb|(| &amp; ) &amp; \verb|)| &amp; \uparrow &amp; \verb|\uparrow| &amp; \Uparrow &amp; \verb|\Uparrow|\
-[ &amp; \verb|[| &amp; ] &amp; \verb|]| &amp; \downarrow &amp; \verb|\downarrow| &amp; \Downarrow &amp; \verb|\Downarrow|\
-\langle &amp; \verb|\langle| &amp; \rangle &amp; \verb|\rangle| &amp; | &amp; \verb||| &amp; | &amp; \verb|||\
-\lfloor &amp; \verb|\lfloor| &amp; \rfloor &amp; \verb|\rfloor| &amp; \lceil &amp; \verb|\lceil| &amp; \rceil &amp; \verb|\rceil|\
+( &amp; \verb|(| &amp; ) &amp; \verb|)| &amp; \uparrow &amp; \verb|\uparrow| &amp; \Uparrow &amp; \verb|\Uparrow|\\
+[ &amp; \verb|[| &amp; ] &amp; \verb|]| &amp; \downarrow &amp; \verb|\downarrow| &amp; \Downarrow &amp; \verb|\Downarrow|\\
+\langle &amp; \verb|\langle| &amp; \rangle &amp; \verb|\rangle| &amp; | &amp; \verb||| &amp; \| &amp; \verb|\||\\
+\lfloor &amp; \verb|\lfloor| &amp; \rfloor &amp; \verb|\rfloor| &amp; \lceil &amp; \verb|\lceil| &amp; \rceil &amp; \verb|\rceil|\\
 / &amp; \verb|/| &amp; \backslash &amp; \verb|\backslash| 
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_18">巨型定界符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-\lgroup &amp; \verb|\lgroup| &amp; \rgroup &amp; \verb|\rgroup| &amp;  \lmoustache &amp; \verb|\lmoustache| &amp; \rmoustache &amp; \verb|\rmoustache|\
+\lgroup &amp; \verb|\lgroup| &amp; \rgroup &amp; \verb|\rgroup| &amp;  \lmoustache &amp; \verb|\lmoustache| &amp; \rmoustache &amp; \verb|\rmoustache|\\
 \arrowvert &amp; \verb|\arrowvert| &amp; \Arrowvert &amp; \verb|\Arrowvert| &amp; \bracevert &amp; \verb|\bracevert|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_19">其它符号</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-\dots &amp; \verb|\dots| &amp; \cdots &amp; \verb|\cdots| &amp; \vdots &amp; \verb|\vdots| &amp; \ddots &amp; \verb|\ddots|\
-\hbar &amp; \verb|\hbar| &amp; \imath &amp; \verb|\imath| &amp; \jmath &amp; \verb|\jmath| &amp; \ell &amp; \verb|\ell|\
-\Re &amp; \verb|\Re| &amp; \Im &amp; \verb|\Im| &amp; \aleph &amp; \verb|\aleph| &amp; \wp &amp; \verb|\wp|\
-\forall &amp; \verb|\forall| &amp; \exists &amp; \verb|\exists| &amp; \mho &amp; \verb|\mho| &amp; \partial &amp; \verb|\partial|\
-' &amp; \verb|'| &amp; \prime &amp; \verb|\prime| &amp; \emptyset &amp; \verb|\emptyset| &amp; \infty &amp; \verb|\infty|\
-\nabla &amp; \verb|\nabla| &amp; \triangle &amp; \verb|\triangle| &amp; \Box &amp; \verb|\Box| &amp; \Diamond &amp; \verb|\Diamond|\
-\bot &amp; \verb|\bot| &amp; \top &amp; \verb|\top| &amp; \angle &amp; \verb|\angle| &amp; \surd &amp; \verb|\surd|\
-\diamondsuit &amp; \verb|\diamondsuit| &amp; \heartsuit &amp; \verb|\heartsuit| &amp; \clubsuit &amp; \verb|\clubsuit| &amp; \spadesuit &amp; \verb|\spadesuit|\
+\dots &amp; \verb|\dots| &amp; \cdots &amp; \verb|\cdots| &amp; \vdots &amp; \verb|\vdots| &amp; \ddots &amp; \verb|\ddots|\\
+\hbar &amp; \verb|\hbar| &amp; \imath &amp; \verb|\imath| &amp; \jmath &amp; \verb|\jmath| &amp; \ell &amp; \verb|\ell|\\
+\Re &amp; \verb|\Re| &amp; \Im &amp; \verb|\Im| &amp; \aleph &amp; \verb|\aleph| &amp; \wp &amp; \verb|\wp|\\
+\forall &amp; \verb|\forall| &amp; \exists &amp; \verb|\exists| &amp; \mho &amp; \verb|\mho| &amp; \partial &amp; \verb|\partial|\\
+' &amp; \verb|'| &amp; \prime &amp; \verb|\prime| &amp; \emptyset &amp; \verb|\emptyset| &amp; \infty &amp; \verb|\infty|\\
+\nabla &amp; \verb|\nabla| &amp; \triangle &amp; \verb|\triangle| &amp; \Box &amp; \verb|\Box| &amp; \Diamond &amp; \verb|\Diamond|\\
+\bot &amp; \verb|\bot| &amp; \top &amp; \verb|\top| &amp; \angle &amp; \verb|\angle| &amp; \surd &amp; \verb|\surd|\\
+\diamondsuit &amp; \verb|\diamondsuit| &amp; \heartsuit &amp; \verb|\heartsuit| &amp; \clubsuit &amp; \verb|\clubsuit| &amp; \spadesuit &amp; \verb|\spadesuit|\\
 \neg &amp; \verb|\neg| &amp; \flat &amp; \verb|\flat| &amp; \natural &amp; \verb|\natual| &amp; \sharp &amp; \verb|\sharp|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="ams">AMS 定界符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclcl}
-\ulcorner &amp; \verb|\ulcorner| &amp; \urcorner &amp; \verb|\urcorner| &amp; \llcorner &amp; \verb|\llcorner| &amp; \lrcorner &amp; \verb|\lrcorner|\
+\ulcorner &amp; \verb|\ulcorner| &amp; \urcorner &amp; \verb|\urcorner| &amp; \llcorner &amp; \verb|\llcorner| &amp; \lrcorner &amp; \verb|\lrcorner|\\
 \lvert &amp; \verb|\lvert| &amp; \rvert &amp; \verb|\rvert| &amp; \lVert &amp; \verb|\lVert| &amp; \rVert &amp; \verb|\rVert|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="ams_1">AMS 希腊和希伯来字母</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclclclcl}
 \digamma &amp; \verb|\digamma| &amp; \varkappa &amp; \verb|\varkappa| &amp; \beth &amp; \verb|\beth| &amp; \daleth &amp; \verb|\daleth| &amp; \gimel &amp; \verb|\gimel|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="ams_2">AMS 二元运算符</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclcl}
-\dotplus &amp; \verb|\dptplus| &amp; \centerdot &amp; \verb|\centerdot| &amp; \intercal &amp; \verb|\intercal|\
-\ltimes &amp; \verb|\ltimes| &amp; \rtimes &amp; \verb|\rtimes| &amp; \divideontimes &amp; \verb|\divideontimes|\
-\Cup &amp; \verb|\Cup| &amp; \Cap &amp; \verb|\Cap| &amp; \smallsetminus &amp; \verb|\smallsetminus|\
-\veebar &amp; \verb|\veebar| &amp; \barwedge| &amp; \verb|\barwedge| &amp; \doublebarwedge &amp; \verb|\doublebarwedge|\
-\boxplus &amp; \verb|\boxplus| &amp; \boxminus &amp; \verb|\boxminus| &amp; \circleddash &amp; \verb|\circleddash|\
-\boxtimes &amp; \verb|\boxtimes| &amp; \boxdot &amp; \verb|\boxdot| &amp; \circledcirc &amp; \verb|\circledcirc|\
-\leftthreetimes &amp; \verb|\lefttthreetimes| &amp; \rightthreetimes &amp; \verb|\rightthreetimes| &amp; \circledast &amp; \verb|\circledast|\
+\dotplus &amp; \verb|\dptplus| &amp; \centerdot &amp; \verb|\centerdot| &amp; \intercal &amp; \verb|\intercal|\\
+\ltimes &amp; \verb|\ltimes| &amp; \rtimes &amp; \verb|\rtimes| &amp; \divideontimes &amp; \verb|\divideontimes|\\
+\Cup &amp; \verb|\Cup| &amp; \Cap &amp; \verb|\Cap| &amp; \smallsetminus &amp; \verb|\smallsetminus|\\
+\veebar &amp; \verb|\veebar| &amp; \barwedge| &amp; \verb|\barwedge| &amp; \doublebarwedge &amp; \verb|\doublebarwedge|\\
+\boxplus &amp; \verb|\boxplus| &amp; \boxminus &amp; \verb|\boxminus| &amp; \circleddash &amp; \verb|\circleddash|\\
+\boxtimes &amp; \verb|\boxtimes| &amp; \boxdot &amp; \verb|\boxdot| &amp; \circledcirc &amp; \verb|\circledcirc|\\
+\leftthreetimes &amp; \verb|\lefttthreetimes| &amp; \rightthreetimes &amp; \verb|\rightthreetimes| &amp; \circledast &amp; \verb|\circledast|\\
 \curlyvee &amp; \verb|\curlyvee| &amp; \curlywedge &amp; \verb|\curlywedge|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="ams_3">AMS 其它符号</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{clclcl}
-\hbar &amp; \verb|\hbar| &amp; \hslash &amp; \verb|\hslash| &amp; \Bbbk &amp; \verb|\Bbbk|\
-\square &amp; \verb|\square| &amp; \blacksquare &amp; \verb|\blacksquare| &amp; \circledS &amp; \verb|\circledS|\
-\vartriangle &amp; \verb|\vartriangle| &amp; \blacktriangle &amp; \verb|\blacktriangle| &amp; \complement &amp; \verb|\complement|\
-\triangledown &amp; \verb|\triangledown| &amp; \blacktriangledown &amp; \verb|\blacktriangledown| &amp; \Game &amp; \verb|\Game|\
-\lozenge &amp; \verb|\lozenge| &amp; \blacklozenge &amp; \verb|\blacklozenge| &amp; \bigstar &amp; \verb|\bigstar|\
-\angle &amp; \verb|\angle| &amp; \measuredangle &amp; \verb|\measuredangle| &amp; \sphericalangle &amp; \verb|\sphericalangle|\
-\diagup &amp; \verb|\diagup| &amp; \diagdown &amp; \verb|\diagdown| &amp; \backprime &amp; \verb|\backprime|\
-\nexists &amp; \verb|\nexists| &amp; \Finv &amp; \verb|\Finv| &amp; \varnothing &amp; \verb|\varnothing|\
+\hbar &amp; \verb|\hbar| &amp; \hslash &amp; \verb|\hslash| &amp; \Bbbk &amp; \verb|\Bbbk|\\
+\square &amp; \verb|\square| &amp; \blacksquare &amp; \verb|\blacksquare| &amp; \circledS &amp; \verb|\circledS|\\
+\vartriangle &amp; \verb|\vartriangle| &amp; \blacktriangle &amp; \verb|\blacktriangle| &amp; \complement &amp; \verb|\complement|\\
+\triangledown &amp; \verb|\triangledown| &amp; \blacktriangledown &amp; \verb|\blacktriangledown| &amp; \Game &amp; \verb|\Game|\\
+\lozenge &amp; \verb|\lozenge| &amp; \blacklozenge &amp; \verb|\blacklozenge| &amp; \bigstar &amp; \verb|\bigstar|\\
+\angle &amp; \verb|\angle| &amp; \measuredangle &amp; \verb|\measuredangle| &amp; \sphericalangle &amp; \verb|\sphericalangle|\\
+\diagup &amp; \verb|\diagup| &amp; \diagdown &amp; \verb|\diagdown| &amp; \backprime &amp; \verb|\backprime|\\
+\nexists &amp; \verb|\nexists| &amp; \Finv &amp; \verb|\Finv| &amp; \varnothing &amp; \verb|\varnothing|\\
 \eth &amp; \verb|\eth| &amp; \mho &amp; \verb|\mho|
 \end{array}
-$$</p>
+\]</div>
 <h3 id="_20">数学字母</h3>
-<p>$$
+<div class="arithmatex">\[
 \begin{array}{cl}
-\mathrm{ABCdef} &amp; \verb|\mathrm{ABCdef}|\
-\mathit{ABCdef} &amp; \verb|\mathit{ABCdef}|\
-\mathnormal{ABCdef} &amp; \verb|\mathnormal{ABCdef}|\
-\mathcal{ABCdef} &amp; \verb|\mathcal{ABCdef}|\
-\mathscr{ABCdef} &amp; \verb|\mathscr{ABCdef}|\
-\mathfrak{ABCdef} &amp; \verb|\mathfrak{ABCdef}|\
+\mathrm{ABCdef} &amp; \verb|\mathrm{ABCdef}|\\
+\mathit{ABCdef} &amp; \verb|\mathit{ABCdef}|\\
+\mathnormal{ABCdef} &amp; \verb|\mathnormal{ABCdef}|\\
+\mathcal{ABCdef} &amp; \verb|\mathcal{ABCdef}|\\
+\mathscr{ABCdef} &amp; \verb|\mathscr{ABCdef}|\\
+\mathfrak{ABCdef} &amp; \verb|\mathfrak{ABCdef}|\\
 \mathbb{ABCdef} &amp; \verb|\mathbb{ABCdef}|
 \end{array}
-$$</p>
+\]</div>
 
 
 
@@ -14988,6 +14990,12 @@ $$</p>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

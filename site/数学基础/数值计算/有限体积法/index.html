@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14397,7 +14399,7 @@
 
 <h1 id="finite-volume-fv-methods">Finite Volume (FV) Methods</h1>
 <h2 id="forth-order-finite-volume-fv-methods">Forth-order Finite Volume (FV) Methods</h2>
-<p>在计算积分 $\int_{\Omega}\Delta\phi$ 时，我们通常使用有限差分方法近似拉普拉斯算子
+<p>在计算积分 <span class="arithmatex">\(\int_{\Omega}\Delta\phi\)</span> 时，我们通常使用有限差分方法近似拉普拉斯算子
 $$
 \Delta\phi_i = \frac{\phi_{i-1}-2\phi_i+\phi_{i+1}}{h^2} + O(h^2)
 $$
@@ -14410,17 +14412,17 @@ $$
 \int_\Omega f = \int_\Omega \Delta u = \int_{\Omega}\nabla\cdot\nabla u = \int_{\partial\Omega}n\cdot\nabla u = \int_{\partial\Omega}\frac{\partial u}{\partial n} = \int_{\partial\Omega}g
 $$
 在有限差分方法的框架下，由于离散误差的存在，很难保证这一等式成立，但是我们将看到在有限体积下容易满足这一等式.</p>
-<p><strong>Notation 14.</strong> 我们将矩形问题区域 $\Omega$ 离散为矩形网格单元的集合。每个单元用多重指标 $\mathbf{i}\in\mathbb{Z}^D$ 表示
+<p><strong>Notation 14.</strong> 我们将矩形问题区域 <span class="arithmatex">\(\Omega\)</span> 离散为矩形网格单元的集合。每个单元用多重指标 <span class="arithmatex">\(\mathbf{i}\in\mathbb{Z}^D\)</span> 表示
 $$
 \mathcal{C}<em>\mathbf{i} = [x_O+\mathbf{i}h, x_O+(\mathbf{i}+\mathbb{1})h]
 $$
-它的 $d$ 维上面区域为
+它的 <span class="arithmatex">\(d\)</span> 维上面区域为
 $$
 \mathcal{F}</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} = [x_O+(\mathbf{i}+\mathbf{e}^d)h,x_O+(\mathbf{i}+\mathbb{1})h]
 $$
-其中 $x_O$ 是固定的坐标原点，$h$ 是均匀空间网格，$\mathbb{1}\in\mathbb{Z}^D$ 是各分量为 1 的多重指标，$\mathbf{e}^d\in\mathbb{Z}^D$ 是 $d$ 分量为 1 其它分量为 0 的多重指标.</p>
+其中 <span class="arithmatex">\(x_O\)</span> 是固定的坐标原点，<span class="arithmatex">\(h\)</span> 是均匀空间网格，<span class="arithmatex">\(\mathbb{1}\in\mathbb{Z}^D\)</span> 是各分量为 1 的多重指标，<span class="arithmatex">\(\mathbf{e}^d\in\mathbb{Z}^D\)</span> 是 <span class="arithmatex">\(d\)</span> 分量为 1 其它分量为 0 的多重指标.</p>
 <p><img alt="" src="image-20220710204333922.png|400" /></p>
-<p>可以看出 $\mathcal{C}<em>{\mathbf{i}}$ 是 $d$ 维区域，而 $\mathcal{F}</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}$ 是 1 维区域。我们记沿着 $d$ 分量的单位区间为
+<p>可以看出 <span class="arithmatex">\(\mathcal{C}_{\mathbf{i}}\)</span> 是 <span class="arithmatex">\(d\)</span> 维区域，而 <span class="arithmatex">\(\mathcal{F}_{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}\)</span> 是 1 维区域。我们记沿着 <span class="arithmatex">\(d\)</span> 分量的单位区间为
 $$
 I_{\mathbf{i}}^d = x_{O,d} + [i_dh,(i_d+1)h] = [x_{O,d}+i_dh,x_{O,d}+(i_d+1)h]
 $$
@@ -14432,19 +14434,19 @@ $$
 $$
 \mathcal{F}<em>{\mathbf{i}-\frac{1}{2}\mathbf{e}^d} = \mathcal{F}</em>{\mathbf{i}-\mathbf{e}^d+\frac{1}{2}\mathbf{e}^d} = [x_O+\mathbf{i}h,x_O+(\mathbf{i}-\mathbf{e}^d+\mathbb{1})h] = [x_O+\mathbf{i}^\prime h,x_O+(\mathbf{i}^\prime+\mathbb{1})h]
 $$
-其中 $\mathbf{i}^\prime$ 是 $d-1$ 维多重指标，因为 $d$ 分量的区间左右重合，与 $I_{\mathbf{i}}^d$ 作笛卡尔积就得到 $\mathcal{C}_{\mathbf{i}}$ .</p>
+其中 <span class="arithmatex">\(\mathbf{i}^\prime\)</span> 是 <span class="arithmatex">\(d-1\)</span> 维多重指标，因为 <span class="arithmatex">\(d\)</span> 分量的区间左右重合，与 <span class="arithmatex">\(I_{\mathbf{i}}^d\)</span> 作笛卡尔积就得到 <span class="arithmatex">\(\mathcal{C}_{\mathbf{i}}\)</span> .</p>
 <h3 id="the-fv-formulation">The FV formulation</h3>
-<p><strong>Definition 13.2.</strong> 函数 $\phi:\mathbb{R}^D\to\mathbb{R}$ 在单元 $\mathbf{i}$ 上的平均为
+<p><strong>Definition 13.2.</strong> 函数 <span class="arithmatex">\(\phi:\mathbb{R}^D\to\mathbb{R}\)</span> 在单元 <span class="arithmatex">\(\mathbf{i}\)</span> 上的平均为
 $$
 \left&lt;\phi\right&gt;<em>{\mathbf{i}} = \frac{1}{h^D}\int</em>{\mathcal{C}_{\mathbf{i}}}\phi(x)dx
 $$
-它是一个 $\mathbb{Z}^D\to\mathbb{R}$ 的函数.</p>
-<p><strong>Definition 13.3.</strong> 函数 $\phi:\mathbb{R}^D\to\mathbb{R}$ 在面 $\mathbf{i}+\frac{1}{2}\mathbf{e}^d$ 上的平均为
+它是一个 <span class="arithmatex">\(\mathbb{Z}^D\to\mathbb{R}\)</span> 的函数.</p>
+<p><strong>Definition 13.3.</strong> 函数 <span class="arithmatex">\(\phi:\mathbb{R}^D\to\mathbb{R}\)</span> 在面 <span class="arithmatex">\(\mathbf{i}+\frac{1}{2}\mathbf{e}^d\)</span> 上的平均为
 $$
 \left&lt;\phi\right&gt;<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} = \frac{1}{h^{D-1}}\int</em>{\mathcal{F}_{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}}\phi(x)dx
 $$
-它是一个 $\mathbb{Z}^D\to\mathbb{R}$ 的函数.</p>
-<p><strong>Notation 15.</strong> 如图所示，我们用不含有 $\left&lt;\cdot\right&gt;$ 表示点值，否则就表示区域平均。如果下标是整数就在单元上平均，否则在边界上平均.</p>
+它是一个 <span class="arithmatex">\(\mathbb{Z}^D\to\mathbb{R}\)</span> 的函数.</p>
+<p><strong>Notation 15.</strong> 如图所示，我们用不含有 <span class="arithmatex">\(\left&lt;\cdot\right&gt;\)</span> 表示点值，否则就表示区域平均。如果下标是整数就在单元上平均，否则在边界上平均.</p>
 <p><img alt="" src="image-20220710211510794.png|500" /></p>
 <p><strong>Lemma 13.4.</strong> 面平均和单元平均可以通过点值 4 阶近似
 $$
@@ -14453,7 +14455,7 @@ $$
 \left&lt;\phi\right&gt;</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} &amp;= \phi_{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} + \frac{h^2}{24}\sum_{d^\prime\neq d}^D\frac{\partial^2\phi(x)}{\partial x_{d^\prime}^2}\bigg|<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^{d}} + O(h^4)
 \end{aligned}
 $$
-$Proof.$ 不失一般性，我们考虑 $D=1$ 的特殊情况，作 Taylor 展开有
+<span class="arithmatex">\(Proof.\)</span> 不失一般性，我们考虑 <span class="arithmatex">\(D=1\)</span> 的特殊情况，作 Taylor 展开有
 $$
 \begin{aligned}
 \left&lt;\phi\right&gt;</em>{i} &amp;= \frac{1}{h}\int_{ih}^{(i+1)h}\phi(x)dx = \int_{i}^{i+1}\phi(ht)dt\
@@ -14461,12 +14463,12 @@ $$
 &amp;= \phi_{i} + \frac{h^2}{24}\phi_i^{\prime\prime} + O(h^4)
 \end{aligned}
 $$
-注意 $\phi_i$ 在区域的中心，利用 $\phi_i^\prime,\phi_i^{(3)}$ 对应的项积分为 0 ，类似地可以证明第二个式子；对于高维情形，需要利用
+注意 <span class="arithmatex">\(\phi_i\)</span> 在区域的中心，利用 <span class="arithmatex">\(\phi_i^\prime,\phi_i^{(3)}\)</span> 对应的项积分为 0 ，类似地可以证明第二个式子；对于高维情形，需要利用
 $$
 f(x) = \sum_{|\alpha|&lt;k}\frac{1}{\alpha!}D^\alpha f(0)x^\alpha + O(x^{\alpha+1})
 $$
-其中 $\alpha=(i_1,\dots,i_n)\in\mathbb{Z}^n$ 是多重指标，类似于前面的讨论进行积分即证.</p>
-<p><strong>Note.</strong> 多重指标 <em>multi-index</em> 是常用于多元函数的记号，定义为 $\alpha = (i_1,\dots,i_n)\in\mathbb{Z}^n$ ，我们记
+其中 <span class="arithmatex">\(\alpha=(i_1,\dots,i_n)\in\mathbb{Z}^n\)</span> 是多重指标，类似于前面的讨论进行积分即证.</p>
+<p><strong>Note.</strong> 多重指标 <em>multi-index</em> 是常用于多元函数的记号，定义为 <span class="arithmatex">\(\alpha = (i_1,\dots,i_n)\in\mathbb{Z}^n\)</span> ，我们记
 $$
 x = (x_1,\dots,x_n),\quad x^\alpha = \prod_{k=1}^nx_k^{i_k},\quad |\alpha| = \sum_{k}|i_k|,\quad \alpha! = \prod_{k=1}^ni_k!
 $$
@@ -14476,7 +14478,7 @@ $$
 $$
 {\alpha\in\mathbb{Z}^2:\alpha\ge0,\ |i|\le3}
 $$
-其中 $\alpha\ge0$ 表示各个分量非负.</p>
+其中 <span class="arithmatex">\(\alpha\ge0\)</span> 表示各个分量非负.</p>
 <p><strong>Theorem 13.5.</strong> 面平均可以使用单位平均 4 阶近似
 $$
 \begin{aligned}
@@ -14484,19 +14486,19 @@ $$
 \left&lt;\frac{\partial\phi}{\partial x_d}\right&gt;</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} &amp;= \frac{15}{12h}\left(\left&lt;\phi\right&gt;<em>{\mathbf{i}+\mathbf{e}^d}-\left&lt;\phi\right&gt;</em>{\mathbf{i}}\right) - \frac{1}{12h}\left(\left&lt;\phi\right&gt;<em>{\mathbf{i}+2\mathbf{e}^d}-\left&lt;\phi\right&gt;</em>{\mathbf{i}-\mathbf{e}^d}\right) + O(h^4)
 \end{aligned}
 $$
-$Proof.$ 沿着 $d$ 分量定义不定积分 $\Phi^d:\mathbb{R}^D\to\mathbb{R}$ 为
+<span class="arithmatex">\(Proof.\)</span> 沿着 <span class="arithmatex">\(d\)</span> 分量定义不定积分 <span class="arithmatex">\(\Phi^d:\mathbb{R}^D\to\mathbb{R}\)</span> 为
 $$
 \Phi^d(x) = \int_\xi^{x_d}\phi(x_1,\dots,x_{d-1},\eta,x_{d+1},\dots,x_D)d\eta
 $$
-其中 $\xi\in\mathbb{R}$ 是常数，我们得到 $\phi$ 在 $d$ 分量上的一个原函数，即有 $\phi(x)=\partial{\Phi^d}/{\partial x_d}$ 。先考虑 $d=1$ 分量，定义关于 $x_1$ 的函数
+其中 <span class="arithmatex">\(\xi\in\mathbb{R}\)</span> 是常数，我们得到 <span class="arithmatex">\(\phi\)</span> 在 <span class="arithmatex">\(d\)</span> 分量上的一个原函数，即有 <span class="arithmatex">\(\phi(x)=\partial{\Phi^d}/{\partial x_d}\)</span> 。先考虑 <span class="arithmatex">\(d=1\)</span> 分量，定义关于 <span class="arithmatex">\(x_1\)</span> 的函数
 $$
 \varphi_j = \Phi^1(x_{O,1}+jh,x_2,\dots,x_D)
 $$
-再定义 $\delta_{\mathbf{i}}:\mathbb{R}^{D-1}\to\mathbb{R}$ 为
+再定义 <span class="arithmatex">\(\delta_{\mathbf{i}}:\mathbb{R}^{D-1}\to\mathbb{R}\)</span> 为
 $$
 \delta_{\mathbf{i}}(x_2,\dots,x_D) = \varphi_{i_1+1}-\varphi_{i_1}
 $$
-也就是说 $\delta_{\mathbf{i}}$ 是 $\phi$ 在 1 分量区间 $I_{\mathbf{i}}^1$ 上的积分。将 $\varphi_{i_1+2},\varphi_{i_1},\varphi_{i_1+3},\varphi_{i_1-1}$ 在 $\overline{x}=x_{O,1}+(i_1+1)h$ 处 Taylor 展开得到
+也就是说 <span class="arithmatex">\(\delta_{\mathbf{i}}\)</span> 是 <span class="arithmatex">\(\phi\)</span> 在 1 分量区间 <span class="arithmatex">\(I_{\mathbf{i}}^1\)</span> 上的积分。将 <span class="arithmatex">\(\varphi_{i_1+2},\varphi_{i_1},\varphi_{i_1+3},\varphi_{i_1-1}\)</span> 在 <span class="arithmatex">\(\overline{x}=x_{O,1}+(i_1+1)h\)</span> 处 Taylor 展开得到
 $$
 \begin{pmatrix}
 1 &amp; 1 &amp; 1 &amp; 1\
@@ -14523,7 +14525,7 @@ h\
 -\delta_{\mathbf{i}-\mathbf{e}^1}-\delta_{\mathbf{i}}
 \end{pmatrix} + O(h^5)
 $$
-利用 $\phi(x)=\partial{\Phi^d}/{\partial x_d}$ 有
+利用 <span class="arithmatex">\(\phi(x)=\partial{\Phi^d}/{\partial x_d}\)</span> 有
 $$
 \begin{pmatrix}
 h\phi\
@@ -14591,20 +14593,20 @@ h^3\frac{\partial^3\phi^1}{\partial x_1^3}
 -3 &amp; 3 &amp; 1 &amp; -1
 \end{pmatrix}
 $$
-由于对任意 $j\in\mathbb{Z}$ ，利用 $\mathcal{C}<em>{\mathbf{i}} = \mathcal{F}</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}\times I_{\mathbf{i}}^d$ 关系在 $\mathcal{F}<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}$ 上积分有
+由于对任意 <span class="arithmatex">\(j\in\mathbb{Z}\)</span> ，利用 <span class="arithmatex">\(\mathcal{C}_{\mathbf{i}} = \mathcal{F}_{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}\times I_{\mathbf{i}}^d\)</span> 关系在 <span class="arithmatex">\(\mathcal{F}_{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}\)</span> 上积分有
 $$
-\int</em>{\mathcal{F}<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}}\delta</em>{\mathbf{i}+j\mathbf{e}^1} = \int_{\mathcal{F}<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}}\int</em>{(i_1+j)h}^{(i_1+j+1)h}\phi(\eta,x_1,\dots,x_D)d\eta dx_2\cdots dx_D = \int_{\mathcal{C}<em>{\mathbf{i}+j\mathbf{e}^1}}\phi = h^D\left&lt;\phi\right&gt;</em>{\mathbf{i}+j\mathbf{e}^1}
+\int_{\mathcal{F}<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}}\delta</em>{\mathbf{i}+j\mathbf{e}^1} = \int_{\mathcal{F}<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}}\int</em>{(i_1+j)h}^{(i_1+j+1)h}\phi(\eta,x_1,\dots,x_D)d\eta dx_2\cdots dx_D = \int_{\mathcal{C}<em>{\mathbf{i}+j\mathbf{e}^1}}\phi = h^D\left&lt;\phi\right&gt;</em>{\mathbf{i}+j\mathbf{e}^1}
 $$
 于是对第一行我们有
 $$
 \int_{\mathcal{F}<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}}\phi = \frac{1}{h}\cdot h^D\left(\frac{7}{12}\left&lt;\phi\right&gt;</em>{\mathbf{i}}+\frac{7}{12}\left&lt;\phi\right&gt;<em>{\mathbf{i}+\mathbf{e}^1} - \frac{1}{12}\left&lt;\phi\right&gt;</em>{\mathbf{i}-\mathbf{e}^1}- \frac{1}{12}\left&lt;\phi\right&gt;_{\mathbf{i}+2\mathbf{e}^1}\right) + O(h^4)
 $$
-调整系数，再由 $d$ 的任意性就证明了第一个式子；类似地第二行可用于证明第二个式子.</p>
-<p><strong>Note.</strong> 对于前面的泊松方程 $\Delta u=f$ ，使用有限体积法可以得到
+调整系数，再由 <span class="arithmatex">\(d\)</span> 的任意性就证明了第一个式子；类似地第二行可用于证明第二个式子.</p>
+<p><strong>Note.</strong> 对于前面的泊松方程 <span class="arithmatex">\(\Delta u=f\)</span> ，使用有限体积法可以得到
 $$
 \left<f\right><em>{\mathbf{i}} = \left&lt;\Delta u\right&gt;</em>{\mathbf{i}} = \left&lt;\nabla\cdot\nabla u\right&gt;<em>{\mathbf{i}} = \frac{1}{h^D}\int</em>{\mathcal{C}<em>{\mathbf{i}}}\nabla\cdot\nabla u = \frac{1}{h^D}\int</em>{\partial\mathcal{C}<em>{\mathbf{i}}}n\cdot\nabla u = \frac{1}{h}\sum</em>{d=1}^D\left(\left&lt;\frac{\partial u}{\partial x_d}\right&gt;<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}-\left&lt;\frac{\partial u}{\partial x_d}\right&gt;</em>{\mathbf{i}-\frac{1}{2}\mathbf{e}^d}\right)
 $$
-利用上面定理就可以将 $\left&lt;\Delta u\right&gt;<em>{\mathbf{i}}$ 写成单元平均 $\left<u\right></em>{\mathbf{i}}$ 的线性组合，从而得到离散线性系统。这一系统解得每个单元上的平均值，因此保证了整体的守恒.</p>
+利用上面定理就可以将 <span class="arithmatex">\(\left&lt;\Delta u\right&gt;_{\mathbf{i}}\)</span> 写成单元平均 <span class="arithmatex">\(\left&lt;u\right&gt;_{\mathbf{i}}\)</span> 的线性组合，从而得到离散线性系统。这一系统解得每个单元上的平均值，因此保证了整体的守恒.</p>
 <h3 id="discrete-operators">Discrete operators</h3>
 <p><strong>Definition 13.7.</strong> 离散梯度 <em>discrete gradient</em> ，离散散度 <em>discrete divergence</em> 和离散拉普拉斯 <em>discrete Laplacian</em> 定义为
 $$
@@ -14614,11 +14616,11 @@ $$
 \mathbf{L}\left&lt;\phi\right&gt;<em>{\mathbf{i}} &amp;= \frac{1}{12h^2}\left(-\left&lt;\phi\right&gt;</em>{\mathbf{i}+2\mathbf{e}^d}+16\left&lt;\phi\right&gt;<em>{\mathbf{i}+\mathbf{e}^d}-30\left&lt;\phi\right&gt;</em>{\mathbf{i}}+16\left&lt;\phi\right&gt;<em>{\mathbf{i}-\mathbf{e}^d}-\left&lt;\phi\right&gt;</em>{\mathbf{i}-2\mathbf{e}^d} \right)
 \end{aligned}
 $$
-注意离散梯度 $\mathbf{G}$ 是向量，因此使用了 $d$ 作为分量下标。沿着 $d^\prime$ 分量在 $\mathbf{i}+\frac{1}{2}\mathbf{e}^d$ 面上的离散梯度算子为
+注意离散梯度 <span class="arithmatex">\(\mathbf{G}\)</span> 是向量，因此使用了 <span class="arithmatex">\(d\)</span> 作为分量下标。沿着 <span class="arithmatex">\(d^\prime\)</span> 分量在 <span class="arithmatex">\(\mathbf{i}+\frac{1}{2}\mathbf{e}^d\)</span> 面上的离散梯度算子为
 $$
 \left(\mathbf{G}<em>{d^\prime}^{\perp}\phi \right)</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} = \frac{1}{2h}\left(\left&lt;\phi \right&gt;<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d+\mathbf{e}^{d^\prime}}-\left&lt;\phi \right&gt;</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d-\mathbf{e}^{d^\prime}}\right)
 $$
-它是在 $\mathbf{i}+\frac{1}{2}\mathbf{e}^d$ 面上的中心差分。两个标量函数乘积的离散面平均为
+它是在 <span class="arithmatex">\(\mathbf{i}+\frac{1}{2}\mathbf{e}^d\)</span> 面上的中心差分。两个标量函数乘积的离散面平均为
 $$
 \mathbf{F}\left&lt;\phi,\psi \right&gt;<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} = \left&lt;\phi \right&gt;</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}\left&lt;\psi \right&gt;<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} + \frac{h^2}{12}\sum</em>{d^\prime\neq d}\left(\mathbf{G}<em>{d^\prime}^{\perp}\phi \right)</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}\left(\mathbf{G}<em>{d^\prime}^{\perp}\psi \right)</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}
 $$
@@ -14626,12 +14628,12 @@ $$
 $$
 \mathbf{D}\left&lt;\mathbf{u}\mathbf{u}\right&gt;<em>{\mathbf{i}} = \frac{1}{h}\sum</em>{d}\left(\mathbf{F}\left<u_d,\mathbf{u} \right><em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}-\mathbf{F}\left<u_d,\mathbf{u} \right></em>{\mathbf{i}-\frac{1}{2}\mathbf{e}^d} \right)
 $$
-<strong>它是一个向量</strong>，其中 $\left<u_d,\mathbf{u}\right>$ 是将 $u_d$ 乘到 $\mathbf{u}$ 的每个分量上。我们由下面的变换利用 $\nabla\cdot\mathbf{u}=0$ 得到
+<strong>它是一个向量</strong>，其中 <span class="arithmatex">\(\left&lt;u_d,\mathbf{u}\right&gt;\)</span> 是将 <span class="arithmatex">\(u_d\)</span> 乘到 <span class="arithmatex">\(\mathbf{u}\)</span> 的每个分量上。我们由下面的变换利用 <span class="arithmatex">\(\nabla\cdot\mathbf{u}=0\)</span> 得到
 $$
 \frac{1}{h^D}\int_{\mathcal{C}<em>{\mathbf{i}}}(\mathbf{u}\cdot\nabla)\mathbf{u} = \frac{1}{h^D}\int</em>{\mathcal{C}<em>{\mathbf{i}}}\nabla\cdot(\mathbf{u}\mathbf{u})-(\nabla\cdot\mathbf{u})\mathbf{u} = \frac{1}{h^D}\int</em>{\mathcal{C}_{\mathbf{i}}}\nabla\cdot(\mathbf{u}\mathbf{u})
 $$
-其中 $\mathbf{u}\mathbf{u}$ 是张量.</p>
-<p><strong>Note.</strong> 我们使用<strong>爱因斯坦求和记号</strong>来解释 $\mathbf{u}\mathbf{u}$ 的含义。当某一项的下标存在重复，就对这一下标求和，例如
+其中 <span class="arithmatex">\(\mathbf{u}\mathbf{u}\)</span> 是张量.</p>
+<p><strong>Note.</strong> 我们使用<strong>爱因斯坦求和记号</strong>来解释 <span class="arithmatex">\(\mathbf{u}\mathbf{u}\)</span> 的含义。当某一项的下标存在重复，就对这一下标求和，例如
 $$
 \begin{aligned}
 \left&lt;\mathbf{u},\mathbf{v}\right&gt; &amp;= \sum_{i=1}^nu_iv_i = u_iv_i\
@@ -14639,7 +14641,7 @@ $$
 \nabla\cdot\mathbf{u} &amp;= \sum_{i=1}^n\frac{\partial u_i}{\partial x_i} = \frac{\partial u_i}{\partial x_i}
 \end{aligned}
 $$
-于是 $\mathbf{u}=u_i,\mathbf{u}\mathbf{u}=u_iu_j$ ，后者是一个二阶张量
+于是 <span class="arithmatex">\(\mathbf{u}=u_i,\mathbf{u}\mathbf{u}=u_iu_j\)</span> ，后者是一个二阶张量
 $$
 \mathbf{u}\mathbf{u} = \begin{pmatrix}
 u_1u_1 &amp; \cdots &amp; u_1u_D\
@@ -14647,7 +14649,7 @@ u_1u_1 &amp; \cdots &amp; u_1u_D\
 u_Du_1 &amp; \cdots &amp; u_Du_D
 \end{pmatrix}
 $$
-使用求和记号，我们可以简单地解释 $\nabla,\nabla\cdot$ 算子的作用
+使用求和记号，我们可以简单地解释 <span class="arithmatex">\(\nabla,\nabla\cdot\)</span> 算子的作用
 $$
 \begin{aligned}
 \nabla&amp;:(\mathbb{R}^D\to\mathbb{R})\to(\mathbb{R}^D\to\mathbb{R}^D)\
@@ -14660,7 +14662,7 @@ $$
 $$
 \nabla u = \frac{\partial}{\partial x_i}u,\quad \nabla\mathbf{u}=\frac{\partial}{\partial x_i}u_j,\quad \nabla\cdot(\mathbf{u}\mathbf{u}) = \frac{\partial}{\partial x_i}(u_iu_j),\quad \nabla\cdot\mathbf{u} = \frac{\partial}{\partial x_i}u_i
 $$
-其中 $\nabla\cdot(\mathbf{u}\mathbf{u})$ 就是一阶张量，即向量.</p>
+其中 <span class="arithmatex">\(\nabla\cdot(\mathbf{u}\mathbf{u})\)</span> 就是一阶张量，即向量.</p>
 <p><strong>Lemma 13.8.</strong> 上面定义的算子有 4 阶精度
 $$
 \begin{aligned}
@@ -14671,16 +14673,16 @@ $$
 \mathbf{D}\left&lt;\mathbf{u}\right&gt;</em>{\mathbf{i}} = O(h^4)\quad &amp;\Rightarrow\quad \mathbf{D}\left&lt;\mathbf{u}\mathbf{u}\right&gt;<em>{\mathbf{i}} =\frac{1}{h^D}\int</em>{\mathcal{C}<em>{\mathbf{i}}}(\mathbf{u}\cdot\nabla)\mathbf{u} + O(h^4)
 \end{aligned}
 $$
-$Proof.$ 先考虑离散梯度算子在 $d=1$ 的分量。设 $\mathbf{F}=(\phi,0,\dots,0)$ ，于是
+<span class="arithmatex">\(Proof.\)</span> 先考虑离散梯度算子在 <span class="arithmatex">\(d=1\)</span> 的分量。设 <span class="arithmatex">\(\mathbf{F}=(\phi,0,\dots,0)\)</span> ，于是
 $$
 \frac{1}{h^D}\int</em>{\mathcal{C}<em>{\mathbf{i}}}\frac{\partial\phi}{\partial x_1} = \frac{1}{h^D}\int</em>{\mathcal{C}<em>{\mathbf{i}}}\nabla\cdot\mathbf{F} = \frac{1}{h^D}\int</em>{\partial\mathcal{C}<em>{\mathbf{i}}}n\cdot\mathbf{F} = \frac{1}{h}\left(\left&lt;\phi \right&gt;</em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^1}-\left&lt;\phi \right&gt;<em>{\mathbf{i}-\frac{1}{2}\mathbf{e}^1} \right) = \mathbf{G}_d\left&lt;\phi\right&gt;</em>{\mathbf{i}} + O(h^4)
 $$
-其中负号由 $n$ 的方向相反得到，再由 Theorem 13.5 将面平均转化为单位平均，对于 $d$ 都成立，即证；对于离散散度算子和离散拉普拉斯算子类似地使用散度定理可以证明.</p>
+其中负号由 <span class="arithmatex">\(n\)</span> 的方向相反得到，再由 Theorem 13.5 将面平均转化为单位平均，对于 <span class="arithmatex">\(d\)</span> 都成立，即证；对于离散散度算子和离散拉普拉斯算子类似地使用散度定理可以证明.</p>
 <p><img alt="" src="image-20220711225340201.png|300" /></p>
-<p><strong>Note.</strong> 最后一个近似要求条件 $\mathbf{D}\left&lt;\mathbf{u}\right&gt;_{\mathbf{i}} = O(h^4)$ ，它在 Navier-Stokes 方程中由不可压条件 $\nabla\cdot \mathbf{u}=0$ 得到.</p>
+<p><strong>Note.</strong> 最后一个近似要求条件 <span class="arithmatex">\(\mathbf{D}\left&lt;\mathbf{u}\right&gt;_{\mathbf{i}} = O(h^4)\)</span> ，它在 Navier-Stokes 方程中由不可压条件 <span class="arithmatex">\(\nabla\cdot \mathbf{u}=0\)</span> 得到.</p>
 <h3 id="ghost-cells">Ghost cells</h3>
 <p><strong>Definition 13.9.</strong> 虚拟单元 <em>ghost cells</em> 是在非周期边界处处理 FD 或 FV 离散算子的方法.</p>
-<p><strong>Example 13.10.</strong> 我们通过对内部单元的外插和边界条件确定虚拟单元的值。对于 Dirichlet 条件 $g$ 按照如下格式
+<p><strong>Example 13.10.</strong> 我们通过对内部单元的外插和边界条件确定虚拟单元的值。对于 Dirichlet 条件 <span class="arithmatex">\(g\)</span> 按照如下格式
 $$
 \begin{aligned}
 \left&lt;\phi\right&gt;<em>{\mathbf{i}+\mathbf{e}^d} &amp;= \frac{1}{3}\left(-13\left&lt;\phi\right&gt;</em>{\mathbf{i}}+5\left&lt;\phi\right&gt;<em>{\mathbf{i}-\mathbf{e}^d}-\left&lt;\phi\right&gt;</em>{\mathbf{i}-2\mathbf{e}^d} \right)+4\left<g\right><em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}+O(h^4)\
@@ -14704,14 +14706,14 @@ $$
 \end{aligned}
 $$
 上式带入 Example 13.11 用于估计 Neumann 条件的虚拟单元.</p>
-<p><strong>Algorithm 13.13.</strong> 我们要计算<strong>红星</strong>处的离散对流项 $\mathbf{D}\left&lt;\mathbf{u}\mathbf{u}\right&gt;<em>{\mathbf{i}}$ ，首先离散算子 $\mathbf{F}\left<u_d,\mathbf{u} \right>$ 需要下图中红色面平均部分以及计算 $\mathbf{G}</em>{d^\prime}^{\perp}$ 需要的蓝色面平均部分，根据 Theorem 13.5 这些面平均通过蓝色和绿色点对应的单元平均近似，根据 Example 13.10 绿色点对应的虚拟单元又需要通过黑色实线对应的边界条件和蓝色点对应的单元平均近似。</p>
+<p><strong>Algorithm 13.13.</strong> 我们要计算<strong>红星</strong>处的离散对流项 <span class="arithmatex">\(\mathbf{D}\left&lt;\mathbf{u}\mathbf{u}\right&gt;_{\mathbf{i}}\)</span> ，首先离散算子 <span class="arithmatex">\(\mathbf{F}\left&lt;u_d,\mathbf{u} \right&gt;\)</span> 需要下图中红色面平均部分以及计算 <span class="arithmatex">\(\mathbf{G}_{d^\prime}^{\perp}\)</span> 需要的蓝色面平均部分，根据 Theorem 13.5 这些面平均通过蓝色和绿色点对应的单元平均近似，根据 Example 13.10 绿色点对应的虚拟单元又需要通过黑色实线对应的边界条件和蓝色点对应的单元平均近似。</p>
 <p><img alt="" src="image-20220712125114423.png|300" /></p>
 <p>我们得到计算流程为：</p>
-<p>(Cnv-1) 填充 $\left&lt;\mathbf{u}\right&gt;<em>{\mathbf{i}+\mathbf{e}^d}$ 和 $\left&lt;\mathbf{u}\right&gt;</em>{\mathbf{i}+2\mathbf{e}^d}$ 对应的虚拟单元</p>
-<p>(Cnv-2) 通过 Theorem 13.5 计算各个法向速度的面平均 $\left<u_d\right>_{\mathbf{i}\pm\frac{1}{2}\mathbf{e}^d}$ </p>
-<p>(Cnv-3) 将$\left&lt;\mathbf{u}\right&gt;<em>{\mathbf{i}}$ 的每个分量通过 Theorem 13.5 计算速度的面平均 $\left&lt;\mathbf{u}\right&gt;</em>{\mathbf{i}\pm\frac{1}{2}\mathbf{e}^d}$ </p>
-<p>(Cnv-4 计算 $\mathbf{F}\left<u_d,\mathbf{u} \right>$ </p>
-<p>(Cnv-5) 计算 $\mathbf{D}\left&lt;\mathbf{u}\mathbf{u}\right&gt;_{\mathbf{i}}$ </p>
+<p>(Cnv-1) 填充 <span class="arithmatex">\(\left&lt;\mathbf{u}\right&gt;_{\mathbf{i}+\mathbf{e}^d}\)</span> 和 <span class="arithmatex">\(\left&lt;\mathbf{u}\right&gt;_{\mathbf{i}+2\mathbf{e}^d}\)</span> 对应的虚拟单元</p>
+<p>(Cnv-2) 通过 Theorem 13.5 计算各个法向速度的面平均 <span class="arithmatex">\(\left&lt;u_d\right&gt;_{\mathbf{i}\pm\frac{1}{2}\mathbf{e}^d}\)</span> </p>
+<p>(Cnv-3) 将<span class="arithmatex">\(\left&lt;\mathbf{u}\right&gt;_{\mathbf{i}}\)</span> 的每个分量通过 Theorem 13.5 计算速度的面平均 <span class="arithmatex">\(\left&lt;\mathbf{u}\right&gt;_{\mathbf{i}\pm\frac{1}{2}\mathbf{e}^d}\)</span> </p>
+<p>(Cnv-4 计算 <span class="arithmatex">\(\mathbf{F}\left&lt;u_d,\mathbf{u} \right&gt;\)</span> </p>
+<p>(Cnv-5) 计算 <span class="arithmatex">\(\mathbf{D}\left&lt;\mathbf{u}\mathbf{u}\right&gt;_{\mathbf{i}}\)</span> </p>
 <p><strong>Note.</strong> 对于格点在角点位置的情况，我们还需要再向外填充虚拟单元</p>
 <p><img alt="" src="image-20220713130932828.png|300" /></p>
 <p>对于右下角的虚拟单元，可以先填充边界附近的单元，然后再外插填充
@@ -14722,7 +14724,7 @@ $$
 \left&lt;\phi\right&gt;<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} &amp;= \frac{1}{60}\left(137\left&lt;\phi\right&gt;</em>{\mathbf{i}}-163\left&lt;\phi\right&gt;<em>{\mathbf{i}-\mathbf{e}^d}+137\left&lt;\phi\right&gt;</em>{\mathbf{i}-2\mathbf{e}^d}-63\left&lt;\phi\right&gt;<em>{\mathbf{i}-3\mathbf{e}^d}+12\left&lt;\phi\right&gt;</em>{\mathbf{i}-4\mathbf{e}^d}\right)+O(h^5)
 \end{aligned}
 $$
-上式是没有边界条件时对标量函数 $\phi$ 到虚拟单元上的填充.</p>
+上式是没有边界条件时对标量函数 <span class="arithmatex">\(\phi\)</span> 到虚拟单元上的填充.</p>
 <h3 id="fv-methods-for-bvps">FV methods for BVPs</h3>
 <p><strong>Algorithm 13.14.</strong> 求解如下的 Neumann BVP 
 $$
@@ -14735,45 +14737,45 @@ $$
 $$
 \mathbf{L}_H\left&lt;\phi\right&gt;=\mathbf{D}_H\left&lt;\mathbf{u}\right&gt;\quad\rightarrow\quad\Delta\phi=\nabla\cdot\mathbf{u}
 $$
-其中 $\mathbf{L}_H,\mathbf{D}_H$ 就是前面的离散算子。我们用 Example 13.10 中对应 Neumann 边值条件的公式填充虚拟单元，然后应用离散算子得到线性系统；似乎在计算过程中，边界上的通量会相互抵消，这里先不考虑这种可能的简化操作.</p>
+其中 <span class="arithmatex">\(\mathbf{L}_H,\mathbf{D}_H\)</span> 就是前面的离散算子。我们用 Example 13.10 中对应 Neumann 边值条件的公式填充虚拟单元，然后应用离散算子得到线性系统；似乎在计算过程中，边界上的通量会相互抵消，这里先不考虑这种可能的简化操作.</p>
 <h3 id="fv-mol-algorithms-for-the-advection-diffusion-quation">FV-MOL algorithms for the advection-diffusion quation</h3>
 <p><strong>Definition 13.15.</strong> 对流扩散方程形如
 $$
 \frac{\partial\phi}{\partial t} = -\nabla\cdot(\mathbf{u}\phi)+\nu\Delta\phi+f
 $$
-其中 $\nu$ 是对流常数，速度场 $\mathbf{u}:\mathbb{R}^D\times\mathbb{R}\to\mathbb{R}^D$ ，外力项 $f:\mathbb{R}^D\times\mathbb{R}\to\mathbb{R}$ 已知.</p>
-<p><strong>Example 13.16.</strong> 我们将上式通过有限体积法在空间控制体 $\mathcal{C}<em>{\mathbf{i}}$ 上离散为半离散系统
+其中 <span class="arithmatex">\(\nu\)</span> 是对流常数，速度场 <span class="arithmatex">\(\mathbf{u}:\mathbb{R}^D\times\mathbb{R}\to\mathbb{R}^D\)</span> ，外力项 <span class="arithmatex">\(f:\mathbb{R}^D\times\mathbb{R}\to\mathbb{R}\)</span> 已知.</p>
+<p><strong>Example 13.16.</strong> 我们将上式通过有限体积法在空间控制体 <span class="arithmatex">\(\mathcal{C}_{\mathbf{i}}\)</span> 上离散为半离散系统
 $$
-\frac{d\left&lt;\phi\right&gt;</em>{\mathbf{i}}}{dt} = L_{\mathrm{adv}}(\left&lt;\phi\right&gt;,t)<em>{\mathbf{i}}+L</em>{\mathrm{diff}}(\left&lt;\phi\right&gt;)<em>{\mathbf{i}} + \left<f\right></em>{\mathbf{i}}
+\frac{d\left&lt;\phi\right&gt;<em>{\mathbf{i}}}{dt} = L</em>{\mathrm{adv}}(\left&lt;\phi\right&gt;,t)<em>{\mathbf{i}}+L</em>{\mathrm{diff}}(\left&lt;\phi\right&gt;)<em>{\mathbf{i}} + \left<f\right></em>{\mathbf{i}}
 $$
-其中 $\phi$ 原本是 $x,t$ 的函数，但是通过空间积分平均后就得到关于 $t$ 的 ODE 系统，并且
+其中 <span class="arithmatex">\(\phi\)</span> 原本是 <span class="arithmatex">\(x,t\)</span> 的函数，但是通过空间积分平均后就得到关于 <span class="arithmatex">\(t\)</span> 的 ODE 系统，并且
 $$
 \begin{aligned}
 L_{\mathrm{adv}}(\left&lt;\phi\right&gt;,t)<em>{\mathbf{i}} &amp;= -(\nabla\cdot(\mathbf{u}\phi))</em>{\mathbf{i}} =  -\frac{1}{h}\sum_{d=1}^D\left(\left<u_d\phi\right><em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d}-\left<u_d\phi\right></em>{\mathbf{i}-\frac{1}{2}\mathbf{e}^d} \right)\
 L_{\mathrm{diff}}(\left&lt;\phi\right&gt;)<em>{\mathbf{i}} &amp;= \nu(\Delta\phi)</em>{\mathbf{i}} = \frac{\nu}{h}\sum_{d=1}^D\left(\left&lt;\frac{\partial\phi}{\partial x_d}\right&gt;<em>{\mathbf{i}+\frac{1}{2}\mathbf{e}^d} - \left&lt;\frac{\partial\phi}{\partial x_d}\right&gt;</em>{\mathbf{i}-\frac{1}{2}\mathbf{e}^d} \right)
 \end{aligned}
 $$
-两式都是直接根据定义来近似，如果将 Theorem 13.5 中的结论代入上式，会得到 Definition 13.7 中的 $\mathbf{D},\mathbf{L}$ 算子形式，它们是等价的.</p>
+两式都是直接根据定义来近似，如果将 Theorem 13.5 中的结论代入上式，会得到 Definition 13.7 中的 <span class="arithmatex">\(\mathbf{D},\mathbf{L}\)</span> 算子形式，它们是等价的.</p>
 <p><strong>Definition 13.17.</strong> 使用 <em>ERK-ESDIRK IMplicit-EXplicit (IMEX) Runge-Kutta scheme</em> 求解 ODE
 $$
 \frac{d\phi}{dt} = \mathbf{X}^{[E]}(\phi,t) + \mathbf{X}^{[I]}(\phi)
 $$
-其中 $\mathbf{X}^{[E]},\mathbf{X}^{[I]}$ 分别表示显式和隐式求解的部分。对于 $t^n$ 时刻 $\phi^n\approx\phi(t^n)$ ，记 $\phi^{(1)}=\phi^n$ 是第一级，则
+其中 <span class="arithmatex">\(\mathbf{X}^{[E]},\mathbf{X}^{[I]}\)</span> 分别表示显式和隐式求解的部分。对于 <span class="arithmatex">\(t^n\)</span> 时刻 <span class="arithmatex">\(\phi^n\approx\phi(t^n)\)</span> ，记 <span class="arithmatex">\(\phi^{(1)}=\phi^n\)</span> 是第一级，则
 $$
 (I-k\gamma\mathbf{X}^{[I]})\phi^{(s)} = \phi^n + k\sum_{j=1}^{s-1}a_{s,j}^{[E]}\mathbf{X}^{[E]}\left(\phi^{(j)},t^{(j)} \right) + k\sum_{j=1}^{s-1}a_{s,j}^{[I]}\mathbf{X}^{[I]}\left(\phi^{(j)} \right),\quad s=2,3,\dots,n_s
 $$
-用于递推计算每一级 $\phi^{(s)}$ ，共计算 $n_s$ 级，最后对每一级加权求和获得下一步
+用于递推计算每一级 <span class="arithmatex">\(\phi^{(s)}\)</span> ，共计算 <span class="arithmatex">\(n_s\)</span> 级，最后对每一级加权求和获得下一步
 $$
 \phi^{n+1} = \phi^n + k\sum_{s=1}^{n_s}b_{s}^{[E]}\mathbf{X}^{[E]}\left(\phi^{(s)},t^{(s)} \right) + k\sum_{s=1}^{n_s}b_{s}^{[I]}\mathbf{X}^{[I]}\left(\phi^{(s)} \right)
 $$
-其中 $t^{(s)}=t^n+c_sk$ 是每一级对应的时刻，$A,b,c$ 分别是 Butcher tableau 系数.</p>
+其中 <span class="arithmatex">\(t^{(s)}=t^n+c_sk\)</span> 是每一级对应的时刻，<span class="arithmatex">\(A,b,c\)</span> 分别是 Butcher tableau 系数.</p>
 <p><strong>Algorithm 13.18.</strong> 在周期区域上求解对流扩散方程的 4 阶 FV 方法通过对
 $$
 \mathbf{X}^{[E]} = L_{\mathrm{adv}}+\left<f\right>,\quad \mathbf{X}^{[I]} = L_{\mathrm{diff}}
 $$
-直接使用上述算法求解。之所以分为隐式和显式两项，是因为对流项算子 $\nabla$ 不具有刚性，而扩散项算子 $\Delta$ 具有刚性，为了提高效率，分别对对流项和扩散项使用显式和隐式方法.</p>
+直接使用上述算法求解。之所以分为隐式和显式两项，是因为对流项算子 <span class="arithmatex">\(\nabla\)</span> 不具有刚性，而扩散项算子 <span class="arithmatex">\(\Delta\)</span> 具有刚性，为了提高效率，分别对对流项和扩散项使用显式和隐式方法.</p>
 <h2 id="fv-methods-for-the-incompressible-navier-stokes-equations-inse">FV Methods for the Incompressible Navier-Stokes Equations (INSE)</h2>
-<p><strong>Definition 14.1.</strong> 区域 <em>domain</em> 是 $\mathbb{R}^D,D=2,3$ 的连通有界开子集.</p>
+<p><strong>Definition 14.1.</strong> 区域 <em>domain</em> 是 <span class="arithmatex">\(\mathbb{R}^D,D=2,3\)</span> 的连通有界开子集.</p>
 <p><strong>Definition 14.2.</strong> 不可压 Navier-Stokes 方程 (INSE) 是
 $$
 \begin{aligned}
@@ -14781,8 +14783,8 @@ $$
 \nabla\cdot\mathbf{u} &amp;= 0
 \end{aligned}
 $$
-其中 $t\in[0,+\infty)$ 是时间，$x\in\mathbb{R}^D(D=2,3)$ 是空间位置，$\mathbf{g}$ 是外部作用力，$p$ 是压强，$\mathbf{u}$ 是速度，$\nu$ 是动态粘滞系数.</p>
-<p><strong>Note.</strong> INSE 和对流扩散方程的本质区别在于不可压条件 $\nabla\cdot\mathbf{u} = 0$ ，它在任意时刻都满足，因此不能参与到随时间演化的方程中，我们要考虑的是如何将这一条件添加到求解过程中；另外，如果直接使用对流扩散方程的求解算法，会发现变量 $\nabla p$ 难以处理。这就引出了我们将要介绍的投影算子.</p>
+其中 <span class="arithmatex">\(t\in[0,+\infty)\)</span> 是时间，<span class="arithmatex">\(x\in\mathbb{R}^D(D=2,3)\)</span> 是空间位置，<span class="arithmatex">\(\mathbf{g}\)</span> 是外部作用力，<span class="arithmatex">\(p\)</span> 是压强，<span class="arithmatex">\(\mathbf{u}\)</span> 是速度，<span class="arithmatex">\(\nu\)</span> 是动态粘滞系数.</p>
+<p><strong>Note.</strong> INSE 和对流扩散方程的本质区别在于不可压条件 <span class="arithmatex">\(\nabla\cdot\mathbf{u} = 0\)</span> ，它在任意时刻都满足，因此不能参与到随时间演化的方程中，我们要考虑的是如何将这一条件添加到求解过程中；另外，如果直接使用对流扩散方程的求解算法，会发现变量 <span class="arithmatex">\(\nabla p\)</span> 难以处理。这就引出了我们将要介绍的投影算子.</p>
 <p><strong>Definition 14.3.</strong> INSE 的欧拉加速度 <em>Eulerian accelerations</em> 是时间导数的向量
 $$
 \mathbf{a} = \frac{\partial\mathbf{u}}{\partial t},\quad \mathbf{a}^* = -\mathbf{u}\cdot\nabla\mathbf{u} + \mathbf{g}+\nu\Delta\mathbf{u}
@@ -14791,7 +14793,7 @@ $$</p>
 $$
 \mathbf{a}^<em> = \mathbf{a} + \nabla p,\quad \nabla\cdot \mathbf{a} = 0
 $$
-注意到 Helmholtz 定理：</em><em>向量场总是可以分解成散度为 0 和旋度为 0 的两部分</em><em>。上面方程中 $\nabla\times\nabla p=0$ 显然成立，因此恰好就是分解的两部分。这种分解的好处在于建立了 $\mathbf{a}$ 和 $\nabla p$ 的约束关系，即 $\mathbf{a}^</em>$ 在随时间演变的过程中，可以随时通过调整 $\nabla p$ 来保证约束条件成立.</p>
+注意到 Helmholtz 定理：</em><em>向量场总是可以分解成散度为 0 和旋度为 0 的两部分</em>*。上面方程中 <span class="arithmatex">\(\nabla\times\nabla p=0\)</span> 显然成立，因此恰好就是分解的两部分。这种分解的好处在于建立了 <span class="arithmatex">\(\mathbf{a}\)</span> 和 <span class="arithmatex">\(\nabla p\)</span> 的约束关系，即 <span class="arithmatex">\(\mathbf{a}^*\)</span> 在随时间演变的过程中，可以随时通过调整 <span class="arithmatex">\(\nabla p\)</span> 来保证约束条件成立.</p>
 <p><strong>Definition 14.4.</strong> 泊松压强方程 <em>pressure Poisson equation</em> (PPE) 是一类椭圆方程，描述 INSE 中压强和速度的关系
 $$
 \begin{aligned}
@@ -14799,7 +14801,7 @@ $$
 n\cdot\nabla p &amp;= n \cdot(\mathbf{a}^*-\mathbf{a}),\quad x\in\partial\Omega
 \end{aligned}
 $$</p>
-<p>事实上，如果我们对 INSE 方程同时作用 $\nabla$ 点积和 $n$ 点积就有
+<p>事实上，如果我们对 INSE 方程同时作用 <span class="arithmatex">\(\nabla\)</span> 点积和 <span class="arithmatex">\(n\)</span> 点积就有
 $$
 \begin{aligned}
 \Delta p &amp;= \nabla\cdot\left(-\frac{\partial\mathbf{u}}{\partial t} - \mathbf{u}\cdot\nabla\mathbf{u} + \mathbf{g}+\nu\Delta\mathbf{u}\right) = \nabla\cdot(\mathbf{g} - \mathbf{u}\cdot\nabla\mathbf{u})\
@@ -14808,25 +14810,25 @@ n\cdot\nabla p &amp;= n \cdot(\mathbf{a}^*-\mathbf{a})
 $$
 这就是具有纯 Neumann 边值条件的椭圆方程.</p>
 <h3 id="the-leray-helmholtz-projection">The Leray-Helmholtz projection</h3>
-<p><strong>Definition 14.5.</strong> 投影 <em>projection</em> $\overline{\mathbf{P}}$ 是从一个向量空间到自身的线性变换，使得幂等 <em>idempotent</em> 条件成立 $\overline{\mathbf{P}}^2=\overline{\mathbf{P}}$ .</p>
-<p><strong>Definition 14.6.</strong> 区域 $\Omega\subset\mathbb{R}^D$ 上的 Leray-Helmholtz 投影是 $\mathcal{P}:\mathcal{C}^1(\Omega)\to\mathcal{C}^1(\Omega)$ 定义为
+<p><strong>Definition 14.5.</strong> 投影 <em>projection</em> <span class="arithmatex">\(\overline{\mathbf{P}}\)</span> 是从一个向量空间到自身的线性变换，使得幂等 <em>idempotent</em> 条件成立 <span class="arithmatex">\(\overline{\mathbf{P}}^2=\overline{\mathbf{P}}\)</span> .</p>
+<p><strong>Definition 14.6.</strong> 区域 <span class="arithmatex">\(\Omega\subset\mathbb{R}^D\)</span> 上的 Leray-Helmholtz 投影是 <span class="arithmatex">\(\mathcal{P}:\mathcal{C}^1(\Omega)\to\mathcal{C}^1(\Omega)\)</span> 定义为
 $$
 \mathcal{P}\mathbf{v}^<em> = \mathbf{v} = \mathbf{v}^</em> - \nabla\phi
 $$
-使得 $\mathbf{v},\mathbf{v}^*:\Omega\to\mathbb{R}^D$ 是向量场，$\mathbf{v}$ 满足 $\nabla\cdot\mathbf{v}=0$ 且 $\phi:\Omega\to\mathbb{R}$ 是标量函数.</p>
-<p><strong>Definition 14.7.</strong> 区域 $\Omega$ 上的向量场 $\mathbf{v}$ 的无穿透条件 <em>no-penetration condition</em> 是边界条件
+使得 <span class="arithmatex">\(\mathbf{v},\mathbf{v}^*:\Omega\to\mathbb{R}^D\)</span> 是向量场，<span class="arithmatex">\(\mathbf{v}\)</span> 满足 <span class="arithmatex">\(\nabla\cdot\mathbf{v}=0\)</span> 且 <span class="arithmatex">\(\phi:\Omega\to\mathbb{R}\)</span> 是标量函数.</p>
+<p><strong>Definition 14.7.</strong> 区域 <span class="arithmatex">\(\Omega\)</span> 上的向量场 <span class="arithmatex">\(\mathbf{v}\)</span> 的无穿透条件 <em>no-penetration condition</em> 是边界条件
 $$
 \mathbf{v}\cdot n = 0
 $$
-其中 $n$ 是与边界 $\partial\Omega$ 正交向外的向量.</p>
+其中 <span class="arithmatex">\(n\)</span> 是与边界 <span class="arithmatex">\(\partial\Omega\)</span> 正交向外的向量.</p>
 <p><strong>Lemma 14.8.</strong> 在满足周期或无穿透条件的区域上，Leray-Helmholtz 投影存在唯一且可表示为
 $$
 \mathcal{P} = 1-\nabla(\Delta_n)^{-1}\nabla\cdot
 $$
-其中 $(\Delta_n)^{-1}$ 表示使用纯 Neumann 条件求解泊松方程.</p>
-<p>$Proof.$ 根据 Helmholtz 定理，紧区域 $\overline{\Omega}\in\mathbb{R}^D$ 上充分连续的向量场 $\mathbf{v}^<em>$ 可唯一分解为 </em>divergence-free<em> 部分 $\mathbf{v}$ 和 </em>curl-free<em> 部分 $\nabla\phi$ ，即
+其中 <span class="arithmatex">\((\Delta_n)^{-1}\)</span> 表示使用纯 Neumann 条件求解泊松方程.</p>
+<p><span class="arithmatex">\(Proof.\)</span> 根据 Helmholtz 定理，紧区域 <span class="arithmatex">\(\overline{\Omega}\in\mathbb{R}^D\)</span> 上充分连续的向量场 <span class="arithmatex">\(\mathbf{v}^*\)</span> 可唯一分解为 <em>divergence-free</em> 部分 <span class="arithmatex">\(\mathbf{v}\)</span> 和 <em>curl-free</em> 部分 <span class="arithmatex">\(\nabla\phi\)</span> ，即
 $$
-\mathbf{v}^</em> = \mathbf{v} + \nabla\phi,\quad 
+\mathbf{v}^<em> = \mathbf{v} + \nabla\phi,\quad 
 \left{
 \begin{aligned}
 &amp;\nabla\cdot\mathbf{v} = 0\
@@ -14837,67 +14839,67 @@ $$
 这可以通过求解下面的具有 Neumann 条件的泊松方程得到
 $$
 \begin{aligned}
-\Delta \phi &amp;= \nabla\cdot\mathbf{v}^<em>,\quad x\in\Omega\
-n\cdot\nabla \phi &amp;= n \cdot(\mathbf{v}^</em>-\mathbf{v}),\quad x\in\partial\Omega
+\Delta \phi &amp;= \nabla\cdot\mathbf{v}^</em>,\quad x\in\Omega\
+n\cdot\nabla \phi &amp;= n \cdot(\mathbf{v}^<em>-\mathbf{v}),\quad x\in\partial\Omega
 \end{aligned}
 $$
-其中 $n$ 是与边界 $\partial\Omega$ 正交向外的向量。周期性条件说明 $\int_{\partial\Omega}n\cdot\mathbf{v}=0$ 或者无穿透条件得到
+其中 <span class="arithmatex">\(n\)</span> 是与边界 <span class="arithmatex">\(\partial\Omega\)</span> 正交向外的向量。周期性条件说明 <span class="arithmatex">\(\int_{\partial\Omega}n\cdot\mathbf{v}=0\)</span> 或者无穿透条件得到
 $$
 0 = \int_{\Omega}\nabla\cdot\mathbf{v} = \int_{\partial\Omega}n\cdot\mathbf{v}
 $$
-因此<strong>方程具有可解性</strong>；同时 $\phi$ 在差一个常数的意义下是唯一的，因此 $\nabla\phi$ 唯一，从而分解唯一.</p>
-<p><strong>Note.</strong> 在区域 $\Omega$ 上如果满足无穿透条件，则有
+因此</em><em>方程具有可解性</em>*；同时 <span class="arithmatex">\(\phi\)</span> 在差一个常数的意义下是唯一的，因此 <span class="arithmatex">\(\nabla\phi\)</span> 唯一，从而分解唯一.</p>
+<p><strong>Note.</strong> 在区域 <span class="arithmatex">\(\Omega\)</span> 上如果满足无穿透条件，则有
 $$
 \int_{\Omega}\mathbf{u}\cdot\nabla p = \int_{\Omega}\nabla\cdot(\mathbf{u}p) - \int_{\Omega}p\nabla\cdot\mathbf{u} = \int_{\partial\Omega}n\cdot(\mathbf{u}p) = 0
 $$
-这意味着 $\left&lt;\mathbf{u},\nabla p\right&gt;=0$ ，即它们对应的空间正交，因此它们的精度之间不会有干扰，即使 $\nabla p$ 只有 2 阶精度，$\mathbf{u}$ 仍可以达到 4 阶精度.</p>
-<p><strong>Lemma 14.9.</strong> Leray-Helmholtz 投影 $\mathcal{P}$ 满足
+这意味着 <span class="arithmatex">\(\left&lt;\mathbf{u},\nabla p\right&gt;=0\)</span> ，即它们对应的空间正交，因此它们的精度之间不会有干扰，即使 <span class="arithmatex">\(\nabla p\)</span> 只有 2 阶精度，<span class="arithmatex">\(\mathbf{u}\)</span> 仍可以达到 4 阶精度.</p>
+<p><strong>Lemma 14.9.</strong> Leray-Helmholtz 投影 <span class="arithmatex">\(\mathcal{P}\)</span> 满足
 $$
 \mathcal{P}^2 = \mathcal{P},\quad \nabla\cdot\mathcal{P}\mathbf{v}^* = 0,\quad \mathcal{P}\nabla\phi = 0
 $$
-$Proof.$ 利用定义和上面引理直接验证即可.</p>
+<span class="arithmatex">\(Proof.\)</span> 利用定义和上面引理直接验证即可.</p>
 <h3 id="the-approximate-projection">The approximate projection</h3>
 <p><strong>Definition 14.10.</strong> Leray-Helmholtz 投影的 4 阶逼近投影是离散算子
 $$
 \mathbf{P} = \mathbf{I}-\mathbf{G}\mathbf{L}^{-1}\mathbf{D}
 $$
-其中 $\mathbf{I}$ 是单位算子，其余算子在前一章中定义.</p>
-<p><strong>Lemma 14.12.</strong> 逼近投影 $\mathbf{P}$ 不是一个投影；可以定义离散算子
+其中 <span class="arithmatex">\(\mathbf{I}\)</span> 是单位算子，其余算子在前一章中定义.</p>
+<p><strong>Lemma 14.12.</strong> 逼近投影 <span class="arithmatex">\(\mathbf{P}\)</span> 不是一个投影；可以定义离散算子
 $$
 \mathbf{P}_E =\mathbf{I}-\mathbf{G}(\mathbf{D}\mathbf{G})^{-1}\mathbf{D}
 $$
 确实是一个投影.</p>
-<p>$Proof.$ 可以验证在周期边界上 $\mathbf{DG}\neq\mathbf{L}$ ，因此 $\mathbf{P}^2\neq\mathbf{P}$ ；而 $\mathbf{P}_E^2=\mathbf{P}_E$ .</p>
-<p><strong>Note.</strong> 虽然我们知道 $\Delta=\nabla\cdot\nabla$ ，但是上面引理说明 $\mathbf{L}\neq\mathbf{DG}$ ，那么我们为什么选择使用 $\mathbf{L}$ 呢？事实上，根据定义
+<p><span class="arithmatex">\(Proof.\)</span> 可以验证在周期边界上 <span class="arithmatex">\(\mathbf{DG}\neq\mathbf{L}\)</span> ，因此 <span class="arithmatex">\(\mathbf{P}^2\neq\mathbf{P}\)</span> ；而 <span class="arithmatex">\(\mathbf{P}_E^2=\mathbf{P}_E\)</span> .</p>
+<p><strong>Note.</strong> 虽然我们知道 <span class="arithmatex">\(\Delta=\nabla\cdot\nabla\)</span> ，但是上面引理说明 <span class="arithmatex">\(\mathbf{L}\neq\mathbf{DG}\)</span> ，那么我们为什么选择使用 <span class="arithmatex">\(\mathbf{L}\)</span> 呢？事实上，根据定义
 $$
 \mathbf{DG}\left&lt;\phi\right&gt;<em>{\mathbf{i}} = \sum</em>{d}\frac{1}{12h}\mathbf{G}<em>d\left(-\left&lt;\phi\right&gt;</em>{\mathbf{i}+2\mathbf{e}^d}+8\left&lt;\phi\right&gt;<em>{\mathbf{i}+\mathbf{e}^d}-8\left&lt;\phi\right&gt;</em>{\mathbf{i}-\mathbf{e}^d}+\left&lt;\phi\right&gt;_{\mathbf{i}-2\mathbf{e}^d} \right)
 $$
-其中利用了 $\mathbf{G}$ 是 $\mathbf{D}$ 的求和关系。当上式中 $\mathbf{G}_d$ 作用时，整个模板 <em>stencil</em> 会延伸到 $-4\mathbf{e}^d\sim4\mathbf{e}^d$ ，其规模过于庞大，并且每一项的系数正负交替，会使得算法不稳定.</p>
-<p><strong>Definition 14.14.</strong> 区域 $\Omega$ 上的 FV 标量内积和 FV 向量内积分别是
+其中利用了 <span class="arithmatex">\(\mathbf{G}\)</span> 是 <span class="arithmatex">\(\mathbf{D}\)</span> 的求和关系。当上式中 <span class="arithmatex">\(\mathbf{G}_d\)</span> 作用时，整个模板 <em>stencil</em> 会延伸到 <span class="arithmatex">\(-4\mathbf{e}^d\sim4\mathbf{e}^d\)</span> ，其规模过于庞大，并且每一项的系数正负交替，会使得算法不稳定.</p>
+<p><strong>Definition 14.14.</strong> 区域 <span class="arithmatex">\(\Omega\)</span> 上的 FV 标量内积和 FV 向量内积分别是
 $$
 \begin{aligned}
 \left&lt;\phi,\psi \right&gt;<em>S &amp;= h^D\sum</em>{\mathbf{i}}\left&lt;\phi\right&gt;<em>{\mathbf{i}}\left&lt;\psi \right&gt;</em>{\mathbf{i}}\
 \left&lt;\mathbf{v},\mathbf{w}\right&gt;<em>V &amp;= h^D\sum</em>{\mathbf{i}}\left&lt;\mathbf{v}\right&gt;<em>{\mathbf{i}}\cdot\left&lt;\mathbf{w}\right&gt;</em>{\mathbf{i}}
 \end{aligned}
 $$
-其中 $\phi,\psi:\Omega\to\mathbb{R}$ 是标量函数而 $\mathbf{v},\mathbf{w}:\Omega\to\mathbb{R}^D$ 是向量函数.</p>
-<p><strong>Lemma 14.15.</strong> 在周期区域上，线性映射 $\mathbf{G},-\mathbf{D}$ 互相伴随，即
+其中 <span class="arithmatex">\(\phi,\psi:\Omega\to\mathbb{R}\)</span> 是标量函数而 <span class="arithmatex">\(\mathbf{v},\mathbf{w}:\Omega\to\mathbb{R}^D\)</span> 是向量函数.</p>
+<p><strong>Lemma 14.15.</strong> 在周期区域上，线性映射 <span class="arithmatex">\(\mathbf{G},-\mathbf{D}\)</span> 互相伴随，即
 $$
 \left&lt;\mathbf{Du},\phi \right&gt;_S = -\left&lt;\mathbf{u},\mathbf{G}\phi \right&gt;_V
 $$
-线性映射对应的矩阵满足 $\mathbf{G}=-\mathbf{D}^T$ .</p>
-<p><strong>Corollary 14.16.</strong> 在周期区域上，逼近投影算子 $\mathbf{P}$ 的矩阵对称，即 $\mathbf{P}^T=\mathbf{P}$ .</p>
-<p>$Proof.$ 由 $\mathbf{L}$ 的对称性有
+线性映射对应的矩阵满足 <span class="arithmatex">\(\mathbf{G}=-\mathbf{D}^T\)</span> .</p>
+<p><strong>Corollary 14.16.</strong> 在周期区域上，逼近投影算子 <span class="arithmatex">\(\mathbf{P}\)</span> 的矩阵对称，即 <span class="arithmatex">\(\mathbf{P}^T=\mathbf{P}\)</span> .</p>
+<p><span class="arithmatex">\(Proof.\)</span> 由 <span class="arithmatex">\(\mathbf{L}\)</span> 的对称性有
 $$
 \mathbf{P}^T = (\mathbf{I}-\mathbf{GL}^{-1}\mathbf{D})^T = \mathbf{I}-\mathbf{D}^T\mathbf{L}^{-1}\mathbf{G}^T = \mathbf{I}-\mathbf{G}\mathbf{L}^{-1}\mathbf{D} = \mathbf{P}
 $$
-利用了 $\mathbf{G}=-\mathbf{D}^T$ 的结论.</p>
-<p><strong>Lemma 14.17.</strong> 在周期区域上，有 $\mathbf{GL} = \mathbf{LG}$ ，从而 $\mathbf{PL}=\mathbf{LP}$ .</p>
-<p><strong>Theorem 14.18.</strong> 在周期区域上，逼近投影算子的谱半径和欧几里得 $2$ 范数为 1 ，即
+利用了 <span class="arithmatex">\(\mathbf{G}=-\mathbf{D}^T\)</span> 的结论.</p>
+<p><strong>Lemma 14.17.</strong> 在周期区域上，有 <span class="arithmatex">\(\mathbf{GL} = \mathbf{LG}\)</span> ，从而 <span class="arithmatex">\(\mathbf{PL}=\mathbf{LP}\)</span> .</p>
+<p><strong>Theorem 14.18.</strong> 在周期区域上，逼近投影算子的谱半径和欧几里得 <span class="arithmatex">\(2\)</span> 范数为 1 ，即
 $$
 \rho(\mathbf{P}) = |\mathbf{P}|<em>2 = 1
 $$
-进一步，$\mathbf{P}$ 是 Leray-Helmholtz 投影的 4 阶近似，即
+进一步，<span class="arithmatex">\(\mathbf{P}\)</span> 是 Leray-Helmholtz 投影的 4 阶近似，即
 $$
 \mathbf{P}\left&lt;\mathbf{u}\right&gt;</em>{\mathbf{i}} - \frac{1}{h^D}\int_{\mathcal{C}_{\mathbf{i}}}\left(\mathbf{I}-\nabla(\Delta_n)^{-1}\nabla\cdot \right)\mathbf{u} = O(h^4)
 $$
@@ -14905,19 +14907,19 @@ $$
 $$
 E =\frac{1}{2}m|\mathbf{u}|_2^2 = \frac{1}{2}m|\mathbf{Pu}|_2^2
 $$
-因此 $2$ 范数为 1 确保了<strong>投影算子不会增加系统的能量</strong>.</p>
+因此 <span class="arithmatex">\(2\)</span> 范数为 1 确保了<strong>投影算子不会增加系统的能量</strong>.</p>
 <h3 id="the-inse-on-periodic-domains">The INSE on periodic domains</h3>
 <p><strong>Theorem 14.19.</strong> 下面 ODE 是 INSE 在周期区域上的 4 阶近似
 $$
 \frac{d\left&lt;\mathbf{u}\right&gt;}{dt} = \mathbf{P}\left(-\mathbf{D}\left&lt;\mathbf{uu}\right&gt;+\left&lt;\mathbf{g}\right&gt;+\nu\mathbf{L}\left&lt;\mathbf{u}\right&gt; \right)
 $$
-$Proof.$ 我们知道 Leray-Helmholtz 投影会移除向量场 $\mathbf{v}$ 中散度作用下不为零的部分，又知道 $\nabla\cdot\mathbf{u}=0,\ \nabla\times\nabla p=0$ ，因此 $\mathbf{Pu}=\mathbf{u}$ ，而 $\mathbf{P}\nabla p=0$ ，我们就得到上式.</p>
-<p><strong>Note.</strong> 我们通过投影算子作用将不可压条件加入到动量方程中，并且去除了 $\nabla p$ 项，这样就可以直接使用 IMEX 算法推进求解.</p>
+<span class="arithmatex">\(Proof.\)</span> 我们知道 Leray-Helmholtz 投影会移除向量场 <span class="arithmatex">\(\mathbf{v}\)</span> 中散度作用下不为零的部分，又知道 <span class="arithmatex">\(\nabla\cdot\mathbf{u}=0,\ \nabla\times\nabla p=0\)</span> ，因此 <span class="arithmatex">\(\mathbf{Pu}=\mathbf{u}\)</span> ，而 <span class="arithmatex">\(\mathbf{P}\nabla p=0\)</span> ，我们就得到上式.</p>
+<p><strong>Note.</strong> 我们通过投影算子作用将不可压条件加入到动量方程中，并且去除了 <span class="arithmatex">\(\nabla p\)</span> 项，这样就可以直接使用 IMEX 算法推进求解.</p>
 <p><strong>Algorithm 14.20.</strong> 在周期区域上求解 INSE 的 4 阶 FV 方法是直接对上式应用 IMEX 算法
 $$
 \mathbf{X}^{[E]}\left&lt;\mathbf{u}\right&gt; = -\mathbf{D}\left&lt;\mathbf{uu}\right&gt;+\left&lt;\mathbf{g}\right&gt;,\quad \mathbf{X}^{[I]}\left&lt;\mathbf{u}\right&gt; =\nu\mathbf{L}\left&lt;\mathbf{u}\right&gt;
 $$
-对于 $t^n$ 时刻 $\left&lt;\mathbf{u}\right&gt;^n\approx\left&lt;\mathbf{u}(t^n)\right&gt;$ ，记 $\left&lt;\mathbf{u}\right&gt;^{(1)}=\left&lt;\mathbf{u}\right&gt;^n$ 是第一级，则
+对于 <span class="arithmatex">\(t^n\)</span> 时刻 <span class="arithmatex">\(\left&lt;\mathbf{u}\right&gt;^n\approx\left&lt;\mathbf{u}(t^n)\right&gt;\)</span> ，记 <span class="arithmatex">\(\left&lt;\mathbf{u}\right&gt;^{(1)}=\left&lt;\mathbf{u}\right&gt;^n\)</span> 是第一级，则
 $$
 \begin{aligned}
 (I-k\nu\gamma\mathbf{L})\left&lt;\mathbf{u}\right&gt;^{(s)} &amp;= \left&lt;\mathbf{u}\right&gt;^n + k\sum_{j=1}^{s-1}a_{s,j}^{[E]}\mathbf{P}\mathbf{X}^{[E]}\left&lt;\mathbf{u}\right&gt;^{(j)} + k\nu\sum_{j=1}^{s-1}a_{s,j}^{[I]}\mathbf{L}\left&lt;\mathbf{u}\right&gt;^{(j)},\quad s=2,3,\dots,n_s\
@@ -14929,8 +14931,8 @@ $$
 $$
 \mathbf{L}\left<p\right> = \mathbf{D}\left(\left&lt;\mathbf{g}\right&gt;-\mathbf{D}\left&lt;\mathbf{u}\mathbf{u}\right&gt;+\nu\mathbf{L}\left&lt;\mathbf{u}\right&gt;\right)
 $$
-因此当我们用 IMEX 算法计算出每个时刻的速度场 $\mathbf{u}$ 后就可以求解对应的压强.</p>
-<p><strong>Theorem 14.21.</strong> 上述算法的解 $\left&lt;\mathbf{u}\right&gt;$ 在散度意义下具有 4 阶精度，即 $\mathbf{D}\left&lt;\mathbf{u}\right&gt;=O(h^4)$ .</p>
+因此当我们用 IMEX 算法计算出每个时刻的速度场 <span class="arithmatex">\(\mathbf{u}\)</span> 后就可以求解对应的压强.</p>
+<p><strong>Theorem 14.21.</strong> 上述算法的解 <span class="arithmatex">\(\left&lt;\mathbf{u}\right&gt;\)</span> 在散度意义下具有 4 阶精度，即 <span class="arithmatex">\(\mathbf{D}\left&lt;\mathbf{u}\right&gt;=O(h^4)\)</span> .</p>
 
 
 
@@ -14984,6 +14986,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

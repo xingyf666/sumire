@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -8524,7 +8526,7 @@
   <a href="#sqrt-3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $\sqrt{ 3 }$ 细分
+        \(\sqrt{ 3 }\) 细分
       
     </span>
   </a>
@@ -14698,7 +14700,7 @@
   <a href="#sqrt-3" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $\sqrt{ 3 }$ 细分
+        \(\sqrt{ 3 }\) 细分
       
     </span>
   </a>
@@ -14869,7 +14871,7 @@
 <h3 id="chaikin">Chaikin 方法</h3>
 <p>最初发展的细分算法就是由 Chaikin 提出的“割角法”，Chaikin 细分具有所有细分方案共有的两个组成部分，即拓扑规则和几何规则</p>
 <ul>
-<li>对于每个旧顶点 $v_i$，在相邻的两条边上插入新顶点 $v_{2i}',v_{2i+1}'$ “切除” 角，替换为新的边 $v_{2i}'v_{2i+1}'$ 。所有旧边 $v_iv_{i+1}$ 都会因此缩短，更新为 $v_{2i+1}'v_{2i+2}'$</li>
+<li>对于每个旧顶点 <span class="arithmatex">\(v_i\)</span>，在相邻的两条边上插入新顶点 <span class="arithmatex">\(v_{2i}',v_{2i+1}'\)</span> “切除” 角，替换为新的边 <span class="arithmatex">\(v_{2i}'v_{2i+1}'\)</span> 。所有旧边 <span class="arithmatex">\(v_iv_{i+1}\)</span> 都会因此缩短，更新为 <span class="arithmatex">\(v_{2i+1}'v_{2i+2}'\)</span></li>
 <li>新插入的顶点是两个相邻旧顶点的线性组合，例如
 $$
 \begin{aligned}
@@ -14881,7 +14883,7 @@ $$
 </ul>
 <p><img alt="" src="image-20251207194013136.jpeg|300" /></p>
 <h3 id="_3">四点法</h3>
-<p>四点法对初始 4 个点 ${P_{i-1},P_{i},P_{i+1},P_{i+2}}$ 构造 3 次 Lagrange 插值曲线
+<p>四点法对初始 4 个点 <span class="arithmatex">\(\{P_{i-1},P_{i},P_{i+1},P_{i+2}\}\)</span> 构造 3 次 Lagrange 插值曲线
 $$
 P(t) = \sum_{j=0}^3P_{i-1+j}L_{j,3}(t)
 $$
@@ -14893,7 +14895,7 @@ $$
 <p><img alt="" src="image-20251207194141274.png|500" /></p>
 <h3 id="b">均匀节点 B 样条</h3>
 <h4 id="_4">节点加密</h4>
-<p>设节点向量为 $Z={t_{j}=j}$，则定义 $k$ 阶 B 样条基函数
+<p>设节点向量为 <span class="arithmatex">\(Z=\{t_{j}=j\}\)</span>，则定义 <span class="arithmatex">\(k\)</span> 阶 B 样条基函数
 $$
 \begin{aligned}
 N_{i,k}(t) &amp;= \frac{t-i}{k-1}N_{i,k-1}(t)+ \frac{i+k-t}{k-1}N_{i+1,k-1}(t)\
@@ -14920,7 +14922,7 @@ $$
 $$
 N_{k}(t)=\sum_{i\in Z}c_{i}^kN_{k}(2t-i)
 $$
-例如 $N_{1}(t)=N_{1}(2t)+N_{1}(2t-1)$ 。利用 deBoor-Cox 公式归纳得到
+例如 <span class="arithmatex">\(N_{1}(t)=N_{1}(2t)+N_{1}(2t-1)\)</span> 。利用 deBoor-Cox 公式归纳得到
 $$
 c_{i}^k=2^{-(k-1)}\binom{k}{i}
 $$
@@ -14945,8 +14947,8 @@ $$
 满足如下性质</p>
 <ol>
 <li>线性+分配律+结合律</li>
-<li>时间平移 $f(t-i)\otimes g(t-k)=(f\otimes g)(t-i-k)$</li>
-<li>时间放缩 $f(2t)\otimes g(2t)=\frac{1}{2}(f\otimes g)(2t)$</li>
+<li>时间平移 <span class="arithmatex">\(f(t-i)\otimes g(t-k)=(f\otimes g)(t-i-k)\)</span></li>
+<li>时间放缩 <span class="arithmatex">\(f(2t)\otimes g(2t)=\frac{1}{2}(f\otimes g)(2t)\)</span></li>
 </ol>
 <p>B 样条基函数可由卷积获得
 $$
@@ -14963,15 +14965,15 @@ N_{k}(t)=\otimes <em>{i=0}^{k-1}(N</em>{1}(2t)+N_{1}(2t-1)) = \frac{1}{2^{k-1}}\
 $$
 这就是<strong>双尺度方程</strong>。</p>
 <h4 id="_6">矩阵格式</h4>
-<p>记 $N(t)=[\cdots,N_{k}(t+2),N_{k}(t+1),N_{k}(t),N_{k}(t-1),N_{k}(t-2),\cdots]$，于是
+<p>记 <span class="arithmatex">\(N(t)=[\cdots,N_{k}(t+2),N_{k}(t+1),N_{k}(t),N_{k}(t-1),N_{k}(t-2),\cdots]\)</span>，于是
 $$
 N(t)=N(2t)S,\quad S_{2i+j,i}=\frac{1}{2^{k-1}}\binom{k}{j}
 $$
-其中 $S$ 称为细分矩阵。记 B 样条曲线的控制点为 $P^0=[\cdots,P_{-2},P_{-1},P_{0},P_{1},P_{2},\cdots]$，则
+其中 <span class="arithmatex">\(S\)</span> 称为细分矩阵。记 B 样条曲线的控制点为 <span class="arithmatex">\(P^0=[\cdots,P_{-2},P_{-1},P_{0},P_{1},P_{2},\cdots]\)</span>，则
 $$
 P(t)=N(t)P^0 =N(2t)SP^0 = N(2t)P^1
 $$
-因此 $P^1=SP^0$ 。根据 $S$ 的形式，B 样条细分的一般格式为
+因此 <span class="arithmatex">\(P^1=SP^0\)</span> 。根据 <span class="arithmatex">\(S\)</span> 的形式，B 样条细分的一般格式为
 $$
 \begin{aligned}
 P_{2i+1}^k &amp;= \sum_{l}c_{2(i-l)+1}P_{l}^k\
@@ -14985,7 +14987,7 @@ P_{2i}^{k+1} &amp;= \frac{3}{4}P_{i}^k+\frac{1}{4}P_{i+1}^k\
 P_{2i+1}^{k+1} &amp;= \frac{1}{4}P_{i}^k+\frac{3}{4}P_{i+1}^k
 \end{aligned}
 $$
-其双尺度方程系数为 $k=3,\left{ \frac{1}{4}, \frac{3}{4}, \frac{3}{4}, \frac{1}{4} \right}$，则
+其双尺度方程系数为 <span class="arithmatex">\(k=3,\left\{ \frac{1}{4}, \frac{3}{4}, \frac{3}{4}, \frac{1}{4} \right\}\)</span>，则
 $$
 S_{3} = 
 \begin{pmatrix}
@@ -15014,12 +15016,12 @@ P_{2i}^{k+1} &amp;= \frac{1}{8}P_{i-1}^k+\frac{3}{4}P_{i}^k+\frac{1}{8}P_{i+1}^k
 P_{2i+1}^{k+1} &amp;= \frac{1}{2}P_{i}^k+\frac{1}{2}P_{i+1}^k
 \end{aligned}
 $$
-其双尺度方程系数为 $k=4,\left{ \frac{1}{8}, \frac{1}{2}, \frac{3}{4}, \frac{1}{2}, \frac{1}{8} \right}$ 。</p>
-<p>曲线细分收敛是指细分多边形序列收敛。每个多边形等价于分段线性参数曲线。设函数列 $f_{i}(t),t\in[a,b]$ 满足
+其双尺度方程系数为 <span class="arithmatex">\(k=4,\left\{ \frac{1}{8}, \frac{1}{2}, \frac{3}{4}, \frac{1}{2}, \frac{1}{8} \right\}\)</span> 。</p>
+<p>曲线细分收敛是指细分多边形序列收敛。每个多边形等价于分段线性参数曲线。设函数列 <span class="arithmatex">\(f_{i}(t),t\in[a,b]\)</span> 满足
 $$
 \forall\epsilon&gt;0,\quad \exists n_{0}&gt;0,\quad \mathrm{s.t.}\quad \forall n&gt;n_{0},\max_{t\in[a,b]}|f(t)-f_{i}(t)|&lt;\epsilon
 $$
-则称函数列 $f_{i}(t)$ 一致收敛于 $f(t)$ 。记
+则称函数列 <span class="arithmatex">\(f_{i}(t)\)</span> 一致收敛于 <span class="arithmatex">\(f(t)\)</span> 。记
 $$
 \begin{aligned}
 |f(t)| &amp;= \sup_{t}|f(t)|\
@@ -15027,12 +15029,12 @@ $$
 |S| &amp;= \sup_{t}\sum_{k}|S_{i,k}|
 \end{aligned}
 $$
-于是 $|SP|\leq|S||P|$ 。记 $P^j(t)=N(2^jt)P^j$，则有</p>
+于是 <span class="arithmatex">\(\|SP\|\leq\|S\|\|P\|\)</span> 。记 <span class="arithmatex">\(P^j(t)=N(2^jt)P^j\)</span>，则有</p>
 <blockquote>
 <p>[!lemma]
-若 $|P_{i+1}^j-P_{i}^j |&lt;c\gamma^j$，其中 $c$ 是常数，$0&lt;\gamma&lt;1,j&gt;j_{0}\geq 0$，则 $P^j(t)$ 一致收敛到连续极限曲线 $P^\infty(t)$ 。</p>
+若 <span class="arithmatex">\(\|P_{i+1}^j-P_{i}^j \|&lt;c\gamma^j\)</span>，其中 <span class="arithmatex">\(c\)</span> 是常数，<span class="arithmatex">\(0&lt;\gamma&lt;1,j&gt;j_{0}\geq 0\)</span>，则 <span class="arithmatex">\(P^j(t)\)</span> 一致收敛到连续极限曲线 <span class="arithmatex">\(P^\infty(t)\)</span> 。</p>
 </blockquote>
-<p>注意到 $S$ 的行元素和为 1，取 $S_{1}$ 为一次 B 样条的细分矩阵，则 $S-S_{1}$ 的行元素和为零。存在矩阵 $D$ 使得 $S-S_{1}=D\Delta$，这里 $\Delta$ 是差分矩阵
+<p>注意到 <span class="arithmatex">\(S\)</span> 的行元素和为 1，取 <span class="arithmatex">\(S_{1}\)</span> 为一次 B 样条的细分矩阵，则 <span class="arithmatex">\(S-S_{1}\)</span> 的行元素和为零。存在矩阵 <span class="arithmatex">\(D\)</span> 使得 <span class="arithmatex">\(S-S_{1}=D\Delta\)</span>，这里 <span class="arithmatex">\(\Delta\)</span> 是差分矩阵
 $$
 \Delta = 
 \begin{pmatrix}
@@ -15052,7 +15054,7 @@ $$
 &amp;\leq |D||\Delta P^j| \leq |D|c\gamma^j 
 \end{aligned}
 $$
-又 $P^j(t)=P^0(t)+\sum_{k=0}^{j-1}(P^{k+1}-P^k)(t)$，故
+又 <span class="arithmatex">\(P^j(t)=P^0(t)+\sum_{k=0}^{j-1}(P^{k+1}-P^k)(t)\)</span>，故
 $$
 |P^{\infty}(t)-P^j(t)| &lt; \frac{|D|c}{1-\gamma}\gamma^j \to 0
 $$
@@ -15064,7 +15066,7 @@ $$
 <h4 id="_10">不变邻域</h4>
 <p>在每次细分后，某点任意小邻域内不为零的基函数个数称为不变邻域。例如 3 次 B 样条基函数的非零区间长度是 4，其不变邻域为 5；如图所示</p>
 <p><img alt="" src="image-20260107165246040.png|400" /></p>
-<p>由于 3 次 B 样条细分系数为 $\left{ \frac{1}{8}, \frac{1}{2}, \frac{3}{4}, \frac{1}{2}, \frac{1}{8} \right}$，即每个顶点影响 5 个细分后的顶点，即有
+<p>由于 3 次 B 样条细分系数为 <span class="arithmatex">\(\left\{ \frac{1}{8}, \frac{1}{2}, \frac{3}{4}, \frac{1}{2}, \frac{1}{8} \right\}\)</span>，即每个顶点影响 5 个细分后的顶点，即有
 $$
 \begin{pmatrix}
 P_{-2}^{k+1} \
@@ -15090,7 +15092,7 @@ P_{2}^{k} \
 $$
 再例如四点法格式</p>
 <p><img alt="" src="image-20260107165923009.png|500" /></p>
-<p>设 $j$ 次细分后分段线性曲线 $P^j(t)$，则有
+<p>设 <span class="arithmatex">\(j\)</span> 次细分后分段线性曲线 <span class="arithmatex">\(P^j(t)\)</span>，则有
 $$
 \begin{aligned}
 P^j(t) &amp;= N_{1}(2^jt)S^jP^0\
@@ -15100,7 +15102,7 @@ P^j(t) &amp;= N_{1}(2^jt)S^jP^0\
 \lim_{ j \to \infty } \varphi_{i}^j(t)&amp;=\varphi_{i}(t)=\varphi(t-i)
 \end{aligned}
 $$
-其中 $e_{i}^0=(\cdots,0,0,1,0,\cdots,0)$ 。对于四点法格式，基函数 $\varphi(t)$ 满足
+其中 <span class="arithmatex">\(e_{i}^0=(\cdots,0,0,1,0,\cdots,0)\)</span> 。对于四点法格式，基函数 <span class="arithmatex">\(\varphi(t)\)</span> 满足
 $$
 \begin{cases}
 \varphi(0) = 1 \
@@ -15142,7 +15144,7 @@ P_{3}^{k} \
 $$
 为其局部细分矩阵。</p>
 <h4 id="_11">特征分析</h4>
-<p>设 $S$ 是 $n\times n$ 局部细分矩阵，有实特征值 $\lambda_{0}\geq \lambda_{1}\geq \cdots\geq \lambda_{n-1}$ 以及特征向量 $x_{0},x_{1},\cdots,x_{n-1}$，例如 3 次 B 样条细分矩阵有
+<p>设 <span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(n\times n\)</span> 局部细分矩阵，有实特征值 <span class="arithmatex">\(\lambda_{0}\geq \lambda_{1}\geq \cdots\geq \lambda_{n-1}\)</span> 以及特征向量 <span class="arithmatex">\(x_{0},x_{1},\cdots,x_{n-1}\)</span>，例如 3 次 B 样条细分矩阵有
 $$
 \begin{aligned}
 (\lambda_{0},\lambda_{1},\cdots,\lambda_{4}) &amp;= \left( 1, \frac{1}{2}, \frac{1}{4}, \frac{1}{8}, \frac{1}{8} \right)\
@@ -15156,45 +15158,45 @@ X = (x_{0},x_{1},\cdots,x_{4}) &amp;=
 \end{pmatrix}
 \end{aligned}
 $$
-再例如四点法局部细分矩阵的特征值为 $\left( 1, \frac{1}{2}, \frac{1}{4}, \frac{1}{4}, \frac{1}{8}, -\frac{1}{16}, -\frac{1}{16} \right)$，但其特征向量不是完全集，即局部细分矩阵不可相似对角化，因此需要使用其它方法分析。</p>
-<p>若 $S$ 可相似对角化，即有
+再例如四点法局部细分矩阵的特征值为 <span class="arithmatex">\(\left( 1, \frac{1}{2}, \frac{1}{4}, \frac{1}{4}, \frac{1}{8}, -\frac{1}{16}, -\frac{1}{16} \right)\)</span>，但其特征向量不是完全集，即局部细分矩阵不可相似对角化，因此需要使用其它方法分析。</p>
+<p>若 <span class="arithmatex">\(S\)</span> 可相似对角化，即有
 $$
 X^{-1}SX = D
 $$
-则 $X^{-1}S=DX^{-1}$，设 $X^{-1}=(\bar{x}<em>{0},\bar{x}</em>{1},\cdots,\bar{x}<em>{n-1})^T$ 为左特征向量的矩阵，则存在以 $X$ 为基的分解
+则 <span class="arithmatex">\(X^{-1}S=DX^{-1}\)</span>，设 <span class="arithmatex">\(X^{-1}=(\bar{x}_{0},\bar{x}_{1},\cdots,\bar{x}_{n-1})^T\)</span> 为左特征向量的矩阵，则存在以 <span class="arithmatex">\(X\)</span> 为基的分解
 $$
-P= \sum</em>{i=0}^{n-1}a_{i}x_{i},\quad a_{i}=\bar{x}<em>{i}\cdot P
+P= \sum_{i=0}^{n-1}a_{i}x_{i},\quad a_{i}=\bar{x}<em>{i}\cdot P
 $$
-注意 $P$ 中顶点是 2 维或 3 维点，则 $a</em>{i}$ 也是 2 维或 3 维点。于是
+注意 <span class="arithmatex">\(P\)</span> 中顶点是 2 维或 3 维点，则 <span class="arithmatex">\(a_{i}\)</span> 也是 2 维或 3 维点。于是
 $$
 \begin{aligned}
-SP^0 &amp;= S\sum_{i=0}^{n-1}a_{i}x_{i} = \sum_{i=0}^{n-1}a_{i}Sx_{i} = \sum_{i=0}^{n-1}a_{i}\lambda_{i}x_{i}\
+SP^0 &amp;= S\sum</em>{i=0}^{n-1}a_{i}x_{i} = \sum_{i=0}^{n-1}a_{i}Sx_{i} = \sum_{i=0}^{n-1}a_{i}\lambda_{i}x_{i}\
 P^j &amp;= S^jP^0 = \sum_{i=0}^{n-1}a_{i}\lambda_{i}^jx_{i}
 \end{aligned}
 $$
-则局部细分格式收敛的必要条件是 $|\lambda_{i}|\leq 1$ 。</p>
-<p>若 $\lambda_{0}=1,|\lambda_{i}|&lt;1,i\neq 0$，则
+则局部细分格式收敛的必要条件是 <span class="arithmatex">\(|\lambda_{i}|\leq 1\)</span> 。</p>
+<p>若 <span class="arithmatex">\(\lambda_{0}=1,|\lambda_{i}|&lt;1,i\neq 0\)</span>，则
 $$
 P^{\infty} = a_{0}x_{0}
 $$
-例如 3 次 B 样条曲线细分的极限点在 $X$ 基下表示为
+例如 3 次 B 样条曲线细分的极限点在 <span class="arithmatex">\(X\)</span> 基下表示为
 $$
 P^{\infty}<em>{i} = a</em>{0} = \bar{x}<em>{0}\cdot P^j = \frac{1}{6}(P</em>{i-1}^j+4P_{i}^j+P_{i+1}^j)
 $$
-其中 $j$ 是局部细分的层数。</p>
-<p>若以极限点 $a_{0}$ 为 $X$ 基的坐标原点，并且有 $|\lambda_{1}|&gt;|\lambda_{2}|$，则
+其中 <span class="arithmatex">\(j\)</span> 是局部细分的层数。</p>
+<p>若以极限点 <span class="arithmatex">\(a_{0}\)</span> 为 <span class="arithmatex">\(X\)</span> 基的坐标原点，并且有 <span class="arithmatex">\(|\lambda_{1}|&gt;|\lambda_{2}|\)</span>，则
 $$
 P^j = \sum_{i=1}^{n-1}a_{i}\lambda_{i}^jx_{i} \implies \frac{1}{\lambda_{1}^j}P^j = a_{1}x_{1}+ \sum_{i=2}^{n-1}a_{i}\left( \frac{\lambda_{i}}{\lambda_{1}} \right)^jx_{i} \to a_{1}x_{1}
 $$
-此时，极限点沿着 $a_{1}$ 方向排列，即 $a_{1}$ 为极限点处的切向量。若 $\lambda_{1}=\lambda_{2}$，则极限是 $a_{1},a_{2}$ 的线性组合，在中心点无切向量。</p>
+此时，极限点沿着 <span class="arithmatex">\(a_{1}\)</span> 方向排列，即 <span class="arithmatex">\(a_{1}\)</span> 为极限点处的切向量。若 <span class="arithmatex">\(\lambda_{1}=\lambda_{2}\)</span>，则极限是 <span class="arithmatex">\(a_{1},a_{2}\)</span> 的线性组合，在中心点无切向量。</p>
 <p>细分方法光滑性的必要条件</p>
 <ol>
-<li>$\lambda_{1}^2&lt;\lambda_{2}\to C^1$，曲率无界</li>
-<li>$\lambda_{1}^2=|\lambda_{2}|=|\lambda_{3}|\to C^1$，曲率稍微分叉</li>
-<li>$\lambda_{1}^2=|\lambda_{2}|&gt;|\lambda_{3}|\to C^2$，曲率连续</li>
-<li>$\lambda_{1}^2&gt;|\lambda_{2}|\to C^2$，曲率趋于零</li>
+<li><span class="arithmatex">\(\lambda_{1}^2&lt;\lambda_{2}\to C^1\)</span>，曲率无界</li>
+<li><span class="arithmatex">\(\lambda_{1}^2=|\lambda_{2}|=|\lambda_{3}|\to C^1\)</span>，曲率稍微分叉</li>
+<li><span class="arithmatex">\(\lambda_{1}^2=|\lambda_{2}|&gt;|\lambda_{3}|\to C^2\)</span>，曲率连续</li>
+<li><span class="arithmatex">\(\lambda_{1}^2&gt;|\lambda_{2}|\to C^2\)</span>，曲率趋于零</li>
 </ol>
-<p>例如 3 次 B 样条细分矩阵的特征值满足条件 3，极限曲线 $C^2$ 连续。</p>
+<p>例如 3 次 B 样条细分矩阵的特征值满足条件 3，极限曲线 <span class="arithmatex">\(C^2\)</span> 连续。</p>
 <h3 id="_12">曲面细分格式</h3>
 <h4 id="catmull-clark">Catmull-Clark 细分</h4>
 <p>考虑双 3 次均匀 B 样条曲面片
@@ -15221,7 +15223,7 @@ P_{41} &amp; P_{42} &amp; P_{43} &amp; P_{44}
 U &amp;=(u^3,u^2,u,1),\quad V=(v^3,v^2,v,1)
 \end{aligned}
 $$
-考虑子面片 $0&lt;u,v&lt; \frac{1}{2}$，令 $u_{1}=\frac{u}{2},v_{1}=\frac{v}{2}$，有
+考虑子面片 <span class="arithmatex">\(0&lt;u,v&lt; \frac{1}{2}\)</span>，令 <span class="arithmatex">\(u_{1}=\frac{u}{2},v_{1}=\frac{v}{2}\)</span>，有
 $$
 S(u_{1},v_{1}) = U \bbox[red]{S} MGM^T\bbox[red]{S}^TV^T
 $$
@@ -15234,7 +15236,7 @@ S = \begin{pmatrix}
  &amp;  &amp;  &amp; 1
 \end{pmatrix}
 $$
-它仍然是双 3 次 B 样条曲面，因此可以用新的控制点矩阵 $G_{1}$ 表示为
+它仍然是双 3 次 B 样条曲面，因此可以用新的控制点矩阵 <span class="arithmatex">\(G_{1}\)</span> 表示为
 $$
 S(u_{1},v_{1}) = UMG_{1}M^TV^T
 $$
@@ -15242,7 +15244,7 @@ $$
 $$
 MG_{1}M^T = SMGM^TS^T
 $$
-从而 $G_{1}=H_{1}GH_{1}^T,H_{1}=M^{-1}SM$，则
+从而 <span class="arithmatex">\(G_{1}=H_{1}GH_{1}^T,H_{1}=M^{-1}SM\)</span>，则
 $$
 H_{1} = \frac{1}{8}
 \begin{pmatrix}
@@ -15252,7 +15254,7 @@ H_{1} = \frac{1}{8}
  &amp; 1 &amp; 6 &amp; 1
 \end{pmatrix}
 $$
-记 $G_{1}=(q_{ij})$，则有
+记 <span class="arithmatex">\(G_{1}=(q_{ij})\)</span>，则有
 $$
 \begin{aligned}
 q_{11} &amp;= \frac{P_{11}+P_{12}+P_{21}+P_{22}}{4}\
@@ -15263,15 +15265,15 @@ q_{22} &amp;= \frac{Q}{4}+\frac{R}{2}+\frac{P_{22}}{4}
 $$
 其中</p>
 <ul>
-<li>$Q$ 是与 $P_{22}$ 相邻面中心的平均</li>
-<li>$R$ 是与 $P_{22}$ 相邻边中点的平均</li>
+<li><span class="arithmatex">\(Q\)</span> 是与 <span class="arithmatex">\(P_{22}\)</span> 相邻面中心的平均</li>
+<li><span class="arithmatex">\(R\)</span> 是与 <span class="arithmatex">\(P_{22}\)</span> 相邻边中点的平均</li>
 </ul>
 <p><img alt="" src="image-20260108002521851.png|400" /></p>
 <p>对于任意拓扑网格，细分格式可以总结为</p>
 <ul>
-<li>新面点：面上所有旧顶点的平均 $V_{F}=\frac{V_{1}+V_{2}+\cdots+V_{n_{f}}}{n_{f}}$</li>
-<li>新边点：边上两端点以及两个相邻面的新面点的平均 $V_{E}=\frac{V_{1}+V_{2}+F_{1}+F_{2}}{4}$</li>
-<li>新顶点：记旧顶点为 $V$，度为 $n$，则 $V_{V}=\frac{Q+2R+V(n-3)}{n}$</li>
+<li>新面点：面上所有旧顶点的平均 <span class="arithmatex">\(V_{F}=\frac{V_{1}+V_{2}+\cdots+V_{n_{f}}}{n_{f}}\)</span></li>
+<li>新边点：边上两端点以及两个相邻面的新面点的平均 <span class="arithmatex">\(V_{E}=\frac{V_{1}+V_{2}+F_{1}+F_{2}}{4}\)</span></li>
+<li>新顶点：记旧顶点为 <span class="arithmatex">\(V\)</span>，度为 <span class="arithmatex">\(n\)</span>，则 <span class="arithmatex">\(V_{V}=\frac{Q+2R+V(n-3)}{n}\)</span></li>
 </ul>
 <p>然后，新面点与面上的新边点相连，新顶点与相邻边的新边点相连。</p>
 <blockquote>
@@ -15279,7 +15281,7 @@ $$
 <p>一次细分后，所有面片都是四边形，奇异点数不变。</p>
 </blockquote>
 </blockquote>
-<p>如果将旧顶点标记为 $v_{i,j}$，新顶点标记为 $v_{2i,2j}'$，则可以在四边形网格上建立索引，得到细分格式为
+<p>如果将旧顶点标记为 <span class="arithmatex">\(v_{i,j}\)</span>，新顶点标记为 <span class="arithmatex">\(v_{2i,2j}'\)</span>，则可以在四边形网格上建立索引，得到细分格式为
 $$
 \begin{aligned}
 v_{2i,2j}' &amp;= \left(1-\frac{3}{8}-\frac{1}{16}\right)v_{i,j} + \frac{3/8}{4}(v_{i,j-1}+v_{i-1,j}+v_{i+1,j}+v_{i,j+1})\
@@ -15289,7 +15291,7 @@ v_{2i,2j+1}' &amp;= \frac{1}{16}(v_{i-1,j}+v_{i-1,j+1}+6v_{i,j}+6v_{i,j+1}+v_{i+
 v_{2i+1,2j+1}' &amp;= \frac{1}{4}(v_{i,j}+v_{i,j+1}+v_{i+1,j}+v_{i+1,j+1})
 \end{aligned}
 $$
-如果将顶点 $v_{i,j}$ 周围的 8 个顶点标记为两类
+如果将顶点 <span class="arithmatex">\(v_{i,j}\)</span> 周围的 8 个顶点标记为两类
 $$
 \begin{aligned}
 {p_{1},p_{2},p_{3},p_{4}}&amp;={v_{i,j-1},v_{i-1,j},v_{i+1,j},v_{i,j+1}}\
@@ -15300,15 +15302,15 @@ $$
 $$
 v_{2i,2j}' = \left(1-\beta_4-\gamma_4\right)v_{i,j} + \frac{\beta_4}{4}\sum_{i=1}^{4}p_i+\frac{\gamma_4}{4}\sum_{i=1}^{4}q_i
 $$
-其中 $\beta_{n}=\frac{3}{2n},\gamma_{n}=\frac{1}{4n}$ 。</p>
-<p>进一步，我们可以将其推广到更加一般的形式，不仅仅适用于四边形网格。首先观察到面顶点 $v_{2i+1,2j+1}'$ 是 4 个顶点的平均，那么自然想到推广的公式应当有
+其中 <span class="arithmatex">\(\beta_{n}=\frac{3}{2n},\gamma_{n}=\frac{1}{4n}\)</span> 。</p>
+<p>进一步，我们可以将其推广到更加一般的形式，不仅仅适用于四边形网格。首先观察到面顶点 <span class="arithmatex">\(v_{2i+1,2j+1}'\)</span> 是 4 个顶点的平均，那么自然想到推广的公式应当有
 $$
 v_{2i+1,2j+1}' = \frac{1}{n_f}\sum_{i=1}^{n_{f}}p_{i}
 $$
-其中 $n_f$ 是面上的顶点数。</p>
+其中 <span class="arithmatex">\(n_f\)</span> 是面上的顶点数。</p>
 <blockquote>
 <blockquote>
-<p>细化后两个索引都为偶的点是 $V$ 顶点，都为奇的点是 $F$ 顶点，其余的是 $E$ 顶点。我们可以先计算出 $v_{2i+1,2j+1}'$ 即所有的面顶点。</p>
+<p>细化后两个索引都为偶的点是 <span class="arithmatex">\(V\)</span> 顶点，都为奇的点是 <span class="arithmatex">\(F\)</span> 顶点，其余的是 <span class="arithmatex">\(E\)</span> 顶点。我们可以先计算出 <span class="arithmatex">\(v_{2i+1,2j+1}'\)</span> 即所有的面顶点。</p>
 </blockquote>
 </blockquote>
 <p>然后利用上面的推广公式代入，重新标记周围的顶点
@@ -15319,7 +15321,7 @@ $$
 &amp;= {F_{2i-1,2j-1},F_{2i-1,2j+1},F_{2i+1,2j-1},F_{2i+1,2j+1}'}
 \end{aligned}
 $$
-其中 $p_{k}$ 是相邻顶点，$q_{k}$ 是相邻面点，可以改写方法为
+其中 <span class="arithmatex">\(p_{k}\)</span> 是相邻顶点，<span class="arithmatex">\(q_{k}\)</span> 是相邻面点，可以改写方法为
 $$
 \begin{aligned}
     &amp;(F):F_{2i+1,2j+1}=v_{2i+1,2j+1}' = \frac{1}{n_f}(v_{i,j}+v_{i,j+1}+v_{i+1,j}+v_{i+1,j+1})\
@@ -15328,7 +15330,7 @@ $$
     &amp;(V):v_{2i,2j}' = \left(1-\beta-\gamma\right)v_{i,j} + \frac{\beta}{n}\sum_{i=0}^{n-1}p_i +\frac{\gamma}{n}\sum_{i=0}^{n-1}q_i
 \end{aligned}
 $$
-其中 $\beta=\gamma=1/n$，$n$ 是顶点 $v_{i,j}$ 的度。</p>
+其中 <span class="arithmatex">\(\beta=\gamma=1/n\)</span>，<span class="arithmatex">\(n\)</span> 是顶点 <span class="arithmatex">\(v_{i,j}\)</span> 的度。</p>
 <h4 id="doo-sabin">Doo-Sabin 细分</h4>
 <p>将 Chaikin 方法推广到任意拓扑网格。新面点计算公式为
 $$
@@ -15336,11 +15338,11 @@ V_{F} = \frac{n+5}{4n}V_{1} + \frac{1}{4n}\sum_{i=2}^n \left( 3+2\cos \frac{2\pi
 $$
 拓扑连接顺序为</p>
 <ul>
-<li>新面面：顺序连接 $V_{F}$ 得到的面</li>
+<li>新面面：顺序连接 <span class="arithmatex">\(V_{F}\)</span> 得到的面</li>
 <li>新边面：连接与边相邻新顶点得到的面</li>
 <li>新点面：顺序连接旧顶点周围的新顶点得到的面</li>
 </ul>
-<p>Doo-Sabin 细分得到 $C^1$ 连续的极限曲面，每次细分后得到的顶点度都为 4 。</p>
+<p>Doo-Sabin 细分得到 <span class="arithmatex">\(C^1\)</span> 连续的极限曲面，每次细分后得到的顶点度都为 4 。</p>
 <p>这里我们还可以给出一种 C-C 细分格式
 $$
 V_{F} = \frac{2n+1}{4n}V_{1} + \frac{n+2}{8n}(V_{2}+V_{n-1})+ \frac{1}{4n}\sum_{i=3}^{n-2}V_{i}
@@ -15349,7 +15351,7 @@ $$
 <h4 id="loop">Loop 细分</h4>
 <p>Loop 细分将每个三角形划分为 4 个小三角形。对于内部点</p>
 <p><img alt="" src="image-20260108014437874.png|450" /></p>
-<p>注意 $V$ 是中心点，$V_{i}$ 是相邻点；对于边界点</p>
+<p>注意 <span class="arithmatex">\(V\)</span> 是中心点，<span class="arithmatex">\(V_{i}\)</span> 是相邻点；对于边界点</p>
 <p><img alt="" src="image-20260108015416428.png|400" /></p>
 <p>左右分别是新边点和新顶点的更新公式。</p>
 <p>内部顶点更新公式可以总结为
@@ -15367,38 +15369,38 @@ $$
 \frac{3}{8n}, &amp; n&gt;3
 \end{cases}
 $$
-Loop 细分曲面整体 $C^1$ 连续。</p>
+Loop 细分曲面整体 <span class="arithmatex">\(C^1\)</span> 连续。</p>
 <h4 id="butterfly">Butterfly 细分</h4>
 <p>Butterfly 细分规则为
 $$
 q^{k+1} = u(P_{1}^k+P_{2}^k)+v(P_{3}^k+P_{4}^k)-w(P_{5}^k+P_{6}^k+P_{7}^k+P_{8}^k)
 $$
-根据 $C^0$ 连续必要条件
+根据 <span class="arithmatex">\(C^0\)</span> 连续必要条件
 $$
 2u+2v-4w=1
 $$
-根据 $C^1$ 连续必要条件
+根据 <span class="arithmatex">\(C^1\)</span> 连续必要条件
 $$
 u=\frac{1}{2}+h(w),\quad h(0)=0
 $$
-令 $h=0$，则 $u=\frac{1}{2},v=2w$ 。在规则点 $n=6$ 处 $C^1$ 连续，非规则点仅 $C^0$ 连续。</p>
+令 <span class="arithmatex">\(h=0\)</span>，则 <span class="arithmatex">\(u=\frac{1}{2},v=2w\)</span> 。在规则点 <span class="arithmatex">\(n=6\)</span> 处 <span class="arithmatex">\(C^1\)</span> 连续，非规则点仅 <span class="arithmatex">\(C^0\)</span> 连续。</p>
 <p><img alt="" src="image-20260108015545279.png|300" /></p>
-<p>将 $P_{1}^k,P_{2}^k$ 连接的边对应四面体的一条棱，则可以在四面体上执行 Butterfly 细分，如图所示</p>
+<p>将 <span class="arithmatex">\(P_{1}^k,P_{2}^k\)</span> 连接的边对应四面体的一条棱，则可以在四面体上执行 Butterfly 细分，如图所示</p>
 <p><img alt="" src="image-20260108020208167.png|500" /></p>
 <p>可以改进 Butterfly 细分格式：考虑一条边</p>
 <ol>
 <li>若两端点度均为 6，则采用 Butterfly 细分格式</li>
-<li>若只有一个端点度为 6，则取度不为 6 的顶点 $V$，计算 $V_{E}=\frac{3}{4}V+\sum_{i=1}^{n}s_{i}V_{i}$<ol>
-<li>若 $s\geq 5,s_{i}=\frac{1}{n}\left( \frac{1}{4}+\cos \frac{2\pi i}{n}+\frac{1}{2}\cos \frac{4\pi i}{n} \right)$</li>
-<li>若 $n=4,s_{0}=\frac{3}{8},s_{2}=-\frac{1}{8},s_{1}=s_{3}=0$</li>
-<li>若 $n=3,s_{0}=\frac{5}{12},s_{1}=s_{2}=-\frac{1}{12}$</li>
+<li>若只有一个端点度为 6，则取度不为 6 的顶点 <span class="arithmatex">\(V\)</span>，计算 <span class="arithmatex">\(V_{E}=\frac{3}{4}V+\sum_{i=1}^{n}s_{i}V_{i}\)</span><ol>
+<li>若 <span class="arithmatex">\(s\geq 5,s_{i}=\frac{1}{n}\left( \frac{1}{4}+\cos \frac{2\pi i}{n}+\frac{1}{2}\cos \frac{4\pi i}{n} \right)\)</span></li>
+<li>若 <span class="arithmatex">\(n=4,s_{0}=\frac{3}{8},s_{2}=-\frac{1}{8},s_{1}=s_{3}=0\)</span></li>
+<li>若 <span class="arithmatex">\(n=3,s_{0}=\frac{5}{12},s_{1}=s_{2}=-\frac{1}{12}\)</span></li>
 </ol>
 </li>
 <li>若两个端点度都不为 6，则分别执行两次步骤 2，然后平均</li>
 <li>若边位于边界，则采用四点法细分</li>
 </ol>
-<h4 id="sqrt-3">$\sqrt{ 3 }$ 细分</h4>
-<p>$\sqrt{ 3 }$ 细分的拓扑规则如图所示</p>
+<h4 id="sqrt-3"><span class="arithmatex">\(\sqrt{ 3 }\)</span> 细分</h4>
+<p><span class="arithmatex">\(\sqrt{ 3 }\)</span> 细分的拓扑规则如图所示</p>
 <p><img alt="" src="image-20260108021346991.png|500" /></p>
 <p>细分规则由对称性得到
 $$
@@ -15411,7 +15413,7 @@ $$
 $$
 \alpha_{n} = \frac{1}{9}\left( 4-2 \cos \frac{2\pi}{n} \right)
 $$
-我们证明 $\alpha_{n}$ 选取的合理性。首先将顶点记为向量 $(P,P_{1},P_{2},\cdots,P_{n})$，则细分矩阵为
+我们证明 <span class="arithmatex">\(\alpha_{n}\)</span> 选取的合理性。首先将顶点记为向量 <span class="arithmatex">\((P,P_{1},P_{2},\cdots,P_{n})\)</span>，则细分矩阵为
 $$
 S = \frac{1}{3}
 \begin{pmatrix}
@@ -15446,7 +15448,7 @@ A^2 =
  &amp;  &amp;  &amp;  &amp;  &amp;  &amp; 1
 \end{pmatrix}
 $$
-取反转矩阵 $R$ 将 $P$ 周围全部顶点的顺序反转，即
+取反转矩阵 <span class="arithmatex">\(R\)</span> 将 <span class="arithmatex">\(P\)</span> 周围全部顶点的顺序反转，即
 $$
 R = \begin{pmatrix}
 1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0\
@@ -15463,29 +15465,29 @@ u+2v &amp;  &amp; 1 &amp; 2 &amp; \cdots &amp; 0 \
 \vdots &amp;  &amp;  &amp;  &amp;  &amp; \vdots
 \end{pmatrix}
 $$
-于是 $\bar{S}$ 的特征值为 $\frac{1}{9}\left[ 9,(2-3\alpha_{n})^2,2+2\cos\left( \frac{2\pi}{n} \right),\cdots,2+2\cos\left( \frac{2\pi(n-1)}{n} \right) \right]$ 。根据收敛必要条件
+于是 <span class="arithmatex">\(\bar{S}\)</span> 的特征值为 <span class="arithmatex">\(\frac{1}{9}\left[ 9,(2-3\alpha_{n})^2,2+2\cos\left( \frac{2\pi}{n} \right),\cdots,2+2\cos\left( \frac{2\pi(n-1)}{n} \right) \right]\)</span> 。根据收敛必要条件
 $$
 \lambda_{1}=1&gt;\lambda_{2}=\lambda_{3}&gt;\lambda_{i},\quad i=4,\cdots,n+1
 $$
-细分矩阵的特征结构对应 Taylor 展开，而 $\lambda_{4}$ 对应二次项，于是 $\lambda_{4}=\lambda_{2}^2$，即
+细分矩阵的特征结构对应 Taylor 展开，而 <span class="arithmatex">\(\lambda_{4}\)</span> 对应二次项，于是 <span class="arithmatex">\(\lambda_{4}=\lambda_{2}^2\)</span>，即
 $$
 \left( \frac{2-3\alpha_{n}}{3} \right)^2= \left[ \frac{ 2+2\cos\left( \frac{2\pi}{n} \right) }{9} \right]^2
 $$
-可以解得 $\alpha_{n}$ 如前。</p>
+可以解得 <span class="arithmatex">\(\alpha_{n}\)</span> 如前。</p>
 <h3 id="_13">曲面细分收敛性</h3>
-<p>设初始网格为 $M^0$，一次细分网格为 $M^1$，将顶点 $v^i$ 及其周围的边点和面点合并为向量
+<p>设初始网格为 <span class="arithmatex">\(M^0\)</span>，一次细分网格为 <span class="arithmatex">\(M^1\)</span>，将顶点 <span class="arithmatex">\(v^i\)</span> 及其周围的边点和面点合并为向量
 $$
 V^i = (v^i,e_{1}^i,e_{2}^i,\cdots,e_{n}^i,f_{1}^i,f_{2}^i,\cdots,f_{n}^i)^T
 $$
-设 $m=2n+1$ 为 $V^i$ 的维数，$S$ 为 $m\times m$ 细分矩阵，则有
+设 <span class="arithmatex">\(m=2n+1\)</span> 为 <span class="arithmatex">\(V^i\)</span> 的维数，<span class="arithmatex">\(S\)</span> 为 <span class="arithmatex">\(m\times m\)</span> 细分矩阵，则有
 $$
 V^{i+1} = S_{n}V^i
 $$
-不妨设 $S$ 有实特征值 $\lambda_{1}\geq \lambda_{2}\geq \cdots\geq \lambda_{m}$，记左右特征向量分别为 $I_{i},r_{i}$，于是
+不妨设 <span class="arithmatex">\(S\)</span> 有实特征值 <span class="arithmatex">\(\lambda_{1}\geq \lambda_{2}\geq \cdots\geq \lambda_{m}\)</span>，记左右特征向量分别为 <span class="arithmatex">\(I_{i},r_{i}\)</span>，于是
 $$
 I_{i}\cdot r_{j} = \delta_{i,j}
 $$
-可以将 $V^1$ 在 $r_{i}$ 上分解为
+可以将 <span class="arithmatex">\(V^1\)</span> 在 <span class="arithmatex">\(r_{i}\)</span> 上分解为
 $$
 V^1 = \sum_{i}C_{i}r_{i},\quad C_{i}=I_{i}\cdot V^1
 $$
@@ -15496,7 +15498,7 @@ $$
 于是有如下命题</p>
 <blockquote>
 <p>[!proposition]
-若细分矩阵 $S$ 满足：有 $m$ 个实特征值；$\lambda_{1}=1,\lambda_{k}&lt;1$；细分曲面仿射不变；则细分曲面收敛，且
+若细分矩阵 <span class="arithmatex">\(S\)</span> 满足：有 <span class="arithmatex">\(m\)</span> 个实特征值；<span class="arithmatex">\(\lambda_{1}=1,\lambda_{k}&lt;1\)</span>；细分曲面仿射不变；则细分曲面收敛，且
 $$
 V^\infty=\lim_{ i \to \infty } V^{i+1} = C_{1}r_{1}
 $$</p>
@@ -15510,42 +15512,42 @@ $$
 &amp;= (I_{m}\otimes A)V^{i+1} + S(E_{m}\otimes b)
 \end{aligned}
 $$
-其中 $E_{m}=(1,1,\cdots,1)<em>{m}^T$，于是 $S(E</em>{m}\otimes b)=E_{m}\otimes b$，由 $b$ 的任意性，$S$ 的行元素和为 1 。于是
+其中 <span class="arithmatex">\(E_{m}=(1,1,\cdots,1)_{m}^T\)</span>，于是 <span class="arithmatex">\(S(E_{m}\otimes b)=E_{m}\otimes b\)</span>，由 <span class="arithmatex">\(b\)</span> 的任意性，<span class="arithmatex">\(S\)</span> 的行元素和为 1 。于是
 $$
 \lambda_{1}=1,r_{1}=(1,1,\cdots,1)^T
 $$
-由 $V^\infty=C_{1}r_{1}$，则 $V^i$ 中的点全部收敛于 $C_{1}$ 。</p>
+由 <span class="arithmatex">\(V^\infty=C_{1}r_{1}\)</span>，则 <span class="arithmatex">\(V^i\)</span> 中的点全部收敛于 <span class="arithmatex">\(C_{1}\)</span> 。</p>
 <p><img alt="" src="image-20260108215354896.png|400" /></p>
 <blockquote>
 <p>[!proposition]
-若细分矩阵 $S$ 满足上述条件，并且 $1=\lambda_{1}&gt;\lambda_{2}=\lambda_{3}&gt;\lambda_{4}$，则细分曲面在极限点 $v^\infty$ 的法向为
+若细分矩阵 <span class="arithmatex">\(S\)</span> 满足上述条件，并且 <span class="arithmatex">\(1=\lambda_{1}&gt;\lambda_{2}=\lambda_{3}&gt;\lambda_{4}\)</span>，则细分曲面在极限点 <span class="arithmatex">\(v^\infty\)</span> 的法向为
 $$
 N^\infty=C_{2}\times C_{3},\quad C_{2}=I_{2}\cdot V^1,C_{3}=I_{3}\cdot V^1
 $$</p>
 </blockquote>
-<p>考虑 $v^\infty$ 附近的顶点 $V^i_{j}$，记特征向量 $r_{k}=(r_{k,1},r_{k,2},\cdots,r_{k,m})$ 则
+<p>考虑 <span class="arithmatex">\(v^\infty\)</span> 附近的顶点 <span class="arithmatex">\(V^i_{j}\)</span>，记特征向量 <span class="arithmatex">\(r_{k}=(r_{k,1},r_{k,2},\cdots,r_{k,m})\)</span> 则
 $$
 \frac{V_{j}^i-v^\infty}{|V_{j}^i-v^\infty|} = \frac{\lambda_{2}^i(C_{2}r_{2,j}+C_{3}r_{3,j})+\lambda_{4}^iC_{4}r_{4,j}+\cdots}{|\lambda_{2}^i(C_{2}r_{2,j}+C_{3}r_{3,j})+\lambda_{4}^iC_{4}r_{4,j}+\cdots|} \to \frac{C_{2}r_{2,j}+C_{3}r_{3,j}}{|C_{2}r_{2,j}+C_{3}r_{3,j}|}(i\to \infty)
 $$
-注意其中 $r_{\cdot,j}$ 对应 $V^i$ 的第 $j$ 个分量。于是极限点附近的切向位于 $N^\infty=C_{2}\times C_{3}$ 定义的切平面上。</p>
+注意其中 <span class="arithmatex">\(r_{\cdot,j}\)</span> 对应 <span class="arithmatex">\(V^i\)</span> 的第 <span class="arithmatex">\(j\)</span> 个分量。于是极限点附近的切向位于 <span class="arithmatex">\(N^\infty=C_{2}\times C_{3}\)</span> 定义的切平面上。</p>
 <h2 id="laurent">Laurent 多项式</h2>
 <h3 id="_14">细分格式的表示</h3>
 <h4 id="_15">生成函数</h4>
-<p>设稳定细分 $S$ 的细分模板为 ${a_{i}:i\in \mathbb{Z}^s}$，其中 $i$ 是 $s$ 重指标。于是细分格式为
+<p>设稳定细分 <span class="arithmatex">\(S\)</span> 的细分模板为 <span class="arithmatex">\(\{a_{i}:i\in \mathbb{Z}^s\}\)</span>，其中 <span class="arithmatex">\(i\)</span> 是 <span class="arithmatex">\(s\)</span> 重指标。于是细分格式为
 $$
 S_{a}f_{i}^k =f_{i}^{k+1}=\sum_{j\in \mathbb{Z}^s}a_{i-2j}f_{j}^k
 $$
-当 $s=1$ 时，得到曲线细分；当 $s=2$ 时，得到曲面细分。定义
+当 <span class="arithmatex">\(s=1\)</span> 时，得到曲线细分；当 <span class="arithmatex">\(s=2\)</span> 时，得到曲面细分。定义
 $$
 a(z)=\sum_{i\in \mathbb{Z}^s}a_{i}z^i,\quad z^i=z_1^{i_{1}}\cdots z_{s}^{i_{s}}
 $$
-由于细分格式中非零系数一般有限，因此 $a(z)$ 是 Laurent 多项式。</p>
+由于细分格式中非零系数一般有限，因此 <span class="arithmatex">\(a(z)\)</span> 是 Laurent 多项式。</p>
 <blockquote>
 <blockquote>
-<p>注意 $i$ 指标定义在整数集上，因此可以为负。</p>
+<p>注意 <span class="arithmatex">\(i\)</span> 指标定义在整数集上，因此可以为负。</p>
 </blockquote>
 </blockquote>
-<p>令 $F(z;f)=\sum_{j\in \mathbb{Z}^s}f_{j}z^j$ 是控制顶点 $f$ 的生成函数，则有
+<p>令 <span class="arithmatex">\(F(z;f)=\sum_{j\in \mathbb{Z}^s}f_{j}z^j\)</span> 是控制顶点 <span class="arithmatex">\(f\)</span> 的生成函数，则有
 $$
 \begin{aligned}
 a(z)F(z^2;f) &amp;= \left( \sum_{i\in \mathbb{Z}^s}a_{i}z^i \right)\left[ \sum_{j\in \mathbb{Z}^s}f_{j}(z^{2})^j \right]\
@@ -15559,9 +15561,9 @@ $$
 <h4 id="_16">收敛条件</h4>
 <blockquote>
 <p>[!theorem] 必要性
-细分格式 ${a_{i}:i\in \mathbb{Z}}$ 收敛，则 $\sum_{j}a_{2j}=\sum_{j}a_{2j+1}=1$ 。</p>
+细分格式 <span class="arithmatex">\(\{a_{i}:i\in \mathbb{Z}\}\)</span> 收敛，则 <span class="arithmatex">\(\sum_{j}a_{2j}=\sum_{j}a_{2j+1}=1\)</span> 。</p>
 </blockquote>
-<p>只需要对 $f_{i}^{k+1}=\sum_{j\in \mathbb{Z}^s}a_{i-2j}f_{j}^k$ 取极限即证。于是我们有
+<p>只需要对 <span class="arithmatex">\(f_{i}^{k+1}=\sum_{j\in \mathbb{Z}^s}a_{i-2j}f_{j}^k\)</span> 取极限即证。于是我们有
 $$
 a(-1)=0,\quad a(1)=2
 $$
@@ -15569,7 +15571,7 @@ $$
 $$
 a(z)=(1+z)q(z),\quad q(1)=1
 $$
-记 $f={f_{i}: i\in \mathbb{Z}},\Delta f={f_{i}-f_{i-1}:i\in \mathbb{Z}}$，则
+记 <span class="arithmatex">\(f=\{f_{i}: i\in \mathbb{Z}\},\Delta f=\{f_{i}-f_{i-1}:i\in \mathbb{Z}\}\)</span>，则
 $$
 \begin{aligned}
 F(z;\Delta f) &amp;= \sum_{j\in \mathbb{Z}^s}\Delta f_{j}z^j\
@@ -15588,44 +15590,44 @@ F(z;\Delta S_{a}f) &amp;= (1-z)F(z;S_{a}f)\
 &amp;= F(z;S_{q}\Delta f)
 \end{aligned}
 $$
-因此 $\Delta S_{a}f=S_{q}\Delta f$ 。</p>
+因此 <span class="arithmatex">\(\Delta S_{a}f=S_{q}\Delta f\)</span> 。</p>
 <blockquote>
 <p>[!theorem]
-细分格式 ${a_{i}:i\in \mathbb{Z}}$ 收敛当且仅当对任意初始数据 $f^0$ 有
+细分格式 <span class="arithmatex">\(\{a_{i}:i\in \mathbb{Z}\}\)</span> 收敛当且仅当对任意初始数据 <span class="arithmatex">\(f^0\)</span> 有
 $$
 \lim_{ k \to \infty } (S_{q})^kf^0=0
 $$</p>
 </blockquote>
-<p>必要性：注意到 $\Delta f^k=\Delta(S_{a}f^{k-1})=S_{q}\Delta f^{k-1}$，因此
+<p>必要性：注意到 <span class="arithmatex">\(\Delta f^k=\Delta(S_{a}f^{k-1})=S_{q}\Delta f^{k-1}\)</span>，因此
 $$
 \Delta f^k = (S_{q})^k\Delta f^0 = (S_{q})^kf^0
 $$
-当细分收敛时，$\Delta f^k\to 0$，即证。充分性证明较为复杂，略去。</p>
+当细分收敛时，<span class="arithmatex">\(\Delta f^k\to 0\)</span>，即证。充分性证明较为复杂，略去。</p>
 <h4 id="_17">判定收敛性</h4>
-<p>定义细分格式 $S_{a}$ 的范数
+<p>定义细分格式 <span class="arithmatex">\(S_{a}\)</span> 的范数
 $$
 |S_{a}|<em>{\infty} = \sup</em>{f} \frac{|S_{a}f|<em>{\infty}}{|f|</em>{\infty}}
 $$
-设 $|f|<em>{\infty}=1$，由于 $(S</em>{a}f)<em>{i}=\sum</em>{j}a_{i-2j}f_{j}$，则
+设 <span class="arithmatex">\(\|f\|_{\infty}=1\)</span>，由于 <span class="arithmatex">\((S_{a}f)_{i}=\sum_{j}a_{i-2j}f_{j}\)</span>，则
 $$
 |(S_{a}f)<em>{i}|\leq\sum</em>{j}|a_{i-2j}||f_{j}| \implies |S_{a}f|<em>{\infty}\leq \max</em>{i}\left( \sum_{j}|a_{i-2j}| \right) |f|<em>{\infty}
 $$
-取 $f</em>{j}=\mathrm{sgn}(a_{i-2j})$，则可以取得等号。由于局部细分格式只区分奇数指标集和偶数指标集，因此
+取 <span class="arithmatex">\(f_{j}=\mathrm{sgn}(a_{i-2j})\)</span>，则可以取得等号。由于局部细分格式只区分奇数指标集和偶数指标集，因此
 $$
-|S_{a}|<em>{\infty} = \max\left( \sum</em>{i}|a_{2i}|,\sum_{i}|a_{2i+1}| \right)
+|S</em>{a}|<em>{\infty} = \max\left( \sum</em>{i}|a_{2i}|,\sum_{i}|a_{2i+1}| \right)
 $$
-设 $H_{k}(z)=F(z;\Delta f^k)$，则
+设 <span class="arithmatex">\(H_{k}(z)=F(z;\Delta f^k)\)</span>，则
 $$
 H_{k}(z)=q(z)F(z^2;\Delta f^{k-1}) = q(z)H_{k-1}(z^2)
 $$
-得到 $L$ 次迭代
+得到 <span class="arithmatex">\(L\)</span> 次迭代
 $$
 \begin{aligned}
 H_{k+L}(z) &amp;= q(z)H_{k+L-1}(z^2)=\cdots= q_{L}(z)H_{k}(z^{2^L})\
 q_{L}(z) &amp;= q(z)q(z^2)\cdots q(z^{2^{L-1}})
 \end{aligned}
 $$
-记 $q_{L}(z)=\sum_{i}q_{i}^{[L]}z^i$，则上述 Laurent 多项式等价于细分公式
+记 <span class="arithmatex">\(q_{L}(z)=\sum_{i}q_{i}^{[L]}z^i\)</span>，则上述 Laurent 多项式等价于细分公式
 $$
 (\Delta f^{k+L})<em>{i} = \sum</em>{j}q_{i-2^Lj}^{[L]}(\Delta f^k)<em>{j}
 $$
@@ -15635,9 +15637,9 @@ $$
 $$
 最后，我们得到收敛性判定算法：</p>
 <ol>
-<li>若 $a(1)\neq 2$ 或 $a(-1)\neq 0$，则不收敛</li>
-<li>计算 $q(z)= \frac{a(z)}{1+z}$</li>
-<li>迭代计算 $q_{L}(z)$ 及 $(\mathrm{Norm})$，判断后者是否小于 $1$<ol>
+<li>若 <span class="arithmatex">\(a(1)\neq 2\)</span> 或 <span class="arithmatex">\(a(-1)\neq 0\)</span>，则不收敛</li>
+<li>计算 <span class="arithmatex">\(q(z)= \frac{a(z)}{1+z}\)</span></li>
+<li>迭代计算 <span class="arithmatex">\(q_{L}(z)\)</span> 及 <span class="arithmatex">\((\mathrm{Norm})\)</span>，判断后者是否小于 <span class="arithmatex">\(1\)</span><ol>
 <li>小于 1 则收敛</li>
 <li>否则继续迭代</li>
 </ol>
@@ -15646,7 +15648,7 @@ $$
 </ol>
 <blockquote>
 <blockquote>
-<p>经验上一般迭代 $5\sim 10$ 次。</p>
+<p>经验上一般迭代 <span class="arithmatex">\(5\sim 10\)</span> 次。</p>
 </blockquote>
 </blockquote>
 <h4 id="_18">光滑性分析</h4>
@@ -15654,7 +15656,7 @@ $$
 $$
 \Delta f^k = \Delta(S_{a}f^{k-1}) = S_{q}\Delta f^{k-1}
 $$
-不妨设 $a(z)$ 的根 $-1$ 有 $m$ 重，即
+不妨设 <span class="arithmatex">\(a(z)\)</span> 的根 <span class="arithmatex">\(-1\)</span> 有 <span class="arithmatex">\(m\)</span> 重，即
 $$
 a(z) = (1+z)^mb(z)
 $$
@@ -15685,26 +15687,26 @@ $$
 我们有</p>
 <blockquote>
 <p>[!theorem]
-设 $a(z)=\frac{(1+z)^m}{2^m}b(z)$，则 $S_{b}$ 收敛时，对任意初始数据 $f^0$ 有
+设 <span class="arithmatex">\(a(z)=\frac{(1+z)^m}{2^m}b(z)\)</span>，则 <span class="arithmatex">\(S_{b}\)</span> 收敛时，对任意初始数据 <span class="arithmatex">\(f^0\)</span> 有
 $$
 S_{a}^\infty f^0\in C^{m}(\mathbb{R}),\quad \frac{d^m}{dt^m}(S_{a}^\infty f^0)(t)=(S_{b}^\infty(\Delta^mf^0))(t)
 $$</p>
 </blockquote>
-<p>因此只需要判断 $S_{b}$ 的收敛性。</p>
+<p>因此只需要判断 <span class="arithmatex">\(S_{b}\)</span> 的收敛性。</p>
 <blockquote>
 <blockquote>
-<p>若 $f\in C^m(\mathbb{R})$ 且 $f_{i}^k=f(2^{-k}i)$，则
+<p>若 <span class="arithmatex">\(f\in C^m(\mathbb{R})\)</span> 且 <span class="arithmatex">\(f_{i}^k=f(2^{-k}i)\)</span>，则
 $$
 \forall l, \lim_{ k \to \infty } (2^{mk}\Delta^mf^k)_{i2^{k-l}}=f^{(m)}(i2^{-l})
 $$
-因此 $2^m$ 系数用于这种以 2 为倍数的细分格式。</p>
+因此 <span class="arithmatex">\(2^m\)</span> 系数用于这种以 2 为倍数的细分格式。</p>
 </blockquote>
 </blockquote>
 <h3 id="_19">二元细分格式</h3>
 <h4 id="_20">规则四边形网格细分</h4>
 <blockquote>
 <p>[!theorem]
-设四边形网格细分格式 $a(z)=a(z_{1},z_{2})=\sum_{ij}a_{ij}z_{1}^iz_{2}^j$ 收敛，则
+设四边形网格细分格式 <span class="arithmatex">\(a(z)=a(z_{1},z_{2})=\sum_{ij}a_{ij}z_{1}^iz_{2}^j\)</span> 收敛，则
 $$
 \sum_{\beta\in \mathbb{Z}^2}a_{\alpha-2\beta}=1,\quad \alpha\in{(0,0),(0,1),(1,0),(1,1)}
 $$</p>
@@ -15720,11 +15722,11 @@ a_{1}(z) &amp;= \frac{a(z)}{1+z_{1}}=(1+z_{2})b(z)\
 a_{2}(z) &amp;= \frac{a(z)}{1+z_{2}}=(1+z_{1})b(z)
 \end{aligned}
 $$
-均收缩，即任意初始数据 $f^0$ 有
+均收缩，即任意初始数据 <span class="arithmatex">\(f^0\)</span> 有
 $$
 \lim_{ k \to \infty } (S_{a_{1}})^kf^0=0,\quad \lim_{ k \to \infty } (S_{a_{2}})^kf^0=0
 $$
-当且仅当 $S_{a}$ 收敛。进一步，有</p>
+当且仅当 <span class="arithmatex">\(S_{a}\)</span> 收敛。进一步，有</p>
 <blockquote>
 <p>[!theorem]
 考虑细分格式
@@ -15735,7 +15737,7 @@ $$
 $$
 a_{ij}(z) = \frac{2^{i+j}a(z)}{(1+z_{1})^i(1+z_{2})^j},\quad i,j=0,\cdots,m
 $$
-均收敛，则 $S_{a}$ 得到 $C^m$ 连续函数，并且
+均收敛，则 <span class="arithmatex">\(S_{a}\)</span> 得到 <span class="arithmatex">\(C^m\)</span> 连续函数，并且
 $$
 \frac{\partial^{i+j}}{\partial t_{1}^i\partial t_{2}^j}S_{a}^\infty f^0 = S_{a_{ij}}^\infty \Delta_{1}^i\Delta_{2}^jf^0
 $$</p>
@@ -15749,20 +15751,20 @@ $$
 $$
 a(z)=(1+z_{1})^m(1+z_{2})^m(1+z_{1}z_{2})^mb(z)
 $$
-其中 $b(z_{1},z_{2})=b(z_{2},z_{1})$，于是有</p>
+其中 <span class="arithmatex">\(b(z_{1},z_{2})=b(z_{2},z_{1})\)</span>，于是有</p>
 <blockquote>
 <p>[!theorem]
 考虑细分格式
 $$
 a(z)=(1+z_{1})(1+z_{2})(1+z_{1}z_{2})b(z)
 $$
-则 $S_{a}$ 收敛当且仅当
+则 <span class="arithmatex">\(S_{a}\)</span> 收敛当且仅当
 $$
 a_{1}(z)= \frac{a(z)}{1+z_{1}},\quad a_{2}(z)=\frac{a(z)}{1+z_{2}},\quad a_{3}(z)=\frac{a(z)}{1+z_{1}z_{2}}
 $$
 均收缩。并且上述格式中只要有两个收缩，则另一个也收缩。</p>
 <p>[!theorem]
-若细分格式 $2a_{i}(z),i=1,2,3$ 收敛，则 $S_{a}$ 得到 $C^1$ 连续函数，并且
+若细分格式 <span class="arithmatex">\(2a_{i}(z),i=1,2,3\)</span> 收敛，则 <span class="arithmatex">\(S_{a}\)</span> 得到 <span class="arithmatex">\(C^1\)</span> 连续函数，并且
 $$
 \begin{aligned}
 \frac{\partial}{\partial t_{i}}S_{a}^\infty f^0=S_{2a_{i}}\Delta_{i}f^0,\quad i=1,2\
@@ -15824,6 +15826,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

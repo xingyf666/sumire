@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15533,7 +15535,7 @@
 </code></pre></div>
 <h4 id="22"><a href="https://leetcode.cn/problems/generate-parentheses/">22. 括号生成</a></h4>
 <p>数字 <code>n</code> 代表生成括号的对数，请你设计一个函数，用于能够生成所有可能的并且 <strong>有效的</strong> 括号组合。</p>
-<p>题解——回溯法。用 $S(open,close)$ 表示有 <code>open,close</code> 个开/闭括号时的状态，考虑状态方程
+<p>题解——回溯法。用 <span class="arithmatex">\(S(open,close)\)</span> 表示有 <code>open,close</code> 个开/闭括号时的状态，考虑状态方程
 $$
 S(open,close)=S(open+1,close)\cup S(open,close+1)
 $$
@@ -15998,7 +16000,7 @@ $$
 $$
 S(i) = \bigcup_{k=i,\cdots n}S(arr[k];i+1)
 $$
-其中 $S(i)$ 表示从 <code>i</code> 位置开始后面所有的全排列，$S(arr[k];i+1)$ 表示选择 <code>arr[k]</code> 后从 <code>i + 1</code> 位置开始后面所有的全排列。注意到后面元素的顺序不影响全排列结果，因此可以将 <code>arr[i], arr[k]</code> 交换来实现选取。</p>
+其中 <span class="arithmatex">\(S(i)\)</span> 表示从 <code>i</code> 位置开始后面所有的全排列，<span class="arithmatex">\(S(arr[k];i+1)\)</span> 表示选择 <code>arr[k]</code> 后从 <code>i + 1</code> 位置开始后面所有的全排列。注意到后面元素的顺序不影响全排列结果，因此可以将 <code>arr[i], arr[k]</code> 交换来实现选取。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="k">private</span><span class="o">:</span>
 <a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="w">  </span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span>
@@ -16113,7 +16115,7 @@ $$
 </code></pre></div>
 <h4 id="50-powx-n"><a href="https://leetcode.cn/problems/powx-n/">50. Pow(x, n)</a></h4>
 <p>实现 <a href="https://www.cplusplus.com/reference/valarray/pow/">pow(<em>x</em>, <em>n</em>)</a> ，即计算 <code>x</code> 的整数 <code>n</code> 次幂函数（即，<code>xn</code> ）。</p>
-<p>题解——将负数幂转换为正数，注意考虑 $|x|=1$ 以及 <code>n</code> 位于负数边界的情况。之后对于奇数幂转换为偶数幂递归，偶数幂通过自乘使指数减半。</p>
+<p>题解——将负数幂转换为正数，注意考虑 <span class="arithmatex">\(|x|=1\)</span> 以及 <code>n</code> 位于负数边界的情况。之后对于奇数幂转换为偶数幂递归，偶数幂通过自乘使指数减半。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a><span class="w">  </span><span class="kt">double</span><span class="w"> </span><span class="n">myPow</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -16195,6 +16197,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15707,7 +15709,7 @@ $$
 <h3 id="_23">任务窃取</h3>
 <p>TBB 使用的任务分配策略，每个线程分配一个任务队列，当某个线程的任务队列清空时，会从其它线程的任务队列中窃取任务。</p>
 <h3 id="_24">随机分配法</h3>
-<p>由于队列实现较为复杂，并且还需要同步机制，因此依然有切换开销。一种奇妙的解法是将图像切分成 16 块，然后每一块按照坐标编号。编号 $(x,y)$ 的块分配给 <code>(x+y*3)%4</code> 号线程，这样每个线程分到的块位置随机，只要切分足够细，那么每个线程分到的总工作量大致均匀。</p>
+<p>由于队列实现较为复杂，并且还需要同步机制，因此依然有切换开销。一种奇妙的解法是将图像切分成 16 块，然后每一块按照坐标编号。编号 <span class="arithmatex">\((x,y)\)</span> 的块分配给 <code>(x+y*3)%4</code> 号线程，这样每个线程分到的块位置随机，只要切分足够细，那么每个线程分到的总工作量大致均匀。</p>
 <p><img alt="" src="../TBB.assets/clipboard_2024-09-21_14-43.bmp" /></p>
 <blockquote>
 <blockquote>
@@ -16257,6 +16259,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

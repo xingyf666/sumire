@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15163,9 +15165,9 @@
 纵波：介质振动方向与波的传播方向平行（声波、弹性液中的 P 波 ）
 横波：介质振动方向与波的传播方向垂直（水面波、电磁波、弹性液中的 S 波）</p>
 <ul>
-<li>$p(x,t): \mathbb{R}^n\times\mathbb{R}\to \mathbb{R}$ 压力</li>
-<li>$\vec{v}(x,t):\mathbb{R}^n\times \mathbb{R}\to \mathbb{R}$ 介质速度</li>
-<li>$\rho_{0}(x,t)$ 密度</li>
+<li><span class="arithmatex">\(p(x,t): \mathbb{R}^n\times\mathbb{R}\to \mathbb{R}\)</span> 压力</li>
+<li><span class="arithmatex">\(\vec{v}(x,t):\mathbb{R}^n\times \mathbb{R}\to \mathbb{R}\)</span> 介质速度</li>
+<li><span class="arithmatex">\(\rho_{0}(x,t)\)</span> 密度</li>
 </ul>
 <p>满足方程
 $$
@@ -15176,39 +15178,39 @@ $$
 $$
 欧拉方程（流体动力学方程）</p>
 <ul>
-<li>动量守恒 $\rho\left( \frac{\partial \vec{v}}{\partial t}+(\vec{v}\cdot \nabla)\vec{v} \right) =-\nabla p$ （无体力 body force 无粘性项，括号中为对流加速度）</li>
-<li>质量守恒 $\frac{\partial \rho}{\partial t}+\nabla \cdot(\rho \vec{v})=0$ 结合动量守恒得到 $\frac{\partial \rho \vec{v}}{\partial t}+\nabla \cdot(\rho \vec{v}\otimes \vec{v})+\nabla p=0$</li>
-<li>状态方程（constitutive relation）：$p=p(\rho,T)$，理想气体 $p=\rho RT\sim \rho$</li>
+<li>动量守恒 <span class="arithmatex">\(\rho\left( \frac{\partial \vec{v}}{\partial t}+(\vec{v}\cdot \nabla)\vec{v} \right) =-\nabla p\)</span> （无体力 body force 无粘性项，括号中为对流加速度）</li>
+<li>质量守恒 <span class="arithmatex">\(\frac{\partial \rho}{\partial t}+\nabla \cdot(\rho \vec{v})=0\)</span> 结合动量守恒得到 <span class="arithmatex">\(\frac{\partial \rho \vec{v}}{\partial t}+\nabla \cdot(\rho \vec{v}\otimes \vec{v})+\nabla p=0\)</span></li>
+<li>状态方程（constitutive relation）：<span class="arithmatex">\(p=p(\rho,T)\)</span>，理想气体 <span class="arithmatex">\(p=\rho RT\sim \rho\)</span></li>
 </ul>
-<p>假设 $p=f(\rho), f'(\rho) &gt;0$，然后做线性化
+<p>假设 <span class="arithmatex">\(p=f(\rho), f'(\rho) &gt;0\)</span>，然后做线性化
 $$
 p = p_{0}+p_{1},\ \vec{v}=\vec{v}<em>{0}+\vec{v}</em>{1},\ \rho=\rho_{0}+\rho_{1}
 $$
-其中下标 $0,1$ 分别表示背景平衡态和扰动。如果 $\vec{v}<em>{0}=0$，显然 $p</em>{0},\rho_{0}$ 都是常数。将上面分解代回，略去扰动项得到</p>
+其中下标 <span class="arithmatex">\(0,1\)</span> 分别表示背景平衡态和扰动。如果 <span class="arithmatex">\(\vec{v}_{0}=0\)</span>，显然 <span class="arithmatex">\(p_{0},\rho_{0}\)</span> 都是常数。将上面分解代回，略去扰动项得到</p>
 <ul>
-<li>动量守恒 $\rho_{0} \frac{\partial \vec{v}<em>{1}}{\partial t} = -\nabla p</em>{1}$</li>
-<li>质量守恒 $\frac{\partial \rho_{1}}{\partial t} +\rho_{0}\nabla \cdot \vec{v}_{1}=0$</li>
+<li>动量守恒 <span class="arithmatex">\(\rho_{0} \frac{\partial \vec{v}_{1}}{\partial t} = -\nabla p_{1}\)</span></li>
+<li>质量守恒 <span class="arithmatex">\(\frac{\partial \rho_{1}}{\partial t} +\rho_{0}\nabla \cdot \vec{v}_{1}=0\)</span></li>
 </ul>
-<p>将 $p_{0}+p_{1}=f(\rho_{0}+\rho_{1})\approx f(\rho_{0})+f'(\rho_{0})\rho_{1}$ 分解
+<p>将 <span class="arithmatex">\(p_{0}+p_{1}=f(\rho_{0}+\rho_{1})\approx f(\rho_{0})+f'(\rho_{0})\rho_{1}\)</span> 分解
 $$
 p_{1} = f'(\rho_{0})\rho_{1} \implies \rho_{1}= \frac{p_{1}}{f'(\rho_{0})}
 $$
-对 $t$ 求偏导，利用质量守恒得到
+对 <span class="arithmatex">\(t\)</span> 求偏导，利用质量守恒得到
 $$
 \frac{1}{f'(\rho_{0})} \frac{\partial p_{1}}{\partial t}+\rho_{0}\nabla \cdot \vec{v}<em>{1}=0 \implies \frac{\partial p</em>{1}}{\partial t}+(f'(\rho_{0})\rho_{0})\nabla \cdot \vec{v}<em>{1}=0
 $$
-其中 $f'(\rho</em>{0})=c^2$ 为波速平方，令 $\kappa_{0}=f'(\rho_{0})p_{0}=c^2p_{0}$ 称为体积模量。调整动量守恒方程和上面的公式，就得到
+其中 <span class="arithmatex">\(f'(\rho_{0})=c^2\)</span> 为波速平方，令 <span class="arithmatex">\(\kappa_{0}=f'(\rho_{0})p_{0}=c^2p_{0}\)</span> 称为体积模量。调整动量守恒方程和上面的公式，就得到
 $$
 \begin{cases}
-\frac{\partial \vec{v}}{\partial t} = -\frac{1}{\rho_{0}(x)}\nabla p \
+\frac{\partial \vec{v}}{\partial t} = -\frac{1}{\rho</em>{0}(x)}\nabla p \
 \frac{\partial p}{\partial t}=-\kappa_{0}(x)\nabla \cdot \vec{v}
 \end{cases}
 $$
-这里 $\rho_{0},\kappa_{0}$ 都是常数。假设熵 entropy 守恒
+这里 <span class="arithmatex">\(\rho_{0},\kappa_{0}\)</span> 都是常数。假设熵 entropy 守恒
 $$
 p=f(\rho,s),\quad \frac{\partial s}{\partial t} + \vec{v}\cdot \nabla s = 0
 $$
-以及 $v_{0}\equiv 0$，则 $p_{0}=f(\rho_{0}(x),s_{0}(x))\equiv const$ 。</p>
+以及 <span class="arithmatex">\(v_{0}\equiv 0\)</span>，则 <span class="arithmatex">\(p_{0}=f(\rho_{0}(x),s_{0}(x))\equiv const\)</span> 。</p>
 <p>假设存在外部力，动量方程变为
 $$
 \frac{\partial \vec{v}}{\partial t}= - \frac{1}{\rho_{0}(x)}(\nabla p+ \vec{F}<em>{ext})
@@ -15217,7 +15219,7 @@ $$
 $$
 \frac{\partial^2 p}{\partial t^2} +\kappa</em>{0}(x)\nabla \cdot \left( \frac{\partial \vec{v}}{\partial t} \right)=0
 $$
-然后代入动量方程就得到二阶声波方程。可以给定初值条件 $p(x,0), \frac{\partial p}{\partial t}(x,0)$ 和边界条件 $p(x,t)|<em>{\partial \Omega}=f$ 或 $\nabla</em>{\vec{n}}p(x,t)|_{\partial \Omega}=g$ 。</p>
+然后代入动量方程就得到二阶声波方程。可以给定初值条件 <span class="arithmatex">\(p(x,0), \frac{\partial p}{\partial t}(x,0)\)</span> 和边界条件 <span class="arithmatex">\(p(x,t)|_{\partial \Omega}=f\)</span> 或 <span class="arithmatex">\(\nabla_{\vec{n}}p(x,t)|_{\partial \Omega}=g\)</span> 。</p>
 <p>声波一阶系统方程
 $$
 W=
@@ -15232,16 +15234,16 @@ O_{n \times n} &amp; -\frac{1}{\rho_{0}(x)}\nabla \
 \end{pmatrix}
 ,\quad \frac{\partial W}{\partial t} = Lw
 $$
-定义 $\frac{\partial W}{\partial t} = Lw$ 关于内积 $\langle w,w'\rangle$ 是双曲型，当且仅当 $L$ 关于该内积满足 $L^<em>=-L$ 。内积定义为
+定义 <span class="arithmatex">\(\frac{\partial W}{\partial t} = Lw\)</span> 关于内积 <span class="arithmatex">\(\langle w,w'\rangle\)</span> 是双曲型，当且仅当 <span class="arithmatex">\(L\)</span> 关于该内积满足 <span class="arithmatex">\(L^*=-L\)</span> 。内积定义为
 $$
 \langle w,w'\rangle = \int \rho_{0}\vec{v}\cdot \vec{v}'+\frac{1}{\kappa_{0}}pp'dx
 $$
-算子 $L^</em>$ 定义为 $\langle L^*w,w'\rangle=\langle w,Lw'\rangle$ 。</p>
+算子 <span class="arithmatex">\(L^*\)</span> 定义为 <span class="arithmatex">\(\langle L^*w,w'\rangle=\langle w,Lw'\rangle\)</span> 。</p>
 <blockquote>
 <p>[!theorem]
-若 $L$ 是关于 $\langle w,w'\rangle$ 的反自伴算子，则 $E=\langle w,w\rangle$ 关于时间守恒。</p>
+若 <span class="arithmatex">\(L\)</span> 是关于 <span class="arithmatex">\(\langle w,w'\rangle\)</span> 的反自伴算子，则 <span class="arithmatex">\(E=\langle w,w\rangle\)</span> 关于时间守恒。</p>
 </blockquote>
-<p>计算 $E$ 关于时间的导数
+<p>计算 <span class="arithmatex">\(E\)</span> 关于时间的导数
 $$
 \begin{aligned}
 \frac{dE}{dt} &amp;= \frac{d}{dt}\langle w,w\rangle = \left\langle \frac{dw}{dt}, w\right\rangle + \left\langle w, \frac{dw}{dt}\right\rangle\
@@ -15249,29 +15251,29 @@ $$
 &amp;= -2\langle Lw,w\rangle
 \end{aligned}
 $$
-因此 $\langle Lw,w\rangle=0$，即证。</p>
+因此 <span class="arithmatex">\(\langle Lw,w\rangle=0\)</span>，即证。</p>
 <h3 id="elastic-wave">弹性波 elastic wave</h3>
 <p>物理量</p>
 <ul>
-<li>$\vec{u}(x,t)$ 位移场</li>
-<li>$\vec{v}(x,t)=\frac{\partial \vec{u}}{\partial t}(x,t)$ 速度</li>
-<li>$\epsilon(x,t)=\frac{1}{2}(\nabla \vec{u}+\nabla \vec{u}^T)$ 应变张量 strain tensor（对称二阶张量 $\epsilon_{ij}=\epsilon_{ji}=\frac{1}{2}(\partial_iu_j+\partial_ju_i)$）</li>
-<li>$\sigma(x,t)$ 应力张量 stress tensor（对称二阶张量）</li>
+<li><span class="arithmatex">\(\vec{u}(x,t)\)</span> 位移场</li>
+<li><span class="arithmatex">\(\vec{v}(x,t)=\frac{\partial \vec{u}}{\partial t}(x,t)\)</span> 速度</li>
+<li><span class="arithmatex">\(\epsilon(x,t)=\frac{1}{2}(\nabla \vec{u}+\nabla \vec{u}^T)\)</span> 应变张量 strain tensor（对称二阶张量 <span class="arithmatex">\(\epsilon_{ij}=\epsilon_{ji}=\frac{1}{2}(\partial_iu_j+\partial_ju_i)\)</span>）</li>
+<li><span class="arithmatex">\(\sigma(x,t)\)</span> 应力张量 stress tensor（对称二阶张量）</li>
 </ul>
 <p>动力学方程</p>
 <ul>
-<li>动量守恒 $\rho\left( \frac{\partial \vec{v}}{\partial t}+(\vec{v}\cdot \nabla)\vec{v} \right) =\nabla\cdot \sigma(+\vec{F}_{ext})$</li>
-<li>$\frac{\partial\epsilon}{\partial t}=\frac{1}{2}(\nabla \vec{v}+\nabla \vec{v}^T)$</li>
-<li>状态方程 $\sigma=f(\epsilon)$；假设线性弹性介质（胡克定律），则 $\sigma=C:\epsilon$，其中 $C$ 是四阶张量 $C=C_{ijkl}$，满足 $C_{ijkl}=C_{jikl}=C_{ijlk}=C_{klij}$，于是 $\sigma_{ij}=(C:\epsilon)<em>{ij}=\sum</em>{k,l}C_{ijkl}\epsilon_{kl}$</li>
+<li>动量守恒 <span class="arithmatex">\(\rho\left( \frac{\partial \vec{v}}{\partial t}+(\vec{v}\cdot \nabla)\vec{v} \right) =\nabla\cdot \sigma(+\vec{F}_{ext})\)</span></li>
+<li><span class="arithmatex">\(\frac{\partial\epsilon}{\partial t}=\frac{1}{2}(\nabla \vec{v}+\nabla \vec{v}^T)\)</span></li>
+<li>状态方程 <span class="arithmatex">\(\sigma=f(\epsilon)\)</span>；假设线性弹性介质（胡克定律），则 <span class="arithmatex">\(\sigma=C:\epsilon\)</span>，其中 <span class="arithmatex">\(C\)</span> 是四阶张量 <span class="arithmatex">\(C=C_{ijkl}\)</span>，满足 <span class="arithmatex">\(C_{ijkl}=C_{jikl}=C_{ijlk}=C_{klij}\)</span>，于是 <span class="arithmatex">\(\sigma_{ij}=(C:\epsilon)_{ij}=\sum_{k,l}C_{ijkl}\epsilon_{kl}\)</span></li>
 </ul>
-<p>设 $\vec{F}<em>{ext}=0$，做线性化得到
+<p>设 <span class="arithmatex">\(\vec{F}_{ext}=0\)</span>，做线性化得到
 $$
 \begin{aligned}
-\rho</em>{0}\left(\frac{\partial \vec{v}<em>{1}}{\partial t}+\vec{v}</em>{1}\cdot \nabla\vec{v}<em>{1} \right) &amp;= \nabla \cdot(C:\epsilon</em>{1})\
+\rho_{0}\left(\frac{\partial \vec{v}<em>{1}}{\partial t}+\vec{v}</em>{1}\cdot \nabla\vec{v}<em>{1} \right) &amp;= \nabla \cdot(C:\epsilon</em>{1})\
 \frac{\partial\epsilon}{\partial t}&amp;=\frac{1}{2}(\nabla \vec{v}<em>{1}+\nabla \vec{v}</em>{1}^T)
 \end{aligned}
 $$
-若 $\vec{v}<em>{0}=0$，则 $\nabla \cdot(C:\epsilon</em>{0})=0$ 。得到一阶系统方程
+若 <span class="arithmatex">\(\vec{v}_{0}=0\)</span>，则 <span class="arithmatex">\(\nabla \cdot(C:\epsilon_{0})=0\)</span> 。得到一阶系统方程
 $$
 \begin{aligned}
 w &amp;= 
@@ -15290,11 +15292,11 @@ L_{1}\vec{v} &amp;= \frac{1}{2}(\nabla \vec{v}+(\nabla \vec{v})^T)\
 \frac{\partial w}{\partial t}&amp;=Lw
 \end{aligned}
 $$
-其中第 2,3 行等式说明 $L_{1},L_{2}$ 算子的作用。可以证明 $L$ 关于
+其中第 2,3 行等式说明 <span class="arithmatex">\(L_{1},L_{2}\)</span> 算子的作用。可以证明 <span class="arithmatex">\(L\)</span> 关于
 $$
 \langle w,w'\rangle = \frac{1}{2} \int \rho_{0}\vec{v}\cdot \vec{v}'+\epsilon:C:\epsilon'dx
 $$
-是反自伴的，即 $\frac{\partial w}{\partial t}=Lw$ 是双曲型，从而 $E=\langle w,w\rangle$ 关于时间守恒。</p>
+是反自伴的，即 <span class="arithmatex">\(\frac{\partial w}{\partial t}=Lw\)</span> 是双曲型，从而 <span class="arithmatex">\(E=\langle w,w\rangle\)</span> 关于时间守恒。</p>
 <p>假设弹性是各向同性的 isotropic elasticity，则
 $$
 C_{ijkl}=\lambda(x)\delta_{ij}\delta_{kl}+\mu(x)(\delta_{il}\delta_{jk}+\delta_{ik}\delta_{jl}),\quad \delta_{ij}=
@@ -15303,7 +15305,7 @@ C_{ijkl}=\lambda(x)\delta_{ij}\delta_{kl}+\mu(x)(\delta_{il}\delta_{jk}+\delta_{
 1, &amp; i=j
 \end{cases}
 $$
-其中 $\lambda,\mu$ 称为 Lame 系数。于是
+其中 <span class="arithmatex">\(\lambda,\mu\)</span> 称为 Lame 系数。于是
 $$
 \begin{aligned}
 (C:\epsilon)<em>{ij} &amp;= \sum</em>{k,l}C_{ijkl}\epsilon_{kl}= \lambda\left( \sum_{k}\epsilon_{kk} \right)\delta_{ij}+2\mu\epsilon_{ij}\
@@ -15315,15 +15317,15 @@ $$
 $$
 \frac{\partial \vec{v}}{\partial t}=L_{2}\epsilon=\frac{1}{\rho_{0}}[\nabla(\lambda \mathrm{tr}(\epsilon))+2\nabla \cdot(\mu\epsilon)]
 $$
-根据 $\epsilon=\frac{1}{2}(\nabla \vec{u}+\nabla \vec{u}^T)$ 代入，得到二阶系统
+根据 <span class="arithmatex">\(\epsilon=\frac{1}{2}(\nabla \vec{u}+\nabla \vec{u}^T)\)</span> 代入，得到二阶系统
 $$
 \frac{\partial^2u}{\partial t^2} = \frac{\partial \vec{v}}{\partial t}=\frac{1}{\rho_{0}}[\nabla(\lambda(x)\nabla \cdot u)+\nabla \cdot(\mu(x)(\nabla \vec{u}+\nabla \vec{u}^T))]
 $$
-当 $\lambda,\mu$ 为常数，弹性波方程为
+当 <span class="arithmatex">\(\lambda,\mu\)</span> 为常数，弹性波方程为
 $$
 \rho_{0}\frac{\partial^2u}{\partial t^2}=\lambda \nabla \nabla \cdot \vec{u}+\mu \Delta \vec{u}+\mu \nabla \nabla \cdot \vec{u} = (\lambda+2\mu)\nabla \nabla \cdot \vec{u}-\mu \nabla \times \nabla \times \vec{u}
 $$
-其中 $\nabla \times$ 表示旋度算子，满足
+其中 <span class="arithmatex">\(\nabla \times\)</span> 表示旋度算子，满足
 $$
 \nabla \times \vec{v} = 
 \begin{vmatrix}
@@ -15332,12 +15334,12 @@ i &amp; j &amp; k \
 v_{1} &amp; v_{2} &amp; v_{3}
 \end{vmatrix}
 $$
-可以验证 $\nabla \times \nabla \times=(\nabla \nabla \cdot)-\Delta$ 。</p>
+可以验证 <span class="arithmatex">\(\nabla \times \nabla \times=(\nabla \nabla \cdot)-\Delta\)</span> 。</p>
 <p>Helmholtz Decomposition —— 任何在三维空间中足够光滑且快速衰减的矢量场都可以分解为
 $$
 \vec{u} = \nabla \phi+\nabla \times \psi
 $$
-其中 $\phi$ 是标量场，$\psi$ 是向量场，两个部分分别对应无旋场和无散场
+其中 <span class="arithmatex">\(\phi\)</span> 是标量场，<span class="arithmatex">\(\psi\)</span> 是向量场，两个部分分别对应无旋场和无散场
 $$
 \nabla \times \nabla \phi=0,\quad \nabla \cdot \nabla \times \psi=0
 $$
@@ -15349,8 +15351,8 @@ $$
 $$
 \phi'=\phi+C,\quad \psi'=\psi+\nabla f
 $$
-其中 $C,f$ 分别是常量和某个标量场。</p>
-<p>根据亥姆霍兹分解，可以将位移场分解为两部分。选取 $\psi'$ 使得
+其中 <span class="arithmatex">\(C,f\)</span> 分别是常量和某个标量场。</p>
+<p>根据亥姆霍兹分解，可以将位移场分解为两部分。选取 <span class="arithmatex">\(\psi'\)</span> 使得
 $$
 0=\nabla \cdot \psi'=\nabla \cdot \psi+\Delta f
 $$
@@ -15369,7 +15371,7 @@ $$
 &amp;= \nabla\left( \rho_{0}\frac{\partial^2\phi}{\partial t^2}\right)+\nabla \times \left( \rho_{0}\frac{\partial^2\psi}{\partial t^2}\right)
 \end{aligned}
 $$
-注意到现在右侧得到分解形式 $\nabla +\nabla \times$，因此二阶系统的向量场被分解为无旋和无散的两部分。由于
+注意到现在右侧得到分解形式 <span class="arithmatex">\(\nabla +\nabla \times\)</span>，因此二阶系统的向量场被分解为无旋和无散的两部分。由于
 $$
 \begin{aligned}
 \nabla\left( \rho_{0}\frac{\partial^2\phi}{\partial t^2} \right) &amp;= \nabla [(\lambda+2\mu)\Delta \phi']\
@@ -15383,34 +15385,34 @@ $$
 \nabla \times \nabla \times \left( \rho_{0}\frac{\partial^2\psi}{\partial t^2} - \mu \Delta \psi'\right) = 0
 \end{aligned}
 $$
-由于 $\phi$ 在无穷处的衰减性，以及调和函数的极大模原理
+由于 <span class="arithmatex">\(\phi\)</span> 在无穷处的衰减性，以及调和函数的极大模原理
 $$
 \begin{aligned}
 \rho_{0}\frac{\partial^2\phi}{\partial t^2}-(\lambda+2\mu)\Delta \phi' &amp;= 0\
 \rho_{0}\frac{\partial^2\psi}{\partial t^2} - \mu \Delta \psi' &amp;= 0
 \end{aligned}
 $$
-从而完成了分解。其中 $\nabla \phi$ 对应的是纵波，即压力波 pressure wave (p-波)；$\nabla \times \psi$ 对应的是横波，即剪切波 shear wave (s-波)；两种波称为主波 primary wave 和副波 secondary wave 。公式中 $\lambda,\mu$ 分别称为体积模量和剪切模量。</p>
+从而完成了分解。其中 <span class="arithmatex">\(\nabla \phi\)</span> 对应的是纵波，即压力波 pressure wave (p-波)；<span class="arithmatex">\(\nabla \times \psi\)</span> 对应的是横波，即剪切波 shear wave (s-波)；两种波称为主波 primary wave 和副波 secondary wave 。公式中 <span class="arithmatex">\(\lambda,\mu\)</span> 分别称为体积模量和剪切模量。</p>
 <h3 id="maxwell-equation">电磁波 Maxwell equation</h3>
 <p>物理量</p>
 <ul>
-<li>$\vec{E}(x,t)$ 电场 electric field</li>
-<li>$\vec{H}(x,t)$ 磁场 magnetic field</li>
-<li>$\vec{D}(x,t)$ 电位移 electric displacement</li>
-<li>$\vec{B}(x,t)$ 磁感应强度 magnetic induction</li>
+<li><span class="arithmatex">\(\vec{E}(x,t)\)</span> 电场 electric field</li>
+<li><span class="arithmatex">\(\vec{H}(x,t)\)</span> 磁场 magnetic field</li>
+<li><span class="arithmatex">\(\vec{D}(x,t)\)</span> 电位移 electric displacement</li>
+<li><span class="arithmatex">\(\vec{B}(x,t)\)</span> 磁感应强度 magnetic induction</li>
 </ul>
 <p>介质的电磁参数</p>
 <ul>
-<li>$\epsilon(x)$ 介电常数 electric permittivity</li>
-<li>$\mu(x)$ 磁导率 magnetic permittivity</li>
-<li>$\gamma(x)$ 导电率 conductivity</li>
+<li><span class="arithmatex">\(\epsilon(x)\)</span> 介电常数 electric permittivity</li>
+<li><span class="arithmatex">\(\mu(x)\)</span> 磁导率 magnetic permittivity</li>
+<li><span class="arithmatex">\(\gamma(x)\)</span> 导电率 conductivity</li>
 </ul>
 <p>电磁场的源/汇 (source/sink)</p>
 <ul>
-<li>$\vec{j}(x,t)$ 电流 currents</li>
-<li>$\vec{\rho}(x,t)$ 电荷 charges</li>
+<li><span class="arithmatex">\(\vec{j}(x,t)\)</span> 电流 currents</li>
+<li><span class="arithmatex">\(\vec{\rho}(x,t)\)</span> 电荷 charges</li>
 </ul>
-<p>状态方程：假设线性电磁材料 $\vec{D}=\epsilon(x)\vec{E},\vec{B}=\mu(x)\vec{H}$</p>
+<p>状态方程：假设线性电磁材料 <span class="arithmatex">\(\vec{D}=\epsilon(x)\vec{E},\vec{B}=\mu(x)\vec{H}\)</span></p>
 <p>麦克斯韦方程
 $$
 \begin{cases}
@@ -15452,7 +15454,7 @@ $$
 $$
 \langle w,w'\rangle = \frac{1}{2}\int\epsilon \vec{E}\cdot \vec{E}'+\mu \vec{H}\cdot \vec{H}'dx
 $$
-则 $L$ 是反自伴算子。</p>
+则 <span class="arithmatex">\(L\)</span> 是反自伴算子。</p>
 <p>二阶方程为
 $$
 \begin{aligned}
@@ -15462,7 +15464,7 @@ $$
 &amp;= -\frac{1}{\epsilon}\left[  \nabla\left( \frac{1}{\mu} \right)\times(\nabla \times \vec{E})+\frac{1}{\mu}(\nabla \nabla \cdot \vec{E}-\Delta \vec{E}) \right]
 \end{aligned}
 $$
-假设 $\rho=0$，则根据麦克斯韦方程第三式有
+假设 <span class="arithmatex">\(\rho=0\)</span>，则根据麦克斯韦方程第三式有
 $$
 \begin{aligned}
 &amp;0 = \nabla \cdot \vec{D} = \nabla \cdot(\epsilon(x) \vec{E})\
@@ -15477,7 +15479,7 @@ $$
 \implies &amp; \frac{\partial^2\vec{E}}{\partial t^2} + \frac{1}{\epsilon \mu}\Delta \vec{E}+\frac{1}{\epsilon \mu}\left[ \frac{1}{\mu}\nabla \mu \times(\nabla \times \vec{E})+\nabla\left( \frac{1}{\epsilon}\nabla\epsilon\cdot \vec{E}\right) \right] = 0
 \end{aligned}
 $$
-其中 $\epsilon(x),\mu(x)\geq c_{0}&gt;0$ 。在真空中 $\epsilon=\epsilon_{0},\mu=\mu_{0},c_{0}=\sqrt{ \frac{1}{\epsilon_{0}\mu_{0}} }$，其中 $c_{0}$ 是真空中的光速。</p>
+其中 <span class="arithmatex">\(\epsilon(x),\mu(x)\geq c_{0}&gt;0\)</span> 。在真空中 <span class="arithmatex">\(\epsilon=\epsilon_{0},\mu=\mu_{0},c_{0}=\sqrt{ \frac{1}{\epsilon_{0}\mu_{0}} }\)</span>，其中 <span class="arithmatex">\(c_{0}\)</span> 是真空中的光速。</p>
 <p>时谐麦克斯韦方程 time-harmonic
 $$
 \begin{aligned}
@@ -15486,16 +15488,16 @@ $$
 \vec{j}(x,t) &amp;= e^{-i\omega t}\vec{j}(x)
 \end{aligned}
 $$
-其中 $w$ 是角频率。</p>
+其中 <span class="arithmatex">\(w\)</span> 是角频率。</p>
 <h2 id="_3">特殊波</h2>
 <h3 id="_4">平面波与色散</h3>
 <h4 id="_5">色散</h4>
-<p>色散是角频率 $\omega$ 与空间频率 $k$ 的关系，空间频率即波数，正比于波长的倒数。</p>
+<p>色散是角频率 <span class="arithmatex">\(\omega\)</span> 与空间频率 <span class="arithmatex">\(k\)</span> 的关系，空间频率即波数，正比于波长的倒数。</p>
 <ul>
-<li>若 $\omega=c|k|$，则所有频率的波以相同速度传播，无色散；</li>
-<li>若 $\omega$ 非线性，则不同频率波的波速不同</li>
+<li>若 <span class="arithmatex">\(\omega=c|k|\)</span>，则所有频率的波以相同速度传播，无色散；</li>
+<li>若 <span class="arithmatex">\(\omega\)</span> 非线性，则不同频率波的波速不同</li>
 </ul>
-<p>考虑一阶系统 $\frac{\partial w}{\partial t}=Lw$ 的时谐解 time-harmonic 形式
+<p>考虑一阶系统 <span class="arithmatex">\(\frac{\partial w}{\partial t}=Lw\)</span> 的时谐解 time-harmonic 形式
 $$
 w(x,t)=e^{-i\omega t}f_{\omega}(x)
 $$
@@ -15508,13 +15510,13 @@ $$
 $$
 \hat{w}(x,\omega) = \int_{\mathbb{R}^+} e^{i\omega t}w(x,t)dt
 $$
-令 $f_{\omega}(x)=\hat{w}(x,\omega)$，因此考虑时谐解不丧失一般性。</p>
+令 <span class="arithmatex">\(f_{\omega}(x)=\hat{w}(x,\omega)\)</span>，因此考虑时谐解不丧失一般性。</p>
 <h4 id="_6">平面波</h4>
 <p>平面波在空间任意一点都同方向传播，波速相同。形式为
 $$
 w(x,t) = e^{-i\omega t}e^{i\vec{k}\cdot x}\vec{r},\quad x\in\mathbb{R}^n,\vec{k}\in\mathbb{R}^n,\vec{r}\in\mathbb{R}^m
 $$
-其中 $\vec{k}$ 就是波向量。例如
+其中 <span class="arithmatex">\(\vec{k}\)</span> 就是波向量。例如
 $$
 声波:w=
 \begin{pmatrix}
@@ -15532,16 +15534,16 @@ w =
 \epsilon
 \end{pmatrix}
 $$
-若 $n=1$，则 $k$ 表示空间频率（波数），$\omega$ 表示时间频率（角频率）。</p>
+若 <span class="arithmatex">\(n=1\)</span>，则 <span class="arithmatex">\(k\)</span> 表示空间频率（波数），<span class="arithmatex">\(\omega\)</span> 表示时间频率（角频率）。</p>
 <p>一阶一维单向波方程（传输方程）
 $$
 \frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x}=0
 $$
-其中 $c$ 为常数。考虑时谐解 $w(x,t)=e^{-i\omega t}f_{\omega}(x)$ 得到
+其中 <span class="arithmatex">\(c\)</span> 为常数。考虑时谐解 <span class="arithmatex">\(w(x,t)=e^{-i\omega t}f_{\omega}(x)\)</span> 得到
 $$
 f_{\omega}(x)=e^{ikx},\quad k= \frac{\omega}{c}
 $$
-即 $\omega=ck$ 满足线性色散关系。由于
+即 <span class="arithmatex">\(\omega=ck\)</span> 满足线性色散关系。由于
 $$
 T = \frac{2\pi}{\omega},\quad c= \frac{\lambda}{T},\quad \lambda= \frac{2\pi}{k}
 $$
@@ -15549,23 +15551,23 @@ $$
 $$
 w(x,t) = e^{ik(x-ct)}
 $$
-它是右行波，传播速度为 $c&gt;0$ 。</p>
-<p>二阶 $n$ 维波动方程
+它是右行波，传播速度为 <span class="arithmatex">\(c&gt;0\)</span> 。</p>
+<p>二阶 <span class="arithmatex">\(n\)</span> 维波动方程
 $$
 \frac{\partial^2u}{\partial t^2}-c^2\Delta u=0,\quad x\in\mathbb{R}^n
 $$
-其中 $c$ 为常数。同理考虑时谐解 $w(x,t)=e^{-i\omega t}f_{\omega}(x)$ 得到
+其中 <span class="arithmatex">\(c\)</span> 为常数。同理考虑时谐解 <span class="arithmatex">\(w(x,t)=e^{-i\omega t}f_{\omega}(x)\)</span> 得到
 $$
 \begin{aligned}
 -(\omega^2f_{\omega}+c^2\Delta f_{\omega})&amp;=0\
 (\Delta +k^2)f_{\omega} &amp;= 0
 \end{aligned}
 $$
-后者称为 Helmholtz 方程，$\Delta +k^2$ 称为 Helmholtz 算子。可以解得
+后者称为 Helmholtz 方程，<span class="arithmatex">\(\Delta +k^2\)</span> 称为 Helmholtz 算子。可以解得
 $$
 f_\omega\left(x\right)=e^{i\vec{k}\cdot x}
 $$
-其中 $\vec{k}$ 是波向量，$|\vec{k}|$ 是波数，$\hat{k}= \frac{\vec{k}}{|k|}$ 是平面波方向。并且
+其中 <span class="arithmatex">\(\vec{k}\)</span> 是波向量，<span class="arithmatex">\(|\vec{k}|\)</span> 是波数，<span class="arithmatex">\(\hat{k}= \frac{\vec{k}}{|k|}\)</span> 是平面波方向。并且
 $$
 \omega = \pm c|\vec{k}|
 $$
@@ -15591,12 +15593,12 @@ Lf_{\omega}(x) &amp;= e^{i\omega t}Lw= e^{i\omega t}\frac{\partial w}{\partial t
 iLf_{\omega}(x) &amp;= \omega f_{\omega}(x)
 \end{aligned}
 $$
-由于反自伴性质 $L^<em>=-L$，以及复空间内积满足 $\langle aw,w'\rangle=\langle w,\bar{a}w'\rangle$，于是
+由于反自伴性质 <span class="arithmatex">\(L^*=-L\)</span>，以及复空间内积满足 <span class="arithmatex">\(\langle aw,w'\rangle=\langle w,\bar{a}w'\rangle\)</span>，于是
 $$
-\langle iLw,w'\rangle = \langle w,(iL)^</em>w'\rangle = \langle w,-iL^*w'\rangle = \langle w,iLw'\rangle
+\langle iLw,w'\rangle = \langle w,(iL)^<em>w'\rangle = \langle w,-iL^</em>w'\rangle = \langle w,iLw'\rangle
 $$
-则 $iL$ 是自伴算子，其特征值 $\omega$ 均为实数，从而 $L$ 的特征值为虚数。</p>
-<p>要从双曲系统中分离出平面波，首先要找到等高线 $\vec{k}\cdot x=c_{0}+ct$，即需要寻找 $L$ 的特征函数，满足
+则 <span class="arithmatex">\(iL\)</span> 是自伴算子，其特征值 <span class="arithmatex">\(\omega\)</span> 均为实数，从而 <span class="arithmatex">\(L\)</span> 的特征值为虚数。</p>
+<p>要从双曲系统中分离出平面波，首先要找到等高线 <span class="arithmatex">\(\vec{k}\cdot x=c_{0}+ct\)</span>，即需要寻找 <span class="arithmatex">\(L\)</span> 的特征函数，满足
 $$
 f_{\omega}(x) = e^{i\vec{k}\cdot x}\vec{r},\quad \vec{r}\in\mathbb{R}^m
 $$
@@ -15629,7 +15631,7 @@ $$
 \kappa</em>{0} \vec{k}\cdot  \vec{r_{1}}&amp;=\omega r_{2}
 \end{aligned}
 $$
-由于声波中 $\vec{r}<em>{1}=\vec{v}$ 与 $\vec{k}$ 共线，且 $\vec{k},\omega$ 都确定，假设 $\vec{r}$ 是常量，则解存在的必要条件是 $\rho</em>{0},\kappa_{0}$ 为常数，即 $L$ 为常系数算子。</p>
+由于声波中 <span class="arithmatex">\(\vec{r}_{1}=\vec{v}\)</span> 与 <span class="arithmatex">\(\vec{k}\)</span> 共线，且 <span class="arithmatex">\(\vec{k},\omega\)</span> 都确定，假设 <span class="arithmatex">\(\vec{r}\)</span> 是常量，则解存在的必要条件是 <span class="arithmatex">\(\rho_{0},\kappa_{0}\)</span> 为常数，即 <span class="arithmatex">\(L\)</span> 为常系数算子。</p>
 <p>对于常系数算子，可以看出
 $$
 L(e^{i\vec{k}\cdot x}\vec{r})=P(\vec{k})e^{i\vec{k}\cdot x}\vec{r}
@@ -15646,13 +15648,13 @@ $$
 $$
 \hat{Lf}(\vec{k}) = \int_{\mathbb{R^n}}e^{-i\vec{k}\cdot x}Lf(x)dx = P(\vec{k})\hat{f}(\vec{k})
 $$
-因此 $L$ 在 $f$ 上的作用转换为傅里叶空间中的左乘矩阵 $P(\vec{k})$，此矩阵称为 $L$ 的色散矩阵。</p>
-<p>现在考虑 $L$ 的特征值 $-i\omega$ 中的 $\omega$ 与特征函数 $e^{i\vec{k}\cdot x}\vec{r}$ 中的 $\vec{k}$ 之间的关系。由于
+因此 <span class="arithmatex">\(L\)</span> 在 <span class="arithmatex">\(f\)</span> 上的作用转换为傅里叶空间中的左乘矩阵 <span class="arithmatex">\(P(\vec{k})\)</span>，此矩阵称为 <span class="arithmatex">\(L\)</span> 的色散矩阵。</p>
+<p>现在考虑 <span class="arithmatex">\(L\)</span> 的特征值 <span class="arithmatex">\(-i\omega\)</span> 中的 <span class="arithmatex">\(\omega\)</span> 与特征函数 <span class="arithmatex">\(e^{i\vec{k}\cdot x}\vec{r}\)</span> 中的 <span class="arithmatex">\(\vec{k}\)</span> 之间的关系。由于
 $$
 L(e^{i\vec{k}\cdot x}\vec{r})= -i\omega(e^{i\vec{k}\cdot x}\vec{r}) \implies P(\vec{k})\vec{r}=-i\omega \vec{r}
 $$
-因此 $-i\omega$ 是 $P(\vec{k})$ 关于特征向量 $\vec{r}$ 的特征值。</p>
-<p>例如 $n=2,\rho_{0}=\kappa_{0}=c=1$ 时，色散矩阵
+因此 <span class="arithmatex">\(-i\omega\)</span> 是 <span class="arithmatex">\(P(\vec{k})\)</span> 关于特征向量 <span class="arithmatex">\(\vec{r}\)</span> 的特征值。</p>
+<p>例如 <span class="arithmatex">\(n=2,\rho_{0}=\kappa_{0}=c=1\)</span> 时，色散矩阵
 $$
 P(\vec{k})=
 \begin{pmatrix}
@@ -15663,8 +15665,8 @@ P(\vec{k})=
 $$
 计算特征对</p>
 <ul>
-<li>$\lambda_{1}=0,\omega_{1}=0,r_{1}=(k_{2},-k_{1},0)^T$</li>
-<li>$\lambda_{2,3}=\pm i|\vec{k}|,\omega_{2,3}=\mp|\vec{k}|,r_{2,3}=\left( \mp \frac{k_{1}}{|\vec{k}|},\mp \frac{k_{2}}{|\vec{k}|},|\vec{k}| \right)$</li>
+<li><span class="arithmatex">\(\lambda_{1}=0,\omega_{1}=0,r_{1}=(k_{2},-k_{1},0)^T\)</span></li>
+<li><span class="arithmatex">\(\lambda_{2,3}=\pm i|\vec{k}|,\omega_{2,3}=\mp|\vec{k}|,r_{2,3}=\left( \mp \frac{k_{1}}{|\vec{k}|},\mp \frac{k_{2}}{|\vec{k}|},|\vec{k}| \right)\)</span></li>
 </ul>
 <p>分别代回方程得到
 $$
@@ -15685,7 +15687,7 @@ $$
 其中前者不是波，后者速度场方向与振动方向相同，因此是纵波。</p>
 <blockquote>
 <blockquote>
-<p>若 $L$ 是双曲常系数对角算子，则 $\frac{\partial w}{\partial t}=Lw$ 的色散关系由 $\det(i\omega I_{m\times m}+P(\vec{k}))=0$ 给出。</p>
+<p>若 <span class="arithmatex">\(L\)</span> 是双曲常系数对角算子，则 <span class="arithmatex">\(\frac{\partial w}{\partial t}=Lw\)</span> 的色散关系由 <span class="arithmatex">\(\det(i\omega I_{m\times m}+P(\vec{k}))=0\)</span> 给出。</p>
 </blockquote>
 </blockquote>
 <h3 id="_7">行波与特征线方程</h3>
@@ -15694,11 +15696,11 @@ $$
 $$
 \frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x}=0
 $$
-前面我们以平面波形式构造解，现在给定初值条件 $u(x,0)=u_{0}(x)$ 构造解。根据方程形式，构造 $\hat{u}(\tau)=u(x(\tau),t(\tau))$，于是
+前面我们以平面波形式构造解，现在给定初值条件 <span class="arithmatex">\(u(x,0)=u_{0}(x)\)</span> 构造解。根据方程形式，构造 <span class="arithmatex">\(\hat{u}(\tau)=u(x(\tau),t(\tau))\)</span>，于是
 $$
 \frac{d \hat{u}(\tau)}{d \tau}=\frac{\partial u(x,t)}{\partial x}\frac{d x}{d \tau}+\frac{\partial u(x,t)}{\partial t}\frac{d t}{d \tau}=0
 $$
-构造变换 $t=\tau$，于是
+构造变换 <span class="arithmatex">\(t=\tau\)</span>，于是
 $$
 \frac{d \hat{u}(\tau)}{d \tau}=\frac{\partial u}{\partial x}\frac{d x}{d \tau}+\frac{\partial u}{\partial t}=0
 $$
@@ -15706,11 +15708,11 @@ $$
 $$
 \frac{dx}{d\tau} = c \implies x = x_{0}+c\tau
 $$
-因此当 $t=\tau=0$ 时，$\hat{u}(0)= u(x_{0},0)$，并且 $\hat{u}(\tau)$ 关于 $\tau$ 不变，于是 $\hat{u}(\tau) = u (x_{0}, 0)$，进而
+因此当 <span class="arithmatex">\(t=\tau=0\)</span> 时，<span class="arithmatex">\(\hat{u}(0)= u(x_{0},0)\)</span>，并且 <span class="arithmatex">\(\hat{u}(\tau)\)</span> 关于 <span class="arithmatex">\(\tau\)</span> 不变，于是 <span class="arithmatex">\(\hat{u}(\tau) = u (x_{0}, 0)\)</span>，进而
 $$
 u(x,t)=\hat{u}(\tau) = u (x_{0}, 0)=u(x-ct,0)=u_{0}(x-ct)
 $$
-是空间速度为 $c$ 的右行波。称 $\xi=x-ct$ 为特征线坐标，$\xi(x,t)=const$ 为特征线。</p>
+是空间速度为 <span class="arithmatex">\(c\)</span> 的右行波。称 <span class="arithmatex">\(\xi=x-ct\)</span> 为特征线坐标，<span class="arithmatex">\(\xi(x,t)=const\)</span> 为特征线。</p>
 <blockquote>
 <blockquote>
 <p>可以将初值条件换成边值条件，但是需要注意不能在某一条特征线上指定边值。要求得全空间上的解，必须要求任何一点可以沿着特征线移动到边界上，如果边界就是一条特征线，就只有这条特征线上的值可以被确定。</p>
@@ -15721,7 +15723,7 @@ $$
 $$
 \frac{\partial^2u}{\partial t^2}-c^2 \frac{\partial^2u}{\partial x^2}=0
 $$
-其中 $c$ 是常数，给定初值
+其中 <span class="arithmatex">\(c\)</span> 是常数，给定初值
 $$
 u(x,0)=u_{0}(x),\quad \frac{\partial u}{\partial t}=u_{1}(x)
 $$
@@ -15749,16 +15751,16 @@ u(x,t) = \frac{1}{2}(u_{0}(x-ct)+u_{0}(x+ct)) \frac{1}{2c}\int_{x-ct}^{x+ct} u_{
 $$
 它有两组特征线。</p>
 <h4 id="_10">推广</h4>
-<p>因此我们得到特征线法的目标。对于一阶方程，考虑变换 $\tau\mapsto(x,t)$ 使得
+<p>因此我们得到特征线法的目标。对于一阶方程，考虑变换 <span class="arithmatex">\(\tau\mapsto(x,t)\)</span> 使得
 $$
 \frac{\partial u}{\partial t}+c\frac{\partial u}{\partial x}=0\implies\frac{d\hat{u}}{d\tau} = 0
 $$
-对于二阶方程，考虑变换 $(\xi,\eta)\mapsto(x,t)$ 使得
+对于二阶方程，考虑变换 <span class="arithmatex">\((\xi,\eta)\mapsto(x,t)\)</span> 使得
 $$
 \frac{\partial^2u}{\partial t^2}-c^2 \frac{\partial^2u}{\partial x^2}=0\implies\frac{\partial^2 \hat{u}}{\partial \xi \partial \eta} = 0
 $$
 即两个特征线法的组合。</p>
-<p>考虑体积模量不均匀的无限长弦上的声波，波速为 $c(x),x\in\mathbb{R}$，满足
+<p>考虑体积模量不均匀的无限长弦上的声波，波速为 <span class="arithmatex">\(c(x),x\in\mathbb{R}\)</span>，满足
 $$
 \begin{cases}
 \frac{\partial^2u}{\partial t^2}-c^2(x) \frac{\partial^2u}{\partial x^2}=0 \
@@ -15766,7 +15768,7 @@ u(x,0) = u_{0}(x) \
 \frac{\partial u}{\partial t}(x,0) = u_{1}(x)
 \end{cases}
 $$
-这种情况无法写出精确解的表达式，但特征线法仍有意义。考虑待定的坐标变换 $\hat{u}(\xi,\eta)=u(x,t)$，则有
+这种情况无法写出精确解的表达式，但特征线法仍有意义。考虑待定的坐标变换 <span class="arithmatex">\(\hat{u}(\xi,\eta)=u(x,t)\)</span>，则有
 $$
 \begin{pmatrix}
 \frac{\partial}{\partial x} \
@@ -15800,7 +15802,7 @@ $$
 \gamma(x,t) &amp;= \left( \frac{\partial \eta}{\partial t} \right)^2-c^2(x) \left( \frac{\partial \eta}{\partial x} \right)^2 = 0
 \end{aligned}
 $$
-其中 $\alpha,\gamma$ 分别是坐标变换时的函数。</p>
+其中 <span class="arithmatex">\(\alpha,\gamma\)</span> 分别是坐标变换时的函数。</p>
 <p>考虑高维方程
 $$
 \begin{cases}
@@ -15813,17 +15815,17 @@ $$
 $$
 (x_{1},\cdots,x_{n},t) \mapsto (\xi,\eta_{1},\cdots,\eta_{n})
 $$
-其中的变量对称对应。于是需要有 $\frac{\partial^2}{\partial \xi^2}$ 前的系数满足
+其中的变量对称对应。于是需要有 <span class="arithmatex">\(\frac{\partial^2}{\partial \xi^2}\)</span> 前的系数满足
 $$
 \alpha(x,t) = \left( \frac{\partial \xi}{\partial t} \right)^2-c^2(x)|\nabla \xi|^2 = 0
 $$
-称为 Hamilton-Jacobi 方程；以及关于 $\vec{\eta}$ 的二次项前的系数为零。最终得到
+称为 Hamilton-Jacobi 方程；以及关于 <span class="arithmatex">\(\vec{\eta}\)</span> 的二次项前的系数为零。最终得到
 $$
 \frac{\partial}{\partial \xi}\left( l\left( \frac{\partial}{\partial \eta_{1}},\cdots, \frac{\partial}{\partial \eta_{n}} \right) \right)U+o(1) = 0
 $$
-其中 $l$ 是关于 $\vec{\eta}$ 的一阶算子。由 Hamilton-Jacobi 方程的解 $\xi(x,t)$ 定义的曲面 $\xi(x,t)=const$ 称为特征曲面。</p>
+其中 <span class="arithmatex">\(l\)</span> 是关于 <span class="arithmatex">\(\vec{\eta}\)</span> 的一阶算子。由 Hamilton-Jacobi 方程的解 <span class="arithmatex">\(\xi(x,t)\)</span> 定义的曲面 <span class="arithmatex">\(\xi(x,t)=const\)</span> 称为特征曲面。</p>
 <h4 id="h-j">H-J 方程的解</h4>
-<p>若 $c(x)$ 为常数，则存在解
+<p>若 <span class="arithmatex">\(c(x)\)</span> 为常数，则存在解
 $$
 \begin{aligned}
 \xi(x,t)&amp;=\vec{k}\cdot x\pm \omega t,\quad \omega=|\vec{k}|c, \vec{k}\in \mathbb{R}^n\backslash{0}\
@@ -15838,9 +15840,9 @@ $$
 u(x,t)&amp;=F(|x-x_{0}|\pm ct)
 \end{aligned}
 $$
-其中 $x_{0}$ 是给定点，这是球面波。</p>
+其中 <span class="arithmatex">\(x_{0}\)</span> 是给定点，这是球面波。</p>
 <h3 id="_11">球面波与格林函数</h3>
-<p>考虑三维空间，球坐标变换 $x=(x_{1},x_{2},x_{3})\mapsto (r,\theta,\phi)$ 下的拉普拉斯方程
+<p>考虑三维空间，球坐标变换 <span class="arithmatex">\(x=(x_{1},x_{2},x_{3})\mapsto (r,\theta,\phi)\)</span> 下的拉普拉斯方程
 $$
 \begin{aligned}
 \Delta u &amp;= \frac{1}{r} \frac{\partial^2}{\partial r^2}(ru)+ A_{angular}\
@@ -15856,16 +15858,16 @@ $$
 u(r,t) = \frac{F(r-ct)}{r} + \frac{G(r+ct)}{r}
 $$
 两项分别为出射波 outgoing 和入射波 incoming 。</p>
-<p>显然，当空间是一致的（$c$ 为常数），球状波可以是任意 $y\in\mathbb{R}^3$ 处出发的波
+<p>显然，当空间是一致的（<span class="arithmatex">\(c\)</span> 为常数），球状波可以是任意 <span class="arithmatex">\(y\in\mathbb{R}^3\)</span> 处出发的波
 $$
 u(x,t) = \frac{F(|x-y|-ct)}{|x-y|}
 $$
-事实上，根据上一接提到的，$|x-y|-ct=const$ 是特征曲面。</p>
-<p>经典意义下，$F$ 应当是光滑函数，但此处考虑广义弱解情形。取 $F(r)=\delta (r)$ 为一维 Dirac 函数，即
+事实上，根据上一接提到的，<span class="arithmatex">\(|x-y|-ct=const\)</span> 是特征曲面。</p>
+<p>经典意义下，<span class="arithmatex">\(F\)</span> 应当是光滑函数，但此处考虑广义弱解情形。取 <span class="arithmatex">\(F(r)=\delta (r)\)</span> 为一维 Dirac 函数，即
 $$
 \frac{\delta(|x-y|-ct)}{|x-y|}
 $$
-为 $y$ 处的一个脉冲产生的球面波，$t$ 时支集为 ${|x-y|=ct}$ 。关于 $y$ 叠加后得到方程的一个解
+为 <span class="arithmatex">\(y\)</span> 处的一个脉冲产生的球面波，<span class="arithmatex">\(t\)</span> 时支集为 <span class="arithmatex">\(\{|x-y|=ct\}\)</span> 。关于 <span class="arithmatex">\(y\)</span> 叠加后得到方程的一个解
 $$
 \begin{aligned}
 u(x,t) &amp;= \int_{\mathbb{R}^n} \psi(y) \frac{\delta(|x-y|-ct)}{|x-y|}dy\
@@ -15873,7 +15875,7 @@ u(x,t) &amp;= \int_{\mathbb{R}^n} \psi(y) \frac{\delta(|x-y|-ct)}{|x-y|}dy\
 &amp;= \frac{1}{ct}\int_{\partial B_{x}(ct)} \psi(y)dS_{y}
 \end{aligned}
 $$
-其中 $\psi(y)$ 是波源处的强度。由球面积分的中值定理
+其中 <span class="arithmatex">\(\psi(y)\)</span> 是波源处的强度。由球面积分的中值定理
 $$
 \exists \xi \in\partial B_{0}(R),\quad \mathrm{s.t.}\quad f(\xi) = \frac{1}{4\pi R^2}\int_{\partial B_{0}(R)}f(y)dS_{y}
 $$
@@ -15917,26 +15919,26 @@ G(x,y;t) =
 $$
 称为 Green 函数。</p>
 <h4 id="_13">零导数条件</h4>
-<p>如果初值 $u_{0}(x)\neq 0,u_{1}(x)=0$，考虑
+<p>如果初值 <span class="arithmatex">\(u_{0}(x)\neq 0,u_{1}(x)=0\)</span>，考虑
 $$
 v(x,t) = \int_{\mathbb{R}^n} \psi(y) \frac{\delta(|x-y|-ct)}{|x-y|}dy
 $$
-使得 $v(x,0)=u_{1}(x), \frac{\partial v}{\partial t}(x,0)=u_{0}(x)$，然后令
+使得 <span class="arithmatex">\(v(x,0)=u_{1}(x), \frac{\partial v}{\partial t}(x,0)=u_{0}(x)\)</span>，然后令
 $$
 u(x,t) = \frac{\partial v}{\partial t}(x,t)
 $$
-由于 $\frac{\partial^2}{\partial t^2}-c^2\Delta$ 与 $\frac{\partial}{\partial t}$ 可交换，于是
+由于 <span class="arithmatex">\(\frac{\partial^2}{\partial t^2}-c^2\Delta\)</span> 与 <span class="arithmatex">\(\frac{\partial}{\partial t}\)</span> 可交换，于是
 $$
 \left( \frac{\partial^2}{\partial t^2}-c^2\Delta \right)u = \left( \frac{\partial^2}{\partial t^2}-c^2\Delta \right)\frac{\partial v}{\partial t} = \frac{\partial}{\partial t}\left( \frac{\partial^2}{\partial t^2}-c^2\Delta \right)v = 0
 $$
-所以 $u(x,t)$ 是方程满足边界条件 $u(x,0)=u_{0}(x)\neq 0, \frac{\partial u}{\partial t}(x,0)=u_{1}(x)=0$ 的解。</p>
+所以 <span class="arithmatex">\(u(x,t)\)</span> 是方程满足边界条件 <span class="arithmatex">\(u(x,0)=u_{0}(x)\neq 0, \frac{\partial u}{\partial t}(x,0)=u_{1}(x)=0\)</span> 的解。</p>
 <h4 id="kifrchoff">Kifrchoff 公式</h4>
 <p>结合两类初值条件，得到
 $$
 u(x,t) = \int_{\mathbb{R}^3} \frac{\partial G}{\partial t}(x,y;t)u_{0}(y)+G(x,y;t)u_{1}(y)dy
 $$
-是满足方程和任意初值条件 $u_{0},u_{1}$ 的解。并且可推广到任意维度，甚至是非均匀介质 $c=c (x)$ 中，后者通常没有解析的 Green 函数。</p>
-<p>Duhanmel 法则：若 $G(x,y;t)$ 是 $\mathbb{R}^n$ 中的波动算子 $\frac{\partial^2}{\partial t^2}-c^2(x)\Delta$ 的 Green 函数，则
+是满足方程和任意初值条件 <span class="arithmatex">\(u_{0},u_{1}\)</span> 的解。并且可推广到任意维度，甚至是非均匀介质 <span class="arithmatex">\(c=c (x)\)</span> 中，后者通常没有解析的 Green 函数。</p>
+<p>Duhanmel 法则：若 <span class="arithmatex">\(G(x,y;t)\)</span> 是 <span class="arithmatex">\(\mathbb{R}^n\)</span> 中的波动算子 <span class="arithmatex">\(\frac{\partial^2}{\partial t^2}-c^2(x)\Delta\)</span> 的 Green 函数，则
 $$
 \begin{cases}
 \frac{\partial^2u}{\partial t^2}-c^2\Delta u=f(x,t)\
@@ -15964,7 +15966,7 @@ $$
 $$
 -[\omega^2+c^2(x)\Delta]\hat{u}=\hat{f}
 $$
-称为 Helmholtz 方程。令 $\hat{G}(x,y;\omega)$ 为 Helmholtz 方程的格林函数，则
+称为 Helmholtz 方程。令 <span class="arithmatex">\(\hat{G}(x,y;\omega)\)</span> 为 Helmholtz 方程的格林函数，则
 $$
 \begin{aligned}
 \hat{u}(x,\omega)&amp;=\int_{\mathbb{R}^n}\hat{G}(x,y;\omega) \hat{f}(y,\omega)dy\
@@ -15976,26 +15978,26 @@ $$
 $$
 \hat{G}(x,y;\omega ) = \int_{0}^\infty e^{i\omega t} \frac{\delta(|x-y|-ct)}{4\pi c^2t}dt= \frac{e^{i\omega |x-y|/c}}{4\pi c^2|x-y|}
 $$
-其中 $k=\frac{\omega}{c}$ 为波数。对于 $f=0$ 构造时谐解
+其中 <span class="arithmatex">\(k=\frac{\omega}{c}\)</span> 为波数。对于 <span class="arithmatex">\(f=0\)</span> 构造时谐解
 $$
 u(x,t) =\frac{1}{2\pi}\int_{\mathbb{R}}d\omega\int_{\mathbb{R}^n}\frac{e^{ik(|x-y|-ct|)}}{4\pi c^2|x-y|} \hat{f}(y,\omega)dy
 $$
-根据积分内部的形式，它是出射波；而将 $\hat{G}(x,y;\omega)$ 替换为 $\hat{G}(x,y;-\omega)$ 后得到
+根据积分内部的形式，它是出射波；而将 <span class="arithmatex">\(\hat{G}(x,y;\omega)\)</span> 替换为 <span class="arithmatex">\(\hat{G}(x,y;-\omega)\)</span> 后得到
 $$
 u(x,t) =\frac{1}{2\pi}\int_{\mathbb{R}}d\omega\int_{\mathbb{R}^n}\frac{e^{-ik(|x-y|+ct|)}}{4\pi c^2|x-y|} \hat{f}(y,\omega)dy
 $$
 对应入射波。</p>
 <blockquote>
 <blockquote>
-<p>将 $\omega$ 替换为 $-\omega$ 不改变方程，因此 $\hat{G}(x,y;-\omega)$ 也是方程的解，对应的是时间回溯。</p>
+<p>将 <span class="arithmatex">\(\omega\)</span> 替换为 <span class="arithmatex">\(-\omega\)</span> 不改变方程，因此 <span class="arithmatex">\(\hat{G}(x,y;-\omega)\)</span> 也是方程的解，对应的是时间回溯。</p>
 </blockquote>
 </blockquote>
-<p>由于 $\hat{G}(x,y;\omega ),\hat{G}(x,y;-\omega )$ 都是基本解，因此要得到唯一解，仅要求函数本身在 $|x|\to \infty$ 时衰减并不足够。</p>
+<p>由于 <span class="arithmatex">\(\hat{G}(x,y;\omega ),\hat{G}(x,y;-\omega )\)</span> 都是基本解，因此要得到唯一解，仅要求函数本身在 <span class="arithmatex">\(|x|\to \infty\)</span> 时衰减并不足够。</p>
 <p>在二维空间中，Helmholtz 方程在极坐标下为
 $$
 \frac{1}{r} \frac{d}{dr}\left( r \frac{d}{dr} \right)+k^2 = \delta(r)
 $$
-其解记为 $H_{0}^{(1)}(r)$，称为第一类 Hankel 函数，满足
+其解记为 <span class="arithmatex">\(H_{0}^{(1)}(r)\)</span>，称为第一类 Hankel 函数，满足
 $$
 \begin{aligned}
 H_{0}^{(1)}(r) &amp;\sim \sqrt{ \frac{2}{\pi} } \frac{e^{i(r-\pi/4)}}{\sqrt{ r }},\quad r\to \infty\
@@ -16010,8 +16012,8 @@ G(x,y;t) &amp;= \frac{1}{2\pi c\sqrt{ c^2t^2-|x-y|^2 }}\
 \end{aligned}
 $$</p>
 <h3 id="_14">反射波</h3>
-<p>若背景参数 ($\rho,\kappa,\epsilon,\mu$ 等) 都是常数，波的传播方向不变，波形不变；若背景参数关于 $x$ 变化，则波会发生散射。特别是在非连续界面或非 $C^\infty$ 连续界面，则波会发生反射和透射。</p>
-<p>考虑在 $x=0$ 处背景参数不连续的一维波方程
+<p>若背景参数 (<span class="arithmatex">\(\rho,\kappa,\epsilon,\mu\)</span> 等) 都是常数，波的传播方向不变，波形不变；若背景参数关于 <span class="arithmatex">\(x\)</span> 变化，则波会发生散射。特别是在非连续界面或非 <span class="arithmatex">\(C^\infty\)</span> 连续界面，则波会发生反射和透射。</p>
+<p>考虑在 <span class="arithmatex">\(x=0\)</span> 处背景参数不连续的一维波方程
 $$
 \begin{aligned}
 &amp;\frac{\partial^2u}{\partial t^2} - \kappa(x) \frac{\partial}{\partial x}\left( \frac{1}{\rho(x)} \frac{\partial u}{\partial x} \right) = 0,\
@@ -16022,11 +16024,11 @@ $$
 \end{cases}
 \end{aligned}
 $$
-其中 $\kappa,\rho$ 分别为体积模量和密度。假设从左边 $-\infty$ 处引入平面波 incident wave
+其中 <span class="arithmatex">\(\kappa,\rho\)</span> 分别为体积模量和密度。假设从左边 <span class="arithmatex">\(-\infty\)</span> 处引入平面波 incident wave
 $$
 u_{i}(x,t) = e^{i(k_{1}x-\omega t)},\quad k_{1}=\frac{\omega}{c_{1}}= \frac{\omega}{\sqrt{ \frac{\kappa_{1}}{\rho_{1}} }}
 $$
-通过 $x=0$ 时发生反射和透射
+通过 <span class="arithmatex">\(x=0\)</span> 时发生反射和透射
 $$
 \begin{aligned}
 Reflection:\quad u_{r}(x,t) = Re^{i(-k_{1}x-\omega t)},\quad x&lt;0\
@@ -16041,11 +16043,11 @@ e^{i(k_{1}x-\omega t)}+R e^{i(-k_{1}x-\omega t)}, &amp; x&lt;0\
 Te^{i(k_{2}x-\omega t)}, &amp; x &gt; 0
 \end{cases}
 $$
-对于声波而言 $u(x,t)$ 对应压力，满足
+对于声波而言 <span class="arithmatex">\(u(x,t)\)</span> 对应压力，满足
 $$
 \frac{\partial \vec{v}}{\partial t} = -\frac{1}{\rho} \frac{\partial u}{\partial x}
 $$
-要求 $u$ 在 $x=0$ 处连续可微，否则 $\frac{\partial}{\partial x}\left( \frac{1}{\rho(x)} \frac{\partial u}{\partial x} \right)$ 在 $x=0$ 有一个 Dirac 质点，与不连续的 $\kappa$ 相乘无法得到有限函数。</p>
+要求 <span class="arithmatex">\(u\)</span> 在 <span class="arithmatex">\(x=0\)</span> 处连续可微，否则 <span class="arithmatex">\(\frac{\partial}{\partial x}\left( \frac{1}{\rho(x)} \frac{\partial u}{\partial x} \right)\)</span> 在 <span class="arithmatex">\(x=0\)</span> 有一个 Dirac 质点，与不连续的 <span class="arithmatex">\(\kappa\)</span> 相乘无法得到有限函数。</p>
 <p>根据连续性要求有
 $$
 \begin{aligned}
@@ -16060,11 +16062,11 @@ $$
 \frac{k_{1}}{\rho_{1}}(1-R) = \frac{k_{2}}{\rho_{2}}T
 \end{cases}
 $$
-利用 $\omega=ck=k\sqrt{ \frac{\kappa}{\rho} }$ 替换得到
+利用 <span class="arithmatex">\(\omega=ck=k\sqrt{ \frac{\kappa}{\rho} }\)</span> 替换得到
 $$
 \frac{\omega}{\sqrt{ \rho_{1}\kappa_{1} }}(1-R) = \frac{\omega}{\sqrt{ \rho_{2} \kappa_{2}}}T
 $$
-令 $z_{j}=\sqrt{ \rho_{j}\kappa_{j} }$ 称为阻抗系数，于是
+令 <span class="arithmatex">\(z_{j}=\sqrt{ \rho_{j}\kappa_{j} }\)</span> 称为阻抗系数，于是
 $$
 \begin{cases}
 1+R=T \
@@ -16075,7 +16077,7 @@ R = \frac{z_{2}-z_{1}}{z_{2}+z_{1}} \
 T = \frac{2z_{2}}{z_{2}+z_{1}}
 \end{cases}
 $$
-阻抗差 $z_{2}-z_{1}$ 决定了反射强度 $R$ 。注意到
+阻抗差 <span class="arithmatex">\(z_{2}-z_{1}\)</span> 决定了反射强度 <span class="arithmatex">\(R\)</span> 。注意到
 $$
 R^2 + \frac{z_{1}}{z_{2}}T^2 = 1
 $$
@@ -16091,11 +16093,11 @@ $$
 $$
 G(x,y;t) = \frac{\delta (|x-y|-ct)}{4\pi c|x-y}
 $$
-在非均匀介质中，格林函数没有具体解析式。受到特征线方程 $\xi=\tau(x)-t$ 启发，可以近似为
+在非均匀介质中，格林函数没有具体解析式。受到特征线方程 <span class="arithmatex">\(\xi=\tau(x)-t\)</span> 启发，可以近似为
 $$
 G(x,y;t) = a(x,y)\delta(t-\tau(x,y))+R(x,y,t)
 $$
-其中 $a(x,y)$ 为幅函数 amplitude，$\delta$ 称为奇异项，$R(x,y,t)$ 称为光滑项，$\tau(x)$ 称为行时。</p>
+其中 <span class="arithmatex">\(a(x,y)\)</span> 为幅函数 amplitude，<span class="arithmatex">\(\delta\)</span> 称为奇异项，<span class="arithmatex">\(R(x,y,t)\)</span> 称为光滑项，<span class="arithmatex">\(\tau(x)\)</span> 称为行时。</p>
 <p>将形式解代入声波方程得到
 $$
 \begin{aligned}
@@ -16118,14 +16120,14 @@ $$
 $$
 \hat{G}(x,y;\omega) = \int e^{i\omega t}G(x,y;t)dt = a(x,y)e^{i\omega \tau(x,y)}+\hat{R}(x,y;\omega)
 $$
-其中 $\tau(x,y)$ 为 $G^0$ 解的相位，$a(x,y)$ 为振幅，$R(x,y;\omega)$ 为光滑项。将该频域形式代入 Helmholtz 方程得到
+其中 <span class="arithmatex">\(\tau(x,y)\)</span> 为 <span class="arithmatex">\(G^0\)</span> 解的相位，<span class="arithmatex">\(a(x,y)\)</span> 为振幅，<span class="arithmatex">\(R(x,y;\omega)\)</span> 为光滑项。将该频域形式代入 Helmholtz 方程得到
 $$
 \begin{aligned}
 -\left( \Delta+ \frac{\omega^2}{c^2(x)} \right)\hat{G} &amp;= -\nabla \cdot[(\nabla a)e^{i\omega \tau}+i\omega ae^{i\omega \tau}\nabla \tau ]- \frac{\omega^2}{c^2(x)}ae^{i\omega \tau}-\left( \Delta+\frac{\omega^2}{c^2(x)} \right)\hat{R}\
 &amp;= -(\Delta ae^{i\omega \tau}+2i\omega \nabla a\cdot \nabla \tau e^{i\omega \tau}-\omega^2ae^{i\omega \tau}|\nabla \tau|^2+i\omega ae^{i\omega \tau}\Delta \tau)-\left( \Delta x+\frac{\omega^2}{c^2(x)} \right)\hat{R}
 \end{aligned}
 $$
-合并相同幂次的 $\omega$ 项得到
+合并相同幂次的 <span class="arithmatex">\(\omega\)</span> 项得到
 $$
 \begin{aligned}
 -\omega^2\left( \frac{1}{c^2(x)}-|\nabla \tau|^2 \right)ae^{i\omega \tau} &amp;= 0\
@@ -16133,42 +16135,42 @@ $$
 -\left( \Delta x+\frac{\omega^2}{c^2(x)} \right)\hat{R} &amp;= \Delta ae^{i\omega \tau}+\delta (x-y)
 \end{aligned}
 $$
-根据其系数为零就得到前面的三个方程。因此格林函数的 $G^0$ 形式是高频近似（$\omega$ 越大，上述展开结束关系越明确）。</p>
+根据其系数为零就得到前面的三个方程。因此格林函数的 <span class="arithmatex">\(G^0\)</span> 形式是高频近似（<span class="arithmatex">\(\omega\)</span> 越大，上述展开结束关系越明确）。</p>
 <p>考虑 Eikonal 方程
 $$
 \frac{1}{c^2(x)}-|\nabla \tau|^2 = 0
 $$
-假设 $c(x)=c_{0}$ 均匀一致介质，则若 $\tau(y,y)=0$，则 $\tau(x,y)=\frac{|x-y|}{c_{0}}$ 为 outgoing 球面波，以及格林函数
+假设 <span class="arithmatex">\(c(x)=c_{0}\)</span> 均匀一致介质，则若 <span class="arithmatex">\(\tau(y,y)=0\)</span>，则 <span class="arithmatex">\(\tau(x,y)=\frac{|x-y|}{c_{0}}\)</span> 为 outgoing 球面波，以及格林函数
 $$
 G(x,y;t) = \frac{\delta(c_{0}t-|x-y|)}{4\pi c|x-y|}
 $$
-或者 $\tau(x,y)=-\frac{|x-y|}{c_{0}}$ 为 incoming 球面波；若 $\tau(x)|<em>{x</em>{1}=0}=0$，则 $\tau(x)=\frac{|x_{1}|}{c_{0}}$；若 $\tau(x)=0$ 在某个曲线 $\Gamma$ 上成立，则 $\tau(x)=\frac{dist(x,\Gamma)}{c_{0}}$ 。</p>
-<p>格林函数 $G(x,y;t)$ 的主奇异部分（带有 $\delta$）的支集为 $t=\tau(x,y)$，它在不同时间的水平集
+或者 <span class="arithmatex">\(\tau(x,y)=-\frac{|x-y|}{c_{0}}\)</span> 为 incoming 球面波；若 <span class="arithmatex">\(\tau(x)|_{x_{1}=0}=0\)</span>，则 <span class="arithmatex">\(\tau(x)=\frac{|x_{1}|}{c_{0}}\)</span>；若 <span class="arithmatex">\(\tau(x)=0\)</span> 在某个曲线 <span class="arithmatex">\(\Gamma\)</span> 上成立，则 <span class="arithmatex">\(\tau(x)=\frac{dist(x,\Gamma)}{c_{0}}\)</span> 。</p>
+<p>格林函数 <span class="arithmatex">\(G(x,y;t)\)</span> 的主奇异部分（带有 <span class="arithmatex">\(\delta\)</span>）的支集为 <span class="arithmatex">\(t=\tau(x,y)\)</span>，它在不同时间的水平集
 $$
 {x\in\mathbb{R}^n|\tau(x,y)=t}
 $$
 称为波前集。</p>
 <p><img alt="" src="image-20250308134841474.jpeg|425" />
-同时注意到 $\xi(x,t)=t-\tau(x,y)$ 是特征线方程
+同时注意到 <span class="arithmatex">\(\xi(x,t)=t-\tau(x,y)\)</span> 是特征线方程
 $$
 \left( \frac{\partial \xi}{\partial t} \right)^2 = |\nabla\xi|^2
 $$
-的解。并且 $\xi=const$ 是特征线/面，它的投影就是波前集。</p>
+的解。并且 <span class="arithmatex">\(\xi=const\)</span> 是特征线/面，它的投影就是波前集。</p>
 <h3 id="_16">射线</h3>
-<p>射线是波包/粒子传播的路径，是 $\tau$ 的梯度的最大方向。射线参数式 $x=X(t)$ 满足
+<p>射线是波包/粒子传播的路径，是 <span class="arithmatex">\(\tau\)</span> 的梯度的最大方向。射线参数式 <span class="arithmatex">\(x=X(t)\)</span> 满足
 $$
 \frac{d}{dt}\tau(X(t)) = \nabla \tau(X(t))\cdot X'(t)
 $$
 为了简化该方程，要求局部满足</p>
 <ul>
-<li>速度 $|X'(t)|=c(x)$</li>
-<li>速度方向垂直于波前集，即与梯度方向平行 $\nabla \tau(x)\times X'(t)=0$</li>
+<li>速度 <span class="arithmatex">\(|X'(t)|=c(x)\)</span></li>
+<li>速度方向垂直于波前集，即与梯度方向平行 <span class="arithmatex">\(\nabla \tau(x)\times X'(t)=0\)</span></li>
 </ul>
 <p>于是有
 $$
 X'(t) = c(X(t)) \frac{\nabla \tau(X(t))}{|\nabla \tau(X(t))|}
 $$
-利用 Eikonal 方程 $|\nabla \tau(x)|=\frac{1}{c(x)}$ 得到
+利用 Eikonal 方程 <span class="arithmatex">\(|\nabla \tau(x)|=\frac{1}{c(x)}\)</span> 得到
 $$
 X'(t) = c^2(X(t))\nabla \tau(X(t))
 $$
@@ -16176,8 +16178,8 @@ $$
 $$
 \frac{d}{dt}\tau(X(t)) = 1 \implies \tau(X(t))-\tau(X(t_{0})) = t-t_{0}
 $$
-可以看出 $\tau$ 具有时间含义。</p>
-<p>记 $\xi(t)=\nabla \tau(X(t))$，则
+可以看出 <span class="arithmatex">\(\tau\)</span> 具有时间含义。</p>
+<p>记 <span class="arithmatex">\(\xi(t)=\nabla \tau(X(t))\)</span>，则
 $$
 \begin{aligned}
 \xi'(t) &amp;= \nabla \nabla \tau(X(t))\cdot X'(t)\
@@ -16189,7 +16191,7 @@ $$
 &amp;= - \frac{|\xi(t)|^2}{2}\nabla c^2(X(t))
 \end{aligned}
 $$
-于是得到关于位置和梯度 $(X(t),\xi(t))$ 相位的方程组
+于是得到关于位置和梯度 <span class="arithmatex">\((X(t),\xi(t))\)</span> 相位的方程组
 $$
 \begin{cases}
 X'(t) = c^2(X(t))\xi(t) \
@@ -16199,7 +16201,7 @@ $$
 初值为初始位置和初始方向。</p>
 <blockquote>
 <blockquote>
-<p>行时函数 $\tau(x)$ 是 Eikonal 方程的解，或作为射线方程中的时间参数。射线是相位空间中满足上述方程组的解，其在位置空间中的投影 $X(t)$ 为射线。</p>
+<p>行时函数 <span class="arithmatex">\(\tau(x)\)</span> 是 Eikonal 方程的解，或作为射线方程中的时间参数。射线是相位空间中满足上述方程组的解，其在位置空间中的投影 <span class="arithmatex">\(X(t)\)</span> 为射线。</p>
 </blockquote>
 </blockquote>
 <p>上述方程组称为哈密尔顿系统
@@ -16217,17 +16219,17 @@ $$
 $$
 H(x,p) = \frac{p^2}{2m}+V(x)
 $$
-其中 $p$ 为动量。</p>
-<p>从作用量泛函变分角度理解：以空间曲线 $X(t)$ 为变量，定义作用量泛函
+其中 <span class="arithmatex">\(p\)</span> 为动量。</p>
+<p>从作用量泛函变分角度理解：以空间曲线 <span class="arithmatex">\(X(t)\)</span> 为变量，定义作用量泛函
 $$
 S_{c}(X) = \int_{a}^b \frac{1}{c(x)}dl_{X} = \int_{0}^1 \frac{1}{c(X(t))} |X'(t)|dt,\quad X(0)=a,X(1)=b
 $$
-其中 $l_{X}$ 表示曲线测度。</p>
+其中 <span class="arithmatex">\(l_{X}\)</span> 表示曲线测度。</p>
 <blockquote>
 <p>费马定律
 射线是该作用量泛函的极小曲线。</p>
 </blockquote>
-<p>当连接 $a,b$ 的极小曲线唯一，对应的作用量 $S_{c}$ 即为行时
+<p>当连接 <span class="arithmatex">\(a,b\)</span> 的极小曲线唯一，对应的作用量 <span class="arithmatex">\(S_{c}\)</span> 即为行时
 $$
 \tau(a,b) = \min{S_{c}(X)|X(0)=a,X(1)=b}
 $$
@@ -16237,60 +16239,60 @@ $$
 $$
 2\nabla a\cdot \nabla \tau+a\Delta \tau = 0
 $$
-沿着射线 $X(t)$ 有
+沿着射线 <span class="arithmatex">\(X(t)\)</span> 有
 $$
 \frac{d}{dt}a(X(t)) = X'(t)\cdot \nabla a(X(t))=c^2\nabla \tau \cdot \nabla a=- \frac{c^2}{2}a\Delta \tau
 $$
-当 $\tau$ 已知时可求解。</p>
+当 <span class="arithmatex">\(\tau\)</span> 已知时可求解。</p>
 <p>将传输方程写作散度形式
 $$
 \nabla \cdot(a^2\nabla \tau) = 0
 $$
-通常意味着系统存在一个守恒量。在 $\mathbb{R}^3$ 中，考虑一条“射线管” $R$
+通常意味着系统存在一个守恒量。在 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中，考虑一条“射线管” <span class="arithmatex">\(R\)</span>
 <img alt="" src="image-20250308155345860.jpeg|275" />
 则由散度定理
 $$
 0 = \int_{V}\nabla \cdot(a^2\nabla c)dV = \int_{\partial V=R\cup S_{+}\cup S_{-}}a^2n\cdot \nabla \tau dS
 $$
-在 $R$ 中 $n$ 垂直于 $x\in R$ 所在射线 $\nabla \tau \cdot n=0$；在 $S_{\pm}$ 上 $n$ 平行于 $x$ 处射线 $\nabla\tau \cdot n=\pm|\nabla \tau|$；于是
+在 <span class="arithmatex">\(R\)</span> 中 <span class="arithmatex">\(n\)</span> 垂直于 <span class="arithmatex">\(x\in R\)</span> 所在射线 <span class="arithmatex">\(\nabla \tau \cdot n=0\)</span>；在 <span class="arithmatex">\(S_{\pm}\)</span> 上 <span class="arithmatex">\(n\)</span> 平行于 <span class="arithmatex">\(x\)</span> 处射线 <span class="arithmatex">\(\nabla\tau \cdot n=\pm|\nabla \tau|\)</span>；于是
 $$
 \begin{aligned}
 \int_{S_{+}}a^2|\nabla \tau|dS &amp;= \int_{S_{-}}a^2|\nabla \tau|dS\
 \int_{S_{+}} \frac{a^2}{c}dS &amp;= \int_{S_{-}} \frac{a^2}{c}dS
 \end{aligned}
 $$
-取连接 $x_{0},x$ 的无限细射线管，于是
+取连接 <span class="arithmatex">\(x_{0},x\)</span> 的无限细射线管，于是
 $$
 a(x) = a(x_{0})\sqrt{ \frac{c(x)}{c(x_{0})} \frac{dS_{0}}{dS} }
 $$</p>
 <h2 id="_18">散射级数</h2>
-<p>波方程加上边界条件的解 $u(x,t)$ 对波速 $c(x)$ 的映射是非线性的
+<p>波方程加上边界条件的解 <span class="arithmatex">\(u(x,t)\)</span> 对波速 <span class="arithmatex">\(c(x)\)</span> 的映射是非线性的
 $$
 \frac{\partial^2u}{\partial t^2}-c^2(x)\Delta u=0
 $$
-考虑该映射的 Taylor 展开（关于给定 $c_{0}(x)$ 附近的扰动 $\epsilon c_{1}(x),\epsilon\ll 1$ 的展开）。特别地，线性项被称为 Born Approximation (波恩近似)。设
+考虑该映射的 Taylor 展开（关于给定 <span class="arithmatex">\(c_{0}(x)\)</span> 附近的扰动 <span class="arithmatex">\(\epsilon c_{1}(x),\epsilon\ll 1\)</span> 的展开）。特别地，线性项被称为 Born Approximation (波恩近似)。设
 $$
 m(x) = \frac{1}{c^2(x)}
 $$
-称为背景 $m_{0}(x)$ 扰动后的系数。当扰动较小，记为
+称为背景 <span class="arithmatex">\(m_{0}(x)\)</span> 扰动后的系数。当扰动较小，记为
 $$
 m(x) = m_{0}(x) + \epsilon m_{1}(x)
 $$
-这与 $c(x)$ 扰动后展开一致。</p>
+这与 <span class="arithmatex">\(c(x)\)</span> 扰动后展开一致。</p>
 <h3 id="perturbation-born">Perturbation 与 Born 级数</h3>
 <p>考虑波方程
 $$
 m(x)\frac{\partial^2u}{\partial t^2}-\Delta u=f(x,t),\quad u(x,0) = \frac{\partial u}{\partial t}(x,0)=0
 $$
-其中 $m(x)=m_{0}(x)+\epsilon m_{1}(x)$ 由背景和散射体 (scatter) 组成，对应的解分解为
+其中 <span class="arithmatex">\(m(x)=m_{0}(x)+\epsilon m_{1}(x)\)</span> 由背景和散射体 (scatter) 组成，对应的解分解为
 $$
 u(x,t) = u_{0}(x,t)+u_{sc}(x)
 $$
-其中 $u_{0}$ 表示背景而非初始条件，且满足
+其中 <span class="arithmatex">\(u_{0}\)</span> 表示背景而非初始条件，且满足
 $$
 m_{0}(x)\frac{\partial^2u_{0}}{\partial t^2}-\Delta u_{0}=f(x,t),\quad u_{0}(x,0) = \frac{\partial u_{0}}{\partial t}(x,0)=0
 $$
-将 $u(x)$ 称为总场，$u_{sc}(x)$ 称为散射场。可推得关于 $u_{sc}$ 的隐式方程
+将 <span class="arithmatex">\(u(x)\)</span> 称为总场，<span class="arithmatex">\(u_{sc}(x)\)</span> 称为散射场。可推得关于 <span class="arithmatex">\(u_{sc}\)</span> 的隐式方程
 $$
 m_{0}(x)\frac{\partial^2u_{sc}}{\partial t^2}-\Delta u_{sc}= -\epsilon m_{1}(x) \frac{\partial^2u}{\partial t^2}
 $$
@@ -16310,12 +16312,12 @@ $$
 $$
 u=\left( I+\epsilon Gm_{1}\frac{\partial^2}{\partial t^2} \right)^{-1}u_{0}
 $$
-物理上，$u$ 是 $u_{0}$ 在扰动 $\epsilon m_{1}$ 介质散射后产生的场。</p>
+物理上，<span class="arithmatex">\(u\)</span> 是 <span class="arithmatex">\(u_{0}\)</span> 在扰动 <span class="arithmatex">\(\epsilon m_{1}\)</span> 介质散射后产生的场。</p>
 <p>假设算子
 $$
 A = -\epsilon Gm_{1}\frac{\partial^2}{\partial t^2} 
 $$
-满足 $|A|&lt;1$，则 $(I+A)^{-1}$ 展开为 Neumann 级数
+满足 <span class="arithmatex">\(\|A\|&lt;1\)</span>，则 <span class="arithmatex">\((I+A)^{-1}\)</span> 展开为 Neumann 级数
 $$
 \sum_{k=0}^\infty (-A)^k = I-A+A^2-A^3+\cdots
 $$
@@ -16328,38 +16330,38 @@ u(x) &amp;= u_{0}(x)-\epsilon \left( Gm_{1}\frac{\partial^2}{\partial t^2}  \rig
 $$
 称为 Born 展开式，它描述了物理中的多重散射过程。其中</p>
 <ul>
-<li>$u_{0}(x)$ 表示引入波 (incident wave)</li>
-<li>$-\epsilon \left( Gm_{1}\frac{\partial^2}{\partial t^2}  \right)u_{0}$ 表示单次散射</li>
-<li>$-\epsilon^2 \left( Gm_{1}\frac{\partial^2}{\partial t^2}  \right)^2u_{0}$ 表示双重散射</li>
+<li><span class="arithmatex">\(u_{0}(x)\)</span> 表示引入波 (incident wave)</li>
+<li><span class="arithmatex">\(-\epsilon \left( Gm_{1}\frac{\partial^2}{\partial t^2}  \right)u_{0}\)</span> 表示单次散射</li>
+<li><span class="arithmatex">\(-\epsilon^2 \left( Gm_{1}\frac{\partial^2}{\partial t^2}  \right)^2u_{0}\)</span> 表示双重散射</li>
 </ul>
-<p>物理上，$u_{1}$ 可以理解为由波源 $f$ 产生的引入波 $u_{0}$ 传播到 $y$ 处，在 $s$ 时由于 $m_{1}(y)$ 发生散射，然后在 $t$ 时传播到 $x$ 处。</p>
+<p>物理上，<span class="arithmatex">\(u_{1}\)</span> 可以理解为由波源 <span class="arithmatex">\(f\)</span> 产生的引入波 <span class="arithmatex">\(u_{0}\)</span> 传播到 <span class="arithmatex">\(y\)</span> 处，在 <span class="arithmatex">\(s\)</span> 时由于 <span class="arithmatex">\(m_{1}(y)\)</span> 发生散射，然后在 <span class="arithmatex">\(t\)</span> 时传播到 <span class="arithmatex">\(x\)</span> 处。</p>
 <p><img alt="" src="image-20250316153943309.jpeg|325" /></p>
 <p>波恩近似 (Born Approximation) 单次散射
 $$
 u_{sc} \approx\epsilon_{1}u_{1} = -\epsilon_{1} Gm_{1}\frac{\partial^2u_{0}}{\partial t^2}
 $$
-于是 $u_{1}$ 线性依赖于 $m_{1}$ 。代入关于 $u_{sc}$ 的隐式方程得到
+于是 <span class="arithmatex">\(u_{1}\)</span> 线性依赖于 <span class="arithmatex">\(m_{1}\)</span> 。代入关于 <span class="arithmatex">\(u_{sc}\)</span> 的隐式方程得到
 $$
 m_{0}(x)\frac{\partial^2u_{1}}{\partial t^2}-\Delta u_{1}= -m_{1}(x) \frac{\partial^2u_{0}}{\partial t^2}
 $$
-其中右端为波源，$u_{0}$ 依赖于 $m_{0}$ 。</p>
+其中右端为波源，<span class="arithmatex">\(u_{0}\)</span> 依赖于 <span class="arithmatex">\(m_{0}\)</span> 。</p>
 <p>我们将总场写成算子形式
 $$
 u=\mathcal{F}[m] = \mathcal{F}[m_{0}+\epsilon m_{1}] =u_{0}+\epsilon m_{1}+\cdots
 $$
-令 $\epsilon=0$ 就有 $u_{0}=\mathcal{F}[m_{0}]$；一阶项为
+令 <span class="arithmatex">\(\epsilon=0\)</span> 就有 <span class="arithmatex">\(u_{0}=\mathcal{F}[m_{0}]\)</span>；一阶项为
 $$
 u_{sc} \approx u_{1} = \lim_{ \epsilon \to 0 } \frac{\mathcal{F}[m_{0}+\epsilon m_{1}]-\mathcal{F}[m_{0}]}{\epsilon} = \frac{\delta\mathcal{F}}{\delta m}[m_{0}]m_{1}
 $$
-将 $m$ 所在空间称为模型空间 (model space)，$u$ 所在空间称为数据空间 (data space)，而 $\frac{\delta\mathcal{F}}{\delta m}[m_{0}]$ 是模型空间到数据空间的线性映射，称为 $\mathcal{F}$ 的一阶泛函导数 (Frechet 导数) 在 $m_{0}$ 处的算子。二阶项为
+将 <span class="arithmatex">\(m\)</span> 所在空间称为模型空间 (model space)，<span class="arithmatex">\(u\)</span> 所在空间称为数据空间 (data space)，而 <span class="arithmatex">\(\frac{\delta\mathcal{F}}{\delta m}[m_{0}]\)</span> 是模型空间到数据空间的线性映射，称为 <span class="arithmatex">\(\mathcal{F}\)</span> 的一阶泛函导数 (Frechet 导数) 在 <span class="arithmatex">\(m_{0}\)</span> 处的算子。二阶项为
 $$
 u_{2} = \frac{1}{2}\left\langle \frac{\delta^2\mathcal{F}}{\delta m^2}<a href="m_{1}">m_{0}</a>,m_{1} \right\rangle
 $$
-其中 $\frac{\delta^2\mathcal{F}}{\delta m^2}[m_{0}]$ 为双线性泛函。于是
+其中 <span class="arithmatex">\(\frac{\delta^2\mathcal{F}}{\delta m^2}[m_{0}]\)</span> 为双线性泛函。于是
 $$
 u=u_{0}+\epsilon m_{1}+\cdots
 $$
-对应于 $u=\mathcal{F}[m]$ 的 Taylor 展开。</p>
+对应于 <span class="arithmatex">\(u=\mathcal{F}[m]\)</span> 的 Taylor 展开。</p>
 <h3 id="born">Born 级数的收敛</h3>
 <h4 id="_19">数学证明</h4>
 <p>将波方程写成一阶方程组
@@ -16392,7 +16394,7 @@ $$
 $$
 E=\langle w,Mw\rangle = \int_{\mathbb{R}^n} m \left( \frac{\partial u}{\partial t} \right)^2+ |\nabla u|^2dx
 $$
-背景介质扰动得到 $M=M_{0}+\epsilon M_{1}$，令 $w=w_{0}+\epsilon w_{1}+\epsilon^2w_{2}+\cdots$，代入方程
+背景介质扰动得到 <span class="arithmatex">\(M=M_{0}+\epsilon M_{1}\)</span>，令 <span class="arithmatex">\(w=w_{0}+\epsilon w_{1}+\epsilon^2w_{2}+\cdots\)</span>，代入方程
 $$
 \begin{aligned}
 (M_{0}+\epsilon M_{1})\frac{\partial (w_{0}+w_{sc})}{\partial t}-L(w_{0}+w_{sc}) = \tilde{f}\
@@ -16404,7 +16406,7 @@ $$
 $$
 \left( M_{0} \frac{\partial}{\partial t}-L \right)w_{0} = \tilde{f},\quad \left( M_{0} \frac{\partial}{\partial t}-L \right)w_{sc} = -\epsilon M_{1} \frac{\partial w}{\partial t}, \quad w_{sc}=w-w_{0} \approx  \epsilon w_{1}
 $$
-令 $G=\left( M_{0} \frac{\partial}{\partial t}-L \right)^{-1}$ 则得到 Lippmann-Schwinger 方程
+令 <span class="arithmatex">\(G=\left( M_{0} \frac{\partial}{\partial t}-L \right)^{-1}\)</span> 则得到 Lippmann-Schwinger 方程
 $$
 w=w_{0}-\epsilon GM_{1} \frac{\partial w}{\partial t}
 $$
@@ -16414,25 +16416,25 @@ w =w_{0} - \epsilon GM_{1} \frac{\partial}{\partial t} w_{0}+\epsilon^2 \left( G
 $$
 其中展开每一项分别对应多重散射。该级数收敛的充分条件为
 $$
-\epsilon \left|GM_{1} \frac{\partial }{\partial t}\right|_{</em>} &lt; 1,\quad |w| =\max_{t\in[0,T]}\sqrt{ \langle w,M_{0}w\rangle }<em>{\mathbb{R}^n} = \max</em>{t\in[0,T]} \left|\sqrt{ M_{0} }w\right|<em>{2}
+\epsilon \left|GM_{1} \frac{\partial }{\partial t}\right|_{</em>} &lt; 1,\quad |w| =\max_{t\in[0,T]}\sqrt{ \langle w,M_{0}w\rangle }<em>{\mathbb{R}^n} = \max</em>{t\in[0,T]} \left|\sqrt{ M_{0} }w\right|_{2}
 $$
-即对于单重散射，对于任意 $w</em>{0}$ 满足 $\epsilon|w_{1}|&lt;|w_{0}|$ 。</p>
+即对于单重散射，对于任意 <span class="arithmatex">\(w_{0}\)</span> 满足 <span class="arithmatex">\(\epsilon\|w_{1}\|&lt;\|w_{0}\|\)</span> 。</p>
 <blockquote>
 <p>[!theorem]
-假设 $w,w_{0},w_{1}$ 带宽为 $\Omega&gt;0$，即作为关于时间的函数，其傅里叶变换后的支集为 $[-\Omega,\Omega]$ 。若 $\epsilon,T,\Omega$ 满足
+假设 <span class="arithmatex">\(w,w_{0},w_{1}\)</span> 带宽为 <span class="arithmatex">\(\Omega&gt;0\)</span>，即作为关于时间的函数，其傅里叶变换后的支集为 <span class="arithmatex">\([-\Omega,\Omega]\)</span> 。若 <span class="arithmatex">\(\epsilon,T,\Omega\)</span> 满足
 $$
 \epsilon\Omega T \left| \frac{M_{1}}{M_{0}} \right| &lt; 1
 $$
-则弱散射条件 $\epsilon|w_{1}|&lt;|w_{0}|$ 成立，进而 Born 级数收敛。</p>
+则弱散射条件 <span class="arithmatex">\(\epsilon\|w_{1}\|&lt;\|w_{0}\|\)</span> 成立，进而 Born 级数收敛。</p>
 </blockquote>
-<p>对范数 $|w_{1}|^2$ 求导
+<p>对范数 <span class="arithmatex">\(\|w_{1}\|^2\)</span> 求导
 $$
 \begin{aligned}
 \frac{d}{dt}|w_{1}|^2 &amp;= \frac{d}{dt}\langle w_{1},M_{0}w_{1}\rangle\
 &amp;= \left\langle \frac{\partial}{\partial t}w_{1},M_{0}w_{1}\right\rangle + \left\langle w_{1},M_{0}\frac{\partial}{\partial t}w_{1}\right\rangle
 \end{aligned}
 $$
-由于 $M_{0}$ 是实值对角阵，并且
+由于 <span class="arithmatex">\(M_{0}\)</span> 是实值对角阵，并且
 $$
 \left( M_{0} \frac{\partial}{\partial t}-L \right)w_{1} = -M_{1} \frac{\partial w}{\partial t}
 $$
@@ -16443,7 +16445,7 @@ $$
 &amp;= \left\langle Lw_{1}-M_{1}\frac{\partial w_{0}}{\partial t},w_{1}\right\rangle + \left\langle w_{1},Lw_{1}-M_{1}\frac{\partial w_{0}}{\partial t}\right\rangle
 \end{aligned}
 $$
-由于 $L$ 是反自伴算子 $L^*=-L$，于是
+由于 <span class="arithmatex">\(L\)</span> 是反自伴算子 <span class="arithmatex">\(L^*=-L\)</span>，于是
 $$
 \begin{aligned}
 \frac{d}{dt}|w_{1}|^2 &amp;= -\left\langle M_{1}\frac{\partial w_{0}}{\partial t},w_{1}\right\rangle - \left\langle w_{1},M_{1}\frac{\partial w_{0}}{\partial t}\right\rangle\
@@ -16470,7 +16472,7 @@ $$
 |RHS| &amp;\leq 2\left|\sqrt{ M</em>{0} }w_{1} \right|<em>{2} \left| \frac{M</em>{1}}{\sqrt{ M_{0} }} \frac{\partial w_{0}}{\partial t} \right|<em>{2}
 \end{aligned}
 $$
-其中 $RHS$ 使用 Cauchy-Schwartz 不等式。两式结合得到
+其中 <span class="arithmatex">\(RHS\)</span> 使用 Cauchy-Schwartz 不等式。两式结合得到
 $$
 \begin{aligned}
 \frac{d}{dt}\left|\sqrt{ M</em>{0} }w_{1} \right|<em>{2} &amp;\leq \left| \frac{M</em>{1}}{\sqrt{ M_{0} }} \frac{\partial w_{0}}{\partial t} \right|<em>{2}\
@@ -16479,30 +16481,30 @@ $$
 &amp;\leq T \left| \frac{M</em>{1}}{M_{0}} \right|<em>{\infty} \max</em>{t\in[0,T]}\left| \sqrt{ M_{0} } \frac{\partial w_{0}}{\partial t} \right|<em>{2}
 \end{aligned}
 $$
-现在我们需要将右侧的 $\frac{\partial w</em>{0}}{\partial t}$ 转换为 $w_{0}$，但是由于它在高频时可能很大，因此假设傅里叶变量 $\omega$ 属于有限区间 $[-\Omega,\Omega]$，由此得到
+现在我们需要将右侧的 <span class="arithmatex">\(\frac{\partial w_{0}}{\partial t}\)</span> 转换为 <span class="arithmatex">\(w_{0}\)</span>，但是由于它在高频时可能很大，因此假设傅里叶变量 <span class="arithmatex">\(\omega\)</span> 属于有限区间 <span class="arithmatex">\([-\Omega,\Omega]\)</span>，由此得到
 $$
-\left| \frac{\partial w_{0}}{\partial t} \right|<em>{\infty} \leq \Omega|w</em>{0}|<em>{\infty} \implies
+\left| \frac{\partial w</em>{0}}{\partial t} \right|<em>{\infty} \leq \Omega|w</em>{0}|<em>{\infty} \implies
 |w</em>{1}| \leq \Omega T\left| \frac{M_{1}}{M_{0}} \right|<em>{\infty} \max</em>{{t\in[0,T]}} |w_{0}|
 $$
 由于题设条件
 $$
 \epsilon\Omega T \left| \frac{M_{1}}{M_{0}} \right| &lt; 1
 $$
-则 $\epsilon|w_{1}|&lt;|w_{0}|$ 即证。</p>
+则 <span class="arithmatex">\(\epsilon\|w_{1}\|&lt;\|w_{0}\|\)</span> 即证。</p>
 <h4 id="_20">物理解释</h4>
-<p>假设 $c_{0}=1$，扰动波速 $c_{1}=1$，则 $c=1+\epsilon$ 。一维波情形下，解在 $T$ 时的值为
+<p>假设 <span class="arithmatex">\(c_{0}=1\)</span>，扰动波速 <span class="arithmatex">\(c_{1}=1\)</span>，则 <span class="arithmatex">\(c=1+\epsilon\)</span> 。一维波情形下，解在 <span class="arithmatex">\(T\)</span> 时的值为
 $$
 u(x,T) = f(x-cT) = f(x-(1+\epsilon)T)
 $$
-关于 $\epsilon T$ 展开为
+关于 <span class="arithmatex">\(\epsilon T\)</span> 展开为
 $$
 u(x,T) = f(x-T)-\epsilon Tf'(x-T)+ \frac{\epsilon^2}{2} T^2f''(x-T)+\cdots
 $$
-假设波形 $f(s)$ 频率谱宽为 $\Omega$，即波长超过 $\frac{\pi}{2}$，则 Born 近似为
+假设波形 <span class="arithmatex">\(f(s)\)</span> 频率谱宽为 <span class="arithmatex">\(\Omega\)</span>，即波长超过 <span class="arithmatex">\(\frac{\pi}{2}\)</span>，则 Born 近似为
 $$
 f(x-(1+\epsilon)T)-f(x-T) \sim -\epsilon Tf'(x-T)
 $$
-想要该近似准确，左边变量平衡 $\epsilon T$ 不能超过一个波长下界 $\frac{2\pi}{\Omega}$，否则会发生相位错位，无法保证该差值达到 $O(\epsilon)$ 量级。</p>
+想要该近似准确，左边变量平衡 <span class="arithmatex">\(\epsilon T\)</span> 不能超过一个波长下界 <span class="arithmatex">\(\frac{2\pi}{\Omega}\)</span>，否则会发生相位错位，无法保证该差值达到 <span class="arithmatex">\(O(\epsilon)\)</span> 量级。</p>
 <p>考虑一维反射波
 $$
 \begin{aligned}
@@ -16518,7 +16520,7 @@ c(x) &amp;= 1+\epsilon H(x) =
 \end{cases}
 \end{aligned}
 $$
-回顾波的反射，一维波在 $x=0$ 处反射。则有
+回顾波的反射，一维波在 <span class="arithmatex">\(x=0\)</span> 处反射。则有
 $$
 R = \frac{z_{2}-z_{1}}{z_{2}+z_{1}},\quad T = \frac{2z_{2}}{z_{2}+z_{1}},\quad z_{j}=\rho c_{j},\quad
 \begin{cases}
@@ -16527,7 +16529,7 @@ u_{r} = Rf(-x-c_{0}t), &amp; x&lt;0\
 u_{t} = Tf\left( \frac{c_{0}}{c_{1}}(x-c_{1}t) \right), &amp; x&gt;0
 \end{cases}
 $$
-左侧入射波 $f(x-t)$，右侧反射波 $u_{r}(x,t)=R_{\epsilon}f(-x-t),R_{\epsilon}=\frac{\epsilon}{2+\epsilon}$，在 $T$ 时关于 $\epsilon$ 展开得到
+左侧入射波 <span class="arithmatex">\(f(x-t)\)</span>，右侧反射波 <span class="arithmatex">\(u_{r}(x,t)=R_{\epsilon}f(-x-t),R_{\epsilon}=\frac{\epsilon}{2+\epsilon}\)</span>，在 <span class="arithmatex">\(T\)</span> 时关于 <span class="arithmatex">\(\epsilon\)</span> 展开得到
 $$
 u_r(x,t) = \frac{\epsilon}{2}f(-x-T)- \frac{\epsilon^2}{4}f(-x-T)+\cdots
 $$
@@ -16535,13 +16537,13 @@ $$
 $$
 u_{1}(x,T) = \frac{1}{2}f(-x-T)
 $$
-此处的弱散射条件即为 $\epsilon=O(1)$，对 $T,\Omega$ 无要求，因为 $f(-x-T)$ 不会超过 $u_{in}$ 的量级。</p>
+此处的弱散射条件即为 <span class="arithmatex">\(\epsilon=O(1)\)</span>，对 <span class="arithmatex">\(T,\Omega\)</span> 无要求，因为 <span class="arithmatex">\(f(-x-T)\)</span> 不会超过 <span class="arithmatex">\(u_{in}\)</span> 的量级。</p>
 <h3 id="_21">优化思路</h3>
-<p>考虑 $d=\mathcal{F}[m]$，其中 $m$ 是模型，$d$ 是数据，定义
+<p>考虑 <span class="arithmatex">\(d=\mathcal{F}[m]\)</span>，其中 <span class="arithmatex">\(m\)</span> 是模型，<span class="arithmatex">\(d\)</span> 是数据，定义
 $$
 d_{r,s}(t) = u_{s}(x_{r},t)
 $$
-其中 $x_{r}$ 表示信号接收位置 (receiver)，$x_{s}$ 表示波源位置 (source)，$d_{r,s}$ 表示 $f(x_{s})$ 产生的波 $u_{s}$ 在 $x_{r}$ 的值。</p>
+其中 <span class="arithmatex">\(x_{r}\)</span> 表示信号接收位置 (receiver)，<span class="arithmatex">\(x_{s}\)</span> 表示波源位置 (source)，<span class="arithmatex">\(d_{r,s}\)</span> 表示 <span class="arithmatex">\(f(x_{s})\)</span> 产生的波 <span class="arithmatex">\(u_{s}\)</span> 在 <span class="arithmatex">\(x_{r}\)</span> 的值。</p>
 <p>最主流的优化方法基于最小二乘框架
 $$
 \min_{m}J[m]= \min_{m}\frac{1}{2}|d\mathcal{F}[m]|<em>{2}^2
@@ -16550,7 +16552,7 @@ $$
 $$
 |d|</em>{2}^2 = \sum_{r,s}\int_{0}^T |d_{r,s}(t)|^2
 $$
-关于 $r,s$ 离散，关于时间连续的 2 范数。</p>
+关于 <span class="arithmatex">\(r,s\)</span> 离散，关于时间连续的 2 范数。</p>
 <h4 id="_22">梯度下降法</h4>
 <p>迭代公式
 $$
@@ -16558,10 +16560,10 @@ m^{(k+1)}=m^{(k)} - \alpha \frac{\delta J}{\delta m}[m^{(k)}]
 $$
 其中</p>
 <ul>
-<li>$\alpha$ 是步长，通过线搜索选取</li>
-<li>$\frac{\delta J}{\delta m}$ 是 Frechet 导数，通过泛函梯度的性质计算</li>
+<li><span class="arithmatex">\(\alpha\)</span> 是步长，通过线搜索选取</li>
+<li><span class="arithmatex">\(\frac{\delta J}{\delta m}\)</span> 是 Frechet 导数，通过泛函梯度的性质计算</li>
 </ul>
-<p>令 $F=\frac{\delta \mathcal{F}}{\delta m}[m]$ 为线性算子，则有
+<p>令 <span class="arithmatex">\(F=\frac{\delta \mathcal{F}}{\delta m}[m]\)</span> 为线性算子，则有
 $$
 \begin{aligned}
 \langle \mathcal{F}[m+h]-d, \mathcal{F}[m+h]-d\rangle &amp;= \langle \mathcal{F}[m]-d, \mathcal{F}[m]-d\rangle + 2\langle Fh, \mathcal{F}[m]-d\rangle + O(|h|^2)\
@@ -16572,7 +16574,7 @@ J[m+h]-J[m] &amp;= \langle Fh, \mathcal{F}[m]-d\rangle + O(|h|^2)\
 \frac{\delta J}{\delta m}[m] &amp;= F^</em>(\mathcal{F}[m]-d)
 \end{aligned}
 $$
-其中 $F^*$ 是从数据空间到模型空间的伴随映射。</p>
+其中 <span class="arithmatex">\(F^*\)</span> 是从数据空间到模型空间的伴随映射。</p>
 <h4 id="gauss-newton">Gauss-Newton 法</h4>
 <p>迭代公式
 $$
@@ -16591,11 +16593,11 @@ $$
 <h4 id="_25">关键假设</h4>
 <ol>
 <li>虽然雷达使用电磁波，我们考虑标量场的波动方程以代替向量场。</li>
-<li>反射率将在建模中视为 $m(x)$ 的扰动，而不是散射体 $\Omega$ 的表面和其上的边界条件。</li>
-<li>使用 Born 近似，即 $d=\epsilon u_{1},u_{1}=Fm_{1}$ 忽略多重散射（对地表环境要求相对较高，以防止多重散射的影响）。</li>
+<li>反射率将在建模中视为 <span class="arithmatex">\(m(x)\)</span> 的扰动，而不是散射体 <span class="arithmatex">\(\Omega\)</span> 的表面和其上的边界条件。</li>
+<li>使用 Born 近似，即 <span class="arithmatex">\(d=\epsilon u_{1},u_{1}=Fm_{1}\)</span> 忽略多重散射（对地表环境要求相对较高，以防止多重散射的影响）。</li>
 <li>无色散 (No dispersion)，即波速不依赖于频率或者等价于所有波的波速相同。</li>
-<li>反射率 $m(x)=m_{0}(x)+\epsilon m_{1}(x)$ 不依赖于时间，且假设 $m_{0}(x)$ 为常数。该假设排除了移动散射体，即多普勒成像中频率用于反演目标的速度。</li>
-<li>简便起见，取 $\epsilon=1$，记 $m_{1}(x)$ 为 $m_{1}$，即慢度 $\frac{1}{c^2(x)}$ 的扰动。</li>
+<li>反射率 <span class="arithmatex">\(m(x)=m_{0}(x)+\epsilon m_{1}(x)\)</span> 不依赖于时间，且假设 <span class="arithmatex">\(m_{0}(x)\)</span> 为常数。该假设排除了移动散射体，即多普勒成像中频率用于反演目标的速度。</li>
+<li>简便起见，取 <span class="arithmatex">\(\epsilon=1\)</span>，记 <span class="arithmatex">\(m_{1}(x)\)</span> 为 <span class="arithmatex">\(m_{1}\)</span>，即慢度 <span class="arithmatex">\(\frac{1}{c^2(x)}\)</span> 的扰动。</li>
 </ol>
 <h4 id="_26">其它假设</h4>
 <ol>
@@ -16604,15 +16606,15 @@ $$
 <li>Start-stop approximation（停-走近似）：对于移动单基地雷达，假设信号从发射到返回接收的时间内天线无位移。</li>
 <li>Flat topography（平坦地形假设）：散射体分布于高度为 0 的平面。</li>
 </ol>
-<p>波长为厘米到米级别；频率区间为 $[\omega_{0}-\Delta \omega,\omega_{0}+\Delta \omega]$，其中 $\omega_{0}$ 为主频率，$\Delta \omega$ 为带宽。</p>
+<p>波长为厘米到米级别；频率区间为 <span class="arithmatex">\([\omega_{0}-\Delta \omega,\omega_{0}+\Delta \omega]\)</span>，其中 <span class="arithmatex">\(\omega_{0}\)</span> 为主频率，<span class="arithmatex">\(\Delta \omega\)</span> 为带宽。</p>
 <h3 id="_27">远场近似和多普勒频移</h3>
 <h4 id="_28">远场近似</h4>
-<p>取 $c=1$，则真空 Green 函数 (Helmhotz 方程) 的远场近似为
+<p>取 <span class="arithmatex">\(c=1\)</span>，则真空 Green 函数 (Helmhotz 方程) 的远场近似为
 $$
 \frac{e^{ik|x-y|}}{4\pi|x-y|},\quad k=|\vec{k}|
 $$
-其中 $y$ 为发射点坐标（在原点附近），$x$ 为接收点坐标（离原点较远）。</p>
-<p>当 $|y|\ll|x|,k|y|^2\ll|x|$ 时，记 $\hat{x}=\frac{x}{|x|}$，则
+其中 <span class="arithmatex">\(y\)</span> 为发射点坐标（在原点附近），<span class="arithmatex">\(x\)</span> 为接收点坐标（离原点较远）。</p>
+<p>当 <span class="arithmatex">\(|y|\ll|x|,k|y|^2\ll|x|\)</span> 时，记 <span class="arithmatex">\(\hat{x}=\frac{x}{|x|}\)</span>，则
 $$
 \begin{aligned}
 |x-y| &amp;= \sqrt{ |x|^2-2x\cdot y+|y|^2 }\
@@ -16630,13 +16632,13 @@ e^{ik|x-y|} &amp;= e^{ik|x|}e^{-ik\hat{x}\cdot y}\left( 1+O\left( \frac{k|y|^2}{
 \frac{e^{ik|x-y|}}{|x-y|} &amp;\sim \frac{e^{ik|x|}}{4\pi|x|}e^{-ik\hat{x}\cdot y}
 \end{aligned}
 $$
-这样对所有发射点 $y$ 的积分就变为了傅里叶变换。</p>
+这样对所有发射点 <span class="arithmatex">\(y\)</span> 的积分就变为了傅里叶变换。</p>
 <h4 id="_29">多普勒频移</h4>
 <p>当发射器或接收器移动时，波源形式
 $$
 f(y,s) = \delta(y-y(s))e^{-i\omega s}
 $$
-其中 $y(s)$ 是移动轨迹。由 Duhamel's principle 得在接收信号处 $x(t)$ 的波场为
+其中 <span class="arithmatex">\(y(s)\)</span> 是移动轨迹。由 Duhamel's principle 得在接收信号处 <span class="arithmatex">\(x(t)\)</span> 的波场为
 $$
 \begin{aligned}
 u(x(t),t) &amp;= \int_{0}^t\int_{\mathbb{R}^n}G(x(t),y;t-s)\delta(y-y(s))e^{-i\omega s}dyds\
@@ -16644,14 +16646,14 @@ u(x(t),t) &amp;= \int_{0}^t\int_{\mathbb{R}^n}G(x(t),y;t-s)\delta(y-y(s))e^{-i\o
 &amp;= \int_{0}^t \frac{\delta(|x(t)-y(s)|-c|t-s|)}{4\pi c^2(t-s)}e^{-i\omega s}ds
 \end{aligned}
 $$
-对较小的 $t,s$ 展开（假设发射信号的一小段时间和接收信号时的一小段时间的频移可以观测）
+对较小的 <span class="arithmatex">\(t,s\)</span> 展开（假设发射信号的一小段时间和接收信号时的一小段时间的频移可以观测）
 $$
 \begin{aligned}
 x(t) &amp;= x_{0}+v_{x}t+O(t^2)\
 y(s) &amp;= y_{0}+v_{y}s+O(s^2)
 \end{aligned}
 $$
-令 $\hat{r}= \frac{x_{0}-y_{0}}{|x_{0}-y_{0}|}$，则
+令 <span class="arithmatex">\(\hat{r}= \frac{x_{0}-y_{0}}{|x_{0}-y_{0}|}\)</span>，则
 $$
 \begin{aligned}
 |x(t)-y(s)| &amp;= \sqrt{ |x_{0}-y_{0}|^2 +2tv_{x}\cdot(x_{0}-y_{0})-2sv_{y}\cdot(x_{0}-y_{0})+O(s^2+t^2) }\
@@ -16670,38 +16672,38 @@ u(x,t) &amp;\sim \int_{0}^\infty e^{-i\omega s} \frac{\delta(|x_{0}-y_{0}| - (c-
 $$
 我们可以将其中的成分提取出来，得到 Doppler shift</p>
 <ul>
-<li>时间频率 $\omega \mapsto \omega \left( \frac{c-v_{x}\cdot \hat{r}}{c-v_{y}\cdot \hat{r}} \right)$</li>
-<li>空间波数 $k'= \frac{\omega}{c-v_{y}\cdot \hat{r}}=k\left( \frac{c}{c-v_{y}\cdot \hat{r}} \right)$</li>
-<li>辐函数部分 $|x_{0}-y_{0}|+(v_{x}\cdot \hat{r}-v_{y}\cdot \hat{r})t\sim |x(t)-y(t)|$ 一阶近似</li>
+<li>时间频率 <span class="arithmatex">\(\omega \mapsto \omega \left( \frac{c-v_{x}\cdot \hat{r}}{c-v_{y}\cdot \hat{r}} \right)\)</span></li>
+<li>空间波数 <span class="arithmatex">\(k'= \frac{\omega}{c-v_{y}\cdot \hat{r}}=k\left( \frac{c}{c-v_{y}\cdot \hat{r}} \right)\)</span></li>
+<li>辐函数部分 <span class="arithmatex">\(|x_{0}-y_{0}|+(v_{x}\cdot \hat{r}-v_{y}\cdot \hat{r})t\sim |x(t)-y(t)|\)</span> 一阶近似</li>
 </ul>
-<p>从而可以已知 $v_{x}$ 反演 $v_{y}$ 。</p>
+<p>从而可以已知 <span class="arithmatex">\(v_{x}\)</span> 反演 <span class="arithmatex">\(v_{y}\)</span> 。</p>
 <h3 id="_30">正问题</h3>
-<p>在真空中 $c_{0}=1,m_{0}=1$；考虑天线发射端信号产生的辐射场（入射场），只考虑远场近似，并<strong>将近似直接认为相等</strong>。</p>
+<p>在真空中 <span class="arithmatex">\(c_{0}=1,m_{0}=1\)</span>；考虑天线发射端信号产生的辐射场（入射场），只考虑远场近似，并<strong>将近似直接认为相等</strong>。</p>
 <ul>
-<li>考虑标量场对应的 forcing，即天线产生的电流密度，记为 $j(x,\omega)$</li>
-<li>具体的时间脉冲 $\hat{p}^t(\omega)$ 为 $p(t)$ 的傅里叶变换</li>
+<li>考虑标量场对应的 forcing，即天线产生的电流密度，记为 <span class="arithmatex">\(j(x,\omega)\)</span></li>
+<li>具体的时间脉冲 <span class="arithmatex">\(\hat{p}^t(\omega)\)</span> 为 <span class="arithmatex">\(p(t)\)</span> 的傅里叶变换</li>
 </ul>
-<p>由该波源产生的真空标量场 $\hat{u}<em>{0}^t$ 满足 Helmholtz 方程
+<p>由该波源产生的真空标量场 <span class="arithmatex">\(\hat{u}_{0}^t\)</span> 满足 Helmholtz 方程
 $$
 \begin{aligned}
-\hat{u}</em>{0}^t(x,\omega) &amp;= \int_{\mathbb{R}^n} \frac{e^{ik|x|}}{4\pi|x|}e^{-ik\hat{x}\cdot y}j(y,\omega)\hat{p}^t(\omega)dy\
+\hat{u}<em>{0}^t(x,\omega) &amp;= \int</em>{\mathbb{R}^n} \frac{e^{ik|x|}}{4\pi|x|}e^{-ik\hat{x}\cdot y}j(y,\omega)\hat{p}^t(\omega)dy\
 &amp;= \frac{e^{ik|x|}}{4\pi|x|} \hat{j}^x(k\hat{x},\omega)\hat{p}^t(\omega)\
 &amp;=\frac{e^{ik|x|}}{4\pi|x|}J(\hat{x},\omega)
 \end{aligned}
 $$
-其中 $J(\hat{x},\omega)$ 由天线形状 (radiation beam pattern) 决定。作为 $\hat{x}$ 的函数，$J$ 信号较为分散。若天线轨迹为 $\gamma(s)$，其中 $s$ 称为慢时间，则有
+其中 <span class="arithmatex">\(J(\hat{x},\omega)\)</span> 由天线形状 (radiation beam pattern) 决定。作为 <span class="arithmatex">\(\hat{x}\)</span> 的函数，<span class="arithmatex">\(J\)</span> 信号较为分散。若天线轨迹为 <span class="arithmatex">\(\gamma(s)\)</span>，其中 <span class="arithmatex">\(s\)</span> 称为慢时间，则有
 $$
 \hat{u}_{0,s}^t(x,\omega) = \frac{e^{ik|x-\gamma(s)|}}{4\pi|x-\gamma(s)|}J(\widehat{x-\gamma(s)},\omega) \hat{p}^t(\omega)
 $$
-其中 $\widehat{x-\gamma(s)}$ 是发射信号的方向，即单位化的向量。</p>
-<p>接收点附近的散射场 $\hat{u}<em>{1}$ 并不是直接测量得到的，取而代之的是测量数据的窗口积分
+其中 <span class="arithmatex">\(\widehat{x-\gamma(s)}\)</span> 是发射信号的方向，即单位化的向量。</p>
+<p>接收点附近的散射场 <span class="arithmatex">\(\hat{u}_{1}\)</span> 并不是直接测量得到的，取而代之的是测量数据的窗口积分
 $$
-\hat{d}(s,\omega) = \int</em>{A_{s}} \hat{u}<em>{1}^t(y,\omega)w(y,\omega)dy
+\hat{d}(s,\omega) = \int_{A_{s}} \hat{u}<em>{1}^t(y,\omega)w(y,\omega)dy
 $$
-其中 $A</em>{s}$ 是以 $\gamma(s)$ 为中心的天线表面区域，$w(y,\omega)$ 为已知的窗口函数。由
+其中 <span class="arithmatex">\(A_{s}\)</span> 是以 <span class="arithmatex">\(\gamma(s)\)</span> 为中心的天线表面区域，<span class="arithmatex">\(w(y,\omega)\)</span> 为已知的窗口函数。由
 $$
 \begin{aligned}
-u_{1} &amp;= Fm,\quad F= \frac{\delta F}{\delta m}[m_{0}]= \frac{\delta F}{\delta m}[1]\
+u</em>{1} &amp;= Fm,\quad F= \frac{\delta F}{\delta m}[m_{0}]= \frac{\delta F}{\delta m}[1]\
 \left( m_{0}(x)\frac{\partial^2}{\partial t^2} -\Delta \right) u_{1} &amp;= -m_{1}(x) \frac{\partial^2u_{0}}{\partial t^2}\
 \implies
 \hat{u}<em>{1}(x,\omega) &amp;= \int</em>{{\mathbb{R}^n}}\hat{G}(x,y;\omega)m(y)\omega^2 \hat{u}<em>{0}(y,\omega)dy\
@@ -16710,7 +16712,7 @@ u_{1} &amp;= Fm,\quad F= \frac{\delta F}{\delta m}[m_{0}]= \frac{\delta F}{\delt
 &amp;= \int</em>{\mathbb{R}^n} \omega^2\hat{u}<em>{0}(x,\omega)m(x)dx\int</em>{A_{s}}\frac{e^{ik|x-y|}}{4\pi|x-y|}w(y,\omega)dy
 \end{aligned}
 $$
-以 $\gamma(s)$ 为中心的天线区域的远场近似
+以 <span class="arithmatex">\(\gamma(s)\)</span> 为中心的天线区域的远场近似
 $$
 \begin{aligned}
 x-y &amp;= (x-\gamma(s))-(y-\gamma(s))\
@@ -16718,7 +16720,7 @@ x-y &amp;= (x-\gamma(s))-(y-\gamma(s))\
 \frac{e^{ik|x-y|}}{4\pi|x-y|} &amp;= \frac{e^{ik|x-\gamma(s)|}}{4\pi|x-\gamma(s)|} e^{-ik\widehat{x-\gamma(s)}\cdot(y-\gamma(s))}
 \end{aligned} 
 $$
-令 $\tilde{y}=y-\gamma(s)$，则
+令 <span class="arithmatex">\(\tilde{y}=y-\gamma(s)\)</span>，则
 $$
 \begin{aligned}
 \int_{A_{s}}\frac{e^{ik|x-y|}}{4\pi|x-y|}w(y,\omega)dy &amp;= - \frac{e^{ik|x-\gamma(s)|}}{4\pi|x-\gamma(s)|} \int_{A_{0}}e^{-ik\widehat{x-\gamma(s)}\cdot\tilde{y}}w(\gamma(s)+\tilde{y},\omega)d\tilde{y}\
@@ -16729,37 +16731,37 @@ $$
 $$
 \hat{d}(s,\omega) = \int_{\mathbb{R}^n} \frac{e^{ik|x-\gamma(s)|}}{4\pi|x-\gamma(s)|}\omega^2\hat{u}<em>{0}(x,\omega)m(x) \hat{w}^x(k\widehat{x-\gamma(s)},\omega)dx
 $$
-由停走假设，即信号来回的时间在天线运动过程中可忽略（允许分离快时间 $t$ 和慢时间 $s$）。窗口函数对应的 $\hat{w}^x(k\hat{x},\omega)$ 称为接收方向图 (reception beam pattern) 。由互易原理
+由停走假设，即信号来回的时间在天线运动过程中可忽略（允许分离快时间 <span class="arithmatex">\(t\)</span> 和慢时间 <span class="arithmatex">\(s\)</span>）。窗口函数对应的 <span class="arithmatex">\(\hat{w}^x(k\hat{x},\omega)\)</span> 称为接收方向图 (reception beam pattern) 。由互易原理
 $$
 \hat{w}^x(k\hat{x},\omega) = J(\hat{x},\omega)
 $$
-右端称为辐射方向图。将 $\hat{u}</em>{{0,s}}^t$ 代入得到
+右端称为辐射方向图。将 <span class="arithmatex">\(\hat{u}_{{0,s}}^t\)</span> 代入得到
 $$
 \begin{aligned}
-\hat{d}(s,\omega) &amp;= \int_{\mathbb{R}^n} \frac{e^{i2k|x-\gamma(s)|}}{16\pi^2|x-\gamma(s)|^2}\omega^2J(\widehat{x-\gamma(s)},\omega)\cdot m(x)\hat{p}(\omega) \hat{w}^x(k\widehat{x-\gamma(s)},\omega)dx\
+\hat{d}(s,\omega) &amp;= \int</em>{\mathbb{R}^n} \frac{e^{i2k|x-\gamma(s)|}}{16\pi^2|x-\gamma(s)|^2}\omega^2J(\widehat{x-\gamma(s)},\omega)\cdot m(x)\hat{p}(\omega) \hat{w}^x(k\widehat{x-\gamma(s)},\omega)dx\
 &amp;= \int_{\mathbb{R}^n}e^{i2k|x-\gamma(s)|}A(x,s,\omega)m(x)dx\
 A(x,s,\omega)&amp;= \frac{J^2(\widehat{x-\gamma(s)},\omega)}{16\pi^2|x-\gamma(s)|^2}\omega^2\hat{p}(\omega)
 \end{aligned}
 $$
 称为辐函数（已知）。</p>
-<p>在三维空间中 $x=(x_{1},x_{2},x_{3})$，假设目标的高度分布 $x_{3}=h(x_{1},x_{2})$ 已知，反射率形式为
+<p>在三维空间中 <span class="arithmatex">\(x=(x_{1},x_{2},x_{3})\)</span>，假设目标的高度分布 <span class="arithmatex">\(x_{3}=h(x_{1},x_{2})\)</span> 已知，反射率形式为
 $$
 m(x) = \delta(x_{3}-h(x_{1},x_{2}))V(x_{1},x_{2})
 $$
-一般地，由平坦地形假设，通常在 SAR 中设 $h=0$ 。</p>
+一般地，由平坦地形假设，通常在 SAR 中设 <span class="arithmatex">\(h=0\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>在干涉 SAR 技术中，假设 $h\neq 0$ 。</p>
+<p>在干涉 SAR 技术中，假设 <span class="arithmatex">\(h\neq 0\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p>记 $x_{T}=(x_{1},x_{2},0)$，则
+<p>记 <span class="arithmatex">\(x_{T}=(x_{1},x_{2},0)\)</span>，则
 $$
 \hat{d}(s,\omega) = \int_{\mathbb{R}^2} e^{i 2k|x_{T}-\gamma(s)|}A(x_{T},s,\omega)V(x_{1},x_{2})dx_{1}dx_{2}
 $$
-于是，我们得到 $d,V$ 即 $d,m$ 的正问题模型 (forward model) $d=Fm$ 线性。</p>
+于是，我们得到 <span class="arithmatex">\(d,V\)</span> 即 <span class="arithmatex">\(d,m\)</span> 的正问题模型 (forward model) <span class="arithmatex">\(d=Fm\)</span> 线性。</p>
 <blockquote>
 <blockquote>
-<p>成像算子 $F^<em>$ 是 $F$ 的伴随算子，用它做梯度下降。通常 $F^</em>\neq F^{-1}$，但有时它们相差不远。在 SAR 中，$F^*$ 称为反投影算子。</p>
+<p>成像算子 <span class="arithmatex">\(F^*\)</span> 是 <span class="arithmatex">\(F\)</span> 的伴随算子，用它做梯度下降。通常 <span class="arithmatex">\(F^*\neq F^{-1}\)</span>，但有时它们相差不远。在 SAR 中，<span class="arithmatex">\(F^*\)</span> 称为反投影算子。</p>
 </blockquote>
 </blockquote>
 
@@ -16815,6 +16817,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

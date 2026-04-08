@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14648,7 +14650,7 @@
 <li>输入数据传入输入层，然后按照节点值和权重传播到下一层</li>
 <li>传播过程持续直到每个节点都有一个值</li>
 <li>最后一层作为输出网络的预测</li>
-<li>根据损失计算梯度 $\nabla C$，并更新权重和偏差</li>
+<li>根据损失计算梯度 <span class="arithmatex">\(\nabla C\)</span>，并更新权重和偏差</li>
 <li>重复上述过程直到损失足够低</li>
 </ol>
 <p>初始权重和偏差都是随机指定。</p>
@@ -14660,15 +14662,15 @@
 <li>隐藏层：输入层和输出层之间的所有层。我们不知道它们的作用，只能解释输入层（原始输入）的含义，以及输出层（网络的输出）的含义</li>
 <li>输出层：最后一层，输出网络的预测</li>
 </ol>
-<p>我们将输入层视为第 0 层，第一个隐藏层开始视为第 1 层。用 $L$ 表示总层数，$n^{[l]}$ 表示第 $l$ 层的节点数，因此下面的神经网络</p>
+<p>我们将输入层视为第 0 层，第一个隐藏层开始视为第 1 层。用 <span class="arithmatex">\(L\)</span> 表示总层数，<span class="arithmatex">\(n^{[l]}\)</span> 表示第 <span class="arithmatex">\(l\)</span> 层的节点数，因此下面的神经网络</p>
 <p><img alt="" src="1_yh42_bzOPzCi2qoJ8qAHdw.webp" /></p>
 <p>满足
 $$
 n^{[0]} = 2,\quad n^{[1]} =3,\quad n^{[2]} = 3,\quad n^{[3]} = 1,\quad L=3
 $$
-因此 $n^{[0]},n^{[L]}$ 表示输入、输出节点数。</p>
+因此 <span class="arithmatex">\(n^{[0]},n^{[L]}\)</span> 表示输入、输出节点数。</p>
 <h3 id="_7">权重</h3>
-<p>对于任何层 $l-1,l$，都有 $n^{[l-1]}<em>n^{[l]}$ 个权重连接这两层。然后可以将节点值计算写成矩阵形式
+<p>对于任何层 <span class="arithmatex">\(l-1,l\)</span>，都有 <span class="arithmatex">\(n^{[l-1]}*n^{[l]}\)</span> 个权重连接这两层。然后可以将节点值计算写成矩阵形式
 $$
 \begin{pmatrix}
 5 &amp; 8 \
@@ -14680,27 +14682,27 @@ $$
 3
 \end{pmatrix} = 
 \begin{pmatrix}
-2</em>5+3<em>8 \
-2</em>6+3<em>9 \
-2</em>7+3*10
+2<em>5+3</em>8 \
+2<em>6+3</em>9 \
+2<em>7+3</em>10
 \end{pmatrix},\quad \mathbb{R}^{n^{[l]}\times n^{[l-1]}}  \times \mathbb{R}^{n^{[l-1]}} \mapsto \mathbb{R}^{n^{[l]}}
 $$
-其中矩阵第一列对应节点 $2$ 的所有权重，第二列则对应节点 $3$ 的所有权重。</p>
+其中矩阵第一列对应节点 <span class="arithmatex">\(2\)</span> 的所有权重，第二列则对应节点 <span class="arithmatex">\(3\)</span> 的所有权重。</p>
 <p><img alt="" src="1_YPLn1qyL7pqBQKhpedUElQ.webp" /></p>
 <h3 id="_8">偏差</h3>
-<p>对于任何层 $l,l-1$，对应 $l$ 层的偏差是 $n^{[l]}$ 维向量。</p>
+<p>对于任何层 <span class="arithmatex">\(l,l-1\)</span>，对应 <span class="arithmatex">\(l\)</span> 层的偏差是 <span class="arithmatex">\(n^{[l]}\)</span> 维向量。</p>
 <h2 id="feed-forward">前向反馈 Feed Forward</h2>
 <h3 id="_9">前馈过程</h3>
-<p>将计算 $l$ 层使用的节点矩阵记为 $z^{[l]}$，将 $l-1,l$ 层之间的权重矩阵记为 $W^{[l]}$，将 $l$ 层节点的偏差矩阵记为 $b^{[l]}$，则
+<p>将计算 <span class="arithmatex">\(l\)</span> 层使用的节点矩阵记为 <span class="arithmatex">\(z^{[l]}\)</span>，将 <span class="arithmatex">\(l-1,l\)</span> 层之间的权重矩阵记为 <span class="arithmatex">\(W^{[l]}\)</span>，将 <span class="arithmatex">\(l\)</span> 层节点的偏差矩阵记为 <span class="arithmatex">\(b^{[l]}\)</span>，则
 $$
 z^{[1]} = W^{[1]}z^{[0]} + b^{[1]}
 $$
-得到计算 $l$ 层节点的矩阵形式。</p>
+得到计算 <span class="arithmatex">\(l\)</span> 层节点的矩阵形式。</p>
 <p><img alt="" src="1_1zzimF8lyW4CWzoXVvqlQw (1).webp" /></p>
 <h3 id="_10">激活函数</h3>
 <p>一旦我们通过权重矩阵乘法和偏差加法得到了神经元的值，我们就需要将该值压缩到网络可以处理的范围内。激活函数必须具备两个重要属性：</p>
 <ol>
-<li>必须是非线性的，因为它不能是 $g(z) = mz + b$ 的形式。</li>
+<li>必须是非线性的，因为它不能是 <span class="arithmatex">\(g(z) = mz + b\)</span> 的形式。</li>
 <li>必须将输入压缩到预定范围</li>
 </ol>
 <p>我们将使用的激活函数是 S 型函数，形如</p>
@@ -14709,19 +14711,19 @@ $$
 $$
 a^{[l]} = g(W^{[l]}a^{[l-1]} + b^{[l]}),\quad a^{[0]} = z^{[0]}
 $$
-其中 $z^{[0]}$ 就是输入层，最终输出记为 $\hat{y}$ 。</p>
+其中 <span class="arithmatex">\(z^{[0]}\)</span> 就是输入层，最终输出记为 <span class="arithmatex">\(\hat{y}\)</span> 。</p>
 <p><img alt="" src="1_rpDbSLghZ7TQiFb7VP5Gjg.webp" /></p>
 <h3 id="_11">向量化</h3>
 <p>我们使用如下记号</p>
 <ol>
-<li>$X\in \mathbb{R}^{n^{[0]}\times m}$ 表示训练数据矩阵</li>
-<li>$A^{[l]}\in n^{[l]\times m}$ 表示每层结果 </li>
+<li><span class="arithmatex">\(X\in \mathbb{R}^{n^{[0]}\times m}\)</span> 表示训练数据矩阵</li>
+<li><span class="arithmatex">\(A^{[l]}\in n^{[l]\times m}\)</span> 表示每层结果 </li>
 </ol>
 <p>因此前馈过程改写为
 $$
 A^{[l]} = g(W^{[l]}A^{[l-1]} + b^{[l]}1_{m}^T),\quad A^{[0]} =Z^{[0]}
 $$
-偏差矩阵 $b^{[l]}$ 只有一列，因此将其复制 $m$ 次，这一过程称为传播 broadcasting 。</p>
+偏差矩阵 <span class="arithmatex">\(b^{[l]}\)</span> 只有一列，因此将其复制 <span class="arithmatex">\(m\)</span> 次，这一过程称为传播 broadcasting 。</p>
 <h2 id="_12">反向传播</h2>
 <h3 id="_13">损失函数</h3>
 <p>基本的损失函数包括</p>
@@ -14730,14 +14732,14 @@ $$
 <li>均方根误差</li>
 <li>平均绝对误差</li>
 </ul>
-<p>我们选择一个凸损失函数，并希望其输出在 $[0,1]$ 上，因此考虑二元交叉熵 binary cross entropy
+<p>我们选择一个凸损失函数，并希望其输出在 <span class="arithmatex">\([0,1]\)</span> 上，因此考虑二元交叉熵 binary cross entropy
 $$
 \begin{aligned}
 L(\hat{y}<em>{i},y</em>{i}) &amp;= -(y_{i}\ln \hat{y}<em>{i} + (1-y</em>{i})\ln(1-\hat{y}<em>{i}))\
 C &amp;= \frac{1}{m}\sum</em>{i=1}^m L(\hat{y}<em>{i},y</em>{i})
 \end{aligned}
 $$
-其中 $y_{i}$ 表示训练样本的第 $i$ 个分量，$\hat{y}_{i}$ 是对其的预测。</p>
+其中 <span class="arithmatex">\(y_{i}\)</span> 表示训练样本的第 <span class="arithmatex">\(i\)</span> 个分量，<span class="arithmatex">\(\hat{y}_{i}\)</span> 是对其的预测。</p>
 <h3 id="_14">反向传播</h3>
 <h4 id="_15">最后一层</h4>
 <p>我们从最后一层开始考虑</p>
@@ -14752,7 +14754,7 @@ $$
 \frac{\partial C}{\partial W^{[L]}} &amp;= \frac{d C(A^{[L]})}{d A^{[L]}}\frac{d A^{[L]}(Z^{[L]})}{d Z^{[L]}}\frac{\partial Z^{[L]}(W^{[L]},A^{[L-1]},b^{[L]})}{\partial W^{[L]}}
 \end{aligned}
 $$
-考虑关于 $A^{[L]}$ 的偏导
+考虑关于 <span class="arithmatex">\(A^{[L]}\)</span> 的偏导
 $$
 \begin{aligned}
 \frac{\partial L}{\partial A^{[L]}<em>{i}} &amp;= - \frac{y</em>{i}}{A_{i}^{[L]}}+ \frac{1-y_{i}}{1-A_{i}^{[L]}}\
@@ -14797,9 +14799,9 @@ $$
 \frac{\partial C}{\partial b^{[L]}} &amp;= \frac{1}{m}(A^{[L]}-y)\cdot 1_{m}
 \end{aligned}
 $$
-注意这里对 $b^{[L]}$ 的偏导会得到 $m$ 个列分量之和构成的 $n^{[L]}\times 1$ 矩阵。</p>
+注意这里对 <span class="arithmatex">\(b^{[L]}\)</span> 的偏导会得到 <span class="arithmatex">\(m\)</span> 个列分量之和构成的 <span class="arithmatex">\(n^{[L]}\times 1\)</span> 矩阵。</p>
 <h4 id="_17">逐层传播</h4>
-<p>考虑第 $l-1$ 层，根据
+<p>考虑第 <span class="arithmatex">\(l-1\)</span> 层，根据
 $$
 A^{[l]} =g(Z^{[l]}) = g(W^{[l]}A^{[l-1]} + b^{[l]}1_{m}^T)
 $$
@@ -14814,21 +14816,21 @@ $$
 &amp;= (W^{[l]})^T\frac{d C}{d A^{[l]}}\frac{d A^{[l]}}{d Z^{[l]}} 
 \end{aligned}
 $$
-注意最后 $W^{[l]}A^{[l-1]}$ 对 $A^{[l-1]}$ 求偏导需要调整矩阵相乘顺序。我们已经有
+注意最后 <span class="arithmatex">\(W^{[l]}A^{[l-1]}\)</span> 对 <span class="arithmatex">\(A^{[l-1]}\)</span> 求偏导需要调整矩阵相乘顺序。我们已经有
 $$
 \begin{aligned}
 \frac{d A^{[l]}}{d Z^{[l]}} &amp;= A^{[l]}(1-A^{[l]})\
 \frac{d C}{d A^{[L]}}&amp;= -\frac{1}{m} \left( \frac{y}{A^{[L]}}- \frac{1-y}{1-A^{[L]}} \right)
 \end{aligned}
 $$
-因此可以反向计算关于 $W^{[l]},A^{[l-1]},b^{[l]}$ 的偏导。</p>
+因此可以反向计算关于 <span class="arithmatex">\(W^{[l]},A^{[l-1]},b^{[l]}\)</span> 的偏导。</p>
 <blockquote>
 <blockquote>
-<p>我们将 $Z^{[l]}$ 看作关于 $W^{[l]},A^{[l-1]},b^{[l]}$ 的函数，而注意到 $A^{[l-1]}$ 与 $W^{[l]},b^{[l]}$ 无关，且 $W^{[l]},b^{[l]}$ 之间相互独立，因此可以直接求关于 $W^{[l]},b^{[l]}$ 的偏导。</p>
+<p>我们将 <span class="arithmatex">\(Z^{[l]}\)</span> 看作关于 <span class="arithmatex">\(W^{[l]},A^{[l-1]},b^{[l]}\)</span> 的函数，而注意到 <span class="arithmatex">\(A^{[l-1]}\)</span> 与 <span class="arithmatex">\(W^{[l]},b^{[l]}\)</span> 无关，且 <span class="arithmatex">\(W^{[l]},b^{[l]}\)</span> 之间相互独立，因此可以直接求关于 <span class="arithmatex">\(W^{[l]},b^{[l]}\)</span> 的偏导。</p>
 </blockquote>
 </blockquote>
 <h3 id="_18">梯度下降</h3>
-<p>计算出梯度后，我们使用一个很小的步长 $\alpha=0.01$ 慢慢向梯度的负方向移动，而 $\alpha$ 就是学习率 learning rate 。因此更新流程为
+<p>计算出梯度后，我们使用一个很小的步长 <span class="arithmatex">\(\alpha=0.01\)</span> 慢慢向梯度的负方向移动，而 <span class="arithmatex">\(\alpha\)</span> 就是学习率 learning rate 。因此更新流程为
 $$
 \begin{aligned}
 W^{[l]} &amp;\leftarrow W^{[l]} - \alpha \frac{\partial C}{\partial W^{[l]}}\
@@ -14839,7 +14841,7 @@ $$
 $$
 \frac{x_{i}-\mu}{\sigma}
 $$
-其中 $\mu,\sigma$ 对应均值和标准差。经过这样的标准缩放后，训练数据将具有 0 均值和 1 标准差。</p>
+其中 <span class="arithmatex">\(\mu,\sigma\)</span> 对应均值和标准差。经过这样的标准缩放后，训练数据将具有 0 均值和 1 标准差。</p>
 
 
 
@@ -14893,6 +14895,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

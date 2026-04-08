@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14603,7 +14605,7 @@ S_{p}(root) &amp;= root + S_{p}(root\to left) + S_{p}(root\to right) \
 S_{i}(root) &amp;= S_{i}(root\to left) + root + S_{i}(root\to right)
 \end{aligned}
 $$
-假设构造函数为 $F(S_{p},S_{i})$，可以得到
+假设构造函数为 <span class="arithmatex">\(F(S_{p},S_{i})\)</span>，可以得到
 $$
 F(S_{p}(root),S_{i}(root)) = 
 \begin{cases}
@@ -15005,15 +15007,15 @@ S(i,j) &amp;= \bigoplus_{k=i\cdots j}arr[k]\
 S(i,j) &amp;= S(i,k) \oplus S(k+1,j)
 \end{aligned}
 $$
-因此 $S(k+1,j)$ 是美丽子数组当且仅当 $S(i,j)=S(i,k)$ 成立。取 <code>i=0</code>，我们只需要遍历整个数组，记录所有的 $S(0,k)$，后面出现重复的 $S(0,j)$，说明 $[k+1,j]$ 是美丽子数组，即有
+因此 <span class="arithmatex">\(S(k+1,j)\)</span> 是美丽子数组当且仅当 <span class="arithmatex">\(S(i,j)=S(i,k)\)</span> 成立。取 <code>i=0</code>，我们只需要遍历整个数组，记录所有的 <span class="arithmatex">\(S(0,k)\)</span>，后面出现重复的 <span class="arithmatex">\(S(0,j)\)</span>，说明 <span class="arithmatex">\([k+1,j]\)</span> 是美丽子数组，即有
 $$
 S(0,k) = S(0,j),\quad k=0,\cdots j -1\implies S(k+1,j)
 $$
-假设访问到 <code>j</code> 时出现多个重复值，例如 $S(0,k_{1})=S(0,k_{2})=S(0,j)$，说明
+假设访问到 <code>j</code> 时出现多个重复值，例如 <span class="arithmatex">\(S(0,k_{1})=S(0,k_{2})=S(0,j)\)</span>，说明
 $$
 [k_{1}+1,j],[k_{2}+1,j]
 $$
-都是美丽子数组，因此计数需要加上之前重复的次数。如果 $[0,j]$ 是第一个美丽子数组，那么需要之前重复次数为 1 才行。</p>
+都是美丽子数组，因此计数需要加上之前重复的次数。如果 <span class="arithmatex">\([0,j]\)</span> 是第一个美丽子数组，那么需要之前重复次数为 1 才行。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">beautifulSubarrays</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">nums</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -15130,6 +15132,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

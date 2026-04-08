@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15000,72 +15002,72 @@
 </ul>
 <h3 id="lapack_3">LAPACK 函数</h3>
 <h4 id="degsv">degsv</h4>
-<p>求解一般实线性方程组 $AX=B$ ，其中 $A\in\mathbb{R}^{N\times N},\ X,B\in\mathbb{R}^{N\times NRHS}$ ，并且要求 $A$ 可逆。求解过程使用列主元 $LU$ 分解法，
+<p>求解一般实线性方程组 <span class="arithmatex">\(AX=B\)</span> ，其中 <span class="arithmatex">\(A\in\mathbb{R}^{N\times N},\ X,B\in\mathbb{R}^{N\times NRHS}\)</span> ，并且要求 <span class="arithmatex">\(A\)</span> 可逆。求解过程使用列主元 <span class="arithmatex">\(LU\)</span> 分解法，
 $$
 A = PLU
 $$
-其中 $P$ 是置换阵， $L,U$ 分别为上下三角阵。</p>
+其中 <span class="arithmatex">\(P\)</span> 是置换阵， <span class="arithmatex">\(L,U\)</span> 分别为上下三角阵。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgesv</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">nrhs</span><span class="p">,</span>
 <a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">                          </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="o">*</span><span class="w"> </span><span class="n">ipiv</span><span class="p">,</span>
 <a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">                          </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">ldb</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>参数：</p>
 <ul>
-<li>N - 线性方程的个数，也就是 $A$ 的阶数</li>
-<li>NRHS - 矩阵 $B$ 的列数</li>
-<li>A - 矩阵 $A$ ，返回储存 $A$ 的 $LU$ 分解</li>
-<li>LDA - 数组 $A$ 的行维数， $LDA \ge \max(1,N)$ </li>
-<li>IPIV - 存放返回维数为 $N$ 的置换向量，行 $i$ 被替换为行 $IPIV(i)$ </li>
-<li>B - 矩阵 $B$ </li>
-<li>LDB - 数组 $B$ 的行维数， $LDB\ge \max(1,N)$ ，注意是数组 $B$ ，如果是单列向量，行数是 1</li>
+<li>N - 线性方程的个数，也就是 <span class="arithmatex">\(A\)</span> 的阶数</li>
+<li>NRHS - 矩阵 <span class="arithmatex">\(B\)</span> 的列数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，返回储存 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(LU\)</span> 分解</li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA \ge \max(1,N)\)</span> </li>
+<li>IPIV - 存放返回维数为 <span class="arithmatex">\(N\)</span> 的置换向量，行 <span class="arithmatex">\(i\)</span> 被替换为行 <span class="arithmatex">\(IPIV(i)\)</span> </li>
+<li>B - 矩阵 <span class="arithmatex">\(B\)</span> </li>
+<li>LDB - 数组 <span class="arithmatex">\(B\)</span> 的行维数， <span class="arithmatex">\(LDB\ge \max(1,N)\)</span> ，注意是数组 <span class="arithmatex">\(B\)</span> ，如果是单列向量，行数是 1</li>
 </ul>
 <p>返回 INFO 存放计算标识：</p>
 <ul>
 <li>0 成功退出</li>
-<li><code>&lt; 0</code> 若 <code>INFO = -i</code> ，则第 $i$ 个变量是一个不可接受的值</li>
-<li><code>&gt; 0</code> 若 <code>INFO = i</code> ，则 $U(i,i)$ 为零，因式分解完成，但 $U$ 不可逆</li>
+<li><code>&lt; 0</code> 若 <code>INFO = -i</code> ，则第 <span class="arithmatex">\(i\)</span> 个变量是一个不可接受的值</li>
+<li><code>&gt; 0</code> 若 <code>INFO = i</code> ，则 <span class="arithmatex">\(U(i,i)\)</span> 为零，因式分解完成，但 <span class="arithmatex">\(U\)</span> 不可逆</li>
 </ul>
 <h4 id="dgels">dgels</h4>
-<p>求解超定或欠定实线性方程组，涉及 $A\in\mathbb{R}^{M\times N}$ 或者它的转置，使用 $QR$ 或 $LQ$ 分解，它假定 $A$ 满秩。</p>
+<p>求解超定或欠定实线性方程组，涉及 <span class="arithmatex">\(A\in\mathbb{R}^{M\times N}\)</span> 或者它的转置，使用 <span class="arithmatex">\(QR\)</span> 或 <span class="arithmatex">\(LQ\)</span> 分解，它假定 <span class="arithmatex">\(A\)</span> 满秩。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgels</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">trans</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span>
 <a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">                          </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">nrhs</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
 <a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">                          </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">ldb</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>可选参数 TRANS ：</p>
 <ul>
-<li>若 <code>TRANS = 'N', m&gt;= n</code> ：求超定系统 $|B-AX|$ 的最小解</li>
+<li>若 <code>TRANS = 'N', m&gt;= n</code> ：求超定系统 <span class="arithmatex">\(\|B-AX\|\)</span> 的最小解</li>
 <li>若 <code>TRANS = 'N', m&lt;n</code> ：求欠定系统的最小解</li>
-<li>若 <code>TRANS = 'T', m&gt;= n</code> ：求欠定系统 $A^TX=B$ 的最小解</li>
-<li>若 <code>TRANS = 'T', m&lt;n</code> ：求超定系统 $|B-A^TX|$ 的最小解</li>
+<li>若 <code>TRANS = 'T', m&gt;= n</code> ：求欠定系统 <span class="arithmatex">\(A^TX=B\)</span> 的最小解</li>
+<li>若 <code>TRANS = 'T', m&lt;n</code> ：求超定系统 <span class="arithmatex">\(\|B-A^TX\|\)</span> 的最小解</li>
 </ul>
-<p>右边向量 $b$ 和解向量 $x$ 分别存放为 $M\times NRHS$ 矩阵 $B$ 和 $N\times NRHS$ 矩阵 $X$ 。</p>
+<p>右边向量 <span class="arithmatex">\(b\)</span> 和解向量 <span class="arithmatex">\(x\)</span> 分别存放为 <span class="arithmatex">\(M\times NRHS\)</span> 矩阵 <span class="arithmatex">\(B\)</span> 和 <span class="arithmatex">\(N\times NRHS\)</span> 矩阵 <span class="arithmatex">\(X\)</span> 。</p>
 <p>参数：</p>
 <ul>
 <li>TRANS - 如上</li>
-<li>M - 矩阵 $A$ 的行数</li>
-<li>N - 矩阵 $A$ 的列数</li>
-<li>NRHS - 矩阵 $B$ 的列数</li>
-<li>A - 矩阵 $A$ ，如果 $M&gt;=N$ ，则 $A$ 由 $QR$ 分解覆盖；否则 $A$ 由 $LQ$ 分解覆盖</li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,M)$ </li>
-<li>B - 矩阵 $B$ ，情况比较复杂，只考虑 <code>TRANS = 'N', m&gt;=n</code> ，此时第 1 到 n 行包含最小二乘向量，第 n+1 到 M 行每列的平方和给出残向量 $B-AX$ 每列的平方和</li>
-<li>LDB - 数组 $B$ 的行维数， $LDB\ge \max(1,M,N)$ </li>
+<li>M - 矩阵 <span class="arithmatex">\(A\)</span> 的行数</li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的列数</li>
+<li>NRHS - 矩阵 <span class="arithmatex">\(B\)</span> 的列数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，如果 <span class="arithmatex">\(M&gt;=N\)</span> ，则 <span class="arithmatex">\(A\)</span> 由 <span class="arithmatex">\(QR\)</span> 分解覆盖；否则 <span class="arithmatex">\(A\)</span> 由 <span class="arithmatex">\(LQ\)</span> 分解覆盖</li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,M)\)</span> </li>
+<li>B - 矩阵 <span class="arithmatex">\(B\)</span> ，情况比较复杂，只考虑 <code>TRANS = 'N', m&gt;=n</code> ，此时第 1 到 n 行包含最小二乘向量，第 n+1 到 M 行每列的平方和给出残向量 <span class="arithmatex">\(B-AX\)</span> 每列的平方和</li>
+<li>LDB - 数组 <span class="arithmatex">\(B\)</span> 的行维数， <span class="arithmatex">\(LDB\ge \max(1,M,N)\)</span> </li>
 </ul>
 <h4 id="dsyev">dsyev</h4>
-<p>求解实对称矩阵 $A$ 的所有特征值和对应的特征向量</p>
+<p>求解实对称矩阵 <span class="arithmatex">\(A\)</span> 的所有特征值和对应的特征向量</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dsyev</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">jobz</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">uplo</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">                          </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">w</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>参数：</p>
 <ul>
 <li>JOBZ - 若为 <code>'N'</code> ，表示只计算特征值；若为 <code>'V'</code> 表示计算特征值和特征向量</li>
-<li>UPLO - 若为 <code>'U'</code> ，表示存放 $A$ 的上三角部分；若为 <code>'L'</code> ，表示存放 $A$ 的下三角部分</li>
-<li>N - 矩阵 $A$ 的阶数</li>
-<li>A - 矩阵 $A$ ，如果 UPLO 为 <code>'U'</code> ，则 $A$ 的前 $N\times N$ 上三角部分存放在上三角部分（因为没有必要存放整个 $A$ ），反之同理；如果 JOBZ 为 <code>'V'</code> ，则 $A$ 存放正交特征向量；否则根据 UPLO 返回 $A$ 其部分，其它部分会被摧毁</li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,N)$ </li>
-<li>W - 返回维数为 $N$ 的向量，升序存放特征值</li>
+<li>UPLO - 若为 <code>'U'</code> ，表示存放 <span class="arithmatex">\(A\)</span> 的上三角部分；若为 <code>'L'</code> ，表示存放 <span class="arithmatex">\(A\)</span> 的下三角部分</li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的阶数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，如果 UPLO 为 <code>'U'</code> ，则 <span class="arithmatex">\(A\)</span> 的前 <span class="arithmatex">\(N\times N\)</span> 上三角部分存放在上三角部分（因为没有必要存放整个 <span class="arithmatex">\(A\)</span> ），反之同理；如果 JOBZ 为 <code>'V'</code> ，则 <span class="arithmatex">\(A\)</span> 存放正交特征向量；否则根据 UPLO 返回 <span class="arithmatex">\(A\)</span> 其部分，其它部分会被摧毁</li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,N)\)</span> </li>
+<li>W - 返回维数为 <span class="arithmatex">\(N\)</span> 的向量，升序存放特征值</li>
 </ul>
 <h4 id="dgees">dgees</h4>
-<p>求解实非对称矩阵 $A\in\mathbb{R}^{n\times n}$ 的特征值，实 Schur 分解，以及 Schur 向量的矩阵，给出 Schur 分解 $A = ZTZ^T$ ；也可以选择将对角线上的特征值排序，则 $Z$ 的第一列就是对应特征值子空间的一个正交基。</p>
+<p>求解实非对称矩阵 <span class="arithmatex">\(A\in\mathbb{R}^{n\times n}\)</span> 的特征值，实 Schur 分解，以及 Schur 向量的矩阵，给出 Schur 分解 <span class="arithmatex">\(A = ZTZ^T\)</span> ；也可以选择将对角线上的特征值排序，则 <span class="arithmatex">\(Z\)</span> 的第一列就是对应特征值子空间的一个正交基。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgees</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">jobvs</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">sort</span><span class="p">,</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w">                          </span><span class="n">LAPACK_D_SELECT2</span><span class="w"> </span><span class="n">select</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
 <a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">                          </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="o">*</span><span class="w"> </span><span class="n">sdim</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">wr</span><span class="p">,</span>
@@ -15076,17 +15078,17 @@ $$
 <li>JOBVS - 若为 <code>'N'</code> ，则不计算 Schur 向量；若为 <code>'V'</code> 则计算</li>
 <li>SORT - 若为 <code>'N'</code> ，则不对对角特征值排序；若为 <code>'S'</code> 则排序</li>
 <li>SELECT - 参数过于复杂，当 SORT 为 <code>'N'</code> ，此参数不被引用</li>
-<li>N - 矩阵 $A$ 的阶数</li>
-<li>A - 矩阵 $A$ ，返回 Schur 标准型</li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,N)$ </li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的阶数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，返回 Schur 标准型</li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,N)\)</span> </li>
 <li>SDIM - 返回值，若 SORT 为 <code>'N'</code> ，返回 0</li>
-<li>WR - 返回 $N$ 维数组</li>
-<li>WI - 返回 $N$ 维数组，它们分别存放特征值的实部和虚部，共轭特征对会以虚部为正负的顺序连续出现</li>
-<li>VS - 返回 $LDVS\times N$ 数组，若 JOBVS 为 <code>'V'</code> ，则其中包含 Schur 向量构成的正交阵 $Z$ ；否则不被引用</li>
+<li>WR - 返回 <span class="arithmatex">\(N\)</span> 维数组</li>
+<li>WI - 返回 <span class="arithmatex">\(N\)</span> 维数组，它们分别存放特征值的实部和虚部，共轭特征对会以虚部为正负的顺序连续出现</li>
+<li>VS - 返回 <span class="arithmatex">\(LDVS\times N\)</span> 数组，若 JOBVS 为 <code>'V'</code> ，则其中包含 Schur 向量构成的正交阵 <span class="arithmatex">\(Z\)</span> ；否则不被引用</li>
 <li>LDVS - 数组 VS 的行维数</li>
 </ul>
 <h4 id="dgecon">dgecon</h4>
-<p>计算一般实矩阵 $A$ 的条件数</p>
+<p>计算一般实矩阵 <span class="arithmatex">\(A\)</span> 的条件数</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgecon</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">norm</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">                           </span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">anorm</span><span class="p">,</span>
 <a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">                           </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">rcond</span><span class="w"> </span><span class="p">);</span>
@@ -15094,26 +15096,26 @@ $$
 <p>参数：</p>
 <ul>
 <li>NORM - 若为 <code>'1'</code> 表示 1 范数，为 <code>'I'</code> 表示无穷范数</li>
-<li>N - 矩阵 $A$ 的阶数</li>
-<li>A - 矩阵 $A$ </li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,N)$ </li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的阶数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> </li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,N)\)</span> </li>
 <li>ANORM - 初始矩阵的范数</li>
 <li>RCOND - 返回 <code>RCOND = 1/(norm(A) * norm(inv(A)))</code> </li>
 </ul>
 <h4 id="dgehrd">dgehrd</h4>
-<p>通过正交变换 $Q^TAQ =H$ 将一般实矩阵 $A$ 化为上 Hessenberg 阵 $H$ 。</p>
+<p>通过正交变换 <span class="arithmatex">\(Q^TAQ =H\)</span> 将一般实矩阵 <span class="arithmatex">\(A\)</span> 化为上 Hessenberg 阵 <span class="arithmatex">\(H\)</span> 。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgehrd</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">ilo</span><span class="p">,</span>
 <a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">                           </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">ihi</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span>
 <a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="w">                           </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tau</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>参数：</p>
 <ul>
-<li>N - 矩阵 $A$ 的阶数</li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的阶数</li>
 <li>ILO - 输入整型</li>
-<li>IHI - 输入整型；它们假设矩阵 $A$ 已经在 <code>1:ILO-1</code> 行列和 <code>IHI+1:N</code> 行列部分上三角化。只有当已经调用了 dgebal 后才会设置它们，否则请将它们分别设为 1 和 N</li>
-<li>A - 矩阵 $A$ ，返回上三角和次对角线为上 Hessenberg 化矩阵 $H$ ，剩下的元素和 TAU 一起存放正交阵 $Q$ </li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,N)$ </li>
-<li>TAU - 返回 $N-1$ 维数组，存放变换阵的标量因子，具体解释如下：</li>
+<li>IHI - 输入整型；它们假设矩阵 <span class="arithmatex">\(A\)</span> 已经在 <code>1:ILO-1</code> 行列和 <code>IHI+1:N</code> 行列部分上三角化。只有当已经调用了 dgebal 后才会设置它们，否则请将它们分别设为 1 和 N</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，返回上三角和次对角线为上 Hessenberg 化矩阵 <span class="arithmatex">\(H\)</span> ，剩下的元素和 TAU 一起存放正交阵 <span class="arithmatex">\(Q\)</span> </li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,N)\)</span> </li>
+<li>TAU - 返回 <span class="arithmatex">\(N-1\)</span> 维数组，存放变换阵的标量因子，具体解释如下：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="cm">/*  Further Details</span>
 <a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="cm">*  ===============</span>
@@ -15150,17 +15152,17 @@ $$
 <a id="__codelineno-26-33" name="__codelineno-26-33" href="#__codelineno-26-33"></a><span class="cm">*/</span>
 </code></pre></div>
 <h4 id="dgeqrf">dgeqrf</h4>
-<p>计算一个实 $M\times N$ 矩阵 $A$ 的 $QR$ 分解</p>
+<p>计算一个实 <span class="arithmatex">\(M\times N\)</span> 矩阵 <span class="arithmatex">\(A\)</span> 的 <span class="arithmatex">\(QR\)</span> 分解</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgeqrf</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="w">                           </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">tau</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>参数：</p>
 <ul>
-<li>M - 矩阵 $A$ 的行数</li>
-<li>N - 矩阵 $A$ 的列数</li>
-<li>A - 矩阵 $A$ ，返回上三角部分为 $R$ ，其下的部分和 TAU 存放正交阵 $Q$ </li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,M)$ </li>
-<li>TAU - 返回标量因子 $\min(M,N)$ 维向量，具体解释如下：</li>
+<li>M - 矩阵 <span class="arithmatex">\(A\)</span> 的行数</li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的列数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，返回上三角部分为 <span class="arithmatex">\(R\)</span> ，其下的部分和 TAU 存放正交阵 <span class="arithmatex">\(Q\)</span> </li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,M)\)</span> </li>
+<li>TAU - 返回标量因子 <span class="arithmatex">\(\min(M,N)\)</span> 维向量，具体解释如下：</li>
 </ul>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="cm">/*  Further Details</span>
 <a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="cm">*  ===============</span>
@@ -15179,29 +15181,29 @@ $$
 <a id="__codelineno-28-15" name="__codelineno-28-15" href="#__codelineno-28-15"></a><span class="cm">*/</span>
 </code></pre></div>
 <h4 id="dgetrf">dgetrf</h4>
-<p>计算一个实 $M\times N$ 矩阵 $A$ 的列主元 $LU$ 分解</p>
+<p>计算一个实 <span class="arithmatex">\(M\times N\)</span> 矩阵 <span class="arithmatex">\(A\)</span> 的列主元 <span class="arithmatex">\(LU\)</span> 分解</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgetrf</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span>
 <a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="w">                           </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="o">*</span><span class="w"> </span><span class="n">ipiv</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>参数：</p>
 <ul>
-<li>M - 矩阵 $A$ 的行数</li>
-<li>N - 矩阵 $A$ 的列数</li>
-<li>A - 矩阵 $A$ ，返回存储 $L,U$ </li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,M)$ </li>
-<li>IPIV - 返回 $\min(M,N)$ 维向量，存放置换向量，行 $i$ 被替换为行 $IPIV(i)$ </li>
+<li>M - 矩阵 <span class="arithmatex">\(A\)</span> 的行数</li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的列数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，返回存储 <span class="arithmatex">\(L,U\)</span> </li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,M)\)</span> </li>
+<li>IPIV - 返回 <span class="arithmatex">\(\min(M,N)\)</span> 维向量，存放置换向量，行 <span class="arithmatex">\(i\)</span> 被替换为行 <span class="arithmatex">\(IPIV(i)\)</span> </li>
 </ul>
 <h4 id="dgetri">dgetri</h4>
-<p>利用 $LU$ 分解计算一个矩阵的逆，它先求 $U$ 的逆，然后求解 $A^{-1}L = U^{-1}$ 得到 $A^{-1}$ </p>
+<p>利用 <span class="arithmatex">\(LU\)</span> 分解计算一个矩阵的逆，它先求 <span class="arithmatex">\(U\)</span> 的逆，然后求解 <span class="arithmatex">\(A^{-1}L = U^{-1}\)</span> 得到 <span class="arithmatex">\(A^{-1}\)</span> </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">lapack_int</span><span class="w"> </span><span class="nf">LAPACKE_dgetri</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">matrix_layout</span><span class="p">,</span><span class="w"> </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="o">*</span><span class="w"> </span><span class="n">a</span><span class="p">,</span>
 <a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="w">                           </span><span class="n">lapack_int</span><span class="w"> </span><span class="n">lda</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">lapack_int</span><span class="o">*</span><span class="w"> </span><span class="n">ipiv</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
 <p>参数：</p>
 <ul>
-<li>N - 矩阵 $A$ 的阶数</li>
-<li>A - 矩阵 $A$ ，</li>
-<li>LDA - 数组 $A$ 的行维数， $LDA\ge\max(1,N)$ </li>
-<li>IPIV - 存放置换向量的 $N$ 维数组</li>
+<li>N - 矩阵 <span class="arithmatex">\(A\)</span> 的阶数</li>
+<li>A - 矩阵 <span class="arithmatex">\(A\)</span> ，</li>
+<li>LDA - 数组 <span class="arithmatex">\(A\)</span> 的行维数， <span class="arithmatex">\(LDA\ge\max(1,N)\)</span> </li>
+<li>IPIV - 存放置换向量的 <span class="arithmatex">\(N\)</span> 维数组</li>
 </ul>
 <h3 id="lapack_4">LAPACK 实例</h3>
 <p><a href="https://blog.csdn.net/moyumoyu/article/details/7950539?spm=1001.2101.3001.6650.1&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link">使用标准函数求解线性方程组</a></p>
@@ -15471,10 +15473,10 @@ $$
 <p>例如对矩阵 S 进行分解</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="n">Eigen</span><span class="o">::</span><span class="n">JacobiSVD</span><span class="o">&lt;</span><span class="n">MatrixXd</span><span class="o">&gt;</span><span class="w"> </span><span class="n">svd</span><span class="p">(</span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">ComputeFullU</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Eigen</span><span class="o">::</span><span class="n">ComputeFullV</span><span class="p">);</span>
 </code></pre></div>
-<p>其中第二个参数通过 <code>|</code> 连接表示完整计算 $U,V$ 矩阵。如果不指定这个参数，只会计算奇异值</p>
+<p>其中第二个参数通过 <code>|</code> 连接表示完整计算 <span class="arithmatex">\(U,V\)</span> 矩阵。如果不指定这个参数，只会计算奇异值</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="n">svd</span><span class="p">.</span><span class="n">singularValues</span><span class="p">();</span>
 </code></pre></div>
-<p>指定 <code>Eigen::ComputeThinU</code> 则只会计算非零奇异值对应的 $U$ 矩阵。指定计算 $U,V$ 矩阵后就可以访问</p>
+<p>指定 <code>Eigen::ComputeThinU</code> 则只会计算非零奇异值对应的 <span class="arithmatex">\(U\)</span> 矩阵。指定计算 <span class="arithmatex">\(U,V\)</span> 矩阵后就可以访问</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="n">svd</span><span class="p">.</span><span class="n">matrixU</span><span class="p">();</span>
 <a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="n">svd</span><span class="p">.</span><span class="n">matrixV</span><span class="p">();</span>
 </code></pre></div>
@@ -15492,7 +15494,7 @@ $$
 <a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a><span class="n">MatrixXd</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">solver</span><span class="p">.</span><span class="n">solve</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="cholesky_1">稀疏 Cholesky 分解</h3>
-<p>使用 SimplicialLDLT 进行 $LDL^T$ 形式的矩阵分解</p>
+<p>使用 SimplicialLDLT 进行 <span class="arithmatex">\(LDL^T\)</span> 形式的矩阵分解</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="n">Eigen</span><span class="o">::</span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="w"> </span><span class="n">C</span><span class="p">;</span>
 <a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="n">Eigen</span><span class="o">::</span><span class="n">SimplicialLDLT</span><span class="o">&lt;</span><span class="n">Eigen</span><span class="o">::</span><span class="n">SparseMatrix</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">ldlt</span><span class="p">(</span><span class="n">C</span><span class="p">);</span>
 </code></pre></div>
@@ -15843,7 +15845,7 @@ $$
 <a id="__codelineno-81-14" name="__codelineno-81-14" href="#__codelineno-81-14"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n2</span>
 <a id="__codelineno-81-15" name="__codelineno-81-15" href="#__codelineno-81-15"></a><span class="p">);</span>
 </code></pre></div>
-<p>获得左上角为 $(k_{1},k_{2})$ 具有 $n_{1}$ 行 $n_{2}$ 列的子矩阵</p>
+<p>获得左上角为 <span class="arithmatex">\((k_{1},k_{2})\)</span> 具有 <span class="arithmatex">\(n_{1}\)</span> 行 <span class="arithmatex">\(n_{2}\)</span> 列的子矩阵</p>
 <p>可以将数组转换为矩阵视图使用，可以指定 <code>tda</code> 决定每一行占用的宽度，不使用超出列数的部分</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a><span class="n">gsl_matrix_view</span><span class="w"> </span><span class="nf">gsl_matrix_view_array</span><span class="p">(</span>
 <a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="n">base</span><span class="p">,</span><span class="w"> </span>
@@ -15911,7 +15913,7 @@ $$
 <a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a><span class="n">gsl_vector_view</span><span class="w"> </span><span class="nf">gsl_matrix_subcolumn</span><span class="p">(</span><span class="n">gsl_matrix</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 <a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a><span class="n">gsl_vector_const_view</span><span class="w"> </span><span class="nf">gsl_matrix_const_subcolumn</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_matrix</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">offset</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">);</span>
 </code></pre></div>
-<p>可以获得对角向量和 $k$ 次对角向量及其子向量视图</p>
+<p>可以获得对角向量和 <span class="arithmatex">\(k\)</span> 次对角向量及其子向量视图</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a><span class="n">gsl_vector_view</span><span class="w"> </span><span class="nf">gsl_matrix_diagonal</span><span class="p">(</span><span class="n">gsl_matrix</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">);</span>
 <a id="__codelineno-86-2" name="__codelineno-86-2" href="#__codelineno-86-2"></a><span class="n">gsl_vector_const_view</span><span class="w"> </span><span class="nf">gsl_matrix_const_diagonal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_matrix</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">);</span>
 <a id="__codelineno-86-3" name="__codelineno-86-3" href="#__codelineno-86-3"></a><span class="n">gsl_vector_view</span><span class="w"> </span><span class="nf">gsl_matrix_subdiagonal</span><span class="p">(</span><span class="n">gsl_matrix</span><span class="w"> </span><span class="o">*</span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">k</span><span class="p">);</span>
@@ -15976,9 +15978,9 @@ $$
 <h3 id="blas_1">BLAS</h3>
 <p>GSL 提供了通用的 BLAS 接口用于矩阵运算。有 3 种层级</p>
 <ol>
-<li>向量运算 $y=\alpha x+\beta y$</li>
-<li>矩阵向量运算 $y=\alpha Ax+\beta y$</li>
-<li>矩阵运算 $C=\alpha AB+\beta C$</li>
+<li>向量运算 <span class="arithmatex">\(y=\alpha x+\beta y\)</span></li>
+<li>矩阵向量运算 <span class="arithmatex">\(y=\alpha Ax+\beta y\)</span></li>
+<li>矩阵运算 <span class="arithmatex">\(C=\alpha AB+\beta C\)</span></li>
 </ol>
 <p>每个例程有特定的名字</p>
 <table>
@@ -15991,27 +15993,27 @@ $$
 <tbody>
 <tr>
 <td>DOT</td>
-<td>标量积 $x^Ty$</td>
+<td>标量积 <span class="arithmatex">\(x^Ty\)</span></td>
 </tr>
 <tr>
 <td>AXPY</td>
-<td>向量和 $\alpha x+y$</td>
+<td>向量和 <span class="arithmatex">\(\alpha x+y\)</span></td>
 </tr>
 <tr>
 <td>MV</td>
-<td>矩阵向量积 $Ax$</td>
+<td>矩阵向量积 <span class="arithmatex">\(Ax\)</span></td>
 </tr>
 <tr>
 <td>SV</td>
-<td>向量矩阵求解 $A^{-1}x$</td>
+<td>向量矩阵求解 <span class="arithmatex">\(A^{-1}x\)</span></td>
 </tr>
 <tr>
 <td>MM</td>
-<td>矩阵积 $AB$</td>
+<td>矩阵积 <span class="arithmatex">\(AB\)</span></td>
 </tr>
 <tr>
 <td>SM</td>
-<td>矩阵求解 $A^{-1}B$</td>
+<td>矩阵求解 <span class="arithmatex">\(A^{-1}B\)</span></td>
 </tr>
 <tr>
 <td>矩阵类型包括</td>
@@ -16108,11 +16110,11 @@ $$
 <a id="__codelineno-92-5" name="__codelineno-92-5" href="#__codelineno-92-5"></a><span class="p">);</span>
 </code></pre></div>
 <h4 id="_46">向量模</h4>
-<p>双精度向量 2 范数 $|x|_{2}$ 例程为</p>
+<p>双精度向量 2 范数 <span class="arithmatex">\(\|x\|_{2}\)</span> 例程为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">gsl_blas_dnrm2</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="_47">秩一矩阵</h4>
-<p>双精度向量的秩一矩阵 $A=\alpha xy^T+A$ 例程为</p>
+<p>双精度向量的秩一矩阵 <span class="arithmatex">\(A=\alpha xy^T+A\)</span> 例程为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">gsl_blas_dger</span><span class="p">(</span>
 <a id="__codelineno-94-2" name="__codelineno-94-2" href="#__codelineno-94-2"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span>
 <a id="__codelineno-94-3" name="__codelineno-94-3" href="#__codelineno-94-3"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="n">x</span><span class="p">,</span><span class="w"> </span>
@@ -16120,9 +16122,9 @@ $$
 <a id="__codelineno-94-5" name="__codelineno-94-5" href="#__codelineno-94-5"></a><span class="w">    </span><span class="n">gsl_matrix</span><span class="w"> </span><span class="o">*</span><span class="n">A</span>
 <a id="__codelineno-94-6" name="__codelineno-94-6" href="#__codelineno-94-6"></a><span class="p">);</span>
 </code></pre></div>
-<p>注意这里加到矩阵 $A$ 上，因此如果只需要 $\alpha xy^T$，记得先清空 $A$ 。</p>
+<p>注意这里加到矩阵 <span class="arithmatex">\(A\)</span> 上，因此如果只需要 <span class="arithmatex">\(\alpha xy^T\)</span>，记得先清空 <span class="arithmatex">\(A\)</span> 。</p>
 <h4 id="_48">矩阵乘向量</h4>
-<p>双精度通用矩阵乘向量 $y=\alpha Ax+\beta y$ 例程为</p>
+<p>双精度通用矩阵乘向量 <span class="arithmatex">\(y=\alpha Ax+\beta y\)</span> 例程为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">gsl_blas_dgemv</span><span class="p">(</span>
 <a id="__codelineno-95-2" name="__codelineno-95-2" href="#__codelineno-95-2"></a><span class="w">    </span><span class="n">CBLAS_TRANSPOSE_t</span><span class="w"> </span><span class="n">TransA</span><span class="p">,</span><span class="w"> </span>
 <a id="__codelineno-95-3" name="__codelineno-95-3" href="#__codelineno-95-3"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">alpha</span><span class="p">,</span><span class="w"> </span>
@@ -16169,7 +16171,7 @@ $$
 <a id="__codelineno-96-34" name="__codelineno-96-34" href="#__codelineno-96-34"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="_49">矩阵乘矩阵</h4>
-<p>双精度通用矩阵乘法 $C=\alpha AB+\beta C$ 例程为</p>
+<p>双精度通用矩阵乘法 <span class="arithmatex">\(C=\alpha AB+\beta C\)</span> 例程为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">gsl_blas_dgemm</span><span class="p">(</span>
 <a id="__codelineno-97-2" name="__codelineno-97-2" href="#__codelineno-97-2"></a><span class="w">    </span><span class="n">CBLAS_TRANSPOSE_t</span><span class="w"> </span><span class="n">TransA</span><span class="p">,</span><span class="w"> </span>
 <a id="__codelineno-97-3" name="__codelineno-97-3" href="#__codelineno-97-3"></a><span class="w">    </span><span class="n">CBLAS_TRANSPOSE_t</span><span class="w"> </span><span class="n">TransB</span><span class="p">,</span><span class="w"> </span>
@@ -16202,14 +16204,14 @@ $$
 </code></pre></div>
 <h2 id="_50">多维最小化</h2>
 <h3 id="_51">概述</h3>
-<p>多维最小化问题寻找点 $x$ 满足标量函数
+<p>多维最小化问题寻找点 <span class="arithmatex">\(x\)</span> 满足标量函数
 $$
 f(x_{1},\cdots,x_{n})
 $$
-小于<strong>邻域内任意一点</strong>的值。对于光滑函数，梯度 $g=\nabla f$ 在最小值处消失。一般来说，对于 $n$ 维函数，算法从最初的猜测开始，使用一种搜索方法，试图向下坡方向移动。</p>
+小于<strong>邻域内任意一点</strong>的值。对于光滑函数，梯度 <span class="arithmatex">\(g=\nabla f\)</span> 在最小值处消失。一般来说，对于 <span class="arithmatex">\(n\)</span> 维函数，算法从最初的猜测开始，使用一种搜索方法，试图向下坡方向移动。</p>
 <blockquote>
 <blockquote>
-<p>利用函数梯度的算法沿着梯度方向执行一维线最小化，直到在合适的容差下找到最低点。然后利用函数及其导数信息更新搜索方向，重复这个过程，直到找到真正的 $n$ 维最小值。不需要函数梯度的算法使用 Nelder-MeadSimplex 算法维护 $n+1$ 个试验参数向量作为 $n$ 维单形的顶点。在每次迭代中，它都试图通过几何变换来改进单形的最差顶点。迭代将继续执行，直到单形的大小得到充分下降。</p>
+<p>利用函数梯度的算法沿着梯度方向执行一维线最小化，直到在合适的容差下找到最低点。然后利用函数及其导数信息更新搜索方向，重复这个过程，直到找到真正的 <span class="arithmatex">\(n\)</span> 维最小值。不需要函数梯度的算法使用 Nelder-MeadSimplex 算法维护 <span class="arithmatex">\(n+1\)</span> 个试验参数向量作为 <span class="arithmatex">\(n\)</span> 维单形的顶点。在每次迭代中，它都试图通过几何变换来改进单形的最差顶点。迭代将继续执行，直到单形的大小得到充分下降。</p>
 </blockquote>
 </blockquote>
 <p>最小化器的状态保存在 <code>gsl_multimin_fdfminimizer</code> 结构体或 <code>gsl_multimin_fminimizer</code> 结构体中。</p>
@@ -16232,7 +16234,7 @@ $$
 <a id="__codelineno-99-8" name="__codelineno-99-8" href="#__codelineno-99-8"></a><span class="w">    </span><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span>
 <a id="__codelineno-99-9" name="__codelineno-99-9" href="#__codelineno-99-9"></a><span class="p">);</span>
 </code></pre></div>
-<p>设置初始猜测 <code>x</code>、初始迭代步长 <code>step_size</code>；对于前者，当梯度与搜索方向正交（$p\cdot g&lt;tol|p||g|$）时结束，如果将 <code>tol</code> 设为 0，会使用精确线搜索，导致高昂的开销。</p>
+<p>设置初始猜测 <code>x</code>、初始迭代步长 <code>step_size</code>；对于前者，当梯度与搜索方向正交（<span class="arithmatex">\(p\cdot g&lt;tol|p||g|\)</span>）时结束，如果将 <code>tol</code> 设为 0，会使用精确线搜索，导致高昂的开销。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">gsl_multimin_fdfminimizer_set</span><span class="p">(</span>
 <a id="__codelineno-100-2" name="__codelineno-100-2" href="#__codelineno-100-2"></a><span class="w">    </span><span class="n">gsl_multimin_fdfminimizer</span><span class="w"> </span><span class="o">*</span><span class="n">s</span><span class="p">,</span><span class="w"> </span>
 <a id="__codelineno-100-3" name="__codelineno-100-3" href="#__codelineno-100-3"></a><span class="w">    </span><span class="n">gsl_multimin_function_fdf</span><span class="w"> </span><span class="o">*</span><span class="n">fdf</span><span class="p">,</span><span class="w"> </span>
@@ -16260,7 +16262,7 @@ $$
 <div class="highlight"><pre><span></span><code><a id="__codelineno-103-1" name="__codelineno-103-1" href="#__codelineno-103-1"></a><span class="n">printf</span><span class="w"> </span><span class="p">(</span><span class="s">&quot;s is a &#39;%s&#39; minimizer</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">gsl_multimin_fdfminimizer_name</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">));</span>
 </code></pre></div>
 <h3 id="_54">提供最小化函数</h3>
-<p>数据类型 <code>gsl_multimin_function_fdf</code> 定义 $n$ 变量函数及其对应的梯度向量，包括</p>
+<p>数据类型 <code>gsl_multimin_function_fdf</code> 定义 <span class="arithmatex">\(n\)</span> 变量函数及其对应的梯度向量，包括</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-104-1" name="__codelineno-104-1" href="#__codelineno-104-1"></a><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">);</span><span class="w">                                 </span><span class="c1">// 目标函数</span>
 <a id="__codelineno-104-2" name="__codelineno-104-2" href="#__codelineno-104-2"></a><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">df</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">);</span><span class="w">                  </span><span class="c1">// 目标函数的梯度</span>
 <a id="__codelineno-104-3" name="__codelineno-104-3" href="#__codelineno-104-3"></a><span class="kt">void</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">fdf</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">g</span><span class="p">);</span><span class="w">     </span><span class="c1">// 同时计算目标函数及其梯度</span>
@@ -16268,7 +16270,7 @@ $$
 <a id="__codelineno-104-5" name="__codelineno-104-5" href="#__codelineno-104-5"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">;</span><span class="w">  </span><span class="c1">// 指向参数值</span>
 </code></pre></div>
 <p>如果无法计算目标函数，将返回 <code>GSL_NAN</code>；<code>fdf</code> 允许提供计算目标函数及其梯度的优化方案，因为同时计算会更快。</p>
-<p>数据类型 <code>gsl_multimin_function</code> 定义一般 $n$ 变量函数</p>
+<p>数据类型 <code>gsl_multimin_function</code> 定义一般 <span class="arithmatex">\(n\)</span> 变量函数</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-105-1" name="__codelineno-105-1" href="#__codelineno-105-1"></a><span class="kt">double</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="w"> </span><span class="n">f</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">);</span><span class="w"> </span><span class="c1">// 目标函数</span>
 <a id="__codelineno-105-2" name="__codelineno-105-2" href="#__codelineno-105-2"></a><span class="kt">size_t</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w">       </span><span class="c1">// 系统维数 x</span>
 <a id="__codelineno-105-3" name="__codelineno-105-3" href="#__codelineno-105-3"></a><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">params</span><span class="p">;</span><span class="w">  </span><span class="c1">// 指向参数值</span>
@@ -16361,11 +16363,11 @@ $$
 <h3 id="_57">具有导数的算法</h3>
 <p>可以指定不同的算法求解</p>
 <h4 id="fletcher-reeves">Fletcher-Reeves 共轭梯度法</h4>
-<p>初始搜索方向 $p$ 由梯度确定，然后在该方向上应用线搜索。</p>
+<p>初始搜索方向 <span class="arithmatex">\(p\)</span> 由梯度确定，然后在该方向上应用线搜索。</p>
 <ul>
 <li><code>gsl_multimin_fdfminimizer_type *gsl_multimin_fdfminimizer_conjugate_fr</code></li>
 </ul>
-<p>由 <code>tol</code> 参数指定精度。当搜索方向上一点处的梯度 $g$ 与 $p$ 正交时达到最小值。如果满足
+<p>由 <code>tol</code> 参数指定精度。当搜索方向上一点处的梯度 <span class="arithmatex">\(g\)</span> 与 <span class="arithmatex">\(p\)</span> 正交时达到最小值。如果满足
 $$
 p\cdot g &lt; tol|p||g|
 $$
@@ -16375,7 +16377,7 @@ p'=g'-\beta p,\quad \beta = -\frac{|g'|^2}{|g|^2}
 $$
 更新搜索方向。</p>
 <h4 id="polak-ribiere">Polak-Ribiere 共轭梯度法</h4>
-<p>与 Fletcher-Reeves 算法的区别在于 $\beta$ 的选择不同。当估计点足够接近目标函数的最小值时，两种方法都可以很快逼近。</p>
+<p>与 Fletcher-Reeves 算法的区别在于 <span class="arithmatex">\(\beta\)</span> 的选择不同。当估计点足够接近目标函数的最小值时，两种方法都可以很快逼近。</p>
 <ul>
 <li><code>gsl_multimin_fdfminimizer_type *gsl_multimin_fdfminimizer_conjugate_pr</code></li>
 </ul>
@@ -16385,7 +16387,7 @@ $$
 <li><code>gsl_multimin_fdfminimizer_type *gsl_multimin_fdfminimizer_vector_bfgs</code></li>
 <li><code>gsl_multimin_fdfminimizer_type *gsl_multimin_fdfminimizer_vector_bfgs2</code></li>
 </ul>
-<p>其中 <code>bfgs2</code> 是最有效的版本。用户提供的容差 <code>tol</code> 对应 Fletcher 使用的参数 $\sigma$，建议使用 $0.1$ 有利于使用不精确线搜索。</p>
+<p>其中 <code>bfgs2</code> 是最有效的版本。用户提供的容差 <code>tol</code> 对应 Fletcher 使用的参数 <span class="arithmatex">\(\sigma\)</span>，建议使用 <span class="arithmatex">\(0.1\)</span> 有利于使用不精确线搜索。</p>
 <h4 id="_58">最速下降法</h4>
 <p>最速下降法直接使用每一步的梯度下降。如果下坡成功，则步长翻倍；如果下坡导致更高的函数值，则使用 <code>tol</code> 减小步长。通常使用 <code>tol = 0.1</code> 。该算法非常低效，仅用于演示。</p>
 <ul>
@@ -16393,12 +16395,12 @@ $$
 </ul>
 <h3 id="_59">无导数的算法</h3>
 <h4 id="_60">单纯形法</h4>
-<p>这是 Nelder 和 Mead 的单纯形法，算法的空间复杂度都是 $O(N^2)$</p>
+<p>这是 Nelder 和 Mead 的单纯形法，算法的空间复杂度都是 <span class="arithmatex">\(O(N^2)\)</span></p>
 <ul>
 <li><code>gsl_multimin_fminimizer_type *gsl_multimin_fminimizer_nmsimplex</code></li>
 <li><code>gsl_multimin_fminimizer_type *gsl_multimin_fminimizer_nmsimplex2</code></li>
 </ul>
-<p>算法从初始向量 $x=p_{0}$ 开始，使用步长 <code>step_size</code> 构造
+<p>算法从初始向量 <span class="arithmatex">\(x=p_{0}\)</span> 开始，使用步长 <code>step_size</code> 构造
 $$
 \begin{aligned}
 p_{0} &amp;= (x_{0},x_{1},\cdots,x_{n})\
@@ -16407,9 +16409,9 @@ p_{1} &amp;= (x_{0}+s_{0},x_{1},\cdots,x_{n})\
 p_{n} &amp;= (x_{0},x_{1},\cdots,x_{n}+s_{n})
 \end{aligned}
 $$
-这些向量构成 $n$ 维单纯形的 $n+1$ 个顶点。每步迭代中，算法进行简单的几何变换更新对应最大函数值的向量。通过这些变换，单纯形在空间中朝最小值移动，并收缩到最小值。每步迭代后，返回最佳顶点。由于算法性质，并不是每一步都能改进当前的最佳参数向量，通常需要多次迭代。最小特征尺寸 <code>size</code> 是单纯形几何中心到其所有顶点的平均距离。由于单纯形在接近最小值时收缩，可以使用 <code>size</code> 作为终止标准，通过 <code>gsl_multimin_fminimizer_size()</code> 获得。</p>
+这些向量构成 <span class="arithmatex">\(n\)</span> 维单纯形的 <span class="arithmatex">\(n+1\)</span> 个顶点。每步迭代中，算法进行简单的几何变换更新对应最大函数值的向量。通过这些变换，单纯形在空间中朝最小值移动，并收缩到最小值。每步迭代后，返回最佳顶点。由于算法性质，并不是每一步都能改进当前的最佳参数向量，通常需要多次迭代。最小特征尺寸 <code>size</code> 是单纯形几何中心到其所有顶点的平均距离。由于单纯形在接近最小值时收缩，可以使用 <code>size</code> 作为终止标准，通过 <code>gsl_multimin_fminimizer_size()</code> 获得。</p>
 <h4 id="_61">随机单纯形法</h4>
-<p>使用随机定向的基向量集而非固定坐标轴初始化起点 $x$ 周围的单纯形</p>
+<p>使用随机定向的基向量集而非固定坐标轴初始化起点 <span class="arithmatex">\(x\)</span> 周围的单纯形</p>
 <ul>
 <li><code>gsl_multimin_fminimizer_type *gsl_multimin_fminimizer_nmsimplex2rand</code></li>
 </ul>
@@ -16686,46 +16688,46 @@ $$
 <li>小规模或中等规模问题：<code>gsl_multifit_nlinear.h</code></li>
 <li>大规模问题：<code>gsl_multilarge_nlinear.h</code></li>
 </ul>
-<p>多维非线性最小二乘拟合计算 $n$ 个残差函数 $f_{i}$ 在 $p$ 个参数 $x_{i}$ 下的平方和最小值
+<p>多维非线性最小二乘拟合计算 <span class="arithmatex">\(n\)</span> 个残差函数 <span class="arithmatex">\(f_{i}\)</span> 在 <span class="arithmatex">\(p\)</span> 个参数 <span class="arithmatex">\(x_{i}\)</span> 下的平方和最小值
 $$
 \Phi(x) = \frac{1}{2}|f(x)|^2 = \frac{1}{2}\sum_{i=1}^nf_{i}^2(x_{1},\cdots,x_{p})
 $$
-在信赖域方法中，目标函数 $\Phi(x)$ 通过某点的试探函数 $m_{k}(\delta)$ 近似
+在信赖域方法中，目标函数 <span class="arithmatex">\(\Phi(x)\)</span> 通过某点的试探函数 <span class="arithmatex">\(m_{k}(\delta)\)</span> 近似
 $$
 \Phi(x_{k}+\delta)\approx m_{k}(\delta)=\Phi(x_{k})+g_{k}^T\delta+\frac{1}{2}\delta^TB_{k}\delta
 $$
-其中 $g_{k}=\nabla \Phi(x_{k})=J^Tf$ 是梯度向量，$B_{k}=\nabla^2\Phi(x_{k})$ 是 Hessian 矩阵，定义
+其中 <span class="arithmatex">\(g_{k}=\nabla \Phi(x_{k})=J^Tf\)</span> 是梯度向量，<span class="arithmatex">\(B_{k}=\nabla^2\Phi(x_{k})\)</span> 是 Hessian 矩阵，定义
 $$
 J_{ij} = \frac{\partial f_{i}}{\partial x_{j}}
 $$
-构成 $n\times p$ 阶 Jacobian 矩阵。通过最小化 $m_{k}(\delta )$ 找到步长 $\delta$ 。</p>
+构成 <span class="arithmatex">\(n\times p\)</span> 阶 Jacobian 矩阵。通过最小化 <span class="arithmatex">\(m_{k}(\delta )\)</span> 找到步长 <span class="arithmatex">\(\delta\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>注意梯度向量是 Jacobian 矩阵和 $f$ 的乘积，因为目标函数是 $f$ 的二次函数。</p>
+<p>注意梯度向量是 Jacobian 矩阵和 <span class="arithmatex">\(f\)</span> 的乘积，因为目标函数是 <span class="arithmatex">\(f\)</span> 的二次函数。</p>
 </blockquote>
 </blockquote>
 <p>算法求解信赖域子问题 (TRS)
 $$
 \min_{\delta\in\mathbb{R}^p}m_{k}(\delta)=\Phi(x_{k})+g_{k}^T\delta+\frac{1}{2}\delta^TB_{k}\delta,\quad \mathrm{s.t.}\quad |D_{k}\delta|\leq \Delta_{k}
 $$
-其中 $\Delta_{k}&gt;0$ 是信赖域半径，$D_{k}$ 是缩放矩阵。当 $D_{k}=I$ 时，信赖域是球形。一旦确定 $\delta$，就检查下降率
+其中 <span class="arithmatex">\(\Delta_{k}&gt;0\)</span> 是信赖域半径，<span class="arithmatex">\(D_{k}\)</span> 是缩放矩阵。当 <span class="arithmatex">\(D_{k}=I\)</span> 时，信赖域是球形。一旦确定 <span class="arithmatex">\(\delta\)</span>，就检查下降率
 $$
 \rho_{k} = \frac{\Phi(x_{k})-\Phi(x_{k}+\delta_{k})}{m_{k}(0)-m_{k}(\delta_{k})}
 $$
-如果结果为负，则拒绝；如果为正，则接受。如果 $\rho_{k}$ 接近 1，那么说明 $m_{k}$ 是信赖域内目标函数的良好近似，因此扩大信赖域范围；如果 $\rho_{k}$ 被拒绝，则会减小信赖域。</p>
+如果结果为负，则拒绝；如果为正，则接受。如果 <span class="arithmatex">\(\rho_{k}\)</span> 接近 1，那么说明 <span class="arithmatex">\(m_{k}\)</span> 是信赖域内目标函数的良好近似，因此扩大信赖域范围；如果 <span class="arithmatex">\(\rho_{k}\)</span> 被拒绝，则会减小信赖域。</p>
 <h3 id="_65">求解信赖域子问题</h3>
-<p>在所有算法中，$B_{k}\approx J_{k}^TJ_{k}$ 是对 Hessian 矩阵的近似。对于小规模问题，会执行矩阵分解；对于大规模问题，可以选择</p>
+<p>在所有算法中，<span class="arithmatex">\(B_{k}\approx J_{k}^TJ_{k}\)</span> 是对 Hessian 矩阵的近似。对于小规模问题，会执行矩阵分解；对于大规模问题，可以选择</p>
 <ol>
-<li>迭代求解，不需要保存整个 Jacobian 矩阵，用户需要提供计算 $J$ 的例程。迭代法对于稀疏系统非常有效，因为矩阵向量乘积可以高效完成</li>
-<li>构建标准法方程 $J^TJ$，保存 $p\times p$ 阶矩阵，内存开销比直接保持 $J$ 更小。适用于大型稠密系统或者迭代法难以收敛的情形</li>
+<li>迭代求解，不需要保存整个 Jacobian 矩阵，用户需要提供计算 <span class="arithmatex">\(J\)</span> 的例程。迭代法对于稀疏系统非常有效，因为矩阵向量乘积可以高效完成</li>
+<li>构建标准法方程 <span class="arithmatex">\(J^TJ\)</span>，保存 <span class="arithmatex">\(p\times p\)</span> 阶矩阵，内存开销比直接保持 <span class="arithmatex">\(J\)</span> 更小。适用于大型稠密系统或者迭代法难以收敛的情形</li>
 </ol>
 <h4 id="levenberg-marquardt">Levenberg-Marquardt</h4>
-<p>如果 $\delta_{k}$ 是信赖域子问题的解，则可以证明存在 $\mu_{k}\geq 0$ 使得
+<p>如果 <span class="arithmatex">\(\delta_{k}\)</span> 是信赖域子问题的解，则可以证明存在 <span class="arithmatex">\(\mu_{k}\geq 0\)</span> 使得
 $$
 (B_{k}+\mu_{k}D_{k}^TD_{k})\delta_{k}=-g_{k},\quad \mu_{k}(\Delta_{k}-|D_{k}\delta_{k}|)=0
 $$
-这成为 Levenberg-Marquardt 算法的基础，它通过调整 $\mu_{k}$ 来间接控制 $\Delta_{k}$ 。对每个半径 $\Delta_{k}$，存在唯一求解 TRS 的参数 $\mu_{k}$，它与 $\Delta_{k}$ 成反比，因此更大的 $\mu_{k}$ 意味着更小的信赖域。</p>
-<p>由 $B_{k}\approx J_{k}^TJ_{k}$ 得到 TRS 系统
+这成为 Levenberg-Marquardt 算法的基础，它通过调整 <span class="arithmatex">\(\mu_{k}\)</span> 来间接控制 <span class="arithmatex">\(\Delta_{k}\)</span> 。对每个半径 <span class="arithmatex">\(\Delta_{k}\)</span>，存在唯一求解 TRS 的参数 <span class="arithmatex">\(\mu_{k}\)</span>，它与 <span class="arithmatex">\(\Delta_{k}\)</span> 成反比，因此更大的 <span class="arithmatex">\(\mu_{k}\)</span> 意味着更小的信赖域。</p>
+<p>由 <span class="arithmatex">\(B_{k}\approx J_{k}^TJ_{k}\)</span> 得到 TRS 系统
 $$
 \begin{pmatrix}
 J_{k} \
@@ -16740,7 +16742,7 @@ $$
 $$
 \min_{\delta_{k}}|J_{k}\delta_{k}+f_{k}|^2+\mu_{k}|D_{k}\delta_{k}|^2
 $$
-如果接受 $\delta_{k}$，则下一步会减小 $\mu_{k}$；否则增大 $\mu_{k}$ 。这种方法通常需要对不同的 $\mu_{k}$ 反复求解上述方程，可以考虑近似方法
+如果接受 <span class="arithmatex">\(\delta_{k}\)</span>，则下一步会减小 <span class="arithmatex">\(\mu_{k}\)</span>；否则增大 <span class="arithmatex">\(\mu_{k}\)</span> 。这种方法通常需要对不同的 <span class="arithmatex">\(\mu_{k}\)</span> 反复求解上述方程，可以考虑近似方法
 $$
 \begin{pmatrix}
 J_{k} \
@@ -16751,10 +16753,10 @@ f_{vv}(x_{k})  \
 0
 \end{pmatrix}
 $$
-其中 $a_{k}$ 是将 $\delta_{k}$ 看作速度 $v_{k}$ 后的加速度，$f_{vv}(x)=D_{v}^2f=\sum_{\alpha \beta}v_{\alpha}v_{\beta}\partial_{\alpha}\partial_{\beta}f(x)$ 是二阶方向偏导。新的总步长为 $\delta_{k}'=v_{k}+\frac{1}{2}a_{k}$ 。要使用这种加速方案，必须</p>
+其中 <span class="arithmatex">\(a_{k}\)</span> 是将 <span class="arithmatex">\(\delta_{k}\)</span> 看作速度 <span class="arithmatex">\(v_{k}\)</span> 后的加速度，<span class="arithmatex">\(f_{vv}(x)=D_{v}^2f=\sum_{\alpha \beta}v_{\alpha}v_{\beta}\partial_{\alpha}\partial_{\beta}f(x)\)</span> 是二阶方向偏导。新的总步长为 <span class="arithmatex">\(\delta_{k}'=v_{k}+\frac{1}{2}a_{k}\)</span> 。要使用这种加速方案，必须</p>
 <ul>
-<li>提供计算 $f_{vv}(x)$ 的函数</li>
-<li>或者程序通过有限差分 $f(x+hv)$ 来估计这个函数</li>
+<li>提供计算 <span class="arithmatex">\(f_{vv}(x)\)</span> 的函数</li>
+<li>或者程序通过有限差分 <span class="arithmatex">\(f(x+hv)\)</span> 来估计这个函数</li>
 </ul>
 <p>这种加速方案称为测地加速。</p>
 <h4 id="_66">折线法</h4>
@@ -16762,7 +16764,7 @@ $$
 $$
 J_{k}\delta_{gn}=-f_{k}
 $$
-计算，它是每次迭代的主要任务，但是只需要计算一次。如果 $\delta_{gn}$ 在信赖域中，则使用它作为步长；否则计算柯西点，如果它在信赖域外，则沿着梯度方向在边界处截断；如果柯西点在信赖域内，高斯-牛顿点在信赖域外，则使用连接两点的折线方向在边界处截断。</p>
+计算，它是每次迭代的主要任务，但是只需要计算一次。如果 <span class="arithmatex">\(\delta_{gn}\)</span> 在信赖域中，则使用它作为步长；否则计算柯西点，如果它在信赖域外，则沿着梯度方向在边界处截断；如果柯西点在信赖域内，高斯-牛顿点在信赖域外，则使用连接两点的折线方向在边界处截断。</p>
 <h4 id="_67">双折线法</h4>
 <p>当柯西点在信赖域内，高斯-牛顿点在信赖域外，该方法将高斯-牛顿点伸缩，然后沿着它与柯西点的折线搜索。</p>
 <h4 id="_68">二维子空间</h4>
@@ -16774,7 +16776,7 @@ $$
 $$
 \Phi(x) = \frac{1}{2}|f|^2_{W}=\frac{1}{2}\sum_{i=1}^nw_{i}f_{i}(x_{1},\cdots,x_{p})^2
 $$
-其中 $W=\mathrm{diag}(w_{1},\cdots,w_{n})$ 为权重矩阵，$|f|<em>{W}^2=f^TWf$ 。通常权重取 $w</em>{i}=1 / \sigma_{i}^2$，其中 $\sigma_{i}$ 是误差度量。使用 <code>gsl_multifit_nlinear_winit()</code> 可以自动实现权重缩放。</p>
+其中 <span class="arithmatex">\(W=\mathrm{diag}(w_{1},\cdots,w_{n})\)</span> 为权重矩阵，<span class="arithmatex">\(\|f\|_{W}^2=f^TWf\)</span> 。通常权重取 <span class="arithmatex">\(w_{i}=1 / \sigma_{i}^2\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是误差度量。使用 <code>gsl_multifit_nlinear_winit()</code> 可以自动实现权重缩放。</p>
 <h3 id="_70">可调参数</h3>
 <p>对于 <code>gsl_multifit_nlinear</code> 接口，可以修改 <code>gsl_multifit_nlinear_parameters</code> 结构</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-116-1" name="__codelineno-116-1" href="#__codelineno-116-1"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="p">{</span>
@@ -16818,9 +16820,9 @@ $$
 </ul>
 <p>伸缩方法 <code>gsl_multifit_nlinear_scale</code> 包括</p>
 <ul>
-<li><code>gsl_multifit_nlinear_scale *gsl_multifit_nlinear_scale_more</code> 由 More 提出的策略，对应于 $D^TD=\max(\mathrm{diag}(J^TJ))$，即目前为止对角元素的最大值。这种选择具有尺度不变性，即对参数的常数伸缩不会改变这种策略产生的迭代序列，因此作为默认设置</li>
-<li><code>gsl_multifit_nlinear_scale *gsl_multifit_nlinear_scale_levenberg</code> 由 Levenberg 提出的策略，对应 $D^TD=I$ 。它被证明对大量问题有效，不过没有尺度不变性</li>
-<li><code>gsl_multifit_nlinear_scale *gsl_multifit_nlinear_scale_marquardt</code> 由 Marquardt 提出，对应于 $D^TD=\mathrm{diag}(J^TJ)$，尺度不变，但是通常被认为不如前两种</li>
+<li><code>gsl_multifit_nlinear_scale *gsl_multifit_nlinear_scale_more</code> 由 More 提出的策略，对应于 <span class="arithmatex">\(D^TD=\max(\mathrm{diag}(J^TJ))\)</span>，即目前为止对角元素的最大值。这种选择具有尺度不变性，即对参数的常数伸缩不会改变这种策略产生的迭代序列，因此作为默认设置</li>
+<li><code>gsl_multifit_nlinear_scale *gsl_multifit_nlinear_scale_levenberg</code> 由 Levenberg 提出的策略，对应 <span class="arithmatex">\(D^TD=I\)</span> 。它被证明对大量问题有效，不过没有尺度不变性</li>
+<li><code>gsl_multifit_nlinear_scale *gsl_multifit_nlinear_scale_marquardt</code> 由 Marquardt 提出，对应于 <span class="arithmatex">\(D^TD=\mathrm{diag}(J^TJ)\)</span>，尺度不变，但是通常被认为不如前两种</li>
 </ul>
 <p>求解器 <code>gsl_multilarge_nlinear_solver</code> 包括</p>
 <ul>
@@ -16839,12 +16841,12 @@ $$</li>
 $$
 (J^TJ+\mu D^TD)\delta = -J^Tf
 $$</li>
-<li><code>gsl_multifit_nlinear_solver *gsl_multifit_nlinear_solver_mcholesky</code> 使用修正 Cholesky 分解，更适用于 $\mu=0$ 的折线法，并且 $J^TJ$ 病态或欠定导致 Cholesky 分解失败的情况，不过速度更慢</li>
+<li><code>gsl_multifit_nlinear_solver *gsl_multifit_nlinear_solver_mcholesky</code> 使用修正 Cholesky 分解，更适用于 <span class="arithmatex">\(\mu=0\)</span> 的折线法，并且 <span class="arithmatex">\(J^TJ\)</span> 病态或欠定导致 Cholesky 分解失败的情况，不过速度更慢</li>
 <li><code>gsl_multifit_nlinear_solver *gsl_multifit_nlinear_solver_svd</code> 对 Jacobian 使用奇异值分解，对病态矩阵非常有效，但是速度最慢</li>
 </ul>
 <p>参数 <code>fdtype</code> 指定使用什么差分格式，只在没有解析 Jacobian 时使用。包括</p>
 <ul>
-<li><code>GSL_MULTIFIT_NLINEAR_FWDIFF</code> 前向差分，通过 <code>h_df</code> 参数指定 $h$</li>
+<li><code>GSL_MULTIFIT_NLINEAR_FWDIFF</code> 前向差分，通过 <code>h_df</code> 参数指定 <span class="arithmatex">\(h\)</span></li>
 <li><code>GSL_MULTIFIT_NLINEAR_CTRDIFF</code> 中心差分</li>
 </ul>
 <p>当使用测地加速时，需要检查加速度与速度的比值
@@ -16934,9 +16936,9 @@ $$
 <p>工作空间包含</p>
 <ul>
 <li><code>gsl_vector * x</code> 当前位置</li>
-<li><code>gsl_vector * f</code> 残差向量 $f(x)$</li>
+<li><code>gsl_vector * f</code> 残差向量 <span class="arithmatex">\(f(x)\)</span></li>
 <li><code>gsl_matrix * J</code> 当前位置的 Jacobian 矩阵</li>
-<li><code>gsl_vector * dx</code> 迭代步 $\delta$</li>
+<li><code>gsl_vector * dx</code> 迭代步 <span class="arithmatex">\(\delta\)</span></li>
 </ul>
 <p>可以通过下面的方法获得上述信息</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-123-1" name="__codelineno-123-1" href="#__codelineno-123-1"></a><span class="n">gsl_vector</span><span class="w"> </span><span class="o">*</span><span class="nf">gsl_multifit_nlinear_position</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gsl_multifit_nlinear_workspace</span><span class="w"> </span><span class="o">*</span><span class="n">w</span><span class="p">);</span>
@@ -16965,15 +16967,15 @@ $$
 $$
 rcond^2 = \frac{1}{|J^TJ|<em>{1}\cdot|(J^TJ)^{-1}|</em>{1}}
 $$
-对于 QR 求解器，分解 $J=QR$，估计
+对于 QR 求解器，分解 <span class="arithmatex">\(J=QR\)</span>，估计
 $$
 rcond = \frac{1}{|R|<em>{1}\cdot|R^{-1}|</em>{1}}
 $$
-对于 SVD 求解器，估计 $JD^{-1}$ 的奇异值
+对于 SVD 求解器，估计 <span class="arithmatex">\(JD^{-1}\)</span> 的奇异值
 $$
 rcond= \frac{\sigma_{min}}{\sigma_{max}}
 $$
-如果使用 More 伸缩 $D\neq I$，则估计值与 $J$ 本身的奇异值很可能不同。</p>
+如果使用 More 伸缩 <span class="arithmatex">\(D\neq I\)</span>，则估计值与 <span class="arithmatex">\(J\)</span> 本身的奇异值很可能不同。</p>
 <h3 id="_74">收敛测试</h3>
 <p>当满足以下条件之一时，最小化过程停止</p>
 <ul>
@@ -17005,11 +17007,11 @@ $$
 \frac{\max_{i}|g_{i}\times\max(x_{i},1)|}{\max(\Phi(x),1)} &amp;\leq gtol
 \end{aligned}
 $$
-其中 <code>xtol</code> 目的是避免在 $x_{i}=0$ 时崩溃，一般选择 $xtol=10^{-d}$；第二个式子测试
+其中 <code>xtol</code> 目的是避免在 <span class="arithmatex">\(x_{i}=0\)</span> 时崩溃，一般选择 <span class="arithmatex">\(xtol=10^{-d}\)</span>；第二个式子测试
 $$
 \frac{(\nabla \Phi)<em>{i}x</em>{i}}{\Phi}
 $$
-是否足够小，这比检查 $\nabla \Phi$ 更好，因为它无量纲，因此与问题的规模无关。使用最大值的目的是避免在 $x_{i},\Phi(x_{i})$ 接近零的位置中断。</p>
+是否足够小，这比检查 <span class="arithmatex">\(\nabla \Phi\)</span> 更好，因为它无量纲，因此与问题的规模无关。使用最大值的目的是避免在 <span class="arithmatex">\(x_{i},\Phi(x_{i})\)</span> 接近零的位置中断。</p>
 <h3 id="_75">高层驱动</h3>
 <p>提供高层接口，结合迭代和收敛测试</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-125-1" name="__codelineno-125-1" href="#__codelineno-125-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">gsl_multifit_nlinear_driver</span><span class="p">(</span>
@@ -17044,12 +17046,12 @@ $$
 </code></pre></div>
 <p>这些函数指定最大 <code>maxiter</code> 迭代次数，每次迭代后用 <code>xtol, gtol, ftol</code> 进行收敛性测试。可以提供一个回调函数，它在每次迭代后被调用，因此用户可以追踪求解器信息；将其设为 <code>NULL</code> 来禁用此功能。收敛成功后，函数返回 <code>GSL_SUCCESS</code> 并将 <code>info</code> 设为收敛的原因；如果没有收敛，则返回 <code>GSL_EMAXITER</code>；如果某一步无法找到合适的步长，则返回 `GSL_ENOPROG 。</p>
 <h3 id="_76">最佳拟合参数的协方差矩阵</h3>
-<p>对于模型 $Y(c,x)$ 和 $n$ 个数据点 $(x_{i},y_{i})$，最小二乘拟合
+<p>对于模型 <span class="arithmatex">\(Y(c,x)\)</span> 和 <span class="arithmatex">\(n\)</span> 个数据点 <span class="arithmatex">\((x_{i},y_{i})\)</span>，最小二乘拟合
 $$
 \chi^2 = \sum_{i}w_{i}(y_{i}-Y(c,x_{i}))^2
 $$
-其中 $c\in\mathbb{R}^p$ 是模型参数，拟合权重 $w_{i}= 1 / \sigma_{i}^2$，其中 $\sigma_{i}$ 是数据点 $y_{i}$ 的经验误差。</p>
-<p>假设误差变量互不相关且满足 Gauss 分布。拟合程序返回最佳拟合参数 $c$ 和它们的 $p\times p$ 协方差矩阵，后者度量从 $\sigma_{i}$ 得到的最佳拟合参数的统计误差。将参数 $c$ 视为关于 $y$ 的函数，则 $c$ 关于 $y$ 变化的一阶近似为
+其中 <span class="arithmatex">\(c\in\mathbb{R}^p\)</span> 是模型参数，拟合权重 <span class="arithmatex">\(w_{i}= 1 / \sigma_{i}^2\)</span>，其中 <span class="arithmatex">\(\sigma_{i}\)</span> 是数据点 <span class="arithmatex">\(y_{i}\)</span> 的经验误差。</p>
+<p>假设误差变量互不相关且满足 Gauss 分布。拟合程序返回最佳拟合参数 <span class="arithmatex">\(c\)</span> 和它们的 <span class="arithmatex">\(p\times p\)</span> 协方差矩阵，后者度量从 <span class="arithmatex">\(\sigma_{i}\)</span> 得到的最佳拟合参数的统计误差。将参数 <span class="arithmatex">\(c\)</span> 视为关于 <span class="arithmatex">\(y\)</span> 的函数，则 <span class="arithmatex">\(c\)</span> 关于 <span class="arithmatex">\(y\)</span> 变化的一阶近似为
 $$
 d c_{k} = \sum_{i} \frac{\partial c_{k}}{\partial y_{i}}d y_{i}
 $$
@@ -17062,11 +17064,11 @@ C_{kl} &amp;= E[(c_{k}-Ec_{k})(c_{l}-Ec_{l})]\
 &amp;= \sum_{i}\frac{1}{w_{i}}\frac{\partial c_{k}}{\partial y_{i}}\frac{\partial c_{l}}{\partial y_{i}}
 \end{aligned}
 $$
-利用 $y_{i},y_{j}$ 互不相关，将期望分配到乘积中得到零；只剩下 $E(y_{i}-Ey_{i})^2$ 得到方差。如果拟合项未加权，则 $w_{i}$ 未知，那么用全局均方误差
+利用 <span class="arithmatex">\(y_{i},y_{j}\)</span> 互不相关，将期望分配到乘积中得到零；只剩下 <span class="arithmatex">\(E(y_{i}-Ey_{i})^2\)</span> 得到方差。如果拟合项未加权，则 <span class="arithmatex">\(w_{i}\)</span> 未知，那么用全局均方误差
 $$
 \sigma^2 = \frac{\sum_{i}(y_{i}-Y(c,x_{i}))^2}{n-p}
 $$
-得到 $\sigma$ 的估计值。</p>
+得到 <span class="arithmatex">\(\sigma\)</span> 的估计值。</p>
 <p>下面方法通过 Jacobian 矩阵计算最佳拟合参数的协方差并保存在 <code>covar</code> 中</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-126-1" name="__codelineno-126-1" href="#__codelineno-126-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">gsl_multifit_nlinear_covar</span><span class="p">(</span>
 <a id="__codelineno-126-2" name="__codelineno-126-2" href="#__codelineno-126-2"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">gsl_matrix</span><span class="w"> </span><span class="o">*</span><span class="n">J</span><span class="p">,</span><span class="w"> </span>
@@ -17083,18 +17085,18 @@ $$
 $$
 C = (J^TWJ)^{-1}
 $$
-其中 $W$ 是权重。</p>
+其中 <span class="arithmatex">\(W\)</span> 是权重。</p>
 <h3 id="_77">使用范例</h3>
 <h4 id="_78">指数拟合</h4>
-<p>指数模型 $Y(A,\lambda,b)=Ae^{-\lambda t}+b$ 对应的拟合函数为
+<p>指数模型 <span class="arithmatex">\(Y(A,\lambda,b)=Ae^{-\lambda t}+b\)</span> 对应的拟合函数为
 $$
 f_{i} = (Ae^{-\lambda t_{i}}+b)-y_{i}
 $$
-我们选择 $t_{i}=iT / (N-1)$，即在 $[0,T]$ 上均匀采样。对应的 Jacobian 矩阵表示为
+我们选择 <span class="arithmatex">\(t_{i}=iT / (N-1)\)</span>，即在 <span class="arithmatex">\([0,T]\)</span> 上均匀采样。对应的 Jacobian 矩阵表示为
 $$
 J_{i} = (e^{-\lambda t_{i}},-t_{i}Ae^{-\lambda t_{i}},1)
 $$
-它是对 $A,\lambda,b$ 求偏导得到的行向量。我们对采样点添加 Gauss 噪声，得到其方差信息作为拟合权重。</p>
+它是对 <span class="arithmatex">\(A,\lambda,b\)</span> 求偏导得到的行向量。我们对采样点添加 Gauss 噪声，得到其方差信息作为拟合权重。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-127-1" name="__codelineno-127-1" href="#__codelineno-127-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_blas.h&gt;</span>
 <a id="__codelineno-127-2" name="__codelineno-127-2" href="#__codelineno-127-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_matrix.h&gt;</span>
 <a id="__codelineno-127-3" name="__codelineno-127-3" href="#__codelineno-127-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_multifit_nlinear.h&gt;</span>
@@ -17293,7 +17295,7 @@ $$
 $$
 D_{v}^2f_{i} = \sum_{\alpha \beta}v_{\alpha}v_{\beta}\partial_{\alpha}\partial_{\beta}f_{i}
 $$
-其中速度向量 $v$ 由求解器提供。例如
+其中速度向量 <span class="arithmatex">\(v\)</span> 由求解器提供。例如
 $$
 f_{vv} = D_{v}^2
 \begin{pmatrix}
@@ -17312,7 +17314,7 @@ x^<em> = \begin{pmatrix}
 1
 \end{pmatrix},\quad \Phi(x^</em>)=0
 $$
-如下图所示，沿着 $x_{2}-x_{1}^2=c$ 的陡峭边界移动时，$f_{1}$ 将保持不变。求解器首先找到了 $f_{1}$ 的最低点，然后沿着该边界移动直到 $f_{2}$ 也达到最小值。</p>
+如下图所示，沿着 <span class="arithmatex">\(x_{2}-x_{1}^2=c\)</span> 的陡峭边界移动时，<span class="arithmatex">\(f_{1}\)</span> 将保持不变。求解器首先找到了 <span class="arithmatex">\(f_{1}\)</span> 的最低点，然后沿着该边界移动直到 <span class="arithmatex">\(f_{2}\)</span> 也达到最小值。</p>
 <p><img alt="" src="image-20250511212431456.png|500" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-128-1" name="__codelineno-128-1" href="#__codelineno-128-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_blas.h&gt;</span>
 <a id="__codelineno-128-2" name="__codelineno-128-2" href="#__codelineno-128-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_matrix.h&gt;</span>
@@ -17460,11 +17462,11 @@ $$
 f_{i} &amp;= y_{i} -Y(a,b,c;t_{i})
 \end{aligned}
 $$
-其中 $y_{i}$ 是 $t_{i}$ 时刻测量的数据点。模型函数为
+其中 <span class="arithmatex">\(y_{i}\)</span> 是 <span class="arithmatex">\(t_{i}\)</span> 时刻测量的数据点。模型函数为
 $$
 Y(a,b,c;t) = a\exp\left[ -\frac{1}{2}\left( \frac{t-b}{c} \right)^2 \right]
 $$
-其中参数 $a,b,c$ 分别表示振幅、均值和宽度（标准差）。下面代码使用 $a=5,b=0.4,c=0.15$ 以及时间区间 $[0,1]$ 生成带随机噪声的数据点。Jacobian 矩阵为
+其中参数 <span class="arithmatex">\(a,b,c\)</span> 分别表示振幅、均值和宽度（标准差）。下面代码使用 <span class="arithmatex">\(a=5,b=0.4,c=0.15\)</span> 以及时间区间 <span class="arithmatex">\([0,1]\)</span> 生成带随机噪声的数据点。Jacobian 矩阵为
 $$
 \begin{aligned}
 J_{i} &amp;= \left(\frac{ \partial f_{i}}{\partial a},\frac{ \partial f_{i}}{\partial a} ,\frac{ \partial f_{i}}{\partial a}  \right) = \left( -e_{i},- \frac{a}{c}z_{i}e_{i}, -\frac{a}{c}z_{i}^2e_{i} \right)\
@@ -17700,7 +17702,7 @@ f_{1} &amp;= x_{2}+a_{1}x_{1}^2+a_{2}x_{1}+a_{3}\
 f_{2} &amp;= \sqrt{ a_{4} }\sqrt{ 1+(1-a_{5})\cos x_{1} }
 \end{aligned}
 $$
-其中 $a_{1}=-\frac{5.1}{4\pi^2},a_{2}=\frac{5}{\pi},a_{3}=-6,a_{4}=10,a_{5}=\frac{1}{8\pi}$ 。在 $[-5,15]\times[-5,15]$ 范围内有 3 个极小值。从初始位置 $(6,14.5)$ 出发，使用不同的信赖域方法计算。如下图所示，LM 方法收敛到 $(-\pi,12.275)$，其它方法收敛到 $(\pi,2.275)$ 。这些极值位置的 Jacobian 矩阵都病态，因此 QR 或 SVD 是最佳的选择。</p>
+其中 <span class="arithmatex">\(a_{1}=-\frac{5.1}{4\pi^2},a_{2}=\frac{5}{\pi},a_{3}=-6,a_{4}=10,a_{5}=\frac{1}{8\pi}\)</span> 。在 <span class="arithmatex">\([-5,15]\times[-5,15]\)</span> 范围内有 3 个极小值。从初始位置 <span class="arithmatex">\((6,14.5)\)</span> 出发，使用不同的信赖域方法计算。如下图所示，LM 方法收敛到 <span class="arithmatex">\((-\pi,12.275)\)</span>，其它方法收敛到 <span class="arithmatex">\((\pi,2.275)\)</span> 。这些极值位置的 Jacobian 矩阵都病态，因此 QR 或 SVD 是最佳的选择。</p>
 <p><img alt="" src="image-20250513000202233.png|500" /></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-130-1" name="__codelineno-130-1" href="#__codelineno-130-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_blas.h&gt;</span>
 <a id="__codelineno-130-2" name="__codelineno-130-2" href="#__codelineno-130-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_matrix.h&gt;</span>
@@ -17906,7 +17908,7 @@ f_{vv} = D_{v}^2f=
 2|v|^2
 \end{pmatrix}
 $$
-由于 $J$ 的前 $p$ 行构成对角阵，可以使用稀疏结构。</p>
+由于 <span class="arithmatex">\(J\)</span> 的前 <span class="arithmatex">\(p\)</span> 行构成对角阵，可以使用稀疏结构。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-131-1" name="__codelineno-131-1" href="#__codelineno-131-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_blas.h&gt;</span>
 <a id="__codelineno-131-2" name="__codelineno-131-2" href="#__codelineno-131-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_matrix.h&gt;</span>
 <a id="__codelineno-131-3" name="__codelineno-131-3" href="#__codelineno-131-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;gsl/gsl_multilarge_nlinear.h&gt;</span>
@@ -18133,6 +18135,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

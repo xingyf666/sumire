@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -20640,9 +20642,9 @@ $$</p>
 $$
 设备驱动程序截取键的扫描码\stackrel{翻译}{\longrightarrow}虚拟码\stackrel{键盘输入}{\Longrightarrow}产生一条消息（包含扫描码、虚拟码和与击键相关的信息）
 $$</p>
-<p>$$
-消息\stackrel{设备驱动程序}{\longrightarrow}把消息放到系统消息队列中\longrightarrow\mathrm{\small{Windows}}\ 从系统消息队列中取出消息\ \longrightarrow发送到相应的线程消息队列中\stackrel{窗口过程}{\longrightarrow}获取键盘消息进行处理
-$$</p>
+<div class="arithmatex">\[
+消息\stackrel{设备驱动程序}{\longrightarrow}把消息放到系统消息队列中\longrightarrow\mathrm{\small{Windows}}\ 从系统消息队列中取出消息\\ \longrightarrow发送到相应的线程消息队列中\stackrel{窗口过程}{\longrightarrow}获取键盘消息进行处理
+\]</div>
 <p>操作系统在接收到键盘输入后，把消息发送给具有输入焦点的窗口</p>
 <p>窗口函数通过捕获 WM_SETFOCUS （正在接收输入焦点）和 WM_KILLFOCUS （失去输入焦点）消息确定当前窗口是否具有输入焦点</p>
 <h4 id="_31">按键消息</h4>
@@ -20793,14 +20795,14 @@ $$
 </table>
 <h4 id="_34">字符消息</h4>
 <p>TranslateMessage 会将按键消息转化为字符消息，但只有当键盘驱动程序把键盘字符映射成 ASCII 码后才能产生 WM_CHAR 消息</p>
-<p>$$
-字符消息\left{
+<div class="arithmatex">\[
+字符消息\left\{
     \begin{aligned}
-        &amp;系统\leftarrow \mathrm{\small{WM_SYSKEYDOWN}}\ 和\ \mathrm{\small{WM_SYSKEYUP}}\ 按键消息只能产生系统消息\ 
-        &amp;非系统\leftarrow \mathrm{\small{WM_KEYDOWN}}\ 和\ \mathrm{\small{WM_KEYUP}}\ 按键消息只能产生非系统消息
+        &amp;系统\leftarrow \mathrm{\small{WM\_SYSKEYDOWN}}\ 和\ \mathrm{\small{WM\_SYSKEYUP}}\ 按键消息只能产生系统消息\\ 
+        &amp;非系统\leftarrow \mathrm{\small{WM\_KEYDOWN}}\ 和\ \mathrm{\small{WM\_KEYUP}}\ 按键消息只能产生非系统消息
     \end{aligned}
 \right.
-$$</p>
+\]</div>
 <table>
 <thead>
 <tr>
@@ -21853,21 +21855,21 @@ HMENU GetMenu(
 <li>窗口是对应逻辑坐标系上程序员设定的一个区域</li>
 <li>视口对应于实际输出设备上程序员设定的一个区域</li>
 </ul>
-<p>$$
-坐标系统\left{
+<div class="arithmatex">\[
+坐标系统\left\{
     \begin{aligned}
-    &amp;逻辑坐标系统\ 
+    &amp;逻辑坐标系统\\ 
     &amp;设备坐标系统
-    \left{
+    \left\{
         \begin{aligned}
-        &amp;屏幕坐标系统\ 
-        &amp;窗口坐标系统\ 
+        &amp;屏幕坐标系统\\ 
+        &amp;窗口坐标系统\\ 
         &amp;用户区坐标系统
         \end{aligned}
     \right.
     \end{aligned}
 \right.
-$$</p>
+\]</div>
 <h4 id="_78">映射类型</h4>
 <table>
 <thead>
@@ -22078,16 +22080,16 @@ $$</p>
 <a id="__codelineno-129-4" name="__codelineno-129-4" href="#__codelineno-129-4"></a><span class="p">);</span>
 </code></pre></div>
 <h3 id="_84">操作过程</h3>
-<p>$$
-位图操作过程\left{
+<div class="arithmatex">\[
+位图操作过程\left\{
     \begin{aligned}
-    &amp;定义\ 
-    &amp;加载或创建\ 
-    &amp;选入内存设备环境\ 
+    &amp;定义\\ 
+    &amp;加载或创建\\ 
+    &amp;选入内存设备环境\\ 
     &amp;输出
     \end{aligned}
 \right.
-$$</p>
+\]</div>
 <h4 id="_85">定义位图句柄</h4>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-130-1" name="__codelineno-130-1" href="#__codelineno-130-1"></a><span class="c1">// BITMAP结构</span>
 <a id="__codelineno-130-2" name="__codelineno-130-2" href="#__codelineno-130-2"></a><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span><span class="w"> </span><span class="nc">tagBITMAP</span>
@@ -22366,21 +22368,21 @@ $$</p>
 <a id="__codelineno-140-17" name="__codelineno-140-17" href="#__codelineno-140-17"></a><span class="p">);</span><span class="w">              </span>
 </code></pre></div>
 <h3 id="_94">输出流程</h3>
-<p>$$
-文本输出过程\left{
+<div class="arithmatex">\[
+文本输出过程\left\{
     \begin{aligned}
-        &amp;获取字体信息\ 
+        &amp;获取字体信息\\ 
         &amp;格式化文本
-        \left{
+        \left\{
             \begin{aligned}
-            &amp;确定后续文本坐标\ 
+            &amp;确定后续文本坐标\\ 
             &amp;确定换行时文本坐标
             \end{aligned}
-        \right.\ 
+        \right.\\ 
         &amp;调用函数输出
     \end{aligned}
 \right.
-$$</p>
+\]</div>
 <h4 id="gettextextentpoint32">GetTextExtentPoint32</h4>
 <p>获取文字宽度</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-141-1" name="__codelineno-141-1" href="#__codelineno-141-1"></a><span class="n">BOOL</span><span class="w"> </span><span class="nf">GetTextExtentPoint32</span><span class="p">(</span>
@@ -22878,19 +22880,19 @@ $$</p>
 <li>体现了 Windows 系统面向对象的特点</li>
 </ul>
 <h3 id="_118">创建控件</h3>
-<p>$$
-创建方式\left{
+<div class="arithmatex">\[
+创建方式\left\{
     \begin{aligned}
-    &amp;创建控件型的子窗口\left{
+    &amp;创建控件型的子窗口\left\{
         \begin{aligned}
-        &amp;创建并注册一个窗口类的实例\ 
+        &amp;创建并注册一个窗口类的实例\\ 
         &amp;创建并显示窗口实例
         \end{aligned}
-    \right.\ 
+    \right.\\ 
     &amp;在对话框中定义控件
     \end{aligned}
 \right.
-$$</p>
+\]</div>
 <p>在对话框定义中创建控件</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-166-1" name="__codelineno-166-1" href="#__codelineno-166-1"></a><span class="n">Control</span><span class="o">-</span><span class="n">type</span><span class="w"> </span><span class="p">[</span><span class="n">Title</span><span class="p">,]</span><span class="w"> </span><span class="n">ID</span><span class="p">,</span><span class="w"> </span><span class="n">X</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">nWidth</span><span class="p">,</span><span class="w"> </span><span class="n">nHeight</span><span class="p">[,</span><span class="w"> </span><span class="n">Style</span><span class="p">]</span>
 </code></pre></div>
@@ -23902,6 +23904,12 @@ $$</p>
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

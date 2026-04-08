@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14586,16 +14588,16 @@
 <h1 id="_1">信息论</h1>
 <h2 id="_2">信息测量</h2>
 <h3 id="_3">独立与马尔可夫链</h3>
-<p>设 $X$ 是字母表 $\mathcal{X}$ 中取值的随机变量，其概率分布记为 ${p_{X}(x),x\in X}$，其中 $p_{X}(x)=P(X=x)$ 。使得 $p(x)&gt;0$ 的所有 $x\in \mathcal{X}$ 的集合 $\mathcal{S}<em>{X}$ 称为 $X$ 的支撑 support 。若 $\mathcal{S}</em>{X}=X$，则称 $p$ 严格正 strict positive 。</p>
+<p>设 <span class="arithmatex">\(X\)</span> 是字母表 <span class="arithmatex">\(\mathcal{X}\)</span> 中取值的随机变量，其概率分布记为 <span class="arithmatex">\(\{p_{X}(x),x\in X\}\)</span>，其中 <span class="arithmatex">\(p_{X}(x)=P(X=x)\)</span> 。使得 <span class="arithmatex">\(p(x)&gt;0\)</span> 的所有 <span class="arithmatex">\(x\in \mathcal{X}\)</span> 的集合 <span class="arithmatex">\(\mathcal{S}_{X}\)</span> 称为 <span class="arithmatex">\(X\)</span> 的支撑 support 。若 <span class="arithmatex">\(\mathcal{S}_{X}=X\)</span>，则称 <span class="arithmatex">\(p\)</span> 严格正 strict positive 。</p>
 <blockquote>
 <p>[!definition]
-两个随机变量 $X,Y$ 独立 independent 记为 $X\perp Y$，若 $p(x,y)=p(x)p(y)$ 。</p>
+两个随机变量 <span class="arithmatex">\(X,Y\)</span> 独立 independent 记为 <span class="arithmatex">\(X\perp Y\)</span>，若 <span class="arithmatex">\(p(x,y)=p(x)p(y)\)</span> 。</p>
 <p>[!definition]
-多个随机变量 $X_{i}$ 互相独立 mutually independent 若 $p(x_{1},\cdots,x_{n})=\prod_{i}p(x_{i})$ 。</p>
+多个随机变量 <span class="arithmatex">\(X_{i}\)</span> 互相独立 mutually independent 若 <span class="arithmatex">\(p(x_{1},\cdots,x_{n})=\prod_{i}p(x_{i})\)</span> 。</p>
 <p>[!definition]
-多个随机变量 $X_{i}$ 两两独立 pairwise independent 若 $X_{i},X_{j}$ 独立。</p>
+多个随机变量 <span class="arithmatex">\(X_{i}\)</span> 两两独立 pairwise independent 若 <span class="arithmatex">\(X_{i},X_{j}\)</span> 独立。</p>
 <p>[!definition]
-对于随机变量 $X,Y,Z$，称 $Z,X$ 关于 $Z|Y$ 条件独立 conditional independent，记为 $X\perp Z|Y$，若 $p(x,y,z)p(y)=p(x,y)p(y,z)$，或者等价于
+对于随机变量 <span class="arithmatex">\(X,Y,Z\)</span>，称 <span class="arithmatex">\(Z,X\)</span> 关于 <span class="arithmatex">\(Z|Y\)</span> 条件独立 conditional independent，记为 <span class="arithmatex">\(X\perp Z|Y\)</span>，若 <span class="arithmatex">\(p(x,y,z)p(y)=p(x,y)p(y,z)\)</span>，或者等价于
 $$
 p(x,y,z) = 
 \begin{cases}
@@ -14604,13 +14606,13 @@ p(x,y)\frac{p(y,z)}{p(y)} = p(x,y)p(z|y), &amp; p(y)&gt;0 \
 \end{cases}
 $$</p>
 </blockquote>
-<p>使用乘法形式可以避免 $p(y)=0$ 时的分类问题，不过除法形式更能反映出条件独立的物理意义。</p>
+<p>使用乘法形式可以避免 <span class="arithmatex">\(p(y)=0\)</span> 时的分类问题，不过除法形式更能反映出条件独立的物理意义。</p>
 <blockquote>
 <p>[!proposition]
-对于随机变量 $X,Y,Z$，$X\perp Z|Y$ 当且仅当对所有 $p(y)&gt;0$ 有 $p(x,y,z)=a(x,y)b(y,z)$ 。</p>
+对于随机变量 <span class="arithmatex">\(X,Y,Z\)</span>，<span class="arithmatex">\(X\perp Z|Y\)</span> 当且仅当对所有 <span class="arithmatex">\(p(y)&gt;0\)</span> 有 <span class="arithmatex">\(p(x,y,z)=a(x,y)b(y,z)\)</span> 。</p>
 </blockquote>
-<p>$\Rightarrow$ 根据条件独立定义，取 $a(x,y)=p(x,y),b(y,z)=p(z|y)$ 即证；
-$\Leftarrow$ 若 $p(x,y,z)=a(x,y)b(y,z)$，则
+<p><span class="arithmatex">\(\Rightarrow\)</span> 根据条件独立定义，取 <span class="arithmatex">\(a(x,y)=p(x,y),b(y,z)=p(z|y)\)</span> 即证；
+<span class="arithmatex">\(\Leftarrow\)</span> 若 <span class="arithmatex">\(p(x,y,z)=a(x,y)b(y,z)\)</span>，则
 $$
 \begin{aligned}
 p(x,y) &amp;= \sum_{z}p(x,y,z)=\sum_{z}a(x,y)b(y,z)=a(x,y)\sum_{z}b(y,z)\
@@ -14621,7 +14623,7 @@ $$
 将上面式子相乘即证。</p>
 <blockquote>
 <p>[!definition]
-随机变量 $X_{i}$ 组成 $X_{1}\to \cdots\to X_{n}$ 给出一个马尔可夫链，若
+随机变量 <span class="arithmatex">\(X_{i}\)</span> 组成 <span class="arithmatex">\(X_{1}\to \cdots\to X_{n}\)</span> 给出一个马尔可夫链，若
 $$
 p(x_{1},\cdots,x_{n})\prod_{i=2}^{n-1}p(x_{i}) = \prod_{i=1}^{n-1}p(x_{i},x_{i+1})
 $$
@@ -14634,12 +14636,12 @@ p(x_{1},x_{2})\prod_{i=2}^{n-1}p(x_{i+1}|x_{i}), &amp;  p(x_{i})&gt;0,i=2,\cdots
 \end{cases}
 $$</p>
 </blockquote>
-<p>注意到 $X\perp Z|Y$ 等价于马尔可夫链 $X\to Y\to Z$ 。</p>
+<p>注意到 <span class="arithmatex">\(X\perp Z|Y\)</span> 等价于马尔可夫链 <span class="arithmatex">\(X\to Y\to Z\)</span> 。</p>
 <blockquote>
 <p>[!proposition]
-$X_{1}\to\cdots\to X_{n}$ 构成马尔可夫链当且仅当 $X_{n}\to X_{n-1}\to \cdots\to X_{1}$ 构成马尔可夫链。</p>
+<span class="arithmatex">\(X_{1}\to\cdots\to X_{n}\)</span> 构成马尔可夫链当且仅当 <span class="arithmatex">\(X_{n}\to X_{n-1}\to \cdots\to X_{1}\)</span> 构成马尔可夫链。</p>
 <p>[!proposition]
-$X_{1}\to \cdots\to X_{n}$ 构成马尔可夫链当且仅当
+<span class="arithmatex">\(X_{1}\to \cdots\to X_{n}\)</span> 构成马尔可夫链当且仅当
 $$
 \begin{matrix}
 X_{1}\to X_{2}\to X_{3}\
@@ -14650,19 +14652,19 @@ X_{1}\to X_{2}\to X_{3}\
 $$
 均构成马尔可夫链。</p>
 <p>[!proposition]
-$X_{1}\to \cdots\to X_{n}$ 构成马尔可夫链当且仅当对所有 $p(x_{i})&gt;0$ 有
+<span class="arithmatex">\(X_{1}\to \cdots\to X_{n}\)</span> 构成马尔可夫链当且仅当对所有 <span class="arithmatex">\(p(x_{i})&gt;0\)</span> 有
 $$
 p(x_{1},\cdots,x_{n}) = \prod_{i=1}^{n-1}f_{i}(x_{i},x_{i+1})
 $$
 这表明马尔可夫过程中每一步只依赖上一步。</p>
 <p>[!proposition]
-令 $\mathcal{N}<em>{n}={1,\cdots,n}$，$X</em>{1}\to \cdots\to X_{n}$ 构成马尔可夫链。对 $\mathcal{N}<em>{n}$ 的任意子集 $\alpha$，记 $X</em>{\alpha}={X_{i},i\in \alpha}$，则对 $\mathcal{N}<em>{n}$ 的任意不交子集 $\alpha</em>{i}$ 使得
+令 <span class="arithmatex">\(\mathcal{N}_{n}=\{1,\cdots,n\}\)</span>，<span class="arithmatex">\(X_{1}\to \cdots\to X_{n}\)</span> 构成马尔可夫链。对 <span class="arithmatex">\(\mathcal{N}_{n}\)</span> 的任意子集 <span class="arithmatex">\(\alpha\)</span>，记 <span class="arithmatex">\(X_{\alpha}=\{X_{i},i\in \alpha\}\)</span>，则对 <span class="arithmatex">\(\mathcal{N}_{n}\)</span> 的任意不交子集 <span class="arithmatex">\(\alpha_{i}\)</span> 使得
 $$
 X_{\alpha_{1}}\to \cdots\to X_{\alpha_{m}},\quad k_{1}&lt;\cdots&lt;k_{m},k_{j}\in \alpha_{j},j=1,\cdots,m
 $$
-构成马尔可夫链。即 $X_{1}\to \cdots\to X_{n}$ 的子链也是马尔可夫链。</p>
+构成马尔可夫链。即 <span class="arithmatex">\(X_{1}\to \cdots\to X_{n}\)</span> 的子链也是马尔可夫链。</p>
 <p>[!proposition]
-令 $X_{1},X_{2},X_{3},X_{4}$ 是使得 $p(x_{1},x_{2},x_{3},x_{4})$ 严格正的随机变量，则
+令 <span class="arithmatex">\(X_{1},X_{2},X_{3},X_{4}\)</span> 是使得 <span class="arithmatex">\(p(x_{1},x_{2},x_{3},x_{4})\)</span> 严格正的随机变量，则
 $$
 \left.
 \begin{aligned}
@@ -14685,16 +14687,16 @@ $$
 $$
 \frac{p(x_{1},x_{2},x_{3})}{p(x_{2},x_{3})}= \frac{p(x_{1},x_{2},x_{4})}{p(x_{2},x_{4})}=? \frac{p(x_{1},x_{2})}{p(x_{2})}
 $$
-利用 $p(x_{1},x_{2})=\sum_{x_{3}}p(x_{1},x_{2},x_{3})$ 代入左边两个等式即证。</p>
+利用 <span class="arithmatex">\(p(x_{1},x_{2})=\sum_{x_{3}}p(x_{1},x_{2},x_{3})\)</span> 代入左边两个等式即证。</p>
 <blockquote>
 <blockquote>
-<p>注意 $p(x_{1},x_{2},x_{3},x_{4})&gt;0$ 要求所有 $x_{i}$ 的取值概率均大于零，因此 $p(x_{2},x_{3}),p(x_{2},x_{4}),p(x_{2})$ 均大于零，这样才能够利用除法形式得到几个比例等式。</p>
+<p>注意 <span class="arithmatex">\(p(x_{1},x_{2},x_{3},x_{4})&gt;0\)</span> 要求所有 <span class="arithmatex">\(x_{i}\)</span> 的取值概率均大于零，因此 <span class="arithmatex">\(p(x_{2},x_{3}),p(x_{2},x_{4}),p(x_{2})\)</span> 均大于零，这样才能够利用除法形式得到几个比例等式。</p>
 </blockquote>
 </blockquote>
-<p>可以取 $X_{1}=Y,X_{2}=Z,X_{3}=X_{4}=(Y,Z)$，其中 $Y,Z$ 是独立随机变量，则 $p(x_{1},x_{2},x_{3},x_{4})$ 只在 $x_{3}=x_{4}=(x_{1},x_{2})$ 时才大于零。此时 $X_{1}$ 满足</p>
+<p>可以取 <span class="arithmatex">\(X_{1}=Y,X_{2}=Z,X_{3}=X_{4}=(Y,Z)\)</span>，其中 <span class="arithmatex">\(Y,Z\)</span> 是独立随机变量，则 <span class="arithmatex">\(p(x_{1},x_{2},x_{3},x_{4})\)</span> 只在 <span class="arithmatex">\(x_{3}=x_{4}=(x_{1},x_{2})\)</span> 时才大于零。此时 <span class="arithmatex">\(X_{1}\)</span> 满足</p>
 <ul>
-<li>与 $(X_{2},X_{3})$ 已知时 $X_{4}$ 的取值独立</li>
-<li>与 $(X_{2},X_{4})$ 已知时 $X_{3}$ 的取值独立</li>
+<li>与 <span class="arithmatex">\((X_{2},X_{3})\)</span> 已知时 <span class="arithmatex">\(X_{4}\)</span> 的取值独立</li>
+<li>与 <span class="arithmatex">\((X_{2},X_{4})\)</span> 已知时 <span class="arithmatex">\(X_{3}\)</span> 的取值独立</li>
 </ul>
 <p>事实上有
 $$
@@ -14721,10 +14723,10 @@ $$
 <h4 id="_5">熵</h4>
 <blockquote>
 <p>[!definition]
-随机变量 $X$ 的熵 entropy 定义为 $H(X)=-\sum_{x}p(x)\log p(x)$ 。</p>
+随机变量 <span class="arithmatex">\(X\)</span> 的熵 entropy 定义为 <span class="arithmatex">\(H(X)=-\sum_{x}p(x)\log p(x)\)</span> 。</p>
 </blockquote>
-<p>在支撑上定义熵，确保 $p(x)&gt;0$ 才有意义。如果对数的底为 $2$，则熵的单位是比特 bit 。如果底 $D\geq 2$，则熵的单位是 $D$-it 。</p>
-<p>令 $g(X)$ 是随机变量的函数，记其期望为
+<p>在支撑上定义熵，确保 <span class="arithmatex">\(p(x)&gt;0\)</span> 才有意义。如果对数的底为 <span class="arithmatex">\(2\)</span>，则熵的单位是比特 bit 。如果底 <span class="arithmatex">\(D\geq 2\)</span>，则熵的单位是 <span class="arithmatex">\(D\)</span>-it 。</p>
+<p>令 <span class="arithmatex">\(g(X)\)</span> 是随机变量的函数，记其期望为
 $$
 Eg(x) = \sum_{x\in \mathcal{S}<em>{X}}p(x)g(x)
 $$
@@ -14732,36 +14734,36 @@ $$
 $$
 H(X) = -E\log p(X) = -\sum</em>{x\in \mathcal{S}_{X}}p(x)\log p(x)
 $$
-因此熵是 pdf 的函数，它度量了 $X$ 中包含的平均信息量，或者等价于获得 $X$ 的结果后消除的不确定性的数量。</p>
+因此熵是 pdf 的函数，它度量了 <span class="arithmatex">\(X\)</span> 中包含的平均信息量，或者等价于获得 <span class="arithmatex">\(X\)</span> 的结果后消除的不确定性的数量。</p>
 <blockquote>
 <blockquote>
-<p>注意 $H(X)$ 依赖 $p(x)$ 而不是 $X$ 。</p>
+<p>注意 <span class="arithmatex">\(H(X)\)</span> 依赖 <span class="arithmatex">\(p(x)\)</span> 而不是 <span class="arithmatex">\(X\)</span> 。</p>
 </blockquote>
 </blockquote>
-<p>对于 $0\leq p\leq 1$，定义
+<p>对于 <span class="arithmatex">\(0\leq p\leq 1\)</span>，定义
 $$
 h_{b}(p)=-p\log p-(1-p)\log(1-p)
 $$
-其中取 $0\log 0=0$，因此 $h_{b}(0)=h_{b}(1)=1$ 。称 $h_{b}$ 为二元熵函数，它在 $[0,1]$ 熵连续。对于具有二元分布 ${p,1-p}$ 的随机变量 $X$ 有
+其中取 <span class="arithmatex">\(0\log 0=0\)</span>，因此 <span class="arithmatex">\(h_{b}(0)=h_{b}(1)=1\)</span> 。称 <span class="arithmatex">\(h_{b}\)</span> 为二元熵函数，它在 <span class="arithmatex">\([0,1]\)</span> 熵连续。对于具有二元分布 <span class="arithmatex">\(\{p,1-p\}\)</span> 的随机变量 <span class="arithmatex">\(X\)</span> 有
 $$
 H(X) = h_{b}(p)
 $$
-下图给出固定不同的 $p$，得到的二元分布的信息熵。</p>
+下图给出固定不同的 <span class="arithmatex">\(p\)</span>，得到的二元分布的信息熵。</p>
 <p><img alt="" src="image-20251025225633386.png|300" /></p>
 <blockquote>
 <blockquote>
-<p>信息熵 $-\sum p\log p$ 可以看作是信息量 $-\log p$ 的期望，其中负对数给出信息量的良好定义：当 $p=1$ 时，获得随机变量 $X$ 不会消除任何不确定性；随着 $p$ 减小，获得 $X$ 消除的不确定性越大；当 $p=0$ 时，无法获得 $X$，因此不确定性无穷大。</p>
+<p>信息熵 <span class="arithmatex">\(-\sum p\log p\)</span> 可以看作是信息量 <span class="arithmatex">\(-\log p\)</span> 的期望，其中负对数给出信息量的良好定义：当 <span class="arithmatex">\(p=1\)</span> 时，获得随机变量 <span class="arithmatex">\(X\)</span> 不会消除任何不确定性；随着 <span class="arithmatex">\(p\)</span> 减小，获得 <span class="arithmatex">\(X\)</span> 消除的不确定性越大；当 <span class="arithmatex">\(p=0\)</span> 时，无法获得 <span class="arithmatex">\(X\)</span>，因此不确定性无穷大。</p>
 </blockquote>
 </blockquote>
 <h4 id="_6">条件熵</h4>
 <blockquote>
 <p>[!definition]
-随机变量 $X,Y$ 的联合熵
+随机变量 <span class="arithmatex">\(X,Y\)</span> 的联合熵
 $$
 H(X,Y)=-\sum_{x,y}p(x,y)\log p(x,y)=-E\log p(X,Y)
 $$</p>
 <p>[!definition]
-对于随机变量 $X,Y$，给定 $X$ 时 $Y$ 的条件熵定义为
+对于随机变量 <span class="arithmatex">\(X,Y\)</span>，给定 <span class="arithmatex">\(X\)</span> 时 <span class="arithmatex">\(Y\)</span> 的条件熵定义为
 $$
 H(Y|X) = -\sum_{x,y}p(x,y)\log p(y|x) = -E\log p(Y|X)
 $$</p>
@@ -14778,13 +14780,13 @@ $$
 H(X,Y)=H(X)+H(Y|X)
 $$</p>
 <p>[!definition]
-随机变量 $X,Y$ 之间的互信息 mutual information 定义为
+随机变量 <span class="arithmatex">\(X,Y\)</span> 之间的互信息 mutual information 定义为
 $$
 I(X;Y) = \sum_{x,y}p(x,y)\log \frac{p(x,y)}{p(x)p(y)}= E\log \frac{p(X,Y)}{p(X)p(Y)}
 $$ 
-它关于 $X,Y$ 对称。</p>
+它关于 <span class="arithmatex">\(X,Y\)</span> 对称。</p>
 <p>[!proposition]
-随机变量 $X$ 与自身的互信息等于 $X$ 的熵 $I(X;X)=H(X)$，因此 $X$ 的熵也被称为 $X$ 的自信息 self-information 。</p>
+随机变量 <span class="arithmatex">\(X\)</span> 与自身的互信息等于 <span class="arithmatex">\(X\)</span> 的熵 <span class="arithmatex">\(I(X;X)=H(X)\)</span>，因此 <span class="arithmatex">\(X\)</span> 的熵也被称为 <span class="arithmatex">\(X\)</span> 的自信息 self-information 。</p>
 <p>[!proposition]
 $$
 \begin{aligned}
@@ -14797,17 +14799,17 @@ $$</p>
 <p><img alt="" src="image-20251025232306940.png|400" /></p>
 <blockquote>
 <p>[!definition]
-对于随机变量 $X,Y,Z$，已知 $Z$ 时 $X$ 与 $Y$ 之间的互信息定义为
+对于随机变量 <span class="arithmatex">\(X,Y,Z\)</span>，已知 <span class="arithmatex">\(Z\)</span> 时 <span class="arithmatex">\(X\)</span> 与 <span class="arithmatex">\(Y\)</span> 之间的互信息定义为
 $$
 I(X;Y|Z) = \sum_{x,y,z}p(x,y,z)\log \frac{p(x,y|z)}{p(x|z)p(y|z)} = E\log \frac{p(X,Y|Z)}{p(X|Z)p(Y|Z)}
 $$
-它关于 $X,Y$ 对称。</p>
+它关于 <span class="arithmatex">\(X,Y\)</span> 对称。</p>
 </blockquote>
 <p>类似于条件熵，可以将互信息重写为
 $$
 I(X;Y|Z)=\sum_{z}p(z)\left[ \sum_{x,y}p(x,y|z)\log \frac{p(x,y|z)}{p(x|z)p(y|z)} \right]=\sum_{z}p(z)I(X;Y|Z=z)
 $$
-同样可以证明带有条件 $Z$ 时的互信息公式</p>
+同样可以证明带有条件 <span class="arithmatex">\(Z\)</span> 时的互信息公式</p>
 <blockquote>
 <p>[!proposition]
 $$
@@ -14819,16 +14821,16 @@ I(X;Y|Z) &amp;= H(X|Z)-H(X|Y,Z)\
 $$</p>
 </blockquote>
 <h3 id="_8">香农信息测量的连续性</h3>
-<p>令 $\Phi$ 为退化随机变量，即它以概率 $1$ 取常数。考虑互信息 $I(X;Y|Z)$，则</p>
+<p>令 <span class="arithmatex">\(\Phi\)</span> 为退化随机变量，即它以概率 <span class="arithmatex">\(1\)</span> 取常数。考虑互信息 <span class="arithmatex">\(I(X;Y|Z)\)</span>，则</p>
 <ul>
-<li>当 $X=Y$ 时，$I(X;Y|Z)=H(X|Z)$</li>
-<li>当 $Z=\Phi$ 时，$I(X;Y|Z)=I(X;Y)$</li>
-<li>当 $X=Y,Z=\Phi$ 时，$I(X;Y|Z)=H(X)$</li>
+<li>当 <span class="arithmatex">\(X=Y\)</span> 时，<span class="arithmatex">\(I(X;Y|Z)=H(X|Z)\)</span></li>
+<li>当 <span class="arithmatex">\(Z=\Phi\)</span> 时，<span class="arithmatex">\(I(X;Y|Z)=I(X;Y)\)</span></li>
+<li>当 <span class="arithmatex">\(X=Y,Z=\Phi\)</span> 时，<span class="arithmatex">\(I(X;Y|Z)=H(X)\)</span></li>
 </ul>
 <p>因此香农信息熵是特殊的条件互信息，只需要考虑条件互信息的连续性。</p>
 <blockquote>
 <blockquote>
-<p>关键在于考虑概率质量为零的情况，证明在 $p(x,y,z)\to0$ 时 $I(X;Y|Z)$ 连续。最后，给定 $p(x,y,z)$，若存在一列分布 ${p_{k}}$ 使得 $p_{k}\to p$，则 $I_{p_{k}}\to I_{p}$ 。</p>
+<p>关键在于考虑概率质量为零的情况，证明在 <span class="arithmatex">\(p(x,y,z)\to0\)</span> 时 <span class="arithmatex">\(I(X;Y|Z)\)</span> 连续。最后，给定 <span class="arithmatex">\(p(x,y,z)\)</span>，若存在一列分布 <span class="arithmatex">\(\{p_{k}\}\)</span> 使得 <span class="arithmatex">\(p_{k}\to p\)</span>，则 <span class="arithmatex">\(I_{p_{k}}\to I_{p}\)</span> 。</p>
 </blockquote>
 </blockquote>
 <h3 id="_9">链式法则</h3>
@@ -14838,7 +14840,7 @@ $$
 H(X_{1},\cdots,X_{n})=\sum_{i=1}^nH(X_{i}|X_{1},\cdots,X_{i-1})
 $$</p>
 </blockquote>
-<p>当 $n=2$ 时，已经有 $H(X,Y)=H(Y)+H(X|Y)$；然后利用归纳法即证。</p>
+<p>当 <span class="arithmatex">\(n=2\)</span> 时，已经有 <span class="arithmatex">\(H(X,Y)=H(Y)+H(X|Y)\)</span>；然后利用归纳法即证。</p>
 <blockquote>
 <p>[!proposition]
 $$
@@ -14877,23 +14879,23 @@ I(X_{1},\cdots,X_{n};Y|Z)=\sum_{i=1}^nI(X_{i};Y|X_{1},\cdots,X_{i-1},Z)
 $$</p>
 </blockquote>
 <h3 id="_10">信息散度</h3>
-<p>设 $p,q$ 是公共字母表 $\mathcal{X}$ 上的概率分布。我们可能希望测量 $p,q$ 的不同程度。度量 $D$ 要满足非负性，即 $D(p,q)\geq 0$，且 $D(p,q)=0$ 当且仅当 $p=q$ 。记 $\mathcal{S}<em>{p},\mathcal{S}</em>{q}$ 为 $p,q$ 的支撑。</p>
+<p>设 <span class="arithmatex">\(p,q\)</span> 是公共字母表 <span class="arithmatex">\(\mathcal{X}\)</span> 上的概率分布。我们可能希望测量 <span class="arithmatex">\(p,q\)</span> 的不同程度。度量 <span class="arithmatex">\(D\)</span> 要满足非负性，即 <span class="arithmatex">\(D(p,q)\geq 0\)</span>，且 <span class="arithmatex">\(D(p,q)=0\)</span> 当且仅当 <span class="arithmatex">\(p=q\)</span> 。记 <span class="arithmatex">\(\mathcal{S}_{p},\mathcal{S}_{q}\)</span> 为 <span class="arithmatex">\(p,q\)</span> 的支撑。</p>
 <blockquote>
 <p>[!definition]
-公共字母表 $\mathcal{X}$ 上的概率分布 $p,q$ 之间的信息散度 informational divergence 定义为
+公共字母表 <span class="arithmatex">\(\mathcal{X}\)</span> 上的概率分布 <span class="arithmatex">\(p,q\)</span> 之间的信息散度 informational divergence 定义为
 $$
 D(p|q)= \sum_{x}p(x)\log\frac{p(x)}{q(x)}= E_{p}\log \frac{p(x)}{q(x)}
 $$
-其中 $E_{p}$ 是关于 $p$ 的期望。若 $q(x)=0$ 则 $D(p|q)=0$ 。</p>
+其中 <span class="arithmatex">\(E_{p}\)</span> 是关于 <span class="arithmatex">\(p\)</span> 的期望。若 <span class="arithmatex">\(q(x)=0\)</span> 则 <span class="arithmatex">\(D(p\|q)=0\)</span> 。</p>
 </blockquote>
-<p>信息散度也被称为相对熵 relative entropy 或 Kullback-Leibler distance 。但是 $D(p|q)$ 关于 $p,q$ 不对称，因此并不是度量或距离，并且它也不满足三角不等式。</p>
+<p>信息散度也被称为相对熵 relative entropy 或 Kullback-Leibler distance 。但是 <span class="arithmatex">\(D(p\|q)\)</span> 关于 <span class="arithmatex">\(p,q\)</span> 不对称，因此并不是度量或距离，并且它也不满足三角不等式。</p>
 <blockquote>
 <p>[!lemma] Fundamental inequality
-对任意 $a&gt;0$，有 $\ln a\leq a-1$，等式成立当且仅当 $a=1$ 。</p>
+对任意 <span class="arithmatex">\(a&gt;0\)</span>，有 <span class="arithmatex">\(\ln a\leq a-1\)</span>，等式成立当且仅当 <span class="arithmatex">\(a=1\)</span> 。</p>
 <p>[!corollary]
-对任意 $a&gt;0$，有 $\ln a\geq 1-\frac{1}{a}$，等式成立当且仅当 $a=1$ 。</p>
+对任意 <span class="arithmatex">\(a&gt;0\)</span>，有 <span class="arithmatex">\(\ln a\geq 1-\frac{1}{a}\)</span>，等式成立当且仅当 <span class="arithmatex">\(a=1\)</span> 。</p>
 <p>[!theorem] Divergence inequality
-对公共字母表 $\mathcal{X}$ 上的任意两个概率分布 $p,q$，有 $D(p|q)\geq 0$，等式成立当且仅当 $p=q$ 。</p>
+对公共字母表 <span class="arithmatex">\(\mathcal{X}\)</span> 上的任意两个概率分布 <span class="arithmatex">\(p,q\)</span>，有 <span class="arithmatex">\(D(p\|q)\geq 0\)</span>，等式成立当且仅当 <span class="arithmatex">\(p=q\)</span> 。</p>
 </blockquote>
 <p>根据定义
 $$
@@ -14902,19 +14904,19 @@ D(p|q)&amp;= \sum_{x}p(x)\log\frac{p(x)}{q(x)}\
 &amp;= \sum_{x\in \mathcal{S}<em>{p}}p(x)\log\frac{p(x)}{q(x)}\
 &amp;\geq \sum</em>{x\in \mathcal{S}<em>{p}}p(x)\left( 1-\frac{q(x)}{p(x)} \right)\
 &amp;= \sum</em>{x\in \mathcal{S}<em>{p}}[p(x)-q(x)]\
-&amp;= 1-\sum</em>{x\in \mathcal{S}<em>{p}}q(x)\geq 0
+&amp;= 1-\sum</em>{x\in \mathcal{S}_{p}}q(x)\geq 0
 \end{aligned}
 $$
-注意取 $p$ 的支撑集 $\mathcal{S}</em>{p}$，若 $q$ 在 $\mathcal{S}_{p}$ 上存在零值，则 $D(p|q)=\infty&gt;0$；由于第二行等式成立当且仅当 $p=q$，即证。</p>
+注意取 <span class="arithmatex">\(p\)</span> 的支撑集 <span class="arithmatex">\(\mathcal{S}_{p}\)</span>，若 <span class="arithmatex">\(q\)</span> 在 <span class="arithmatex">\(\mathcal{S}_{p}\)</span> 上存在零值，则 <span class="arithmatex">\(D(p\|q)=\infty&gt;0\)</span>；由于第二行等式成立当且仅当 <span class="arithmatex">\(p=q\)</span>，即证。</p>
 <blockquote>
 <p>[!theorem] Log-Sum inequality
-对于整数 $a_{i}$ 和非负数 $b_{i}$ 使得 $\sum_{i}a_{i}&lt;\infty,0&lt;\sum_{i}b_{i}&lt;\infty$，有
+对于整数 <span class="arithmatex">\(a_{i}\)</span> 和非负数 <span class="arithmatex">\(b_{i}\)</span> 使得 <span class="arithmatex">\(\sum_{i}a_{i}&lt;\infty,0&lt;\sum_{i}b_{i}&lt;\infty\)</span>，有
 $$
 \sum_{i}a_{i}\log \frac{a_{i}}{b_{i}} \geq \left( \sum_{i}a_{i} \right)\log \frac{\sum_{i}a_{i}}{\sum_{i}b_{i}}
 $$
-其中记 $\log \frac{a_{i}}{0}=\infty$，等式成立当且仅当 $\frac{a_{i}}{b_{i}}=\mathrm{const}$ 。</p>
+其中记 <span class="arithmatex">\(\log \frac{a_{i}}{0}=\infty\)</span>，等式成立当且仅当 <span class="arithmatex">\(\frac{a_{i}}{b_{i}}=\mathrm{const}\)</span> 。</p>
 </blockquote>
-<p>令 $a_{i}'=\frac{a_{i}}{\sum_{j}a_{j}},b_{i}'=\frac{b_{i}}{\sum_{j}b_{j}}$，则
+<p>令 <span class="arithmatex">\(a_{i}'=\frac{a_{i}}{\sum_{j}a_{j}},b_{i}'=\frac{b_{i}}{\sum_{j}b_{j}}\)</span>，则
 $$
 \begin{aligned}
 0 &amp;\leq \sum_{i}a_{i}' \log \frac{a_{i}'}{b_{i}'}\
@@ -14933,13 +14935,13 @@ $$</p>
 <h3 id="_11">基本不等式</h3>
 <blockquote>
 <p>[!theorem]
-对于随机变量 $X,Y,Z$，有 $I(X;Y|Z)\geq 0$，等式成立当且仅当 $X,Y$ 关于 $Z$ 条件独立。</p>
+对于随机变量 <span class="arithmatex">\(X,Y,Z\)</span>，有 <span class="arithmatex">\(I(X;Y|Z)\geq 0\)</span>，等式成立当且仅当 <span class="arithmatex">\(X,Y\)</span> 关于 <span class="arithmatex">\(Z\)</span> 条件独立。</p>
 <p>[!proposition]
-$H(X)=0$ 当且仅当 $X$ 确定 deterministic 。</p>
+<span class="arithmatex">\(H(X)=0\)</span> 当且仅当 <span class="arithmatex">\(X\)</span> 确定 deterministic 。</p>
 <p>[!proposition]
-$H(Y|X)=0$ 当且仅当 $Y$ 是 $X$ 的函数。</p>
+<span class="arithmatex">\(H(Y|X)=0\)</span> 当且仅当 <span class="arithmatex">\(Y\)</span> 是 <span class="arithmatex">\(X\)</span> 的函数。</p>
 <p>[!proposition]
-$I(X;Y)=0$ 当且仅当 $X,Y$ 独立。</p>
+<span class="arithmatex">\(I(X;Y)=0\)</span> 当且仅当 <span class="arithmatex">\(X,Y\)</span> 独立。</p>
 </blockquote>
 <h3 id="_12">信息不等式</h3>
 <h3 id="fano">Fano 不等式</h3>
@@ -15002,6 +15004,12 @@ $I(X;Y)=0$ 当且仅当 $X,Y$ 独立。</p>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

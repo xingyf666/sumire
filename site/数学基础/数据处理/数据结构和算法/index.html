@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -8217,7 +8219,7 @@
   <a href="#k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第 $k$ 小的元素
+        第 \(k\) 小的元素
       
     </span>
   </a>
@@ -15631,7 +15633,7 @@
   <a href="#k" class="md-nav__link">
     <span class="md-ellipsis">
       
-        第 $k$ 小的元素
+        第 \(k\) 小的元素
       
     </span>
   </a>
@@ -16544,61 +16546,61 @@
 <h1 id="_1">数据结构和算法</h1>
 <h2 id="_2">渐近符号</h2>
 <h3 id="_3">渐近上界</h3>
-<p>给定 $f(n),g(n)$，定义
+<p>给定 <span class="arithmatex">\(f(n),g(n)\)</span>，定义
 $$
 \begin{aligned}
 O(g(n)) &amp;= {f(n): \exists c&gt;0,N&gt;0,\forall n\geq N,0\leq f(n)\leq cg(n) }\
 o(g(n))&amp;= {f(n): \forall c&gt;0, \exists N&gt;0,\forall n\geq N,0\leq f(n)\leq cg(n) }
 \end{aligned}
 $$
-可以看出 $O$ 给出一族较松的上界函数，$o$ 给出一族紧上界函数，后者不能包含同阶函数。</p>
+可以看出 <span class="arithmatex">\(O\)</span> 给出一族较松的上界函数，<span class="arithmatex">\(o\)</span> 给出一族紧上界函数，后者不能包含同阶函数。</p>
 <blockquote>
 <blockquote>
-<p>例如 $\frac{1}{2}n^2\in O(n^2), \frac{1}{2}n^2 \in o\left( \frac{1}{2}n^2 \right),\frac{1}{2}n^2 \not\in o(n^2)$ 。</p>
+<p>例如 <span class="arithmatex">\(\frac{1}{2}n^2\in O(n^2), \frac{1}{2}n^2 \in o\left( \frac{1}{2}n^2 \right),\frac{1}{2}n^2 \not\in o(n^2)\)</span> 。</p>
 </blockquote>
 </blockquote>
 <h3 id="_4">渐近下界</h3>
-<p>给定 $f(n),g(n)$，定义
+<p>给定 <span class="arithmatex">\(f(n),g(n)\)</span>，定义
 $$
 \begin{aligned}
 \Omega (g(n)) &amp;= {f(n): \exists c&gt;0,N&gt;0,\forall n\geq N,0\leq cg(n)\leq f(n) }\
 \omega (g(n))&amp;= {f(n): \forall c&gt;0, \exists N&gt;0,\forall n\geq N,0\leq cg(n)\leq f(n) }
 \end{aligned}
 $$
-可以看出 $\Omega$ 给出一族较松的下界函数，$\omega$ 给出一族紧下界函数，后者不能包含同阶函数。</p>
+可以看出 <span class="arithmatex">\(\Omega\)</span> 给出一族较松的下界函数，<span class="arithmatex">\(\omega\)</span> 给出一族紧下界函数，后者不能包含同阶函数。</p>
 <h3 id="_5">同阶</h3>
-<p>定义 $\theta(g(n)) = O(g(n))\cap \Omega(g(n))$ 。</p>
+<p>定义 <span class="arithmatex">\(\theta(g(n)) = O(g(n))\cap \Omega(g(n))\)</span> 。</p>
 <h2 id="_6">排序</h2>
 <h3 id="_7">插入排序</h3>
 <p>取第 <code>j</code> 个元素与前面的元素比较，找到 <code>j</code> 元素的合适位置，将其插入到该位置。</p>
 <ul>
-<li>最坏情况：$T(n)$</li>
-<li>平均情况：$T(n)$</li>
+<li>最坏情况：<span class="arithmatex">\(T(n)\)</span></li>
+<li>平均情况：<span class="arithmatex">\(T(n)\)</span></li>
 </ul>
-<p>渐近复杂度 $T(n)=\sum_{j=2}^n\theta(j)=\theta(n^2)$ 。</p>
+<p>渐近复杂度 <span class="arithmatex">\(T(n)=\sum_{j=2}^n\theta(j)=\theta(n^2)\)</span> 。</p>
 <h3 id="_8">希尔排序</h3>
-<p>插入排序在 $n$ 较小时具有优势，并且在原数据几乎有序时效率较高。希尔排序结合这两个优势，它考虑将数据分组。例如对于 $n$ 个元素的数组</p>
+<p>插入排序在 <span class="arithmatex">\(n\)</span> 较小时具有优势，并且在原数据几乎有序时效率较高。希尔排序结合这两个优势，它考虑将数据分组。例如对于 <span class="arithmatex">\(n\)</span> 个元素的数组</p>
 <ol>
-<li>以步长 $step=\left\lfloor  \frac{n}{2}  \right\rfloor$ 分组元素</li>
+<li>以步长 <span class="arithmatex">\(step=\left\lfloor  \frac{n}{2}  \right\rfloor\)</span> 分组元素</li>
 <li>对每组元素执行插入排序</li>
-<li>$step\leftarrow step / 2$</li>
-<li>若 $step&gt;0$，则返回第二步</li>
+<li><span class="arithmatex">\(step\leftarrow step / 2\)</span></li>
+<li>若 <span class="arithmatex">\(step&gt;0\)</span>，则返回第二步</li>
 </ol>
-<p>考虑如下数组，以 $5$ 为步长分组后第一轮排序结果为
+<p>考虑如下数组，以 <span class="arithmatex">\(5\)</span> 为步长分组后第一轮排序结果为
 $$
 \begin{matrix}
 0 &amp; | &amp; \bbox[red]{36} &amp; 27 &amp; 20 &amp; 60 &amp; 55 &amp; \bbox[red]{7} &amp; 28 &amp; 36 &amp; 67 &amp; 44 &amp; \bbox[red]{16} \
 1 &amp; | &amp; \bbox[red]{7} &amp; 27 &amp; 20 &amp; 60 &amp; \bbox[yellow]{44} &amp; \bbox[red]{16} &amp; 28 &amp; 36 &amp; 67 &amp; \bbox[yellow]{55} &amp; \bbox[red]{36}
 \end{matrix}
 $$
-然后，以 $2$ 为步长分组排序
+然后，以 <span class="arithmatex">\(2\)</span> 为步长分组排序
 $$
 \begin{matrix}
 2 &amp; | &amp; \bbox[red]{7} &amp; 27 &amp; \bbox[red]{20} &amp; 60 &amp; \bbox[red]{44} &amp; 16 &amp; \bbox[red]{28} &amp; 36 &amp; \bbox[red]{67} &amp; 55 &amp; \bbox[red]{36} \
 3 &amp; | &amp; \bbox[red]{7} &amp; \bbox[yellow]{16} &amp; \bbox[red]{20} &amp; \bbox[yellow]{27} &amp; \bbox[red]{28} &amp; \bbox[yellow]{36} &amp; \bbox[red]{36} &amp; \bbox[yellow]{55} &amp; \bbox[red]{44} &amp; \bbox[yellow]{60} &amp; \bbox[red]{67}
 \end{matrix}
 $$
-最后，以 $1$ 为步长分组排序，确保最终结果有序。</p>
+最后，以 <span class="arithmatex">\(1\)</span> 为步长分组排序，确保最终结果有序。</p>
 <h3 id="_9">堆排序</h3>
 <p>堆排序在原地构建完全二叉树。最大堆排序过程如下</p>
 <ol>
@@ -16616,14 +16618,14 @@ $$
 <p>堆结构不是二叉搜索树，它不保证左节点小于右节点，只需要保证父节点大于两个子节点。</p>
 </blockquote>
 </blockquote>
-<p>考虑建堆操作的复杂度。对于高度为 $h$ 的堆，共有 $2^h$ 个元素。从第一个元素开始执行 <code>push_heap</code> 操作，高度为 $k$ 的元素最多执行 $k-1$ 次操作。因此总操作数为
+<p>考虑建堆操作的复杂度。对于高度为 <span class="arithmatex">\(h\)</span> 的堆，共有 <span class="arithmatex">\(2^h\)</span> 个元素。从第一个元素开始执行 <code>push_heap</code> 操作，高度为 <span class="arithmatex">\(k\)</span> 的元素最多执行 <span class="arithmatex">\(k-1\)</span> 次操作。因此总操作数为
 $$
 T(n) = \sum_{k=1}^h (k-1)\cdot 2^{h-k} = O(2^h) = O(n)
 $$
 则建堆只需要线性复杂度。</p>
 <blockquote>
 <blockquote>
-<p>利用建堆，可以维护数组的前 $k$ 个最大元素，在线性时间内提取数组的前 $k$ 个最大元素。</p>
+<p>利用建堆，可以维护数组的前 <span class="arithmatex">\(k\)</span> 个最大元素，在线性时间内提取数组的前 <span class="arithmatex">\(k\)</span> 个最大元素。</p>
 </blockquote>
 </blockquote>
 <h3 id="_10">归并排序</h3>
@@ -16635,7 +16637,7 @@ T(n) =
 2T\left( \frac{n}{2} \right)+\theta(n), &amp; n\geq 2
 \end{cases}
 $$
-其中 $\theta(n)$ 是归并的开销。不妨设 $T(n)=2T(\frac{n}{2})+cn$，于是 $T(n)=\theta(n\log n)$ 。</p>
+其中 <span class="arithmatex">\(\theta(n)\)</span> 是归并的开销。不妨设 <span class="arithmatex">\(T(n)=2T(\frac{n}{2})+cn\)</span>，于是 <span class="arithmatex">\(T(n)=\theta(n\log n)\)</span> 。</p>
 <h3 id="_11">解递归式</h3>
 <h4 id="_12">代换法</h4>
 <p>代换法分为三步</p>
@@ -16652,27 +16654,27 @@ T(n) =
 4T\left( \frac{n}{2} \right)+n, &amp; n\geq 2
 \end{cases}
 $$
-猜测 $T(n)=O(n^2),T(n)=\Omega(n^2)$ 。首先证明 $T(n)=O(n^3)$，设 $T(n)\leq cn^3$，则
+猜测 <span class="arithmatex">\(T(n)=O(n^2),T(n)=\Omega(n^2)\)</span> 。首先证明 <span class="arithmatex">\(T(n)=O(n^3)\)</span>，设 <span class="arithmatex">\(T(n)\leq cn^3\)</span>，则
 $$
 T(n) = 4c\left( \frac{n}{2} \right)^3+n = cn^3-\left( \frac{1}{2}cn^3-n \right) \leq cn^3,\quad c\geq 2,n\geq 1
 $$
-然后尝试 $T(n)\leq cn^2$，然而
+然后尝试 <span class="arithmatex">\(T(n)\leq cn^2\)</span>，然而
 $$
 T(n) = 4c\left( \frac{n}{2} \right)^2+n = cn^2+n \geq cn^2
 $$
-因此 $T(n)\neq O(n^2)$ 。所以需要考虑低阶项来消去 $n$，即 $T(n)\leq c_{1}n^2-c_{2}n$，则
+因此 <span class="arithmatex">\(T(n)\neq O(n^2)\)</span> 。所以需要考虑低阶项来消去 <span class="arithmatex">\(n\)</span>，即 <span class="arithmatex">\(T(n)\leq c_{1}n^2-c_{2}n\)</span>，则
 $$
 T(n) = 4\left( \frac{1}{4}c_{1}n^2-\frac{1}{2}c_{2}n \right)+n = c_{1}n^2-c_{2}n-(1+c_{2})n \leq c_{1}n^2-c_{2}n
 $$
-注意到 $T(1)=\theta(1)=c_{1}-c_{2}$，因此只需要 $c_{1}&gt;\theta(1)+c_{2},c_{2}&gt;0$ 即可。类似地 $T(n)\geq c_{1}n^2-c_{2}n$ 成立。</p>
+注意到 <span class="arithmatex">\(T(1)=\theta(1)=c_{1}-c_{2}\)</span>，因此只需要 <span class="arithmatex">\(c_{1}&gt;\theta(1)+c_{2},c_{2}&gt;0\)</span> 即可。类似地 <span class="arithmatex">\(T(n)\geq c_{1}n^2-c_{2}n\)</span> 成立。</p>
 <h4 id="_13">递归树法</h4>
-<p>对于 $T(n)=T\left( \frac{n}{4} \right)+T\left( \frac{n}{2} \right)+n^2$，可以将其展开</p>
+<p>对于 <span class="arithmatex">\(T(n)=T\left( \frac{n}{4} \right)+T\left( \frac{n}{2} \right)+n^2\)</span>，可以将其展开</p>
 <p><img alt="" src="图片1.svg|500" /></p>
-<p>由于 $T(1)=\theta(1)$，因此 $T(n)$ 的叶节点数不超过 $T\left( \frac{n}{4} \right)+T\left( \frac{n}{2} \right)$ 的叶节点，而 $\frac{n}{4}+\frac{n}{2}&lt;n$，因此叶节点数少于 $n$，于是
+<p>由于 <span class="arithmatex">\(T(1)=\theta(1)\)</span>，因此 <span class="arithmatex">\(T(n)\)</span> 的叶节点数不超过 <span class="arithmatex">\(T\left( \frac{n}{4} \right)+T\left( \frac{n}{2} \right)\)</span> 的叶节点，而 <span class="arithmatex">\(\frac{n}{4}+\frac{n}{2}&lt;n\)</span>，因此叶节点数少于 <span class="arithmatex">\(n\)</span>，于是
 $$
 T(n) = n^2\left( 1+\frac{5}{16}+\cdots+\left( \frac{5}{16} \right)^k \right) + O(n) &lt; 2n^2 = O(n^2)
 $$
-并且显然 $T(n)=\Omega(n^2)$，故 $T(n)=\theta(n^2)$ 。</p>
+并且显然 <span class="arithmatex">\(T(n)=\Omega(n^2)\)</span>，故 <span class="arithmatex">\(T(n)=\theta(n^2)\)</span> 。</p>
 <h4 id="_14">主方法</h4>
 <p>给定递推形式
 $$
@@ -16684,17 +16686,17 @@ $$
 $$
 T(n) = f(n)+af\left( \frac{n}{b} \right)+a^2f\left( \frac{n}{b^2} \right)+\cdots+\theta(n^{\log_{b}a})
 $$
-则需要比较 $f(n)$ 与 $n^{\log_{b}a}$ 的大小</p>
+则需要比较 <span class="arithmatex">\(f(n)\)</span> 与 <span class="arithmatex">\(n^{\log_{b}a}\)</span> 的大小</p>
 <ul>
-<li>若 $f(n)\ll n^{\log_{b}a}$，则 $\theta(n^{\log_{b}a})$ 占主导</li>
-<li>若 $f(n)\approx n^{\log_{b}a}$，则渐近趋向 $\theta(n^{\log_{b}a}\log^kn)$</li>
-<li>若 $f(n)\gg n^{\log_{b}a}$，则 $\theta(f(n))$ 占主导</li>
+<li>若 <span class="arithmatex">\(f(n)\ll n^{\log_{b}a}\)</span>，则 <span class="arithmatex">\(\theta(n^{\log_{b}a})\)</span> 占主导</li>
+<li>若 <span class="arithmatex">\(f(n)\approx n^{\log_{b}a}\)</span>，则渐近趋向 <span class="arithmatex">\(\theta(n^{\log_{b}a}\log^kn)\)</span></li>
+<li>若 <span class="arithmatex">\(f(n)\gg n^{\log_{b}a}\)</span>，则 <span class="arithmatex">\(\theta(f(n))\)</span> 占主导</li>
 </ul>
 <p>于是得到主定理</p>
 <ul>
-<li>$f(n)=O(n^{\log_{b}a}/n^\epsilon),\epsilon&gt;0\implies T(n)=\theta(n^{\log_{b}a})$</li>
-<li>$f(n)=\theta(n^{\log_{b}a}\log^kn),k\geq 0\implies T(n)=\theta(n^{\log_{b}a}\log^kn)$</li>
-<li>$f(n)=\Omega(n^{\log_{b}a}n^\epsilon),\epsilon&gt;0$，且存在 $\epsilon'&gt;0,af\left( \frac{n}{b} \right)\leq(1-\epsilon')f(n)$，则 $T(n)=\theta(f(n))$</li>
+<li><span class="arithmatex">\(f(n)=O(n^{\log_{b}a}/n^\epsilon),\epsilon&gt;0\implies T(n)=\theta(n^{\log_{b}a})\)</span></li>
+<li><span class="arithmatex">\(f(n)=\theta(n^{\log_{b}a}\log^kn),k\geq 0\implies T(n)=\theta(n^{\log_{b}a}\log^kn)\)</span></li>
+<li><span class="arithmatex">\(f(n)=\Omega(n^{\log_{b}a}n^\epsilon),\epsilon&gt;0\)</span>，且存在 <span class="arithmatex">\(\epsilon'&gt;0,af\left( \frac{n}{b} \right)\leq(1-\epsilon')f(n)\)</span>，则 <span class="arithmatex">\(T(n)=\theta(f(n))\)</span></li>
 </ul>
 <p>其中第三种情况要求每层递归总和不大于上一层。</p>
 <h3 id="_15">分治法</h3>
@@ -16704,9 +16706,9 @@ T(n) = 2T\left( \frac{n}{2} \right)+\theta(n)
 $$
 右边两项分别对应子问题和附加计算量（合并）。</p>
 <h4 id="_16">二分查找</h4>
-<p>在已排序的数组中搜索元素，$T(n)=T\left( \frac{n}{2} \right)+\theta(1)=\theta(\log n)$ 。</p>
+<p>在已排序的数组中搜索元素，<span class="arithmatex">\(T(n)=T\left( \frac{n}{2} \right)+\theta(1)=\theta(\log n)\)</span> 。</p>
 <h4 id="_17">乘方</h4>
-<p>直接连乘则需要 $\theta(n)$；然而利用
+<p>直接连乘则需要 <span class="arithmatex">\(\theta(n)\)</span>；然而利用
 $$
 x^n = 
 \begin{cases}
@@ -16714,7 +16716,7 @@ x^{n/2}\cdot x^{n/2}, &amp; 2 \mid n \
 x^{(n-1)/2}\cdot x^{(n-1)/2}\cdot x, &amp; 2\nmid n
 \end{cases}
 $$
-于是 $T(n)=T\left( \frac{n}{2} \right)+\theta(1)=\theta(\log n)$ 。</p>
+于是 <span class="arithmatex">\(T(n)=T\left( \frac{n}{2} \right)+\theta(1)=\theta(\log n)\)</span> 。</p>
 <h4 id="_18">斐波那契数列</h4>
 <p>递推公式为
 $$
@@ -16725,7 +16727,7 @@ F_{n} =
 F_{n-1}+F_{n-2}, &amp; n\geq 2
 \end{cases}
 $$
-如果直接递归，则 $T(n)=\Omega(\Psi^n),\Psi=\frac{\sqrt{ 5 }+1}{2}$，非常糟糕；如果动态规划，则 $T(n)=\theta(n)$ 。另外，注意到递推关系
+如果直接递归，则 <span class="arithmatex">\(T(n)=\Omega(\Psi^n),\Psi=\frac{\sqrt{ 5 }+1}{2}\)</span>，非常糟糕；如果动态规划，则 <span class="arithmatex">\(T(n)=\theta(n)\)</span> 。另外，注意到递推关系
 $$
 \begin{pmatrix}
 F_{2} &amp; F_{1} \
@@ -16759,9 +16761,9 @@ F_{n} &amp; F_{n-1}
 1 &amp; 0
 \end{pmatrix}^n
 $$
-则可以通过特征分解，得到矩阵乘方，$T(n)=\theta(\log n)$，但存在精度问题。</p>
+则可以通过特征分解，得到矩阵乘方，<span class="arithmatex">\(T(n)=\theta(\log n)\)</span>，但存在精度问题。</p>
 <h4 id="_19">矩阵乘法</h4>
-<p>直接计算，显然 $T(n)=O(n^3)$ 。考虑分块矩阵形式
+<p>直接计算，显然 <span class="arithmatex">\(T(n)=O(n^3)\)</span> 。考虑分块矩阵形式
 $$
 C = 
 \begin{pmatrix}
@@ -16777,7 +16779,7 @@ e &amp; f \
 g &amp; h
 \end{pmatrix}
 $$
-其中每个元素都是 $\frac{n}{2}$ 阶矩阵，需要 8 次递归，4 次加法，得到
+其中每个元素都是 <span class="arithmatex">\(\frac{n}{2}\)</span> 阶矩阵，需要 8 次递归，4 次加法，得到
 $$
 T(n)=8T\left( \frac{n}{2} \right)+\theta(n^2)=\theta(n^3)
 $$
@@ -16802,11 +16804,11 @@ $$
 $$
 T(n) = 7T\left( \frac{n}{2} \right)+\theta(n^2) = \theta(n^{\log 7}) = \theta(n^{2.81})
 $$
-目前最好的算法可以达到 $\theta(n^{2.376})$ 。</p>
+目前最好的算法可以达到 <span class="arithmatex">\(\theta(n^{2.376})\)</span> 。</p>
 <h4 id="_20">集成电路布局</h4>
 <p>假设电路是完全二叉树，在正方形网格上排布节点，希望面积尽可能小。如图所示是一个电路网络</p>
 <p><img alt="" src="图片3.svg|725" /></p>
-<p>占用面积为 $S(n)=H(n)\cdot W(n)$，根据递推关系
+<p>占用面积为 <span class="arithmatex">\(S(n)=H(n)\cdot W(n)\)</span>，根据递推关系
 $$
 \begin{aligned}
 H(n)&amp;=H\left( \frac{n}{2} \right)+\theta(1)=\theta(\log n)\
@@ -16814,7 +16816,7 @@ W(n)&amp;=2W\left( \frac{n}{2} \right)+O(1) = \theta(n)\
 S(n)&amp;= H(n)\cdot W(n) = \theta(n\log n)
 \end{aligned}
 $$
-采用 $H$ 布局可以减小面积占用</p>
+采用 <span class="arithmatex">\(H\)</span> 布局可以减小面积占用</p>
 <p><img alt="" src="图片4.svg|450" /></p>
 <p>此时
 $$
@@ -16827,29 +16829,29 @@ $$
 <h4 id="_21">快速排序</h4>
 <p>快速排序也是一种分治策略</p>
 <ol>
-<li>选取数组中的一个元素 $x$，将数组划分为大于等于 $x$ 的部分和小于 $x$ 的部分</li>
+<li>选取数组中的一个元素 <span class="arithmatex">\(x\)</span>，将数组划分为大于等于 <span class="arithmatex">\(x\)</span> 的部分和小于 <span class="arithmatex">\(x\)</span> 的部分</li>
 <li>对两个数组分别排序</li>
 <li>合并排序后的数组</li>
 </ol>
 <p>为了避免合并开销，我们直接在原地排序</p>
 <ol>
-<li>选取首元素，双指针从首尾分别出发，直到左指针移动到大于等于 $x$ 的位置，右指针移动到小于 $x$ 的位置，然后交换元素</li>
-<li>将 $x$ 与两指针相遇的位置交换</li>
-<li>对 $x$ 左右两部分的数组快速排序</li>
+<li>选取首元素，双指针从首尾分别出发，直到左指针移动到大于等于 <span class="arithmatex">\(x\)</span> 的位置，右指针移动到小于 <span class="arithmatex">\(x\)</span> 的位置，然后交换元素</li>
+<li>将 <span class="arithmatex">\(x\)</span> 与两指针相遇的位置交换</li>
+<li>对 <span class="arithmatex">\(x\)</span> 左右两部分的数组快速排序</li>
 </ol>
 <p>假设所有元素不重复，最坏情况是已经顺序或逆序，此时
 $$
 T(n) = T(0)+T(n-1)+\theta(n) = T(n-1)+\theta(n) = \theta(n^2)
 $$
-这是因为右边 $n-1$ 个元素都要遍历比较一遍。而最好情况是每次都在最中间划分
+这是因为右边 <span class="arithmatex">\(n-1\)</span> 个元素都要遍历比较一遍。而最好情况是每次都在最中间划分
 $$
 T(n)=2T\left( \frac{n}{2} \right)+\theta(n) = \theta(n\log n)
 $$
-事实上，出现最差划分的可能很小。考虑每次都在 $\frac{1}{10}$ 位置划分的情况
+事实上，出现最差划分的可能很小。考虑每次都在 <span class="arithmatex">\(\frac{1}{10}\)</span> 位置划分的情况
 $$
 T(n)= T\left( \frac{n}{10} \right)+T\left( \frac{9n}{10} \right)+\theta(n)
 $$
-递归树高度不超过 $\log_{\frac{10}{9}}n$，每层不超过 $\theta(n)$，因此 $T(n)=\theta\left( n\log_{\frac{10}{9}}n \right)$ 依然不错。如果是交替出现最好和最差情况
+递归树高度不超过 <span class="arithmatex">\(\log_{\frac{10}{9}}n\)</span>，每层不超过 <span class="arithmatex">\(\theta(n)\)</span>，因此 <span class="arithmatex">\(T(n)=\theta\left( n\log_{\frac{10}{9}}n \right)\)</span> 依然不错。如果是交替出现最好和最差情况
 $$
 \begin{aligned}
 Lucky(n) &amp;= 2Unlucky\left( \frac{n}{2} \right)+\theta(n)\
@@ -16858,7 +16860,7 @@ L(n) &amp;= 2\left( L\left( \frac{n}{2}-1 \right)+\theta\left( \frac{n}{2} \righ
 \end{aligned}
 $$
 仍然很好。</p>
-<p>为了避免出现最坏的情况，可以随机选择主元。令 $T(n)$ 为运行时间的随机变量，$x_{k}$ 表示在 $k$ 位置划分的指示器随机变量，其期望值为 $E(x_{k})=\frac{1}{n}$ 。于是
+<p>为了避免出现最坏的情况，可以随机选择主元。令 <span class="arithmatex">\(T(n)\)</span> 为运行时间的随机变量，<span class="arithmatex">\(x_{k}\)</span> 表示在 <span class="arithmatex">\(k\)</span> 位置划分的指示器随机变量，其期望值为 <span class="arithmatex">\(E(x_{k})=\frac{1}{n}\)</span> 。于是
 $$
 \begin{aligned}
 T(n) &amp;= \sum_{k=0}^{n-1}x_{k}(T(k)+T(n-k-1)+\theta(n))\
@@ -16868,7 +16870,7 @@ E(T(n)) &amp;= \sum_{k=0}^{n-1}E(x_{k}(T(k)+T(n-k-1)+\theta(n)))\
 &amp;= \frac{2}{n}\sum_{k=0}^{n-1}E(T(k))+\theta(n)
 \end{aligned}
 $$
-考虑证明 $E(T(n))\leq an\log n$，首先通过积分可以得到不等式
+考虑证明 <span class="arithmatex">\(E(T(n))\leq an\log n\)</span>，首先通过积分可以得到不等式
 $$
 \sum_{k=0}^{n-1}ak\log k \leq \frac{1}{2}n^2\log n -\frac{1}{8}n^2
 $$
@@ -16881,29 +16883,29 @@ E(T(n)) &amp;\leq \frac{2}{n}\sum_{k=0}^{n-1}ak\log k+\theta(n) \
 &amp;\leq an\log n
 \end{aligned}
 $$
-因此快速排序有 $O(n\log n)$ 复杂度。</p>
+因此快速排序有 <span class="arithmatex">\(O(n\log n)\)</span> 复杂度。</p>
 <h3 id="_22">决策树模型</h3>
-<p>基于比较的排序算法都有 $T(n)=\Omega(n\log n)$ 。考虑决策树模型
+<p>基于比较的排序算法都有 <span class="arithmatex">\(T(n)=\Omega(n\log n)\)</span> 。考虑决策树模型
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>graph TD
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>a(a) --- b[&lt;]
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>a --- c[ \&gt;  ]
 </code></pre></div></p>
-<p>任何比较过程都可以看作是决策树：如果大于 $a$ 则向右，小于 $a$ 的向左。由于每个节点都代表一种比较的结果，因此共有 $\theta(n!)$ 个节点，得到树的最小深度为
+<p>任何比较过程都可以看作是决策树：如果大于 <span class="arithmatex">\(a\)</span> 则向右，小于 <span class="arithmatex">\(a\)</span> 的向左。由于每个节点都代表一种比较的结果，因此共有 <span class="arithmatex">\(\theta(n!)\)</span> 个节点，得到树的最小深度为
 $$
 \log(n!) \geq \log\left( \frac{n}{e} \right)^n = n\log\left( \frac{n}{e} \right) = \theta(n\log n)
 $$
 该深度就是比较排序的复杂度下界。</p>
 <h3 id="_23">线性时间排序</h3>
 <h4 id="_24">计数排序</h4>
-<p>假设输入数组 $A[1,2,\cdots,n],A[i]\in{1,2,\cdots,k}$，则可以统计每个值出现次数。例如 $A=(4,1,3,4,3)$，首先找到最大元素 $4$，然后创建计数数组 $C=(1,0,2,2)$，分别表示 $1,2,3,4$ 出现的次数。然后逐位累加
+<p>假设输入数组 <span class="arithmatex">\(A[1,2,\cdots,n],A[i]\in\{1,2,\cdots,k\}\)</span>，则可以统计每个值出现次数。例如 <span class="arithmatex">\(A=(4,1,3,4,3)\)</span>，首先找到最大元素 <span class="arithmatex">\(4\)</span>，然后创建计数数组 <span class="arithmatex">\(C=(1,0,2,2)\)</span>，分别表示 <span class="arithmatex">\(1,2,3,4\)</span> 出现的次数。然后逐位累加
 $$
 C' = (1,1,3,5)
 $$
-现在从后向前依次遍历。首先是 $3$，其对应的位置为 $3$，然后计数器减少
+现在从后向前依次遍历。首先是 <span class="arithmatex">\(3\)</span>，其对应的位置为 <span class="arithmatex">\(3\)</span>，然后计数器减少
 $$
 C'=1,1,\underline{3},5 \implies B = \times,\times,3,\times,\times,\quad C'=1,1,2,5
 $$
-接着是 $4$，其对应的位置为 $5$，得到
+接着是 <span class="arithmatex">\(4\)</span>，其对应的位置为 <span class="arithmatex">\(5\)</span>，得到
 $$
 C'=1,1,2,\underline{5} \implies B = \times,\times,3,\times,4,\quad C'=1,1,2,4
 $$
@@ -16915,58 +16917,58 @@ C'&amp;=\underline{1},1,1,4 \implies B = 1,3,3,\times,4,\quad C'=0,1,1,4\
 C'&amp;=0,1,1,\underline{4} \implies B = 1,3,3,4,4,\quad C'=0,1,1,3
 \end{aligned}
 $$
-最后得到 $B$ 就是排序数组。</p>
+最后得到 <span class="arithmatex">\(B\)</span> 就是排序数组。</p>
 <blockquote>
 <blockquote>
-<p>由于累加计数器后，第 $i$ 位数表示小于等于 $i$ 的数的个数，因此这个数就是它排序后的位置。</p>
+<p>由于累加计数器后，第 <span class="arithmatex">\(i\)</span> 位数表示小于等于 <span class="arithmatex">\(i\)</span> 的数的个数，因此这个数就是它排序后的位置。</p>
 </blockquote>
 </blockquote>
 <p>计数排序流程如下</p>
 <ol>
-<li>获得最大元素并初始化计数器 $\theta(n+k)$</li>
-<li>进行计数 $\theta(n)$</li>
-<li>累加计数 $\theta(k)$</li>
-<li>分配元素 $\theta(n)$</li>
+<li>获得最大元素并初始化计数器 <span class="arithmatex">\(\theta(n+k)\)</span></li>
+<li>进行计数 <span class="arithmatex">\(\theta(n)\)</span></li>
+<li>累加计数 <span class="arithmatex">\(\theta(k)\)</span></li>
+<li>分配元素 <span class="arithmatex">\(\theta(n)\)</span></li>
 </ol>
-<p>因此总复杂度为 $\theta(n+k)$，如果 $k\gg n$，则计数排序效果可能不佳。</p>
+<p>因此总复杂度为 <span class="arithmatex">\(\theta(n+k)\)</span>，如果 <span class="arithmatex">\(k\gg n\)</span>，则计数排序效果可能不佳。</p>
 <h4 id="_25">基数排序</h4>
-<p>从最低位到最高位依次排序，如果有两数对应位相同，则保持其顺序不变。假设前 $t-1$ 位已经排好顺序</p>
+<p>从最低位到最高位依次排序，如果有两数对应位相同，则保持其顺序不变。假设前 <span class="arithmatex">\(t-1\)</span> 位已经排好顺序</p>
 <ul>
-<li>若第 $t$ 位互不相同，则排序会将第 $t$ 位按顺序排好，数的顺序完全由第 $t$ 位决定，算法正确</li>
-<li>若有两个数第 $t$ 位相同，由于保存顺序不变，因此要看前 $t-1$ 位，而根据归纳假设，前 $t-1$ 位已经排好，所以算法正确</li>
+<li>若第 <span class="arithmatex">\(t\)</span> 位互不相同，则排序会将第 <span class="arithmatex">\(t\)</span> 位按顺序排好，数的顺序完全由第 <span class="arithmatex">\(t\)</span> 位决定，算法正确</li>
+<li>若有两个数第 <span class="arithmatex">\(t\)</span> 位相同，由于保存顺序不变，因此要看前 <span class="arithmatex">\(t-1\)</span> 位，而根据归纳假设，前 <span class="arithmatex">\(t-1\)</span> 位已经排好，所以算法正确</li>
 </ul>
 <p>综上基数排序正确。由于每一位数都是有限整数，因此可以使用计数排序。</p>
-<p>假设要排序 $n$ 个 $b$ 位二进制数，如果 $b$ 很大会导致计数排序不佳。因此将每个整数拆分为 $\frac{b}{r}$ 个 $r$ 位数，每个 $r$ 位数只看作一位进行比较，例如将二进制数写成十六进制数
+<p>假设要排序 <span class="arithmatex">\(n\)</span> 个 <span class="arithmatex">\(b\)</span> 位二进制数，如果 <span class="arithmatex">\(b\)</span> 很大会导致计数排序不佳。因此将每个整数拆分为 <span class="arithmatex">\(\frac{b}{r}\)</span> 个 <span class="arithmatex">\(r\)</span> 位数，每个 <span class="arithmatex">\(r\)</span> 位数只看作一位进行比较，例如将二进制数写成十六进制数
 $$
 x = 0011\ 1101, b= 8 \implies x=3 D, r = 4
 $$
-这样就减少了位数，复杂度从 $\theta(b(n+k))$ 变为 $\theta\left( \frac{b}{r}(n+k) \right)=\theta\left( \frac{b}{r}(n+2^r) \right)$，由 $n\geq 2^r$ 并求导取最小值得到
+这样就减少了位数，复杂度从 <span class="arithmatex">\(\theta(b(n+k))\)</span> 变为 <span class="arithmatex">\(\theta\left( \frac{b}{r}(n+k) \right)=\theta\left( \frac{b}{r}(n+2^r) \right)\)</span>，由 <span class="arithmatex">\(n\geq 2^r\)</span> 并求导取最小值得到
 $$
 T(n) = O\left( \frac{b}{r}(n+2^r) \right) \geq O\left( \frac{b}{\log n}(n+n) \right) = O\left( \frac{bn}{\log n} \right)
 $$
-我们希望达到这个下界，就需要 $r$ 尽可能大。</p>
+我们希望达到这个下界，就需要 <span class="arithmatex">\(r\)</span> 尽可能大。</p>
 <h3 id="_26">顺序统计和中值</h3>
-<h4 id="k">第 $k$ 小的元素</h4>
-<p>给定一组无序数，要找到第 $k$ 小的元素。设 $A(p,q,i)$ 表示选择子数组 $A[p,q]$ 中第 $i$ 小的元素，则可以按照如下流程</p>
+<h4 id="k">第 <span class="arithmatex">\(k\)</span> 小的元素</h4>
+<p>给定一组无序数，要找到第 <span class="arithmatex">\(k\)</span> 小的元素。设 <span class="arithmatex">\(A(p,q,i)\)</span> 表示选择子数组 <span class="arithmatex">\(A[p,q]\)</span> 中第 <span class="arithmatex">\(i\)</span> 小的元素，则可以按照如下流程</p>
 <ol>
-<li>参照快排划分数组 $A(p,r-1,i),A(r+1,q,i-k)$</li>
-<li>判断 $i$ 位于哪个部分</li>
+<li>参照快排划分数组 <span class="arithmatex">\(A(p,r-1,i),A(r+1,q,i-k)\)</span></li>
+<li>判断 <span class="arithmatex">\(i\)</span> 位于哪个部分</li>
 <li>递归排序</li>
 </ol>
-<p>例如给定 $A=6,10,13,5,8,3,2,1$，找到第 $7$ 小的元素。首先选择主元 $6$ 划分数组
+<p>例如给定 <span class="arithmatex">\(A=6,10,13,5,8,3,2,1\)</span>，找到第 <span class="arithmatex">\(7\)</span> 小的元素。首先选择主元 <span class="arithmatex">\(6\)</span> 划分数组
 $$
 A'=2,5,3,\quad 6,\quad 8,13,10,11
 $$
-左边比 $6$ 小，右边比 $6$ 大，因此 $6$ 是第 $4$ 小的元素，目标元素在右边。</p>
-<p>假设元素互不相同，最好的情况是总是按照常数比例划分，例如 $1:9$ 划分
+左边比 <span class="arithmatex">\(6\)</span> 小，右边比 <span class="arithmatex">\(6\)</span> 大，因此 <span class="arithmatex">\(6\)</span> 是第 <span class="arithmatex">\(4\)</span> 小的元素，目标元素在右边。</p>
+<p>假设元素互不相同，最好的情况是总是按照常数比例划分，例如 <span class="arithmatex">\(1:9\)</span> 划分
 $$
 T(n)\leq\max\left(  T\left( \frac{1}{10}n \right),T\left( \frac{9}{10}n \right)  \right)+\theta(n) = \theta\left( n\right)
 $$
-最坏的情况是每次都按 $1:n-1$ 划分
+最坏的情况是每次都按 <span class="arithmatex">\(1:n-1\)</span> 划分
 $$
 T(n) \leq \max(T(1),T(n-1))+\theta(n) = \theta(n^2)
 $$
-运用指示器随机变量 $x_{k}$ 分析期望
+运用指示器随机变量 <span class="arithmatex">\(x_{k}\)</span> 分析期望
 $$
 \begin{aligned}
 T(n) &amp;\leq \sum_{k=0}^{n-1}x_{k}(T(\max{k,n-k-1})+\theta(n))\
@@ -16976,7 +16978,7 @@ E(T(n)) &amp;= E\left[ \sum_{k=0}^{n-1}x_{k}(T(\max{k,n-k-1})+\theta(n)) \right]
 &amp;\leq \frac{2}{n}\sum_{{k=\lceil \frac{n}{2} \rceil }}^{n-1}E(T(k))+\theta(n)
 \end{aligned}
 $$
-证明 $E(T(n))\leq cn$，用归纳法
+证明 <span class="arithmatex">\(E(T(n))\leq cn\)</span>，用归纳法
 $$
 \begin{aligned}
 E(T(n)) &amp;\leq \frac{2}{n}\sum_{{k=\left\lceil  \frac{n}{2}  \right\rceil }}^{n-1}E(T(k))+\theta(n)\
@@ -16990,30 +16992,30 @@ $$
 $$
 \sum_{{k=\left\lceil  \frac{n}{2}  \right\rceil }}^{n-1}k \leq \frac{3}{8}n^2
 $$
-当 $c$ 足够大即证。</p>
+当 <span class="arithmatex">\(c\)</span> 足够大即证。</p>
 <h4 id="_27">线性最坏情况算法</h4>
-<p>按如下方式寻找第 $i$ 小的元素</p>
+<p>按如下方式寻找第 <span class="arithmatex">\(i\)</span> 小的元素</p>
 <ol>
-<li>排列所有元素为 $5\times \left\lfloor  \frac{n}{5}  \right\rfloor$ 的表格，对每一列排序，找到中值所在行</li>
-<li>寻找中值所在行的中值 $x$</li>
-<li>用该中值进行划分，$k$ 为 $x$ 的索引（划分后）</li>
-<li>当 $i=k$ 即得；若 $i&lt;k$，递归选择左下区域，否则递归选择右上区域</li>
+<li>排列所有元素为 <span class="arithmatex">\(5\times \left\lfloor  \frac{n}{5}  \right\rfloor\)</span> 的表格，对每一列排序，找到中值所在行</li>
+<li>寻找中值所在行的中值 <span class="arithmatex">\(x\)</span></li>
+<li>用该中值进行划分，<span class="arithmatex">\(k\)</span> 为 <span class="arithmatex">\(x\)</span> 的索引（划分后）</li>
+<li>当 <span class="arithmatex">\(i=k\)</span> 即得；若 <span class="arithmatex">\(i&lt;k\)</span>，递归选择左下区域，否则递归选择右上区域</li>
 </ol>
-<p>如图所示，其中 $a\to b$ 表示 $a&lt;b$，因此上述过程首先将每一列变成有序，然后再对每一列的中值横向排序，这样根据箭头方向，大于 $x$ 的元素在右上区域，小于 $x$ 的元素在左下区域。</p>
+<p>如图所示，其中 <span class="arithmatex">\(a\to b\)</span> 表示 <span class="arithmatex">\(a&lt;b\)</span>，因此上述过程首先将每一列变成有序，然后再对每一列的中值横向排序，这样根据箭头方向，大于 <span class="arithmatex">\(x\)</span> 的元素在右上区域，小于 <span class="arithmatex">\(x\)</span> 的元素在左下区域。</p>
 <p><img alt="" src="图片1 1.svg|500" /></p>
 <p>考虑每次递归时新区域中元素的个数，其左下区域元素有
 $$
 N \geq 3\left\lfloor \left\lfloor  \frac{n}{5}  \right\rfloor \cdot\frac{1}{2}  \right\rfloor \geq 3\left\lfloor  \frac{n}{10}  \right\rfloor \geq \frac{n}{4},\quad (n\geq 50)
 $$
-因此一组最少有 $\frac{n}{4}$ 个元素，另一组最多有 $\frac{3n}{4}$ 个元素，于是
+因此一组最少有 <span class="arithmatex">\(\frac{n}{4}\)</span> 个元素，另一组最多有 <span class="arithmatex">\(\frac{3n}{4}\)</span> 个元素，于是
 $$
 T(n) \leq T\left( \frac{n}{4} \right)+T\left( \frac{3n}{4} \right)+\theta(n)
 $$
-假设 $T(n)\leq cn$，于是
+假设 <span class="arithmatex">\(T(n)\leq cn\)</span>，于是
 $$
 T(n) \leq c\cdot \frac{n}{5}+c \cdot \frac{3n}{4}+\theta(n) = \frac{19}{20}cn+\theta(n)=cn-\left( \frac{1}{20}cn-\theta(n) \right)\leq cn
 $$
-只需要 $c$ 足够大即证。</p>
+只需要 <span class="arithmatex">\(c\)</span> 足够大即证。</p>
 <h3 id="_28">外部排序</h3>
 <p>当内存空间不足以读取所有外存中的数据时，就需要使用外部排序。</p>
 <h4 id="_29">二叉归并树</h4>
@@ -17095,7 +17097,7 @@ $$
 </blockquote>
 </blockquote>
 <h4 id="_30">败者树</h4>
-<p>二叉归并树每次对两块内存数组归并，但实际上可以使用 $k$ 块内存归并，减少从外存中读取数据的次数。对 $k$ 个数组归并排序需要寻找 $k$ 个元素中的最小值，这个过程可以用败者树优化。例如考虑 4 块内存
+<p>二叉归并树每次对两块内存数组归并，但实际上可以使用 <span class="arithmatex">\(k\)</span> 块内存归并，减少从外存中读取数据的次数。对 <span class="arithmatex">\(k\)</span> 个数组归并排序需要寻找 <span class="arithmatex">\(k\)</span> 个元素中的最小值，这个过程可以用败者树优化。例如考虑 4 块内存
 $$
 \begin{matrix}
 3 &amp; 4 &amp;  | &amp; 10 &amp; 12 &amp; | &amp; 14 &amp; 16 &amp; | &amp; 6 &amp; 8 &amp;
@@ -17129,13 +17131,13 @@ $$
 <p>置换-选择排序的流程为</p>
 <ol>
 <li>给定固定长度的归并数组，记录一个当前最大值 <code>MaxVal=0</code></li>
-<li>对 $k$ 个内存数组做归并，每次更新归并的最大元素 <code>MaxVal</code>，下一个归并的元素必须大于该值</li>
+<li>对 <span class="arithmatex">\(k\)</span> 个内存数组做归并，每次更新归并的最大元素 <code>MaxVal</code>，下一个归并的元素必须大于该值</li>
 <li>如果归并数组中所有元素都小于 <code>MaxVal</code>，则之前的元素构成第一个归并块</li>
 <li>开启一个新的归并块，将 <code>MaxVal</code> 置零，回到第二步</li>
 </ol>
 <p>这种方法可以让每个归并块都最大。</p>
 <h4 id="_31">最优归并树</h4>
-<p>假设有几个归并块，大小分别为 $2,2,3,4$，则最优二叉归并树是哈夫曼树</p>
+<p>假设有几个归并块，大小分别为 <span class="arithmatex">\(2,2,3,4\)</span>，则最优二叉归并树是哈夫曼树</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>   graph TD
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>   AB[4] --- A[2]
 <a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>   AB --- B[2]
@@ -17145,7 +17147,7 @@ $$
 <a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>   ABCD --- D[4]
 </code></pre></div>
 <p>即每次优先归并最小的两个块。</p>
-<p>假设有几个归并块，大小分别为 $2,2,3,4,5$，则最优三路归并树为</p>
+<p>假设有几个归并块，大小分别为 <span class="arithmatex">\(2,2,3,4,5\)</span>，则最优三路归并树为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>   graph TD
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>   ABC[7] --- A[2]
 <a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>   ABC --- B[2]
@@ -17154,7 +17156,7 @@ $$
 <a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>   ABCDE --- D[4]
 <a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>   ABCDE --- E[5]
 </code></pre></div>
-<p>它应当是一个完全三路归并树，即每个非叶节点必须有 3 个子节点。如果节点数无法构建完全三路归并树，例如 $2,2,3,4$，就需要补充空节点。对比加入空节点前后的归并树，可以看到后者节点权重和最小</p>
+<p>它应当是一个完全三路归并树，即每个非叶节点必须有 3 个子节点。如果节点数无法构建完全三路归并树，例如 <span class="arithmatex">\(2,2,3,4\)</span>，就需要补充空节点。对比加入空节点前后的归并树，可以看到后者节点权重和最小</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>   graph TD
 <a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>   ABC1[7] --- A1[2]
 <a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>   ABC1 --- B1[2]
@@ -17171,19 +17173,19 @@ $$
 </code></pre></div>
 <blockquote>
 <blockquote>
-<p>三路归并树每次合并减少 2 个节点，因此只要初始节点数是 $2n+1$ 就可以构建完全三路归并树，否则就补充空节点；类似地，四路归并树每次合并减少 3 个节点，初始节点数应当是 $3n+1$ 。</p>
+<p>三路归并树每次合并减少 2 个节点，因此只要初始节点数是 <span class="arithmatex">\(2n+1\)</span> 就可以构建完全三路归并树，否则就补充空节点；类似地，四路归并树每次合并减少 3 个节点，初始节点数应当是 <span class="arithmatex">\(3n+1\)</span> 。</p>
 </blockquote>
 </blockquote>
 <h2 id="_32">哈希表</h2>
 <h3 id="_33">符号表问题</h3>
-<p>编译器中的符号表 $S$ 要存放 $n$ 条信息记录，对这个表的操作有</p>
+<p>编译器中的符号表 <span class="arithmatex">\(S\)</span> 要存放 <span class="arithmatex">\(n\)</span> 条信息记录，对这个表的操作有</p>
 <ul>
-<li>插入 $(S,x):S\to S\cup{x}$</li>
-<li>删除 $(S,x):S\to S-{x}$</li>
-<li>查询 $(S,k): ret\ k$</li>
+<li>插入 <span class="arithmatex">\((S,x):S\to S\cup\{x\}\)</span></li>
+<li>删除 <span class="arithmatex">\((S,x):S\to S-\{x\}\)</span></li>
+<li>查询 <span class="arithmatex">\((S,k): ret\ k\)</span></li>
 </ul>
 <h4 id="_34">直接寻址法</h4>
-<p>一种构建方案是直接映射表，假设键来自 ${0,1,\cdots,m-1}$，则建立数组 $T[0,m-1]$ 表示动态集
+<p>一种构建方案是直接映射表，假设键来自 <span class="arithmatex">\(\{0,1,\cdots,m-1\}\)</span>，则建立数组 <span class="arithmatex">\(T[0,m-1]\)</span> 表示动态集
 $$
 T[k] = 
 \begin{cases}
@@ -17191,25 +17193,25 @@ x, &amp; x\in S,key[x]=k \
 \mathrm{null}, &amp; \mathrm{otherwise}
 \end{cases}
 $$
-这样时间复杂度为 $\theta(1)$，但问题在于 $m$ 可能很大，如果键的数量很少，就有很多空间浪费。</p>
+这样时间复杂度为 <span class="arithmatex">\(\theta(1)\)</span>，但问题在于 <span class="arithmatex">\(m\)</span> 可能很大，如果键的数量很少，就有很多空间浪费。</p>
 <h4 id="_35">链表结构</h4>
-<p>可以用哈希函数 $H$ 随机映射键到哈希表 $T$ 的槽，每个槽会指向一个链表。如果两个不同的键映射到同一个槽，就会保存在链表中，如下图所示</p>
+<p>可以用哈希函数 <span class="arithmatex">\(H\)</span> 随机映射键到哈希表 <span class="arithmatex">\(T\)</span> 的槽，每个槽会指向一个链表。如果两个不同的键映射到同一个槽，就会保存在链表中，如下图所示</p>
 <p><img alt="" src="图片2 1.svg|600" /></p>
 <p>时间复杂度分析</p>
 <ul>
-<li>最坏情况：所有键映射到同一个槽，此时为 $\theta(n)$</li>
-<li>平均情况：简单均匀哈希。如果拥有 $m$ 个槽的哈希表存放了 $n$ 个键，则装载因子定义为 $\alpha=\frac{n}{m}$，描述哈希表的利用率。此时搜索最坏用时 $\theta(1+\alpha)$ 。</li>
+<li>最坏情况：所有键映射到同一个槽，此时为 <span class="arithmatex">\(\theta(n)\)</span></li>
+<li>平均情况：简单均匀哈希。如果拥有 <span class="arithmatex">\(m\)</span> 个槽的哈希表存放了 <span class="arithmatex">\(n\)</span> 个键，则装载因子定义为 <span class="arithmatex">\(\alpha=\frac{n}{m}\)</span>，描述哈希表的利用率。此时搜索最坏用时 <span class="arithmatex">\(\theta(1+\alpha)\)</span> 。</li>
 </ul>
 <h3 id="_36">哈希函数</h3>
 <p>我们希望哈希函数将键均匀分布到槽中，并且键的分布不影响哈希表中的分布，即对任何类型的输入都能做到均匀。</p>
 <h4 id="_37">除法哈希</h4>
-<p>定义 $h(k)=k\mod m$，这里 $m$ 不应该太小。如果 $m=2$，且输入都是偶数，则奇数槽会被浪费；如果 $m=2^r$ 时，则会忽略二进制数高于 $k$ 的位。通常 $m$ 应当不靠近 $2,10$ 的幂。</p>
+<p>定义 <span class="arithmatex">\(h(k)=k\mod m\)</span>，这里 <span class="arithmatex">\(m\)</span> 不应该太小。如果 <span class="arithmatex">\(m=2\)</span>，且输入都是偶数，则奇数槽会被浪费；如果 <span class="arithmatex">\(m=2^r\)</span> 时，则会忽略二进制数高于 <span class="arithmatex">\(k\)</span> 的位。通常 <span class="arithmatex">\(m\)</span> 应当不靠近 <span class="arithmatex">\(2,10\)</span> 的幂。</p>
 <h4 id="_38">乘法哈希</h4>
-<p>指定槽数为 $m=2^r$，若计算机中一个字节有 $w$ 位，则定义
+<p>指定槽数为 <span class="arithmatex">\(m=2^r\)</span>，若计算机中一个字节有 <span class="arithmatex">\(w\)</span> 位，则定义
 $$
 h(k) = (A\cdot k \mod 2^w)rsh(w-r)
 $$
-其中 $A$ 是位于 $2^{w-r}$ 到 $2^w$ 之间的奇数，并且不应当靠近边界值；$rsh$ 是右移运算。例如
+其中 <span class="arithmatex">\(A\)</span> 是位于 <span class="arithmatex">\(2^{w-r}\)</span> 到 <span class="arithmatex">\(2^w\)</span> 之间的奇数，并且不应当靠近边界值；<span class="arithmatex">\(rsh\)</span> 是右移运算。例如
 $$
 \begin{aligned}
 m&amp;=7=2^3,\quad w=7,\quad r=3\ 
@@ -17220,9 +17222,9 @@ $$
 $$
 A\cdot k=\underbrace{1001010}<em>{ignore} \underbrace{011}</em>{h(k)}  \underbrace{0011}_{rsh} 
 $$
-乘积的后 $7$ 位被保留，然后移除后 $4$ 位，得到 $3$ 位哈希。</p>
+乘积的后 <span class="arithmatex">\(7\)</span> 位被保留，然后移除后 <span class="arithmatex">\(4\)</span> 位，得到 <span class="arithmatex">\(3\)</span> 位哈希。</p>
 <h4 id="_39">开放寻址法</h4>
-<p>对于每个键，可以给出一个检查序列 ${0,\cdots,m-1}$，依次检查序列中的位置，直到遇到空槽位。例如线性探查
+<p>对于每个键，可以给出一个检查序列 <span class="arithmatex">\(\{0,\cdots,m-1\}\)</span>，依次检查序列中的位置，直到遇到空槽位。例如线性探查
 $$
 h(k,i) = (h(k,0)+i)\mod m
 $$
@@ -17231,11 +17233,11 @@ $$
 $$
 h(k,i)=(h_{1}(k)+i\cdot h_{2}(k)) \mod m
 $$
-通常选择 $m$ 为 $2$ 的幂，$h_{2}(k)$ 为奇数。假设均匀哈希，即所有键都有 $m!$ 种探查序列，每个键相互独立，那么失败搜索的步数 $N$ 的期望
+通常选择 <span class="arithmatex">\(m\)</span> 为 <span class="arithmatex">\(2\)</span> 的幂，<span class="arithmatex">\(h_{2}(k)\)</span> 为奇数。假设均匀哈希，即所有键都有 <span class="arithmatex">\(m!\)</span> 种探查序列，每个键相互独立，那么失败搜索的步数 <span class="arithmatex">\(N\)</span> 的期望
 $$
 E(N)\leq \frac{1}{1-\alpha},\quad \alpha&lt;1
 $$
-考虑到第 $i$ 次搜索发生碰撞的概率为 $P_{i}=\frac{n-i+1}{m-i+1}\leq \frac{n}{m}=\alpha$，因此
+考虑到第 <span class="arithmatex">\(i\)</span> 次搜索发生碰撞的概率为 <span class="arithmatex">\(P_{i}=\frac{n-i+1}{m-i+1}\leq \frac{n}{m}=\alpha\)</span>，因此
 $$
 \begin{aligned}
 E(N) &amp;= 1+\frac{n}{m}\left( 1+ \frac{n-1}{m-1}\left( \cdots\left( 1+\frac{1}{m-n+1} \right) \cdots\right) \right) \
@@ -17244,7 +17246,7 @@ E(N) &amp;= 1+\frac{n}{m}\left( 1+ \frac{n-1}{m-1}\left( \cdots\left( 1+\frac{1}
 = \frac{1}{1-\alpha}
 \end{aligned}
 $$
-如果 $\alpha$ 是常数，则 $N=O(1)$ 。因此使用二次哈希方法时，尽量不要填满哈希表。</p>
+如果 <span class="arithmatex">\(\alpha\)</span> 是常数，则 <span class="arithmatex">\(N=O(1)\)</span> 。因此使用二次哈希方法时，尽量不要填满哈希表。</p>
 <h3 id="_40">哈希表结构</h3>
 <p>在确定哈希表后，插入操作容易实现；查询操作分为两种可能</p>
 <ol>
@@ -17264,18 +17266,18 @@ $$
 <h4 id="_42">全域哈希</h4>
 <blockquote>
 <p>[!definition] 
-令 $U$ 为键的全域，$H$ 为哈希函数的有限集。如果
+令 <span class="arithmatex">\(U\)</span> 为键的全域，<span class="arithmatex">\(H\)</span> 为哈希函数的有限集。如果
 $$
 \forall x,y\in U,x\neq y\implies #{h\in H:h(x)=h(y)} = \frac{|H|}{m}
 $$
-则称 $H$ 是全域的。对任意两个键 $x,y$，则从 $H$ 中随机选取 $h$ 使得 $x,y$ 碰撞的概率为 $\frac{1}{m}$ 。</p>
+则称 <span class="arithmatex">\(H\)</span> 是全域的。对任意两个键 <span class="arithmatex">\(x,y\)</span>，则从 <span class="arithmatex">\(H\)</span> 中随机选取 <span class="arithmatex">\(h\)</span> 使得 <span class="arithmatex">\(x,y\)</span> 碰撞的概率为 <span class="arithmatex">\(\frac{1}{m}\)</span> 。</p>
 <p>[!theorem]
-从 $H$ 中随机取函数 $h$，它将 $n$ 个键映射到 $T$ 表的 $m$ 个槽中。给定的 $x$，它映射后发生碰撞的期望次数为
+从 <span class="arithmatex">\(H\)</span> 中随机取函数 <span class="arithmatex">\(h\)</span>，它将 <span class="arithmatex">\(n\)</span> 个键映射到 <span class="arithmatex">\(T\)</span> 表的 <span class="arithmatex">\(m\)</span> 个槽中。给定的 <span class="arithmatex">\(x\)</span>，它映射后发生碰撞的期望次数为
 $$
 E(N) &lt; \frac{n}{m}=\alpha
 $$</p>
 </blockquote>
-<p>设 $C_{x}$ 是 $T$ 中的键与 $x$ 发生碰撞的总次数，定义
+<p>设 <span class="arithmatex">\(C_{x}\)</span> 是 <span class="arithmatex">\(T\)</span> 中的键与 <span class="arithmatex">\(x\)</span> 发生碰撞的总次数，定义
 $$
 C_{xy} = \begin{cases}
 1, &amp; h(x)=h(y) \
@@ -17290,16 +17292,16 @@ $$
 即证。</p>
 <p>构造全域哈希</p>
 <ol>
-<li>取 $m$ 为质数，将所有键 $k$ 分解为 $r+1$ 位 $k=\langle k_{0},\cdots,k_{r}\rangle,0\leq k_{i}\leq m-1$</li>
-<li>取 $a=\langle a_{0},\cdots,a_{r}\rangle$，其中 $a_{i}$ 从 ${0,\cdots,m-1}$ 中随机选取</li>
-<li>定义 $h_{a}(k)=\left( \sum_{i=0}^ra_{i}k_{i} \right)\mod m$</li>
+<li>取 <span class="arithmatex">\(m\)</span> 为质数，将所有键 <span class="arithmatex">\(k\)</span> 分解为 <span class="arithmatex">\(r+1\)</span> 位 <span class="arithmatex">\(k=\langle k_{0},\cdots,k_{r}\rangle,0\leq k_{i}\leq m-1\)</span></li>
+<li>取 <span class="arithmatex">\(a=\langle a_{0},\cdots,a_{r}\rangle\)</span>，其中 <span class="arithmatex">\(a_{i}\)</span> 从 <span class="arithmatex">\(\{0,\cdots,m-1\}\)</span> 中随机选取</li>
+<li>定义 <span class="arithmatex">\(h_{a}(k)=\left( \sum_{i=0}^ra_{i}k_{i} \right)\mod m\)</span></li>
 </ol>
-<p>于是这一哈希函数通过点积取余实现，并且 $H={h_{a}:\forall a},|H|=m^{r+1}$，则</p>
+<p>于是这一哈希函数通过点积取余实现，并且 <span class="arithmatex">\(H=\{h_{a}:\forall a\},|H|=m^{r+1}\)</span>，则</p>
 <blockquote>
 <p>[!theorem]
-$H$ 是全域的。</p>
+<span class="arithmatex">\(H\)</span> 是全域的。</p>
 </blockquote>
-<p>设 $x,y$ 互异，不妨设 $x_{0}\neq y_{0}$，则
+<p>设 <span class="arithmatex">\(x,y\)</span> 互异，不妨设 <span class="arithmatex">\(x_{0}\neq y_{0}\)</span>，则
 $$
 \begin{aligned}
 h_{a}(x)=h_{a}(y) &amp;\Leftrightarrow \sum_{i=0}^ka_{i}x_{i}\equiv \sum_{i=0}^ka_{i}y_{i}\
@@ -17310,36 +17312,36 @@ $$
 首先，给出一个引理</p>
 <blockquote>
 <p>[!lemma]
-设 $m$ 为质数，则对任意 $z\in \mathbb{Z}<em>{m}$，若 $z\not\equiv 0$，则存在唯一的 $z^{-1}\in \mathbb{Z}</em>{m}$ 使得 $zz^{-1}\equiv 1$ 。</p>
+设 <span class="arithmatex">\(m\)</span> 为质数，则对任意 <span class="arithmatex">\(z\in \mathbb{Z}_{m}\)</span>，若 <span class="arithmatex">\(z\not\equiv 0\)</span>，则存在唯一的 <span class="arithmatex">\(z^{-1}\in \mathbb{Z}_{m}\)</span> 使得 <span class="arithmatex">\(zz^{-1}\equiv 1\)</span> 。</p>
 </blockquote>
-<p>于是由 $x_{0}\neq y_{0}$，则存在唯一的 $(x_{0}-y_{0})^{-1}$ 使得
+<p>于是由 <span class="arithmatex">\(x_{0}\neq y_{0}\)</span>，则存在唯一的 <span class="arithmatex">\((x_{0}-y_{0})^{-1}\)</span> 使得
 $$
 a_{0}=\left( -\sum_{i=1}^ra_{i}(x_{i}-y_{i}) \right)(x_{0}-y_{0})^{-1}
 $$
-则只存在唯一的 $a_{0}$ 使得 $x,y$ 发生碰撞。由 $a$ 构建的 $H$ 有 $m^{r+1}$ 个元素，则对于 $x_{i},y_{i},i\neq 0$，发生碰撞的概率为 $m^r\cdot 1=\frac{|H|}{m}$，则 $H$ 是全域哈希。</p>
+则只存在唯一的 <span class="arithmatex">\(a_{0}\)</span> 使得 <span class="arithmatex">\(x,y\)</span> 发生碰撞。由 <span class="arithmatex">\(a\)</span> 构建的 <span class="arithmatex">\(H\)</span> 有 <span class="arithmatex">\(m^{r+1}\)</span> 个元素，则对于 <span class="arithmatex">\(x_{i},y_{i},i\neq 0\)</span>，发生碰撞的概率为 <span class="arithmatex">\(m^r\cdot 1=\frac{|H|}{m}\)</span>，则 <span class="arithmatex">\(H\)</span> 是全域哈希。</p>
 <h4 id="_43">完全哈希</h4>
 <blockquote>
 <p>[!definition]
-给定 $n$ 个键，完全哈希创建一个静态哈希表，大小为 $m=O(n)$，使得最坏情况运行时间为 $O(1)$ 。</p>
+给定 <span class="arithmatex">\(n\)</span> 个键，完全哈希创建一个静态哈希表，大小为 <span class="arithmatex">\(m=O(n)\)</span>，使得最坏情况运行时间为 <span class="arithmatex">\(O(1)\)</span> 。</p>
 </blockquote>
 <p>关键在于使用双级结构，并且每一级使用全域哈希，在第二级中没有碰撞。例如
 $$
 h(32)=h(14)=h(27)=1
 $$
-发生碰撞，则考虑使用 $32$ 构造全域哈希 $h_{32}(14)=1,h_{32}(27)=2$，就避免了碰撞。</p>
+发生碰撞，则考虑使用 <span class="arithmatex">\(32\)</span> 构造全域哈希 <span class="arithmatex">\(h_{32}(14)=1,h_{32}(27)=2\)</span>，就避免了碰撞。</p>
 <p><img alt="" src="图片4 1.svg|500" /></p>
 <blockquote>
 <p>[!theorem]
-若 $n$ 个键映射到 $m=n^2$ 个槽中，则对于 $H$ 中任取的 $h$，期望碰撞次数为 $E(N)&lt; \frac{1}{2}$ 。</p>
+若 <span class="arithmatex">\(n\)</span> 个键映射到 <span class="arithmatex">\(m=n^2\)</span> 个槽中，则对于 <span class="arithmatex">\(H\)</span> 中任取的 <span class="arithmatex">\(h\)</span>，期望碰撞次数为 <span class="arithmatex">\(E(N)&lt; \frac{1}{2}\)</span> 。</p>
 </blockquote>
-<p>两个给定键发生碰撞的次数为 $\frac{1}{m}$，则
+<p>两个给定键发生碰撞的次数为 <span class="arithmatex">\(\frac{1}{m}\)</span>，则
 $$
 E(N)= \binom{n}{2} \frac{1}{n^2} = \frac{n(n-1)}{2} \frac{1}{n^2} &lt; \frac{1}{2}
 $$
-其中 $\binom{n}{2}$ 是从 $n$ 个键中任取两个的组合数。</p>
+其中 <span class="arithmatex">\(\binom{n}{2}\)</span> 是从 <span class="arithmatex">\(n\)</span> 个键中任取两个的组合数。</p>
 <blockquote>
 <p>[!theorem] Markov
-对于 $X\geq 0$，有 $P(X\geq t)\leq \frac{E(X)}{t}$ 。</p>
+对于 <span class="arithmatex">\(X\geq 0\)</span>，有 <span class="arithmatex">\(P(X\geq t)\leq \frac{E(X)}{t}\)</span> 。</p>
 </blockquote>
 <p>利用期望定义
 $$
@@ -17351,13 +17353,13 @@ $$
 P(碰撞) \leq \frac{E(N)}{1} &lt; \frac{1}{2}
 $$
 因此只需要随机测试几个哈希函数，大约有一半可行。</p>
-<p>在构建表时，第一级表取 $m=n$，设被映射到 $i$ 的键有 $n_{i}$ 个，令 $i$ 对应的第二级表取 $m_{i}=n_{i}^2$，于是
+<p>在构建表时，第一级表取 <span class="arithmatex">\(m=n\)</span>，设被映射到 <span class="arithmatex">\(i\)</span> 的键有 <span class="arithmatex">\(n_{i}\)</span> 个，令 <span class="arithmatex">\(i\)</span> 对应的第二级表取 <span class="arithmatex">\(m_{i}=n_{i}^2\)</span>，于是
 $$
 E(M) = n + E\left( \sum_{i=0}^{m-1}\theta(n_{i}^2) \right) = \theta(n)
 $$
-则表的大小为 $O(n)$ 。</p>
+则表的大小为 <span class="arithmatex">\(O(n)\)</span> 。</p>
 <h3 id="_44">并查集</h3>
-<p>并查集使用哈希表记录每个元素属于哪个其它元素，例如下图表示 ${A,B},{C,D,E,F}$ 两个集合</p>
+<p>并查集使用哈希表记录每个元素属于哪个其它元素，例如下图表示 <span class="arithmatex">\(\{A,B\},\{C,D,E,F\}\)</span> 两个集合</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>   graph TD
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>   A[A] --- B[B]
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>   C[C] --- D[D] --- E[E]
@@ -17398,25 +17400,25 @@ $$
 <p>路径压缩会改变树的高度，因此按高度合并时，根节点记录的高度仅是一个估计值。</p>
 </blockquote>
 </blockquote>
-<p>两种合并方法结合路径压缩后，查询效率为 $O(\alpha(n))$，其中 $\alpha$ 是反阿克曼函数，其值一般不会大于 $4$ 。</p>
+<p>两种合并方法结合路径压缩后，查询效率为 <span class="arithmatex">\(O(\alpha(n))\)</span>，其中 <span class="arithmatex">\(\alpha\)</span> 是反阿克曼函数，其值一般不会大于 <span class="arithmatex">\(4\)</span> 。</p>
 <h2 id="_47">树</h2>
 <h3 id="_48">二叉搜索树</h3>
 <p>二叉搜索树（Binary Search Trees, BST）</p>
 <ul>
 <li>运行时间<ul>
-<li>遍历初始化 $O(n)$</li>
-<li>插入时间 $\Omega(n\log_{2}n)$ 或 $O(n^2)$</li>
+<li>遍历初始化 <span class="arithmatex">\(O(n)\)</span></li>
+<li>插入时间 <span class="arithmatex">\(\Omega(n\log_{2}n)\)</span> 或 <span class="arithmatex">\(O(n^2)\)</span></li>
 </ul>
 </li>
-<li>最好情况是平衡树 $T(n)=n\log_{2}n$</li>
-<li>最坏情况是顺/逆序 $T(n)=O(n^2)$</li>
+<li>最好情况是平衡树 <span class="arithmatex">\(T(n)=n\log_{2}n\)</span></li>
+<li>最坏情况是顺/逆序 <span class="arithmatex">\(T(n)=O(n^2)\)</span></li>
 </ul>
 <p>BST 排序和快速排序的比较方式相同，只是比较顺序不同。为了防止出现顺/逆序，考虑使用随机主元排序，于是有</p>
 <blockquote>
 <p>[!theorem]
-$E(h)=O(\log_{2}n)$</p>
+<span class="arithmatex">\(E(h)=O(\log_{2}n)\)</span></p>
 </blockquote>
-<p>选取 $r$ 为根节点，它左右各有 $k-1,n-k$ 个元素。记 $x_{n}$ 为 $n$ 个元素的 BST 的高度，$y_{n}=2^{x_{n}}$，设置指示器随机变量
+<p>选取 <span class="arithmatex">\(r\)</span> 为根节点，它左右各有 <span class="arithmatex">\(k-1,n-k\)</span> 个元素。记 <span class="arithmatex">\(x_{n}\)</span> 为 <span class="arithmatex">\(n\)</span> 个元素的 BST 的高度，<span class="arithmatex">\(y_{n}=2^{x_{n}}\)</span>，设置指示器随机变量
 $$
 z_{n,k} = \begin{cases}
 1, &amp; r在第k位 \
@@ -17441,11 +17443,11 @@ E(y_{n}) &amp;= E\left( \sum_{k=1}^nz_{n,k}y_{n,k} \right)\
 &amp;\leq \frac{2}{n}\sum_{k=1}^nE(y_{n,k-1}+y_{n,n-k} ) = \frac{4}{n} \sum_{k=0}^{n-1}E(y_{k})
 \end{aligned}
 $$
-归纳证明 $E(y_{n})=O(n^3)$，即 $E(y_{n})\leq cn^3$，则
+归纳证明 <span class="arithmatex">\(E(y_{n})=O(n^3)\)</span>，即 <span class="arithmatex">\(E(y_{n})\leq cn^3\)</span>，则
 $$
 E(y_{n}) \leq \frac{4}{n}\sum_{k=0}^{n-1}E(y_{k}) \leq \frac{4}{n}\sum_{k=0}^{n-1} ck^3 \leq \frac{4}{n} c\int_{0}^n k^3dk = cn^3
 $$
-由于 $n=\theta(1)$ 时，存在足够大的 $c$ 使得不等式成立，由归纳假设即证。最后，由
+由于 <span class="arithmatex">\(n=\theta(1)\)</span> 时，存在足够大的 <span class="arithmatex">\(c\)</span> 使得不等式成立，由归纳假设即证。最后，由
 $$
 E(x_{n}) = E(\log_{2}y_{n}) = \log_{2}E(y_{n}) = O(\log_{2}n)
 $$
@@ -17457,7 +17459,7 @@ $$
 <li>每个节点的平衡因子的绝对值不大于 1</li>
 <li>不满足上述条件的节点称为“失衡节点”</li>
 </ul>
-<p>标记每个节点/子树的高度，并且<strong>假定失衡节点的子节点都是平衡的</strong>。于是共有 4 种可能的失衡情况，对应平衡因子为 $\pm 2$ 的情况。</p>
+<p>标记每个节点/子树的高度，并且<strong>假定失衡节点的子节点都是平衡的</strong>。于是共有 4 种可能的失衡情况，对应平衡因子为 <span class="arithmatex">\(\pm 2\)</span> 的情况。</p>
 <h4 id="_50">失衡问题</h4>
 <p>下图中 <code>A</code> 节点失衡，左子树的右子树较低，此时只需要将 <code>A</code> 节点右旋，将较低的子树拼接到 <code>A</code> 上，将 <code>B</code> 作为父节点即可平衡</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>   graph TD
@@ -17663,24 +17665,24 @@ $$
 <a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>   A1 --- D1[mark]
 </code></pre></div>
 <h3 id="b">B 树</h3>
-<p>定义 $k$ 叉 B 树中</p>
+<p>定义 <span class="arithmatex">\(k\)</span> 叉 B 树中</p>
 <ol>
-<li>每个节点最少有 $\lfloor \frac{k}{2} \rfloor$ 个元素，最多有 $k$ 个元素</li>
+<li>每个节点最少有 <span class="arithmatex">\(\lfloor \frac{k}{2} \rfloor\)</span> 个元素，最多有 <span class="arithmatex">\(k\)</span> 个元素</li>
 <li>节点中的元素顺序排列</li>
-<li>有 $m$ 个元素的非叶节点应当有 $m+1$ 个子节点</li>
-<li>第 $i$ 个元素恰好划分左右子节点中的元素</li>
+<li>有 <span class="arithmatex">\(m\)</span> 个元素的非叶节点应当有 <span class="arithmatex">\(m+1\)</span> 个子节点</li>
+<li>第 <span class="arithmatex">\(i\)</span> 个元素恰好划分左右子节点中的元素</li>
 <li>所有到叶节点的路径长度相同</li>
 </ol>
-<p>插入元素时，如果不违背第一条，则直接将元素写入正确位置的节点；如果节点中的元素数超过 $k$，则</p>
+<p>插入元素时，如果不违背第一条，则直接将元素写入正确位置的节点；如果节点中的元素数超过 <span class="arithmatex">\(k\)</span>，则</p>
 <ol>
-<li>将第 $\lfloor \frac{k}{2} \rfloor$ 个元素（$i$ 从 $0$ 开始）提升到父节点</li>
+<li>将第 <span class="arithmatex">\(\lfloor \frac{k}{2} \rfloor\)</span> 个元素（<span class="arithmatex">\(i\)</span> 从 <span class="arithmatex">\(0\)</span> 开始）提升到父节点</li>
 <li>当前节点分裂为两个节点</li>
 <li>检查父节点，回到第一步</li>
 </ol>
-<p>删除元素时，如果不违背第一条，则直接删除元素；如果节点中的元素数少于 $\lfloor \frac{k}{2} \rfloor$，则</p>
+<p>删除元素时，如果不违背第一条，则直接删除元素；如果节点中的元素数少于 <span class="arithmatex">\(\lfloor \frac{k}{2} \rfloor\)</span>，则</p>
 <ol>
-<li>若左兄弟节点元素树多于 $\lfloor \frac{k}{2} \rfloor$，则将左兄弟的最后一个元素提升到父节点，并将父节点中该元素的后继下放到当前节点；否则考虑右兄弟节点</li>
-<li>若左右兄弟节点总数不超过 $k$，则将左节点、左节点在父节点中的后继元素、当前节点合并</li>
+<li>若左兄弟节点元素树多于 <span class="arithmatex">\(\lfloor \frac{k}{2} \rfloor\)</span>，则将左兄弟的最后一个元素提升到父节点，并将父节点中该元素的后继下放到当前节点；否则考虑右兄弟节点</li>
+<li>若左右兄弟节点总数不超过 <span class="arithmatex">\(k\)</span>，则将左节点、左节点在父节点中的后继元素、当前节点合并</li>
 </ol>
 <p>注意删除的元素位于非叶结点时，可以用叶节点的元素替换，从而转换为删除叶节点元素的情况。</p>
 <h3 id="b_1">B+ 树</h3>
@@ -17690,10 +17692,10 @@ $$
 <li>叶节点按顺序链接，形成线性链表，允许线性遍历</li>
 <li>允许范围查找，先查首元素，然后顺序遍历</li>
 </ol>
-<p>定义 $m$ 阶 B+ 树中</p>
+<p>定义 <span class="arithmatex">\(m\)</span> 阶 B+ 树中</p>
 <ol>
-<li>每个节点最多有 $m$ 个子节点</li>
-<li>非叶/根节点至少有 2 个子节点；其它节点至少有 $\lceil \frac{m}{2} \rceil$ 个子节点</li>
+<li>每个节点最多有 <span class="arithmatex">\(m\)</span> 个子节点</li>
+<li>非叶/根节点至少有 2 个子节点；其它节点至少有 <span class="arithmatex">\(\lceil \frac{m}{2} \rceil\)</span> 个子节点</li>
 <li>节点的子节点数等于其中元素的个数</li>
 <li>非叶节点中的数据索引全部出现在叶节点中</li>
 </ol>
@@ -17707,14 +17709,14 @@ $$
 </blockquote>
 </blockquote>
 <h3 id="_58">有序统计树</h3>
-<p>可以在红黑树的节点上记录<strong>该节点的子树</strong>的大小，这样便于寻找树中第 $k$ 小的元素。</p>
+<p>可以在红黑树的节点上记录<strong>该节点的子树</strong>的大小，这样便于寻找树中第 <span class="arithmatex">\(k\)</span> 小的元素。</p>
 <blockquote>
 <blockquote>
 <p>虽然也可以直接让节点自己记录自己的排序，但是这种排序对于红黑树的各种旋转操作都很难维护。</p>
 </blockquote>
 </blockquote>
 <h3 id="_59">跳跃表</h3>
-<p>跳跃表提供一种动态搜索结构，极大概率有 $T(n)=O(\log_{2}n)$，并且对每一种操作均成立。它使用两个以上的链表。例如纽约地铁站有快慢线
+<p>跳跃表提供一种动态搜索结构，极大概率有 <span class="arithmatex">\(T(n)=O(\log_{2}n)\)</span>，并且对每一种操作均成立。它使用两个以上的链表。例如纽约地铁站有快慢线
 $$
 \begin{matrix}
 Fast &amp; 14 &amp;  &amp; 34 &amp; 42 &amp;  &amp;   &amp; &amp; 72\
@@ -17723,24 +17725,24 @@ Slow &amp; 14 &amp; 23 &amp; 34 &amp; 42 &amp; 50 &amp; 59 &amp; 66 &amp; 72 &am
 $$
 其中快线只在特定的位置停留，于是我们得到两条链表</p>
 <ul>
-<li>$L_{1}$ 储存子集元素</li>
-<li>$L_{2}$ 储存全部元素</li>
+<li><span class="arithmatex">\(L_{1}\)</span> 储存子集元素</li>
+<li><span class="arithmatex">\(L_{2}\)</span> 储存全部元素</li>
 </ul>
-<p>将 $L_{1},L_{2}$ 中键值相同的元素链接。搜索时，先搜 $L_{1}$ 再搜 $L_{2}$ 。</p>
+<p>将 <span class="arithmatex">\(L_{1},L_{2}\)</span> 中键值相同的元素链接。搜索时，先搜 <span class="arithmatex">\(L_{1}\)</span> 再搜 <span class="arithmatex">\(L_{2}\)</span> 。</p>
 <blockquote>
 <blockquote>
-<p>注意跳跃表以链表为基础，相较于使用单一连续内存，它能够以 $O(\log_{2}n)$ 而不是 $O(n)$ 实现插入和删除。</p>
+<p>注意跳跃表以链表为基础，相较于使用单一连续内存，它能够以 <span class="arithmatex">\(O(\log_{2}n)\)</span> 而不是 <span class="arithmatex">\(O(n)\)</span> 实现插入和删除。</p>
 </blockquote>
 </blockquote>
-<p>假设 $L_{1}$ 中键值均匀分布，则
+<p>假设 <span class="arithmatex">\(L_{1}\)</span> 中键值均匀分布，则
 $$
 T(n) = |L_{1}| + \frac{|L_{2}|}{|L_{1}|} +\theta(1) = |L_{1}|+ \frac{n}{|L_{1}|}+\theta(1) \geq 2\sqrt{ n }+\theta(1)
 $$
-当 $|L_{1}|=\sqrt{ n }$ 时取得最小复杂度。再考虑 $k$ 条链表，可得
+当 <span class="arithmatex">\(|L_{1}|=\sqrt{ n }\)</span> 时取得最小复杂度。再考虑 <span class="arithmatex">\(k\)</span> 条链表，可得
 $$
 T(n)= k\sqrt[k]{ n }
 $$
-为了使用二分，令 $k=\log_{2}n$，则
+为了使用二分，令 <span class="arithmatex">\(k=\log_{2}n\)</span>，则
 $$
 T(n) = n^{1/\log_{2}n}\log_{2}n = 2\log_{2}n
 $$
@@ -17748,9 +17750,9 @@ $$
 <p>执行插入操作时，按照如下步骤</p>
 <ol>
 <li>插入底层链表</li>
-<li>以 $\frac{1}{2}$ 概率将元素插入上一层链表；如果插入上层链表，再以 $\frac{1}{2}$ 概率插入上一层链表</li>
+<li>以 <span class="arithmatex">\(\frac{1}{2}\)</span> 概率将元素插入上一层链表；如果插入上层链表，再以 <span class="arithmatex">\(\frac{1}{2}\)</span> 概率插入上一层链表</li>
 </ol>
-<p>于是插入后高度超过 $\log_{2}n$ 的概率为
+<p>于是插入后高度超过 <span class="arithmatex">\(\log_{2}n\)</span> 的概率为
 $$
 P = \left( \frac{1}{2} \right)^{\log_{2}n} = \frac{1}{n}
 $$
@@ -17802,7 +17804,7 @@ $$
 <li>重新放置表中的键</li>
 <li>释放旧表的空间</li>
 </ol>
-<p>最坏情况下，插入操作耗费 $\theta(n)$，即需要扩大复制整个表。此时第 $i$ 次插入的开销为
+<p>最坏情况下，插入操作耗费 <span class="arithmatex">\(\theta(n)\)</span>，即需要扩大复制整个表。此时第 <span class="arithmatex">\(i\)</span> 次插入的开销为
 $$
 c_{i} = \begin{cases}
 i, &amp; i-1=2^k \
@@ -17817,7 +17819,7 @@ size &amp; 1 &amp; 2 &amp; 4 &amp; 4 &amp; 8 &amp; 8 &amp; 8 &amp; 8 &amp; 16 &a
 c_{i} &amp; 1 &amp; 2 &amp; 3 &amp; 1 &amp; 5 &amp; 1 &amp; 1 &amp; 1 &amp; 9 &amp; 1
 \end{matrix}
 $$
-注意 $c_{i}$ 中包含了插入开销和复制开销。于是 $n$ 次插入的总开销为
+注意 <span class="arithmatex">\(c_{i}\)</span> 中包含了插入开销和复制开销。于是 <span class="arithmatex">\(n\)</span> 次插入的总开销为
 $$
 \sum_{i=1}^nc_{i} = n + \sum_{i=0}^{\lfloor \log_{2}(n-2) \rfloor }2^i \leq 3n = \theta(n)
 $$
@@ -17827,11 +17829,11 @@ T(n) = \frac{\theta(n)}{n} = \theta(1)
 $$
 这就是平摊分析，它考虑整体上的平均代价。下面介绍的方法更为精确。</p>
 <h3 id="_64">记账方法</h3>
-<p>对第 $i$ 个操作收取一个虚构的平摊代价 $\hat{c}_{i}$，在支付给这一操作后，剩余的部分放入银行，用于偿付以后的操作，并且确保存款余额不能为负。</p>
+<p>对第 <span class="arithmatex">\(i\)</span> 个操作收取一个虚构的平摊代价 <span class="arithmatex">\(\hat{c}_{i}\)</span>，在支付给这一操作后，剩余的部分放入银行，用于偿付以后的操作，并且确保存款余额不能为负。</p>
 <p>以动态表为例</p>
 <ol>
-<li>对每步操作收取 $\hat{c}_{i}=3$，其中插入操作支付 $1$，剩余 $2$ 用于表容量翻倍时的预付费用</li>
-<li>当表容量翻倍时，从存款中取出 $1$ 来插入，取出 $1$ 来移动<strong>每个</strong>旧项</li>
+<li>对每步操作收取 <span class="arithmatex">\(\hat{c}_{i}=3\)</span>，其中插入操作支付 <span class="arithmatex">\(1\)</span>，剩余 <span class="arithmatex">\(2\)</span> 用于表容量翻倍时的预付费用</li>
+<li>当表容量翻倍时，从存款中取出 <span class="arithmatex">\(1\)</span> 来插入，取出 <span class="arithmatex">\(1\)</span> 来移动<strong>每个</strong>旧项</li>
 </ol>
 <p>例如
 $$
@@ -17841,21 +17843,21 @@ size &amp; 1 &amp; 2 &amp; 4 &amp; 4 &amp; 8 &amp; 8 &amp; 8 &amp; 8 &amp; 16 &a
 bank &amp; 1 &amp; 2 &amp; 2 &amp; 4 &amp; 2 &amp; 4 &amp; 6 &amp; 8 &amp; 2 &amp; 4 &amp; \leq &amp; 3n
 \end{matrix}
 $$
-其中从 $2$ 扩容到 $4$，插入耗费 $1$，移动旧项耗费 $2$，因此余额不增加。</p>
+其中从 <span class="arithmatex">\(2\)</span> 扩容到 <span class="arithmatex">\(4\)</span>，插入耗费 <span class="arithmatex">\(1\)</span>，移动旧项耗费 <span class="arithmatex">\(2\)</span>，因此余额不增加。</p>
 <h3 id="_65">势能方法</h3>
 <p>基本思想</p>
 <ol>
-<li>初始数据结构为 $D_{0}$</li>
-<li>操作 $i$ 将 $D_{i-1}$ 变为 $D_{i}$</li>
-<li>操作 $i$ 的代价是 $c_{i}$</li>
-<li>定义势能函数 $\Phi:{D_{i}}\to \mathbb{R},\Phi(D_{0})=0,\Phi(D_{i})\geq 0$</li>
-<li>定义平摊代价 $\hat{c}<em>{i}=c</em>{i}+\Phi(D_{i})-\Phi(D_{i-1})$</li>
+<li>初始数据结构为 <span class="arithmatex">\(D_{0}\)</span></li>
+<li>操作 <span class="arithmatex">\(i\)</span> 将 <span class="arithmatex">\(D_{i-1}\)</span> 变为 <span class="arithmatex">\(D_{i}\)</span></li>
+<li>操作 <span class="arithmatex">\(i\)</span> 的代价是 <span class="arithmatex">\(c_{i}\)</span></li>
+<li>定义势能函数 <span class="arithmatex">\(\Phi:\{D_{i}\}\to \mathbb{R},\Phi(D_{0})=0,\Phi(D_{i})\geq 0\)</span></li>
+<li>定义平摊代价 <span class="arithmatex">\(\hat{c}_{i}=c_{i}+\Phi(D_{i})-\Phi(D_{i-1})\)</span></li>
 </ol>
 <p>于是
 $$
 \sum_{i=1}^n\hat{c}<em>{i} = \sum</em>{i=1}^n(c_{i}+\Phi(D_{i})-\Phi(D_{i-1})) = \sum_{i=1}^nc_{i}+\Phi(D_{n})-\Phi(D_{0}) \geq \sum_{i=1}^nc_{i}
 $$
-显然 $\Delta \Phi_{i}=\Phi(D_{i})-\Phi(D_{i-1})$ 的符号表明数据结构的做功情况。</p>
+显然 <span class="arithmatex">\(\Delta \Phi_{i}=\Phi(D_{i})-\Phi(D_{i-1})\)</span> 的符号表明数据结构的做功情况。</p>
 <p>以动态表为例，定义
 $$
 \Phi(D_{i}) = 2i- 2^{\lceil \log_{2}i \rceil }
@@ -17877,7 +17879,7 @@ i, &amp; i-1=2^k \
 &amp;= 3
 \end{aligned}
 $$
-因此平摊代价为 $3n=\theta(n)$ 。</p>
+因此平摊代价为 <span class="arithmatex">\(3n=\theta(n)\)</span> 。</p>
 <blockquote>
 <blockquote>
 <p>不同的势能函数或记账方法会产生不同的上限。</p>
@@ -17885,69 +17887,69 @@ $$
 </blockquote>
 <h2 id="_66">竞争性分析</h2>
 <h3 id="_67">自组织表</h3>
-<p>设表 $L$ 中有 $n$ 个元素，并且</p>
+<p>设表 <span class="arithmatex">\(L\)</span> 中有 <span class="arithmatex">\(n\)</span> 个元素，并且</p>
 <ul>
-<li>访问 $x$ 花费表头到 $x$ 的距离 $\mathrm{rank}(x)$</li>
-<li>调整顺序、置换相邻元素花费 $1$</li>
+<li>访问 <span class="arithmatex">\(x\)</span> 花费表头到 <span class="arithmatex">\(x\)</span> 的距离 <span class="arithmatex">\(\mathrm{rank}(x)\)</span></li>
+<li>调整顺序、置换相邻元素花费 <span class="arithmatex">\(1\)</span></li>
 </ul>
-<p>一个序列 $S$ 每次发送一步操作请求，在线算法必须马上完成这步操作，离线算法预先检查 $S$ 中的所有操作后再执行操作。我们的目标是使在线和离线算法的开销最小，记 $\min C_{A}(S)$ 为 $A$ 算法完成 $S$ 中的所有操作的最小开销。考虑两种情况</p>
+<p>一个序列 <span class="arithmatex">\(S\)</span> 每次发送一步操作请求，在线算法必须马上完成这步操作，离线算法预先检查 <span class="arithmatex">\(S\)</span> 中的所有操作后再执行操作。我们的目标是使在线和离线算法的开销最小，记 <span class="arithmatex">\(\min C_{A}(S)\)</span> 为 <span class="arithmatex">\(A\)</span> 算法完成 <span class="arithmatex">\(S\)</span> 中的所有操作的最小开销。考虑两种情况</p>
 <ul>
-<li>最坏情况：总是访问 $L$ 末尾的元素 $C_{A}(S)=\Omega(n|S|)$</li>
-<li>平均情况：设 $p(x)$ 为访问 $x$ 的概率，则 $E(C_{A}(S))=\sum_{x\in L}p(x)\mathrm{rank}(x)$ 取得最小当且仅当 $L$ 按照 $p(x)$ 降序排列（排序不等式）</li>
+<li>最坏情况：总是访问 <span class="arithmatex">\(L\)</span> 末尾的元素 <span class="arithmatex">\(C_{A}(S)=\Omega(n|S|)\)</span></li>
+<li>平均情况：设 <span class="arithmatex">\(p(x)\)</span> 为访问 <span class="arithmatex">\(x\)</span> 的概率，则 <span class="arithmatex">\(E(C_{A}(S))=\sum_{x\in L}p(x)\mathrm{rank}(x)\)</span> 取得最小当且仅当 <span class="arithmatex">\(L\)</span> 按照 <span class="arithmatex">\(p(x)\)</span> 降序排列（排序不等式）</li>
 </ul>
 <p>这启发我们在未知访问概率时，记录每个元素的访问次数，按照访问概率排序。最典型的做法称为</p>
 <blockquote>
 <p>移前启发式（Move to Front, MTF）
 每次访问元素后将其移动到表头。</p>
 </blockquote>
-<p>考虑访问和移动的开销，总开销为 $2\mathrm{rank}(x)$ 。这种做法有利于 $S$ 的局部性反应。</p>
+<p>考虑访问和移动的开销，总开销为 <span class="arithmatex">\(2\mathrm{rank}(x)\)</span> 。这种做法有利于 <span class="arithmatex">\(S\)</span> 的局部性反应。</p>
 <h3 id="_68">竞争性分析</h3>
 <blockquote>
 <p>[!definition]
-称在线算法 $A$ 是 $\alpha$ 竞争的，如果存在 $k$ 使得任意操作序列 $S$ 有 $C_{A}(S)\leq \alpha C_{\mathrm{OPT}}(S)+k$，其中 $\mathrm{OPT}$ 是最优离线算法（上帝算法）。</p>
+称在线算法 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(\alpha\)</span> 竞争的，如果存在 <span class="arithmatex">\(k\)</span> 使得任意操作序列 <span class="arithmatex">\(S\)</span> 有 <span class="arithmatex">\(C_{A}(S)\leq \alpha C_{\mathrm{OPT}}(S)+k\)</span>，其中 <span class="arithmatex">\(\mathrm{OPT}\)</span> 是最优离线算法（上帝算法）。</p>
 <p>[!theorem]
-自组织表中的 MTF 算法是 $4$ 竞争的。</p>
+自组织表中的 MTF 算法是 <span class="arithmatex">\(4\)</span> 竞争的。</p>
 </blockquote>
-<p>设 $L_{i}$ 是第 $i$ 次访问后的 MTF 表，$c_{i}$ 是该操作的开销；$L_{i}^<em>$ 是第 $i$ 次访问后的最优表，$c_{i}^</em>$ 是该操作的开销。如果访问元素为 $x$，则
+<p>设 <span class="arithmatex">\(L_{i}\)</span> 是第 <span class="arithmatex">\(i\)</span> 次访问后的 MTF 表，<span class="arithmatex">\(c_{i}\)</span> 是该操作的开销；<span class="arithmatex">\(L_{i}^*\)</span> 是第 <span class="arithmatex">\(i\)</span> 次访问后的最优表，<span class="arithmatex">\(c_{i}^*\)</span> 是该操作的开销。如果访问元素为 <span class="arithmatex">\(x\)</span>，则
 $$
 \begin{aligned}
 c_{i} &amp;= 2\mathrm{rank}<em>{L</em>{i-1}}(x)\
 c_{i}^<em> &amp;= \mathrm{rank}<em>{L</em>{i-1}^</em>}(x) + t_{i}
 \end{aligned}
 $$
-其中 $t_{i}$ 是最优表完成置换需要的次数。定义势能函数
+其中 <span class="arithmatex">\(t_{i}\)</span> 是最优表完成置换需要的次数。定义势能函数
 $$
 \Phi:{L_{i}}\to \mathbb{R},\quad \Phi(L_{i})=2{(x,y):(x&lt;<em>{i}y)\land (y&lt;</em>{i}^{<em>}x)}
 $$
-其中 $&lt;<em>{i},&lt;</em>{i}^</em>$ 分别表示在 $L_{i},L_{i}^<em>$ 中的先后顺序，因此 $\Phi(L_{i})$ 是 $L_{i}$ 相对于 $L_{i}^</em>$ 的逆序数的两倍。例如对于两组表
+其中 <span class="arithmatex">\(&lt;_{i},&lt;_{i}^*\)</span> 分别表示在 <span class="arithmatex">\(L_{i},L_{i}^*\)</span> 中的先后顺序，因此 <span class="arithmatex">\(\Phi(L_{i})\)</span> 是 <span class="arithmatex">\(L_{i}\)</span> 相对于 <span class="arithmatex">\(L_{i}^*\)</span> 的逆序数的两倍。例如对于两组表
 $$
 \begin{matrix}
 L_{i} &amp; E &amp; C &amp; A &amp; D &amp; B \
-L_{i}^<em> &amp; C &amp; A &amp; B &amp; D &amp; E
+L_{i}^</em> &amp; C &amp; A &amp; B &amp; D &amp; E
 \end{matrix}\implies \Phi(L_{i}) = 2{(E,C),(E,A),(E,B),(E,D),(B,D)} = 10
 $$
 根据定义
 $$
-\Phi(L_{i})\geq 0,\quad \Phi(L_{0})=0,L_{0}=L_{0}^</em>
+\Phi(L_{i})\geq 0,\quad \Phi(L_{0})=0,L_{0}=L_{0}^<em>
 $$
-注意到交换相邻元素 $\Delta \Phi$ 改变 $2$ 。定义
+注意到交换相邻元素 <span class="arithmatex">\(\Delta \Phi\)</span> 改变 <span class="arithmatex">\(2\)</span> 。定义
 $$
 \begin{aligned}
-A &amp;= {y\in L_{i}: (y&lt;<em>{i-1}x)\land(y&lt;</em>{i-1}^<em>x)}\
-B &amp;= {y\in L_{i}: (y&lt;<em>{i-1}x)\land(y&gt;</em>{i-1}^</em>x)}\
-C &amp;= {y\in L_{i}: (y&gt;<em>{i-1}x)\land(y&lt;</em>{i-1}^<em>x)}\
-D &amp;= {y\in L_{i}: (y&gt;<em>{i-1}x)\land(y&gt;</em>{i-1}^</em>x)}\
+A &amp;= {y\in L_{i}: (y&lt;<em>{i-1}x)\land(y&lt;</em>{i-1}^</em>x)}\
+B &amp;= {y\in L_{i}: (y&lt;<em>{i-1}x)\land(y&gt;</em>{i-1}^<em>x)}\
+C &amp;= {y\in L_{i}: (y&gt;<em>{i-1}x)\land(y&lt;</em>{i-1}^</em>x)}\
+D &amp;= {y\in L_{i}: (y&gt;<em>{i-1}x)\land(y&gt;</em>{i-1}^<em>x)}\
 \end{aligned}
 $$
 则有
 $$
 \begin{aligned}
 r &amp;= \mathrm{rank}<em>{L</em>{i-1}}(x) = |A|+|B|+1\
-r^<em> &amp;= \mathrm{rank}<em>{L</em>{i-1}^</em>}(x) = |A|+|C|+1 \geq |A|+1\
-c_{i} &amp;= 2r_i,\quad c_{i}^<em> = r_{i}^</em> + t_{i}
+r^</em> &amp;= \mathrm{rank}<em>{L</em>{i-1}^<em>}(x) = |A|+|C|+1 \geq |A|+1\
+c_{i} &amp;= 2r_i,\quad c_{i}^</em> = r_{i}^<em> + t_{i}
 \end{aligned}
 $$
-对于表 $L_{i}$，访问到 $x$ 时，会将 $x$ 移动到开头，逆序对增加 $|A|$，减小 $|B|$；对于表 $L_{i}^<em>$，进行 $t_{i}$ 次置换。于是
+对于表 <span class="arithmatex">\(L_{i}\)</span>，访问到 <span class="arithmatex">\(x\)</span> 时，会将 <span class="arithmatex">\(x\)</span> 移动到开头，逆序对增加 <span class="arithmatex">\(|A|\)</span>，减小 <span class="arithmatex">\(|B|\)</span>；对于表 <span class="arithmatex">\(L_{i}^*\)</span>，进行 <span class="arithmatex">\(t_{i}\)</span> 次置换。于是
 $$
 \begin{aligned}
 \Delta \Phi &amp;=\Phi(L_{i})-\Phi(L_{i-1}) \leq 2(|A|-|B|+t_{i})\
@@ -17957,22 +17959,22 @@ $$
 &amp;\leq 4(r^</em>+t_{i}) = 4c_{i}^<em>\
 C_{\mathrm{MTF}}(S) &amp;= \sum_{i=1}^{|S|}c_{i} = \sum_{i=1}^{|S|}(\hat{c}<em>{i}+\Phi(L</em>{i-1})-\Phi(L_{i}))\
 &amp;\leq \sum_{i=1}^{|S|}4c_{i}^</em>+\Phi(L_{0})-\Phi(L_{|S|})\
-&amp;\leq 4\sum_{i=1}^{|S|}c_{i}^<em> = 4C_{\mathrm{OPT}}(S)
+&amp;\leq 4\sum_{i=1}^{|S|}c_{i}^* = 4C_{\mathrm{OPT}}(S)
 \end{aligned}
 $$
-即证。如果 $L_{0}\neq L_{0}^</em>$，最坏情况下后者是前者的倒序，则 $\Phi(L_{0})=\theta(n^2)$，此时
+即证。如果 <span class="arithmatex">\(L_{0}\neq L_{0}^*\)</span>，最坏情况下后者是前者的倒序，则 <span class="arithmatex">\(\Phi(L_{0})=\theta(n^2)\)</span>，此时
 $$
 C_{\mathrm{MTF}}(S) \leq 4C_{\mathrm{OPT}}(S)+\theta(n^2)
 $$
-在 $|S|\to \infty$ 时，MTF 仍然是 $4$ 竞争的。</p>
+在 <span class="arithmatex">\(|S|\to \infty\)</span> 时，MTF 仍然是 <span class="arithmatex">\(4\)</span> 竞争的。</p>
 <blockquote>
 <blockquote>
-<p>若利用指针运算直接完成 $x$ 到表头的移动，则 MTF 算法是 $2$ 竞争的。</p>
+<p>若利用指针运算直接完成 <span class="arithmatex">\(x\)</span> 到表头的移动，则 MTF 算法是 <span class="arithmatex">\(2\)</span> 竞争的。</p>
 </blockquote>
 </blockquote>
 <h2 id="_69">动态规划</h2>
 <h3 id="_70">最长公共子序列</h3>
-<p>以最长公共子序列问题（LCS）为例。给定两个序列 $x[1\cdots m],y[1\cdots n]$，寻找最长公共子序列。例如
+<p>以最长公共子序列问题（LCS）为例。给定两个序列 <span class="arithmatex">\(x[1\cdots m],y[1\cdots n]\)</span>，寻找最长公共子序列。例如
 $$
 \begin{matrix}
 x &amp; A &amp; B &amp; C &amp; B &amp; D &amp; A &amp; B \
@@ -17983,7 +17985,7 @@ $$
 $$
 BDAB,BCAB,BCBA
 $$
-如果使用穷举法，则考虑 $x$ 的 $2^m$ 个子序列，匹配 $y$ 中对应的子序列需要 $O(n)$，则
+如果使用穷举法，则考虑 <span class="arithmatex">\(x\)</span> 的 <span class="arithmatex">\(2^m\)</span> 个子序列，匹配 <span class="arithmatex">\(y\)</span> 中对应的子序列需要 <span class="arithmatex">\(O(n)\)</span>，则
 $$
 T(n)=O(2^mn)
 $$
@@ -17991,7 +17993,7 @@ $$
 $$
 c(i,j) = |\mathrm{LCS}(x[1\cdots i],y[1\cdots j])|
 $$
-则 $c(m,n)=|\mathrm{LCS}(x,y)|$，对应的状态转移方程为
+则 <span class="arithmatex">\(c(m,n)=|\mathrm{LCS}(x,y)|\)</span>，对应的状态转移方程为
 $$
 c(i,j) = \begin{cases}
 c(i-1,j-1)+1, &amp; x[i]=y[j] \
@@ -18003,7 +18005,7 @@ $$
 <p>最优子结构
 问题的最优解包含子问题的最优解。</p>
 </blockquote>
-<p>注意到递归过程中有大量重复计算，最坏情况下 $x[i]\neq y[j],\forall i,j$ 此时递归树形如
+<p>注意到递归过程中有大量重复计算，最坏情况下 <span class="arithmatex">\(x[i]\neq y[j],\forall i,j\)</span> 此时递归树形如
 $$
 c(i,j) \to \begin{cases}
 c(i,j-1) \to \begin{cases}
@@ -18016,10 +18018,10 @@ c(i-2,j) \
 \end{cases}
 \end{cases} \cdots
 $$
-每次分裂为两个子树，总高度为 $i+j$，则有 $2^{i+j}$ 个子问题。因此使用备忘法，根据 $i,j$ 的取值范围，共有 $mn$ 个<strong>独立</strong>的子问题，可以使用 $\theta(mn)$ 的空间储存子问题。</p>
+每次分裂为两个子树，总高度为 <span class="arithmatex">\(i+j\)</span>，则有 <span class="arithmatex">\(2^{i+j}\)</span> 个子问题。因此使用备忘法，根据 <span class="arithmatex">\(i,j\)</span> 的取值范围，共有 <span class="arithmatex">\(mn\)</span> 个<strong>独立</strong>的子问题，可以使用 <span class="arithmatex">\(\theta(mn)\)</span> 的空间储存子问题。</p>
 <blockquote>
 <blockquote>
-<p>注意到有些子问题在计算完成后就不再使用，例如按照行顺序 $c(0,0)\to c(0,1)\to \cdots\to c(0,n)$，则只需要 $\theta (n)$ 的空间保存每一行的结果。</p>
+<p>注意到有些子问题在计算完成后就不再使用，例如按照行顺序 <span class="arithmatex">\(c(0,0)\to c(0,1)\to \cdots\to c(0,n)\)</span>，则只需要 <span class="arithmatex">\(\theta (n)\)</span> 的空间保存每一行的结果。</p>
 </blockquote>
 </blockquote>
 <h3 id="_71">解题思路</h3>
@@ -18027,10 +18029,10 @@ $$
 <p>给定一个确定的状态，其后续状态只与当前状态有关，这就是无后效性。然而，通常问题可能具有额外的约束条件。例如</p>
 <blockquote>
 <blockquote>
-<p>给定 $n$ 阶台阶，每步可以走 $1,2$ 阶，但不能连续两次走 $1$ 阶，计算有多少种方法爬完台阶。</p>
+<p>给定 <span class="arithmatex">\(n\)</span> 阶台阶，每步可以走 <span class="arithmatex">\(1,2\)</span> 阶，但不能连续两次走 <span class="arithmatex">\(1\)</span> 阶，计算有多少种方法爬完台阶。</p>
 </blockquote>
 </blockquote>
-<p>只需要额外引入一个状态变量，使用 $dp[i,j]$ 表示走到第 $i$ 阶时，上一次走了 $j$ 阶。上一次走 $1$ 阶时，只能从 $dp[i-1,2]$ 转移；走 $2$ 阶时，可以从 $dp[i-2,1],dp[i-2,2]$ 转移。于是状态转移方程为
+<p>只需要额外引入一个状态变量，使用 <span class="arithmatex">\(dp[i,j]\)</span> 表示走到第 <span class="arithmatex">\(i\)</span> 阶时，上一次走了 <span class="arithmatex">\(j\)</span> 阶。上一次走 <span class="arithmatex">\(1\)</span> 阶时，只能从 <span class="arithmatex">\(dp[i-1,2]\)</span> 转移；走 <span class="arithmatex">\(2\)</span> 阶时，可以从 <span class="arithmatex">\(dp[i-2,1],dp[i-2,2]\)</span> 转移。于是状态转移方程为
 $$
 \begin{cases}
 dp[i,1] = dp[i-1,2] \
@@ -18047,55 +18049,55 @@ $$
 <h4 id="0-1">0-1 背包问题</h4>
 <blockquote>
 <blockquote>
-<p>给定一个容量为 $c$ 的背包，有 $n$ 个物体，物体 $i$ 的重量和价值为 $w[i],v[i]$，计算装入物体的最大价值。</p>
+<p>给定一个容量为 <span class="arithmatex">\(c\)</span> 的背包，有 <span class="arithmatex">\(n\)</span> 个物体，物体 <span class="arithmatex">\(i\)</span> 的重量和价值为 <span class="arithmatex">\(w[i],v[i]\)</span>，计算装入物体的最大价值。</p>
 </blockquote>
 </blockquote>
-<p>可以看出每个物体有放入和不放入（$0-1$）两种可能，同时还有约束 $c$ 。使用两个状态变量 $dp[i,j]$ 表示处理第 $i$ 个物体后，背包容量为 $j$ 的状态。状态转移方程为
+<p>可以看出每个物体有放入和不放入（<span class="arithmatex">\(0-1\)</span>）两种可能，同时还有约束 <span class="arithmatex">\(c\)</span> 。使用两个状态变量 <span class="arithmatex">\(dp[i,j]\)</span> 表示处理第 <span class="arithmatex">\(i\)</span> 个物体后，背包容量为 <span class="arithmatex">\(j\)</span> 的状态。状态转移方程为
 $$
 dp[i,j] = \max{dp[i-1,j],dp[i-1,j+ w[i]]+v[i] }
 $$
-即取不放入 $i$ 和放入 $i$ 两种情况的最大值。</p>
+即取不放入 <span class="arithmatex">\(i\)</span> 和放入 <span class="arithmatex">\(i\)</span> 两种情况的最大值。</p>
 <h4 id="_74">完全背包问题</h4>
 <blockquote>
 <blockquote>
-<p>给定一个容量为 $c$ 的背包，有 $n$ <strong>种</strong>物体，物体 $i$ 的重量和价值为 $w[i],v[i]$，计算装入物体的最大价值。</p>
+<p>给定一个容量为 <span class="arithmatex">\(c\)</span> 的背包，有 <span class="arithmatex">\(n\)</span> <strong>种</strong>物体，物体 <span class="arithmatex">\(i\)</span> 的重量和价值为 <span class="arithmatex">\(w[i],v[i]\)</span>，计算装入物体的最大价值。</p>
 </blockquote>
 </blockquote>
 <p>注意现在每个物体可以重复放入，此时状态转移方程为
 $$
 dp[i,j] = \max{dp[i-1,j],dp[i,j+ w[i]]+v[i] }
 $$
-前者表示不放入 $i$，后者表示放入 $i$，但由于可以重复放入，因此第一个状态变量仍然为 $i$ 。</p>
+前者表示不放入 <span class="arithmatex">\(i\)</span>，后者表示放入 <span class="arithmatex">\(i\)</span>，但由于可以重复放入，因此第一个状态变量仍然为 <span class="arithmatex">\(i\)</span> 。</p>
 <h2 id="_75">贪心算法</h2>
 <h3 id="_76">最小生成树</h3>
-<p>输入连通的无向图 $G=(V,E)$，以及边权函数 $w:E\to \mathbb{R}$，并且假定所有边的权值互异，即 $w$ 是单射。要输出一棵生成树 $T$，它连接所有顶点，且所有边权和最小。例如</p>
+<p>输入连通的无向图 <span class="arithmatex">\(G=(V,E)\)</span>，以及边权函数 <span class="arithmatex">\(w:E\to \mathbb{R}\)</span>，并且假定所有边的权值互异，即 <span class="arithmatex">\(w\)</span> 是单射。要输出一棵生成树 <span class="arithmatex">\(T\)</span>，它连接所有顶点，且所有边权和最小。例如</p>
 <p><img alt="" src="image-20260224155310637.png|300" /></p>
 <p>首先，我们考虑最小生成树是否具有最优子结构</p>
 <blockquote>
 <p>[!theorem]
-若 $T$ 是 $G$ 的最小生成树，则移除任意边 $(u,v)\in T$ 后，得到两棵子树 $T_{1},T_{2}$，分别是 $G_{1}=(V_{1},E_{1}),G_{2}(V_{2},E_{2})$ 的最小生成树，其中 $V_{1}\in T_{1},E_{1}={(x,y)\in E:x,y\in V_{1}}$ 。</p>
+若 <span class="arithmatex">\(T\)</span> 是 <span class="arithmatex">\(G\)</span> 的最小生成树，则移除任意边 <span class="arithmatex">\((u,v)\in T\)</span> 后，得到两棵子树 <span class="arithmatex">\(T_{1},T_{2}\)</span>，分别是 <span class="arithmatex">\(G_{1}=(V_{1},E_{1}),G_{2}(V_{2},E_{2})\)</span> 的最小生成树，其中 <span class="arithmatex">\(V_{1}\in T_{1},E_{1}=\{(x,y)\in E:x,y\in V_{1}\}\)</span> 。</p>
 </blockquote>
-<p>显然 $w(T)=w(u,v)+w(T_{1})+w(T_{2})$ 。若 $T_{1}'$ 是 $G_{1}$ 的最小生成树，考虑 $T'={(u,v)}\cup T_{1}'\cup T_{2}$ 有
+<p>显然 <span class="arithmatex">\(w(T)=w(u,v)+w(T_{1})+w(T_{2})\)</span> 。若 <span class="arithmatex">\(T_{1}'\)</span> 是 <span class="arithmatex">\(G_{1}\)</span> 的最小生成树，考虑 <span class="arithmatex">\(T'=\{(u,v)\}\cup T_{1}'\cup T_{2}\)</span> 有
 $$
  w(u,v)+w(T_{1}')+w(T_{2}) =w(T') \geq w(T)= w(u,v)+w(T_{1})+w(T_{2})
 $$
-因此 $w(T_{1}')\geq w(T_{1})$，即证。</p>
+因此 <span class="arithmatex">\(w(T_{1}')\geq w(T_{1})\)</span>，即证。</p>
 <blockquote>
 <p>[!theorem]
-对于 $G=(V,E)$ 的最小生成树 $T$，若 $A\subset V$，且 $(u,v)$ 是连接 $A,\bar{A}=V-A$ 的最小权边，则 $(u,v)\in T$ 。</p>
+对于 <span class="arithmatex">\(G=(V,E)\)</span> 的最小生成树 <span class="arithmatex">\(T\)</span>，若 <span class="arithmatex">\(A\subset V\)</span>，且 <span class="arithmatex">\((u,v)\)</span> 是连接 <span class="arithmatex">\(A,\bar{A}=V-A\)</span> 的最小权边，则 <span class="arithmatex">\((u,v)\in T\)</span> 。</p>
 </blockquote>
-<p>反设 $(u,v)\not\in T$，则将 $T$ 中连接 $A,\bar{A}$ 的一条边换成 $(u,v)$ 就得到更小的数，矛盾。</p>
+<p>反设 <span class="arithmatex">\((u,v)\not\in T\)</span>，则将 <span class="arithmatex">\(T\)</span> 中连接 <span class="arithmatex">\(A,\bar{A}\)</span> 的一条边换成 <span class="arithmatex">\((u,v)\)</span> 就得到更小的数，矛盾。</p>
 <h4 id="prim">Prim 算法</h4>
-<p>基本思路是将 $\bar{A}$ 维护成一个优先队列 $Q$，对 $Q$ 中每个顶点赋予值，该值是连接 $A,\bar{A}$ 之间具有最小权值的边的权值。具体步骤如下</p>
+<p>基本思路是将 <span class="arithmatex">\(\bar{A}\)</span> 维护成一个优先队列 <span class="arithmatex">\(Q\)</span>，对 <span class="arithmatex">\(Q\)</span> 中每个顶点赋予值，该值是连接 <span class="arithmatex">\(A,\bar{A}\)</span> 之间具有最小权值的边的权值。具体步骤如下</p>
 <ol>
-<li>初始 $Q=V$，每个顶点值为 $\infty$</li>
-<li>取 $V$ 中一个顶点，将其值设为 $0$，并加入 $A$</li>
-<li>取 $Q$ 中值最小的顶点 $u$，对任意 $v\in \mathrm{Adj}[u]\cap Q$，若 $w(u,v)&lt;\mathrm{key}[v]$，则更新 $\mathrm{key}[v]=w(u,v)$，同时将 $v$ 加入 $A$</li>
-<li>将 $u$ 移出 $Q$</li>
-<li>若 $Q$ 不为空，则返回第 3 步</li>
+<li>初始 <span class="arithmatex">\(Q=V\)</span>，每个顶点值为 <span class="arithmatex">\(\infty\)</span></li>
+<li>取 <span class="arithmatex">\(V\)</span> 中一个顶点，将其值设为 <span class="arithmatex">\(0\)</span>，并加入 <span class="arithmatex">\(A\)</span></li>
+<li>取 <span class="arithmatex">\(Q\)</span> 中值最小的顶点 <span class="arithmatex">\(u\)</span>，对任意 <span class="arithmatex">\(v\in \mathrm{Adj}[u]\cap Q\)</span>，若 <span class="arithmatex">\(w(u,v)&lt;\mathrm{key}[v]\)</span>，则更新 <span class="arithmatex">\(\mathrm{key}[v]=w(u,v)\)</span>，同时将 <span class="arithmatex">\(v\)</span> 加入 <span class="arithmatex">\(A\)</span></li>
+<li>将 <span class="arithmatex">\(u\)</span> 移出 <span class="arithmatex">\(Q\)</span></li>
+<li>若 <span class="arithmatex">\(Q\)</span> 不为空，则返回第 3 步</li>
 </ol>
-<p>根据上述过程，每当 $\mathrm{Adj}[u]$ 元素的值被更新，则它改为连接到 $u$，即选择最小权值的连接边。</p>
-<p>整个算法共执行 $|V|$ 次循环，降低顶点值的次数为
+<p>根据上述过程，每当 <span class="arithmatex">\(\mathrm{Adj}[u]\)</span> 元素的值被更新，则它改为连接到 <span class="arithmatex">\(u\)</span>，即选择最小权值的连接边。</p>
+<p>整个算法共执行 <span class="arithmatex">\(|V|\)</span> 次循环，降低顶点值的次数为
 $$
 \sum_{v\in V}\mathrm{deg}(V) = \theta(|E|)
 $$
@@ -18103,15 +18105,15 @@ $$
 $$
 T = \theta(|V|\cdot T_{\mathrm{find}}+|E|\cdot T_{\mathrm{relax}})
 $$
-其中 $T_{\mathrm{find}},T_{\mathrm{relax}}$ 分别表示 $Q$ 重新排序寻找最小值、更新顶点值的开销。</p>
+其中 <span class="arithmatex">\(T_{\mathrm{find}},T_{\mathrm{relax}}\)</span> 分别表示 <span class="arithmatex">\(Q\)</span> 重新排序寻找最小值、更新顶点值的开销。</p>
 <h4 id="kruskal">Kruskal 算法</h4>
-<p>基本思路是将所有边按照权值排序，每次将最小权值的边的顶点加入 $T$ 。具体步骤如下</p>
+<p>基本思路是将所有边按照权值排序，每次将最小权值的边的顶点加入 <span class="arithmatex">\(T\)</span> 。具体步骤如下</p>
 <ol>
-<li>初始 $Q=V$</li>
-<li>取 $E$ 中权值最小的边 $(u,v)$，满足 $u\notin Q$ 或 $v\notin Q$，则将 $u,v$ 移出 $Q$</li>
-<li>若 $Q$ 不为空，则返回第 3 步</li>
+<li>初始 <span class="arithmatex">\(Q=V\)</span></li>
+<li>取 <span class="arithmatex">\(E\)</span> 中权值最小的边 <span class="arithmatex">\((u,v)\)</span>，满足 <span class="arithmatex">\(u\notin Q\)</span> 或 <span class="arithmatex">\(v\notin Q\)</span>，则将 <span class="arithmatex">\(u,v\)</span> 移出 <span class="arithmatex">\(Q\)</span></li>
+<li>若 <span class="arithmatex">\(Q\)</span> 不为空，则返回第 3 步</li>
 </ol>
-<p>根据上述过程，每次确保加入 $T$ 的边满足其两个端点一个在 $T$ 中，一个不在 $T$ 中。最终多个连通分量合并为一棵最小生成树。这是一个并查集结构，可以通过相应的算法完成。</p>
+<p>根据上述过程，每次确保加入 <span class="arithmatex">\(T\)</span> 的边满足其两个端点一个在 <span class="arithmatex">\(T\)</span> 中，一个不在 <span class="arithmatex">\(T\)</span> 中。最终多个连通分量合并为一棵最小生成树。这是一个并查集结构，可以通过相应的算法完成。</p>
 <h3 id="_77">拓扑排序</h3>
 <p>拓扑排序根据图中的连接顺序建立点的先后顺序。首先，给定的图不能有环；然后</p>
 <ol>
@@ -18140,7 +18142,7 @@ $$
 <a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>   C --- D
 <a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>   B --- D[D--10]
 </code></pre></div>
-<p>因此 <code>A-&gt;B-&gt;D</code> 开销为 $30$，而 <code>A-&gt;C-&gt;D</code> 开销为 $40$，则开销最大（耗时最长）的路径是关键路径，其上的任务就是关键任务。计算关键路径分为两步</p>
+<p>因此 <code>A-&gt;B-&gt;D</code> 开销为 <span class="arithmatex">\(30\)</span>，而 <code>A-&gt;C-&gt;D</code> 开销为 <span class="arithmatex">\(40\)</span>，则开销最大（耗时最长）的路径是关键路径，其上的任务就是关键任务。计算关键路径分为两步</p>
 <ol>
 <li>计算节点的最早开始时间，即它依赖的所有任务完成的时间</li>
 <li>计算节点的最晚开始时间，即总时间减去依赖它的所有任务完成的时间</li>
@@ -18152,41 +18154,41 @@ $$
 </blockquote>
 </blockquote>
 <h2 id="_78">最短路径算法</h2>
-<p>有向图 $G=(V,E)$ 中的路径记为 $p=v_{1}\to v_{2}\to \cdots\to v_{k}$，记
+<p>有向图 <span class="arithmatex">\(G=(V,E)\)</span> 中的路径记为 <span class="arithmatex">\(p=v_{1}\to v_{2}\to \cdots\to v_{k}\)</span>，记
 $$
 \begin{aligned}
 w(p) &amp;= \sum_{i=1}^{k-1}w(v_{i},v_{i+1})\
 \delta(u,v) &amp;= \min{w(p):p=u\to \cdots\to v}
 \end{aligned}
 $$
-若不存在 $u$ 到 $v$ 的路径，则记 $\delta(u,v)=\infty$ 。如果图中有负权环，则可以反复经过负权环减小权值，此时 $\delta(u,v)=-\infty$ 。</p>
+若不存在 <span class="arithmatex">\(u\)</span> 到 <span class="arithmatex">\(v\)</span> 的路径，则记 <span class="arithmatex">\(\delta(u,v)=\infty\)</span> 。如果图中有负权环，则可以反复经过负权环减小权值，此时 <span class="arithmatex">\(\delta(u,v)=-\infty\)</span> 。</p>
 <blockquote>
 <p>[!lemma]
 最短路径的子路径也是最短路径。</p>
 </blockquote>
-<p>考虑最短路径 $u\to \cdots\to x\to \cdots\to y\to \cdots\to v$ 的子路径 $x\to \cdots\to y$，若 $x,y$ 之间存在更短的路径，则将其替换就得到 $u,v$ 之间更短的路径，矛盾。</p>
+<p>考虑最短路径 <span class="arithmatex">\(u\to \cdots\to x\to \cdots\to y\to \cdots\to v\)</span> 的子路径 <span class="arithmatex">\(x\to \cdots\to y\)</span>，若 <span class="arithmatex">\(x,y\)</span> 之间存在更短的路径，则将其替换就得到 <span class="arithmatex">\(u,v\)</span> 之间更短的路径，矛盾。</p>
 <h3 id="_79">单源最短路径</h3>
-<p>这类问题计算给定起点 $s$ 到所有点的最短路径。假定所有边权非负，且存在最短路径。</p>
+<p>这类问题计算给定起点 <span class="arithmatex">\(s\)</span> 到所有点的最短路径。假定所有边权非负，且存在最短路径。</p>
 <h3 id="dijkstra">Dijkstra 算法</h3>
-<p>用 $d[x]$ 表示 $s$ 到 $x$ 的标记距离。按照如下步骤</p>
+<p>用 <span class="arithmatex">\(d[x]\)</span> 表示 <span class="arithmatex">\(s\)</span> 到 <span class="arithmatex">\(x\)</span> 的标记距离。按照如下步骤</p>
 <ol>
-<li>初始化 $d[s]=0,d[v]=\infty,\forall v\in V-{s}$，令 $S=\emptyset,Q=V$</li>
-<li>取 $Q$ 中值最小的 $u$ 加入 $S$，然后做松弛操作：对任意 $v\in \mathrm{Adj}[u]\cap Q$，若 $d[v]&gt;d[u]+w(u,v)$，则令 $d[v]=d[u]+w(u,v)$</li>
-<li>将 $u$ 移出 $Q$</li>
-<li>若 $Q$ 非空，则返回第 2 步</li>
+<li>初始化 <span class="arithmatex">\(d[s]=0,d[v]=\infty,\forall v\in V-\{s\}\)</span>，令 <span class="arithmatex">\(S=\emptyset,Q=V\)</span></li>
+<li>取 <span class="arithmatex">\(Q\)</span> 中值最小的 <span class="arithmatex">\(u\)</span> 加入 <span class="arithmatex">\(S\)</span>，然后做松弛操作：对任意 <span class="arithmatex">\(v\in \mathrm{Adj}[u]\cap Q\)</span>，若 <span class="arithmatex">\(d[v]&gt;d[u]+w(u,v)\)</span>，则令 <span class="arithmatex">\(d[v]=d[u]+w(u,v)\)</span></li>
+<li>将 <span class="arithmatex">\(u\)</span> 移出 <span class="arithmatex">\(Q\)</span></li>
+<li>若 <span class="arithmatex">\(Q\)</span> 非空，则返回第 2 步</li>
 </ol>
 <blockquote>
 <p>[!lemma]
-$d[v]\geq \delta(s,v)$ 。</p>
+<span class="arithmatex">\(d[v]\geq \delta(s,v)\)</span> 。</p>
 </blockquote>
-<p>利用归纳法，假设某一步松弛开始 $d[v]&lt;\delta(s,v)$，根据松弛操作
+<p>利用归纳法，假设某一步松弛开始 <span class="arithmatex">\(d[v]&lt;\delta(s,v)\)</span>，根据松弛操作
 $$
 \delta(s,v) &gt; d[v] = d[u]+w(u,v) \geq \delta(s,u)+w(u,v) \geq \delta(s,u)+\delta(u,v) \geq \delta(s,v)
 $$
 其中最后一步利用最短路径的三角不等式。</p>
 <blockquote>
 <p>[!lemma]
-设 $s\to \cdots\to u\to v$ 是最短路径，且 $d[u]=\delta(s,u)$，则对边 $(u,v)$ 做松弛后，$d[v]=\delta(s,v)$ 。</p>
+设 <span class="arithmatex">\(s\to \cdots\to u\to v\)</span> 是最短路径，且 <span class="arithmatex">\(d[u]=\delta(s,u)\)</span>，则对边 <span class="arithmatex">\((u,v)\)</span> 做松弛后，<span class="arithmatex">\(d[v]=\delta(s,v)\)</span> 。</p>
 </blockquote>
 <p>根据最短路径性质
 $$
@@ -18195,46 +18197,46 @@ $$
 即证。</p>
 <blockquote>
 <p>[!theorem]
-Dijkstra 算法结束时，$d[v]=\delta(s,v),\forall v\in V$ 。</p>
+Dijkstra 算法结束时，<span class="arithmatex">\(d[v]=\delta(s,v),\forall v\in V\)</span> 。</p>
 </blockquote>
-<p>首先，当 $v$ 加入 $S$ 后，$d[v]$ 不会发生变化，因为只会松弛 $Q$ 中的顶点；此外，具有最小值的顶点一定与 $S$ 相邻，因为只有这些顶点被松弛得到 $d[v]&lt;\infty$ 。最后，考虑如下连通图</p>
+<p>首先，当 <span class="arithmatex">\(v\)</span> 加入 <span class="arithmatex">\(S\)</span> 后，<span class="arithmatex">\(d[v]\)</span> 不会发生变化，因为只会松弛 <span class="arithmatex">\(Q\)</span> 中的顶点；此外，具有最小值的顶点一定与 <span class="arithmatex">\(S\)</span> 相邻，因为只有这些顶点被松弛得到 <span class="arithmatex">\(d[v]&lt;\infty\)</span> 。最后，考虑如下连通图</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>graph LR
 <a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>O &lt;--&gt;|1| y[y] &lt;--&gt;|10| s[s]
 <a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>O &lt;--&gt;|1| v[v] &lt;--&gt;|1| s[s]
 </code></pre></div>
-<p>我们注意到 $y$ 虽然与 $S={s}$ 相邻，但是这条边不是最短路径。显然，下一个加入 $S$ 的顶点<strong>应当在相邻顶点中选取</strong>。设 $v$ 将要加入 $S$，这要求 $d[v]=\delta(s,v)$ 。考虑一条连接 $s,v$ 的最短路径，必然有一条边 $(x,y)$ 穿出 $S$，如图所示</p>
+<p>我们注意到 <span class="arithmatex">\(y\)</span> 虽然与 <span class="arithmatex">\(S=\{s\}\)</span> 相邻，但是这条边不是最短路径。显然，下一个加入 <span class="arithmatex">\(S\)</span> 的顶点<strong>应当在相邻顶点中选取</strong>。设 <span class="arithmatex">\(v\)</span> 将要加入 <span class="arithmatex">\(S\)</span>，这要求 <span class="arithmatex">\(d[v]=\delta(s,v)\)</span> 。考虑一条连接 <span class="arithmatex">\(s,v\)</span> 的最短路径，必然有一条边 <span class="arithmatex">\((x,y)\)</span> 穿出 <span class="arithmatex">\(S\)</span>，如图所示</p>
 <p><img alt="" src="图片3 1.svg|300" /></p>
-<p>若 $s\to \cdots\to x\to y\to \cdots\to v$ 是最短路径，其子路径 $s\to \cdots\to y$ 长度 $d[y]=\delta(s,y)$ 不超过 $\delta(s,v)$，若 $d[v]&gt; \delta(s,v)$，则有
+<p>若 <span class="arithmatex">\(s\to \cdots\to x\to y\to \cdots\to v\)</span> 是最短路径，其子路径 <span class="arithmatex">\(s\to \cdots\to y\)</span> 长度 <span class="arithmatex">\(d[y]=\delta(s,y)\)</span> 不超过 <span class="arithmatex">\(\delta(s,v)\)</span>，若 <span class="arithmatex">\(d[v]&gt; \delta(s,v)\)</span>，则有
 $$
 d[v] \leq d[y] =\delta(s,y) \leq \delta(s,v) &lt; d[v]
 $$
 其中第一个不等式来自<strong>选择最小值</strong>，矛盾。</p>
 <blockquote>
 <blockquote>
-<p>算法的总开销为 $T = |V|\cdot T_{\mathrm{find}} + |E|\cdot T_{\mathrm{relax}}$ 。</p>
+<p>算法的总开销为 <span class="arithmatex">\(T = |V|\cdot T_{\mathrm{find}} + |E|\cdot T_{\mathrm{relax}}\)</span> 。</p>
 </blockquote>
 </blockquote>
 <h3 id="_80">广度优先搜索</h3>
-<p>若所有边权为 $w(u,v)=1$，则可以使用先进先出的队列 FIFO $Q$，当 $v$ 第一次被松弛时
+<p>若所有边权为 <span class="arithmatex">\(w(u,v)=1\)</span>，则可以使用先进先出的队列 FIFO <span class="arithmatex">\(Q\)</span>，当 <span class="arithmatex">\(v\)</span> 第一次被松弛时
 $$
 d[v] = d[u]+1
 $$
-将 $v$ 加入 $Q$ 的末尾。这样操作是因为在边权为 $1$ 的情况下，任何与 $S$ 相邻的顶点都与 $s$ 有相同的距离，因此可以直接推入松弛后的相邻顶点。</p>
+将 <span class="arithmatex">\(v\)</span> 加入 <span class="arithmatex">\(Q\)</span> 的末尾。这样操作是因为在边权为 <span class="arithmatex">\(1\)</span> 的情况下，任何与 <span class="arithmatex">\(S\)</span> 相邻的顶点都与 <span class="arithmatex">\(s\)</span> 有相同的距离，因此可以直接推入松弛后的相邻顶点。</p>
 <h3 id="bellman-ford">Bellman-Ford 算法</h3>
 <p>按照如下步骤</p>
 <ol>
-<li>初始化 $d[s]=0,d[v]=\infty,\forall v\in V-{s}$，令 $S=\emptyset,Q=V$</li>
-<li>松弛 $E$ 中的每条边 $(u,v)$，循环 $|V|-1$ 次</li>
-<li>松弛 $E$ 中的每条边 $(u,v)$，如果还能继续松弛，则存在负权环，此时 $\delta(s,v)=-\infty$</li>
+<li>初始化 <span class="arithmatex">\(d[s]=0,d[v]=\infty,\forall v\in V-\{s\}\)</span>，令 <span class="arithmatex">\(S=\emptyset,Q=V\)</span></li>
+<li>松弛 <span class="arithmatex">\(E\)</span> 中的每条边 <span class="arithmatex">\((u,v)\)</span>，循环 <span class="arithmatex">\(|V|-1\)</span> 次</li>
+<li>松弛 <span class="arithmatex">\(E\)</span> 中的每条边 <span class="arithmatex">\((u,v)\)</span>，如果还能继续松弛，则存在负权环，此时 <span class="arithmatex">\(\delta(s,v)=-\infty\)</span></li>
 </ol>
 <blockquote>
 <p>[!lemma]
-Bellman-Ford 算法结束时，$d[v]=\delta(s,v)$ 。</p>
+Bellman-Ford 算法结束时，<span class="arithmatex">\(d[v]=\delta(s,v)\)</span> 。</p>
 </blockquote>
-<p>可以将松弛过程看作是 $S$ 的扩张过程：类似于 Dijkstra 算法，将 $S$ 记为已经得到最短路径长度的顶点的集合，则从 $s$ 开始，每次遍历松弛都会将 $S$ 向外扩张一圈。给定当前的 $S$，则遍历松弛相当于将 $S$ 周围的顶点加入 $S$ 。考虑到每次最少加入一个顶点，因此至多需要 $|V|-1$ 次遍历。</p>
+<p>可以将松弛过程看作是 <span class="arithmatex">\(S\)</span> 的扩张过程：类似于 Dijkstra 算法，将 <span class="arithmatex">\(S\)</span> 记为已经得到最短路径长度的顶点的集合，则从 <span class="arithmatex">\(s\)</span> 开始，每次遍历松弛都会将 <span class="arithmatex">\(S\)</span> 向外扩张一圈。给定当前的 <span class="arithmatex">\(S\)</span>，则遍历松弛相当于将 <span class="arithmatex">\(S\)</span> 周围的顶点加入 <span class="arithmatex">\(S\)</span> 。考虑到每次最少加入一个顶点，因此至多需要 <span class="arithmatex">\(|V|-1\)</span> 次遍历。</p>
 <blockquote>
 <blockquote>
-<p>如果没有负权环，遍历松弛 $S$ 不会改变顶点值，但是如果存在负权环，$S$ 中的顶点值会被减小，因此可以通过最终检测是否能够继续松弛来判断负权环。</p>
+<p>如果没有负权环，遍历松弛 <span class="arithmatex">\(S\)</span> 不会改变顶点值，但是如果存在负权环，<span class="arithmatex">\(S\)</span> 中的顶点值会被减小，因此可以通过最终检测是否能够继续松弛来判断负权环。</p>
 </blockquote>
 </blockquote>
 <h3 id="flord">Flord 算法</h3>
@@ -18255,11 +18257,11 @@ C &amp; 1 &amp; \infty &amp; 0 &amp; 10 \
 D &amp; \infty &amp; 1 &amp; 10 &amp; 0
 \end{matrix}
 $$
-然后我们尝试让每个节点都经过 $A$ 来更新路径，例如 $A$ 经过 $A$ 到达 $B$，显然不用更新，但是注意到
+然后我们尝试让每个节点都经过 <span class="arithmatex">\(A\)</span> 来更新路径，例如 <span class="arithmatex">\(A\)</span> 经过 <span class="arithmatex">\(A\)</span> 到达 <span class="arithmatex">\(B\)</span>，显然不用更新，但是注意到
 $$
 B\to A\to C = BA+AC=2 &lt; \infty= BC
 $$
-更新 $BC$ 得到
+更新 <span class="arithmatex">\(BC\)</span> 得到
 $$
 \begin{matrix} \
  &amp; A &amp; B &amp; C &amp; D \
@@ -18269,7 +18271,7 @@ C &amp; 1 &amp; 2 &amp; 0 &amp; 10 \
 D &amp; \infty &amp; 1 &amp; 10 &amp; 0
 \end{matrix}
 $$
-然后让每个节点都经过 $B$ 来更新路径，注意到 $A\to B\to D=AB+BD=2&lt;\infty = AD$，更新 $AD$ 得到
+然后让每个节点都经过 <span class="arithmatex">\(B\)</span> 来更新路径，注意到 <span class="arithmatex">\(A\to B\to D=AB+BD=2&lt;\infty = AD\)</span>，更新 <span class="arithmatex">\(AD\)</span> 得到
 $$
 \begin{matrix} \
  &amp; A &amp; B &amp; C &amp; D \
@@ -18279,20 +18281,20 @@ C &amp; 1 &amp; 2 &amp; 0 &amp; 10 \
 D &amp; 2 &amp; 1 &amp; 10 &amp; 0
 \end{matrix}
 $$
-然后让每个节点都经过 $C,D$，最终得到两两节点之间的最短路径。 </p>
+然后让每个节点都经过 <span class="arithmatex">\(C,D\)</span>，最终得到两两节点之间的最短路径。 </p>
 <h2 id="_81">经典算法</h2>
 <h3 id="_82">筛选质数</h3>
 <h4 id="_83">埃氏筛</h4>
-<p>埃氏筛是一种筛选质数的方法。对于给定的整数 $n$，从 $2$ 开始，将其所有倍数标记为合数；然后从下一个未被标记的数开始，将其所有倍数标记为合数。以此类推，直到开始的数超过 $\sqrt{ n }$ 为止，则剩下没有被标记的数就是合数。计算复杂度</p>
+<p>埃氏筛是一种筛选质数的方法。对于给定的整数 <span class="arithmatex">\(n\)</span>，从 <span class="arithmatex">\(2\)</span> 开始，将其所有倍数标记为合数；然后从下一个未被标记的数开始，将其所有倍数标记为合数。以此类推，直到开始的数超过 <span class="arithmatex">\(\sqrt{ n }\)</span> 为止，则剩下没有被标记的数就是合数。计算复杂度</p>
 <ul>
-<li>空间 $O(n)$</li>
-<li>时间 $O(n\log \log n)$</li>
+<li>空间 <span class="arithmatex">\(O(n)\)</span></li>
+<li>时间 <span class="arithmatex">\(O(n\log \log n)\)</span></li>
 </ul>
-<p><strong>定理</strong> 任意整数 $n$ 如果不是质数，则一定存在一个不超过 $\sqrt{ n }$ 的因子。</p>
-<p><strong>证明</strong> 假设存在 $m&gt;\sqrt{ n }$ 是合数，则它一定有一个不超过 $\sqrt{ m }&lt; \sqrt{ n }$ 的因子，但是由于埃氏筛从小到大筛选，所以筛选到 $\sqrt{ n }$ 时，$m$ 一定已经被标记。</p>
+<p><strong>定理</strong> 任意整数 <span class="arithmatex">\(n\)</span> 如果不是质数，则一定存在一个不超过 <span class="arithmatex">\(\sqrt{ n }\)</span> 的因子。</p>
+<p><strong>证明</strong> 假设存在 <span class="arithmatex">\(m&gt;\sqrt{ n }\)</span> 是合数，则它一定有一个不超过 <span class="arithmatex">\(\sqrt{ m }&lt; \sqrt{ n }\)</span> 的因子，但是由于埃氏筛从小到大筛选，所以筛选到 <span class="arithmatex">\(\sqrt{ n }\)</span> 时，<span class="arithmatex">\(m\)</span> 一定已经被标记。</p>
 <blockquote>
 <blockquote>
-<p>由于上述定理，可以对算法进一步优化：遍历 $2\sim n$ 时，每个 $i$ 从 $i^2$ 开始筛选，因为任何小于 $i^2$ 的数都已经被小于 $i$ 的数筛选过了。</p>
+<p>由于上述定理，可以对算法进一步优化：遍历 <span class="arithmatex">\(2\sim n\)</span> 时，每个 <span class="arithmatex">\(i\)</span> 从 <span class="arithmatex">\(i^2\)</span> 开始筛选，因为任何小于 <span class="arithmatex">\(i^2\)</span> 的数都已经被小于 <span class="arithmatex">\(i\)</span> 的数筛选过了。</p>
 </blockquote>
 </blockquote>
 <p>实现代码如下</p>
@@ -18310,10 +18312,10 @@ $$
 <a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="_84">欧拉筛</h4>
-<p>埃氏筛每次需要计算所有倍数，导致有些数会被重复访问。例如 $12$ 会同时被 $2,3$ 访问。欧拉筛维护一个当前质数列表，对于每个数 $i$ 使用列表中的质数 $p$ 筛选 $i\times p$：</p>
+<p>埃氏筛每次需要计算所有倍数，导致有些数会被重复访问。例如 <span class="arithmatex">\(12\)</span> 会同时被 <span class="arithmatex">\(2,3\)</span> 访问。欧拉筛维护一个当前质数列表，对于每个数 <span class="arithmatex">\(i\)</span> 使用列表中的质数 <span class="arithmatex">\(p\)</span> 筛选 <span class="arithmatex">\(i\times p\)</span>：</p>
 <ul>
-<li>如果 $i\times p&gt;n$ 则停止</li>
-<li>如果 $p$ 整除 $i$ 则停止</li>
+<li>如果 <span class="arithmatex">\(i\times p&gt;n\)</span> 则停止</li>
+<li>如果 <span class="arithmatex">\(p\)</span> 整除 <span class="arithmatex">\(i\)</span> 则停止</li>
 </ul>
 <p>实现代码如下</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">Euler</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -18332,11 +18334,11 @@ $$
 <a id="__codelineno-30-14" name="__codelineno-30-14" href="#__codelineno-30-14"></a><span class="w">  </span><span class="p">}</span>
 <a id="__codelineno-30-15" name="__codelineno-30-15" href="#__codelineno-30-15"></a><span class="p">}</span>
 </code></pre></div>
-<p>使用 $p$ 整除 $i$ 作为标准，是为了避免重复。对于合数，我们希望只筛选一次，由其最大因子和最小因子（质数）相乘得到。假设 $i=p_{0}\times q$，其中 $p_{0}$ 是最小的质因子，则对于之后的 $p&gt;p_{0}$ 有
+<p>使用 <span class="arithmatex">\(p\)</span> 整除 <span class="arithmatex">\(i\)</span> 作为标准，是为了避免重复。对于合数，我们希望只筛选一次，由其最大因子和最小因子（质数）相乘得到。假设 <span class="arithmatex">\(i=p_{0}\times q\)</span>，其中 <span class="arithmatex">\(p_{0}\)</span> 是最小的质因子，则对于之后的 <span class="arithmatex">\(p&gt;p_{0}\)</span> 有
 $$
 i\times p=p_{0}\times q\times p = p_{0}\times(q\times p)
 $$
-应该在外循环遍历到 $q\times p$ 的时候标记，所以当前在 $p_{0}$ 位置就应该退出内循环。</p>
+应该在外循环遍历到 <span class="arithmatex">\(q\times p\)</span> 的时候标记，所以当前在 <span class="arithmatex">\(p_{0}\)</span> 位置就应该退出内循环。</p>
 <h3 id="kmp">KMP 算法</h3>
 <p>这是一个很好的方法</p>
 
@@ -18392,6 +18394,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

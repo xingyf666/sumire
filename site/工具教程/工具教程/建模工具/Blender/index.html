@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -18847,7 +18849,7 @@
 </ol>
 <p><img alt="" src="../Blender.assets/image-20240228154109977.png" /></p>
 <h4 id="_77">法向贴图</h4>
-<p>计算机中常用像素颜色代表了法向坐标，即 $(x,y,z)=(r,g,b)$，而法向贴图就是将法向记录下来的一个方式</p>
+<p>计算机中常用像素颜色代表了法向坐标，即 <span class="arithmatex">\((x,y,z)=(r,g,b)\)</span>，而法向贴图就是将法向记录下来的一个方式</p>
 <p><img alt="" src="../Blender.assets/Bricks076C_4K_NormalDX.jpg" /></p>
 <p>通过指定纹理图像、糙度图像、法向贴图（法向贴图直接连接法向，不连接高度）来实现凹凸纹理。然后通过置换修改器和表面细分修改器进行形变，增加实际的凹凸细节。</p>
 <p><img alt="" src="../Blender.assets/image-20240228162016282.png" /></p>
@@ -19381,6 +19383,12 @@
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

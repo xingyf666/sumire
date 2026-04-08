@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -1332,7 +1334,7 @@
   <a href="#gn-boundaries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $G^n$ Boundaries
+        \(G^n\) Boundaries
       
     </span>
   </a>
@@ -14746,7 +14748,7 @@
   <a href="#gn-boundaries" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $G^n$ Boundaries
+        \(G^n\) Boundaries
       
     </span>
   </a>
@@ -15311,7 +15313,7 @@
 
 <h1 id="advanced-covering"><a href="https://doc.spatial.com/get_doc_page/articles/a/d/v/Advanced_Covering_e42a.html">Advanced Covering</a></h1>
 <h2 id="_1">基本介绍</h2>
-<p>高级覆盖 Advanced Covering 包将强大的可变形建模技术 <a href="https://doc.spatial.com/get_doc_page/articles/a/c/i/Component~ACIS_Deformable_Modeling_a9a6.html">Deformable Modeling</a> 集成到一个简单易用的高级界面中。使用高级覆盖可以以满足约束的方式将 face 放在 edge 的回路上。该算法使初始曲面（默认情况下为平面）变形，直到它位于指定的边上。高级覆盖可以生成沿边界与相邻面 $G^1$ 连续的覆盖。</p>
+<p>高级覆盖 Advanced Covering 包将强大的可变形建模技术 <a href="https://doc.spatial.com/get_doc_page/articles/a/c/i/Component~ACIS_Deformable_Modeling_a9a6.html">Deformable Modeling</a> 集成到一个简单易用的高级界面中。使用高级覆盖可以以满足约束的方式将 face 放在 edge 的回路上。该算法使初始曲面（默认情况下为平面）变形，直到它位于指定的边上。高级覆盖可以生成沿边界与相邻面 <span class="arithmatex">\(G^1\)</span> 连续的覆盖。</p>
 <p><img alt="" src="../ACovering.assets/image-20231011092551032.png" /></p>
 <h3 id="_2">术语</h3>
 <h4 id="circuit">Circuit</h4>
@@ -15320,10 +15322,10 @@
 <li>对于 <code>api_advanced_cover</code> ，电路上的边可以位于一组面上，也可以位于一组 wire 上。电路中的每个边必须是 wire 或 sheet 边界；也就是说，它必须只有一个 coedge 。给定一个明确电路（即每个顶点有且只有两个有效边的电路）上的边，<code>api_advanced_cover</code> 将自动找到要覆盖的电路。</li>
 <li>对于 <code>api_advanced_cover_no_stitch</code>，它将覆盖包括 wire 和 face 边界的边的电路。它在电路中创建复制边，并且不会将生成的面缝合到原始边上。</li>
 </ul>
-<h4 id="gn-boundaries">$G^n$ Boundaries</h4>
-<p>符号 $G^n$ 描述跨越边界的光滑度。对于曲面，边界通常是一组曲线。对于曲线，边界始终是一组点。电路中两条边界曲线之间的交点至少是 $G^0$ 连续。</p>
+<h4 id="gn-boundaries"><span class="arithmatex">\(G^n\)</span> Boundaries</h4>
+<p>符号 <span class="arithmatex">\(G^n\)</span> 描述跨越边界的光滑度。对于曲面，边界通常是一组曲线。对于曲线，边界始终是一组点。电路中两条边界曲线之间的交点至少是 <span class="arithmatex">\(G^0\)</span> 连续。</p>
 <h4 id="guide-points-and-guide-curves">Guide Points and Guide Curves</h4>
-<p>引导点和引导曲线是不属于 covering 边界的约束，它们不是最终模型拓扑的一部分。引导约束只能约束位置，属于 $G^0$ 约束。</p>
+<p>引导点和引导曲线是不属于 covering 边界的约束，它们不是最终模型拓扑的一部分。引导约束只能约束位置，属于 <span class="arithmatex">\(G^0\)</span> 约束。</p>
 <h4 id="position-and-tangency-gaps">Position and Tangency Gaps</h4>
 <p>间隙 Gaps 是边界处的跳跃。位置跳跃是坐标的跳跃，而切线跳跃是斜率的跳跃。</p>
 <h4 id="tolerance">Tolerance</h4>
@@ -15331,16 +15333,16 @@
 <h4 id="conflict-constraint">Conflict (constraint)</h4>
 <p>边界约束可能会发生冲突 Conflict，这可能会妨碍满足容差。例如，如果两个相邻边界约束在其交汇处具有不同的切线，则生成的曲面法线必须与两者正交，因此可以唯一确定。这可能与其他切线约束冲突。</p>
 <h4 id="flattening">Flattening</h4>
-<p>平整 flattening 参数用来控制 $G^1$ 约束对覆盖曲面的影响。例如，切除锥体顶部，进行 $G^1$ 覆盖来产生光滑的“鼻锥”。当平整参数为零，得到的横截面大致为抛物线；当平整参数较大（0.4 至 0.7）时，横截面的中心将是平坦的，靠近外部产生尖锐的“肩部”满足切向约束。</p>
+<p>平整 flattening 参数用来控制 <span class="arithmatex">\(G^1\)</span> 约束对覆盖曲面的影响。例如，切除锥体顶部，进行 <span class="arithmatex">\(G^1\)</span> 覆盖来产生光滑的“鼻锥”。当平整参数为零，得到的横截面大致为抛物线；当平整参数较大（0.4 至 0.7）时，横截面的中心将是平坦的，靠近外部产生尖锐的“肩部”满足切向约束。</p>
 <h4 id="initial-projection-plane">Initial Projection Plane</h4>
-<p>高级覆盖算法从初始投影平面开始。要覆盖的边界将投影到此平面中，以确定覆盖曲面中的哪些点应与相应的边界点相关联。初始平面会影响约束引起的 $G^1$ 形状；通常 $G^1$ 约束使覆盖面沿着初始平面的法线方向凸起。通过选择不同的初始平面，可以调整生成的覆盖曲面的形状。可以用初始曲面来替代初始投影平面。</p>
+<p>高级覆盖算法从初始投影平面开始。要覆盖的边界将投影到此平面中，以确定覆盖曲面中的哪些点应与相应的边界点相关联。初始平面会影响约束引起的 <span class="arithmatex">\(G^1\)</span> 形状；通常 <span class="arithmatex">\(G^1\)</span> 约束使覆盖面沿着初始平面的法线方向凸起。通过选择不同的初始平面，可以调整生成的覆盖曲面的形状。可以用初始曲面来替代初始投影平面。</p>
 <h4 id="initial-surface">Initial Surface</h4>
 <p>可以指定初始曲面形状，而不是初始投影平面。高级覆盖算法会将此曲面变形到边界几何图形上，同时尝试保持其粗略形状。指定初始曲面对于覆盖不可投影的边界电路或会导致“双值”覆盖曲面（相对于初始平面）也很有用。从与所需覆盖曲面大致相同的初始曲面开始，高级覆盖能够产生最佳效果。</p>
 <h3 id="_3">基本步骤</h3>
 <p>使用高级覆盖的基本步骤是：</p>
 <ol>
 <li>在电路中查找要覆盖的边或要重新覆盖的面。</li>
-<li>创建一个选项对象 <code>acovr_options</code>，包含约束连续性、约束容差、最大 B 样条 spans、投影平面或曲面以及平整参数（仅限 $G^1$）</li>
+<li>创建一个选项对象 <code>acovr_options</code>，包含约束连续性、约束容差、最大 B 样条 spans、投影平面或曲面以及平整参数（仅限 <span class="arithmatex">\(G^1\)</span>）</li>
 <li>使用适当的签名调用 <code>api_advanced_cover</code></li>
 </ol>
 <p>高级覆盖使用的一般算法是：</p>
@@ -15359,7 +15361,7 @@
 <p>在初始曲面上，引导不能投影相交或者投影到覆盖电路上。如下图要求覆盖曲面同时通过引导点和电路。如果引导几乎位于电路边界，则在投影到电路中心的辅助引导能更好地反映设计意图。</p>
 <p><img alt="" src="../ACovering.assets/image-20231017210703471.png" /></p>
 <h4 id="_6">投影约束具有一致控制</h4>
-<p>按 $z$ 深度对初始面、引导曲线和覆盖电路进行排序约束不应产生中间覆盖凸起。</p>
+<p>按 <span class="arithmatex">\(z\)</span> 深度对初始面、引导曲线和覆盖电路进行排序约束不应产生中间覆盖凸起。</p>
 <p><img alt="" src="../ACovering.assets/image-20231017211005756.png" /></p>
 <h4 id="_7">投影约束不越过初始面边界</h4>
 <p>此规则仅适用于用户指定的初始面。覆盖电路平面中的默认初始面或用户指定的初始平面会自动计算适当的边界。</p>
@@ -15422,16 +15424,16 @@
 </tr>
 <tr>
 <td><code>G1_edge_edge_conflict</code></td>
-<td>相邻边不是 $G^1$，与用户输入的切向数据冲突</td>
+<td>相邻边不是 <span class="arithmatex">\(G^1\)</span>，与用户输入的切向数据冲突</td>
 </tr>
 <tr>
 <td><code>G2_edge_edge_conflict</code></td>
-<td>相邻边不是 $G^2$，与用户输入的切向数据冲突</td>
+<td>相邻边不是 <span class="arithmatex">\(G^2\)</span>，与用户输入的切向数据冲突</td>
 </tr>
 </tbody>
 </table>
 <h4 id="acovr_continuity_level">acovr_continuity_level</h4>
-<p>指定将由边约束强制施加的连续性（$G^0$ 或 $G^1$）约束。</p>
+<p>指定将由边约束强制施加的连续性（<span class="arithmatex">\(G^0\)</span> 或 <span class="arithmatex">\(G^1\)</span>）约束。</p>
 <table>
 <thead>
 <tr>
@@ -15446,11 +15448,11 @@
 </tr>
 <tr>
 <td><code>acovr_G0</code></td>
-<td>$G^0$ 连续性</td>
+<td><span class="arithmatex">\(G^0\)</span> 连续性</td>
 </tr>
 <tr>
 <td><code>acovr_G1</code></td>
-<td>$G^1$ 连续性</td>
+<td><span class="arithmatex">\(G^1\)</span> 连续性</td>
 </tr>
 </tbody>
 </table>
@@ -15669,7 +15671,7 @@
 <tr>
 <td>double</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#ab6c298cf35853ad9bc28ac67e2ecd1b6">get_guide_tol</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY.html">ENTITY</a> *constraining_ent) const</td>
-<td>返回引导点（顶点）或引导曲线（边）的 $G^0$ 容差</td>
+<td>返回引导点（顶点）或引导曲线（边）的 <span class="arithmatex">\(G^0\)</span> 容差</td>
 </tr>
 <tr>
 <td>const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> *</td>
@@ -15699,7 +15701,7 @@
 <tr>
 <td>void</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#acec329e1f0da2eb0eca473b56d6aa0a0">report_max_gap</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html">acovr_gap_report</a> &amp;gr) const</td>
-<td>检索位置 （$G^0$） 和角度 （$G^1$） 的最大间隙</td>
+<td>检索位置 （<span class="arithmatex">\(G^0\)</span>） 和角度 （<span class="arithmatex">\(G^1\)</span>） 的最大间隙</td>
 </tr>
 <tr>
 <td>void</td>
@@ -15739,7 +15741,7 @@
 <tr>
 <td>void</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a10eee059d7be3c89e66ac7af499c7e99">set_guide</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY.html">ENTITY</a> *constraining_ent)</td>
-<td>指定引导点（顶点）或引导曲线（边）。使用默认 $G^0$ 容差。指定的任何边都必须包含在 ACIS 实体中</td>
+<td>指定引导点（顶点）或引导曲线（边）。使用默认 <span class="arithmatex">\(G^0\)</span> 容差。指定的任何边都必须包含在 ACIS 实体中</td>
 </tr>
 <tr>
 <td>void</td>
@@ -15749,7 +15751,7 @@
 <tr>
 <td>void</td>
 <td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#abe566a582d035c286af5d556b72edada">set_guides</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;constraining_ents)</td>
-<td>指定引导点（顶点）或引导曲线（边）的列表。使用默认 $G^0$ 容差。指定的任何边都必须包含在 ACIS 实体中</td>
+<td>指定引导点（顶点）或引导曲线（边）的列表。使用默认 <span class="arithmatex">\(G^0\)</span> 容差。指定的任何边都必须包含在 ACIS 实体中</td>
 </tr>
 <tr>
 <td>void</td>
@@ -15818,7 +15820,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">SPAunit_vector</span><span class="w"> </span><span class="nf">get_plane_normal</span><span class="w"> </span><span class="p">()</span><span class="w">  </span><span class="k">const</span><span class="p">;</span>
 <a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_plane_normal</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SPAunit_vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dir</span><span class="p">);</span>
 </code></pre></div>
-<p>由于边界电路将投影到该平面中，因此只需要一个法向，与平面的绝对位置无关。高级覆盖根据边界电路的形状自动计算默认初始平面；如果此默认平面不令人满意，则应设置 <code>plane_normal</code> 参数。通常，发生这种情况是因为默认算法选取的平面将导致双值覆盖曲面，或者因为包含边界电路的模型具有边界电路不遵守的对称性（仅限 $G^1$ 覆盖）。例如，考虑对被平面斜切片的圆柱执行 $G^1$ 覆盖。高级覆盖尝试通过在初始曲面的法线方向上向上推覆盖曲面来满足 $G^1$ 约束。切片圆柱体的默认平面将与切片平面具有相同的法线；在这种情况下$G^1$ 约束将导致覆盖面沿圆柱轴线凸起。当法线向量设置为与轴重合时，形状会更自然；在这种情况下，凸起沿轴线，曲面之间的过渡非常平滑。</p>
+<p>由于边界电路将投影到该平面中，因此只需要一个法向，与平面的绝对位置无关。高级覆盖根据边界电路的形状自动计算默认初始平面；如果此默认平面不令人满意，则应设置 <code>plane_normal</code> 参数。通常，发生这种情况是因为默认算法选取的平面将导致双值覆盖曲面，或者因为包含边界电路的模型具有边界电路不遵守的对称性（仅限 <span class="arithmatex">\(G^1\)</span> 覆盖）。例如，考虑对被平面斜切片的圆柱执行 <span class="arithmatex">\(G^1\)</span> 覆盖。高级覆盖尝试通过在初始曲面的法线方向上向上推覆盖曲面来满足 <span class="arithmatex">\(G^1\)</span> 约束。切片圆柱体的默认平面将与切片平面具有相同的法线；在这种情况下<span class="arithmatex">\(G^1\)</span> 约束将导致覆盖面沿圆柱轴线凸起。当法线向量设置为与轴重合时，形状会更自然；在这种情况下，凸起沿轴线，曲面之间的过渡非常平滑。</p>
 <h4 id="report_max_gap">report_max_gap</h4>
 <p>不考虑引导曲线间隙。出于性能原因，报告的间隙 gap 是高级覆盖试图重合的点之间的间隙 gap 。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">report_max_gap</span><span class="w"> </span><span class="p">(</span><span class="n">acovr_gap_report</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">gr</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
@@ -15828,7 +15830,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_final_surf_check</span><span class="w"> </span><span class="p">(</span><span class="n">logical</span><span class="w"> </span><span class="n">new_final_check</span><span class="p">);</span>
 </code></pre></div>
 <h4 id="set_flattening">set_flattening</h4>
-<p>平整参数是正数，控制 $G^1$ 约束对覆盖面形状的影响。当 $G^1$ 约束强制覆盖面和初始曲面的形状发生较大变化时，平整参数控制 $G^1$ 约束的影响区域。较大的（0.7左右）平整参数将导致覆盖面的“旋转”（斜率与初始表面的偏差）控制在 $G^1$ 约束边缘附近，从而产生平整的内部，其形状接近 $G^0$ 覆盖。较小的平整参数将导致 $G^1$ 约束的效果扩散，产生更圆的内部。当在圆柱顶部执行 $G^1$ 覆盖时，圆顶的高度完全由平整参数控制。较小的值产生高而圆的圆顶，较大的值产生短而平的圆顶。通常，当所有 $G^1$ 约束的支撑面已经接近于初始曲面相切时，应使用较小的值（0.1 左右），而当支撑面接近垂直时，应使用较大的值（0.4 到 0.7）（如圆柱顶部的情况）。</p>
+<p>平整参数是正数，控制 <span class="arithmatex">\(G^1\)</span> 约束对覆盖面形状的影响。当 <span class="arithmatex">\(G^1\)</span> 约束强制覆盖面和初始曲面的形状发生较大变化时，平整参数控制 <span class="arithmatex">\(G^1\)</span> 约束的影响区域。较大的（0.7左右）平整参数将导致覆盖面的“旋转”（斜率与初始表面的偏差）控制在 <span class="arithmatex">\(G^1\)</span> 约束边缘附近，从而产生平整的内部，其形状接近 <span class="arithmatex">\(G^0\)</span> 覆盖。较小的平整参数将导致 <span class="arithmatex">\(G^1\)</span> 约束的效果扩散，产生更圆的内部。当在圆柱顶部执行 <span class="arithmatex">\(G^1\)</span> 覆盖时，圆顶的高度完全由平整参数控制。较小的值产生高而圆的圆顶，较大的值产生短而平的圆顶。通常，当所有 <span class="arithmatex">\(G^1\)</span> 约束的支撑面已经接近于初始曲面相切时，应使用较小的值（0.1 左右），而当支撑面接近垂直时，应使用较大的值（0.4 到 0.7）（如圆柱顶部的情况）。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_flattening</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">flattening</span><span class="p">);</span>
 </code></pre></div>
 <h3 id="acovr_edge_cstrn">acovr_edge_cstrn</h3>
@@ -16389,6 +16391,12 @@
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

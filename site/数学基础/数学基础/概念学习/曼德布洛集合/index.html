@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14593,11 +14595,11 @@
 <p>效果图</p>
 <p><img alt="" src="test.bmp" /></p>
 <h2 id="_3"><a href="Mandelbrot.pdf">曼德布洛集</a></h2>
-<p>曼德布洛集 $M$ 是一个几何图形，曾被称为“上帝的指纹”。这个点集出自非线性迭代公式
+<p>曼德布洛集 <span class="arithmatex">\(M\)</span> 是一个几何图形，曾被称为“上帝的指纹”。这个点集出自非线性迭代公式
 $$
 z_{n+1} = z_n^2+c
 $$
-所有使得无限迭代后的结果能保持有限数值的复数 $z$ 的集合连通的 $c$，构成曼德布洛集，也称该迭代函数的 Julia 集。</p>
+所有使得无限迭代后的结果能保持有限数值的复数 <span class="arithmatex">\(z\)</span> 的集合连通的 <span class="arithmatex">\(c\)</span>，构成曼德布洛集，也称该迭代函数的 Julia 集。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>title: &quot;Mandelbrot Viewer&quot;
 <a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>image: &quot;https://mandelbrot.silversky.dev/preview.png&quot;
 <a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>description: &quot;Explore the world’s most famous fractal.&quot;
@@ -14652,9 +14654,9 @@ $$
 $$
 V(c) = \lim_{ n \to \infty } \frac{\log_{+}|P^n_{c}(0))|}{2^n}
 $$
-其中 $\log_{+}=\max(0,\log),P_{c}(z)=z^2+c$，而 $P_{c}^n(z)=(P_{c}\circ\cdots \circ P_{c})(z)$，则右端极限存在。如果给定 $R$，迭代 $n$ 次时 $|z|&gt;R$，则极限误差为 $O\left( \frac{1}{R} \right)$ 。显然，如果 $c\in M$，则 $V(c)=0$ 。对于 $z\in\mathbb{C}$，则 $V=z$ 是等势面。</p>
+其中 <span class="arithmatex">\(\log_{+}=\max(0,\log),P_{c}(z)=z^2+c\)</span>，而 <span class="arithmatex">\(P_{c}^n(z)=(P_{c}\circ\cdots \circ P_{c})(z)\)</span>，则右端极限存在。如果给定 <span class="arithmatex">\(R\)</span>，迭代 <span class="arithmatex">\(n\)</span> 次时 <span class="arithmatex">\(|z|&gt;R\)</span>，则极限误差为 <span class="arithmatex">\(O\left( \frac{1}{R} \right)\)</span> 。显然，如果 <span class="arithmatex">\(c\in M\)</span>，则 <span class="arithmatex">\(V(c)=0\)</span> 。对于 <span class="arithmatex">\(z\in\mathbb{C}\)</span>，则 <span class="arithmatex">\(V=z\)</span> 是等势面。</p>
 <h3 id="_5">绘制等势面</h3>
-<p>我们可以绘制这些等势面。给定 $R$，则 $n$ 需要很大才能使得 $|z|=R$，而此时 $V(c)\approx \frac{\log_{+}(R)}{2^n}$，因此我们可以根据 $V$ 的值计算颜色。例如使用周期函数
+<p>我们可以绘制这些等势面。给定 <span class="arithmatex">\(R\)</span>，则 <span class="arithmatex">\(n\)</span> 需要很大才能使得 <span class="arithmatex">\(|z|=R\)</span>，而此时 <span class="arithmatex">\(V(c)\approx \frac{\log_{+}(R)}{2^n}\)</span>，因此我们可以根据 <span class="arithmatex">\(V\)</span> 的值计算颜色。例如使用周期函数
 $$
 x = \log(V),\quad color = \frac{1+\cos(2\pi x)}{2}
 $$</p>
@@ -14671,14 +14673,14 @@ $$</p>
 $$
 \log(V) = \log \log(P) - n\log 2
 $$
-其中 $n$ 只会产生平移。可以利用 $K&gt;0$ 来控制颜色的深度。令
+其中 <span class="arithmatex">\(n\)</span> 只会产生平移。可以利用 <span class="arithmatex">\(K&gt;0\)</span> 来控制颜色的深度。令
 $$
 \begin{aligned}
 x &amp;= \frac{\log(V)}{K},\quad (R,G,B) = \left(\frac{1-\cos(ax)}{2}, \frac{1-\cos(bx)}{2},\frac{(1-\cos(cx))}{2} \right)\times 255\
 (a,b,c) &amp;= \left(1, \frac{1}{3\sqrt{ 2 }}, \frac{1}{7\cdot 3^{1/8}} \right) \times \frac{1}{\log 2}
 \end{aligned}
 $$
-其中 $(a,b,c)$ 是任取的。于是通过修改 $K$ 就可以调整颜色缩放。注意到 $-n\log 2$ 这一项，因此可以将 $K=\log 2$ 作为一个起始值，这样等势面颜色根据迭代次数平移而周期变换。计算代码</p>
+其中 <span class="arithmatex">\((a,b,c)\)</span> 是任取的。于是通过修改 <span class="arithmatex">\(K\)</span> 就可以调整颜色缩放。注意到 <span class="arithmatex">\(-n\log 2\)</span> 这一项，因此可以将 <span class="arithmatex">\(K=\log 2\)</span> 作为一个起始值，这样等势面颜色根据迭代次数平移而周期变换。计算代码</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// z = z^2 + c</span>
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span>
 <a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000000.0</span><span class="p">;</span>
@@ -14719,40 +14721,40 @@ $$
 </code></pre></div>
 <p>效果如下</p>
 <p><img alt="" src="image-20250110211114028.png" /></p>
-<p>修改 $K=1$ 得到更细密的条纹</p>
+<p>修改 <span class="arithmatex">\(K=1\)</span> 得到更细密的条纹</p>
 <p><img alt="" src="image-20250110214004539.png" /></p>
 <h2 id="_7">加速方法</h2>
 <h3 id="_8">内部检测</h3>
 <blockquote>
 <p>[!axioms]
 作用 operation 满足
-- $1_{G}*s=s,\forall s\in S$
+- <span class="arithmatex">\(1_{G}*s=s,\forall s\in S\)</span>
 - 结合律</p>
 <p>[!definition]
-给定作用群 $G$ 和 $s\in S$，则 $O_{s}={s'\in S: \exists g\in G,gs=s' }$ 称为 $s$ 的轨道。</p>
+给定作用群 <span class="arithmatex">\(G\)</span> 和 <span class="arithmatex">\(s\in S\)</span>，则 <span class="arithmatex">\(O_{s}=\{s'\in S: \exists g\in G,gs=s' \}\)</span> 称为 <span class="arithmatex">\(s\)</span> 的轨道。</p>
 <p>[!definition]
-若存在 $k&gt;0$，使得 $P^k(a)=a$，则 $a$ 称为 $P$ 的周期点。最小的使得 $P^k(a)=a$ 的 $k$ 称为 $a$ 的周期，此时 $a$ 的轨道是有限的，称为一个循环，其中任意点处 $(P^k)'$ 都相同，称为循环的乘子。如果乘子模小于 1，则一个循环被称为是吸引的。如果 $P_c$ 具有吸引循环，则称参数 $c$ 是双曲的。</p>
+若存在 <span class="arithmatex">\(k&gt;0\)</span>，使得 <span class="arithmatex">\(P^k(a)=a\)</span>，则 <span class="arithmatex">\(a\)</span> 称为 <span class="arithmatex">\(P\)</span> 的周期点。最小的使得 <span class="arithmatex">\(P^k(a)=a\)</span> 的 <span class="arithmatex">\(k\)</span> 称为 <span class="arithmatex">\(a\)</span> 的周期，此时 <span class="arithmatex">\(a\)</span> 的轨道是有限的，称为一个循环，其中任意点处 <span class="arithmatex">\((P^k)'\)</span> 都相同，称为循环的乘子。如果乘子模小于 1，则一个循环被称为是吸引的。如果 <span class="arithmatex">\(P_c\)</span> 具有吸引循环，则称参数 <span class="arithmatex">\(c\)</span> 是双曲的。</p>
 </blockquote>
-<p>由于 $P_{c}(z)=z^2+c$，Fatou 证明了双曲参数对应的临界点被吸引到 $P_c$ 的循环，并且 $P_{c}$ 至多具有一个吸引循环。特别地，$c\in M$ 。</p>
+<p>由于 <span class="arithmatex">\(P_{c}(z)=z^2+c\)</span>，Fatou 证明了双曲参数对应的临界点被吸引到 <span class="arithmatex">\(P_c\)</span> 的循环，并且 <span class="arithmatex">\(P_{c}\)</span> 至多具有一个吸引循环。特别地，<span class="arithmatex">\(c\in M\)</span> 。</p>
 <blockquote>
 <blockquote>
 <p>这是非局部全纯动力学的显著特征：循环具有达到临界点的吸引力。</p>
 </blockquote>
 </blockquote>
-<p>在更一般的动力系统中，双曲具有其它的定义，而在我们的语境下则表示 $P_{c}$ 被扩张到它的 Julia 集。双曲参数是稳定的：所有邻近的参数也是双曲的，并且当 $c$ 在一个小邻域中变动时，吸引循环和 Julia 集连续变化。对应 $c$ 的双曲分量是包含 $c$ 的所有双曲参数集合的连通分量。这一分量被一条除一点以外都光滑的有界代数曲线控制。这条曲线由具有模 1 乘子的循环对应的参数组成。对于 $P_{c}$，它的分量要么是圆盘，要么是心形的内部。</p>
+<p>在更一般的动力系统中，双曲具有其它的定义，而在我们的语境下则表示 <span class="arithmatex">\(P_{c}\)</span> 被扩张到它的 Julia 集。双曲参数是稳定的：所有邻近的参数也是双曲的，并且当 <span class="arithmatex">\(c\)</span> 在一个小邻域中变动时，吸引循环和 Julia 集连续变化。对应 <span class="arithmatex">\(c\)</span> 的双曲分量是包含 <span class="arithmatex">\(c\)</span> 的所有双曲参数集合的连通分量。这一分量被一条除一点以外都光滑的有界代数曲线控制。这条曲线由具有模 1 乘子的循环对应的参数组成。对于 <span class="arithmatex">\(P_{c}\)</span>，它的分量要么是圆盘，要么是心形的内部。</p>
 <blockquote>
 <blockquote>
-<p>可以证明这些边界曲线被包含在 $M$ 的拓扑边界中：因此一个双曲分量也是 $M$ 内部的连通分量，反之则未知（至今仍然是一个开放问题）。</p>
+<p>可以证明这些边界曲线被包含在 <span class="arithmatex">\(M\)</span> 的拓扑边界中：因此一个双曲分量也是 <span class="arithmatex">\(M\)</span> 内部的连通分量，反之则未知（至今仍然是一个开放问题）。</p>
 </blockquote>
 </blockquote>
 <h3 id="_9">检查导数</h3>
-<p>随着 $z$ 不断迭代，我们观察导数 $P'(z)=2z$ 。由于复合函数求导满足
+<p>随着 <span class="arithmatex">\(z\)</span> 不断迭代，我们观察导数 <span class="arithmatex">\(P'(z)=2z\)</span> 。由于复合函数求导满足
 $$
 (P^n)'(z_{0}) = P'(P^{n-1}(z_{0}))\cdot P'(P^{n-2}(z_{0}))\cdots P'(z_{0}) = \prod_{i=0}^{n-1}P'(z_{n})
 $$
-所以只需要不断累乘 $2z_i$ 就可以得到每步的导数。如果 $c$ 是一个双曲参数，即 $P_{c}$ 具有吸引循环，这意味着它的轨道 $c,P(c),P^2(c),\cdots$ 趋于一个吸引循环，乘子 $(P^k)'$ 模小于 1，因此导数将会趋于零。反之则未必，不过这些反例是稀疏的。</p>
+所以只需要不断累乘 <span class="arithmatex">\(2z_i\)</span> 就可以得到每步的导数。如果 <span class="arithmatex">\(c\)</span> 是一个双曲参数，即 <span class="arithmatex">\(P_{c}\)</span> 具有吸引循环，这意味着它的轨道 <span class="arithmatex">\(c,P(c),P^2(c),\cdots\)</span> 趋于一个吸引循环，乘子 <span class="arithmatex">\((P^k)'\)</span> 模小于 1，因此导数将会趋于零。反之则未必，不过这些反例是稀疏的。</p>
 <h3 id="_10">基本想法</h3>
-<p>我们知道双曲分量总是 $M$ 内部的连通分量，因此在检查 $|z|$ 的同时，还检查是否收敛到吸引循环，从而加速计算。选择一个阈值 $\epsilon$，如果导数小于阈值，则认为这个像素在 $M$ 中。</p>
+<p>我们知道双曲分量总是 <span class="arithmatex">\(M\)</span> 内部的连通分量，因此在检查 <span class="arithmatex">\(|z|\)</span> 的同时，还检查是否收敛到吸引循环，从而加速计算。选择一个阈值 <span class="arithmatex">\(\epsilon\)</span>，如果导数小于阈值，则认为这个像素在 <span class="arithmatex">\(M\)</span> 中。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// z = z^2 + c</span>
 <a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span>
 <a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000000.0</span><span class="p">;</span>
@@ -14791,14 +14793,14 @@ $$
 </code></pre></div>
 <p>绘制效果为</p>
 <p><img alt="" src="image-20250117231131397.png" /></p>
-<p>这种判断方法可能把不是内部的点标记为内部，并且 $c$ 的轨道可能要迭代很多次才能接近零。对于第二种情况，直观上这类 $c$ 应该会接近双曲分量的中心；对于第一种情况，存在非双曲参数 $c$ 使得 $\lim_{  \to \infty }\inf_{n}(P^n)'(c)=0$，不过它们非常少。任何在 $M$ 外部的点都存在某个 $f&gt;0$ 使得 $\inf(P^n)'(c)\ge f(V(c))$，因此至少被这个方法判定不属于 $M$ 的点实际上也会接近 $M$，通过减小阈值可以缩小这个距离。</p>
+<p>这种判断方法可能把不是内部的点标记为内部，并且 <span class="arithmatex">\(c\)</span> 的轨道可能要迭代很多次才能接近零。对于第二种情况，直观上这类 <span class="arithmatex">\(c\)</span> 应该会接近双曲分量的中心；对于第一种情况，存在非双曲参数 <span class="arithmatex">\(c\)</span> 使得 <span class="arithmatex">\(\lim_{  \to \infty }\inf_{n}(P^n)'(c)=0\)</span>，不过它们非常少。任何在 <span class="arithmatex">\(M\)</span> 外部的点都存在某个 <span class="arithmatex">\(f&gt;0\)</span> 使得 <span class="arithmatex">\(\inf(P^n)'(c)\ge f(V(c))\)</span>，因此至少被这个方法判定不属于 <span class="arithmatex">\(M\)</span> 的点实际上也会接近 <span class="arithmatex">\(M\)</span>，通过减小阈值可以缩小这个距离。</p>
 <h2 id="_11">边界检测</h2>
 <h4 id="milnor">Milnor 准则</h4>
-<p>在迭代 $P: z \mapsto z^2+c$ 中，令 $z_{0}=0,\rho_{n}= \frac{dz_{n}}{dc}$ 。选择一个足够大的阈值 $R&gt;0$，以及 $n$ 使得 $|z_{n}|&gt;R$，则从 $z$ 到 $M$ 的距离估计值为
+<p>在迭代 <span class="arithmatex">\(P: z \mapsto z^2+c\)</span> 中，令 <span class="arithmatex">\(z_{0}=0,\rho_{n}= \frac{dz_{n}}{dc}\)</span> 。选择一个足够大的阈值 <span class="arithmatex">\(R&gt;0\)</span>，以及 <span class="arithmatex">\(n\)</span> 使得 <span class="arithmatex">\(|z_{n}|&gt;R\)</span>，则从 <span class="arithmatex">\(z\)</span> 到 <span class="arithmatex">\(M\)</span> 的距离估计值为
 $$
 d_{n} = \frac{2|z_{n}|\log|z_{n}|}{\rho_{n}}
 $$
-序列 $\rho_{n}$ 可以从 $\rho_{0}=0$ 开始迭代
+序列 <span class="arithmatex">\(\rho_{n}\)</span> 可以从 <span class="arithmatex">\(\rho_{0}=0\)</span> 开始迭代
 $$
 \begin{aligned}
 \rho_{n} &amp;= \frac{dz_{n}}{dc} = \frac{dP_{c}^n(z_{0})}{dc}= \frac{d([P_{c}^{n-1}(z_{0})]^2+c)}{dc}\
@@ -14806,12 +14808,12 @@ $$
 &amp;= 2z_{n-1} \rho_{n-1}+1
 \end{aligned}
 $$
-当 $n$ 趋于无穷时，近似值 $d_{n}$ 并不会收敛到 $z$ 到 $M$ 距离的真实值。事实上，只有弱不等关系
+当 <span class="arithmatex">\(n\)</span> 趋于无穷时，近似值 <span class="arithmatex">\(d_{n}\)</span> 并不会收敛到 <span class="arithmatex">\(z\)</span> 到 <span class="arithmatex">\(M\)</span> 距离的真实值。事实上，只有弱不等关系
 $$
 \mathrm{given }\ |z|&lt;5.7,\quad\frac{1}{5} &lt; \frac{d}{\lim_{ n \to \infty } d_{n}}&lt;1
 $$
-下界可以被替换为关于 $|z|$ 的值，不过不会小于 $\frac{1}{4}$ 。当 $R&gt;1000,|z_{n}|&gt;R$ 时 $d_{n}$ 非常接近 $\lim_{ n \to \infty }d_{n}$ 。</p>
-<p>当迭代像素被判定为外部点时，我们检测 $d_{n}$ 是否小于给定的阈值，如果满足条件就认为当前像素是边界点，填充为边界颜色。</p>
+下界可以被替换为关于 <span class="arithmatex">\(|z|\)</span> 的值，不过不会小于 <span class="arithmatex">\(\frac{1}{4}\)</span> 。当 <span class="arithmatex">\(R&gt;1000,|z_{n}|&gt;R\)</span> 时 <span class="arithmatex">\(d_{n}\)</span> 非常接近 <span class="arithmatex">\(\lim_{ n \to \infty }d_{n}\)</span> 。</p>
+<p>当迭代像素被判定为外部点时，我们检测 <span class="arithmatex">\(d_{n}\)</span> 是否小于给定的阈值，如果满足条件就认为当前像素是边界点，填充为边界颜色。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// z = z^2 + c</span>
 <a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="kt">int</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000</span><span class="p">;</span>
 <a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="kt">double</span><span class="w"> </span><span class="n">R</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1000000.0</span><span class="p">;</span>
@@ -14975,6 +14977,12 @@ $$
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

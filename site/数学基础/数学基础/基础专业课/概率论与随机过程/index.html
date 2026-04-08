@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14563,28 +14565,28 @@
 <h2 id="_2">概率论基础</h2>
 <h3 id="_3">样本空间</h3>
 <p>随机试验是在实验开始之前无法预测结果的实验。然而，我们可以事先知道可能出现的结果。</p>
-<p><strong>定义 1.1.1</strong> 样本空间 sample space $\Omega$ 是随机试验所有可能输出的集合。</p>
+<p><strong>定义 1.1.1</strong> 样本空间 sample space <span class="arithmatex">\(\Omega\)</span> 是随机试验所有可能输出的集合。</p>
 <h3 id="_4">事件</h3>
 <p>每个事件可以自然地视为使得事件为真的所有输出的集合。</p>
-<p><strong>定义 1.2.4</strong> 一个事件是样本空间 $\Omega$ 的子集 $A$</p>
+<p><strong>定义 1.2.4</strong> 一个事件是样本空间 <span class="arithmatex">\(\Omega\)</span> 的子集 <span class="arithmatex">\(A\)</span></p>
 <p>事件作为集合可以取交、并、补，此时</p>
 <ul>
-<li>$A\cap B$ 理解为 $A,B$ 两个事件都发生</li>
-<li>$A\cup B$ 理解为 $A$ 或 $B$ 发生</li>
-<li>$A^c$ 理解为 $A$ 不发生</li>
+<li><span class="arithmatex">\(A\cap B\)</span> 理解为 <span class="arithmatex">\(A,B\)</span> 两个事件都发生</li>
+<li><span class="arithmatex">\(A\cup B\)</span> 理解为 <span class="arithmatex">\(A\)</span> 或 <span class="arithmatex">\(B\)</span> 发生</li>
+<li><span class="arithmatex">\(A^c\)</span> 理解为 <span class="arithmatex">\(A\)</span> 不发生</li>
 </ul>
 <p><img alt="" src="image-20250524195823283.png|300" /></p>
 <h3 id="_5">概率度量</h3>
-<p>为了模拟随机试验，我们为每个事件 $A$ 指定一个数 $0\leq P(A)\leq 1$，称为<strong>概率</strong>。</p>
-<p><strong>定义 1.3.1</strong> 一个概率度量对每个事件 $A$ 指定一个数 $P(A)$，使得</p>
-<p>(1) $0\leq P(A)\leq 1$
-(2) $P(\Omega)=1$
-(3) 若 $A\cap B=\emptyset$，则 $P(A\cup B)=P(A)+P(B)$</p>
+<p>为了模拟随机试验，我们为每个事件 <span class="arithmatex">\(A\)</span> 指定一个数 <span class="arithmatex">\(0\leq P(A)\leq 1\)</span>，称为<strong>概率</strong>。</p>
+<p><strong>定义 1.3.1</strong> 一个概率度量对每个事件 <span class="arithmatex">\(A\)</span> 指定一个数 <span class="arithmatex">\(P(A)\)</span>，使得</p>
+<p>(1) <span class="arithmatex">\(0\leq P(A)\leq 1\)</span>
+(2) <span class="arithmatex">\(P(\Omega)=1\)</span>
+(3) 若 <span class="arithmatex">\(A\cap B=\emptyset\)</span>，则 <span class="arithmatex">\(P(A\cup B)=P(A)+P(B)\)</span></p>
 <p>其中 (3) 导出可数可加性。</p>
 <p>利用上述定义，我们可以得到</p>
 <ul>
-<li>$P(A)=1-P(A^c)$</li>
-<li>$P(B)=P(A)+P(B\backslash A)\geq P(A),A\subset B$</li>
+<li><span class="arithmatex">\(P(A)=1-P(A^c)\)</span></li>
+<li><span class="arithmatex">\(P(B)=P(A)+P(B\backslash A)\geq P(A),A\subset B\)</span></li>
 </ul>
 <p>它们符合我们对频率的直观理解。</p>
 <h3 id="_6">概率模型</h3>
@@ -14654,6 +14656,12 @@
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

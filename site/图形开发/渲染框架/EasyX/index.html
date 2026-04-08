@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15527,9 +15529,9 @@
 </code></pre></div>
 <h2 id="_11">图像输出</h2>
 <h3 id="_12">操作流程</h3>
-<p>$$
+<div class="arithmatex">\[
 定义图像 \to 加载图片 \to 输出图片
-$$</p>
+\]</div>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">IMAGE</span><span class="w"> </span><span class="n">img</span><span class="p">;</span><span class="w">                      </span><span class="c1">// 定义一个图像对象</span>
 <a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">loadimage</span><span class="p">(</span><span class="o">&amp;</span><span class="n">img</span><span class="p">,</span><span class="w"> </span><span class="n">image_path</span><span class="p">);</span><span class="w">    </span><span class="c1">// 加载图片</span>
 <a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="n">putimage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">img</span><span class="p">);</span><span class="w">   </span><span class="c1">// 输出图片</span>
@@ -16006,6 +16008,12 @@ $$</p>
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

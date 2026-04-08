@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -2406,7 +2408,7 @@
   <a href="#z" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $z$ 缓冲区算法
+        \(z\) 缓冲区算法
       
     </span>
   </a>
@@ -15777,7 +15779,7 @@
   <a href="#z" class="md-nav__link">
     <span class="md-ellipsis">
       
-        $z$ 缓冲区算法
+        \(z\) 缓冲区算法
       
     </span>
   </a>
@@ -17190,8 +17192,8 @@
 <a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="p">}</span>
 </code></pre></div>
 <p>区别仅仅在于最后调用的函数是交换缓冲的函数，将当前绘图缓冲交换到窗口绘图缓冲中立即显示图像。</p>
-<h3 id="z">$z$ 缓冲区算法</h3>
-<p>$z$ 缓冲区算法用于储存几何体的深度信息，目的是根据点的深度消除绘制三维图形时被遮挡的部分，从而正确地显示图像，同时提高绘制效率。首先在 glutInitDisplayMode 中开启 <code>GLUT_DEPTH</code> 模式，然后调用</p>
+<h3 id="z"><span class="arithmatex">\(z\)</span> 缓冲区算法</h3>
+<p><span class="arithmatex">\(z\)</span> 缓冲区算法用于储存几何体的深度信息，目的是根据点的深度消除绘制三维图形时被遮挡的部分，从而正确地显示图像，同时提高绘制效率。首先在 glutInitDisplayMode 中开启 <code>GLUT_DEPTH</code> 模式，然后调用</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">);</span>
 </code></pre></div>
 <p>激活隐藏面消除算法，在渲染函数中清空深度缓冲</p>
@@ -17205,7 +17207,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="n">glClearDepth</span><span class="p">(</span><span class="n">maxDepth</span><span class="p">);</span><span class="w">         </span><span class="c1">// maxDepth 可选 0 到 1</span>
 <a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">glClear</span><span class="p">(</span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">);</span><span class="w">   </span><span class="c1">// 清空深度缓冲区</span>
 </code></pre></div>
-<p>默认情况下，深度测试会将新像素的 $z$ 值与缓冲区中的深度比较，如果更小就更新缓冲区。我们可以调整比较方式</p>
+<p>默认情况下，深度测试会将新像素的 <span class="arithmatex">\(z\)</span> 值与缓冲区中的深度比较，如果更小就更新缓冲区。我们可以调整比较方式</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">glDepthFunc</span><span class="p">(</span><span class="n">method</span><span class="p">);</span>
 </code></pre></div>
 <p>其中 method 默认为 <code>GL_LESS</code>，其余参数直接查阅头文件。</p>
@@ -17602,14 +17604,14 @@
 $$
 (S_rR_s+D_rR_d,S_gG_s+D_gG_d,S_bB_s+D_bB_d,S_aA_s+D_aA_d)
 $$
-其中 RGBA 源颜色为 $(R_s,G_s,B_s,A_s)$，目标颜色分量为 $(R_d,G_d,B_d,A_d)$，源调和因子为 $(S_r,S_g,S_b,S_a)$，而目标调和因子为 $(D_r,D_g,D_b,D_a)$ 。计算出的组合颜色分量归一到 0 到 1 之间，即任何大于 1 的和设为 1，小于 0 的和设为 0 。</p>
+其中 RGBA 源颜色为 <span class="arithmatex">\((R_s,G_s,B_s,A_s)\)</span>，目标颜色分量为 <span class="arithmatex">\((R_d,G_d,B_d,A_d)\)</span>，源调和因子为 <span class="arithmatex">\((S_r,S_g,S_b,S_a)\)</span>，而目标调和因子为 <span class="arithmatex">\((D_r,D_g,D_b,D_a)\)</span> 。计算出的组合颜色分量归一到 0 到 1 之间，即任何大于 1 的和设为 1，小于 0 的和设为 0 。</p>
 <p>使用下列函数设置调和因子</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a><span class="n">glBlendFunc</span><span class="p">(</span><span class="n">sFactor</span><span class="p">,</span><span class="w"> </span><span class="n">dFactor</span><span class="p">);</span>
 </code></pre></div>
 <p>其中 sFactor 和 dFactor 分别是源和目标因子，通常直接通过 OpenGL 预定义的常量设置。例如</p>
 <ul>
-<li><code>GL_ZERO</code> 表示 $(0,0,0,0)$，是 dFactor 的默认选项</li>
-<li><code>GL_ONE</code> 表示 $(1,1,1,1)$，是 sFactor 的默认选项</li>
+<li><code>GL_ZERO</code> 表示 <span class="arithmatex">\((0,0,0,0)\)</span>，是 dFactor 的默认选项</li>
+<li><code>GL_ONE</code> 表示 <span class="arithmatex">\((1,1,1,1)\)</span>，是 sFactor 的默认选项</li>
 </ul>
 <h3 id="_26">着色规则</h3>
 <p>颜色的每个分量在帧缓冲区中分开存储，通常每个分量占用 8 字节。使用 glColor3f 和 glColor3ub 来设定 RGB 颜色值</p>
@@ -17817,7 +17819,7 @@ $$
 <li><code>GL_POINT</code> 顶点绘制</li>
 </ul>
 <h4 id="_31">多边形偏移</h4>
-<p>当我们只绘制三维多边形的边，可能会在边之间产生缝隙。这种称为<strong>缝线</strong>的效果由扫描填充算法和边的画线算法的计算差别造成。在对一个多边形进行填充时，深度值按每一 $(x,y)$ 计算，但是边上的深度值计算与画线算法可能不同。消除缝隙的方法是移动填充子程序计算的深度值，使它们与多边形的边深度值不重叠</p>
+<p>当我们只绘制三维多边形的边，可能会在边之间产生缝隙。这种称为<strong>缝线</strong>的效果由扫描填充算法和边的画线算法的计算差别造成。在对一个多边形进行填充时，深度值按每一 <span class="arithmatex">\((x,y)\)</span> 计算，但是边上的深度值计算与画线算法可能不同。消除缝隙的方法是移动填充子程序计算的深度值，使它们与多边形的边深度值不重叠</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_POLYGON_OFFSET_FILL</span><span class="p">);</span>
 <a id="__codelineno-92-2" name="__codelineno-92-2" href="#__codelineno-92-2"></a><span class="n">glPolygonOffset</span><span class="p">(</span><span class="n">factor1</span><span class="p">,</span><span class="w"> </span><span class="n">factor2</span><span class="p">);</span>
 </code></pre></div>
@@ -17825,7 +17827,7 @@ $$
 $$
 depthOffset = factor1\cdot maxSlope + factor2\cdot const
 $$
-其中 $maxSlope$ 是多边形的最大斜率，$const$ 是实现常数。两个因子常用的值是 0.75 和 1 。例如</p>
+其中 <span class="arithmatex">\(maxSlope\)</span> 是多边形的最大斜率，<span class="arithmatex">\(const\)</span> 是实现常数。两个因子常用的值是 0.75 和 1 。例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a><span class="c1">// 对于 GL_FILL GL_POINT GL_LINE 三种模式都开启偏移</span>
 <a id="__codelineno-93-2" name="__codelineno-93-2" href="#__codelineno-93-2"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_POLYGON_OFFSET_LINE</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_POLYGON_OFFSET_POINT</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">GL_POLYGON_OFFSET_FILL</span><span class="p">);</span>
 <a id="__codelineno-93-3" name="__codelineno-93-3" href="#__codelineno-93-3"></a><span class="n">glPolygonOffset</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
@@ -17925,7 +17927,7 @@ $$
 <a id="__codelineno-109-2" name="__codelineno-109-2" href="#__codelineno-109-2"></a><span class="n">glLightfv</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">,</span><span class="w"> </span><span class="n">GL_POSITION</span><span class="p">,</span><span class="w"> </span><span class="n">posType</span><span class="p">);</span>
 <a id="__codelineno-109-3" name="__codelineno-109-3" href="#__codelineno-109-3"></a><span class="n">glEnable</span><span class="p">(</span><span class="n">GL_LIGHT0</span><span class="p">);</span>
 </code></pre></div>
-<p>这里 <code>GL_POSITION</code> 用于指定光源位置，如果第四个分量设为零，则得到方向光源，否则是点光源。如果不指定位置，默认为负 $z$ 方向的方向光源。</p>
+<p>这里 <code>GL_POSITION</code> 用于指定光源位置，如果第四个分量设为零，则得到方向光源，否则是点光源。如果不指定位置，默认为负 <span class="arithmatex">\(z\)</span> 方向的方向光源。</p>
 <h4 id="_39">光源颜色</h4>
 <p>另一些属性，例如设置光源颜色。可以指定</p>
 <ul>
@@ -17944,7 +17946,7 @@ $$
 <li><code>GL_LINEAR_ATTENUATION</code></li>
 <li><code>GL_QUADRATIC_ATTENUATION</code></li>
 </ul>
-<p>三个系数分别对应 $a+bd+cd^2$ 中不同次项的系数。</p>
+<p>三个系数分别对应 <span class="arithmatex">\(a+bd+cd^2\)</span> 中不同次项的系数。</p>
 <h4 id="_41">投射光源</h4>
 <p>对于点光源可以指定投射效果，将光线限制在一个圆锥形空间中</p>
 <ul>
@@ -17952,7 +17954,7 @@ $$
 <li><code>GL_SPOT_CUTOFF</code> 圆锥角</li>
 <li><code>GL_SPOT_EXPONENT</code> 衰减因子</li>
 </ul>
-<p>衰减系数为 $\cos^{a_l}\theta$，其中 $\theta$ 是圆锥角，当入射光线与中心方向夹角超过圆锥角，则光源没有照射该点。</p>
+<p>衰减系数为 <span class="arithmatex">\(\cos^{a_l}\theta\)</span>，其中 <span class="arithmatex">\(\theta\)</span> 是圆锥角，当入射光线与中心方向夹角超过圆锥角，则光源没有照射该点。</p>
 <h4 id="_42">全局光照</h4>
 <p>可以指定若干全局光照参数</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-111-1" name="__codelineno-111-1" href="#__codelineno-111-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">glLightModelf</span><span class="p">(</span><span class="n">GLenum</span><span class="w"> </span><span class="n">pname</span><span class="p">,</span><span class="w"> </span><span class="n">GLfloat</span><span class="w"> </span><span class="n">param</span><span class="p">);</span>
@@ -18121,7 +18123,7 @@ $$
 <a id="__codelineno-132-17" name="__codelineno-132-17" href="#__codelineno-132-17"></a><span class="w">                        </span><span class="mh">0xff</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="p">,</span><span class="w"> </span><span class="mh">0xff</span><span class="p">,</span><span class="w"> </span><span class="mh">0x00</span><span class="w"> </span><span class="p">};</span>
 <a id="__codelineno-132-18" name="__codelineno-132-18" href="#__codelineno-132-18"></a><span class="n">glPolygonStipple</span><span class="p">(</span><span class="n">fillPartten</span><span class="p">);</span>
 </code></pre></div>
-<p>注意每两个 16 进制数占 16 位，因为每个 16 进制数都使用了两位数，最大是 $255=2^8-1$，因此占 8 位。绘制三角形的效果如下</p>
+<p>注意每两个 16 进制数占 16 位，因为每个 16 进制数都使用了两位数，最大是 <span class="arithmatex">\(255=2^8-1\)</span>，因此占 8 位。绘制三角形的效果如下</p>
 <p><img alt="" src="image-20221115202757351.png" /></p>
 <h3 id="_51">纹理映射</h3>
 <h4 id="_52">线纹理</h4>
@@ -18163,10 +18165,10 @@ $$
 </code></pre></div>
 <p>默认的边界颜色是黑色。</p>
 <h4 id="_54">纹理坐标</h4>
-<p>对于一个一维纹理空间，颜色值用跨越纹理空间的 0 到 1 之间的单个 $s$ 坐标指定，通过将纹理坐标赋给对象位置应用纹理。</p>
+<p>对于一个一维纹理空间，颜色值用跨越纹理空间的 0 到 1 之间的单个 <span class="arithmatex">\(s\)</span> 坐标指定，通过将纹理坐标赋给对象位置应用纹理。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-138-1" name="__codelineno-138-1" href="#__codelineno-138-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">glTexCoord1f</span><span class="p">(</span><span class="n">GLfloat</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
 </code></pre></div>
-<p>此函数指定具体的 $s$ 值，默认 $s$ 为 0，通过指定 $s$ 来获得纹理空间中的颜色。</p>
+<p>此函数指定具体的 <span class="arithmatex">\(s\)</span> 值，默认 <span class="arithmatex">\(s\)</span> 为 0，通过指定 <span class="arithmatex">\(s\)</span> 来获得纹理空间中的颜色。</p>
 <p>例如我们指定红绿交替的一维纹理图案</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-139-1" name="__codelineno-139-1" href="#__codelineno-139-1"></a><span class="c1">// 指定 4 种颜色纹理</span>
 <a id="__codelineno-139-2" name="__codelineno-139-2" href="#__codelineno-139-2"></a><span class="kt">float</span><span class="w"> </span><span class="n">texLine</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
@@ -18192,9 +18194,9 @@ $$
 <a id="__codelineno-139-22" name="__codelineno-139-22" href="#__codelineno-139-22"></a>
 <a id="__codelineno-139-23" name="__codelineno-139-23" href="#__codelineno-139-23"></a><span class="n">glDisable</span><span class="p">(</span><span class="n">GL_TEXTURE_1D</span><span class="p">);</span>
 </code></pre></div>
-<p>这里我们指定端点颜色分别是 $s=0,s=1$，会<strong>将纹理坐标 0 到 1 之间的颜色映射到线段上</strong>，得到交替的绿色和红色。</p>
+<p>这里我们指定端点颜色分别是 <span class="arithmatex">\(s=0,s=1\)</span>，会<strong>将纹理坐标 0 到 1 之间的颜色映射到线段上</strong>，得到交替的绿色和红色。</p>
 <h4 id="_55">环绕模式</h4>
-<p>可以使用超出单位区间的 $s$ 值，此时超出部分的整数部分被忽略，只考虑小数部分。通过指定超出范围的 $s$ 值，可以实现对纹理图案的压缩和拉伸，例如</p>
+<p>可以使用超出单位区间的 <span class="arithmatex">\(s\)</span> 值，此时超出部分的整数部分被忽略，只考虑小数部分。通过指定超出范围的 <span class="arithmatex">\(s\)</span> 值，可以实现对纹理图案的压缩和拉伸，例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-140-1" name="__codelineno-140-1" href="#__codelineno-140-1"></a><span class="n">glBegin</span><span class="p">(</span><span class="n">GL_LINES</span><span class="p">);</span>
 <a id="__codelineno-140-2" name="__codelineno-140-2" href="#__codelineno-140-2"></a><span class="n">glTexCoord1f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">    </span><span class="n">glVertex3f</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 <a id="__codelineno-140-3" name="__codelineno-140-3" href="#__codelineno-140-3"></a><span class="n">glTexCoord1f</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w">    </span><span class="n">glVertex3f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
@@ -18212,7 +18214,7 @@ $$
 <p>如果我们不希望重复，则可以设为截取模式，超出纹理范围将按照边界值截取：超过 1 按照 1 截取，小于 0 按照 0 截取</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-143-1" name="__codelineno-143-1" href="#__codelineno-143-1"></a><span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_1D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span><span class="w"> </span><span class="n">GL_CLAMP</span><span class="p">);</span>
 </code></pre></div>
-<p>对于二维纹理，可在 $s,t$ 两个方向上设定为</p>
+<p>对于二维纹理，可在 <span class="arithmatex">\(s,t\)</span> 两个方向上设定为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-144-1" name="__codelineno-144-1" href="#__codelineno-144-1"></a><span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_WRAP_S</span><span class="p">,</span><span class="w"> </span><span class="n">GL_CLAMP</span><span class="p">);</span>
 <a id="__codelineno-144-2" name="__codelineno-144-2" href="#__codelineno-144-2"></a><span class="n">glTexParameteri</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span><span class="w"> </span><span class="n">GL_TEXTURE_WRAP_T</span><span class="p">,</span><span class="w"> </span><span class="n">GL_CLAMP</span><span class="p">);</span>
 </code></pre></div>
@@ -18578,7 +18580,7 @@ $$
 <p>在 glVertex 中的单位由应用程序确定，称为世界坐标系。视景体相对于世界坐标系指定，它确定出现在图像中的对象。在 OpenGL 内部会把世界坐标转化为照相机（视点）坐标，然后转化为屏幕坐标。</p>
 <p>默认情况下，照相机被放置在世界坐标系的原点，<strong>指向 z 轴的负方向</strong>。默认视景体是一个中心在原点，边长为 2 的立方体。</p>
 <p><img alt="" src="图形开发/渲染框架/Glut.assets/image-20221110135125560.png" /></p>
-<p>默认的正交视图中，点沿着 z 轴投影到 $z=0$ 的平面上。</p>
+<p>默认的正交视图中，点沿着 z 轴投影到 <span class="arithmatex">\(z=0\)</span> 的平面上。</p>
 <p><img alt="" src="image-20221110135256414.png" /></p>
 <p>其中投影是利用投影矩阵乘法进行的。OpenGL 是一个状态机，拥有模型视点 modelview、矩阵栈和投影 projection 矩阵栈。</p>
 <p>使用 glMatrixMode 设置矩阵模式，有三种矩阵模式</p>
@@ -18616,7 +18618,7 @@ $$
 <a id="__codelineno-173-20" name="__codelineno-173-20" href="#__codelineno-173-20"></a><span class="w">    </span><span class="n">GLfloat</span><span class="w"> </span><span class="n">z</span>
 <a id="__codelineno-173-21" name="__codelineno-173-21" href="#__codelineno-173-21"></a><span class="p">);</span>
 </code></pre></div>
-<p>注意：由于每次调用函数都会<strong>右乘上变换矩阵</strong>，最后作用于坐标时的变换顺序与函数调用顺序相反。例如依次作用 $T,R,S$ 做平移、旋转和伸缩变换，最终的变换为 $(TRS)v$，其中 $v$ 是坐标。实际产生的变换是伸缩、旋转，最后平移。</p>
+<p>注意：由于每次调用函数都会<strong>右乘上变换矩阵</strong>，最后作用于坐标时的变换顺序与函数调用顺序相反。例如依次作用 <span class="arithmatex">\(T,R,S\)</span> 做平移、旋转和伸缩变换，最终的变换为 <span class="arithmatex">\((TRS)v\)</span>，其中 <span class="arithmatex">\(v\)</span> 是坐标。实际产生的变换是伸缩、旋转，最后平移。</p>
 <h4 id="_68">移动视点</h4>
 <p>如果要改变观察点的位置，使用 gluLookAt 函数，它提供一个简单直观的方式来设置镜头位置和方向。参数分别对应</p>
 <ul>
@@ -18651,7 +18653,7 @@ M =
 &amp; &amp; &amp; 1
 \end{pmatrix}
 $$
-即它简单地将所有点的 $z$ 坐标置零进行投影。</p>
+即它简单地将所有点的 <span class="arithmatex">\(z\)</span> 坐标置零进行投影。</p>
 <p>首先切换到投影模式，然后载入单位矩阵</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-176-1" name="__codelineno-176-1" href="#__codelineno-176-1"></a><span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">);</span>
 <a id="__codelineno-176-2" name="__codelineno-176-2" href="#__codelineno-176-2"></a><span class="n">glLoadIdentity</span><span class="p">();</span>
@@ -18694,7 +18696,7 @@ $$
 <p><img alt="" src="图形开发/渲染框架/Glut.assets/image-20221110185514314.png" /></p>
 <p>其中的长方体就是视景体，只有处于视景体中的物体才会被显示。</p>
 <h4 id="_72">二维视景体</h4>
-<p>二维顶点命令默认将所有顶点放在 $z=0$ 的平面上。如果应用程序只需要绘制二维图像，则我们可以直接使用</p>
+<p>二维顶点命令默认将所有顶点放在 <span class="arithmatex">\(z=0\)</span> 的平面上。如果应用程序只需要绘制二维图像，则我们可以直接使用</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-180-1" name="__codelineno-180-1" href="#__codelineno-180-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">gluOrtho2D</span><span class="p">(</span>
 <a id="__codelineno-180-2" name="__codelineno-180-2" href="#__codelineno-180-2"></a><span class="w">    </span><span class="n">GLdouble</span><span class="w"> </span><span class="n">left</span><span class="p">,</span><span class="w"> </span>
 <a id="__codelineno-180-3" name="__codelineno-180-3" href="#__codelineno-180-3"></a><span class="w">    </span><span class="n">GLdouble</span><span class="w"> </span><span class="n">right</span><span class="p">,</span><span class="w"> </span>
@@ -18702,10 +18704,10 @@ $$
 <a id="__codelineno-180-5" name="__codelineno-180-5" href="#__codelineno-180-5"></a><span class="w">    </span><span class="n">GLdouble</span><span class="w"> </span><span class="n">top</span>
 <a id="__codelineno-180-6" name="__codelineno-180-6" href="#__codelineno-180-6"></a><span class="p">);</span>
 </code></pre></div>
-<p>设置正交视景体，即退化为裁剪窗口。有一个特殊的使用技巧，如果想要正交投影的 $y$ 方向反向，通常的做法需要进行平移和反射变换，但更快的做法是</p>
+<p>设置正交视景体，即退化为裁剪窗口。有一个特殊的使用技巧，如果想要正交投影的 <span class="arithmatex">\(y\)</span> 方向反向，通常的做法需要进行平移和反射变换，但更快的做法是</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-181-1" name="__codelineno-181-1" href="#__codelineno-181-1"></a><span class="n">gluOrtho2D</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">h</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span>
 </code></pre></div>
-<p>这里 $w,h$ 分别是视景体的宽度和高度。注意到我们将 bottom 设为大于 top 的值，这会直接将 $y$ 的方向颠倒。</p>
+<p>这里 <span class="arithmatex">\(w,h\)</span> 分别是视景体的宽度和高度。注意到我们将 bottom 设为大于 top 的值，这会直接将 <span class="arithmatex">\(y\)</span> 的方向颠倒。</p>
 <h3 id="_73">视口尺寸</h3>
 <p>当要将投影完成的图像绘制到窗口上时，我们可以决定将其绘制到窗口的哪个部分。使用 glViewport 来定义视口</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-182-1" name="__codelineno-182-1" href="#__codelineno-182-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">glViewport</span><span class="p">(</span>
@@ -19814,6 +19816,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

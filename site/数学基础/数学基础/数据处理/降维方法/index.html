@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -14742,11 +14744,11 @@
 <h3 id="_3">维度诅咒</h3>
 <p>维度诅咒 <em>curse of the dimensionality</em> 是指在没有简化假设的情况下，函数估计所需的样本数随着变量数量的增加随指数增长。</p>
 <h4 id="_4">高维体积</h4>
-<p>令 $V_{sph}^D(r)$ 表示 $\mathbb{R}^D$ 中半径为 $r$ 的球的体积，则
+<p>令 <span class="arithmatex">\(V_{sph}^D(r)\)</span> 表示 <span class="arithmatex">\(\mathbb{R}^D\)</span> 中半径为 <span class="arithmatex">\(r\)</span> 的球的体积，则
 $$
 V_{sph}^D(r) = \frac{\pi^{D/2}r^D}{\Gamma\left( \frac{D}{2}+1 \right)}
 $$
-令 $V_{cube}^D(r)$ 表示 $\mathbb{R}^D$ 中棱长为为 $2r$ 的立方体的体积，则
+令 <span class="arithmatex">\(V_{cube}^D(r)\)</span> 表示 <span class="arithmatex">\(\mathbb{R}^D\)</span> 中棱长为为 <span class="arithmatex">\(2r\)</span> 的立方体的体积，则
 $$
 V_{cube}^D(r) = (2r)^D
 $$
@@ -14760,51 +14762,51 @@ $$
 $$
 \lim_{ D \to \infty } \frac{V_{sph}^D(R)-V_{sph}^D(r)}{V_{sph}^D(R)} = \lim_{ D \to \infty } 1- \left( \frac{r}{R} \right)^D = 1
 $$
-因此高维空间中球体的体积几乎全部集中在表面上，因此近似于一个 $D-1$ 维流形。</p>
+因此高维空间中球体的体积几乎全部集中在表面上，因此近似于一个 <span class="arithmatex">\(D-1\)</span> 维流形。</p>
 <blockquote>
 <blockquote>
 <p>如果数据点均匀分布在球体或立方体内，则大多数点落在边界上。</p>
 </blockquote>
 </blockquote>
 <h4 id="gaussian">多维 Gaussian 分布的尾概率</h4>
-<p>由于 $\mathbb{R}^D$ 上各向同性的 Gaussian 分布的 pdf 为
+<p>由于 <span class="arithmatex">\(\mathbb{R}^D\)</span> 上各向同性的 Gaussian 分布的 pdf 为
 $$
 G_{\sigma}(\vec{x}) = \frac{1}{\sqrt{ (2\pi \sigma^2)^D }}\exp\left( -\frac{|\vec{x}-\vec{a}|^2}{2\sigma^2} \right)
 $$
-其中 $\vec{a}$ 是 $D$ 维均值，$\sigma$ 是标准差。不妨设 $\vec{a}=0,\sigma=1$，则
+其中 <span class="arithmatex">\(\vec{a}\)</span> 是 <span class="arithmatex">\(D\)</span> 维均值，<span class="arithmatex">\(\sigma\)</span> 是标准差。不妨设 <span class="arithmatex">\(\vec{a}=0,\sigma=1\)</span>，则
 $$
 G(\vec{x}) = K(r)= \frac{1}{\sqrt{ (2\pi)^D }}\exp\left( -\frac{r^2}{2} \right),\quad r=|\vec{x}|
 $$
-即概率分布是球心位于原点的球。令 $B_{r}={\vec{x}\in \mathbb{R}^D\mid |\vec{x}|\leq r},S_{r}$ 表示球体及其边界，则
+即概率分布是球心位于原点的球。令 <span class="arithmatex">\(B_{r}=\{\vec{x}\in \mathbb{R}^D\mid \|\vec{x}\|\leq r\},S_{r}\)</span> 表示球体及其边界，则
 $$
 V(S_{r}) = \frac{2\pi^{D/2}r^{D-1}}{\Gamma\left( \frac{D}{2} \right)}
 $$
-于是 $K(x)$ 生成位于 $B_{r}$ 内部的点的概率为
+于是 <span class="arithmatex">\(K(x)\)</span> 生成位于 <span class="arithmatex">\(B_{r}\)</span> 内部的点的概率为
 $$
 P(|\vec{x}|\leq r) = 
 \frac{\int_{0}^rV(S_{r})K(r)dr}{\int_{0}^\infty V(S_{r})K(r)dr}
 $$
-考虑 $P(|\vec{x}|\geq 2)$ 在不同 $D$ 下的值</p>
+考虑 <span class="arithmatex">\(P(\|\vec{x}\|\geq 2)\)</span> 在不同 <span class="arithmatex">\(D\)</span> 下的值</p>
 <p><img alt="" src="image-20251023211557076.png" /></p>
 <p>这表明随着维度增加，多元 Gaussian 分布的概率质量迅速迁移到尾部，因此内部几乎是空的。</p>
 <h4 id="_6">立方体对角</h4>
-<p>考虑 $[-1,1]^D$ 的对角线和棱，设 $\vec{v}=(\pm1,\cdots,\pm 1)^T$ 为对角线向量，$\vec{e}<em>{i}$ 为某个棱向量，则
+<p>考虑 <span class="arithmatex">\([-1,1]^D\)</span> 的对角线和棱，设 <span class="arithmatex">\(\vec{v}=(\pm1,\cdots,\pm 1)^T\)</span> 为对角线向量，<span class="arithmatex">\(\vec{e}_{i}\)</span> 为某个棱向量，则
 $$
-\cos \theta = \left\langle \frac{\vec{v}}{|\vec{v}|}, \vec{e}</em>{i} \right\rangle = \pm \frac{1}{\sqrt{ D }}
+\cos \theta = \left\langle \frac{\vec{v}}{|\vec{v}|}, \vec{e}_{i} \right\rangle = \pm \frac{1}{\sqrt{ D }}
 $$
 这意味着在高维空间中，对角线和所有轴都正交。在可视化中，高维数据通常使用两个轴绘制，此时对角线上的数据同时与两个轴正交，从而几乎全部汇集在原点附近。</p>
 <h4 id="_7">集中的范数和距离</h4>
 <p>高维空间的另一个问题是度量的弱分辨能力，即给定分布的范数构成的分布会非常集中。</p>
 <blockquote>
 <p>[!theorem]
-令 $\vec{x}\in \mathbb{R}^D$ 是各分量独立同分布的随机向量，$\mu=E[x_{k}]$ 为所有分量的均值，$\mu_{j}=E[(x_{k}-\mu)^j]$ 为 $j$ 阶矩。若 $x_{k}$ 具有有限 8 阶矩，则 $\vec{x}$ 的 Euclidean 范数的均值 $\mu_{|\vec{x}|}$ 和方差 $\sigma_{|\vec{x}|}^2$ 满足
+令 <span class="arithmatex">\(\vec{x}\in \mathbb{R}^D\)</span> 是各分量独立同分布的随机向量，<span class="arithmatex">\(\mu=E[x_{k}]\)</span> 为所有分量的均值，<span class="arithmatex">\(\mu_{j}=E[(x_{k}-\mu)^j]\)</span> 为 <span class="arithmatex">\(j\)</span> 阶矩。若 <span class="arithmatex">\(x_{k}\)</span> 具有有限 8 阶矩，则 <span class="arithmatex">\(\vec{x}\)</span> 的 Euclidean 范数的均值 <span class="arithmatex">\(\mu_{\|\vec{x}\|}\)</span> 和方差 <span class="arithmatex">\(\sigma_{\|\vec{x}\|}^2\)</span> 满足
 $$
 \begin{aligned}
 \mu_{|\vec{x}|} &amp;=\sqrt{ aD-b }+O(D^{-1})\
 \sigma_{|\vec{x}|}^2 &amp;= b+O(D^{-1/2})
 \end{aligned}
 $$
-其中 $a,b$ 为
+其中 <span class="arithmatex">\(a,b\)</span> 为
 $$
 \begin{aligned}
 a &amp;= \mu^2+\mu_{2}\
@@ -14816,13 +14818,13 @@ $$</p>
 $$
 P\left( \frac{||\vec{x}|-\mu_{|\vec{x}|}|}{\mu_{|\vec{x}|}}\geq \frac{\epsilon}{\mu_{|\vec{x}|}} \right) \leq \frac{\sigma_{|x|}^2}{\epsilon}
 $$
-随着维度增加，几乎所有向量都位于以 $\mu_{|\vec{x}|}$ 为半径的球面附近。任意两点的距离（差向量范数）近似为常数。这种聚集性导致高维空间中的最近邻搜索非常困难。</p>
+随着维度增加，几乎所有向量都位于以 <span class="arithmatex">\(\mu_{\|\vec{x}\|}\)</span> 为半径的球面附近。任意两点的距离（差向量范数）近似为常数。这种聚集性导致高维空间中的最近邻搜索非常困难。</p>
 <h3 id="_8">内在和外在维度</h3>
-<p>通常认为高维数据点位于低维流形上。设数据集 $\mathcal{X}={\vec{x}<em>{\alpha}}</em>{\alpha\in A}$ 位于嵌入 $\mathbb{R}^D$ 中的 $s$ 维流形 $M\subset \mathbb{R}^D$ 上。称 $D$ 为外在维度 <em>extrinsic dimension</em>，$s$ 为内在维度 <em>intrinsic dimension</em> 。在统计学视角下，$\mathcal{X}$ 可以看作是 $\mathbb{R}^D$ 中随机向量 $\vec{X}$ 的采样集。如果 $\vec{X}$ 被 $s$ 个独立变量控制，即存在可逆解析函数
+<p>通常认为高维数据点位于低维流形上。设数据集 <span class="arithmatex">\(\mathcal{X}=\{\vec{x}_{\alpha}\}_{\alpha\in A}\)</span> 位于嵌入 <span class="arithmatex">\(\mathbb{R}^D\)</span> 中的 <span class="arithmatex">\(s\)</span> 维流形 <span class="arithmatex">\(M\subset \mathbb{R}^D\)</span> 上。称 <span class="arithmatex">\(D\)</span> 为外在维度 <em>extrinsic dimension</em>，<span class="arithmatex">\(s\)</span> 为内在维度 <em>intrinsic dimension</em> 。在统计学视角下，<span class="arithmatex">\(\mathcal{X}\)</span> 可以看作是 <span class="arithmatex">\(\mathbb{R}^D\)</span> 中随机向量 <span class="arithmatex">\(\vec{X}\)</span> 的采样集。如果 <span class="arithmatex">\(\vec{X}\)</span> 被 <span class="arithmatex">\(s\)</span> 个独立变量控制，即存在可逆解析函数
 $$
 f:\mathbb{R}^s\to \mathbb{R}^D,f(\vec{Y})=\vec{X}
 $$
-则随机向量 $\vec{X}$ 具有内在维度 $s$ 。</p>
+则随机向量 <span class="arithmatex">\(\vec{X}\)</span> 具有内在维度 <span class="arithmatex">\(s\)</span> 。</p>
 <blockquote>
 <blockquote>
 <p>降维过程可以看作是在寻找高维数据点的低维参数化。</p>
@@ -14831,46 +14833,46 @@ $$
 <h4 id="_9">内在维度估计</h4>
 <p>理论上，一个有限的数据集可以嵌入到许多不同维度的流行上，这取决于数据上定义的几何结构。例如下面数据集可以嵌入平面或一维曲线</p>
 <p><img alt="" src="image-20251023222855216.png|400" /></p>
-<p>最简单的流形是线性的，称为超平面 <em>hyperplane</em> 。对于数据集 $\mathcal{X}\subset \mathbb{R}^D$，所有使得 $\mathcal{X}\subset S$ 的超平面的 $S$ 的最低维度 $s$ 称为 $\mathcal{X}$ 的线性内在维度。从 $\mathbb{R}^s$ 到 $S$ 的正交 (o.g.) 嵌入表示为线性算子
+<p>最简单的流形是线性的，称为超平面 <em>hyperplane</em> 。对于数据集 <span class="arithmatex">\(\mathcal{X}\subset \mathbb{R}^D\)</span>，所有使得 <span class="arithmatex">\(\mathcal{X}\subset S\)</span> 的超平面的 <span class="arithmatex">\(S\)</span> 的最低维度 <span class="arithmatex">\(s\)</span> 称为 <span class="arithmatex">\(\mathcal{X}\)</span> 的线性内在维度。从 <span class="arithmatex">\(\mathbb{R}^s\)</span> 到 <span class="arithmatex">\(S\)</span> 的正交 (o.g.) 嵌入表示为线性算子
 $$
 T:\mathbb{R}^s\to S,\vec{x}=T(\vec{y})=U\vec{y}+\vec{x}<em>{0}
 $$
-其中 $U$ 是正交变换，$\vec{x}</em>{0}$ 是 $S$ 到原点的最近点。若 $S$ 是 $\mathbb{R}^D$ 的子空间，则 $\vec{x}<em>{0}=0$ 。不妨设
+其中 <span class="arithmatex">\(U\)</span> 是正交变换，<span class="arithmatex">\(\vec{x}_{0}\)</span> 是 <span class="arithmatex">\(S\)</span> 到原点的最近点。若 <span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(\mathbb{R}^D\)</span> 的子空间，则 <span class="arithmatex">\(\vec{x}_{0}=0\)</span> 。不妨设
 $$
 \vec{x}</em>{0}=0,\quad U=(\vec{u}<em>{1},\cdots,\vec{u}</em>{s})
 $$
-则 $\vec{y}$ 是 $\vec{x}$ 在 $U$ 列向量构成的基下的坐标。由于正交变换保欧氏距离，因此若数据集具有全局欧氏几何时，其内在维度对应某个超平面，映射 $T$ 给出线性降维。</p>
+则 <span class="arithmatex">\(\vec{y}\)</span> 是 <span class="arithmatex">\(\vec{x}\)</span> 在 <span class="arithmatex">\(U\)</span> 列向量构成的基下的坐标。由于正交变换保欧氏距离，因此若数据集具有全局欧氏几何时，其内在维度对应某个超平面，映射 <span class="arithmatex">\(T\)</span> 给出线性降维。</p>
 <blockquote>
 <blockquote>
 <p>如果数据集具有非线性几何结构，则线性内在维度不能反映真实维度。</p>
 </blockquote>
 </blockquote>
-<p>根据流形理论，若流形 $M\subset \mathbb{R}^D$ 具有维度 $s&lt;D$，则 $M$ 中任意点的邻域同构于 $\mathbb{R}^s$ 。因此可以通过邻近结构估计内在维度。流形维数也可以表示为拓扑维数 <em>topological dimension</em> 。已知 $s$ 维集合 $\mathcal{X}$ 可以被开球覆盖，使得每个点至多属于 $s+1$ 个开球。于是可以定义</p>
+<p>根据流形理论，若流形 <span class="arithmatex">\(M\subset \mathbb{R}^D\)</span> 具有维度 <span class="arithmatex">\(s&lt;D\)</span>，则 <span class="arithmatex">\(M\)</span> 中任意点的邻域同构于 <span class="arithmatex">\(\mathbb{R}^s\)</span> 。因此可以通过邻近结构估计内在维度。流形维数也可以表示为拓扑维数 <em>topological dimension</em> 。已知 <span class="arithmatex">\(s\)</span> 维集合 <span class="arithmatex">\(\mathcal{X}\)</span> 可以被开球覆盖，使得每个点至多属于 <span class="arithmatex">\(s+1\)</span> 个开球。于是可以定义</p>
 <blockquote>
 <p>[!definition]
-拓扑空间 $S$ 的子集 $\mathcal{X}$ 具有 $s_{topo}$ 拓扑维度或 Lebesgue 覆盖维度，如果 $\mathcal{X}$ 的每个覆盖 $\mathcal{O}$ 具有细化 $\mathcal{O}'$，使得 $\mathcal{X}$ 中的每个点被 $\mathcal{O}'$ 中至多 $s+1$ 个开集覆盖，并且 $s$ 是最小的满足此条件的整数。</p>
+拓扑空间 <span class="arithmatex">\(S\)</span> 的子集 <span class="arithmatex">\(\mathcal{X}\)</span> 具有 <span class="arithmatex">\(s_{topo}\)</span> 拓扑维度或 Lebesgue 覆盖维度，如果 <span class="arithmatex">\(\mathcal{X}\)</span> 的每个覆盖 <span class="arithmatex">\(\mathcal{O}\)</span> 具有细化 <span class="arithmatex">\(\mathcal{O}'\)</span>，使得 <span class="arithmatex">\(\mathcal{X}\)</span> 中的每个点被 <span class="arithmatex">\(\mathcal{O}'\)</span> 中至多 <span class="arithmatex">\(s+1\)</span> 个开集覆盖，并且 <span class="arithmatex">\(s\)</span> 是最小的满足此条件的整数。</p>
 </blockquote>
-<p>拓扑维度估计方法通常先在数据集上定义一个邻域结构。如果每个邻域可以在一个容差范围内投影到一个 $s$ 维空间，则数据集的内在维度维 $s$，于是我们可以在不损失任何信息的情况下降到 $s$ 维。</p>
+<p>拓扑维度估计方法通常先在数据集上定义一个邻域结构。如果每个邻域可以在一个容差范围内投影到一个 <span class="arithmatex">\(s\)</span> 维空间，则数据集的内在维度维 <span class="arithmatex">\(s\)</span>，于是我们可以在不损失任何信息的情况下降到 <span class="arithmatex">\(s\)</span> 维。</p>
 <h4 id="_10">关联维度</h4>
-<p>最流行的分形维数是关联维度 <em>correlation dimension</em> 。由于 $s$ 维球体积与 $r^s$ 成正比，因此如果 $M$ 是 $\mathbb{R}^D$ 中的 $s$ 维流形，则 $x\in M$ 的 $r$ 邻域体积与 $r^s$ 成正比。设 $\mathcal{X}={\vec{x}_{i}}\subset \mathbb{R}^D$，其中点均匀分布在 $s$ 维流形上，则距离不超过 $r$ 的点对数量与 $r^s$ 成正比。于是</p>
+<p>最流行的分形维数是关联维度 <em>correlation dimension</em> 。由于 <span class="arithmatex">\(s\)</span> 维球体积与 <span class="arithmatex">\(r^s\)</span> 成正比，因此如果 <span class="arithmatex">\(M\)</span> 是 <span class="arithmatex">\(\mathbb{R}^D\)</span> 中的 <span class="arithmatex">\(s\)</span> 维流形，则 <span class="arithmatex">\(x\in M\)</span> 的 <span class="arithmatex">\(r\)</span> 邻域体积与 <span class="arithmatex">\(r^s\)</span> 成正比。设 <span class="arithmatex">\(\mathcal{X}=\{\vec{x}_{i}\}\subset \mathbb{R}^D\)</span>，其中点均匀分布在 <span class="arithmatex">\(s\)</span> 维流形上，则距离不超过 <span class="arithmatex">\(r\)</span> 的点对数量与 <span class="arithmatex">\(r^s\)</span> 成正比。于是</p>
 <blockquote>
 <p>[!definition]
-令 $M\subset \mathbb{R}^D$ 是 $s$ 维流形。设可数集 $\mathcal{Z}={\vec{z}<em>{i}}$ 位于 $M$ 上。记 $\mathcal{Z}</em>{n}={\vec{z}<em>{i}}</em>{i=1}^n\subset \mathcal{Z}$，则
+令 <span class="arithmatex">\(M\subset \mathbb{R}^D\)</span> 是 <span class="arithmatex">\(s\)</span> 维流形。设可数集 <span class="arithmatex">\(\mathcal{Z}=\{\vec{z}_{i}\}\)</span> 位于 <span class="arithmatex">\(M\)</span> 上。记 <span class="arithmatex">\(\mathcal{Z}_{n}=\{\vec{z}_{i}\}_{i=1}^n\subset \mathcal{Z}\)</span>，则
 $$
 C_{n}(r) = \frac{2}{n(n-1)}\sum_{i=1}^n\sum_{j=i+1}^n\chi_{{d(\vec{z}<em>{i},\vec{z}</em>{j})&lt;r}},\quad \vec{z}<em>{i},\vec{z}</em>{j}\in\mathcal{Z}<em>{n}
 $$
-其中 $\chi$ 是指示器函数。设 $C(r)=\lim</em>{ n \to \infty }C_{n}(r)$，定义
+其中 <span class="arithmatex">\(\chi\)</span> 是指示器函数。设 <span class="arithmatex">\(C(r)=\lim_{ n \to \infty }C_{n}(r)\)</span>，定义
 $$
-d_{corr}=\lim_{ r \to 0 } \frac{\log C(r)}{\log r}
+d</em>{corr}=\lim_{ r \to 0 } \frac{\log C(r)}{\log r}
 $$
-为 $\mathcal{Z}$ 的关联维度。</p>
+为 <span class="arithmatex">\(\mathcal{Z}\)</span> 的关联维度。</p>
 </blockquote>
-<p>显然 $C_{n}(r)$ 度量了有限数据集中两两距离不超过 $r$ 的点对数。</p>
+<p>显然 <span class="arithmatex">\(C_{n}(r)\)</span> 度量了有限数据集中两两距离不超过 <span class="arithmatex">\(r\)</span> 的点对数。</p>
 <h4 id="_11">容量维度</h4>
-<p>如果流形上的数据分布不均匀，则关联维度会严重低估拓扑维数。给定度量空间 $\mathcal{X}$，子集 $\hat{X}\subset \mathcal{X}$ 的 $r$ 覆盖数 $N(r)$ 定义为覆盖 $\hat{X}$ 所需的开球 $B(\vec{x};r)$ 的最小数量。同样有 $N(r)$ 与 $r^s$ 成正比。</p>
+<p>如果流形上的数据分布不均匀，则关联维度会严重低估拓扑维数。给定度量空间 <span class="arithmatex">\(\mathcal{X}\)</span>，子集 <span class="arithmatex">\(\hat{X}\subset \mathcal{X}\)</span> 的 <span class="arithmatex">\(r\)</span> 覆盖数 <span class="arithmatex">\(N(r)\)</span> 定义为覆盖 <span class="arithmatex">\(\hat{X}\)</span> 所需的开球 <span class="arithmatex">\(B(\vec{x};r)\)</span> 的最小数量。同样有 <span class="arithmatex">\(N(r)\)</span> 与 <span class="arithmatex">\(r^s\)</span> 成正比。</p>
 <blockquote>
 <p>[!definition]
-度量空间 $\mathcal{X}$ 的子集 $\hat{X}$ 的容量维度为
+度量空间 <span class="arithmatex">\(\mathcal{X}\)</span> 的子集 <span class="arithmatex">\(\hat{X}\)</span> 的容量维度为
 $$
 d_{capa} = \lim_{ r \to 0 }  \frac{\log N(r)}{\log r}
 $$</p>
@@ -14943,6 +14945,12 @@ $$</p>
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

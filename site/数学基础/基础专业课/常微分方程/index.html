@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -5238,7 +5240,7 @@
   <a href="#y" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可解出 $y$ 的微分方程
+        可解出 \(y\) 的微分方程
       
     </span>
   </a>
@@ -5249,7 +5251,7 @@
   <a href="#x" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可解出 $x$ 的微分方程
+        可解出 \(x\) 的微分方程
       
     </span>
   </a>
@@ -14681,7 +14683,7 @@
   <a href="#y" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可解出 $y$ 的微分方程
+        可解出 \(y\) 的微分方程
       
     </span>
   </a>
@@ -14692,7 +14694,7 @@
   <a href="#x" class="md-nav__link">
     <span class="md-ellipsis">
       
-        可解出 $x$ 的微分方程
+        可解出 \(x\) 的微分方程
       
     </span>
   </a>
@@ -14980,9 +14982,9 @@
 $$
 \frac{dy}{dx} = p(x)y+q(x)
 $$
-若 $q(x)\neq 0$，称为非齐次微分方程；否则，称为齐次微分方程。</p>
+若 <span class="arithmatex">\(q(x)\neq 0\)</span>，称为非齐次微分方程；否则，称为齐次微分方程。</p>
 <h4 id="_4">通解</h4>
-<p>若 $q= 0$，则可以变量分离
+<p>若 <span class="arithmatex">\(q= 0\)</span>，则可以变量分离
 $$
 \frac{1}{y}dy = pdx
 $$
@@ -14994,11 +14996,11 @@ $$
 $$
 y = Ce^{\int pdx}
 $$
-若 $q\neq 0$，首先移项得到
+若 <span class="arithmatex">\(q\neq 0\)</span>，首先移项得到
 $$
 y'-py = q
 $$
-假设 $q= 0$，则根据齐次方程的解形式，有
+假设 <span class="arithmatex">\(q= 0\)</span>，则根据齐次方程的解形式，有
 $$
 ye^{-\int pdx}=C
 $$
@@ -15006,7 +15008,7 @@ $$
 $$
 (ye^{-\int pdx})'=(y'-py)e^{-\int pdx}=0
 $$
-这启发我们在原方程两端同乘 $e^{-\int pdx}$ 得到
+这启发我们在原方程两端同乘 <span class="arithmatex">\(e^{-\int pdx}\)</span> 得到
 $$
 \left( ye^{-\int pdx} \right)' = qe^{-\int p dx}
 $$
@@ -15026,13 +15028,13 @@ $$
 $$
 Y = \int gdx
 $$
-再将 $Y$ 中关于 $x$ 的部分移到右端得到 $y$ 的表达式。</p>
+再将 <span class="arithmatex">\(Y\)</span> 中关于 <span class="arithmatex">\(x\)</span> 的部分移到右端得到 <span class="arithmatex">\(y\)</span> 的表达式。</p>
 <h4 id="_5">常数变易法</h4>
-<p>由于非齐次方程的解将齐次方程的解 $Ce^{\int pdx}$ 中的常数 $C$ 变为 $C(x)$ 。常数变易法考虑解形式
+<p>由于非齐次方程的解将齐次方程的解 <span class="arithmatex">\(Ce^{\int pdx}\)</span> 中的常数 <span class="arithmatex">\(C\)</span> 变为 <span class="arithmatex">\(C(x)\)</span> 。常数变易法考虑解形式
 $$
 y(x)=C(x)y_{1}(x),\quad \frac{dy_{1}}{dx}=p(x)y_{1}
 $$
-其中 $y_{1}$ 是齐次方程的解。将解形式代入非齐次方程
+其中 <span class="arithmatex">\(y_{1}\)</span> 是齐次方程的解。将解形式代入非齐次方程
 $$
 C'y_{1}+Cy_{1}' = pCy_{1}+q
 $$
@@ -15040,7 +15042,7 @@ $$
 $$
 C' =  \frac{q}{y_{1}} \implies C = \int \frac{q}{y_{1}}dx+C_{1}
 $$
-容易验证 $y_{1}=e^{\int pdx}$ 时，$y=Cy_{1}$ 就是非齐次方程的特解，于是
+容易验证 <span class="arithmatex">\(y_{1}=e^{\int pdx}\)</span> 时，<span class="arithmatex">\(y=Cy_{1}\)</span> 就是非齐次方程的特解，于是
 $$
 y^* = y+y_{1}
 $$
@@ -15059,22 +15061,22 @@ $$
 $$
 G(x,y)=\int \frac{1}{g(y)}dy - \int f(x)dx +C = 0
 $$
-根据隐函数定理解出 $y(x)$ 。注意若存在 $y_{0}$ 使得 $g(y_{0})=0$，则 $y=y_{0}$ 显然是解，称为平衡点或奇点。</p>
+根据隐函数定理解出 <span class="arithmatex">\(y(x)\)</span> 。注意若存在 <span class="arithmatex">\(y_{0}\)</span> 使得 <span class="arithmatex">\(g(y_{0})=0\)</span>，则 <span class="arithmatex">\(y=y_{0}\)</span> 显然是解，称为平衡点或奇点。</p>
 <blockquote>
 <blockquote>
-<p>还需要考虑解的存在区间，避免 $g(y)=0$ 的情况。</p>
+<p>还需要考虑解的存在区间，避免 <span class="arithmatex">\(g(y)=0\)</span> 的情况。</p>
 </blockquote>
 </blockquote>
 <h4 id="_8">齐次方程</h4>
-<p>设 $f(x,y)$ 是零次齐次函数，即 $f(tx,ty)=f(x,y),t\neq 0$，则
+<p>设 <span class="arithmatex">\(f(x,y)\)</span> 是零次齐次函数，即 <span class="arithmatex">\(f(tx,ty)=f(x,y),t\neq 0\)</span>，则
 $$
 \frac{dy}{dx} = f(x,y)
 $$
-称为齐次方程。若 $x\neq 0$，则可以重写为
+称为齐次方程。若 <span class="arithmatex">\(x\neq 0\)</span>，则可以重写为
 $$
 \frac{dy}{dx} = f\left( 1,\frac{y}{x} \right) = g\left( \frac{y}{x} \right)
 $$
-做代换 $u=\frac{y}{x}$，则
+做代换 <span class="arithmatex">\(u=\frac{y}{x}\)</span>，则
 $$
 g(u)=\frac{dy}{dx} = \frac{d(ux)}{dx} = x\frac{du}{dx}+u
 $$
@@ -15083,22 +15085,22 @@ $$
 $$
 y' = f\left( \frac{ax+by+c_{1}}{cx+dy+c_{2}} \right)
 $$
-首先计算分子分母对应直线的交点 $(\alpha,\beta)$，满足
+首先计算分子分母对应直线的交点 <span class="arithmatex">\((\alpha,\beta)\)</span>，满足
 $$
 \begin{cases}
 a\alpha+b\beta=-c_{1} \
 c\alpha+d\beta=-c_{2}
 \end{cases}
 $$
-然后做变量代换 $\xi=x-\alpha,\eta=y-\beta$ 得到
+然后做变量代换 <span class="arithmatex">\(\xi=x-\alpha,\eta=y-\beta\)</span> 得到
 $$
 \eta' = f\left( \frac{a\xi+b\eta}{c\xi+d\eta} \right)
 $$
-进一步代换 $u=\frac{\eta}{\xi},\eta=u\xi$ 得到
+进一步代换 <span class="arithmatex">\(u=\frac{\eta}{\xi},\eta=u\xi\)</span> 得到
 $$
 \xi \frac{du}{dx}+u \frac{d\xi}{dx} = f\left( \frac{a+bu}{c+du} \right) = g(u)
 $$
-注意到 $\frac{d\xi}{dx}=1$，则
+注意到 <span class="arithmatex">\(\frac{d\xi}{dx}=1\)</span>，则
 $$
 (x-\alpha) \frac{du}{dx} = g(u)-u
 $$
@@ -15117,7 +15119,7 @@ $$
 M(x,y)dx+N(x,y)dy=0
 $$
 称为恰当方程或全微分方程。</p>
-<p>若 $F$ 具有二阶连续偏导，则
+<p>若 <span class="arithmatex">\(F\)</span> 具有二阶连续偏导，则
 $$
 \frac{\partial M}{\partial y}= \frac{\partial^2F}{\partial x\partial y} = \frac{\partial^2F}{\partial y\partial x} = \frac{\partial N}{\partial x}
 $$
@@ -15125,7 +15127,7 @@ $$
 $$
 F(x,y) = \int_{L} M(x,y)dx+N(x,y)dy
 $$
-成立，且与路径 $L$ 无关，则可以取矩形路径
+成立，且与路径 <span class="arithmatex">\(L\)</span> 无关，则可以取矩形路径
 $$
 \begin{aligned}
 (x_{0},y_{0})\to(x_{0},y)\to(x,y):\int_{x_{0}}^xM(s,y)ds+\int_{y_{0}}^yN(x_{0},t)dt &amp;= C\
@@ -15141,22 +15143,22 @@ $$
 $$
 \psi'(y) = N(x,y)-\int\frac{\partial M}{\partial y}dx
 $$
-计算 $\psi(y)$ 。</p>
+计算 <span class="arithmatex">\(\psi(y)\)</span> 。</p>
 <h4 id="_10">积分因子法</h4>
 <p>非恰当方程可以通过添加非零因子函数变为恰当方程。于是</p>
 <blockquote>
 <p>[!definition]
-若存在非零因子 $\mu(x,y)$ 使得
+若存在非零因子 <span class="arithmatex">\(\mu(x,y)\)</span> 使得
 $$
 \mu(x,y)M(x,y)dx+\mu(x,y)N(x,y)dy=0
 $$
-成为恰当方程，则称 $\mu(x,y)$ 是该方程的积分因子。</p>
+成为恰当方程，则称 <span class="arithmatex">\(\mu(x,y)\)</span> 是该方程的积分因子。</p>
 </blockquote>
-<p>若 $\mu(x,y)$ 是积分因子，$f(x,y)=C$ 是方程的解，则对任意连续函数 $F(\xi)$ 有
+<p>若 <span class="arithmatex">\(\mu(x,y)\)</span> 是积分因子，<span class="arithmatex">\(f(x,y)=C\)</span> 是方程的解，则对任意连续函数 <span class="arithmatex">\(F(\xi)\)</span> 有
 $$
 \mu F(f)(Mdx+Ndy) = F(f)(\mu Mdx+\mu Ndy) = F(f)df = dF
 $$
-因此 $\mu F(f)$ 是积分因子，对应的解是 $F(f)=C$ 。这意味着存在无穷多个积分因子。</p>
+因此 <span class="arithmatex">\(\mu F(f)\)</span> 是积分因子，对应的解是 <span class="arithmatex">\(F(f)=C\)</span> 。这意味着存在无穷多个积分因子。</p>
 <p>根据这一构造，我们可以考虑将方程分成两部分
 $$
 \begin{cases}
@@ -15164,14 +15166,14 @@ M_{1}dx+N_{1}dy=0 \
 M_{2}dx+N_{2}dy=0
 \end{cases}
 $$
-如果分别有积分因子 $\mu_{1},\mu_{2}$，以及对应的解 $f_{1}=C_{1},f_{2}=C_{2}$，即
+如果分别有积分因子 <span class="arithmatex">\(\mu_{1},\mu_{2}\)</span>，以及对应的解 <span class="arithmatex">\(f_{1}=C_{1},f_{2}=C_{2}\)</span>，即
 $$
 \begin{cases}
 df_{1} = \mu_{1}(M_{1}dx+N_{1}dy) \
 df_{2}= \mu_{2}(M_{2}dx+N_{2}dy)
 \end{cases}
 $$
-对任意可微函数 $F_{1}(\xi),F_{2}(\xi)$ 有 $\mu_{1}F_{1}(f_{1}),\mu_{2}F_{2}(f_{2})$ 是积分因子，对应的解是 $F_{1}(f_{1}),F_{2}(f_{2})$，则如果
+对任意可微函数 <span class="arithmatex">\(F_{1}(\xi),F_{2}(\xi)\)</span> 有 <span class="arithmatex">\(\mu_{1}F_{1}(f_{1}),\mu_{2}F_{2}(f_{2})\)</span> 是积分因子，对应的解是 <span class="arithmatex">\(F_{1}(f_{1}),F_{2}(f_{2})\)</span>，则如果
 $$
 \mu_{1}F_{1}(f_{1})=\mu_{2}F_{2}(f_{2})
 $$
@@ -15179,7 +15181,7 @@ $$
 $$
 (M_{1}+M_{2})dx+(N_{1}+N_{2})dy=0
 $$
-以 $\mu_{1}F_{1}(f_{1})$ 为积分因子。</p>
+以 <span class="arithmatex">\(\mu_{1}F_{1}(f_{1})\)</span> 为积分因子。</p>
 <blockquote>
 <blockquote>
 <p>其实这相当于找到两个部分的相同积分因子作为两者之和的积分因子。</p>
@@ -15190,22 +15192,22 @@ $$
 \frac{\partial \mu N}{\partial x} = \frac{\partial \mu M}{\partial y} \implies 
 \frac{1}{\mu}\left( N \frac{\partial \mu}{\partial x}-M  \frac{\partial \mu}{\partial y} \right) = \frac{\partial M}{\partial y}- \frac{\partial N}{\partial x}
 $$
-于是上述等式成立是 $\mu(x,y)$ 作为积分因子的充要条件。虽然这个方程很难求解，但是我们只需要一个积分因子，所以可以考虑特殊情况。例如设 $\mu(x,y)=\mu(x)$，则
+于是上述等式成立是 <span class="arithmatex">\(\mu(x,y)\)</span> 作为积分因子的充要条件。虽然这个方程很难求解，但是我们只需要一个积分因子，所以可以考虑特殊情况。例如设 <span class="arithmatex">\(\mu(x,y)=\mu(x)\)</span>，则
 $$
 \frac{1}{\mu} \frac{d\mu}{dx} = \frac{\frac{\partial M}{\partial y}- \frac{\partial N}{\partial x}}{N}
 $$
-如果右端是仅与 $x$ 相关的函数，则可以变量分离求解。</p>
+如果右端是仅与 <span class="arithmatex">\(x\)</span> 相关的函数，则可以变量分离求解。</p>
 <h4 id="_11">重要的非线性微分方程</h4>
-<p><strong>Bernoulli 方程</strong> 形如 $y'+g(x)y+h(x)y^\alpha=0,\alpha\neq 0,1$，具有积分因子 $(1-\alpha)y^{-\alpha}$，于是
+<p><strong>Bernoulli 方程</strong> 形如 <span class="arithmatex">\(y'+g(x)y+h(x)y^\alpha=0,\alpha\neq 0,1\)</span>，具有积分因子 <span class="arithmatex">\((1-\alpha)y^{-\alpha}\)</span>，于是
 $$
 (y^{1-\alpha})'+(1-\alpha)gy^{1-\alpha}+(1-\alpha)h=0
 $$
-令 $z=y^{1-\alpha}$ 得到一阶线性微分方程
+令 <span class="arithmatex">\(z=y^{1-\alpha}\)</span> 得到一阶线性微分方程
 $$
 z'+(1-\alpha)gz+(1-\alpha)h = 0
 $$
-于是只要 $z\neq 0$，则 $y=z^{1/(1-\alpha)}$ 是方程的解。显然，当 $\alpha&gt;0$ 时，$y=0$ 也是解。</p>
-<p><strong>Riccati 方程</strong> 形如 $y'+g(x)y+h(x)y^2=k(x)$，它在诸多应用中都有出现，但是一般很难求解。设 $\phi$ 是一个特解，令 $u=y-\phi$，则
+于是只要 <span class="arithmatex">\(z\neq 0\)</span>，则 <span class="arithmatex">\(y=z^{1/(1-\alpha)}\)</span> 是方程的解。显然，当 <span class="arithmatex">\(\alpha&gt;0\)</span> 时，<span class="arithmatex">\(y=0\)</span> 也是解。</p>
+<p><strong>Riccati 方程</strong> 形如 <span class="arithmatex">\(y'+g(x)y+h(x)y^2=k(x)\)</span>，它在诸多应用中都有出现，但是一般很难求解。设 <span class="arithmatex">\(\phi\)</span> 是一个特解，令 <span class="arithmatex">\(u=y-\phi\)</span>，则
 $$
 u'+(g+2\phi h)u+hu^2=0
 $$
@@ -15215,7 +15217,7 @@ $$
 $$
 F(x,y,y') = 0
 $$
-将 $F(x,y,z)$ 看作空间曲面，满足
+将 <span class="arithmatex">\(F(x,y,z)\)</span> 看作空间曲面，满足
 $$
 \begin{cases}
 x=x(s,t) \
@@ -15223,7 +15225,7 @@ y=y(s,t) \
 z=z(s,t)
 \end{cases}
 $$
-我们尝试找到参数域上的曲线 $s=s(t)$，使得
+我们尝试找到参数域上的曲线 <span class="arithmatex">\(s=s(t)\)</span>，使得
 $$
 \frac{dy}{dx} = z(s(t),t) \implies dy(s(t),t)=z(s(t),t)dx(s(t),t)
 $$
@@ -15234,13 +15236,13 @@ x=x(s(t),t) \
 y=y(s(t),t)
 \end{cases}
 $$
-解出的 $y=y(x)$ 是方程的解。</p>
-<h4 id="y">可解出 $y$ 的微分方程</h4>
+解出的 <span class="arithmatex">\(y=y(x)\)</span> 是方程的解。</p>
+<h4 id="y">可解出 <span class="arithmatex">\(y\)</span> 的微分方程</h4>
 <p>若方程可表示为
 $$
 y=f(x,y')
 $$
-记 $z=y'$，则 $F(x,y,z)=0$ 有参数表示
+记 <span class="arithmatex">\(z=y'\)</span>，则 <span class="arithmatex">\(F(x,y,z)=0\)</span> 有参数表示
 $$
 \begin{cases}
 x=x \
@@ -15248,21 +15250,21 @@ y=f(x,z) \
 z=z
 \end{cases}
 $$
-由 $dy=zdx$ 得到
+由 <span class="arithmatex">\(dy=zdx\)</span> 得到
 $$
 f_{x}dx+f_{z}dz=zdx \implies (f_{x}-z)dx+f_{z}dz=0
 $$
-若该方程有解 $z=z(x)$，则
+若该方程有解 <span class="arithmatex">\(z=z(x)\)</span>，则
 $$
 y = f(x,z(x))
 $$
 就是方程的解。</p>
 <blockquote>
 <blockquote>
-<p>注意不需要求解 $\frac{dy}{dx}=z(x)$ 计算 $y$，而是直接用 $f(x,z(x))$ 作为解。因为 $z(x)$ 中原本就带有一个常数 $C$，求解前者会得到 $Cx+C'$，这是二阶微分方程 $y'=f_{x}+f_{z}z'=f_{x}+f_{z}y''$ 的解。</p>
+<p>注意不需要求解 <span class="arithmatex">\(\frac{dy}{dx}=z(x)\)</span> 计算 <span class="arithmatex">\(y\)</span>，而是直接用 <span class="arithmatex">\(f(x,z(x))\)</span> 作为解。因为 <span class="arithmatex">\(z(x)\)</span> 中原本就带有一个常数 <span class="arithmatex">\(C\)</span>，求解前者会得到 <span class="arithmatex">\(Cx+C'\)</span>，这是二阶微分方程 <span class="arithmatex">\(y'=f_{x}+f_{z}z'=f_{x}+f_{z}y''\)</span> 的解。</p>
 </blockquote>
 </blockquote>
-<h4 id="x">可解出 $x$ 的微分方程</h4>
+<h4 id="x">可解出 <span class="arithmatex">\(x\)</span> 的微分方程</h4>
 <p>若方程可表示为
 $$
 x=f(y,y')
@@ -15271,7 +15273,7 @@ $$
 $$
 y=f(x,y')
 $$
-记 $z=y'$，则 $F(x,y,z)=0$ 有参数表示
+记 <span class="arithmatex">\(z=y'\)</span>，则 <span class="arithmatex">\(F(x,y,z)=0\)</span> 有参数表示
 $$
 \begin{cases}
 x=f(y,z) \
@@ -15279,15 +15281,15 @@ y=y \
 z=z
 \end{cases}
 $$
-由 $dy=zdx$ 得到
+由 <span class="arithmatex">\(dy=zdx\)</span> 得到
 $$
 f_{y}z+f_{z}z' = 1
 $$
-利用 $z'=\frac{dz}{dy} \frac{dy}{dx}=z \frac{dz}{dy}$ 得到
+利用 <span class="arithmatex">\(z'=\frac{dz}{dy} \frac{dy}{dx}=z \frac{dz}{dy}\)</span> 得到
 $$
 f_{y}z+f_{z} z\frac{dz}{dy} =1
 $$
-若该方程有解 $z=z(y)$，则
+若该方程有解 <span class="arithmatex">\(z=z(y)\)</span>，则
 $$
 x = f(y,z(y))
 $$
@@ -15297,7 +15299,7 @@ $$
 $$
 y^2+y'^2=1
 $$
-注意 $F(x,y,z)=y^2+z^2-1=0$ 的结构，可以取参数表示
+注意 <span class="arithmatex">\(F(x,y,z)=y^2+z^2-1=0\)</span> 的结构，可以取参数表示
 $$
 \begin{cases}
 x=s \
@@ -15305,22 +15307,22 @@ y=\sin t \
 z=\cos t
 \end{cases}
 $$
-由 $dy=zdx$ 得到 $\cos tdt=\cos tds$，因此 $\cos t=0$ 或 $dt=ds$，解得
+由 <span class="arithmatex">\(dy=zdx\)</span> 得到 <span class="arithmatex">\(\cos tdt=\cos tds\)</span>，因此 <span class="arithmatex">\(\cos t=0\)</span> 或 <span class="arithmatex">\(dt=ds\)</span>，解得
 $$
 t = k\pi+\frac{\pi}{2},k\in \mathbb{N}\quad \mathrm{or}\quad s=t+C 
 $$
-进而 $y=\sin(x+C)$ 或 $y=\pm 1$ 是两个解。</p>
+进而 <span class="arithmatex">\(y=\sin(x+C)\)</span> 或 <span class="arithmatex">\(y=\pm 1\)</span> 是两个解。</p>
 <h3 id="_14">奇解</h3>
 <h4 id="_15">存在性</h4>
 <blockquote>
 <p>[!definition]
-设 $y=\phi(x)$ 是区间 $J$ 上的一阶微分方程
+设 <span class="arithmatex">\(y=\phi(x)\)</span> 是区间 <span class="arithmatex">\(J\)</span> 上的一阶微分方程
 $$
 F(x,y,y')=0
 $$
-的特解，积分曲线 $\Gamma={(x,\phi(x)):x\in J}$ 上每一点 $M$ 的任意邻域内，存在方程的另一个解在 $M$ 处与 $\Gamma$ 相切，则称 $y=\phi(x)$ 是方程的奇解。</p>
+的特解，积分曲线 <span class="arithmatex">\(\Gamma=\{(x,\phi(x)):x\in J\}\)</span> 上每一点 <span class="arithmatex">\(M\)</span> 的任意邻域内，存在方程的另一个解在 <span class="arithmatex">\(M\)</span> 处与 <span class="arithmatex">\(\Gamma\)</span> 相切，则称 <span class="arithmatex">\(y=\phi(x)\)</span> 是方程的奇解。</p>
 <p>[!theorem] 必要条件
-设 $F(x,y,z)$ 以及 $F_{y},F_{z}$ 在 $G$ 上连续。若 $y=\phi(x),x\in J$ 是奇解，且 $(x,\phi(x),\phi'(x))\in G,x\in J$，则 $y=\phi(x)$ 满足
+设 <span class="arithmatex">\(F(x,y,z)\)</span> 以及 <span class="arithmatex">\(F_{y},F_{z}\)</span> 在 <span class="arithmatex">\(G\)</span> 上连续。若 <span class="arithmatex">\(y=\phi(x),x\in J\)</span> 是奇解，且 <span class="arithmatex">\((x,\phi(x),\phi'(x))\in G,x\in J\)</span>，则 <span class="arithmatex">\(y=\phi(x)\)</span> 满足
 $$
 \begin{cases}
 F(x,y,y')=0 \
@@ -15328,14 +15330,14 @@ F_{z}(x,y,y')=0
 \end{cases}
 $$</p>
 <p>[!theorem] 充分条件
-设 $F(x,y,z)$ 在 $G$ 上二阶连续可微。若求解
+设 <span class="arithmatex">\(F(x,y,z)\)</span> 在 <span class="arithmatex">\(G\)</span> 上二阶连续可微。若求解
 $$
 \begin{cases}
 F(x,y,y')=0 \
 F_{z}(x,y,y')=0
 \end{cases}
 $$
-得到 $y=\phi(x),x\in J$ 是 $F(x,y,y')=0$ 的解，并且
+得到 <span class="arithmatex">\(y=\phi(x),x\in J\)</span> 是 <span class="arithmatex">\(F(x,y,y')=0\)</span> 的解，并且
 $$
 \begin{cases}
 F_{y}(x,\phi,\phi')\neq 0 \
@@ -15343,23 +15345,23 @@ F_{zz}(x,\phi,\phi')\neq 0, &amp; x\in J \
 F_{z}(x,\phi,\phi')=0
 \end{cases}
 $$
-则 $y=\phi(x)$ 是奇解。</p>
+则 <span class="arithmatex">\(y=\phi(x)\)</span> 是奇解。</p>
 </blockquote>
 <h4 id="_16">包络</h4>
 <blockquote>
 <p>[!definition] 
-设单参数 $C$ 的曲线族
+设单参数 <span class="arithmatex">\(C\)</span> 的曲线族
 $$
 K(C):V(x,y,C)=0
 $$
-其中 $V$ 在 $D$ 上连续可微。若对于平面上的连续可微曲线 $\Gamma$，以及任意 $Q\in \Gamma$ 存在 $K(C^*)$ 经过 $Q$ 且与 $\Gamma$ 相切，并且在 $Q$ 的邻域内不同于 $\Gamma$，则称 $\Gamma$ 是 $K(C)$ 的包络。</p>
+其中 <span class="arithmatex">\(V\)</span> 在 <span class="arithmatex">\(D\)</span> 上连续可微。若对于平面上的连续可微曲线 <span class="arithmatex">\(\Gamma\)</span>，以及任意 <span class="arithmatex">\(Q\in \Gamma\)</span> 存在 <span class="arithmatex">\(K(C^*)\)</span> 经过 <span class="arithmatex">\(Q\)</span> 且与 <span class="arithmatex">\(\Gamma\)</span> 相切，并且在 <span class="arithmatex">\(Q\)</span> 的邻域内不同于 <span class="arithmatex">\(\Gamma\)</span>，则称 <span class="arithmatex">\(\Gamma\)</span> 是 <span class="arithmatex">\(K(C)\)</span> 的包络。</p>
 <p>[!theorem] 包络是奇解
-设微分方程 $F(x,y,y')=0$ 有解 $V(x,y,C)=0$，且其包络为 $\Gamma:y=\phi(x)$，则 $y=\phi(x)$ 是方程的奇解。</p>
+设微分方程 <span class="arithmatex">\(F(x,y,y')=0\)</span> 有解 <span class="arithmatex">\(V(x,y,C)=0\)</span>，且其包络为 <span class="arithmatex">\(\Gamma:y=\phi(x)\)</span>，则 <span class="arithmatex">\(y=\phi(x)\)</span> 是方程的奇解。</p>
 </blockquote>
-<p>由于包络上每一点都是 $F=0$ 的解，因此它是奇解。</p>
+<p>由于包络上每一点都是 <span class="arithmatex">\(F=0\)</span> 的解，因此它是奇解。</p>
 <blockquote>
 <p>[!theorem] 必要条件
-设 $\Gamma$ 是 $V$ 的包络，并且
+设 <span class="arithmatex">\(\Gamma\)</span> 是 <span class="arithmatex">\(V\)</span> 的包络，并且
 $$
 \Gamma:
 \begin{cases}
@@ -15367,7 +15369,7 @@ x=f(C) \
 y=g(C)
 \end{cases}
 $$
-中 $f,g$ 对 $C$ 连续可微，则
+中 <span class="arithmatex">\(f,g\)</span> 对 <span class="arithmatex">\(C\)</span> 连续可微，则
 $$
 \begin{cases}
 V(x,y,C)=0 \
@@ -15375,7 +15377,7 @@ V_{C}(x,y,C)=0
 \end{cases}
 $$</p>
 </blockquote>
-<p>只需要证明包络的切向是解的切向，即 $(f',g')$ 与 $(-V_{y},V_{x})$ 共线。</p>
+<p>只需要证明包络的切向是解的切向，即 <span class="arithmatex">\((f',g')\)</span> 与 <span class="arithmatex">\((-V_{y},V_{x})\)</span> 共线。</p>
 <blockquote>
 <p>[!theorem] 充分条件
 设求解
@@ -15385,27 +15387,27 @@ V(x,y,C)=0 \
 V_{C}(x,y,C)=0
 \end{cases}
 $$
-得到的连续可微且不包含于 $V$ 的曲线
+得到的连续可微且不包含于 <span class="arithmatex">\(V\)</span> 的曲线
 $$
 \Gamma:\begin{cases}
 x=f(C) \
 y=g(C)
 \end{cases}
 $$
-满足 $(f',g')\neq 0,(V_{x},V_{y})\neq (0,0)$，则 $\Gamma$ 是 $V$ 的包络。</p>
+满足 <span class="arithmatex">\((f',g')\neq 0,(V_{x},V_{y})\neq (0,0)\)</span>，则 <span class="arithmatex">\(\Gamma\)</span> 是 <span class="arithmatex">\(V\)</span> 的包络。</p>
 </blockquote>
-<p>对 $\Gamma$ 上一点，利用隐函数定理得到 $V(x,y,C)=0$ 在该点的切向 $-\frac{V_{x}}{V_{y}}$，证明 $\Gamma$ 在该点的切向 $(f',g')$ 与其共线。</p>
+<p>对 <span class="arithmatex">\(\Gamma\)</span> 上一点，利用隐函数定理得到 <span class="arithmatex">\(V(x,y,C)=0\)</span> 在该点的切向 <span class="arithmatex">\(-\frac{V_{x}}{V_{y}}\)</span>，证明 <span class="arithmatex">\(\Gamma\)</span> 在该点的切向 <span class="arithmatex">\((f',g')\)</span> 与其共线。</p>
 <h3 id="_17">习题</h3>
-<p>Ex 8. 设 $M(x,y),N(x,y)$ 是 $m$ 次齐次函数，即
+<p>Ex 8. 设 <span class="arithmatex">\(M(x,y),N(x,y)\)</span> 是 <span class="arithmatex">\(m\)</span> 次齐次函数，即
 $$
 M(tx,ty)=t^mM(x,y),\quad N(tx,ty)=t^mN(x,y),\quad m&gt;1,t\neq 0
 $$
-若 $Mdx+Ndy=0$ 是恰当方程，则 $F(x,y)=xM+yN=C$ 是通解。</p>
+若 <span class="arithmatex">\(Mdx+Ndy=0\)</span> 是恰当方程，则 <span class="arithmatex">\(F(x,y)=xM+yN=C\)</span> 是通解。</p>
 <p>首先取全微分得到
 $$
 (M+xM_{x}+yN_{x})dx+(xM_{y}+N+yN_{y})dy=0
 $$
-由恰当方程条件，有 $M_{y}=N_{x}$，代入得到
+由恰当方程条件，有 <span class="arithmatex">\(M_{y}=N_{x}\)</span>，代入得到
 $$
 (M+xM_{x}+yM_{y})dx+(xN_{x}+N+yN_{y})dy=0
 $$
@@ -15416,14 +15418,14 @@ xM_{x}+yM_{y}&amp;=\frac{dM(tx,ty)}{dt}= mt^{m-1}M\
 xN_{x}+yN_{y}&amp;=\frac{dN(tx,ty)}{dt}= mt^{m-1}N\
 \end{aligned}
 $$
-令 $t=1$，代回得到
+令 <span class="arithmatex">\(t=1\)</span>，代回得到
 $$
 (1+m)(Mdx+Ndy) = 0
 $$
-因此 $F(x,y)=C$ 满足恰当方程。</p>
+因此 <span class="arithmatex">\(F(x,y)=C\)</span> 满足恰当方程。</p>
 <blockquote>
 <p>[!theorem] Gronwall
-设 $y(x),A(x)$ 是 $[a,b]$ 上的非负连续函数，存在常数 $C_{0}\geq 0$ 使得
+设 <span class="arithmatex">\(y(x),A(x)\)</span> 是 <span class="arithmatex">\([a,b]\)</span> 上的非负连续函数，存在常数 <span class="arithmatex">\(C_{0}\geq 0\)</span> 使得
 $$
 0\leq y(x)\leq C_{0}+\int_{a}^xA(t)y(t)dt,\quad x\in[a,b]
 $$
@@ -15432,11 +15434,11 @@ $$
 0\leq y(x)\leq C_{0}e^{\int_{a}^xA(t)dt},\quad x\in[a,b]
 $$</p>
 </blockquote>
-<p>设 $f(x)=C_{0}+\int_{a}^xA(t)y(t)dt\geq y(x)$，则有
+<p>设 <span class="arithmatex">\(f(x)=C_{0}+\int_{a}^xA(t)y(t)dt\geq y(x)\)</span>，则有
 $$
 F'=\left( fe^{-\int_{a}^xAdt} \right)' = (f'-Af)e^{-\int_{a}^xAdt} \leq (f'-Ay)e^{-\int_{a}^xAdt} = 0
 $$
-因此 $F(x)$ 单调递减，从而
+因此 <span class="arithmatex">\(F(x)\)</span> 单调递减，从而
 $$
 F(a) \geq F(x) = f(x)e^{-\int_{a}^xA(t)dt}\geq y(x)e^{-\int_{a}^xA(t)dt}
 $$
@@ -15449,38 +15451,38 @@ $$
 <h3 id="_19">一阶微分方程初值问题</h3>
 <blockquote>
 <p>[!definition]
-在区间 $I=[a,b]$ 上给定连续函数列 ${f_{n}(x)}$，若对任意 $\epsilon&gt;0$，存在 $\delta&gt;0$ 使得
+在区间 <span class="arithmatex">\(I=[a,b]\)</span> 上给定连续函数列 <span class="arithmatex">\(\{f_{n}(x)\}\)</span>，若对任意 <span class="arithmatex">\(\epsilon&gt;0\)</span>，存在 <span class="arithmatex">\(\delta&gt;0\)</span> 使得
 $$
 |x-x'|&lt;\delta \implies \forall n,|f_{n}(x)-f_{n}(x')|&lt;\epsilon
 $$
-则称 ${f_{n}(x)}$ 在 $I$ 上等度连续。若存在 $K$ 使得
+则称 <span class="arithmatex">\(\{f_{n}(x)\}\)</span> 在 <span class="arithmatex">\(I\)</span> 上等度连续。若存在 <span class="arithmatex">\(K\)</span> 使得
 $$
 |f_{n}(x)|\leq K,\quad \forall x\in I,\forall n
 $$
-则称 ${f_{n}(x)}$ 在 $I$ 上一致有界。</p>
+则称 <span class="arithmatex">\(\{f_{n}(x)\}\)</span> 在 <span class="arithmatex">\(I\)</span> 上一致有界。</p>
 <p>[!lemma]
-设 $A\subset I$ 稠密。若 ${f_{n}(x)}$ 在 $I$ 上等度连续，且任意 $x\in A$，${f_{n}(x)}$ 收敛，则 ${f_{n}(x)}$ 在 $I$ 上一致收敛且极限函数 $f(x)$ 在 $I$ 上连续。</p>
+设 <span class="arithmatex">\(A\subset I\)</span> 稠密。若 <span class="arithmatex">\(\{f_{n}(x)\}\)</span> 在 <span class="arithmatex">\(I\)</span> 上等度连续，且任意 <span class="arithmatex">\(x\in A\)</span>，<span class="arithmatex">\(\{f_{n}(x)\}\)</span> 收敛，则 <span class="arithmatex">\(\{f_{n}(x)\}\)</span> 在 <span class="arithmatex">\(I\)</span> 上一致收敛且极限函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上连续。</p>
 </blockquote>
-<p>对任意 $x\in I$ 取 $x_{0}\in A,|x-x_{0}|&lt;\delta$，于是
+<p>对任意 <span class="arithmatex">\(x\in I\)</span> 取 <span class="arithmatex">\(x_{0}\in A,|x-x_{0}|&lt;\delta\)</span>，于是
 $$
 \begin{aligned}
 |f_{n}(x)-f_{m}(x)| &amp;\leq |f_{n}(x)-f_{n}(x_{0})|+|f_{n}(x_{0})-f_{m}(x_{0})|+|f_{m}(x_{0})-f_{m}(x)|\
 &amp;\leq \epsilon+\epsilon+\epsilon
 \end{aligned}
 $$
-其中第一、三项利用等度连续，第二项利用 ${f_{n}(x_{0})}$ 收敛。设 $f(x)$ 为极限函数，则
+其中第一、三项利用等度连续，第二项利用 <span class="arithmatex">\(\{f_{n}(x_{0})\}\)</span> 收敛。设 <span class="arithmatex">\(f(x)\)</span> 为极限函数，则
 $$
 \begin{aligned}
 |f(x)-f(x_{0})|&amp;\leq |f(x)-f_{n}(x)|+|f_{n}(x)-f_{n}(x_{0})|+|f_{n}(x_{0})-f(x_{0})|\
 &amp;\leq \epsilon+\epsilon+\epsilon
 \end{aligned}
 $$
-其中第一、三项利用 ${f_{n}(x)},{f_{n}(x_{0})}$ 收敛，第二项利用等度连续。</p>
+其中第一、三项利用 <span class="arithmatex">\(\{f_{n}(x)\},\{f_{n}(x_{0})\}\)</span> 收敛，第二项利用等度连续。</p>
 <blockquote>
 <p>[!theorem] Ascoli-Arzela
-有限闭区间 $I$ 上一致有界、等度连续的函数列 ${f_{n}(x)}$ 至少存在一个 $I$ 上一致收敛的子序列 ${f_{n_{k}}(x)}$，且极限函数 $f(x)$ 在 $I$ 上连续。</p>
+有限闭区间 <span class="arithmatex">\(I\)</span> 上一致有界、等度连续的函数列 <span class="arithmatex">\(\{f_{n}(x)\}\)</span> 至少存在一个 <span class="arithmatex">\(I\)</span> 上一致收敛的子序列 <span class="arithmatex">\(\{f_{n_{k}}(x)\}\)</span>，且极限函数 <span class="arithmatex">\(f(x)\)</span> 在 <span class="arithmatex">\(I\)</span> 上连续。</p>
 </blockquote>
-<p>记 $A={x_{n}}$ 是 $I$ 中所有有理数的集合，则对固定的 $x=x_{1}$，可以从 ${f_{n}(x_{1})}$ 抽出一个收敛的子序列 ${f_{1n}(x_{1})}$，对应的函数列 ${f_{1n}(x)}$ 还是一致有界、等度连续；然后，对固定的 $x=x_{2}$，从 ${f_{1n}(x)}$ 中抽出一个收敛的子序列 ${f_{2n}(x_{2})}$，对应的函数列 ${f_{2n}(x)}$ 还是一致有界、等度连续。进而可以不断抽出函数列 ${f_{mn}(x)}$ 一致有界、等度连续，并且对任意 $x\in A$ 都收敛。取对角线序列 ${f_{nn}(x)}$ 一致有界、等度连续，则根据构造 ${f_{nn}(x_{k})}$ 都收敛，由引理即证。</p>
+<p>记 <span class="arithmatex">\(A=\{x_{n}\}\)</span> 是 <span class="arithmatex">\(I\)</span> 中所有有理数的集合，则对固定的 <span class="arithmatex">\(x=x_{1}\)</span>，可以从 <span class="arithmatex">\(\{f_{n}(x_{1})\}\)</span> 抽出一个收敛的子序列 <span class="arithmatex">\(\{f_{1n}(x_{1})\}\)</span>，对应的函数列 <span class="arithmatex">\(\{f_{1n}(x)\}\)</span> 还是一致有界、等度连续；然后，对固定的 <span class="arithmatex">\(x=x_{2}\)</span>，从 <span class="arithmatex">\(\{f_{1n}(x)\}\)</span> 中抽出一个收敛的子序列 <span class="arithmatex">\(\{f_{2n}(x_{2})\}\)</span>，对应的函数列 <span class="arithmatex">\(\{f_{2n}(x)\}\)</span> 还是一致有界、等度连续。进而可以不断抽出函数列 <span class="arithmatex">\(\{f_{mn}(x)\}\)</span> 一致有界、等度连续，并且对任意 <span class="arithmatex">\(x\in A\)</span> 都收敛。取对角线序列 <span class="arithmatex">\(\{f_{nn}(x)\}\)</span> 一致有界、等度连续，则根据构造 <span class="arithmatex">\(\{f_{nn}(x_{k})\}\)</span> 都收敛，由引理即证。</p>
 <h4 id="peano">Peano 存在性定理</h4>
 <h4 id="picard">Picard 存在唯一性定理</h4>
 <h4 id="cauchy">Cauchy 存在性定理</h4>
@@ -15547,6 +15549,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

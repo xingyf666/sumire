@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -17908,8 +17910,8 @@
 <li>
 <p>逼近</p>
 <ul>
-<li>Geom2dAPI 提供的 PointsToBSpline 类构建近似 2D B 样条曲线。必须定义最低、最高阶数、连续性和公差。生成曲线将为 $C^2$ 连续曲线，除非在曲线通过的点上定义了相切约束，此时将只有 $C^1$ 连续；</li>
-<li>GeomAPI 提供的 PointsToBSpline 类构建近似 3D B 样条曲线。必须定义最低、最高阶数、连续性和公差。生成曲线将为 $C^2$ 连续曲线，除非在曲线通过的点上定义了相切约束，此时将只有 $C^1$ 连续；</li>
+<li>Geom2dAPI 提供的 PointsToBSpline 类构建近似 2D B 样条曲线。必须定义最低、最高阶数、连续性和公差。生成曲线将为 <span class="arithmatex">\(C^2\)</span> 连续曲线，除非在曲线通过的点上定义了相切约束，此时将只有 <span class="arithmatex">\(C^1\)</span> 连续；</li>
+<li>GeomAPI 提供的 PointsToBSpline 类构建近似 3D B 样条曲线。必须定义最低、最高阶数、连续性和公差。生成曲线将为 <span class="arithmatex">\(C^2\)</span> 连续曲线，除非在曲线通过的点上定义了相切约束，此时将只有 <span class="arithmatex">\(C^1\)</span> 连续；</li>
 </ul>
 </li>
 </ul>
@@ -21259,6 +21261,12 @@
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

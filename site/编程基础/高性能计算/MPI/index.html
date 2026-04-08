@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -12402,7 +12404,7 @@
   <a href="#pi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        计算 $\pi$
+        计算 \(\pi\)
       
     </span>
   </a>
@@ -14742,7 +14744,7 @@
   <a href="#pi" class="md-nav__link">
     <span class="md-ellipsis">
       
-        计算 $\pi$
+        计算 \(\pi\)
       
     </span>
   </a>
@@ -15179,7 +15181,7 @@
 <a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a><span class="w">    </span><span class="n">MPI_Send</span><span class="p">(...,</span><span class="mi">0</span><span class="p">,</span><span class="n">tag</span><span class="p">,...);</span>
 <a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a><span class="p">}</span>
 </code></pre></div>
-<h4 id="pi">计算 $\pi$</h4>
+<h4 id="pi">计算 <span class="arithmatex">\(\pi\)</span></h4>
 <p>我们选择求解一个经典的算例，因为
 $$
 \int_0^1\frac{1}{1+x^2}dx = \frac{\pi}{4}
@@ -15188,7 +15190,7 @@ $$
 $$
 \int_0^1\frac{4}{1+x^2}dx = \pi
 $$
-来求得 $\pi$ 值。虽然通过离散化用循环语句就可以求解，但是如果使用多进程操作，就可以减少每个进程上的循环次数。</p>
+来求得 <span class="arithmatex">\(\pi\)</span> 值。虽然通过离散化用循环语句就可以求解，但是如果使用多进程操作，就可以减少每个进程上的循环次数。</p>
 <p>我们先写一个基本的流程</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 <a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mpi.h&quot;</span>
@@ -15613,11 +15615,11 @@ $$
 <a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a><span class="w">    </span><span class="p">}</span>
 <a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a><span class="p">}</span>
 </code></pre></div>
-<p>我们的计划是计算一个 10 x 10 矩阵 $A$ 和 10 x 1 矩阵 $b$ 的乘积，将矩阵 $A$ 的每一行和 $b$ 发送给不同的进程分别计算并返回结果。注意到矩阵 $b$ 总是相同的，因此我们使用广播函数 <code>MPI_Bcase</code> 分发 $b$ </p>
+<p>我们的计划是计算一个 10 x 10 矩阵 <span class="arithmatex">\(A\)</span> 和 10 x 1 矩阵 <span class="arithmatex">\(b\)</span> 的乘积，将矩阵 <span class="arithmatex">\(A\)</span> 的每一行和 <span class="arithmatex">\(b\)</span> 发送给不同的进程分别计算并返回结果。注意到矩阵 <span class="arithmatex">\(b\)</span> 总是相同的，因此我们使用广播函数 <code>MPI_Bcase</code> 分发 <span class="arithmatex">\(b\)</span> </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="c1">// broadcast the matrix b to the slavers</span>
 <a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="n">MPI_Bcast</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">cols</span><span class="p">,</span><span class="w"> </span><span class="n">MPI_DOUBLE</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">MPI_COMM_WORLD</span><span class="p">);</span>
 </code></pre></div>
-<p>接下来，我们根据进程的总数，先将对应数量的 $A$ 的行分发出去</p>
+<p>接下来，我们根据进程的总数，先将对应数量的 <span class="arithmatex">\(A\)</span> 的行分发出去</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span><span class="w">          </span><span class="c1">// record the return</span>
 <a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="kt">double</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">cols</span><span class="p">];</span><span class="w"> </span><span class="c1">// buffer to send</span>
 <a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">sender</span><span class="p">;</span><span class="w">          </span><span class="c1">// id of the process</span>
@@ -15636,7 +15638,7 @@ $$
 <a id="__codelineno-42-16" name="__codelineno-42-16" href="#__codelineno-42-16"></a><span class="p">}</span>
 </code></pre></div>
 <p>这里使用后 <code>numprocess - 1</code> 个从进程进行计算，因此对应 <code>i + 1</code>；而为了能够区分计算结果属于哪一行，我们将行标 <code>i</code> 作为 tag 传送。</p>
-<p>我们用一个死循环重复接收所有进程的消息，利用 status 获得消息来源进程的 id 和 tag，将结果存放到 $x$ 矩阵中。如果已经计算了所有行，就直接退出；否则，由于我们接收到的进程必然是计算完成而空闲的进程，因此将下一行发送给这个进程</p>
+<p>我们用一个死循环重复接收所有进程的消息，利用 status 获得消息来源进程的 id 和 tag，将结果存放到 <span class="arithmatex">\(x\)</span> 矩阵中。如果已经计算了所有行，就直接退出；否则，由于我们接收到的进程必然是计算完成而空闲的进程，因此将下一行发送给这个进程</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="c1">// receive and send again</span>
 <a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nb">true</span><span class="p">)</span>
 <a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="p">{</span>
@@ -15669,7 +15671,7 @@ $$
 <a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="_12">从进程</h4>
-<p>从进程首先要接收矩阵 $b$ 的数据</p>
+<p>从进程首先要接收矩阵 <span class="arithmatex">\(b\)</span> 的数据</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="kt">double</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">cols</span><span class="p">],</span><span class="w"> </span><span class="n">buffer</span><span class="p">[</span><span class="n">cols</span><span class="p">];</span>
 <a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="n">MPI_Status</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
 <a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>
@@ -15910,6 +15912,12 @@ $$
     
     
       <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

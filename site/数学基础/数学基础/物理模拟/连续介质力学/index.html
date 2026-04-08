@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -15010,8 +15012,8 @@
 $$
 x^i = x^i(\xi^1,\xi^2,\xi^3,t)
 $$
-其中 $\xi^i$ 是初始坐标，因此 $x^i$ 实际上是 $\xi^i$ 处的点在 $t$ 时刻的位置，将 $\xi^i,t$ 称为拉格朗日变量。</p>
-<p>在研究变形体力学时，我们希望利用微积分，因此假设连续运动规律中的函数连续可微。当然，许多情况下会产生不连续的运动，例如激波。假设 $x^i$ 在每个 $t$ 时刻都是单值，因此 Jacobi 行列式
+其中 <span class="arithmatex">\(\xi^i\)</span> 是初始坐标，因此 <span class="arithmatex">\(x^i\)</span> 实际上是 <span class="arithmatex">\(\xi^i\)</span> 处的点在 <span class="arithmatex">\(t\)</span> 时刻的位置，将 <span class="arithmatex">\(\xi^i,t\)</span> 称为拉格朗日变量。</p>
+<p>在研究变形体力学时，我们希望利用微积分，因此假设连续运动规律中的函数连续可微。当然，许多情况下会产生不连续的运动，例如激波。假设 <span class="arithmatex">\(x^i\)</span> 在每个 <span class="arithmatex">\(t\)</span> 时刻都是单值，因此 Jacobi 行列式
 $$
 \Delta= 
 \left|\frac{\partial x^i(\xi^1,\xi^2,\xi^3,t)}{\partial(\xi^1,\xi^2,\xi^2)}\right|  \neq 0
@@ -15020,7 +15022,7 @@ $$
 $$
 \xi^i =\xi^i(x^1,x^2,x^3,t)
 $$
-我们将 $x^i$ 称为参考坐标系，而 $\xi^i$ 称为随体坐标系。</p>
+我们将 <span class="arithmatex">\(x^i\)</span> 称为参考坐标系，而 <span class="arithmatex">\(\xi^i\)</span> 称为随体坐标系。</p>
 <ul>
 <li>参考坐标系是固定选取的坐标系</li>
 <li>随体坐标系跟随连续介质运动并拉伸变形，使得连续介质中的点相对随体坐标系不变</li>
@@ -15040,19 +15042,19 @@ $$
 $$
 \frac{\partial \vec{r}}{\partial x^i} = \vec{e}<em>{i},\quad \frac{\partial \vec{r}}{\partial \xi^i}=\hat{e}</em>{i}
 $$
-分别称为参考系和随体坐标系的基矢量。如果 $x^i$ 是笛卡尔坐标系，则记
+分别称为参考系和随体坐标系的基矢量。如果 <span class="arithmatex">\(x^i\)</span> 是笛卡尔坐标系，则记
 $$
 \vec{e}<em>{1}=i,\quad \vec{e}</em>{2}=j,\quad \vec{e}<em>{3}=k
 $$
-分别为沿 $x,y,z$ 的单位矢量。将速度沿着基矢量分解
+分别为沿 <span class="arithmatex">\(x,y,z\)</span> 的单位矢量。将速度沿着基矢量分解
 $$
-\vec{v} = \frac{\partial \vec{r}}{\partial t} = \frac{\partial x^i}{\partial t}\vec{e}</em>{i} = v^i\vec{e}<em>{i}
+\vec{v} = \frac{\partial \vec{r}}{\partial t} = \frac{\partial x^i}{\partial t}\vec{e}</em>{i} = v^i\vec{e}_{i}
 $$
 从而
 $$
 v^i = \frac{\partial x^i(\xi^1,\xi^2,\xi^3,t)}{\partial t}
 $$
-称为 $\vec{v}$ 在基 $\vec{e}</em>{i}$ 下的分量。</p>
+称为 <span class="arithmatex">\(\vec{v}\)</span> 在基 <span class="arithmatex">\(\vec{e}_{i}\)</span> 下的分量。</p>
 <h4 id="_4">静力平衡的思考</h4>
 <p>如果一个系统的重力势能达到最小值，则它一定处于平衡态。这是因为如果它不平衡，则重力势能一定可以转换为动能，这与重力势能达到最小值矛盾。</p>
 <blockquote>
@@ -15067,14 +15069,14 @@ $$
 $$
 x^i = x^i(\xi^1,\xi^2,\xi^3,t)
 $$
-其中 $\xi^i$ 是拉格朗日变量。如前所述，反函数
+其中 <span class="arithmatex">\(\xi^i\)</span> 是拉格朗日变量。如前所述，反函数
 $$
 \xi^i =\xi^i(x^1,x^2,x^3,t)
 $$
-就得到关于欧拉变量的运动规律。它表明固定的位置 $x^i$ 在不同时刻经过的介质点 $\xi^i$ 。</p>
+就得到关于欧拉变量的运动规律。它表明固定的位置 <span class="arithmatex">\(x^i\)</span> 在不同时刻经过的介质点 <span class="arithmatex">\(\xi^i\)</span> 。</p>
 <h3 id="_6">标量场与矢量场</h3>
 <h4 id="_7">对时间的导数</h4>
-<p>以温度场 $T$ 与速度场 $v$ 为例。如果用拉格朗日变量给出
+<p>以温度场 <span class="arithmatex">\(T\)</span> 与速度场 <span class="arithmatex">\(v\)</span> 为例。如果用拉格朗日变量给出
 $$
 T(\vec{\xi},t)=T(\xi^1,\xi^2,\xi^3,t)
 $$
@@ -15092,8 +15094,8 @@ $$
 $$
 我们将</p>
 <ul>
-<li>$\partial T(\vec{\xi},t) /\partial t$ 称为<strong>随体导数</strong>，记为 $dT / dt$</li>
-<li>$\partial T(\vec{x},t) /\partial t$ 称为<strong>局部导数</strong>，记为 $\partial T / \partial t$</li>
+<li><span class="arithmatex">\(\partial T(\vec{\xi},t) /\partial t\)</span> 称为<strong>随体导数</strong>，记为 <span class="arithmatex">\(dT / dt\)</span></li>
+<li><span class="arithmatex">\(\partial T(\vec{x},t) /\partial t\)</span> 称为<strong>局部导数</strong>，记为 <span class="arithmatex">\(\partial T / \partial t\)</span></li>
 </ul>
 <p>于是
 $$
@@ -15103,7 +15105,7 @@ $$
 $$
 v^i \frac{\partial T}{\partial x^i} = \vec{v}\cdot \nabla T
 $$
-因此对流导数是沿着 $\vec{v}$ 方向运动时 $T$ 的空间温度变化（这里空间坐标通过参考系得到）。于是随体导数分为</p>
+因此对流导数是沿着 <span class="arithmatex">\(\vec{v}\)</span> 方向运动时 <span class="arithmatex">\(T\)</span> 的空间温度变化（这里空间坐标通过参考系得到）。于是随体导数分为</p>
 <ul>
 <li>温度场随时间的变化</li>
 <li>温度场随空间的变化</li>
@@ -15116,15 +15118,15 @@ $$
 注意只有在笛卡尔坐标系中成立（基向量与时间无关）。</p>
 <p>如果欧拉变量下所有表征过程的量不依赖时间，则称为<strong>定常过程</strong>。例如</p>
 <ul>
-<li>$T=T(x)$ 是定常温度场</li>
-<li>$T=T(x,t)$ 是非定常温度场</li>
+<li><span class="arithmatex">\(T=T(x)\)</span> 是定常温度场</li>
+<li><span class="arithmatex">\(T=T(x,t)\)</span> 是非定常温度场</li>
 </ul>
-<p>对应的 $\partial T /\partial t=0$，此时随体导数只剩下对流部分。</p>
+<p>对应的 <span class="arithmatex">\(\partial T /\partial t=0\)</span>，此时随体导数只剩下对流部分。</p>
 <h4 id="_8">矢量线</h4>
-<p>对任何矢量场，都可以引入矢量线。给定 $t_{0}$ 时刻，矢量线是一族曲线，它们在空间中每一点的切向方向与该点在 $t_{0}$ 时刻的矢量方向一致。速度场的矢量线称为流线。</p>
+<p>对任何矢量场，都可以引入矢量线。给定 <span class="arithmatex">\(t_{0}\)</span> 时刻，矢量线是一族曲线，它们在空间中每一点的切向方向与该点在 <span class="arithmatex">\(t_{0}\)</span> 时刻的矢量方向一致。速度场的矢量线称为流线。</p>
 <blockquote>
 <blockquote>
-<p>流线一经画出，就可以知道速度矢量 $\vec{v}$ 在每一点的方向。通常可以通过实验确定流线。</p>
+<p>流线一经画出，就可以知道速度矢量 <span class="arithmatex">\(\vec{v}\)</span> 在每一点的方向。通常可以通过实验确定流线。</p>
 </blockquote>
 </blockquote>
 <p>沿着流线取微元
@@ -15135,7 +15137,7 @@ $$
 $$
 \vec{v} = v^i\vec{e}</em>{i}
 $$
-平行当且仅当 $d\vec{r}=\vec{v}d\lambda$，其中 $d\lambda$ 是标量参数。在每条流线 $\mathcal{L}$ 上，该参数可以看作 $\lambda(s,\mathcal{L})$ 的微分，其中 $s$ 是沿流线的弧长。于是
+平行当且仅当 <span class="arithmatex">\(d\vec{r}=\vec{v}d\lambda\)</span>，其中 <span class="arithmatex">\(d\lambda\)</span> 是标量参数。在每条流线 <span class="arithmatex">\(\mathcal{L}\)</span> 上，该参数可以看作 <span class="arithmatex">\(\lambda(s,\mathcal{L})\)</span> 的微分，其中 <span class="arithmatex">\(s\)</span> 是沿流线的弧长。于是
 $$
 \frac{dx^i}{v^i} = d\lambda \implies \frac{dx^i}{d\lambda}=v^i(\vec{x},t)
 $$
@@ -15159,24 +15161,24 @@ $$
 $$
 \frac{dx^2}{dx^1} = \frac{v^2}{v^1},\quad \frac{dx^3}{dx^1}=\frac{v^3}{v^1}
 $$
-由于参数 $t$ 给定，因此这是关于 $x^1$ 的常微分方程组，解的存在唯一性由方程右侧函数的连续可微性保证。</p>
+由于参数 <span class="arithmatex">\(t\)</span> 给定，因此这是关于 <span class="arithmatex">\(x^1\)</span> 的常微分方程组，解的存在唯一性由方程右侧函数的连续可微性保证。</p>
 <h4 id="_9">流面</h4>
-<p>经过任意曲线 $C$ 的上每一点都可以引流线。如果 $C$ 不是流线，那么这些流线构成一张曲面，曲面上每一点的速度都在其切平面上。这样的曲面称为流面，而任意矢量场中作出的流面称为矢量面。根据流面的性质
+<p>经过任意曲线 <span class="arithmatex">\(C\)</span> 的上每一点都可以引流线。如果 <span class="arithmatex">\(C\)</span> 不是流线，那么这些流线构成一张曲面，曲面上每一点的速度都在其切平面上。这样的曲面称为流面，而任意矢量场中作出的流面称为矢量面。根据流面的性质
 $$
 \nabla f\cdot \vec{v}=0
 $$
-进而得到确定流面 $f=const$ 的偏微分方程。如果 $C$ 是封闭的，则这些流线构成流管；任意矢量场中作出的管状曲面称为矢量管。</p>
+进而得到确定流面 <span class="arithmatex">\(f=const\)</span> 的偏微分方程。如果 <span class="arithmatex">\(C\)</span> 是封闭的，则这些流线构成流管；任意矢量场中作出的管状曲面称为矢量管。</p>
 <p><img alt="" src="image-20250606220622822.png|300" /></p>
 <h4 id="_10">势流</h4>
-<p>如果存在函数 $\varphi(\vec{x},t)$ 使得
+<p>如果存在函数 <span class="arithmatex">\(\varphi(\vec{x},t)\)</span> 使得
 $$
 v^i = \frac{\partial \varphi}{\partial x^i}
 $$
-则速度场 $\vec{v}$ 称为位势场，$\varphi$ 称为速度势，相应的流动称为<strong>势流</strong>。如果矢量场 $\vec{A}$ 是位势场，则存在函数 $\Phi(\vec{x},t)$ 使得
+则速度场 <span class="arithmatex">\(\vec{v}\)</span> 称为位势场，<span class="arithmatex">\(\varphi\)</span> 称为速度势，相应的流动称为<strong>势流</strong>。如果矢量场 <span class="arithmatex">\(\vec{A}\)</span> 是位势场，则存在函数 <span class="arithmatex">\(\Phi(\vec{x},t)\)</span> 使得
 $$
 \vec{A}=\nabla \Phi(\vec{x},t)
 $$
-显然势流的速度 $\vec{v}$ 垂直于等势面 $\varphi=const$ 。</p>
+显然势流的速度 <span class="arithmatex">\(\vec{v}\)</span> 垂直于等势面 <span class="arithmatex">\(\varphi=const\)</span> 。</p>
 <p>取全微分得到
 $$
 d\varphi = \frac{\partial \varphi}{\partial x^i}dx^i = v^idx^i
@@ -15195,7 +15197,7 @@ $$
 \frac{\partial v^2}{\partial x}= \frac{\partial v^1}{\partial y},\quad \frac{\partial v^3}{\partial x}= \frac{\partial v^1}{\partial z},\quad \frac{\partial v^3}{\partial y}=\frac{\partial v^2}{\partial z}
 $$
 这就是势流的充要条件。</p>
-<p>以常速度 $u_{0}$ 沿 $x$ 轴平动，则 $v^1=u_{0},v^2=v^3=0$，速度势为
+<p>以常速度 <span class="arithmatex">\(u_{0}\)</span> 沿 <span class="arithmatex">\(x\)</span> 轴平动，则 <span class="arithmatex">\(v^1=u_{0},v^2=v^3=0\)</span>，速度势为
 $$
 \frac{\partial \varphi}{\partial x^1}=u_{0},\quad \frac{\partial \varphi}{\partial x^2}=\frac{\partial \varphi}{\partial x^3}=0\implies 
 \varphi=u_{0}x^1+const
@@ -15205,30 +15207,30 @@ $$
 <li>只能在差一个常数的意义下确定势函数</li>
 <li>平动存在势函数</li>
 </ul>
-<p>势函数的好处是它能够用一个函数的偏导确定运动，而一般的运动需要 $v^i(\vec{x},t)$ 三个函数。</p>
+<p>势函数的好处是它能够用一个函数的偏导确定运动，而一般的运动需要 <span class="arithmatex">\(v^i(\vec{x},t)\)</span> 三个函数。</p>
 <p>若令
 $$
 \varphi = -\frac{Q}{4\pi r},\quad r=\sqrt{ |\vec{x}| },Q=Q(t)
 $$
-则等势面是球面，而速度沿着径向，流线是从原点出发的射线。$Q$ 的符号决定了速度的方向</p>
+则等势面是球面，而速度沿着径向，流线是从原点出发的射线。<span class="arithmatex">\(Q\)</span> 的符号决定了速度的方向</p>
 <ul>
-<li>$Q&gt;0$ 时，流体从原点向周围流动，称为空间点源；</li>
-<li>$Q&lt;0$ 时，流体流入原点，称为空间点汇；</li>
+<li><span class="arithmatex">\(Q&gt;0\)</span> 时，流体从原点向周围流动，称为空间点源；</li>
+<li><span class="arithmatex">\(Q&lt;0\)</span> 时，流体流入原点，称为空间点汇；</li>
 </ul>
 <p>速度大小为
 $$
 v=|(\nabla \varphi)_{r}| =\left|\frac{\partial \varphi}{\partial r}\right|=\frac{|Q|}{4\pi r^2}
 $$
-它在 $r\to \infty$ 时趋于零，在 $r\to 0$ 时趋于无穷大，两者都是临界点。</p>
+它在 <span class="arithmatex">\(r\to \infty\)</span> 时趋于零，在 <span class="arithmatex">\(r\to 0\)</span> 时趋于无穷大，两者都是临界点。</p>
 <p><img alt="" src="image-20250606220704126.png|500" /></p>
-<p>要计算单位时间内流过半径为 $r$ 的球面 $S$ 的流体体积。设单位时间内流过球面微元 $d\sigma$ 的流体体积为 $vd\sigma$，则总体积为
+<p>要计算单位时间内流过半径为 <span class="arithmatex">\(r\)</span> 的球面 <span class="arithmatex">\(S\)</span> 的流体体积。设单位时间内流过球面微元 <span class="arithmatex">\(d\sigma\)</span> 的流体体积为 <span class="arithmatex">\(vd\sigma\)</span>，则总体积为
 $$
 \int_{S}vd\sigma=v\int_{S}d\sigma=4\pi r^2v=|Q|
 $$
-注意这里利用 $v$ 在球面上为常数。只要 $\vec{v}=\vec{v}(r)$，且 $\vec{v}$ 垂直于球面 $S$ 时上式恒成立。因此半径不同但是球心位于原点的球面上的单位流体体积为常数 $Q$，后者称为点源或点汇的<strong>流量</strong>或<strong>强度</strong>。</p>
+注意这里利用 <span class="arithmatex">\(v\)</span> 在球面上为常数。只要 <span class="arithmatex">\(\vec{v}=\vec{v}(r)\)</span>，且 <span class="arithmatex">\(\vec{v}\)</span> 垂直于球面 <span class="arithmatex">\(S\)</span> 时上式恒成立。因此半径不同但是球心位于原点的球面上的单位流体体积为常数 <span class="arithmatex">\(Q\)</span>，后者称为点源或点汇的<strong>流量</strong>或<strong>强度</strong>。</p>
 <h3 id="_11">张量分析初步</h3>
 <h4 id="_12">坐标变换</h4>
-<p>考虑两个坐标系 $\zeta^i,\eta^i$，满足
+<p>考虑两个坐标系 <span class="arithmatex">\(\zeta^i,\eta^i\)</span>，满足
 $$
 \zeta^i=\zeta^i(\vec{\eta})
 $$
@@ -15242,11 +15244,11 @@ $$
 $$
 d\zeta^i = \frac{\partial \zeta^i}{\partial \eta^j}d\eta^j
 $$
-于是在给定点，$d\zeta^i,d \eta^j$ 之间满足线性关系。引入记号
+于是在给定点，<span class="arithmatex">\(d\zeta^i,d \eta^j\)</span> 之间满足线性关系。引入记号
 $$
 \frac{\partial \zeta^i}{\partial \eta^j} =a^i_{j},\quad (a_{j}^i)= \mathbf{A}
 $$
-其中上标表示行，下标表示列。根据单值映射条件，$\Delta=|\mathbf{A}|\neq 0$，因此可以反求出
+其中上标表示行，下标表示列。根据单值映射条件，<span class="arithmatex">\(\Delta=|\mathbf{A}|\neq 0\)</span>，因此可以反求出
 $$
 d \eta^i = \frac{\partial \eta^i}{\partial \zeta^j}d\zeta^j
 $$
@@ -15254,40 +15256,40 @@ $$
 $$
 \frac{\partial \eta^i}{\partial \zeta^j}=b_{j}^i,\quad \mathbf{B}=(b_{j}^i)
 $$
-显然 $\mathbf{A},\mathbf{B}$ 互为逆矩阵，即
+显然 <span class="arithmatex">\(\mathbf{A},\mathbf{B}\)</span> 互为逆矩阵，即
 $$
 a_{j}^ib_{k}^j = \frac{\partial \zeta^i}{\partial \eta^j} \frac{\partial \eta^j}{\partial \zeta^k} = \frac{\partial \zeta^i}{\partial \zeta^k} = \delta_{k}^i
 $$
 也就是 Kronecker 符号。</p>
 <h4 id="_13">基矢量</h4>
-<p>在坐标系 $\zeta^i$ 中考虑坐标为 $\zeta^i$ 的点与邻近坐标 $\zeta^i+d\zeta^i$ 的矢量
+<p>在坐标系 <span class="arithmatex">\(\zeta^i\)</span> 中考虑坐标为 <span class="arithmatex">\(\zeta^i\)</span> 的点与邻近坐标 <span class="arithmatex">\(\zeta^i+d\zeta^i\)</span> 的矢量
 $$
-d\vec{r} = \frac{\partial \vec{r}}{\partial \zeta^i} d\zeta^i = d\zeta^i\vec{e}<em>{i}
+d\vec{r} = \frac{\partial \vec{r}}{\partial \zeta^i} d\zeta^i = d\zeta^i\vec{e}_{i}
 $$
-其中 $\vec{e}</em>{i}$ 称为基矢量。</p>
+其中 <span class="arithmatex">\(\vec{e}_{i}\)</span> 称为基矢量。</p>
 <p><img alt="" src="image-20250606220814295.png|400" /></p>
-<p>显然，坐标系 $\zeta^i$ 的基矢量 $\vec{e}<em>{i}$ 在该坐标系中的分量分别是
+<p>显然，坐标系 <span class="arithmatex">\(\zeta^i\)</span> 的基矢量 <span class="arithmatex">\(\vec{e}_{i}\)</span> 在该坐标系中的分量分别是
 $$
 (1,0,0),\quad (0,1,0),\quad (0,0,1)
 $$
-基矢量既可以在坐标系 $\zeta^i$ 下引入，也可以在坐标系 $\eta^i$ 下引入，但是同一点的基矢量在不同坐标系中并不相同。我们有
+基矢量既可以在坐标系 <span class="arithmatex">\(\zeta^i\)</span> 下引入，也可以在坐标系 <span class="arithmatex">\(\eta^i\)</span> 下引入，但是同一点的基矢量在不同坐标系中并不相同。我们有
 $$
-d\vec{r}=d \eta^j\vec{e}</em>{j}' = d\zeta^i \vec{e}<em>{i} = \frac{\partial \zeta^i}{\partial \eta^j}d \eta^j\vec{e}</em>{i}
+d\vec{r}=d \eta^j\vec{e}<em>{j}' = d\zeta^i \vec{e}</em>{i} = \frac{\partial \zeta^i}{\partial \eta^j}d \eta^j\vec{e}<em>{i}
 $$
 对比得到
 $$
-\vec{e}<em>{j}' = \frac{\partial \zeta^i}{\partial \eta^j}\vec{e}</em>{i} = \vec{e}<em>{i}a</em>{j}^i
+\vec{e}</em>{j}' = \frac{\partial \zeta^i}{\partial \eta^j}\vec{e}<em>{i} = \vec{e}</em>{i}a_{j}^i
 $$
-对于 $d\vec{r}$ 的分量，根据前面的坐标变换得到
+对于 <span class="arithmatex">\(d\vec{r}\)</span> 的分量，根据前面的坐标变换得到
 $$
 d \eta^i= \frac{\partial \eta^i}{\partial \zeta^j}d\zeta^j= b_{j}^id\zeta^j
 $$
 因此</p>
 <ul>
-<li>基矢量 $\vec{e}_{i}$ 根据 $\mathbf{A}$ 变换</li>
-<li>微分 $d\zeta^j$ 根据 $\mathbf{B}$ 变换</li>
+<li>基矢量 <span class="arithmatex">\(\vec{e}_{i}\)</span> 根据 <span class="arithmatex">\(\mathbf{A}\)</span> 变换</li>
+<li>微分 <span class="arithmatex">\(d\zeta^j\)</span> 根据 <span class="arithmatex">\(\mathbf{B}\)</span> 变换</li>
 </ul>
-<p>这意味着 $d\vec{r}$ 关于坐标变换不变
+<p>这意味着 <span class="arithmatex">\(d\vec{r}\)</span> 关于坐标变换不变
 $$
 d\vec{r} = d \eta^j\vec{e}<em>{j}'=b</em>{i}^jd\zeta^i\vec{e}<em>{s}a</em>{j}^s = \delta_{i}^sd\zeta^i\vec{e}<em>{s} = d\zeta^i\vec{e}</em>{i}
 $$
@@ -15302,7 +15304,7 @@ $$
 $$
 \mathbf{A} = A^i\vec{e}<em>{i}
 $$
-其分量 $A^i$ 在坐标变换时满足
+其分量 <span class="arithmatex">\(A^i\)</span> 在坐标变换时满足
 $$
 (A')^i= b</em>{j}^iA^j
 $$
@@ -15310,23 +15312,23 @@ $$
 $$
 \mathbf{A}=A^j\vec{e}<em>{j}=(A')^i\vec{e}</em>{i}'
 $$
-则称 $\mathbf{A}$ 为矢量。矢量的分量 $A^i$ 与基矢量 $\vec{e}_{i}$ 的变换互逆，从而保证 $\mathbf{A}$ 的不变性。</p>
+则称 <span class="arithmatex">\(\mathbf{A}\)</span> 为矢量。矢量的分量 <span class="arithmatex">\(A^i\)</span> 与基矢量 <span class="arithmatex">\(\vec{e}_{i}\)</span> 的变换互逆，从而保证 <span class="arithmatex">\(\mathbf{A}\)</span> 的不变性。</p>
 <h4 id="_15">并积</h4>
 <p>通过基矢量引入更复杂的对象
 $$
 \mathbf{T} = T^{ij}\vec{e}<em>{i}\vec{e}</em>{j} = T^{ij}\vec{E}<em>{ij}
 $$
-其中 $\vec{E}</em>{ij}$ 称为基矢量 $\vec{e}<em>{i},\vec{e}</em>{j}$ 的并积。可以将多个矢量并积，基矢量的并积线性无关，即
+其中 <span class="arithmatex">\(\vec{E}_{ij}\)</span> 称为基矢量 <span class="arithmatex">\(\vec{e}_{i},\vec{e}_{j}\)</span> 的并积。可以将多个矢量并积，基矢量的并积线性无关，即
 $$
 \vec{T}=0 \Leftrightarrow T^{ij}=0,\quad \forall i,j
 $$
 并积是矢量的一种运算，结果是新的对象，它们构成线性空间。根据基矢量的变换可得
 $$
-\vec{e}<em>{i}'\vec{e}</em>{j}'=a_{i}^pa_{j}^q\vec{e}<em>{p}\vec{e}</em>{q}
+\vec{e}</em>{i}'\vec{e}<em>{j}'=a</em>{i}^pa_{j}^q\vec{e}<em>{p}\vec{e}</em>{q}
 $$
-可以将 $\vec{e}<em>{i}\vec{e}</em>{j}$ 写成矩阵 $\mathbf{E}_{ij}$ 形式。</p>
+可以将 <span class="arithmatex">\(\vec{e}_{i}\vec{e}_{j}\)</span> 写成矩阵 <span class="arithmatex">\(\mathbf{E}_{ij}\)</span> 形式。</p>
 <h4 id="_16">张量</h4>
-<p>利用并积引入张量。首先要求 $\mathbf{T}$ 关于坐标系变换不变，即
+<p>利用并积引入张量。首先要求 <span class="arithmatex">\(\mathbf{T}\)</span> 关于坐标系变换不变，即
 $$
 T^{ij}\vec{e}<em>{i}\vec{e}</em>{j} = (T')^{ij}\vec{e}<em>{i}'\vec{e}</em>{j}'
 $$
@@ -15334,14 +15336,14 @@ $$
 $$
 (T')^{ij}=b_{p}^ib_{q}^jT^{pq}
 $$
-此时 $\mathbf{T}$ 称为二阶张量。由于 $T^{ij}$ 以逆变方式变换，则称为<strong>张量的逆变分量</strong>。</p>
-<p>一般情况下，张量 $\mathbf{T}$ 的所有分量各不相同。但是</p>
+此时 <span class="arithmatex">\(\mathbf{T}\)</span> 称为二阶张量。由于 <span class="arithmatex">\(T^{ij}\)</span> 以逆变方式变换，则称为<strong>张量的逆变分量</strong>。</p>
+<p>一般情况下，张量 <span class="arithmatex">\(\mathbf{T}\)</span> 的所有分量各不相同。但是</p>
 <ul>
-<li>若某两个角标交换后，$\mathbf{T}$ 相应的分量不变，则称 $\mathbf{T}$ 对称</li>
-<li>若相应分量变号，则称 $\mathbf{T}$ 反对称</li>
+<li>若某两个角标交换后，<span class="arithmatex">\(\mathbf{T}\)</span> 相应的分量不变，则称 <span class="arithmatex">\(\mathbf{T}\)</span> 对称</li>
+<li>若相应分量变号，则称 <span class="arithmatex">\(\mathbf{T}\)</span> 反对称</li>
 </ul>
 <p>由于张量关于坐标变换不变，因此其对称性/反对称性也关于坐标变换不变。</p>
-<p>任意两个张量 $\mathbf{A},\mathbf{B}$ 组成
+<p>任意两个张量 <span class="arithmatex">\(\mathbf{A},\mathbf{B}\)</span> 组成
 $$
 \mathbf{A}+\mathbf{B},\quad \mathbf{A}-\mathbf{B}
 $$
@@ -15354,11 +15356,11 @@ $$
 $$
 分别是对称和反对称张量。</p>
 <h4 id="_17">逆变基矢量</h4>
-<p>考虑二阶张量 $\varkappa=\varkappa^{ij}\vec{e}<em>{i}\vec{e}</em>{j}$，在某个坐标系 $\zeta^i$ 中引入矢量
+<p>考虑二阶张量 <span class="arithmatex">\(\varkappa=\varkappa^{ij}\vec{e}_{i}\vec{e}_{j}\)</span>，在某个坐标系 <span class="arithmatex">\(\zeta^i\)</span> 中引入矢量
 $$
 \vec{e}^i = \varkappa^{ij}\vec{e}<em>{j}
 $$
-类似地，在坐标系 $\eta^i$ 中引入
+类似地，在坐标系 <span class="arithmatex">\(\eta^i\)</span> 中引入
 $$
 (\vec{e}')^p = (\varkappa')^{pq}\vec{e}</em>{q}
 $$
@@ -15366,13 +15368,13 @@ $$
 $$
 (\vec{e}')^p = (\varkappa')^{pq}\vec{e}<em>{q}'= b</em>{i}^pb_{j}^q \varkappa^{ij} a_{q}^s\vec{e}<em>{s} = \delta</em>{j}^sb_{i}^p\varkappa^{ij} \vec{e}<em>{s} = b</em>{i}^p\varkappa^{ij} \vec{e}<em>{j} = b</em>{i}^p\vec{e}^i
 $$
-其中利用了 $\mathbf{A},\mathbf{B}$ 互逆。上式是逆变形式，因此 $\vec{e}^i$ 称为<strong>逆变基矢量</strong>。</p>
+其中利用了 <span class="arithmatex">\(\mathbf{A},\mathbf{B}\)</span> 互逆。上式是逆变形式，因此 <span class="arithmatex">\(\vec{e}^i\)</span> 称为<strong>逆变基矢量</strong>。</p>
 <blockquote>
 <blockquote>
 <p>任意二阶张量都可以导出逆变基矢量。协变基矢量只与坐标系有关，而逆变基矢量同时与坐标系和张量有关。</p>
 </blockquote>
 </blockquote>
-<p>若 $\det(\varkappa^{ij})\neq 0$，则得到协变基矢量与逆变基矢量的互逆关系。在 $\zeta^i,\eta^i$ 两个坐标系下分别为
+<p>若 <span class="arithmatex">\(\det(\varkappa^{ij})\neq 0\)</span>，则得到协变基矢量与逆变基矢量的互逆关系。在 <span class="arithmatex">\(\zeta^i,\eta^i\)</span> 两个坐标系下分别为
 $$
 \vec{e}<em>{j} = \varkappa</em>{ji}\vec{e}^i,\quad (\vec{e}')<em>{j}=\varkappa</em>{ji}'(\vec{e}')^i
 $$
@@ -15380,36 +15382,36 @@ $$
 $$
 \varkappa_{ij} = \frac{k_{ji}}{\det(\varkappa^{ij})},\quad \varkappa_{ij}\varkappa^{jk}=\delta_{i}^k
 $$
-构成逆矩阵，$k_{ij}$ 是 $\varkappa^{ij}$ 的代数余子式。</p>
+构成逆矩阵，<span class="arithmatex">\(k_{ij}\)</span> 是 <span class="arithmatex">\(\varkappa^{ij}\)</span> 的代数余子式。</p>
 <blockquote>
 <blockquote>
-<p>回忆逆矩阵的构造方式 $\mathbf{A}^<em>\mathbf{A}=|\mathbf{A}|\mathbf{I}$，其中 $\mathbf{A}^</em>=(k_{ji})$ 是代数余子式的矩阵。根据矩阵乘法，$\mathbf{A}^<em>$ 的行元素是 $\mathbf{A}$ 列元素的代数余子式；如果 $\mathbf{A}^</em>$ 的第一行与 $\mathbf{A}$ 的第二列相乘，相当于将 $\mathbf{A}$ 用第二列替换掉第一列后计算行列式，因此结果为零。于是 $\mathbf{A}^*\mathbf{A}$ 只剩下对角线元素。</p>
+<p>回忆逆矩阵的构造方式 <span class="arithmatex">\(\mathbf{A}^*\mathbf{A}=|\mathbf{A}|\mathbf{I}\)</span>，其中 <span class="arithmatex">\(\mathbf{A}^*=(k_{ji})\)</span> 是代数余子式的矩阵。根据矩阵乘法，<span class="arithmatex">\(\mathbf{A}^*\)</span> 的行元素是 <span class="arithmatex">\(\mathbf{A}\)</span> 列元素的代数余子式；如果 <span class="arithmatex">\(\mathbf{A}^*\)</span> 的第一行与 <span class="arithmatex">\(\mathbf{A}\)</span> 的第二列相乘，相当于将 <span class="arithmatex">\(\mathbf{A}\)</span> 用第二列替换掉第一列后计算行列式，因此结果为零。于是 <span class="arithmatex">\(\mathbf{A}^*\mathbf{A}\)</span> 只剩下对角线元素。</p>
 </blockquote>
 </blockquote>
-<p>利用 $\vec{e}<em>{j},\vec{e}^i$ 的变换公式得到
+<p>利用 <span class="arithmatex">\(\vec{e}_{j},\vec{e}^i\)</span> 的变换公式得到
 $$
-\varkappa</em>{ji}'(\vec{e}')^i = \vec{e}<em>{j}' = a</em>{j}^i\vec{e}<em>{i} = a</em>{j}^i\varkappa_{ik}\vec{e}^k = a_{j}^i\varkappa_{ik} a_{s}^k (\vec{e}')^s
+\varkappa_{ji}'(\vec{e}')^i = \vec{e}<em>{j}' = a</em>{j}^i\vec{e}<em>{i} = a</em>{j}^i\varkappa_{ik}\vec{e}^k = a_{j}^i\varkappa_{ik} a_{s}^k (\vec{e}')^s
 $$
 对比两端得到
 $$
 \varkappa'<em>{ji} = a</em>{j}^pa_{i}^q\varkappa_{pq}
 $$
-因此 $\varkappa_{ij}$ 满足协变变换，而相应的并积 $\vec{e}^i\vec{e}^j$ 满足逆变变换。此外
+因此 <span class="arithmatex">\(\varkappa_{ij}\)</span> 满足协变变换，而相应的并积 <span class="arithmatex">\(\vec{e}^i\vec{e}^j\)</span> 满足逆变变换。此外
 $$
 \varkappa_{ij}\vec{e}^i\vec{e}^j = \varkappa_{ij}\varkappa^{ip}\vec{e}<em>{p}\varkappa^{jq}\vec{e}</em>{q} = \delta_{i}^q \varkappa^{ip}\vec{e}<em>{p}\vec{e}</em>{q} = \varkappa^{qp}\vec{e}<em>{p}\vec{e}</em>{q} 
 $$
-因此 $\varkappa_{ji}$ 称为 $\varkappa$ 在逆变基 $\vec{e}^i$ 中的协变分量。</p>
+因此 <span class="arithmatex">\(\varkappa_{ji}\)</span> 称为 <span class="arithmatex">\(\varkappa\)</span> 在逆变基 <span class="arithmatex">\(\vec{e}^i\)</span> 中的协变分量。</p>
 <blockquote>
 <blockquote>
-<p>简单起见，此后我们都认为 $\varkappa$ 是对称张量。</p>
+<p>简单起见，此后我们都认为 <span class="arithmatex">\(\varkappa\)</span> 是对称张量。</p>
 </blockquote>
 </blockquote>
 <h4 id="_18">协变分量</h4>
-<p>任意矢量 $\vec{A}$ 都有
+<p>任意矢量 <span class="arithmatex">\(\vec{A}\)</span> 都有
 $$
 \vec{A}=A^j\vec{e}<em>{j} = A^j\varkappa</em>{ij}\vec{e}^i=A_{i}\vec{e}^i
 $$
-注意这里利用了 $\varkappa$ 对称。由于 $\vec{e}^i$ 是逆变矢量，因此 $A_{i}$ 满足协变关系，称为矢量 $\vec{A}$ 在逆变基 $\vec{e}^i$ 中的<strong>协变分量</strong>。</p>
+注意这里利用了 <span class="arithmatex">\(\varkappa\)</span> 对称。由于 <span class="arithmatex">\(\vec{e}^i\)</span> 是逆变矢量，因此 <span class="arithmatex">\(A_{i}\)</span> 满足协变关系，称为矢量 <span class="arithmatex">\(\vec{A}\)</span> 在逆变基 <span class="arithmatex">\(\vec{e}^i\)</span> 中的<strong>协变分量</strong>。</p>
 <p>应用于任意阶张量，例如四阶张量
 $$
 \begin{aligned}
@@ -15420,7 +15422,7 @@ $$
 &amp;= T_{pq}^{il}\vec{e}<em>{i}\vec{e}^p\vec{e}^q\vec{e}</em>{l}
 \end{aligned}
 $$
-其中 $T_{pqmn}$ 称为张量 $\mathbf{T}$ 的协变分量，$T_{pq}^{il}$ 称为混合分量，其角标 $p,q$ 是协变的，$i,l$ 是逆变的。</p>
+其中 <span class="arithmatex">\(T_{pqmn}\)</span> 称为张量 <span class="arithmatex">\(\mathbf{T}\)</span> 的协变分量，<span class="arithmatex">\(T_{pq}^{il}\)</span> 称为混合分量，其角标 <span class="arithmatex">\(p,q\)</span> 是协变的，<span class="arithmatex">\(i,l\)</span> 是逆变的。</p>
 <blockquote>
 <blockquote>
 <p>我们使用的符号通常意味着下标是协变的，而上标则是逆变的。</p>
@@ -15435,37 +15437,37 @@ $$
 $$
 |\vec{A}|^2=A^iA^jg_{ij}
 $$
-从而长度可以通过分量与基矢量的标量积 $g_{ij}$ 表示。显然长度关于坐标变换不变，例如
+从而长度可以通过分量与基矢量的标量积 <span class="arithmatex">\(g_{ij}\)</span> 表示。显然长度关于坐标变换不变，例如
 $$
 g_{pq}'d \eta^p d\eta^q =|d\vec{r}|^2= g_{ij}d\zeta^id\zeta^j=g_{ij} a_{i}^pa_{j}^qd \eta^p d \eta^q
 $$
-注意 $d \eta^i=b_{j}^id \zeta^j$ 是逆变（从 $\zeta^i$ 变换到 $\eta^i$），但是这里应用的是逆变换。因此
+注意 <span class="arithmatex">\(d \eta^i=b_{j}^id \zeta^j\)</span> 是逆变（从 <span class="arithmatex">\(\zeta^i\)</span> 变换到 <span class="arithmatex">\(\eta^i\)</span>），但是这里应用的是逆变换。因此
 $$
 g_{pq}'= a_{p}^ia_{q}^jg_{ij}
 $$
-具有协变形式，其中 $g^{ij}$ 称为张量 $\mathbf{g}=g_{ij}\vec{e}^i\vec{e}^j$ 的协变分量，而 $\mathbf{g}$ 称为<strong>基本度规张量</strong>。</p>
-<p>显然 $\mathbf{g}$ 是对称张量，相对于坐标增量 $d\zeta^i$ 的二次型
+具有协变形式，其中 <span class="arithmatex">\(g^{ij}\)</span> 称为张量 <span class="arithmatex">\(\mathbf{g}=g_{ij}\vec{e}^i\vec{e}^j\)</span> 的协变分量，而 <span class="arithmatex">\(\mathbf{g}\)</span> 称为<strong>基本度规张量</strong>。</p>
+<p>显然 <span class="arithmatex">\(\mathbf{g}\)</span> 是对称张量，相对于坐标增量 <span class="arithmatex">\(d\zeta^i\)</span> 的二次型
 $$
 ds^2=d\zeta^id\zeta^jg_{ij}
 $$
-称为基本二次型，它定义了度规——空间中邻近点的距离。任何常系数二次型可以化为正则形式，即在每个选定点都存在坐标 $x^i$ 使得
+称为基本二次型，它定义了度规——空间中邻近点的距离。任何常系数二次型可以化为正则形式，即在每个选定点都存在坐标 <span class="arithmatex">\(x^i\)</span> 使得
 $$
 ds^2=dx^i dx^i
 $$
-而张量 $\mathbf{g}$ 的矩阵化为单位阵。一般不能在整个空间完成这种变换，如果可以，则相应的空间称为欧氏空间，反之称为非欧氏空间。对于 $n$ 维空间，如果存在坐标实变换，使得
+而张量 <span class="arithmatex">\(\mathbf{g}\)</span> 的矩阵化为单位阵。一般不能在整个空间完成这种变换，如果可以，则相应的空间称为欧氏空间，反之称为非欧氏空间。对于 <span class="arithmatex">\(n\)</span> 维空间，如果存在坐标实变换，使得
 $$
 ds^2=\alpha_{i}(dx^i)^2,\quad \alpha_{i}=\pm 1,i=1,\cdots,n
 $$
-且至少有一个 $\alpha_{i}$ 的符号与其它不同，则该空间称为伪欧氏空间。</p>
-<p>引入矩阵 $(g_{ij})$ 的逆矩阵 $(g^{ij})$，则其元素按照逆变形式变换，进而引入逆变基矢量
+且至少有一个 <span class="arithmatex">\(\alpha_{i}\)</span> 的符号与其它不同，则该空间称为伪欧氏空间。</p>
+<p>引入矩阵 <span class="arithmatex">\((g_{ij})\)</span> 的逆矩阵 <span class="arithmatex">\((g^{ij})\)</span>，则其元素按照逆变形式变换，进而引入逆变基矢量
 $$
 \vec{e}^i =g^{ij}\vec{e}<em>{j}
 $$
-注意 $g</em>{ij}$ 的对称性导出 $g^{ij}$ 的对称性。考虑基本度规张量 $\mathbf{g}$ 的混变分量
+注意 <span class="arithmatex">\(g_{ij}\)</span> 的对称性导出 <span class="arithmatex">\(g^{ij}\)</span> 的对称性。考虑基本度规张量 <span class="arithmatex">\(\mathbf{g}\)</span> 的混变分量
 $$
-g_{j}^i = \vec{e}^j\cdot \vec{e}<em>{p} = g^{ji}\vec{e}</em>{i}\cdot \vec{e}<em>{p} = g^{ij}g</em>{ip}=\delta_{p}^j
+g</em>{j}^i = \vec{e}^j\cdot \vec{e}<em>{p} = g^{ji}\vec{e}</em>{i}\cdot \vec{e}<em>{p} = g^{ij}g</em>{ip}=\delta_{p}^j
 $$
-因此基矢量 $\vec{e}^1$ 与 $\vec{e}<em>{2},\vec{e}</em>{3}$ 张成的平面垂直，在 $\vec{e}<em>{1}$ 上的投影为 1；注意 $\vec{e}</em>{i},\vec{e}^i$ 都不是正交基。</p>
+因此基矢量 <span class="arithmatex">\(\vec{e}^1\)</span> 与 <span class="arithmatex">\(\vec{e}_{2},\vec{e}_{3}\)</span> 张成的平面垂直，在 <span class="arithmatex">\(\vec{e}_{1}\)</span> 上的投影为 1；注意 <span class="arithmatex">\(\vec{e}_{i},\vec{e}^i\)</span> 都不是正交基。</p>
 <p>逆变基矢量满足
 $$
 \vec{e}^1= \frac{\vec{e}<em>{2}\times \vec{e}</em>{3}}{\vec{e}<em>{1}\cdot(\vec{e}</em>{2}\times \vec{e}<em>{3})},\quad \vec{e}^2= \frac{\vec{e}</em>{3}\times \vec{e}<em>{1}}{\vec{e}</em>{1}\cdot(\vec{e}<em>{2}\times \vec{e}</em>{3})},\quad \vec{e}^3= \frac{\vec{e}<em>{1}\times \vec{e}</em>{2}}{\vec{e}<em>{1}\cdot(\vec{e}</em>{2}\times \vec{e}<em>{3})}
@@ -15474,12 +15476,12 @@ $$
 $$
 \vec{e}</em>{1}= \frac{\vec{e}^2\times \vec{e}^3}{\vec{e}^1\cdot(\vec{e}^2\times \vec{e}^3)},\quad \vec{e}<em>{2}= \frac{\vec{e}^3\times \vec{e}^1}{\vec{e}^1\cdot(\vec{e}^2\times \vec{e}^3)},\quad \vec{e}</em>{3}= \frac{\vec{e}^1\times \vec{e}^2}{\vec{e}^1\cdot(\vec{e}^2\times \vec{e}^3)}
 $$
-在正交坐标系中，$\vec{e}^i=\vec{e}_{i}$，此时矢量与张量的协变分量与逆变分量相同。</p>
+在正交坐标系中，<span class="arithmatex">\(\vec{e}^i=\vec{e}_{i}\)</span>，此时矢量与张量的协变分量与逆变分量相同。</p>
 <h4 id="_20">不定乘</h4>
-<p>设有矢量 $\mathbf{A}=A^i\vec{e}<em>{i}$ 与张量 $\mathbf{T}=T</em>{j}^k\vec{e}<em>{k}\vec{e}^j$ 在形式上组成
+<p>设有矢量 <span class="arithmatex">\(\mathbf{A}=A^i\vec{e}_{i}\)</span> 与张量 <span class="arithmatex">\(\mathbf{T}=T_{j}^k\vec{e}_{k}\vec{e}^j\)</span> 在形式上组成
 $$
 \begin{aligned}
-\mathbf{B} &amp;= A^i\vec{e}</em>{i}T_{j}^k\vec{e}<em>{k}\vec{e}^j\
+\mathbf{B} &amp;= A^i\vec{e}<em>{i}T</em>{j}^k\vec{e}<em>{k}\vec{e}^j\
 &amp;= A^iT</em>{j}^k\vec{e}<em>{i}\vec{e}</em>{k}\vec{e}^j\
 \mathbf{B}^<em> &amp;= T_{j}^k\vec{e}<em>{k}\vec{e}^jA^i\vec{e}</em>{i}\
 &amp;= T_{j}^k\vec{e}<em>{k}g^{jm}\vec{e}</em>{m}A^ig_{in}\vec{e}^{n}\
@@ -15487,7 +15489,7 @@ $$
 &amp;=T^{ik}A_{j}\vec{e}<em>{i}\vec{e}</em>{k}\vec{e}^j
 \end{aligned}
 $$
-显然 $\mathbf{B},\mathbf{B}^</em>$ 都是张量，但 $\mathbf{B}\neq\mathbf{B}^<em>$ 。这种运算称为矢量的</em><em>不定乘</em>*，和并积类似，只不过后者是协变矢量的运算，而不定乘允许协变矢量与逆变矢量的运算，两者可以相互转换。例如
+显然 <span class="arithmatex">\(\mathbf{B},\mathbf{B}^*\)</span> 都是张量，但 <span class="arithmatex">\(\mathbf{B}\neq\mathbf{B}^*\)</span> 。这种运算称为矢量的</em><em>不定乘</em>*，和并积类似，只不过后者是协变矢量的运算，而不定乘允许协变矢量与逆变矢量的运算，两者可以相互转换。例如
 $$
 \begin{aligned}
 \mathcal{D} &amp;= g^{ij}g^{pq}g^{rs}\cdots \vec{e}<em>{i}\vec{e}</em>{j}\vec{e}<em>{p}\vec{e}</em>{q}\vec{e}<em>{r}\vec{e}</em>{s}\cdots\
@@ -15495,9 +15497,9 @@ $$
 &amp;= \delta_{j}^i\delta_{p}^q\delta_{s}^r\cdots\vec{e}<em>{i}\vec{e}^j\vec{e}</em>{p}\vec{e}^q\vec{e}_{r}\vec{e}^s\cdots
 \end{aligned}
 $$
-因此基本度规张量 $\mathbf{g}$ 导出的协变矢量和逆变矢量做不定乘，会得到以 $\delta$ 为分量的张量，其分量在任何坐标系下都相同。这是由于协变矢量的变换与逆变矢量的变换相互抵消。</p>
+因此基本度规张量 <span class="arithmatex">\(\mathbf{g}\)</span> 导出的协变矢量和逆变矢量做不定乘，会得到以 <span class="arithmatex">\(\delta\)</span> 为分量的张量，其分量在任何坐标系下都相同。这是由于协变矢量的变换与逆变矢量的变换相互抵消。</p>
 <h4 id="_21">标量不变量</h4>
-<p>张量的分量通常与坐标系有关，但我们可以寻找函数 $\Phi(T_{j}^i)$，它以张量的分量为变量，但是与坐标系选择无关，即
+<p>张量的分量通常与坐标系有关，但我们可以寻找函数 <span class="arithmatex">\(\Phi(T_{j}^i)\)</span>，它以张量的分量为变量，但是与坐标系选择无关，即
 $$
 \Phi(T_{j}^i) = \Phi((T')_{j}^i)
 $$
@@ -15515,18 +15517,18 @@ $$
 $$
 \vec{A}\cdot \vec{A}= A^i\vec{e}<em>{i}\cdot A^j\vec{e}</em>{j} = A^iA^jg_{ij} = A^iA_{i}
 $$
-因此该表达式是不变量，表示 $\vec{A}$ 的长度平方。</p>
+因此该表达式是不变量，表示 <span class="arithmatex">\(\vec{A}\)</span> 的长度平方。</p>
 <p>取任意二阶张量
 $$
 \mathbf{T} = T^{ij}\vec{e}<em>{i}\vec{e}</em>{j}
 $$
-则关于基本度规张量 $\mathbf{g}$ 的分量缩并
+则关于基本度规张量 <span class="arithmatex">\(\mathbf{g}\)</span> 的分量缩并
 $$
 T^{ij}g_{ij} = T^{ij}g_{ji}=T_{i}^i
 $$
 这也是一个不变量。</p>
 <h4 id="_22">张量面</h4>
-<p>在坐标系 $\zeta^i$ 下考虑点 $O$ 附近的微元
+<p>在坐标系 <span class="arithmatex">\(\zeta^i\)</span> 下考虑点 <span class="arithmatex">\(O\)</span> 附近的微元
 $$
 d\vec{r}=d\zeta^i\vec{e}<em>{i}
 $$
@@ -15534,44 +15536,44 @@ $$
 $$
 \mathbf{T}=T^{ij}\vec{e}</em>{i}\vec{e}<em>{j} = T</em>{ij}\vec{e}^i\vec{e}^j
 $$
-则利用协变分量与逆变分量可以抵消变换，得到 $T_{ij}d\zeta^id\zeta^j$ 是不变量，可以取
+则利用协变分量与逆变分量可以抵消变换，得到 <span class="arithmatex">\(T_{ij}d\zeta^id\zeta^j\)</span> 是不变量，可以取
 $$
-T_{ij}d\zeta^id\zeta^j = T'<em>{ij}d \eta^i d \eta^j=c
+T_{ij}d\zeta^id\zeta^j = T'_{ij}d \eta^i d \eta^j=c
 $$
-若在 $O$ 的邻域内 $c=const$ 而 $T</em>{ij}$ 取在 $O$ 的值，则上式确定的二次曲面称为<strong>张量面</strong>，而 $d\zeta^i,d \eta^i$ 称为张量面上的<strong>坐标</strong>。</p>
+若在 <span class="arithmatex">\(O\)</span> 的邻域内 <span class="arithmatex">\(c=const\)</span> 而 <span class="arithmatex">\(T_{ij}\)</span> 取在 <span class="arithmatex">\(O\)</span> 的值，则上式确定的二次曲面称为<strong>张量面</strong>，而 <span class="arithmatex">\(d\zeta^i,d \eta^i\)</span> 称为张量面上的<strong>坐标</strong>。</p>
 <p>利用坐标变换将张量面化为
 $$
 T_{11}(dx^1)^2+T_{22}(dx^2)^2+T_{33}(dx^3)^2=c
 $$
-坐标系 $x^i$ 中存在正交坐标系，因此空间中每一点都可以引入正交坐标轴，使得只有 $T_{ii}\neq 0$，则这些坐标轴称为张量的<strong>主轴</strong>，沿主轴方向的笛卡尔坐标称为张量 $\mathbf{T}$ 在 $O$ 的<strong>主坐标系</strong>。此时
+坐标系 <span class="arithmatex">\(x^i\)</span> 中存在正交坐标系，因此空间中每一点都可以引入正交坐标轴，使得只有 <span class="arithmatex">\(T_{ii}\neq 0\)</span>，则这些坐标轴称为张量的<strong>主轴</strong>，沿主轴方向的笛卡尔坐标称为张量 <span class="arithmatex">\(\mathbf{T}\)</span> 在 <span class="arithmatex">\(O\)</span> 的<strong>主坐标系</strong>。此时
 $$
 T^{ii} = T_{ii} = T^i_{i}=T_{i}
 $$
-这里不对 $i$ 求和。于是二阶张量 $\mathbf{T}$ 只有 3 个分量，称为<strong>主分量</strong>。</p>
+这里不对 <span class="arithmatex">\(i\)</span> 求和。于是二阶张量 <span class="arithmatex">\(\mathbf{T}\)</span> 只有 3 个分量，称为<strong>主分量</strong>。</p>
 <h3 id="_23">变形理论</h3>
-<p>设刚体相对于观察者坐标系 $x^i$ 运动，取初始时刻 $t_{0}$ 和任意某个时刻 $t$ 的两个位置。</p>
+<p>设刚体相对于观察者坐标系 <span class="arithmatex">\(x^i\)</span> 运动，取初始时刻 <span class="arithmatex">\(t_{0}\)</span> 和任意某个时刻 <span class="arithmatex">\(t\)</span> 的两个位置。</p>
 <h4 id="_24">随体坐标系的基矢量</h4>
-<p>物体的每一点 $M$ 都可以与随体坐标系 $\xi^i$ 相联系，随体坐标系与物体一起运动，其基矢量在不同时刻也不同。在 $t$ 时刻
+<p>物体的每一点 <span class="arithmatex">\(M\)</span> 都可以与随体坐标系 <span class="arithmatex">\(\xi^i\)</span> 相联系，随体坐标系与物体一起运动，其基矢量在不同时刻也不同。在 <span class="arithmatex">\(t\)</span> 时刻
 $$
 ds=|d\vec{r}|,\quad ds^2=g_{ij}d\xi^id\xi^j,\quad g_{ij}=\vec{e}<em>{i}\cdot \vec{e}</em>{j}
 $$
-而在 $t'$ 时刻
+而在 <span class="arithmatex">\(t'\)</span> 时刻
 $$
 ds'=|d\vec{r}'|,\quad ds'^2=g_{ij}'d\xi^id\xi^j,\quad g_{ij}'=\vec{e}<em>{i}'\cdot \vec{e}</em>{j}'
 $$
-注意点 $M,M'$ 在随体坐标系中不同时刻 $t,t'$ 的坐标不变，但分量 $g_{ij},g_{ij}'$ 不同。</p>
+注意点 <span class="arithmatex">\(M,M'\)</span> 在随体坐标系中不同时刻 <span class="arithmatex">\(t,t'\)</span> 的坐标不变，但分量 <span class="arithmatex">\(g_{ij},g_{ij}'\)</span> 不同。</p>
 <h4 id="_25">相对伸长因数</h4>
 <p>定义比值
 $$
 l = \frac{ds-ds'}{ds'} = \frac{ds}{ds'}-1
 $$
-称为相对伸长因数。如果 $l$ 在可变形介质中的每个点与每个方向都是无穷小量，则变形称为无穷小的。如果 $l$ 取有限值，则变形就是有限的。</p>
+称为相对伸长因数。如果 <span class="arithmatex">\(l\)</span> 在可变形介质中的每个点与每个方向都是无穷小量，则变形称为无穷小的。如果 <span class="arithmatex">\(l\)</span> 取有限值，则变形就是有限的。</p>
 <blockquote>
 <blockquote>
-<p>根据定义，刚体的所有 $l$ 都为零。</p>
+<p>根据定义，刚体的所有 <span class="arithmatex">\(l\)</span> 都为零。</p>
 </blockquote>
 </blockquote>
-<p>只要考虑连续介质完全任意的两个位置，就可以引入变形与相对伸长因数 $l$，并且已知 $g_{ij},g_{ij}'$ 与 $d\vec{r}$ 的方向，就可以对任何 $d\vec{r}$ 计算 $l$ 。</p>
+<p>只要考虑连续介质完全任意的两个位置，就可以引入变形与相对伸长因数 <span class="arithmatex">\(l\)</span>，并且已知 <span class="arithmatex">\(g_{ij},g_{ij}'\)</span> 与 <span class="arithmatex">\(d\vec{r}\)</span> 的方向，就可以对任何 <span class="arithmatex">\(d\vec{r}\)</span> 计算 <span class="arithmatex">\(l\)</span> 。</p>
 <h4 id="_26">应变张量</h4>
 <p>引入记号
 $$
@@ -15581,17 +15583,17 @@ $$
 $$
 ds^2-ds'^2= 2\epsilon_{ij} d\xi^id\xi^j
 $$
-因此 $\epsilon_{ij}$ 可以视为张量的协变分量。考虑两个张量
+因此 <span class="arithmatex">\(\epsilon_{ij}\)</span> 可以视为张量的协变分量。考虑两个张量
 $$
 \mathcal{E}= \epsilon_{ij}\vec{e}^i\vec{e}^j,\quad \mathcal{E}'=\epsilon_{ij}(\vec{e}')^i(\vec{e}')^j
 $$
-称为应变张量。使用基本度规张量 $\mathbf{g}$ 来构造混变分量与逆变分量
+称为应变张量。使用基本度规张量 <span class="arithmatex">\(\mathbf{g}\)</span> 来构造混变分量与逆变分量
 $$
 \epsilon_{j}^i = \epsilon_{jk} g^{ki},\quad \epsilon^{ij}=\epsilon_{k}^ig^{kj}
 $$
 两个应变分量构造出的混变分量与逆变分量一般并不相同。</p>
 <h4 id="_27">应变张量的协变分量</h4>
-<p>将初始时刻 $t_{0}$ 的基矢量记为 $\mathring{e}<em>{i}$，而 $t$ 时刻的基矢量记为 $\hat{e}</em>{i}$，考虑应变张量
+<p>将初始时刻 <span class="arithmatex">\(t_{0}\)</span> 的基矢量记为 <span class="arithmatex">\(\mathring{e}_{i}\)</span>，而 <span class="arithmatex">\(t\)</span> 时刻的基矢量记为 <span class="arithmatex">\(\hat{e}_{i}\)</span>，考虑应变张量
 $$
 \hat{\mathcal{E}}= \epsilon_{ij}\hat{e}^i\hat{e}^j,\quad \mathring{\mathcal{E}}=\epsilon_{ij}\mathring{e}^i\mathring{e}^j
 $$
@@ -15606,15 +15608,15 @@ $$
 $$
 \frac{|\hat{e}<em>{i}|}{|\mathring{e}</em>{i}|}= \frac{|\partial \vec{r} / \partial \xi^i|}{|\partial \vec{r}<em>{0} / \partial \xi^i|} = \frac{|d\vec{r}</em>{i}|}{|d\vec{r}<em>{0}|} = \frac{ds</em>{i}}{ds_{0i}}=l_{i}+1
 $$
-其中 $ds$ 是沿着坐标线 $\xi^i$ 的线微元，$l_{i}$ 是沿 $\xi^i$ 方向的相对伸长因数。综上得到
+其中 <span class="arithmatex">\(ds\)</span> 是沿着坐标线 <span class="arithmatex">\(\xi^i\)</span> 的线微元，<span class="arithmatex">\(l_{i}\)</span> 是沿 <span class="arithmatex">\(\xi^i\)</span> 方向的相对伸长因数。综上得到
 $$
 \hat{g}<em>{ij} = |\mathring{e}</em>{i}||\mathring{e}<em>{j}|(1+l</em>{i})(1+l_{j})\cos \psi_{ij}
 $$
 于是
 $$
-2\epsilon_{ij} = [(1+l_{i})(1+l_{j})\cos \psi_{ij}-\cos \mathring{\psi}<em>{ij}]|\mathring{e}</em>{i}||\mathring{e}<em>{j}|
+2\epsilon_{ij} = [(1+l_{i})(1+l_{j})\cos \psi_{ij}-\cos \mathring{\psi}<em>{ij}]|\mathring{e}</em>{i}||\mathring{e}_{j}|
 $$
-根据该公式可以得到 $\epsilon</em>{ij}$ 的几何解释。</p>
+根据该公式可以得到 <span class="arithmatex">\(\epsilon_{ij}\)</span> 的几何解释。</p>
 <p>若角标相同
 $$
 2\epsilon_{ii} = [(1+l_{i})^2-1]\mathring{g}<em>{ii}
@@ -15623,16 +15625,16 @@ $$
 $$
 l</em>{i} = \sqrt{ 1+ \frac{2\epsilon_{ii}}{\mathring{g}<em>{ii}} }-1
 $$
-如果变形很小，则 $\epsilon</em>{ii}$ 很小，将上式展开得到
+如果变形很小，则 <span class="arithmatex">\(\epsilon_{ii}\)</span> 很小，将上式展开得到
 $$
-l_{i} \approx \frac{\epsilon_{ii}}{\mathring{g}<em>{ii}}
+l</em>{i} \approx \frac{\epsilon_{ii}}{\mathring{g}<em>{ii}}
 $$
-如果初始状态的随体坐标系取笛卡尔坐标系，则 $\mathring{g}</em>{ii}=1$，故
+如果初始状态的随体坐标系取笛卡尔坐标系，则 <span class="arithmatex">\(\mathring{g}_{ii}=1\)</span>，故
 $$
-l_{i} \approx \epsilon_{ii}
+l</em>{i} \approx \epsilon_{ii}
 $$
 因此在无穷小变形的情形下，应变张量对角元等于相对伸长因数。</p>
-<p>若在初始状态选择 $\mathring{e}<em>{i}$ 相互垂直，则 $\mathring{\psi}</em>{ij}=\frac{\pi}{2}$，令
+<p>若在初始状态选择 <span class="arithmatex">\(\mathring{e}_{i}\)</span> 相互垂直，则 <span class="arithmatex">\(\mathring{\psi}_{ij}=\frac{\pi}{2}\)</span>，令
 $$
 \psi_{ij}= \frac{\pi}{2}-\chi_{ij}
 $$
@@ -15640,13 +15642,13 @@ $$
 $$
 2\epsilon_{ij} =|\hat{e}<em>{i}||\hat{e}</em>{j}|\sin \chi_{ij} \implies \sin \chi_{ij} = \frac{2\epsilon_{ij}}{\sqrt{ \hat{g}<em>{ii}\hat{g}</em>{jj} }}
 $$
-如果变形无穷小，并且初始随体坐标系是笛卡尔坐标系，则 $\mathring{g}<em>{ii}=1,\hat{g}</em>{ii}\approx 1$，故
+如果变形无穷小，并且初始随体坐标系是笛卡尔坐标系，则 <span class="arithmatex">\(\mathring{g}_{ii}=1,\hat{g}_{ii}\approx 1\)</span>，故
 $$
 \sin \chi_{ij} \approx 2\epsilon_{ij} \implies \chi_{ij} \approx 2\epsilon_{ij}
 $$
 因此变形后直角不再是直角，应变张量的非对角元描述坐标轴的倾斜。</p>
 <h4 id="_28">主轴与主分量</h4>
-<p>每一点都可以求出正交坐标系 $\eta^i$，使得二次型 $\epsilon_{ij}d\xi^id\xi^j$ 化为
+<p>每一点都可以求出正交坐标系 <span class="arithmatex">\(\eta^i\)</span>，使得二次型 <span class="arithmatex">\(\epsilon_{ij}d\xi^id\xi^j\)</span> 化为
 $$
 \epsilon_{ij}d\xi^id\xi^j = \epsilon_{11}'(d \eta^1)^2+ \epsilon_{22}'(d \eta^2)^2+\epsilon_{33}'(d \eta^3)^2
 $$</p>
@@ -15712,6 +15714,12 @@ $$</p>
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>

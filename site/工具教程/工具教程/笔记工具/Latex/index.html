@@ -53,6 +53,8 @@
       
     
     
+      <link rel="stylesheet" href="https://unpkg.com/katex@0/dist/katex.min.css">
+    
     <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -18933,7 +18935,7 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a><span class="k">\DeclareMathOperator</span><span class="nb">{</span><span class="k">\argh</span><span class="nb">}{</span>argh<span class="nb">}</span>
 <a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a><span class="k">\DeclareMathOperator*</span><span class="nb">{</span><span class="k">\nut</span><span class="nb">}{</span>Nut<span class="nb">}</span>
 </code></pre></div>
-<p>巨算符 $\int,\sum$ 等符号的上下标位置可由 <code>\limits</code> 和 <code>\nolimits</code> 调整
+<p>巨算符 <span class="arithmatex">\(\int,\sum\)</span> 等符号的上下标位置可由 <code>\limits</code> 和 <code>\nolimits</code> 调整
 $$
 \sum\limits_{i=1}^n,\quad \sum\nolimits_{i=1}^n
 $$
@@ -18963,24 +18965,24 @@ LATEX 也能为多个字符加重音，包括</p>
 <li>宽重音符号 <code>\widehat</code></li>
 <li>表示向量的箭头 <code>\overrightarrow</code></li>
 </ul>
-<p>$$
+<div class="arithmatex">\[
 0.\overline{3} =
-\underline{\underline{1/3}}\[5pt]
-\hat{XY} \qquad \widehat{XY}\[5pt]
+\underline{\underline{1/3}}\\[5pt]
+\hat{XY} \qquad \widehat{XY}\\[5pt]
 \vec{AB} \qquad
 \overrightarrow{AB}
 $$
-使用 <code>\overbrace</code> 和 <code>\underbrace</code> 命令用来生成上/下括号，各自可带一个上/下标公式
+使用 `\overbrace` 和 `\underbrace` 命令用来生成上/下括号，各自可带一个上/下标公式
 $$
 \underbrace{\overbrace{(a+b+c)}^6 \cdot \overbrace{(d+e+f)}^7}_\text{meaning of life} = 42
-$$</p>
+\]</div>
 <h4 id="_50">箭头和上标</h4>
 <p>用的箭头包括 <code>\rightarrow</code> (<em>→</em>，或 <code>\to</code>)、<code>\leftarrow</code>（<em>←</em>，或 <code>\gets</code>）等。amsmath 的 <code>\xleftarrow</code> 和 <code>\xrightarrow</code> 命令提供了长度可以伸展的箭头，并且可以为箭头增加上下标
 $$
 a\xleftarrow{x+y+z} b\quad c\xrightarrow[x&lt;y]{a<em>b</em>c}d
 $$</p>
 <h4 id="_51">括号和定界符</h4>
-<p>LATEX 提供了多种括号和定界符表示公式块的边界，如小括号 $()$、中括号 $[]$、大括号 ${}$、尖括号 $\langle \rangle$ ；使用 <code>\left</code> 和 <code>\right</code> 命令可令括号（定界符）的大小可变，在行间公式中常用。LATEX 会自动根据括号内的公式大小决定定界符大小。
+<p>LATEX 提供了多种括号和定界符表示公式块的边界，如小括号 <span class="arithmatex">\(()\)</span>、中括号 <span class="arithmatex">\([]\)</span>、大括号 <span class="arithmatex">\(\{\}\)</span>、尖括号 <span class="arithmatex">\(\langle \rangle\)</span> ；使用 <code>\left</code> 和 <code>\right</code> 命令可令括号（定界符）的大小可变，在行间公式中常用。LATEX 会自动根据括号内的公式大小决定定界符大小。
 $$
 1 + \left(\frac{1}{1-x^{2}}
 \right)^3 \qquad
@@ -19100,7 +19102,7 @@ $$
 x &amp; \text{if } x &gt; 0.
 \end{cases}
 $$
-我们当然也可以用 array 环境排版各种矩阵。amsmath 宏包还直接提供了多种排版矩阵的环境，包括不带定界符的 matrix，以及带各种定界符的矩阵 pmatrix $($、bmatrix $[$、Bmatrix ${$、vmatrix $|$、Vmatrix $|$ 等
+我们当然也可以用 array 环境排版各种矩阵。amsmath 宏包还直接提供了多种排版矩阵的环境，包括不带定界符的 matrix，以及带各种定界符的矩阵 pmatrix <span class="arithmatex">\((\)</span>、bmatrix <span class="arithmatex">\([\)</span>、Bmatrix <span class="arithmatex">\(\{\)</span>、vmatrix <span class="arithmatex">\(|\)</span>、Vmatrix <span class="arithmatex">\(\|\)</span> 等
 $$
 \begin{matrix}
 1 &amp; 2 \ 3 &amp; 4
@@ -19138,31 +19140,31 @@ $$
 <tbody>
 <tr>
 <td><code>\quad</code></td>
-<td>$a\quad a$</td>
+<td><span class="arithmatex">\(a\quad a\)</span></td>
 </tr>
 <tr>
 <td><code>\qquad</code></td>
-<td>$a\qquad a$</td>
+<td><span class="arithmatex">\(a\qquad a\)</span></td>
 </tr>
 <tr>
 <td><code>\,</code></td>
-<td>$a\,a$</td>
+<td><span class="arithmatex">\(a\,a\)</span></td>
 </tr>
 <tr>
 <td><code>\:</code></td>
-<td>$a\:a$</td>
+<td><span class="arithmatex">\(a\:a\)</span></td>
 </tr>
 <tr>
 <td><code>\;</code></td>
-<td>$a\;a$</td>
+<td><span class="arithmatex">\(a\;a\)</span></td>
 </tr>
 <tr>
 <td><code>\!</code></td>
-<td>$a!a$</td>
+<td><span class="arithmatex">\(a\!a\)</span></td>
 </tr>
 </tbody>
 </table>
-<p>一个常见的用途是修正积分的被积函数 $f(x)$ 和微元 $dx$ 之间的距离。注意微元里的 d 用的是直立体
+<p>一个常见的用途是修正积分的被积函数 <span class="arithmatex">\(f(x)\)</span> 和微元 <span class="arithmatex">\(dx\)</span> 之间的距离。注意微元里的 d 用的是直立体
 $$
 \int_a^b f(x)\mathrm{d}x
 \qquad
@@ -19535,7 +19537,7 @@ $$</p>
 <p>章节命令里往往有 LATEX 命令甚至数学公式，而 PDF 书签是纯文本，对命令和公式的处理很困难，有出错的风险。hyperref 宏包已经为我们处理了许多常见命令，如 <code>\LaTeX</code> 和字体命令 <code>\textbf</code> 等，对于未被处理的命令或数学公式，就要在章节标题中使用如下命令，分别提供 LATEX 代码和 PDF 书签可用的纯文本</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-118-1" name="__codelineno-118-1" href="#__codelineno-118-1"></a><span class="k">\texorpdfstring</span><span class="nb">{</span>⟨LATEX code⟩<span class="nb">}{</span>⟨PDF bookmark text⟩<span class="nb">}</span>
 </code></pre></div>
-<p>比如在章节名称里使用公式 $E=mc^2$ ，而书签则使用纯文本形式的 <code>E=mc^2</code></p>
+<p>比如在章节名称里使用公式 <span class="arithmatex">\(E=mc^2\)</span> ，而书签则使用纯文本形式的 <code>E=mc^2</code></p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-119-1" name="__codelineno-119-1" href="#__codelineno-119-1"></a><span class="k">\section</span><span class="nb">{</span>质能公式 <span class="k">\texorpdfstring</span><span class="nb">{</span><span class="s">$</span><span class="nb">E</span><span class="o">=</span><span class="nb">mc^</span><span class="m">2</span><span class="s">$</span><span class="nb">}{</span>E=mc<span class="k">\textasciicircum</span> 2<span class="nb">}}</span>
 </code></pre></div>
 <h2 id="tikz">TikZ 绘图</h2>
@@ -20833,7 +20835,7 @@ $$</p>
 <a id="__codelineno-218-8" name="__codelineno-218-8" href="#__codelineno-218-8"></a>plot<span class="w"> </span><span class="o">[</span>-pi/2:pi/2<span class="o">]</span><span class="w"> </span><span class="o">[</span>-1:1<span class="o">]</span><span class="w"> </span>x<span class="w"> </span>with<span class="w"> </span>lines,<span class="w"> </span>sin<span class="o">(</span>x<span class="o">)</span><span class="w"> </span>with<span class="w"> </span>linespoints
 </code></pre></div>
 <p><img alt="" src="image-20220715101844796.png|500" /></p>
-<p>有时我们需要用 $\pi$ 作为坐标单位，使用 <code>set xtics</code> 设置 $x$ 坐标的单位间隔</p>
+<p>有时我们需要用 <span class="arithmatex">\(\pi\)</span> 作为坐标单位，使用 <code>set xtics</code> 设置 <span class="arithmatex">\(x\)</span> 坐标的单位间隔</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-219-1" name="__codelineno-219-1" href="#__codelineno-219-1"></a><span class="nb">set</span><span class="w"> </span>terminal<span class="w"> </span>latex
 <a id="__codelineno-219-2" name="__codelineno-219-2" href="#__codelineno-219-2"></a><span class="nb">set</span><span class="w"> </span>output<span class="w"> </span><span class="s2">&quot;eg4.tex&quot;</span>
 <a id="__codelineno-219-3" name="__codelineno-219-3" href="#__codelineno-219-3"></a><span class="nb">set</span><span class="w"> </span>format<span class="w"> </span>y<span class="w"> </span><span class="s2">&quot;</span>$<span class="s2">%g</span>$<span class="s2">&quot;</span>
@@ -20846,7 +20848,7 @@ $$</p>
 <a id="__codelineno-219-10" name="__codelineno-219-10" href="#__codelineno-219-10"></a>plot<span class="w"> </span><span class="o">[</span>-pi:pi<span class="o">]</span><span class="w"> </span><span class="o">[</span>-1:1<span class="o">]</span><span class="w"> </span>sin<span class="o">(</span>x<span class="o">)</span>
 </code></pre></div>
 <p><img alt="" src="image-20220715103243526.png|500" /></p>
-<p>注意 <code>set xtics</code> 表示从 $-\pi$ 开始间隔 $\pi/4$ 递增，这里没有指定上限；<code>set format</code> 设置 $x$ 轴坐标保留 2 位小数，它使用 C 风格的标记；使用 <code>unset key</code> 取消图解；最后，在双引号中的部分使用 <code>\</code> 时要通过 <code>\</code> 进行转义。</p>
+<p>注意 <code>set xtics</code> 表示从 <span class="arithmatex">\(-\pi\)</span> 开始间隔 <span class="arithmatex">\(\pi/4\)</span> 递增，这里没有指定上限；<code>set format</code> 设置 <span class="arithmatex">\(x\)</span> 轴坐标保留 2 位小数，它使用 C 风格的标记；使用 <code>unset key</code> 取消图解；最后，在双引号中的部分使用 <code>\</code> 时要通过 <code>\</code> 进行转义。</p>
 <p>使用更精确的 <code>set xtics</code> 可以优化坐标表示</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-220-1" name="__codelineno-220-1" href="#__codelineno-220-1"></a><span class="nb">set</span><span class="w"> </span>terminal<span class="w"> </span>latex
 <a id="__codelineno-220-2" name="__codelineno-220-2" href="#__codelineno-220-2"></a><span class="nb">set</span><span class="w"> </span>output<span class="w"> </span><span class="s2">&quot;eg4.tex&quot;</span>
@@ -21123,19 +21125,19 @@ $$</p>
 <tbody>
 <tr>
 <td>\textit{text}</td>
-<td>$\textit{text}$</td>
+<td><span class="arithmatex">\(\textit{text}\)</span></td>
 </tr>
 <tr>
 <td>\textrm{text}</td>
-<td>$\textrm{text}$</td>
+<td><span class="arithmatex">\(\textrm{text}\)</span></td>
 </tr>
 <tr>
 <td>\textsf{text}</td>
-<td>$\textsf{text}$</td>
+<td><span class="arithmatex">\(\textsf{text}\)</span></td>
 </tr>
 <tr>
 <td>\textcolor{green}{text}</td>
-<td>$\textcolor{green}{text}$</td>
+<td><span class="arithmatex">\(\textcolor{green}{text}\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -21343,6 +21345,12 @@ $$</p>
     
     
       <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../javascripts/katex.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/katex.min.js"></script>
+      
+        <script src="https://unpkg.com/katex@0/dist/contrib/auto-render.min.js"></script>
       
     
   </body>
