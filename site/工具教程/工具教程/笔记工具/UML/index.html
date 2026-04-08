@@ -1,0 +1,4129 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>UML - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#uml" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UML
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#plantuml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        plantUML
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="plantUML">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装插件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#java" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Java 环境
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        部署图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        时序图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="时序图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        箭头
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参与者
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        别名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本对齐
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标题和页面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分割示意图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        组合消息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分隔符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        引用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延迟
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        增加空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        生命线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        返回
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建参与者
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快捷语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        锚定和持续时间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        盒子
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移除脚注
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用例图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="用例图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        角色
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        用例描述
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用包
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础示例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        继承
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        箭头方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分割图示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        改变方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一个完整的例子
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        元素声明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关系上的标签
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        添加方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义可访问性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        抽象与静态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级类体
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        备注和模板
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        抽象类和接口
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        使用非字母字符
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        泛型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指定标记
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        箭头方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关系类
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        活动图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="活动图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简单活动图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        开始/结束
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        条件语句
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环语句
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        并行处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        划分进程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        箭头
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连接器
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        组合
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        泳道
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        活动形状
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        状态图
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="状态图">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简单状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        合成状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        长名字
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分支和合并
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        并发状态
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        条件选择
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模块化全部案例
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        箭头方向
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="uml">UML</h1>
+<h2 id="plantuml">plantUML</h2>
+<p>plantUML 是开源的 UML 图绘制工具，支持通过文本来生成图形，使用起来非常高效。可以支持时序图、类图、对象图、活动图、思维导图等图形的绘制。</p>
+<h3 id="_1">安装插件</h3>
+<p>我们在 VSCode 中下载 plantUML 插件和 Graphviz Preview 插件，Ctrl + Shift + P 快捷键打开命令面版，输入 plantuml 即可看到相关指令。常用指令是 Preview Current Diagram 预览图表和 Export Current File Diagrams 导出图表。</p>
+<p>![[image-20220716160155569.png]]</p>
+<h3 id="java"><a href="https://blog.csdn.net/pythony_d/article/details/124806543">Java 环境</a></h3>
+<p>使用 plantUML 需要配置 Java 环境，下载 jdk 安装包（已经存放在 D 盘 Java 文件夹中），然后安装完毕。开始配置环境变量，在系统变量中：</p>
+<ol>
+<li>新建 <code>JAVA_HOME</code> 变量，路径设置为 <code>D:\Java</code></li>
+<li>新建 <code>CLASSPATH</code> 变量，路径设置为 <code>.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar</code></li>
+<li>点击 Path 环境变量，新建环境变量如下：</li>
+</ol>
+<p>![[image-20220716161033571.png]]</p>
+<p>完成后打开 cmd 输入 <code>java, javac, java -version</code> 检查是否正常。</p>
+<h2 id="_2">部署图</h2>
+<p>plantUML 提供了一系列元素用于设计结构，部署图如下</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@startuml
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>actor actor
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>agent agent
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>artifact artifact
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>boundary boundary
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>card card
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>cloud cloud
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>component component
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>control control
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>database database
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>entity entity
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>file file
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>folder folder
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>frame frame
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>interface  interface
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>node node
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>package package
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>queue queue
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>stack stack
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>rectangle rectangle
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>storage storage
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>usecase usecase
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716173512783.png]]</p>
+<h2 id="_3">时序图</h2>
+<h3 id="_4">箭头</h3>
+<p>我们直接通过代码说明各种可以使用的箭头</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@startuml test
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Alice --&gt; Bob : 认证申请
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>Alice -&gt; Bob
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>Alice --x Bob
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>Alice -x Bob
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>Alice -\\ Bob
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>Alice -// Bob
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>Alice -&gt;&gt; Bob
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>Alice -&gt;o Bob
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>@enduml
+</code></pre></div>
+<p>效果图如下：</p>
+<p>![[image-20220716162026669.png]]</p>
+<p>上面的箭头也可以写成 <code>x-&gt;</code> 等形式，表示将形状放在箭头的左端；还有 <code>&lt;-&gt;</code> 表示双向箭头。</p>
+<p>可以调整箭头的颜色</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@startuml test
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>Bob -[#red]&gt; Alice : Hello
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>Alice -[#0000FF]&gt; Bob : Ok
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716172343962.png]]</p>
+<h3 id="_5">参与者</h3>
+<p>使用 participant 定义参与者，order 设定参与者顺序</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@startuml test
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>participant Alice order 30
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>participant Bob order 20
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>participant Tom order 10
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716175059051.png]]</p>
+<p>也可以使用如下关键字声明，这会改变参与者的外观：</p>
+<ul>
+<li>actor 角色</li>
+<li>boundary 边界</li>
+<li>control 控制</li>
+<li>entity 实体</li>
+<li>database 数据库</li>
+<li>collections 集合</li>
+<li>queue 队列</li>
+</ul>
+<p>使用 RGB 颜色或者颜色名就可以改变参与者的背景颜色</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>@startuml test
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>actor Bob #Red
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>participant Alice
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>participant &quot;很长很长很长\n的名字&quot; as L #99FF99
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>Alice -&gt; Bob : 认证请求
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>Bob -&gt; Alice : 认证响应
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>Bob -&gt; L : 记录事务日志
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716214433402.png]]</p>
+<h3 id="_6">别名</h3>
+<p>可以用 <code>[</code> 和 <code>]</code> 来表示进入和发出消息，可以配合各种箭头使用，例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>@startuml test
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>[--&gt; Bob
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>Alice --&gt;]
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>@enduml
+</code></pre></div>
+<p>效果图如下：</p>
+<p>![[image-20220716190915435.png]]</p>
+<p>有时我们输入的名字很长，就可以用 <code>as</code> 语法指定别名</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>@startuml test
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>Alice --&gt; Long as &quot;This is very\nlong&quot;
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>&#39; 也可以写成 &quot;This is very\nlong&quot; as Long
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>Long --&gt; &quot;Alice&quot;
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716162753537.png]]</p>
+<p>其中双引号用于括住有空格的内容，而单引号开头的文字表示注释。</p>
+<h3 id="_7">文本对齐</h3>
+<p>使用 skinparam 命令调整响应信息的位置</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>@startuml test
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>skinparam ResponseMessageBelowArrow true
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>Bob -&gt; Alice : hello
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Alice -&gt; Bob : ok
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716214743782.png]]</p>
+<h3 id="_8">编号</h3>
+<p>使用 autonumber 编号格式示例如下：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>@startuml test
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>&#39; 3 个 0 表示编号有 3 位
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>autonumber &quot;[000]&quot;
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>&#39; &lt;b&gt; 表示字体加粗，&lt;u&gt; 标签表示下划线
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>autonumber 155 &quot;&lt;b&gt;(&lt;u&gt;##&lt;/u&gt;)&quot;
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>&#39; 10 表示编号间隔，红色字体+加粗
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>autonumber 40 10 &quot;&lt;font color=red&gt;&lt;b&gt;Message 0&quot;
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>
+<a id="__codelineno-8-18" name="__codelineno-8-18" href="#__codelineno-8-18"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716171725692.png]]</p>
+<p>使用 autonumber stop 表示停止编号，resume 用于表示接着停止之前的位置开始编号</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>@startuml test
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>autonumber 10 10 &quot;[000]&quot;
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>autonumber stop
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>Bob --&gt; Alice : Stop
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>autonumber resume &quot;&lt;b&gt;(&lt;u&gt;##&lt;/u&gt;)&quot;
+<a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>autonumber stop
+<a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>
+<a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>Bob --&gt; Alice : Stop
+<a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a>
+<a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a>autonumber resume 1 &quot;&lt;font color=red&gt;&lt;b&gt;Message 0&quot;
+<a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a>Bob --&gt; Alice : Hello
+<a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a>
+<a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716172050310.png]]</p>
+<h3 id="_9">标题和页面</h3>
+<p>使用 title 添加标题</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>@startuml test
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>title __Simple__ **communication** example
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>Alice -&gt; Bon : Authentication Request
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>Bob -&gt; Alice : Authentication Request
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716210930534.png]]</p>
+<p>其中双下划线添加下划线，使用星号加粗；甚至可以添加 HTML 元素</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>@startuml test
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>title
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>    &lt;u&gt;Simple&lt;\u&gt; communication example
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>    on &lt;i&gt;several&lt;/i&gt; lines and using &lt;font color=red&gt;html&lt;/font&gt;
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>    This is hosted by &lt;img:sourceforge.jpg&gt;
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>end title
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>Alice -&gt; Bob : Authentication Request
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>Bob -&gt; Alice : Authentication Request
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716212126159.png]]</p>
+<p>使用 header 增加页眉，footer 增加页脚</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>@startuml test
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>header Page Header
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>footer Page %page% of %lastpage%
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>title Example Title
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a>Alice -&gt; Bob : message 1
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a>Alice -&gt; Bob : message 2
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716215014794.png]]</p>
+<h3 id="_10">分割示意图</h3>
+<p>使用 newpage 把一张图分割成多张，在其后添加文字，作为新的示意图的标题</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>@startuml test
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Alice -&gt; Bob : message 1
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>Alice -&gt; Bob : message 2
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>newpage
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>Alice -&gt; Bob : message 3
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>Alice -&gt; Bob : message 4
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>newpage A title for the\nlast page
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a>Alice -&gt; Bob : message 5
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>Alice -&gt; Bob : message 6
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716215217605.png]]</p>
+<p>![[image-20220716215229457.png]]</p>
+<p>![[image-20220716215259361.png]]</p>
+<h3 id="_11">组合消息</h3>
+<p>使用如下关键词组合消息：</p>
+<ul>
+<li>alt/else</li>
+<li>opt</li>
+<li>loop</li>
+<li>par</li>
+<li>break</li>
+<li>critical</li>
+<li>group 后面紧跟消息内容</li>
+</ul>
+<p>可以在 header 添加需要显示的文字，end 用来结束分组；分组可以嵌套使用</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>@startuml test
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>Alice -&gt; Bob: 认证请求
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>alt 成功情况
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>    Bob -&gt; Alice: 认证接受
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>else 某种失败情况
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a>    Bob -&gt; Alice: 认证失败
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>    group 我自己的标签
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a>        Alice -&gt; Log : 开始记录攻击日志
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a>        loop 1000次
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a>            Alice -&gt; Bob: DNS 攻击
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a>        end
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>        Alice -&gt; Log : 结束记录攻击日志
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a>    end
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a>else 另一种失败
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>    Bob -&gt; Alice: 请重复
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a>end
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716220453058.png]]</p>
+<p>对于 group 而言，在标头处的 <code>[]</code> 之间可以显示次级文本或标签</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>@startuml test
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>Alice -&gt; Bob: 认证请求
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>Bob -&gt; Alice: 认证失败
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>group 我自己的标签 [我自己的标签2]
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>    Alice -&gt; Log : 开始记录攻击日志
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>    loop 1000次
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>        Alice -&gt; Bob: DNS攻击
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>    end
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>    Alice -&gt; Log : 结束记录攻击日志
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>end
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716220807906.png]]</p>
+<h3 id="_12">消息注释</h3>
+<p>使用 note 添加注释，还可以指定注释相对的位置</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>@startuml test
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>participant Alice
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>participant Bob
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a>&#39; 多行注释，同时修改背景色
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>note left of Alice #aqua
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>This is displayed 
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>left of Alice
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>end note
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a>&#39; 也可以使用 note left 或 note right
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a>note right of Alice : This is displayed right of Alice
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a>note over Alice : This is displayed over Alice
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a>&#39; 修改背景色，同时注释
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a>note over Alice, Bob #FFAAAA : This is displayed\n over Bob and Alice
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a>note over Bob, Alice
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a>This is yet another
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a>example of
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a>a long note
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>end note
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716174933429.png]]</p>
+<p>note 还有 hnote 六边形，rnote 矩形两个版本</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>@startuml test
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>caller -&gt; server : conReq
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>hnote over caller : idle
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>caller &lt;- server : conConf
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>rnote over server
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>&quot;r&quot; as rectangle
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>&quot;h&quot; as hexagon
+<a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>end rnote
+<a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>
+<a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716211549112.png]]</p>
+<p>通过 note across 可以在所有参与者之间添加备注</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>@startuml test
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>Alice-&gt;Bob:m1
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>Bob-&gt;Charlie:m2
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>note over Alice, Charlie: 创建跨越所有参与者的备注的旧方法：\n &quot;&quot;note over //FirstPart, LastPart//&quot;&quot;.
+<a id="__codelineno-18-7" name="__codelineno-18-7" href="#__codelineno-18-7"></a>
+<a id="__codelineno-18-8" name="__codelineno-18-8" href="#__codelineno-18-8"></a>note across: 新方法：\n&quot;&quot;note across&quot;&quot;
+<a id="__codelineno-18-9" name="__codelineno-18-9" href="#__codelineno-18-9"></a>
+<a id="__codelineno-18-10" name="__codelineno-18-10" href="#__codelineno-18-10"></a>Bob-&gt;Alice
+<a id="__codelineno-18-11" name="__codelineno-18-11" href="#__codelineno-18-11"></a>hnote across: 跨越所有参与者的备注。
+<a id="__codelineno-18-12" name="__codelineno-18-12" href="#__codelineno-18-12"></a>
+<a id="__codelineno-18-13" name="__codelineno-18-13" href="#__codelineno-18-13"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716221144073.png]]</p>
+<p>利用 \ 在同一级对齐多个注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>@startuml
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>note over Alice : Alice的初始状态
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>/ note over Bob : Bob的初始状态
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>Bob -&gt; Alice : hello
+<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
+<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716221321106.png]]</p>
+<h3 id="_13">分隔符</h3>
+<p>通过 == 关键字分割图表</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>@startuml
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>== 初始化 ==
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>Alice -&gt; Bob: 认证请求
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>Bob --&gt; Alice: 认证响应
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>== 重复 ==
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>Alice -&gt; Bob: 认证请求
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>Alice &lt;-- Bob: 认证响应
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716221426909.png]]</p>
+<h3 id="_14">引用</h3>
+<p>使用 ref over 实现引用</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>@startuml
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>participant Alice
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>actor Bob
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>ref over Alice, Bob : init
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>Alice -&gt; Bob : hello
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a>ref over Bob
+<a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a>This can be on
+<a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a>several lines
+<a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a>end ref
+<a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a>
+<a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716221523774.png]]</p>
+<h3 id="_15">延迟</h3>
+<p>使用 ... 表示等待，可以添加文本说明延时时间</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>@startuml test
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>Alice -&gt; Bob : Authentication Request
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>...
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>Bob -&gt; Alice : Authentication Request
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>...5 minutes later...
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>Bob -&gt; Alice : Bye
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716211226632.png]]</p>
+<h3 id="_16">增加空间</h3>
+<p>使用 ||| 增加两个消息之间的竖直空间，还可以指定增加的像素数量</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>@startuml test
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>Alice -&gt; Bob : message 1
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>Bob -&gt; Alice : ok
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>|||
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>Alice -&gt; Bob : message 2
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>Bob -&gt; Alice : ok
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>||45||
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>Alice -&gt; Bob : message 3
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>Bob -&gt; Alice : ok
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716211831481.png]]</p>
+<h3 id="_17">生命线</h3>
+<p>使用 activate 表示激活元素，deactivate 表示回收元素</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>@startuml test
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>participant User
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>&#39; User 激活 A
+<a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>User -&gt; A : Dowork
+<a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>activate A #FFBBBB
+<a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>
+<a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>&#39; A 激活 A
+<a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a>A -&gt; A : Internal call
+<a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a>activate A #DarkSalmon
+<a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+<a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a>&#39; A 激活 B
+<a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a>A -&gt; B : &lt;&lt; createRequest &gt;&gt;
+<a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a>activate B
+<a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>
+<a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a>&#39; B 返回消息同时销毁 A B
+<a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a>B --&gt; A : RequestCreated
+<a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a>deactivate B
+<a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a>deactivate A
+<a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a>
+<a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a>&#39; A 返回并销毁 A
+<a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a>A -&gt; User: Done
+<a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a>deactivate A
+<a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a>
+<a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716173826423.png]]</p>
+<p>也可以使用自动激活关键字 autoactivate ，需要与 return 关键字配合</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>@startuml
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>&#39; 开启自动生命周期
+<a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a>autoactivate on
+<a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a>alice -&gt; bob : hello
+<a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>bob -&gt; bob : self call
+<a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a>
+<a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a>bill -&gt; bob #005500 : hello from thread 2
+<a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>bob -&gt; george ** : create
+<a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a>
+<a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a>&#39; 对应 bill-&gt;bob 因此返回到 bill
+<a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a>return done in thread 2
+<a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>
+<a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a>&#39; 对应 bob-&gt;bob 因此返回到 bob
+<a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a>return rc
+<a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a>
+<a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a>bob -&gt; george !! : delete
+<a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a>&#39; 对应 alice -&gt; bob 因此返回到 alice
+<a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a>return success
+<a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a>
+<a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716221836153.png]]</p>
+<p>可以看到自动激活按照消息传递顺序的相反顺序返回。</p>
+<h3 id="_18">返回</h3>
+<p>return 可以用于生成一个带有可选文本标签的返回信息，返回的点是导致最近一次激活生命线的点。语法是简单的返回标签，其中标签（如果提供）可以是传统信息中可以接受的任何字符串</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>@startuml
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>Bob -&gt; Alice : hello
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>activate Alice
+<a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a>Alice -&gt; Alice : some action
+<a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a>return bye
+<a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a>
+<a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716222528272.png]]</p>
+<h3 id="_19">创建参与者</h3>
+<p>可以使用 create 关键字创建参与者，放在消息之后表示本次消息创建了新的节点</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>@startuml test
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>Bob -&gt; Alice : Hello
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a>create Other
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a>Alice -&gt; Other : new
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a>&#39; 创建控制节点
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a>create control String
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>Alice -&gt; String
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a>note right: 添加注释
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a>Alice --&gt; Bob : Ok
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716173124910.png]]</p>
+<h3 id="_20">快捷语法</h3>
+<p>在指定目标参与者后，可以立即使用以下语法：</p>
+<ul>
+<li>++ 激活目标（可选择在后面加上 #color） </li>
+<li>-- 撤销激活源</li>
+<li>** 创建目标实例</li>
+<li>!! 摧毁目标实例</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>@startuml
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>alice -&gt; bob ++ : hello
+<a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>bob -&gt; bob ++ : self call
+<a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>bob -&gt; bib ++ #005500 : hello
+<a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>bob -&gt; george ** : create
+<a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>return done
+<a id="__codelineno-28-8" name="__codelineno-28-8" href="#__codelineno-28-8"></a>return rc
+<a id="__codelineno-28-9" name="__codelineno-28-9" href="#__codelineno-28-9"></a>bob -&gt; george !! : delete
+<a id="__codelineno-28-10" name="__codelineno-28-10" href="#__codelineno-28-10"></a>return success
+<a id="__codelineno-28-11" name="__codelineno-28-11" href="#__codelineno-28-11"></a>
+<a id="__codelineno-28-12" name="__codelineno-28-12" href="#__codelineno-28-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716222708989.png]]</p>
+<h3 id="_21">锚定和持续时间</h3>
+<p>使用 teoz 在图表中添加锚定，从而指定持续时间</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>@startuml
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a>!pragma teoz true
+<a id="__codelineno-29-4" name="__codelineno-29-4" href="#__codelineno-29-4"></a>
+<a id="__codelineno-29-5" name="__codelineno-29-5" href="#__codelineno-29-5"></a>{start} Alice -&gt; Bob : start doing things during duration
+<a id="__codelineno-29-6" name="__codelineno-29-6" href="#__codelineno-29-6"></a>Bob -&gt; Max : something
+<a id="__codelineno-29-7" name="__codelineno-29-7" href="#__codelineno-29-7"></a>Max -&gt; Bob : something else
+<a id="__codelineno-29-8" name="__codelineno-29-8" href="#__codelineno-29-8"></a>{end} Bob -&gt; Alice : finish
+<a id="__codelineno-29-9" name="__codelineno-29-9" href="#__codelineno-29-9"></a>
+<a id="__codelineno-29-10" name="__codelineno-29-10" href="#__codelineno-29-10"></a>&#39; 指定 start 与 end 之间的时间
+<a id="__codelineno-29-11" name="__codelineno-29-11" href="#__codelineno-29-11"></a>{start} &lt;-&gt; {end} : some time
+<a id="__codelineno-29-12" name="__codelineno-29-12" href="#__codelineno-29-12"></a>
+<a id="__codelineno-29-13" name="__codelineno-29-13" href="#__codelineno-29-13"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716223120525.png]]</p>
+<h3 id="_22">构造类型</h3>
+<p>可以使用 &lt;&lt; 和 &gt;&gt; 给参与者 participant 添加构造类型。使用 <code>(X,color)</code> 格式语法添加一个小圆圈圈起来的字符</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>@startuml test
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>participant &quot;Famous Bob&quot; as Bob &lt;&lt; Generated &gt;&gt;
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>participant Alice &lt;&lt; (C,#ADD1B2) Testable&gt;&gt;
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>Bob -&gt; Alice : Message
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>
+<a id="__codelineno-30-8" name="__codelineno-30-8" href="#__codelineno-30-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716172633626.png]]</p>
+<h3 id="_23">盒子</h3>
+<p>使用 box 命令添加盒子</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>@startuml test
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>box &quot;Internal Service&quot; #LightBlue
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>    participant Bob
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>    participant Alice
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a>end box
+<a id="__codelineno-31-7" name="__codelineno-31-7" href="#__codelineno-31-7"></a>
+<a id="__codelineno-31-8" name="__codelineno-31-8" href="#__codelineno-31-8"></a>participant Other
+<a id="__codelineno-31-9" name="__codelineno-31-9" href="#__codelineno-31-9"></a>Bob -&gt; Alice : hello
+<a id="__codelineno-31-10" name="__codelineno-31-10" href="#__codelineno-31-10"></a>Alice -&gt; Other : hello
+<a id="__codelineno-31-11" name="__codelineno-31-11" href="#__codelineno-31-11"></a>
+<a id="__codelineno-31-12" name="__codelineno-31-12" href="#__codelineno-31-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716210705149.png]]</p>
+<h3 id="_24">移除脚注</h3>
+<p>使用 hide footbox 移除脚注</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>@startuml
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>hide footbox
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>title Footer removed
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>Alice -&gt; Bob: Authentication Request
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>Bob --&gt; Alice: Authentication Response
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716223347372.png]]</p>
+<h2 id="_25">用例图</h2>
+<h3 id="_26">用例</h3>
+<p>用例用圆括号括起来，也可以用 usecase 定义，as 可以定义别名</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>@startuml
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>&#39; 圆括号定义
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>(First usecase)
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a>(Another usecase) as (UC2)
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a>&#39; usecase 定义
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a>usecase UC3
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a>usecase (Last\nusecase) as UC4
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a>
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716223928459.png]]</p>
+<h3 id="_27">角色</h3>
+<p>用两个冒号包裹角色，或者 actor 定义角色</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>@startuml
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>&#39; 冒号定义
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>:First Actor:
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a>:Another\nactor: as Man2
+<a id="__codelineno-34-6" name="__codelineno-34-6" href="#__codelineno-34-6"></a>
+<a id="__codelineno-34-7" name="__codelineno-34-7" href="#__codelineno-34-7"></a>&#39; actor 定义
+<a id="__codelineno-34-8" name="__codelineno-34-8" href="#__codelineno-34-8"></a>actor Woman3
+<a id="__codelineno-34-9" name="__codelineno-34-9" href="#__codelineno-34-9"></a>actor :Last actor: as Person1
+<a id="__codelineno-34-10" name="__codelineno-34-10" href="#__codelineno-34-10"></a>
+<a id="__codelineno-34-11" name="__codelineno-34-11" href="#__codelineno-34-11"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716224044696.png]]</p>
+<h3 id="_28">用例描述</h3>
+<p>如果想定义跨越多行的用例描述，可以用双引号包裹，也可以用分隔符：</p>
+<ul>
+<li><code>--</code> 横线</li>
+<li><code>. .</code> 虚线</li>
+<li><code>==</code> 双横线</li>
+<li><code>__</code> 下划线</li>
+</ul>
+<p>并且还可以在分隔符中间放置标题</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>@startuml
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>usecase UC1 as &quot;You can use
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>several lines to define your usecase.
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a>You can also use separators.
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a>--
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a>Several separators are possible.
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a>==
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a>
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a>And you can add titles:
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a>..Conclusion..
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>This allows large description.&quot;
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a>
+<a id="__codelineno-35-17" name="__codelineno-35-17" href="#__codelineno-35-17"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716224418140.png]]</p>
+<h3 id="_29">使用包</h3>
+<p>使用包对用例进行分组</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>@startuml
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>left to right direction
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a>actor Guest as g
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a>package Professional {
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a>    actor Chef as c
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>    actor &quot;Food Critic&quot; as fc
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a>}
+<a id="__codelineno-36-11" name="__codelineno-36-11" href="#__codelineno-36-11"></a>
+<a id="__codelineno-36-12" name="__codelineno-36-12" href="#__codelineno-36-12"></a>package Restaurant {
+<a id="__codelineno-36-13" name="__codelineno-36-13" href="#__codelineno-36-13"></a>    usecase &quot;Eat Food&quot; as UC1
+<a id="__codelineno-36-14" name="__codelineno-36-14" href="#__codelineno-36-14"></a>    usecase &quot;Pay for Food&quot; as UC2
+<a id="__codelineno-36-15" name="__codelineno-36-15" href="#__codelineno-36-15"></a>    usecase &quot;Drink&quot; as UC3
+<a id="__codelineno-36-16" name="__codelineno-36-16" href="#__codelineno-36-16"></a>    usecase &quot;Review&quot; as UC4
+<a id="__codelineno-36-17" name="__codelineno-36-17" href="#__codelineno-36-17"></a>}
+<a id="__codelineno-36-18" name="__codelineno-36-18" href="#__codelineno-36-18"></a>
+<a id="__codelineno-36-19" name="__codelineno-36-19" href="#__codelineno-36-19"></a>fc --&gt; UC4
+<a id="__codelineno-36-20" name="__codelineno-36-20" href="#__codelineno-36-20"></a>g --&gt; UC1
+<a id="__codelineno-36-21" name="__codelineno-36-21" href="#__codelineno-36-21"></a>g --&gt; UC2
+<a id="__codelineno-36-22" name="__codelineno-36-22" href="#__codelineno-36-22"></a>g --&gt; UC3
+<a id="__codelineno-36-23" name="__codelineno-36-23" href="#__codelineno-36-23"></a>
+<a id="__codelineno-36-24" name="__codelineno-36-24" href="#__codelineno-36-24"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716224546148.png]]</p>
+<p>可以使用 rectangle 改变包的外观</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>@startuml
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>left to right direction
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a>actor &quot;Food Critic&quot; as fc
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a>rectangle Restaurant {
+<a id="__codelineno-37-8" name="__codelineno-37-8" href="#__codelineno-37-8"></a>    usecase &quot;Eat Food&quot; as UC1
+<a id="__codelineno-37-9" name="__codelineno-37-9" href="#__codelineno-37-9"></a>    usecase &quot;Pay for Food&quot; as UC2
+<a id="__codelineno-37-10" name="__codelineno-37-10" href="#__codelineno-37-10"></a>    usecase &quot;Drink&quot; as UC3
+<a id="__codelineno-37-11" name="__codelineno-37-11" href="#__codelineno-37-11"></a>}
+<a id="__codelineno-37-12" name="__codelineno-37-12" href="#__codelineno-37-12"></a>
+<a id="__codelineno-37-13" name="__codelineno-37-13" href="#__codelineno-37-13"></a>fc --&gt; UC1
+<a id="__codelineno-37-14" name="__codelineno-37-14" href="#__codelineno-37-14"></a>fc --&gt; UC2
+<a id="__codelineno-37-15" name="__codelineno-37-15" href="#__codelineno-37-15"></a>fc --&gt; UC3
+<a id="__codelineno-37-16" name="__codelineno-37-16" href="#__codelineno-37-16"></a>
+<a id="__codelineno-37-17" name="__codelineno-37-17" href="#__codelineno-37-17"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716224637539.png]]</p>
+<h3 id="_30">基础示例</h3>
+<p>用 --&gt; 连接角色，横杆越多，箭头越长。通过在箭头定义的后面加一个冒号及文字的方式添加标签</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>@startuml
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>User -&gt; (Start)
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>User --&gt; (Use the application) : A small label
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>:Main Admin: ---&gt; (Use the application) : This is\nyet another\nlabel
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716224808949.png]]</p>
+<h3 id="_31">继承</h3>
+<p>如果一个角色或者用例继承于另一个，可以用 <code>&lt;|--</code> 符号表示</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>@startuml
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>:Main Admin: as Admin
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>(Use the application) as (Use)
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a>User &lt;|-- Admin
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>(Start) &lt;|-- (Use)
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716234626825.png]]</p>
+<h3 id="_32">使用注释</h3>
+<p>通过 note 命令添加注释，还可以用 .. 连接其它对象</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>@startuml
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>:Main Admin: as Admin
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>(Use the application) as (Use)
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>User -&gt; (Start)
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>User --&gt; (Use)
+<a id="__codelineno-40-8" name="__codelineno-40-8" href="#__codelineno-40-8"></a>Admin ---&gt; (Use)
+<a id="__codelineno-40-9" name="__codelineno-40-9" href="#__codelineno-40-9"></a>
+<a id="__codelineno-40-10" name="__codelineno-40-10" href="#__codelineno-40-10"></a>note right of Admin : This is an example.
+<a id="__codelineno-40-11" name="__codelineno-40-11" href="#__codelineno-40-11"></a>note right of (Use)
+<a id="__codelineno-40-12" name="__codelineno-40-12" href="#__codelineno-40-12"></a>    A note can also
+<a id="__codelineno-40-13" name="__codelineno-40-13" href="#__codelineno-40-13"></a>    be on several lines
+<a id="__codelineno-40-14" name="__codelineno-40-14" href="#__codelineno-40-14"></a>end note
+<a id="__codelineno-40-15" name="__codelineno-40-15" href="#__codelineno-40-15"></a>
+<a id="__codelineno-40-16" name="__codelineno-40-16" href="#__codelineno-40-16"></a>&#39; 定义注释的别名
+<a id="__codelineno-40-17" name="__codelineno-40-17" href="#__codelineno-40-17"></a>note &quot;This note is connected\nto several objects.&quot; as N2
+<a id="__codelineno-40-18" name="__codelineno-40-18" href="#__codelineno-40-18"></a>&#39; 连接对象
+<a id="__codelineno-40-19" name="__codelineno-40-19" href="#__codelineno-40-19"></a>(Start) .. N2
+<a id="__codelineno-40-20" name="__codelineno-40-20" href="#__codelineno-40-20"></a>N2 .. (Use)
+<a id="__codelineno-40-21" name="__codelineno-40-21" href="#__codelineno-40-21"></a>
+<a id="__codelineno-40-22" name="__codelineno-40-22" href="#__codelineno-40-22"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716234850479.png]]</p>
+<h3 id="_33">构造类型</h3>
+<p>用 <code>&lt;&lt; &gt;&gt;</code> 定义角色或用例的构造类型</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>@startuml
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a>User &lt;&lt; Human &gt;&gt;
+<a id="__codelineno-41-4" name="__codelineno-41-4" href="#__codelineno-41-4"></a>:Main Database: as MySql &lt;&lt; Application &gt;&gt;
+<a id="__codelineno-41-5" name="__codelineno-41-5" href="#__codelineno-41-5"></a>
+<a id="__codelineno-41-6" name="__codelineno-41-6" href="#__codelineno-41-6"></a>(Start) &lt;&lt; One Shot &gt;&gt;
+<a id="__codelineno-41-7" name="__codelineno-41-7" href="#__codelineno-41-7"></a>(Use the application) as (Use) &lt;&lt; Main &gt;&gt;
+<a id="__codelineno-41-8" name="__codelineno-41-8" href="#__codelineno-41-8"></a>
+<a id="__codelineno-41-9" name="__codelineno-41-9" href="#__codelineno-41-9"></a>User -&gt; (Start)
+<a id="__codelineno-41-10" name="__codelineno-41-10" href="#__codelineno-41-10"></a>User --&gt; (Use)
+<a id="__codelineno-41-11" name="__codelineno-41-11" href="#__codelineno-41-11"></a>MySql --&gt; (Use)
+<a id="__codelineno-41-12" name="__codelineno-41-12" href="#__codelineno-41-12"></a>
+<a id="__codelineno-41-13" name="__codelineno-41-13" href="#__codelineno-41-13"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716234953633.png]]</p>
+<h3 id="_34">箭头方向</h3>
+<p>默认用 -- 表示竖直连接，可以用 - 或 . 表示水平连接；通过反转箭头改变方向</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>@startuml
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a>:user: --&gt; (Use case 1)
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a>:user: -&gt; (Use case 2)
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a>(Use case 1) &lt;.. :user:
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a>(Use case 2) &lt;- :user:
+<a id="__codelineno-42-8" name="__codelineno-42-8" href="#__codelineno-42-8"></a>
+<a id="__codelineno-42-9" name="__codelineno-42-9" href="#__codelineno-42-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716235122740.png]]</p>
+<p>也可以用 left, right, up, down 等关键字改变方向</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>@startuml
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a>:user: -left-&gt; (dummyLeft)
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a>:user: -right-&gt; (dummyRight)
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a>:user: -up-&gt; (dummyUp)
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>:user: -down-&gt; (dummyDown)
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716235205203.png]]</p>
+<p>也可以用关键字首字母或前两个字母缩写代替，但不建议使用。</p>
+<h3 id="_35">分割图示</h3>
+<p>用 newpage 分割多个页面</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>@startuml
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a>:actor1: --&gt; (Usecase1)
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a>newpage
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>:actor2: --&gt; (Usecase2)
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a>@enduml
+</code></pre></div>
+<h3 id="_36">改变方向</h3>
+<p>默认从上向下构建图示，也可以调整</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>@startuml
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a>left to right direction
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a>user1 --&gt; (Usecase 1)
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a>user2 --&gt; (Usecase 2)
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716235546225.png]]</p>
+<h3 id="_37">一个完整的例子</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>@startuml
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a>left to right direction
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a>actor customer
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a>actor clerk
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a>
+<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a>rectangle checkout {
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a>customer -- (checkout)
+<a id="__codelineno-46-10" name="__codelineno-46-10" href="#__codelineno-46-10"></a>(checkout) .&gt; (payment) : include
+<a id="__codelineno-46-11" name="__codelineno-46-11" href="#__codelineno-46-11"></a>(help) .&gt; (checkout) : extends
+<a id="__codelineno-46-12" name="__codelineno-46-12" href="#__codelineno-46-12"></a>(checkout) -- clerk
+<a id="__codelineno-46-13" name="__codelineno-46-13" href="#__codelineno-46-13"></a>}
+<a id="__codelineno-46-14" name="__codelineno-46-14" href="#__codelineno-46-14"></a>
+<a id="__codelineno-46-15" name="__codelineno-46-15" href="#__codelineno-46-15"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716235533806.png]]</p>
+<h2 id="_38">类图</h2>
+<h3 id="_39">元素声明</h3>
+<p>不同类图元素声明如下</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>@startuml test
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a>abstract abstract
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a>abstract class &quot;abstract class&quot;
+<a id="__codelineno-47-5" name="__codelineno-47-5" href="#__codelineno-47-5"></a>annotation annotation
+<a id="__codelineno-47-6" name="__codelineno-47-6" href="#__codelineno-47-6"></a>circle circle
+<a id="__codelineno-47-7" name="__codelineno-47-7" href="#__codelineno-47-7"></a>() circle_short_form
+<a id="__codelineno-47-8" name="__codelineno-47-8" href="#__codelineno-47-8"></a>class class
+<a id="__codelineno-47-9" name="__codelineno-47-9" href="#__codelineno-47-9"></a>diamond diamond
+<a id="__codelineno-47-10" name="__codelineno-47-10" href="#__codelineno-47-10"></a>&lt;&gt; diamond_short_form
+<a id="__codelineno-47-11" name="__codelineno-47-11" href="#__codelineno-47-11"></a>entity entity
+<a id="__codelineno-47-12" name="__codelineno-47-12" href="#__codelineno-47-12"></a>enum enum
+<a id="__codelineno-47-13" name="__codelineno-47-13" href="#__codelineno-47-13"></a>interface interface
+<a id="__codelineno-47-14" name="__codelineno-47-14" href="#__codelineno-47-14"></a>
+<a id="__codelineno-47-15" name="__codelineno-47-15" href="#__codelineno-47-15"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716235650074.png]]</p>
+<h3 id="_40">类关系</h3>
+<p>类之间的关系通过下面的符号定义：</p>
+<ul>
+<li><code>&lt;|--</code> 扩展</li>
+<li><code>*--</code> 组合</li>
+<li><code>o--</code> 聚合</li>
+</ul>
+<p>使用 .. 来代替 -- 可以得到点线</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>@startuml
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a>Class01 &lt;|-- Class02
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a>Class03 *-- Class04
+<a id="__codelineno-48-5" name="__codelineno-48-5" href="#__codelineno-48-5"></a>Class05 o-- Class06
+<a id="__codelineno-48-6" name="__codelineno-48-6" href="#__codelineno-48-6"></a>Class07 .. Class08
+<a id="__codelineno-48-7" name="__codelineno-48-7" href="#__codelineno-48-7"></a>Class09 -- Class10
+<a id="__codelineno-48-8" name="__codelineno-48-8" href="#__codelineno-48-8"></a>
+<a id="__codelineno-48-9" name="__codelineno-48-9" href="#__codelineno-48-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220716235949050.png]]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>@startuml
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a>Class11 &lt;|.. Class12
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a>Class13 --&gt; Class14
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a>Class15 ..&gt; Class16
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a>Class17 ..|&gt; Class18
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a>Class19 &lt;--* Class20
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a>
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717000111126.png]]</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>@startuml
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a>Class21 #-- Class22
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a>Class23 x-- Class24
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a>Class25 }-- Class26
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a>Class27 +-- Class28
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a>Class29 ^-- Class30
+<a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a>
+<a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717000134895.png]]</p>
+<h3 id="_41">关系上的标签</h3>
+<p>在关系之间使用标签来说明时，使用 : 后接标签文字；对元素的说明，可以在每一边使用 "" 来说明</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>@startuml
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>Class01 &quot;1&quot; *-- &quot;many&quot; Class02 : contains
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a>Class03 o-- Class04 : aggregation
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>Class05 --&gt; &quot;1&quot; Class06
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717000308562.png]]</p>
+<p>在标签的开始或结束位置添加 &lt; 或 &gt; 以表明是哪个对象作用到哪个对象上</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>@startuml
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a>class Car
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>Driver - Car : drives &gt;
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a>Car *- Wheel : have 4 &gt;
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a>Car -- Person : &lt; owns
+<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>
+<a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717000423873.png]]</p>
+<h3 id="_42">添加方法</h3>
+<p>要声明对象属性或方法，可以使用后段字段名或方法名；系统检查是否有括号来判断是方法还是字段</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>@startuml
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a>Object &lt;|-- ArrayList
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a>&#39; 带括号的是方法
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>Object : equals()
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a>ArrayList : Object[] elementData
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a>ArrayList : size()
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717000607306.png]]</p>
+<p>更直观的是用 <code>{}</code> 将字段和方法括起来</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>@startuml
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a>class Dummy {
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a>    String data
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a>    void methods()
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a>}
+<a id="__codelineno-54-7" name="__codelineno-54-7" href="#__codelineno-54-7"></a>
+<a id="__codelineno-54-8" name="__codelineno-54-8" href="#__codelineno-54-8"></a>class Flight {
+<a id="__codelineno-54-9" name="__codelineno-54-9" href="#__codelineno-54-9"></a>    flightNumber : Integer
+<a id="__codelineno-54-10" name="__codelineno-54-10" href="#__codelineno-54-10"></a>    departureTime : Date
+<a id="__codelineno-54-11" name="__codelineno-54-11" href="#__codelineno-54-11"></a>}
+<a id="__codelineno-54-12" name="__codelineno-54-12" href="#__codelineno-54-12"></a>
+<a id="__codelineno-54-13" name="__codelineno-54-13" href="#__codelineno-54-13"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717000728442.png]]</p>
+<p>可以显式地用 <code>{field}</code> 和 <code>{method}</code> 来覆盖解析器默认的识别</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>@startuml
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a>class Dummy {
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a>    {field} A field (despite parentheses)
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a>    {method} Some method
+<a id="__codelineno-55-6" name="__codelineno-55-6" href="#__codelineno-55-6"></a>}
+<a id="__codelineno-55-7" name="__codelineno-55-7" href="#__codelineno-55-7"></a>
+<a id="__codelineno-55-8" name="__codelineno-55-8" href="#__codelineno-55-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717000858327.png]]</p>
+<h3 id="_43">定义可访问性</h3>
+<p>可以用不同字符确定可访问程度</p>
+<ul>
+<li><code>-</code> private</li>
+<li><code>#</code> protected</li>
+<li><code>~</code> package private</li>
+<li><code>+</code> public</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>@startuml
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a>
+<a id="__codelineno-56-3" name="__codelineno-56-3" href="#__codelineno-56-3"></a>class Dummy {
+<a id="__codelineno-56-4" name="__codelineno-56-4" href="#__codelineno-56-4"></a>    -field1
+<a id="__codelineno-56-5" name="__codelineno-56-5" href="#__codelineno-56-5"></a>    #field2
+<a id="__codelineno-56-6" name="__codelineno-56-6" href="#__codelineno-56-6"></a>    ~method1()
+<a id="__codelineno-56-7" name="__codelineno-56-7" href="#__codelineno-56-7"></a>    +method2()
+<a id="__codelineno-56-8" name="__codelineno-56-8" href="#__codelineno-56-8"></a>}
+<a id="__codelineno-56-9" name="__codelineno-56-9" href="#__codelineno-56-9"></a>
+<a id="__codelineno-56-10" name="__codelineno-56-10" href="#__codelineno-56-10"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717001031309.png]]</p>
+<h3 id="_44">抽象与静态</h3>
+<p>使用 <code>{static}</code> 和 <code>{abstract}</code> 声明静态和抽象方法或属性</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>@startuml test
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a>class Dummy {
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a>    {static} String id
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a>    {abstract} void methods()
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a>}
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717001241949.png]]</p>
+<h3 id="_45">高级类体</h3>
+<p>plantUML 默认自动将方法和属性分组，但是我们可以自定义分隔符来重排方法和属性</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>@startuml
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a>class Foo1 {
+<a id="__codelineno-58-4" name="__codelineno-58-4" href="#__codelineno-58-4"></a>    You can use
+<a id="__codelineno-58-5" name="__codelineno-58-5" href="#__codelineno-58-5"></a>    several lines
+<a id="__codelineno-58-6" name="__codelineno-58-6" href="#__codelineno-58-6"></a>    ..
+<a id="__codelineno-58-7" name="__codelineno-58-7" href="#__codelineno-58-7"></a>    as you want
+<a id="__codelineno-58-8" name="__codelineno-58-8" href="#__codelineno-58-8"></a>    and group
+<a id="__codelineno-58-9" name="__codelineno-58-9" href="#__codelineno-58-9"></a>    ==
+<a id="__codelineno-58-10" name="__codelineno-58-10" href="#__codelineno-58-10"></a>    things together.
+<a id="__codelineno-58-11" name="__codelineno-58-11" href="#__codelineno-58-11"></a>    __
+<a id="__codelineno-58-12" name="__codelineno-58-12" href="#__codelineno-58-12"></a>    You can have as many groups
+<a id="__codelineno-58-13" name="__codelineno-58-13" href="#__codelineno-58-13"></a>    as you want
+<a id="__codelineno-58-14" name="__codelineno-58-14" href="#__codelineno-58-14"></a>    --
+<a id="__codelineno-58-15" name="__codelineno-58-15" href="#__codelineno-58-15"></a>    End of class
+<a id="__codelineno-58-16" name="__codelineno-58-16" href="#__codelineno-58-16"></a>}
+<a id="__codelineno-58-17" name="__codelineno-58-17" href="#__codelineno-58-17"></a>
+<a id="__codelineno-58-18" name="__codelineno-58-18" href="#__codelineno-58-18"></a>class User {
+<a id="__codelineno-58-19" name="__codelineno-58-19" href="#__codelineno-58-19"></a>    .. Simple Getter ..
+<a id="__codelineno-58-20" name="__codelineno-58-20" href="#__codelineno-58-20"></a>    + getName()
+<a id="__codelineno-58-21" name="__codelineno-58-21" href="#__codelineno-58-21"></a>    + getAddress()
+<a id="__codelineno-58-22" name="__codelineno-58-22" href="#__codelineno-58-22"></a>    .. Some setter ..
+<a id="__codelineno-58-23" name="__codelineno-58-23" href="#__codelineno-58-23"></a>    + setName()
+<a id="__codelineno-58-24" name="__codelineno-58-24" href="#__codelineno-58-24"></a>    __ private data __
+<a id="__codelineno-58-25" name="__codelineno-58-25" href="#__codelineno-58-25"></a>    int age
+<a id="__codelineno-58-26" name="__codelineno-58-26" href="#__codelineno-58-26"></a>    -- encrypted --
+<a id="__codelineno-58-27" name="__codelineno-58-27" href="#__codelineno-58-27"></a>    String password
+<a id="__codelineno-58-28" name="__codelineno-58-28" href="#__codelineno-58-28"></a>}
+<a id="__codelineno-58-29" name="__codelineno-58-29" href="#__codelineno-58-29"></a>
+<a id="__codelineno-58-30" name="__codelineno-58-30" href="#__codelineno-58-30"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717001418615.png]]</p>
+<h3 id="_46">备注和模板</h3>
+<p>模板通过 <code>&lt;&lt;</code> 和 <code>&gt;&gt;</code> 定义；可以使用 note 添加备注，使用 .. 符号可以作出连接虚线</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>@startuml
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a>
+<a id="__codelineno-59-3" name="__codelineno-59-3" href="#__codelineno-59-3"></a>class Object &lt;&lt; general &gt;&gt;
+<a id="__codelineno-59-4" name="__codelineno-59-4" href="#__codelineno-59-4"></a>
+<a id="__codelineno-59-5" name="__codelineno-59-5" href="#__codelineno-59-5"></a>Object &lt;|--- ArrayList
+<a id="__codelineno-59-6" name="__codelineno-59-6" href="#__codelineno-59-6"></a>note top of Object : In java, every class\nextends this one.
+<a id="__codelineno-59-7" name="__codelineno-59-7" href="#__codelineno-59-7"></a>note &quot;This is a floating note&quot; as N1
+<a id="__codelineno-59-8" name="__codelineno-59-8" href="#__codelineno-59-8"></a>note &quot;This note is connected\nto several objects.&quot; as N2
+<a id="__codelineno-59-9" name="__codelineno-59-9" href="#__codelineno-59-9"></a>
+<a id="__codelineno-59-10" name="__codelineno-59-10" href="#__codelineno-59-10"></a>&#39; 备注 N2 插入到两个对象之间
+<a id="__codelineno-59-11" name="__codelineno-59-11" href="#__codelineno-59-11"></a>Object .. N2
+<a id="__codelineno-59-12" name="__codelineno-59-12" href="#__codelineno-59-12"></a>N2 .. ArrayList
+<a id="__codelineno-59-13" name="__codelineno-59-13" href="#__codelineno-59-13"></a>
+<a id="__codelineno-59-14" name="__codelineno-59-14" href="#__codelineno-59-14"></a>class Foo
+<a id="__codelineno-59-15" name="__codelineno-59-15" href="#__codelineno-59-15"></a>note left: On last defined class
+<a id="__codelineno-59-16" name="__codelineno-59-16" href="#__codelineno-59-16"></a>
+<a id="__codelineno-59-17" name="__codelineno-59-17" href="#__codelineno-59-17"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717001933537.png]]</p>
+<p>可以对属性和方法添加注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>@startuml
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a>class A {
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a>    {static} int counter
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a>    +void {abstract} start(int timeout)
+<a id="__codelineno-60-6" name="__codelineno-60-6" href="#__codelineno-60-6"></a>}
+<a id="__codelineno-60-7" name="__codelineno-60-7" href="#__codelineno-60-7"></a>
+<a id="__codelineno-60-8" name="__codelineno-60-8" href="#__codelineno-60-8"></a>note right of A::counter
+<a id="__codelineno-60-9" name="__codelineno-60-9" href="#__codelineno-60-9"></a>This member is annotated
+<a id="__codelineno-60-10" name="__codelineno-60-10" href="#__codelineno-60-10"></a>end note
+<a id="__codelineno-60-11" name="__codelineno-60-11" href="#__codelineno-60-11"></a>
+<a id="__codelineno-60-12" name="__codelineno-60-12" href="#__codelineno-60-12"></a>note right of A::start
+<a id="__codelineno-60-13" name="__codelineno-60-13" href="#__codelineno-60-13"></a>This method is now explained in a UML note
+<a id="__codelineno-60-14" name="__codelineno-60-14" href="#__codelineno-60-14"></a>end note
+<a id="__codelineno-60-15" name="__codelineno-60-15" href="#__codelineno-60-15"></a>
+<a id="__codelineno-60-16" name="__codelineno-60-16" href="#__codelineno-60-16"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717002037895.png]]</p>
+<p>对同名方法添加注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>@startuml
+<a id="__codelineno-61-2" name="__codelineno-61-2" href="#__codelineno-61-2"></a>
+<a id="__codelineno-61-3" name="__codelineno-61-3" href="#__codelineno-61-3"></a>class A {
+<a id="__codelineno-61-4" name="__codelineno-61-4" href="#__codelineno-61-4"></a>    {static} int counter
+<a id="__codelineno-61-5" name="__codelineno-61-5" href="#__codelineno-61-5"></a>    +void {abstract} start(int timeoutms)
+<a id="__codelineno-61-6" name="__codelineno-61-6" href="#__codelineno-61-6"></a>    +void {abstract} start(Duration timeout)
+<a id="__codelineno-61-7" name="__codelineno-61-7" href="#__codelineno-61-7"></a>}
+<a id="__codelineno-61-8" name="__codelineno-61-8" href="#__codelineno-61-8"></a>
+<a id="__codelineno-61-9" name="__codelineno-61-9" href="#__codelineno-61-9"></a>note left of A::counter
+<a id="__codelineno-61-10" name="__codelineno-61-10" href="#__codelineno-61-10"></a>This member is annotated
+<a id="__codelineno-61-11" name="__codelineno-61-11" href="#__codelineno-61-11"></a>end note
+<a id="__codelineno-61-12" name="__codelineno-61-12" href="#__codelineno-61-12"></a>
+<a id="__codelineno-61-13" name="__codelineno-61-13" href="#__codelineno-61-13"></a>note right of A::&quot;start(int timeoutms)&quot;
+<a id="__codelineno-61-14" name="__codelineno-61-14" href="#__codelineno-61-14"></a>This method with int
+<a id="__codelineno-61-15" name="__codelineno-61-15" href="#__codelineno-61-15"></a>end note
+<a id="__codelineno-61-16" name="__codelineno-61-16" href="#__codelineno-61-16"></a>
+<a id="__codelineno-61-17" name="__codelineno-61-17" href="#__codelineno-61-17"></a>note right of A::&quot;start(Duration timeout)&quot;
+<a id="__codelineno-61-18" name="__codelineno-61-18" href="#__codelineno-61-18"></a>This method with Duration
+<a id="__codelineno-61-19" name="__codelineno-61-19" href="#__codelineno-61-19"></a>end note
+<a id="__codelineno-61-20" name="__codelineno-61-20" href="#__codelineno-61-20"></a>
+<a id="__codelineno-61-21" name="__codelineno-61-21" href="#__codelineno-61-21"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717002124299.png]]</p>
+<p>我们也可以对连接词进行注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>@startuml
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a>
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a>class Dummy
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a>Dummy --&gt; Foo : A link
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a>
+<a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a>note on link #red: note that is red
+<a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a>
+<a id="__codelineno-62-8" name="__codelineno-62-8" href="#__codelineno-62-8"></a>Dummy --&gt; Foo2 : Another link
+<a id="__codelineno-62-9" name="__codelineno-62-9" href="#__codelineno-62-9"></a>
+<a id="__codelineno-62-10" name="__codelineno-62-10" href="#__codelineno-62-10"></a>note right on link #blue
+<a id="__codelineno-62-11" name="__codelineno-62-11" href="#__codelineno-62-11"></a>this is my note on right link
+<a id="__codelineno-62-12" name="__codelineno-62-12" href="#__codelineno-62-12"></a>and in blue
+<a id="__codelineno-62-13" name="__codelineno-62-13" href="#__codelineno-62-13"></a>end note
+<a id="__codelineno-62-14" name="__codelineno-62-14" href="#__codelineno-62-14"></a>
+<a id="__codelineno-62-15" name="__codelineno-62-15" href="#__codelineno-62-15"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717002324301.png]]</p>
+<h3 id="_47">抽象类和接口</h3>
+<p>用 abstract 或 abstract class 定义抽象类，也可以使用 interface, annotation, enum 关键字</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>@startuml
+<a id="__codelineno-63-2" name="__codelineno-63-2" href="#__codelineno-63-2"></a>
+<a id="__codelineno-63-3" name="__codelineno-63-3" href="#__codelineno-63-3"></a>abstract class AbstractList
+<a id="__codelineno-63-4" name="__codelineno-63-4" href="#__codelineno-63-4"></a>abstract AbstractCollection
+<a id="__codelineno-63-5" name="__codelineno-63-5" href="#__codelineno-63-5"></a>interface List
+<a id="__codelineno-63-6" name="__codelineno-63-6" href="#__codelineno-63-6"></a>interface Collection
+<a id="__codelineno-63-7" name="__codelineno-63-7" href="#__codelineno-63-7"></a>
+<a id="__codelineno-63-8" name="__codelineno-63-8" href="#__codelineno-63-8"></a>List &lt;|-- AbstractList
+<a id="__codelineno-63-9" name="__codelineno-63-9" href="#__codelineno-63-9"></a>Collection &lt;|-- AbstractCollection
+<a id="__codelineno-63-10" name="__codelineno-63-10" href="#__codelineno-63-10"></a>Collection &lt;|- List
+<a id="__codelineno-63-11" name="__codelineno-63-11" href="#__codelineno-63-11"></a>AbstractCollection &lt;|- AbstractList
+<a id="__codelineno-63-12" name="__codelineno-63-12" href="#__codelineno-63-12"></a>AbstractList &lt;|-- ArrayList
+<a id="__codelineno-63-13" name="__codelineno-63-13" href="#__codelineno-63-13"></a>
+<a id="__codelineno-63-14" name="__codelineno-63-14" href="#__codelineno-63-14"></a>class ArrayList {
+<a id="__codelineno-63-15" name="__codelineno-63-15" href="#__codelineno-63-15"></a>    Object[] elementData
+<a id="__codelineno-63-16" name="__codelineno-63-16" href="#__codelineno-63-16"></a>    size()
+<a id="__codelineno-63-17" name="__codelineno-63-17" href="#__codelineno-63-17"></a>}
+<a id="__codelineno-63-18" name="__codelineno-63-18" href="#__codelineno-63-18"></a>
+<a id="__codelineno-63-19" name="__codelineno-63-19" href="#__codelineno-63-19"></a>enum TimeUnit {
+<a id="__codelineno-63-20" name="__codelineno-63-20" href="#__codelineno-63-20"></a>    DAYS
+<a id="__codelineno-63-21" name="__codelineno-63-21" href="#__codelineno-63-21"></a>    HOURS
+<a id="__codelineno-63-22" name="__codelineno-63-22" href="#__codelineno-63-22"></a>    MINUTES
+<a id="__codelineno-63-23" name="__codelineno-63-23" href="#__codelineno-63-23"></a>}
+<a id="__codelineno-63-24" name="__codelineno-63-24" href="#__codelineno-63-24"></a>
+<a id="__codelineno-63-25" name="__codelineno-63-25" href="#__codelineno-63-25"></a>annotation SuppressWarnings
+<a id="__codelineno-63-26" name="__codelineno-63-26" href="#__codelineno-63-26"></a>
+<a id="__codelineno-63-27" name="__codelineno-63-27" href="#__codelineno-63-27"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717002444663.png]]</p>
+<h3 id="_48">使用非字母字符</h3>
+<p>如果想在类中使用非字母符号，可以：</p>
+<ul>
+<li>在定义中使用 as 关键字</li>
+<li>在类名旁边加上 ""</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>@startuml
+<a id="__codelineno-64-2" name="__codelineno-64-2" href="#__codelineno-64-2"></a>
+<a id="__codelineno-64-3" name="__codelineno-64-3" href="#__codelineno-64-3"></a>class &quot;This is my class&quot; as class1
+<a id="__codelineno-64-4" name="__codelineno-64-4" href="#__codelineno-64-4"></a>class class2 as &quot;It works this way too&quot;
+<a id="__codelineno-64-5" name="__codelineno-64-5" href="#__codelineno-64-5"></a>class2 *-- &quot;foo/dummy&quot; : use
+<a id="__codelineno-64-6" name="__codelineno-64-6" href="#__codelineno-64-6"></a>
+<a id="__codelineno-64-7" name="__codelineno-64-7" href="#__codelineno-64-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717002613322.png]]</p>
+<h3 id="_49">泛型</h3>
+<p>使用 <code>&lt; &gt;</code> 定义类的泛型</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>@startuml
+<a id="__codelineno-65-2" name="__codelineno-65-2" href="#__codelineno-65-2"></a>
+<a id="__codelineno-65-3" name="__codelineno-65-3" href="#__codelineno-65-3"></a>class Foo&lt;? extends Element&gt; {
+<a id="__codelineno-65-4" name="__codelineno-65-4" href="#__codelineno-65-4"></a>    int size()
+<a id="__codelineno-65-5" name="__codelineno-65-5" href="#__codelineno-65-5"></a>}
+<a id="__codelineno-65-6" name="__codelineno-65-6" href="#__codelineno-65-6"></a>
+<a id="__codelineno-65-7" name="__codelineno-65-7" href="#__codelineno-65-7"></a>Foo *- Element
+<a id="__codelineno-65-8" name="__codelineno-65-8" href="#__codelineno-65-8"></a>
+<a id="__codelineno-65-9" name="__codelineno-65-9" href="#__codelineno-65-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717002708978.png]]</p>
+<h3 id="_50">指定标记</h3>
+<p>通常 C, I, E, A 用于标记类 class，接口 interface，枚举 enum 和抽象类 abstract classes ，但是也可以自己增加对应标记</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-66-1" name="__codelineno-66-1" href="#__codelineno-66-1"></a>@startuml
+<a id="__codelineno-66-2" name="__codelineno-66-2" href="#__codelineno-66-2"></a>
+<a id="__codelineno-66-3" name="__codelineno-66-3" href="#__codelineno-66-3"></a>class System &lt;&lt; (S,#FF7700) Singleton &gt;&gt;
+<a id="__codelineno-66-4" name="__codelineno-66-4" href="#__codelineno-66-4"></a>class Date &lt;&lt; (D,orchid) &gt;&gt;
+<a id="__codelineno-66-5" name="__codelineno-66-5" href="#__codelineno-66-5"></a>
+<a id="__codelineno-66-6" name="__codelineno-66-6" href="#__codelineno-66-6"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717002914691.png]]</p>
+<h3 id="_51">包</h3>
+<p>可以用 package 声明包，用于分割不同的种类的类，同时可以声明对应的背景色；包可以嵌套定义</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-67-1" name="__codelineno-67-1" href="#__codelineno-67-1"></a>@startuml
+<a id="__codelineno-67-2" name="__codelineno-67-2" href="#__codelineno-67-2"></a>
+<a id="__codelineno-67-3" name="__codelineno-67-3" href="#__codelineno-67-3"></a>package &quot;Classic Collections&quot; #DDDDDD {
+<a id="__codelineno-67-4" name="__codelineno-67-4" href="#__codelineno-67-4"></a>    Object &lt;|-- ArrayList
+<a id="__codelineno-67-5" name="__codelineno-67-5" href="#__codelineno-67-5"></a>}
+<a id="__codelineno-67-6" name="__codelineno-67-6" href="#__codelineno-67-6"></a>
+<a id="__codelineno-67-7" name="__codelineno-67-7" href="#__codelineno-67-7"></a>package net.sourceforge.plantuml {
+<a id="__codelineno-67-8" name="__codelineno-67-8" href="#__codelineno-67-8"></a>    Object &lt;|-- Demo1
+<a id="__codelineno-67-9" name="__codelineno-67-9" href="#__codelineno-67-9"></a>    Demo1 *- Demo2
+<a id="__codelineno-67-10" name="__codelineno-67-10" href="#__codelineno-67-10"></a>}
+<a id="__codelineno-67-11" name="__codelineno-67-11" href="#__codelineno-67-11"></a>
+<a id="__codelineno-67-12" name="__codelineno-67-12" href="#__codelineno-67-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717003015814.png]]</p>
+<p>可以通过如下参数调整改变包的样式：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-68-1" name="__codelineno-68-1" href="#__codelineno-68-1"></a>@startuml
+<a id="__codelineno-68-2" name="__codelineno-68-2" href="#__codelineno-68-2"></a>
+<a id="__codelineno-68-3" name="__codelineno-68-3" href="#__codelineno-68-3"></a>scale 750 width
+<a id="__codelineno-68-4" name="__codelineno-68-4" href="#__codelineno-68-4"></a>package foo1 &lt;&lt;Node&gt;&gt; {
+<a id="__codelineno-68-5" name="__codelineno-68-5" href="#__codelineno-68-5"></a>class Class1
+<a id="__codelineno-68-6" name="__codelineno-68-6" href="#__codelineno-68-6"></a>}
+<a id="__codelineno-68-7" name="__codelineno-68-7" href="#__codelineno-68-7"></a>
+<a id="__codelineno-68-8" name="__codelineno-68-8" href="#__codelineno-68-8"></a>package foo2 &lt;&lt;Rectangle&gt;&gt; {
+<a id="__codelineno-68-9" name="__codelineno-68-9" href="#__codelineno-68-9"></a>class Class2
+<a id="__codelineno-68-10" name="__codelineno-68-10" href="#__codelineno-68-10"></a>}
+<a id="__codelineno-68-11" name="__codelineno-68-11" href="#__codelineno-68-11"></a>
+<a id="__codelineno-68-12" name="__codelineno-68-12" href="#__codelineno-68-12"></a>package foo3 &lt;&lt;Folder&gt;&gt; {
+<a id="__codelineno-68-13" name="__codelineno-68-13" href="#__codelineno-68-13"></a>class Class3
+<a id="__codelineno-68-14" name="__codelineno-68-14" href="#__codelineno-68-14"></a>}
+<a id="__codelineno-68-15" name="__codelineno-68-15" href="#__codelineno-68-15"></a>
+<a id="__codelineno-68-16" name="__codelineno-68-16" href="#__codelineno-68-16"></a>package foo4 &lt;&lt;Frame&gt;&gt; {
+<a id="__codelineno-68-17" name="__codelineno-68-17" href="#__codelineno-68-17"></a>class Class4
+<a id="__codelineno-68-18" name="__codelineno-68-18" href="#__codelineno-68-18"></a>}
+<a id="__codelineno-68-19" name="__codelineno-68-19" href="#__codelineno-68-19"></a>
+<a id="__codelineno-68-20" name="__codelineno-68-20" href="#__codelineno-68-20"></a>package foo5 &lt;&lt;Cloud&gt;&gt; {
+<a id="__codelineno-68-21" name="__codelineno-68-21" href="#__codelineno-68-21"></a>class Class5
+<a id="__codelineno-68-22" name="__codelineno-68-22" href="#__codelineno-68-22"></a>}
+<a id="__codelineno-68-23" name="__codelineno-68-23" href="#__codelineno-68-23"></a>
+<a id="__codelineno-68-24" name="__codelineno-68-24" href="#__codelineno-68-24"></a>package foo6 &lt;&lt;Database&gt;&gt; {
+<a id="__codelineno-68-25" name="__codelineno-68-25" href="#__codelineno-68-25"></a>class Class6
+<a id="__codelineno-68-26" name="__codelineno-68-26" href="#__codelineno-68-26"></a>}
+<a id="__codelineno-68-27" name="__codelineno-68-27" href="#__codelineno-68-27"></a>
+<a id="__codelineno-68-28" name="__codelineno-68-28" href="#__codelineno-68-28"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717003133005.png]]</p>
+<h3 id="_52">命名空间</h3>
+<p>使用包时，类名是类的唯一标识，因此不同包中的类不能使用相同的类名。使用命名空间定义类，然后用 . 来引用不同命名空间中的类</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-69-1" name="__codelineno-69-1" href="#__codelineno-69-1"></a>@startuml
+<a id="__codelineno-69-2" name="__codelineno-69-2" href="#__codelineno-69-2"></a>
+<a id="__codelineno-69-3" name="__codelineno-69-3" href="#__codelineno-69-3"></a>class BaseClass
+<a id="__codelineno-69-4" name="__codelineno-69-4" href="#__codelineno-69-4"></a>
+<a id="__codelineno-69-5" name="__codelineno-69-5" href="#__codelineno-69-5"></a>namespace net.dummy #DDDDDD {
+<a id="__codelineno-69-6" name="__codelineno-69-6" href="#__codelineno-69-6"></a>    &#39; 使用 . 表示访问全局命名空间中的类
+<a id="__codelineno-69-7" name="__codelineno-69-7" href="#__codelineno-69-7"></a>    .BaseClass &lt;|-- Person
+<a id="__codelineno-69-8" name="__codelineno-69-8" href="#__codelineno-69-8"></a>    Meeting o-- Person
+<a id="__codelineno-69-9" name="__codelineno-69-9" href="#__codelineno-69-9"></a>    .BaseClass &lt;|- Meeting
+<a id="__codelineno-69-10" name="__codelineno-69-10" href="#__codelineno-69-10"></a>}
+<a id="__codelineno-69-11" name="__codelineno-69-11" href="#__codelineno-69-11"></a>
+<a id="__codelineno-69-12" name="__codelineno-69-12" href="#__codelineno-69-12"></a>namespace net.foo {
+<a id="__codelineno-69-13" name="__codelineno-69-13" href="#__codelineno-69-13"></a>    &#39; 使用 nte.dummy 前缀加 . 访问前一个命名空间中的类
+<a id="__codelineno-69-14" name="__codelineno-69-14" href="#__codelineno-69-14"></a>    net.dummy.Person &lt;|- Person
+<a id="__codelineno-69-15" name="__codelineno-69-15" href="#__codelineno-69-15"></a>    .BaseClass &lt;|-- Person
+<a id="__codelineno-69-16" name="__codelineno-69-16" href="#__codelineno-69-16"></a>    net.dummy.Meeting o-- Person
+<a id="__codelineno-69-17" name="__codelineno-69-17" href="#__codelineno-69-17"></a>}
+<a id="__codelineno-69-18" name="__codelineno-69-18" href="#__codelineno-69-18"></a>BaseClass &lt;|-- net.unused.Person
+<a id="__codelineno-69-19" name="__codelineno-69-19" href="#__codelineno-69-19"></a>
+<a id="__codelineno-69-20" name="__codelineno-69-20" href="#__codelineno-69-20"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717003354758.png]]</p>
+<p>使用 set namespaceSeperator 自定义命名空间的分隔符</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-70-1" name="__codelineno-70-1" href="#__codelineno-70-1"></a>@startuml
+<a id="__codelineno-70-2" name="__codelineno-70-2" href="#__codelineno-70-2"></a>
+<a id="__codelineno-70-3" name="__codelineno-70-3" href="#__codelineno-70-3"></a>&#39; 使用 :: 分隔命名空间
+<a id="__codelineno-70-4" name="__codelineno-70-4" href="#__codelineno-70-4"></a>set namespaceSeparator ::
+<a id="__codelineno-70-5" name="__codelineno-70-5" href="#__codelineno-70-5"></a>class X1::X2::foo {
+<a id="__codelineno-70-6" name="__codelineno-70-6" href="#__codelineno-70-6"></a>    some info
+<a id="__codelineno-70-7" name="__codelineno-70-7" href="#__codelineno-70-7"></a>}
+<a id="__codelineno-70-8" name="__codelineno-70-8" href="#__codelineno-70-8"></a>
+<a id="__codelineno-70-9" name="__codelineno-70-9" href="#__codelineno-70-9"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717003620333.png]]</p>
+<h3 id="_53">箭头方向</h3>
+<p>默认 <code>--</code> 显示竖直线，可以用 <code>-</code> 或 <code>.</code> 得到水平连接的线；倒置连接可以改变方向，也可以用 left, right, up, down 改变方向</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-71-1" name="__codelineno-71-1" href="#__codelineno-71-1"></a>@startuml
+<a id="__codelineno-71-2" name="__codelineno-71-2" href="#__codelineno-71-2"></a>
+<a id="__codelineno-71-3" name="__codelineno-71-3" href="#__codelineno-71-3"></a>Room o- Student
+<a id="__codelineno-71-4" name="__codelineno-71-4" href="#__codelineno-71-4"></a>Room *-- Chair
+<a id="__codelineno-71-5" name="__codelineno-71-5" href="#__codelineno-71-5"></a>
+<a id="__codelineno-71-6" name="__codelineno-71-6" href="#__codelineno-71-6"></a>Student -o Room
+<a id="__codelineno-71-7" name="__codelineno-71-7" href="#__codelineno-71-7"></a>Chair --* Room
+<a id="__codelineno-71-8" name="__codelineno-71-8" href="#__codelineno-71-8"></a>
+<a id="__codelineno-71-9" name="__codelineno-71-9" href="#__codelineno-71-9"></a>foo -left-&gt; dummyLeft
+<a id="__codelineno-71-10" name="__codelineno-71-10" href="#__codelineno-71-10"></a>foo -right-&gt; dummyRight
+<a id="__codelineno-71-11" name="__codelineno-71-11" href="#__codelineno-71-11"></a>foo -up-&gt; dummyUp
+<a id="__codelineno-71-12" name="__codelineno-71-12" href="#__codelineno-71-12"></a>foo -down-&gt; dummyDown
+<a id="__codelineno-71-13" name="__codelineno-71-13" href="#__codelineno-71-13"></a>
+<a id="__codelineno-71-14" name="__codelineno-71-14" href="#__codelineno-71-14"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717003813939.png]]</p>
+<h3 id="_54">关系类</h3>
+<p>可以在定义了两个类之间的关系后，再定义一个关系类 association class</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-72-1" name="__codelineno-72-1" href="#__codelineno-72-1"></a>@startuml
+<a id="__codelineno-72-2" name="__codelineno-72-2" href="#__codelineno-72-2"></a>
+<a id="__codelineno-72-3" name="__codelineno-72-3" href="#__codelineno-72-3"></a>class Student {
+<a id="__codelineno-72-4" name="__codelineno-72-4" href="#__codelineno-72-4"></a>    Name
+<a id="__codelineno-72-5" name="__codelineno-72-5" href="#__codelineno-72-5"></a>}
+<a id="__codelineno-72-6" name="__codelineno-72-6" href="#__codelineno-72-6"></a>
+<a id="__codelineno-72-7" name="__codelineno-72-7" href="#__codelineno-72-7"></a>&#39; 连接 Student 和 Course
+<a id="__codelineno-72-8" name="__codelineno-72-8" href="#__codelineno-72-8"></a>Student &quot;0..*&quot; - &quot;1..*&quot; Course
+<a id="__codelineno-72-9" name="__codelineno-72-9" href="#__codelineno-72-9"></a>&#39; 中间连接 Enrollment
+<a id="__codelineno-72-10" name="__codelineno-72-10" href="#__codelineno-72-10"></a>(Student, Course) .. Enrollment
+<a id="__codelineno-72-11" name="__codelineno-72-11" href="#__codelineno-72-11"></a>
+<a id="__codelineno-72-12" name="__codelineno-72-12" href="#__codelineno-72-12"></a>class Enrollment {
+<a id="__codelineno-72-13" name="__codelineno-72-13" href="#__codelineno-72-13"></a>    drop()
+<a id="__codelineno-72-14" name="__codelineno-72-14" href="#__codelineno-72-14"></a>    cancel()
+<a id="__codelineno-72-15" name="__codelineno-72-15" href="#__codelineno-72-15"></a>}
+<a id="__codelineno-72-16" name="__codelineno-72-16" href="#__codelineno-72-16"></a>
+<a id="__codelineno-72-17" name="__codelineno-72-17" href="#__codelineno-72-17"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717003923818.png]]</p>
+<p>可以将不同的类连接到同一个类</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-73-1" name="__codelineno-73-1" href="#__codelineno-73-1"></a>@startuml
+<a id="__codelineno-73-2" name="__codelineno-73-2" href="#__codelineno-73-2"></a>
+<a id="__codelineno-73-3" name="__codelineno-73-3" href="#__codelineno-73-3"></a>class Station {
+<a id="__codelineno-73-4" name="__codelineno-73-4" href="#__codelineno-73-4"></a>    +name: string
+<a id="__codelineno-73-5" name="__codelineno-73-5" href="#__codelineno-73-5"></a>}
+<a id="__codelineno-73-6" name="__codelineno-73-6" href="#__codelineno-73-6"></a>
+<a id="__codelineno-73-7" name="__codelineno-73-7" href="#__codelineno-73-7"></a>class StationCrossing {
+<a id="__codelineno-73-8" name="__codelineno-73-8" href="#__codelineno-73-8"></a>    +cost: TimeInterval
+<a id="__codelineno-73-9" name="__codelineno-73-9" href="#__codelineno-73-9"></a>}
+<a id="__codelineno-73-10" name="__codelineno-73-10" href="#__codelineno-73-10"></a>
+<a id="__codelineno-73-11" name="__codelineno-73-11" href="#__codelineno-73-11"></a>&lt;&gt; diamond
+<a id="__codelineno-73-12" name="__codelineno-73-12" href="#__codelineno-73-12"></a>StationCrossing . diamond
+<a id="__codelineno-73-13" name="__codelineno-73-13" href="#__codelineno-73-13"></a>diamond - &quot;from 0..*&quot; Station
+<a id="__codelineno-73-14" name="__codelineno-73-14" href="#__codelineno-73-14"></a>diamond - &quot;to 0..* &quot; Station
+<a id="__codelineno-73-15" name="__codelineno-73-15" href="#__codelineno-73-15"></a>
+<a id="__codelineno-73-16" name="__codelineno-73-16" href="#__codelineno-73-16"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717233941258.png]]</p>
+<h2 id="_55">活动图</h2>
+<p>活动图用于描述事件的整个流程，本质上就是流程图。当前活动图 (activity diagram) 的语法有诸多限制和缺点，比如代码难以维护。所以从 V7947 开始提出一种全新的、更好的语法格式和软件实现供用户使用 (beta 版)。就像序列图一样，新的软件实现的另一个优点是它不再依赖于 Graphviz。</p>
+<h3 id="_56">简单活动图</h3>
+<p>活动标签<strong>以冒号开始，以分号结束</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-74-1" name="__codelineno-74-1" href="#__codelineno-74-1"></a>@startuml test
+<a id="__codelineno-74-2" name="__codelineno-74-2" href="#__codelineno-74-2"></a>
+<a id="__codelineno-74-3" name="__codelineno-74-3" href="#__codelineno-74-3"></a>:Hello world;
+<a id="__codelineno-74-4" name="__codelineno-74-4" href="#__codelineno-74-4"></a>:This is on defined on
+<a id="__codelineno-74-5" name="__codelineno-74-5" href="#__codelineno-74-5"></a>several **lines**;
+<a id="__codelineno-74-6" name="__codelineno-74-6" href="#__codelineno-74-6"></a>
+<a id="__codelineno-74-7" name="__codelineno-74-7" href="#__codelineno-74-7"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717094419709.png]]</p>
+<h3 id="_57">开始/结束</h3>
+<p>使用 start 和 stop/end 表示开始和结束</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-75-1" name="__codelineno-75-1" href="#__codelineno-75-1"></a>@startuml
+<a id="__codelineno-75-2" name="__codelineno-75-2" href="#__codelineno-75-2"></a>
+<a id="__codelineno-75-3" name="__codelineno-75-3" href="#__codelineno-75-3"></a>start
+<a id="__codelineno-75-4" name="__codelineno-75-4" href="#__codelineno-75-4"></a>
+<a id="__codelineno-75-5" name="__codelineno-75-5" href="#__codelineno-75-5"></a>:Hello world;
+<a id="__codelineno-75-6" name="__codelineno-75-6" href="#__codelineno-75-6"></a>:This is on defined on
+<a id="__codelineno-75-7" name="__codelineno-75-7" href="#__codelineno-75-7"></a>several **lines**;
+<a id="__codelineno-75-8" name="__codelineno-75-8" href="#__codelineno-75-8"></a>stop
+<a id="__codelineno-75-9" name="__codelineno-75-9" href="#__codelineno-75-9"></a>
+<a id="__codelineno-75-10" name="__codelineno-75-10" href="#__codelineno-75-10"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717094500461.png]]</p>
+<h3 id="_58">条件语句</h3>
+<p>使用 if, then, else 设置分支，标注文字放在括号内</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-76-1" name="__codelineno-76-1" href="#__codelineno-76-1"></a>@startuml
+<a id="__codelineno-76-2" name="__codelineno-76-2" href="#__codelineno-76-2"></a>
+<a id="__codelineno-76-3" name="__codelineno-76-3" href="#__codelineno-76-3"></a>start
+<a id="__codelineno-76-4" name="__codelineno-76-4" href="#__codelineno-76-4"></a>
+<a id="__codelineno-76-5" name="__codelineno-76-5" href="#__codelineno-76-5"></a>if (Graphviz installed?) then (yes)
+<a id="__codelineno-76-6" name="__codelineno-76-6" href="#__codelineno-76-6"></a>    :process all\ndiagrams;
+<a id="__codelineno-76-7" name="__codelineno-76-7" href="#__codelineno-76-7"></a>else (no)
+<a id="__codelineno-76-8" name="__codelineno-76-8" href="#__codelineno-76-8"></a>    :process only
+<a id="__codelineno-76-9" name="__codelineno-76-9" href="#__codelineno-76-9"></a>    __sequence__ and __activity__ diagrams;
+<a id="__codelineno-76-10" name="__codelineno-76-10" href="#__codelineno-76-10"></a>endif
+<a id="__codelineno-76-11" name="__codelineno-76-11" href="#__codelineno-76-11"></a>stop
+<a id="__codelineno-76-12" name="__codelineno-76-12" href="#__codelineno-76-12"></a>
+<a id="__codelineno-76-13" name="__codelineno-76-13" href="#__codelineno-76-13"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717094611761.png]]</p>
+<p>使用 elseif 进行多个分支测试</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-77-1" name="__codelineno-77-1" href="#__codelineno-77-1"></a>@startuml
+<a id="__codelineno-77-2" name="__codelineno-77-2" href="#__codelineno-77-2"></a>
+<a id="__codelineno-77-3" name="__codelineno-77-3" href="#__codelineno-77-3"></a>start
+<a id="__codelineno-77-4" name="__codelineno-77-4" href="#__codelineno-77-4"></a>
+<a id="__codelineno-77-5" name="__codelineno-77-5" href="#__codelineno-77-5"></a>if (condition A) then (yes)
+<a id="__codelineno-77-6" name="__codelineno-77-6" href="#__codelineno-77-6"></a>    :Text 1;
+<a id="__codelineno-77-7" name="__codelineno-77-7" href="#__codelineno-77-7"></a>elseif (condition B) then (yes)
+<a id="__codelineno-77-8" name="__codelineno-77-8" href="#__codelineno-77-8"></a>    :Text 2;
+<a id="__codelineno-77-9" name="__codelineno-77-9" href="#__codelineno-77-9"></a>    stop
+<a id="__codelineno-77-10" name="__codelineno-77-10" href="#__codelineno-77-10"></a>elseif (condition C) then (yes)
+<a id="__codelineno-77-11" name="__codelineno-77-11" href="#__codelineno-77-11"></a>    :Text 3;
+<a id="__codelineno-77-12" name="__codelineno-77-12" href="#__codelineno-77-12"></a>elseif (condition D) then (yes)
+<a id="__codelineno-77-13" name="__codelineno-77-13" href="#__codelineno-77-13"></a>    :Text 4;
+<a id="__codelineno-77-14" name="__codelineno-77-14" href="#__codelineno-77-14"></a>else (nothing)
+<a id="__codelineno-77-15" name="__codelineno-77-15" href="#__codelineno-77-15"></a>    :Text else;
+<a id="__codelineno-77-16" name="__codelineno-77-16" href="#__codelineno-77-16"></a>endif
+<a id="__codelineno-77-17" name="__codelineno-77-17" href="#__codelineno-77-17"></a>
+<a id="__codelineno-77-18" name="__codelineno-77-18" href="#__codelineno-77-18"></a>stop
+<a id="__codelineno-77-19" name="__codelineno-77-19" href="#__codelineno-77-19"></a>
+<a id="__codelineno-77-20" name="__codelineno-77-20" href="#__codelineno-77-20"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717094740206.png]]</p>
+<p>如果要在某个条件终止，如上在分支中使用 stop ；如果想表示在此步结束，使用 kill 或 detach</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-78-1" name="__codelineno-78-1" href="#__codelineno-78-1"></a>@startuml
+<a id="__codelineno-78-2" name="__codelineno-78-2" href="#__codelineno-78-2"></a>
+<a id="__codelineno-78-3" name="__codelineno-78-3" href="#__codelineno-78-3"></a>&#39; 在此步条件结束
+<a id="__codelineno-78-4" name="__codelineno-78-4" href="#__codelineno-78-4"></a>if (condition?) then
+<a id="__codelineno-78-5" name="__codelineno-78-5" href="#__codelineno-78-5"></a>    #pink:error;
+<a id="__codelineno-78-6" name="__codelineno-78-6" href="#__codelineno-78-6"></a>    kill
+<a id="__codelineno-78-7" name="__codelineno-78-7" href="#__codelineno-78-7"></a>endif
+<a id="__codelineno-78-8" name="__codelineno-78-8" href="#__codelineno-78-8"></a>
+<a id="__codelineno-78-9" name="__codelineno-78-9" href="#__codelineno-78-9"></a>#palegreen:action;
+<a id="__codelineno-78-10" name="__codelineno-78-10" href="#__codelineno-78-10"></a>
+<a id="__codelineno-78-11" name="__codelineno-78-11" href="#__codelineno-78-11"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717094949328.png]]</p>
+<h3 id="_59">循环语句</h3>
+<p>使用 repeat 和 repeatwhile 重复循环，backward 设置回归描述</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-79-1" name="__codelineno-79-1" href="#__codelineno-79-1"></a>@startuml
+<a id="__codelineno-79-2" name="__codelineno-79-2" href="#__codelineno-79-2"></a>
+<a id="__codelineno-79-3" name="__codelineno-79-3" href="#__codelineno-79-3"></a>start
+<a id="__codelineno-79-4" name="__codelineno-79-4" href="#__codelineno-79-4"></a>
+<a id="__codelineno-79-5" name="__codelineno-79-5" href="#__codelineno-79-5"></a>repeat :foo as starting label;
+<a id="__codelineno-79-6" name="__codelineno-79-6" href="#__codelineno-79-6"></a>    :read data;
+<a id="__codelineno-79-7" name="__codelineno-79-7" href="#__codelineno-79-7"></a>    :generate diagrams;
+<a id="__codelineno-79-8" name="__codelineno-79-8" href="#__codelineno-79-8"></a>backward :This is backward;
+<a id="__codelineno-79-9" name="__codelineno-79-9" href="#__codelineno-79-9"></a>repeat while (more data?)
+<a id="__codelineno-79-10" name="__codelineno-79-10" href="#__codelineno-79-10"></a>
+<a id="__codelineno-79-11" name="__codelineno-79-11" href="#__codelineno-79-11"></a>stop
+<a id="__codelineno-79-12" name="__codelineno-79-12" href="#__codelineno-79-12"></a>
+<a id="__codelineno-79-13" name="__codelineno-79-13" href="#__codelineno-79-13"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717095312788.png]]</p>
+<p>要在某一步循环退出使用 break</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-80-1" name="__codelineno-80-1" href="#__codelineno-80-1"></a>@startuml
+<a id="__codelineno-80-2" name="__codelineno-80-2" href="#__codelineno-80-2"></a>
+<a id="__codelineno-80-3" name="__codelineno-80-3" href="#__codelineno-80-3"></a>start
+<a id="__codelineno-80-4" name="__codelineno-80-4" href="#__codelineno-80-4"></a>
+<a id="__codelineno-80-5" name="__codelineno-80-5" href="#__codelineno-80-5"></a>repeat
+<a id="__codelineno-80-6" name="__codelineno-80-6" href="#__codelineno-80-6"></a>:Test something;
+<a id="__codelineno-80-7" name="__codelineno-80-7" href="#__codelineno-80-7"></a>    if (Something went wrong?) then (no)
+<a id="__codelineno-80-8" name="__codelineno-80-8" href="#__codelineno-80-8"></a>        #palegreen:OK;
+<a id="__codelineno-80-9" name="__codelineno-80-9" href="#__codelineno-80-9"></a>        break
+<a id="__codelineno-80-10" name="__codelineno-80-10" href="#__codelineno-80-10"></a>    endif
+<a id="__codelineno-80-11" name="__codelineno-80-11" href="#__codelineno-80-11"></a>
+<a id="__codelineno-80-12" name="__codelineno-80-12" href="#__codelineno-80-12"></a>    -&gt;NOK;
+<a id="__codelineno-80-13" name="__codelineno-80-13" href="#__codelineno-80-13"></a>    :Alert &quot;Error with long text&quot;;
+<a id="__codelineno-80-14" name="__codelineno-80-14" href="#__codelineno-80-14"></a>repeat while (Something went wrong with long text?) is (yes) not (no)
+<a id="__codelineno-80-15" name="__codelineno-80-15" href="#__codelineno-80-15"></a>
+<a id="__codelineno-80-16" name="__codelineno-80-16" href="#__codelineno-80-16"></a>-&gt;//merged step//;
+<a id="__codelineno-80-17" name="__codelineno-80-17" href="#__codelineno-80-17"></a>:Alert &quot;Sucess&quot;;
+<a id="__codelineno-80-18" name="__codelineno-80-18" href="#__codelineno-80-18"></a>
+<a id="__codelineno-80-19" name="__codelineno-80-19" href="#__codelineno-80-19"></a>stop
+<a id="__codelineno-80-20" name="__codelineno-80-20" href="#__codelineno-80-20"></a>
+<a id="__codelineno-80-21" name="__codelineno-80-21" href="#__codelineno-80-21"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717095638482.png]]</p>
+<p>还可以用 while 和 end while 实现 while 循环，用 is 添加标注</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-81-1" name="__codelineno-81-1" href="#__codelineno-81-1"></a>@startuml
+<a id="__codelineno-81-2" name="__codelineno-81-2" href="#__codelineno-81-2"></a>
+<a id="__codelineno-81-3" name="__codelineno-81-3" href="#__codelineno-81-3"></a>while (check filesize ?) is (not empty)
+<a id="__codelineno-81-4" name="__codelineno-81-4" href="#__codelineno-81-4"></a>    :read file;
+<a id="__codelineno-81-5" name="__codelineno-81-5" href="#__codelineno-81-5"></a>endwhile (empty)
+<a id="__codelineno-81-6" name="__codelineno-81-6" href="#__codelineno-81-6"></a>:close file;
+<a id="__codelineno-81-7" name="__codelineno-81-7" href="#__codelineno-81-7"></a>
+<a id="__codelineno-81-8" name="__codelineno-81-8" href="#__codelineno-81-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717095806052.png]]</p>
+<h3 id="_60">并行处理</h3>
+<p>使用 fork, fork again 和 end fork 表示并行处理</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-82-1" name="__codelineno-82-1" href="#__codelineno-82-1"></a>@startuml
+<a id="__codelineno-82-2" name="__codelineno-82-2" href="#__codelineno-82-2"></a>
+<a id="__codelineno-82-3" name="__codelineno-82-3" href="#__codelineno-82-3"></a>start
+<a id="__codelineno-82-4" name="__codelineno-82-4" href="#__codelineno-82-4"></a>
+<a id="__codelineno-82-5" name="__codelineno-82-5" href="#__codelineno-82-5"></a>if (multiprocessor?) then (yes)
+<a id="__codelineno-82-6" name="__codelineno-82-6" href="#__codelineno-82-6"></a>    fork
+<a id="__codelineno-82-7" name="__codelineno-82-7" href="#__codelineno-82-7"></a>        :Treatment 1;
+<a id="__codelineno-82-8" name="__codelineno-82-8" href="#__codelineno-82-8"></a>    fork again
+<a id="__codelineno-82-9" name="__codelineno-82-9" href="#__codelineno-82-9"></a>        :Treatment 2;
+<a id="__codelineno-82-10" name="__codelineno-82-10" href="#__codelineno-82-10"></a>    end fork
+<a id="__codelineno-82-11" name="__codelineno-82-11" href="#__codelineno-82-11"></a>else (monoproc)
+<a id="__codelineno-82-12" name="__codelineno-82-12" href="#__codelineno-82-12"></a>    :Treatment 1;
+<a id="__codelineno-82-13" name="__codelineno-82-13" href="#__codelineno-82-13"></a>    :Treatment 2;
+<a id="__codelineno-82-14" name="__codelineno-82-14" href="#__codelineno-82-14"></a>endif
+<a id="__codelineno-82-15" name="__codelineno-82-15" href="#__codelineno-82-15"></a>
+<a id="__codelineno-82-16" name="__codelineno-82-16" href="#__codelineno-82-16"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717095953974.png]]</p>
+<h3 id="_61">划分进程</h3>
+<p>使用 split, split again 和 split keywords 划分进程</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-83-1" name="__codelineno-83-1" href="#__codelineno-83-1"></a>@startuml
+<a id="__codelineno-83-2" name="__codelineno-83-2" href="#__codelineno-83-2"></a>
+<a id="__codelineno-83-3" name="__codelineno-83-3" href="#__codelineno-83-3"></a>start
+<a id="__codelineno-83-4" name="__codelineno-83-4" href="#__codelineno-83-4"></a>
+<a id="__codelineno-83-5" name="__codelineno-83-5" href="#__codelineno-83-5"></a>split
+<a id="__codelineno-83-6" name="__codelineno-83-6" href="#__codelineno-83-6"></a>    :A;
+<a id="__codelineno-83-7" name="__codelineno-83-7" href="#__codelineno-83-7"></a>split again
+<a id="__codelineno-83-8" name="__codelineno-83-8" href="#__codelineno-83-8"></a>    :B;
+<a id="__codelineno-83-9" name="__codelineno-83-9" href="#__codelineno-83-9"></a>split again
+<a id="__codelineno-83-10" name="__codelineno-83-10" href="#__codelineno-83-10"></a>    :C;
+<a id="__codelineno-83-11" name="__codelineno-83-11" href="#__codelineno-83-11"></a>split again
+<a id="__codelineno-83-12" name="__codelineno-83-12" href="#__codelineno-83-12"></a>    :a;
+<a id="__codelineno-83-13" name="__codelineno-83-13" href="#__codelineno-83-13"></a>    :b;
+<a id="__codelineno-83-14" name="__codelineno-83-14" href="#__codelineno-83-14"></a>end split
+<a id="__codelineno-83-15" name="__codelineno-83-15" href="#__codelineno-83-15"></a>
+<a id="__codelineno-83-16" name="__codelineno-83-16" href="#__codelineno-83-16"></a>:D;
+<a id="__codelineno-83-17" name="__codelineno-83-17" href="#__codelineno-83-17"></a>
+<a id="__codelineno-83-18" name="__codelineno-83-18" href="#__codelineno-83-18"></a>end
+<a id="__codelineno-83-19" name="__codelineno-83-19" href="#__codelineno-83-19"></a>
+<a id="__codelineno-83-20" name="__codelineno-83-20" href="#__codelineno-83-20"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717100157566.png]]</p>
+<h3 id="_62">注释</h3>
+<p>使用 note 语法添加注释，floating 关键字可以使 note 浮动</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-84-1" name="__codelineno-84-1" href="#__codelineno-84-1"></a>@startuml
+<a id="__codelineno-84-2" name="__codelineno-84-2" href="#__codelineno-84-2"></a>
+<a id="__codelineno-84-3" name="__codelineno-84-3" href="#__codelineno-84-3"></a>start
+<a id="__codelineno-84-4" name="__codelineno-84-4" href="#__codelineno-84-4"></a>
+<a id="__codelineno-84-5" name="__codelineno-84-5" href="#__codelineno-84-5"></a>:foo1;
+<a id="__codelineno-84-6" name="__codelineno-84-6" href="#__codelineno-84-6"></a>floating note left: This is a note
+<a id="__codelineno-84-7" name="__codelineno-84-7" href="#__codelineno-84-7"></a>:foo2;
+<a id="__codelineno-84-8" name="__codelineno-84-8" href="#__codelineno-84-8"></a>
+<a id="__codelineno-84-9" name="__codelineno-84-9" href="#__codelineno-84-9"></a>note right
+<a id="__codelineno-84-10" name="__codelineno-84-10" href="#__codelineno-84-10"></a>    This note is on several
+<a id="__codelineno-84-11" name="__codelineno-84-11" href="#__codelineno-84-11"></a>    //lines// and can
+<a id="__codelineno-84-12" name="__codelineno-84-12" href="#__codelineno-84-12"></a>    contain &lt;b&gt;HTML&lt;/b&gt;
+<a id="__codelineno-84-13" name="__codelineno-84-13" href="#__codelineno-84-13"></a>    ====
+<a id="__codelineno-84-14" name="__codelineno-84-14" href="#__codelineno-84-14"></a>    * Calling the method &quot;&quot;foo()&quot;&quot; is prohibited
+<a id="__codelineno-84-15" name="__codelineno-84-15" href="#__codelineno-84-15"></a>end note
+<a id="__codelineno-84-16" name="__codelineno-84-16" href="#__codelineno-84-16"></a>
+<a id="__codelineno-84-17" name="__codelineno-84-17" href="#__codelineno-84-17"></a>stop
+</code></pre></div>
+<p>![[image-20220717100341052.png]]</p>
+<h3 id="_63">箭头</h3>
+<p>使用 -&gt; 标记箭头，可以添加文字或修改颜色，同时也可以调整点状 dotted，条状 dashed，加粗 bold，隐式 hidden</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-85-1" name="__codelineno-85-1" href="#__codelineno-85-1"></a>@startuml
+<a id="__codelineno-85-2" name="__codelineno-85-2" href="#__codelineno-85-2"></a>
+<a id="__codelineno-85-3" name="__codelineno-85-3" href="#__codelineno-85-3"></a>:foo1;
+<a id="__codelineno-85-4" name="__codelineno-85-4" href="#__codelineno-85-4"></a>-[hidden]-&gt; You can put text on arrows;
+<a id="__codelineno-85-5" name="__codelineno-85-5" href="#__codelineno-85-5"></a>
+<a id="__codelineno-85-6" name="__codelineno-85-6" href="#__codelineno-85-6"></a>if (test) then
+<a id="__codelineno-85-7" name="__codelineno-85-7" href="#__codelineno-85-7"></a>    -[#blue]-&gt;
+<a id="__codelineno-85-8" name="__codelineno-85-8" href="#__codelineno-85-8"></a>    :foo2;
+<a id="__codelineno-85-9" name="__codelineno-85-9" href="#__codelineno-85-9"></a>    -[#green,dashed]-&gt; The text can
+<a id="__codelineno-85-10" name="__codelineno-85-10" href="#__codelineno-85-10"></a>    also be on several lines
+<a id="__codelineno-85-11" name="__codelineno-85-11" href="#__codelineno-85-11"></a>    and **very** long...;
+<a id="__codelineno-85-12" name="__codelineno-85-12" href="#__codelineno-85-12"></a>    :foo3;
+<a id="__codelineno-85-13" name="__codelineno-85-13" href="#__codelineno-85-13"></a>else
+<a id="__codelineno-85-14" name="__codelineno-85-14" href="#__codelineno-85-14"></a>    -[#black,dotted]-&gt;
+<a id="__codelineno-85-15" name="__codelineno-85-15" href="#__codelineno-85-15"></a>    :foo4;
+<a id="__codelineno-85-16" name="__codelineno-85-16" href="#__codelineno-85-16"></a>endif
+<a id="__codelineno-85-17" name="__codelineno-85-17" href="#__codelineno-85-17"></a>
+<a id="__codelineno-85-18" name="__codelineno-85-18" href="#__codelineno-85-18"></a>-[#gray,bold]-&gt;
+<a id="__codelineno-85-19" name="__codelineno-85-19" href="#__codelineno-85-19"></a>:foo5;
+<a id="__codelineno-85-20" name="__codelineno-85-20" href="#__codelineno-85-20"></a>
+<a id="__codelineno-85-21" name="__codelineno-85-21" href="#__codelineno-85-21"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717100648592.png]]</p>
+<h3 id="_64">连接器</h3>
+<p>使用括号定义连接器</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-86-1" name="__codelineno-86-1" href="#__codelineno-86-1"></a>@startuml
+<a id="__codelineno-86-2" name="__codelineno-86-2" href="#__codelineno-86-2"></a>
+<a id="__codelineno-86-3" name="__codelineno-86-3" href="#__codelineno-86-3"></a>start
+<a id="__codelineno-86-4" name="__codelineno-86-4" href="#__codelineno-86-4"></a>
+<a id="__codelineno-86-5" name="__codelineno-86-5" href="#__codelineno-86-5"></a>:Some activity;
+<a id="__codelineno-86-6" name="__codelineno-86-6" href="#__codelineno-86-6"></a>#Blue:(A)
+<a id="__codelineno-86-7" name="__codelineno-86-7" href="#__codelineno-86-7"></a>detach
+<a id="__codelineno-86-8" name="__codelineno-86-8" href="#__codelineno-86-8"></a>
+<a id="__codelineno-86-9" name="__codelineno-86-9" href="#__codelineno-86-9"></a>#Red:(A)
+<a id="__codelineno-86-10" name="__codelineno-86-10" href="#__codelineno-86-10"></a>:Other activity;
+<a id="__codelineno-86-11" name="__codelineno-86-11" href="#__codelineno-86-11"></a>
+<a id="__codelineno-86-12" name="__codelineno-86-12" href="#__codelineno-86-12"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717100836970.png]]</p>
+<h3 id="_65">组合</h3>
+<p>使用 partition 定义分区，将多个活动组合在一起</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-87-1" name="__codelineno-87-1" href="#__codelineno-87-1"></a>@startuml
+<a id="__codelineno-87-2" name="__codelineno-87-2" href="#__codelineno-87-2"></a>
+<a id="__codelineno-87-3" name="__codelineno-87-3" href="#__codelineno-87-3"></a>start
+<a id="__codelineno-87-4" name="__codelineno-87-4" href="#__codelineno-87-4"></a>
+<a id="__codelineno-87-5" name="__codelineno-87-5" href="#__codelineno-87-5"></a>partition Initialization {
+<a id="__codelineno-87-6" name="__codelineno-87-6" href="#__codelineno-87-6"></a>    :read config file;
+<a id="__codelineno-87-7" name="__codelineno-87-7" href="#__codelineno-87-7"></a>    :init internal variable;
+<a id="__codelineno-87-8" name="__codelineno-87-8" href="#__codelineno-87-8"></a>}
+<a id="__codelineno-87-9" name="__codelineno-87-9" href="#__codelineno-87-9"></a>
+<a id="__codelineno-87-10" name="__codelineno-87-10" href="#__codelineno-87-10"></a>partition Running {
+<a id="__codelineno-87-11" name="__codelineno-87-11" href="#__codelineno-87-11"></a>    :wait for user interaction;
+<a id="__codelineno-87-12" name="__codelineno-87-12" href="#__codelineno-87-12"></a>    :prin
+<a id="__codelineno-87-13" name="__codelineno-87-13" href="#__codelineno-87-13"></a>    t information;
+<a id="__codelineno-87-14" name="__codelineno-87-14" href="#__codelineno-87-14"></a>}
+<a id="__codelineno-87-15" name="__codelineno-87-15" href="#__codelineno-87-15"></a>stop
+<a id="__codelineno-87-16" name="__codelineno-87-16" href="#__codelineno-87-16"></a>
+<a id="__codelineno-87-17" name="__codelineno-87-17" href="#__codelineno-87-17"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717100940277.png]]</p>
+<h3 id="_66">泳道</h3>
+<p>使用管道 | 定义泳道，还可以改变颜色</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-88-1" name="__codelineno-88-1" href="#__codelineno-88-1"></a>@startuml
+<a id="__codelineno-88-2" name="__codelineno-88-2" href="#__codelineno-88-2"></a>
+<a id="__codelineno-88-3" name="__codelineno-88-3" href="#__codelineno-88-3"></a>|Swimlane1|
+<a id="__codelineno-88-4" name="__codelineno-88-4" href="#__codelineno-88-4"></a>    start
+<a id="__codelineno-88-5" name="__codelineno-88-5" href="#__codelineno-88-5"></a>    :foo1;
+<a id="__codelineno-88-6" name="__codelineno-88-6" href="#__codelineno-88-6"></a>|#AntiqueWhite|Swimlane2|
+<a id="__codelineno-88-7" name="__codelineno-88-7" href="#__codelineno-88-7"></a>    :foo2;
+<a id="__codelineno-88-8" name="__codelineno-88-8" href="#__codelineno-88-8"></a>    :foo3;
+<a id="__codelineno-88-9" name="__codelineno-88-9" href="#__codelineno-88-9"></a>|Swimlane1|
+<a id="__codelineno-88-10" name="__codelineno-88-10" href="#__codelineno-88-10"></a>    :foo4;
+<a id="__codelineno-88-11" name="__codelineno-88-11" href="#__codelineno-88-11"></a>|Swimlane2|
+<a id="__codelineno-88-12" name="__codelineno-88-12" href="#__codelineno-88-12"></a>    :foo5;
+<a id="__codelineno-88-13" name="__codelineno-88-13" href="#__codelineno-88-13"></a>    stop
+<a id="__codelineno-88-14" name="__codelineno-88-14" href="#__codelineno-88-14"></a>
+<a id="__codelineno-88-15" name="__codelineno-88-15" href="#__codelineno-88-15"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717101056826.png]]</p>
+<h3 id="_67">活动形状</h3>
+<p>修改活动标签的分号分隔符 <code>;</code> 设置不同形状</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-89-1" name="__codelineno-89-1" href="#__codelineno-89-1"></a>@startuml
+<a id="__codelineno-89-2" name="__codelineno-89-2" href="#__codelineno-89-2"></a>
+<a id="__codelineno-89-3" name="__codelineno-89-3" href="#__codelineno-89-3"></a>:Ready;
+<a id="__codelineno-89-4" name="__codelineno-89-4" href="#__codelineno-89-4"></a>:next(o)|
+<a id="__codelineno-89-5" name="__codelineno-89-5" href="#__codelineno-89-5"></a>:Receiving;
+<a id="__codelineno-89-6" name="__codelineno-89-6" href="#__codelineno-89-6"></a>
+<a id="__codelineno-89-7" name="__codelineno-89-7" href="#__codelineno-89-7"></a>split
+<a id="__codelineno-89-8" name="__codelineno-89-8" href="#__codelineno-89-8"></a>    :nak(i)&lt;
+<a id="__codelineno-89-9" name="__codelineno-89-9" href="#__codelineno-89-9"></a>    :ack(o)&gt;
+<a id="__codelineno-89-10" name="__codelineno-89-10" href="#__codelineno-89-10"></a>split again
+<a id="__codelineno-89-11" name="__codelineno-89-11" href="#__codelineno-89-11"></a>    :ack(i)&lt;
+<a id="__codelineno-89-12" name="__codelineno-89-12" href="#__codelineno-89-12"></a>    :next(o)
+<a id="__codelineno-89-13" name="__codelineno-89-13" href="#__codelineno-89-13"></a>    on several line|
+<a id="__codelineno-89-14" name="__codelineno-89-14" href="#__codelineno-89-14"></a>    :i := i + 1]
+<a id="__codelineno-89-15" name="__codelineno-89-15" href="#__codelineno-89-15"></a>    :ack(o)&gt;
+<a id="__codelineno-89-16" name="__codelineno-89-16" href="#__codelineno-89-16"></a>split again
+<a id="__codelineno-89-17" name="__codelineno-89-17" href="#__codelineno-89-17"></a>    :err(i)&lt;
+<a id="__codelineno-89-18" name="__codelineno-89-18" href="#__codelineno-89-18"></a>    :nak(o)&gt;
+<a id="__codelineno-89-19" name="__codelineno-89-19" href="#__codelineno-89-19"></a>split again
+<a id="__codelineno-89-20" name="__codelineno-89-20" href="#__codelineno-89-20"></a>    :foo/
+<a id="__codelineno-89-21" name="__codelineno-89-21" href="#__codelineno-89-21"></a>split again
+<a id="__codelineno-89-22" name="__codelineno-89-22" href="#__codelineno-89-22"></a>    :i &gt; 5}
+<a id="__codelineno-89-23" name="__codelineno-89-23" href="#__codelineno-89-23"></a>    stop
+<a id="__codelineno-89-24" name="__codelineno-89-24" href="#__codelineno-89-24"></a>end split
+<a id="__codelineno-89-25" name="__codelineno-89-25" href="#__codelineno-89-25"></a>
+<a id="__codelineno-89-26" name="__codelineno-89-26" href="#__codelineno-89-26"></a>:finish;
+<a id="__codelineno-89-27" name="__codelineno-89-27" href="#__codelineno-89-27"></a>
+<a id="__codelineno-89-28" name="__codelineno-89-28" href="#__codelineno-89-28"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717101410907.png]]</p>
+<h2 id="_68">状态图</h2>
+<h3 id="_69">简单状态</h3>
+<p>使用 <code>[*]</code> 开始和结束状态图，使用 <code>--&gt;</code> 添加箭头，使用 hide empty description 隐藏空的状态</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-90-1" name="__codelineno-90-1" href="#__codelineno-90-1"></a>@startuml
+<a id="__codelineno-90-2" name="__codelineno-90-2" href="#__codelineno-90-2"></a>
+<a id="__codelineno-90-3" name="__codelineno-90-3" href="#__codelineno-90-3"></a>hide empty description
+<a id="__codelineno-90-4" name="__codelineno-90-4" href="#__codelineno-90-4"></a>[*] --&gt; State1
+<a id="__codelineno-90-5" name="__codelineno-90-5" href="#__codelineno-90-5"></a>State1 --&gt; [*]
+<a id="__codelineno-90-6" name="__codelineno-90-6" href="#__codelineno-90-6"></a>State1 : this is a string
+<a id="__codelineno-90-7" name="__codelineno-90-7" href="#__codelineno-90-7"></a>State1 : this is another string
+<a id="__codelineno-90-8" name="__codelineno-90-8" href="#__codelineno-90-8"></a>State1 -&gt; State2
+<a id="__codelineno-90-9" name="__codelineno-90-9" href="#__codelineno-90-9"></a>State2 --&gt; [*]
+<a id="__codelineno-90-10" name="__codelineno-90-10" href="#__codelineno-90-10"></a>
+<a id="__codelineno-90-11" name="__codelineno-90-11" href="#__codelineno-90-11"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717101843684.png]]</p>
+<h3 id="_70">合成状态</h3>
+<p>使用 state 和花括号定义合成状态</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-91-1" name="__codelineno-91-1" href="#__codelineno-91-1"></a>@startuml
+<a id="__codelineno-91-2" name="__codelineno-91-2" href="#__codelineno-91-2"></a>
+<a id="__codelineno-91-3" name="__codelineno-91-3" href="#__codelineno-91-3"></a>scale 350 width
+<a id="__codelineno-91-4" name="__codelineno-91-4" href="#__codelineno-91-4"></a>[*] --&gt; NotShooting
+<a id="__codelineno-91-5" name="__codelineno-91-5" href="#__codelineno-91-5"></a>
+<a id="__codelineno-91-6" name="__codelineno-91-6" href="#__codelineno-91-6"></a>state NotShooting {
+<a id="__codelineno-91-7" name="__codelineno-91-7" href="#__codelineno-91-7"></a>    [*] --&gt; Idle
+<a id="__codelineno-91-8" name="__codelineno-91-8" href="#__codelineno-91-8"></a>    Idle --&gt; Configuring : EvConfig
+<a id="__codelineno-91-9" name="__codelineno-91-9" href="#__codelineno-91-9"></a>    Configuring --&gt; Idle : EvConfig
+<a id="__codelineno-91-10" name="__codelineno-91-10" href="#__codelineno-91-10"></a>}
+<a id="__codelineno-91-11" name="__codelineno-91-11" href="#__codelineno-91-11"></a>
+<a id="__codelineno-91-12" name="__codelineno-91-12" href="#__codelineno-91-12"></a>state Configuring {
+<a id="__codelineno-91-13" name="__codelineno-91-13" href="#__codelineno-91-13"></a>    [*] --&gt; NewValueSelection
+<a id="__codelineno-91-14" name="__codelineno-91-14" href="#__codelineno-91-14"></a>    NewValueSelection --&gt; NewValuePreview : EvNewValue
+<a id="__codelineno-91-15" name="__codelineno-91-15" href="#__codelineno-91-15"></a>    NewValuePreview --&gt; NewValueSelection : EvNewValueRejected
+<a id="__codelineno-91-16" name="__codelineno-91-16" href="#__codelineno-91-16"></a>    NewValuePreview --&gt; NewValueSelection : EvNewValueSaved
+<a id="__codelineno-91-17" name="__codelineno-91-17" href="#__codelineno-91-17"></a>    state NewValuePreview {
+<a id="__codelineno-91-18" name="__codelineno-91-18" href="#__codelineno-91-18"></a>        State1 -&gt; State2
+<a id="__codelineno-91-19" name="__codelineno-91-19" href="#__codelineno-91-19"></a>    } 
+<a id="__codelineno-91-20" name="__codelineno-91-20" href="#__codelineno-91-20"></a>}
+<a id="__codelineno-91-21" name="__codelineno-91-21" href="#__codelineno-91-21"></a>
+<a id="__codelineno-91-22" name="__codelineno-91-22" href="#__codelineno-91-22"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717101950941.png]]</p>
+<h3 id="_71">长名字</h3>
+<p>也可以使用 state 定义长名字状态</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-92-1" name="__codelineno-92-1" href="#__codelineno-92-1"></a>@startuml
+<a id="__codelineno-92-2" name="__codelineno-92-2" href="#__codelineno-92-2"></a>
+<a id="__codelineno-92-3" name="__codelineno-92-3" href="#__codelineno-92-3"></a>scale 600 width
+<a id="__codelineno-92-4" name="__codelineno-92-4" href="#__codelineno-92-4"></a>[*] -&gt; State1
+<a id="__codelineno-92-5" name="__codelineno-92-5" href="#__codelineno-92-5"></a>State1 --&gt; State2 : Succeeded
+<a id="__codelineno-92-6" name="__codelineno-92-6" href="#__codelineno-92-6"></a>State1 --&gt; [*] : Aborted
+<a id="__codelineno-92-7" name="__codelineno-92-7" href="#__codelineno-92-7"></a>State2 --&gt; State3 : Succeeded
+<a id="__codelineno-92-8" name="__codelineno-92-8" href="#__codelineno-92-8"></a>State2 --&gt; [*] : Aborted
+<a id="__codelineno-92-9" name="__codelineno-92-9" href="#__codelineno-92-9"></a>
+<a id="__codelineno-92-10" name="__codelineno-92-10" href="#__codelineno-92-10"></a>state State3 {
+<a id="__codelineno-92-11" name="__codelineno-92-11" href="#__codelineno-92-11"></a>    state &quot;Accumulate Enough Data\nLong State Name&quot; as long1
+<a id="__codelineno-92-12" name="__codelineno-92-12" href="#__codelineno-92-12"></a>    long1 : Just a test
+<a id="__codelineno-92-13" name="__codelineno-92-13" href="#__codelineno-92-13"></a>    [*] --&gt; long1
+<a id="__codelineno-92-14" name="__codelineno-92-14" href="#__codelineno-92-14"></a>    long1 --&gt; long1 : New Data
+<a id="__codelineno-92-15" name="__codelineno-92-15" href="#__codelineno-92-15"></a>    long1 --&gt; ProcessData : Enough Data
+<a id="__codelineno-92-16" name="__codelineno-92-16" href="#__codelineno-92-16"></a>}
+<a id="__codelineno-92-17" name="__codelineno-92-17" href="#__codelineno-92-17"></a>
+<a id="__codelineno-92-18" name="__codelineno-92-18" href="#__codelineno-92-18"></a>State3 --&gt; State3 : Failed
+<a id="__codelineno-92-19" name="__codelineno-92-19" href="#__codelineno-92-19"></a>State3 --&gt; [*] : Succeeded / Save Result
+<a id="__codelineno-92-20" name="__codelineno-92-20" href="#__codelineno-92-20"></a>State3 --&gt; [*] : Aborted
+<a id="__codelineno-92-21" name="__codelineno-92-21" href="#__codelineno-92-21"></a>
+<a id="__codelineno-92-22" name="__codelineno-92-22" href="#__codelineno-92-22"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717103036853.png]]</p>
+<h3 id="_72">分支和合并</h3>
+<p>使用 fork 和 join 实现分支和合并</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-93-1" name="__codelineno-93-1" href="#__codelineno-93-1"></a>@startuml
+<a id="__codelineno-93-2" name="__codelineno-93-2" href="#__codelineno-93-2"></a>
+<a id="__codelineno-93-3" name="__codelineno-93-3" href="#__codelineno-93-3"></a>state fork_state &lt;&lt;fork&gt;&gt;
+<a id="__codelineno-93-4" name="__codelineno-93-4" href="#__codelineno-93-4"></a>
+<a id="__codelineno-93-5" name="__codelineno-93-5" href="#__codelineno-93-5"></a>[*] --&gt; fork_state
+<a id="__codelineno-93-6" name="__codelineno-93-6" href="#__codelineno-93-6"></a>fork_state --&gt; State2
+<a id="__codelineno-93-7" name="__codelineno-93-7" href="#__codelineno-93-7"></a>fork_state --&gt; State3
+<a id="__codelineno-93-8" name="__codelineno-93-8" href="#__codelineno-93-8"></a>
+<a id="__codelineno-93-9" name="__codelineno-93-9" href="#__codelineno-93-9"></a>state join_state &lt;&lt;join&gt;&gt;
+<a id="__codelineno-93-10" name="__codelineno-93-10" href="#__codelineno-93-10"></a>
+<a id="__codelineno-93-11" name="__codelineno-93-11" href="#__codelineno-93-11"></a>State2 --&gt; join_state
+<a id="__codelineno-93-12" name="__codelineno-93-12" href="#__codelineno-93-12"></a>State3 --&gt; join_state
+<a id="__codelineno-93-13" name="__codelineno-93-13" href="#__codelineno-93-13"></a>join_state --&gt; State4
+<a id="__codelineno-93-14" name="__codelineno-93-14" href="#__codelineno-93-14"></a>State4 --&gt; [*]
+<a id="__codelineno-93-15" name="__codelineno-93-15" href="#__codelineno-93-15"></a>
+<a id="__codelineno-93-16" name="__codelineno-93-16" href="#__codelineno-93-16"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717103218219.png]]</p>
+<h3 id="_73">并发状态</h3>
+<p>用 <code>--</code> 或 <code>||</code> 作为分隔符来合成并发状态</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-94-1" name="__codelineno-94-1" href="#__codelineno-94-1"></a>@startuml
+<a id="__codelineno-94-2" name="__codelineno-94-2" href="#__codelineno-94-2"></a>
+<a id="__codelineno-94-3" name="__codelineno-94-3" href="#__codelineno-94-3"></a>[*] --&gt; Active
+<a id="__codelineno-94-4" name="__codelineno-94-4" href="#__codelineno-94-4"></a>
+<a id="__codelineno-94-5" name="__codelineno-94-5" href="#__codelineno-94-5"></a>state Active {
+<a id="__codelineno-94-6" name="__codelineno-94-6" href="#__codelineno-94-6"></a>    [*] -&gt; NumLockOff
+<a id="__codelineno-94-7" name="__codelineno-94-7" href="#__codelineno-94-7"></a>    NumLockOff --&gt; NumLockOn : EvNumLockPressed
+<a id="__codelineno-94-8" name="__codelineno-94-8" href="#__codelineno-94-8"></a>    NumLockOn --&gt; NumLockOff : EvNumLockPressed
+<a id="__codelineno-94-9" name="__codelineno-94-9" href="#__codelineno-94-9"></a>
+<a id="__codelineno-94-10" name="__codelineno-94-10" href="#__codelineno-94-10"></a>    --
+<a id="__codelineno-94-11" name="__codelineno-94-11" href="#__codelineno-94-11"></a>
+<a id="__codelineno-94-12" name="__codelineno-94-12" href="#__codelineno-94-12"></a>    [*] -&gt; CapsLockOff
+<a id="__codelineno-94-13" name="__codelineno-94-13" href="#__codelineno-94-13"></a>    CapsLockOff --&gt; CapsLockOn : EvCapsLockPressed
+<a id="__codelineno-94-14" name="__codelineno-94-14" href="#__codelineno-94-14"></a>    CapsLockOn --&gt; CapsLockOff : EvCapsLockPressed
+<a id="__codelineno-94-15" name="__codelineno-94-15" href="#__codelineno-94-15"></a>
+<a id="__codelineno-94-16" name="__codelineno-94-16" href="#__codelineno-94-16"></a>    --
+<a id="__codelineno-94-17" name="__codelineno-94-17" href="#__codelineno-94-17"></a>
+<a id="__codelineno-94-18" name="__codelineno-94-18" href="#__codelineno-94-18"></a>    [*] -&gt; ScrollLockOff
+<a id="__codelineno-94-19" name="__codelineno-94-19" href="#__codelineno-94-19"></a>    ScrollLockOff --&gt; ScrollLockOn : EvCapsLockPressed
+<a id="__codelineno-94-20" name="__codelineno-94-20" href="#__codelineno-94-20"></a>    ScrollLockOn --&gt; ScrollLockOff : EvCapsLockPressed
+<a id="__codelineno-94-21" name="__codelineno-94-21" href="#__codelineno-94-21"></a>}
+<a id="__codelineno-94-22" name="__codelineno-94-22" href="#__codelineno-94-22"></a>
+<a id="__codelineno-94-23" name="__codelineno-94-23" href="#__codelineno-94-23"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717103531336.png]]</p>
+<h3 id="_74">条件选择</h3>
+<p>使用 <code>&lt;&lt;choice&gt;&gt;</code> 说明条件选择</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-95-1" name="__codelineno-95-1" href="#__codelineno-95-1"></a>@startuml
+<a id="__codelineno-95-2" name="__codelineno-95-2" href="#__codelineno-95-2"></a>
+<a id="__codelineno-95-3" name="__codelineno-95-3" href="#__codelineno-95-3"></a>&#39; 定义别名
+<a id="__codelineno-95-4" name="__codelineno-95-4" href="#__codelineno-95-4"></a>state &quot;Req(Id)&quot; as ReqId &lt;&lt;sdlreceive&gt;&gt;
+<a id="__codelineno-95-5" name="__codelineno-95-5" href="#__codelineno-95-5"></a>state &quot;Minor(Id)&quot; as MinorId
+<a id="__codelineno-95-6" name="__codelineno-95-6" href="#__codelineno-95-6"></a>state &quot;Major(Id)&quot; as MajorId
+<a id="__codelineno-95-7" name="__codelineno-95-7" href="#__codelineno-95-7"></a>
+<a id="__codelineno-95-8" name="__codelineno-95-8" href="#__codelineno-95-8"></a>&#39; 定义 c 为选择节点
+<a id="__codelineno-95-9" name="__codelineno-95-9" href="#__codelineno-95-9"></a>state c &lt;&lt;choice&gt;&gt;
+<a id="__codelineno-95-10" name="__codelineno-95-10" href="#__codelineno-95-10"></a>
+<a id="__codelineno-95-11" name="__codelineno-95-11" href="#__codelineno-95-11"></a>Idle --&gt; ReqId
+<a id="__codelineno-95-12" name="__codelineno-95-12" href="#__codelineno-95-12"></a>ReqId --&gt; c
+<a id="__codelineno-95-13" name="__codelineno-95-13" href="#__codelineno-95-13"></a>c --&gt; MinorId : [Id &lt;= 10]
+<a id="__codelineno-95-14" name="__codelineno-95-14" href="#__codelineno-95-14"></a>c --&gt; MajorId : [Id &gt; 10]
+<a id="__codelineno-95-15" name="__codelineno-95-15" href="#__codelineno-95-15"></a>
+<a id="__codelineno-95-16" name="__codelineno-95-16" href="#__codelineno-95-16"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717103821988.png]]</p>
+<h3 id="_75">模块化全部案例</h3>
+<p>使用 choice, fork, join, end 的完全案例</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-96-1" name="__codelineno-96-1" href="#__codelineno-96-1"></a>@startuml
+<a id="__codelineno-96-2" name="__codelineno-96-2" href="#__codelineno-96-2"></a>
+<a id="__codelineno-96-3" name="__codelineno-96-3" href="#__codelineno-96-3"></a>state choice1 &lt;&lt;choice&gt;&gt;
+<a id="__codelineno-96-4" name="__codelineno-96-4" href="#__codelineno-96-4"></a>state fork1 &lt;&lt;fork&gt;&gt;
+<a id="__codelineno-96-5" name="__codelineno-96-5" href="#__codelineno-96-5"></a>state join2 &lt;&lt;join&gt;&gt;
+<a id="__codelineno-96-6" name="__codelineno-96-6" href="#__codelineno-96-6"></a>state end3 &lt;&lt;end&gt;&gt;
+<a id="__codelineno-96-7" name="__codelineno-96-7" href="#__codelineno-96-7"></a>
+<a id="__codelineno-96-8" name="__codelineno-96-8" href="#__codelineno-96-8"></a>[*] --&gt; choice1 : from start\nto choice
+<a id="__codelineno-96-9" name="__codelineno-96-9" href="#__codelineno-96-9"></a>choice1 --&gt; fork1 : from choice\nto fork
+<a id="__codelineno-96-10" name="__codelineno-96-10" href="#__codelineno-96-10"></a>choice1 --&gt; join2 : from choice\nto join
+<a id="__codelineno-96-11" name="__codelineno-96-11" href="#__codelineno-96-11"></a>choice1 --&gt; end3 : from choice\nto end
+<a id="__codelineno-96-12" name="__codelineno-96-12" href="#__codelineno-96-12"></a>fork1 ---&gt; State1 : from fork\nto state
+<a id="__codelineno-96-13" name="__codelineno-96-13" href="#__codelineno-96-13"></a>fork1 --&gt; State2 : from fork\nto state
+<a id="__codelineno-96-14" name="__codelineno-96-14" href="#__codelineno-96-14"></a>State2 --&gt; join2 : from state\nto join
+<a id="__codelineno-96-15" name="__codelineno-96-15" href="#__codelineno-96-15"></a>State1 --&gt; [*] : from state\nto end
+<a id="__codelineno-96-16" name="__codelineno-96-16" href="#__codelineno-96-16"></a>join2 --&gt; [*] : from join\nto end
+<a id="__codelineno-96-17" name="__codelineno-96-17" href="#__codelineno-96-17"></a>
+<a id="__codelineno-96-18" name="__codelineno-96-18" href="#__codelineno-96-18"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717104110314.png]]</p>
+<h3 id="_76">箭头方向</h3>
+<p>使用 <code>-&gt;</code> 定义水平箭头，也可以使用 left, right, up, down 改变方向</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-97-1" name="__codelineno-97-1" href="#__codelineno-97-1"></a>@startuml
+<a id="__codelineno-97-2" name="__codelineno-97-2" href="#__codelineno-97-2"></a>
+<a id="__codelineno-97-3" name="__codelineno-97-3" href="#__codelineno-97-3"></a>[*] -up-&gt; First
+<a id="__codelineno-97-4" name="__codelineno-97-4" href="#__codelineno-97-4"></a>First -right-&gt; Second
+<a id="__codelineno-97-5" name="__codelineno-97-5" href="#__codelineno-97-5"></a>Second --&gt; Third
+<a id="__codelineno-97-6" name="__codelineno-97-6" href="#__codelineno-97-6"></a>Third -left-&gt; Last
+<a id="__codelineno-97-7" name="__codelineno-97-7" href="#__codelineno-97-7"></a>
+<a id="__codelineno-97-8" name="__codelineno-97-8" href="#__codelineno-97-8"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717104321774.png]]</p>
+<h3 id="_77">注释</h3>
+<p>使用 note 定义注释以及浮动注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-98-1" name="__codelineno-98-1" href="#__codelineno-98-1"></a>@startuml
+<a id="__codelineno-98-2" name="__codelineno-98-2" href="#__codelineno-98-2"></a>
+<a id="__codelineno-98-3" name="__codelineno-98-3" href="#__codelineno-98-3"></a>[*] --&gt; Active
+<a id="__codelineno-98-4" name="__codelineno-98-4" href="#__codelineno-98-4"></a>Active --&gt; Inactive
+<a id="__codelineno-98-5" name="__codelineno-98-5" href="#__codelineno-98-5"></a>
+<a id="__codelineno-98-6" name="__codelineno-98-6" href="#__codelineno-98-6"></a>note left of Active : this is a short\nnote
+<a id="__codelineno-98-7" name="__codelineno-98-7" href="#__codelineno-98-7"></a>note right of Inactive
+<a id="__codelineno-98-8" name="__codelineno-98-8" href="#__codelineno-98-8"></a>    A note can also
+<a id="__codelineno-98-9" name="__codelineno-98-9" href="#__codelineno-98-9"></a>    be defined on
+<a id="__codelineno-98-10" name="__codelineno-98-10" href="#__codelineno-98-10"></a>    several lines
+<a id="__codelineno-98-11" name="__codelineno-98-11" href="#__codelineno-98-11"></a>end note
+<a id="__codelineno-98-12" name="__codelineno-98-12" href="#__codelineno-98-12"></a>
+<a id="__codelineno-98-13" name="__codelineno-98-13" href="#__codelineno-98-13"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717105941324.png]]</p>
+<p>使用 note on link 在连接线上添加注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-99-1" name="__codelineno-99-1" href="#__codelineno-99-1"></a>@startuml
+<a id="__codelineno-99-2" name="__codelineno-99-2" href="#__codelineno-99-2"></a>
+<a id="__codelineno-99-3" name="__codelineno-99-3" href="#__codelineno-99-3"></a>[*] -&gt; State1
+<a id="__codelineno-99-4" name="__codelineno-99-4" href="#__codelineno-99-4"></a>State1 --&gt; State2
+<a id="__codelineno-99-5" name="__codelineno-99-5" href="#__codelineno-99-5"></a>
+<a id="__codelineno-99-6" name="__codelineno-99-6" href="#__codelineno-99-6"></a>note on link
+<a id="__codelineno-99-7" name="__codelineno-99-7" href="#__codelineno-99-7"></a>    this is a state-transition note
+<a id="__codelineno-99-8" name="__codelineno-99-8" href="#__codelineno-99-8"></a>end note
+<a id="__codelineno-99-9" name="__codelineno-99-9" href="#__codelineno-99-9"></a>
+<a id="__codelineno-99-10" name="__codelineno-99-10" href="#__codelineno-99-10"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717110053781.png]]</p>
+<p>可以在合成状态中放置注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-100-1" name="__codelineno-100-1" href="#__codelineno-100-1"></a>@startuml
+<a id="__codelineno-100-2" name="__codelineno-100-2" href="#__codelineno-100-2"></a>
+<a id="__codelineno-100-3" name="__codelineno-100-3" href="#__codelineno-100-3"></a>[*] --&gt; NotShooting
+<a id="__codelineno-100-4" name="__codelineno-100-4" href="#__codelineno-100-4"></a>
+<a id="__codelineno-100-5" name="__codelineno-100-5" href="#__codelineno-100-5"></a>state &quot;Not Shooting State&quot; as NotShooting {
+<a id="__codelineno-100-6" name="__codelineno-100-6" href="#__codelineno-100-6"></a>    state &quot;Idle mode&quot; as Idle
+<a id="__codelineno-100-7" name="__codelineno-100-7" href="#__codelineno-100-7"></a>    state &quot;Configuring mode&quot; as Configuring
+<a id="__codelineno-100-8" name="__codelineno-100-8" href="#__codelineno-100-8"></a>    [*] --&gt; Idle
+<a id="__codelineno-100-9" name="__codelineno-100-9" href="#__codelineno-100-9"></a>    Idle --&gt; Configuring : EvConfig
+<a id="__codelineno-100-10" name="__codelineno-100-10" href="#__codelineno-100-10"></a>    Configuring --&gt; Idle : EvConfig
+<a id="__codelineno-100-11" name="__codelineno-100-11" href="#__codelineno-100-11"></a>}
+<a id="__codelineno-100-12" name="__codelineno-100-12" href="#__codelineno-100-12"></a>
+<a id="__codelineno-100-13" name="__codelineno-100-13" href="#__codelineno-100-13"></a>note right of NotShooting : This is a note on a composite state
+<a id="__codelineno-100-14" name="__codelineno-100-14" href="#__codelineno-100-14"></a>
+<a id="__codelineno-100-15" name="__codelineno-100-15" href="#__codelineno-100-15"></a>@enduml
+</code></pre></div>
+<p>![[image-20220717110145778.png]]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

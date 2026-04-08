@@ -1,0 +1,2610 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>VBS - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vbs" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              VBS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本介绍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        消息框
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        注释
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作符
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        变量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        声明变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类型转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数组
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本语法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本语法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        条件语句
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        循环语句
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        子程序
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内置函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        面向对象
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="面向对象">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        打开记事本
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        调用成员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常处理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        修改注册表
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="修改注册表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        读注册表的关键词和值
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        写注册表
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        删除关键字和值
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模拟按键
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fso 对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件夹操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件夹操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检查文件夹
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复制移动
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件夹对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        特殊文件夹
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="文件操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件属性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复制、移动、删除
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件读写
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指针变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        实践样例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="实践样例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        记事本输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        快速登陆 QQ
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文本自动保存
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="vbs">VBS</h1>
+<h2 id="_1">基本介绍</h2>
+<p>VBS，全称为 Visual Basic Scripting Edition，是一种基于 Microsoft Visual Basic 的脚本语言，用于在 Windows 操作系统下编写脚本以执行各种任务。它继承了 Visual Basic 的一些语法和特性，如变量声明、条件语句、循环结构等。</p>
+<h3 id="_2">消息框</h3>
+<p>由于 VBS 没有控制台，因此需要直接通过可视化输出来进行调试。使用消息框实现</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">msgbox</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,,</span><span class="s2">&quot;title&quot;</span>
+</code></pre></div>
+<p>可以弹出一个输入框</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">inputbox</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>弹出输入框，显示内容，它会返回输入值。</p>
+<h3 id="_3">注释</h3>
+<p>使用单引号表示注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">&#39;注释内容</span>
+</code></pre></div>
+<p>注意行末不能有多余的空格！！！</p>
+<h3 id="_4">操作符</h3>
+<p>算术运算：+、-、*、/、^（乘方）、mod（取余）</p>
+<p>比较运算：&lt;、&gt;、&lt;=、&gt;=、=（等于）、&lt;&gt;（不等于）</p>
+<p>逻辑运算：and、not、or</p>
+<p>连接字符串：+、&amp;</p>
+<p>比较是否相同：is，用于比较对象是否是相同类型。</p>
+<h2 id="_5">变量</h2>
+<p>VBS 中变量不区分大小写。</p>
+<h3 id="_6">声明变量</h3>
+<p>有三种声明变量的方法</p>
+<ul>
+<li>显式声明：Dim、Public、Private 语句进行声明；<ul>
+<li>dim：用于声明脚本、过程、类级作用域的变量</li>
+<li>public：用于声明脚本、类级作用域使用Private语句</li>
+<li>private：用于声明脚本、类级作用域</li>
+</ul>
+</li>
+<li>隐式声明：不声明直接使用；</li>
+<li>强制声明：Option Explicit 语句强制显式声明所有变量；</li>
+</ul>
+<p>例如使用 dim 声明多个同类型变量，用逗号分隔</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">var1</span><span class="p">,</span><span class="w"> </span><span class="nv">var2</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+<p>不能在声明的同时进行赋值，但允许同时对两个变量赋值，用冒号分隔。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">a</span><span class="p">,</span><span class="w"> </span><span class="nv">b</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+</code></pre></div>
+<p>使用 const 修饰符声明常量</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kd">const</span><span class="w"> </span><span class="no">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+</code></pre></div>
+<p>注意常量必须在声明时立即赋值。</p>
+<h3 id="_7">类型转换</h3>
+<p>VBScript 在定义时只有一种变量类型，在实际使用中需要<strong>使用类型转换函数来将变量转换成相应的变量类型</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cbool</td>
+<td>将变量转换成布尔值</td>
+</tr>
+<tr>
+<td>Cbyte</td>
+<td>将变量转换为 0 到 255 之间的整数</td>
+</tr>
+<tr>
+<td>Ccur, Cdbl, Csng</td>
+<td>将变量转换为浮点数值，前者只精确到小数点后四位，后两者要更加精确，数值的范围也要大的多</td>
+</tr>
+<tr>
+<td>Cdate</td>
+<td>将变量转换为日期值</td>
+</tr>
+<tr>
+<td>Cint, Clng</td>
+<td>将变量转换为整数，后者的范围比前者要大的多</td>
+</tr>
+<tr>
+<td>Cstr</td>
+<td>将变量转换为字符串</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_8">数组</h3>
+<p>数组声明格式为</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">arr</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+<p>上述代码声明<strong>长度为 6 的数组</strong>。通过 <code>()</code> 访问数组名，下标范围为 0-5 共 6 个元素。</p>
+<p>可以通过 array 指定数组赋值</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">a</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">array</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<p>这里指定了数组的 3 个元素为 1,2,3 。</p>
+<p>可以定义二维数组</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">a</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">a</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span>
+</code></pre></div>
+<h3 id="_9">重定义</h3>
+<p>如果需要定义动态数组，可以不预先指定数组长度</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">arr</span><span class="p">()</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">redim</span><span class="w"> </span><span class="n">arr</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="_10">基本语法</h2>
+<h3 id="_11">条件语句</h3>
+<p>if 格式：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">if</span><span class="w"> </span><span class="n">condition1</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="k">elseif</span><span class="w"> </span><span class="n">condition2</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">else</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="k">end</span><span class="w"> </span><span class="k">if</span>
+</code></pre></div>
+<p>select case 格式：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">select</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="n">variable</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">case</span><span class="w"> </span><span class="n">condition1</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">case</span><span class="w"> </span><span class="n">condition2</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">case</span><span class="w"> </span><span class="k">else</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="k">end</span><span class="w"> </span><span class="k">select</span>
+</code></pre></div>
+<h3 id="_12">循环语句</h3>
+<p>for next 循环：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="err">＝start to end</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="k">next</span>
+</code></pre></div>
+<p>for each 循环：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">arr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">arr</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">arr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">for</span><span class="w"> </span><span class="k">each</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">arr</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="c1">&#39; 使用 exit for 来退出循环</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="k">next</span>
+</code></pre></div>
+<p>do while 结构：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="k">do</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">condition</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="c1">&#39; 使用 exit do 来退出循环</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="k">loop</span>
+</code></pre></div>
+<p>do 开头的循环格式会先执行循环体，然后判断循环条件。</p>
+<p>do until 结构：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">do</span><span class="w"> </span><span class="n">until</span><span class="w"> </span><span class="n">condition</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">    </span><span class="c1">&#39; 使用 exit do 来退出循环</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">loop</span>
+</code></pre></div>
+<p>条件循环（满足条件一直循环）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="k">while</span><span class="w"> </span><span class="n">condition</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="c1">&#39; 使用 Exit While 来退出循环</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">wend</span>
+</code></pre></div>
+<h2 id="_13">函数</h2>
+<h3 id="_14">定义函数</h3>
+<p>函数的基本定义方法为：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="kd">function</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">    </span><span class="n">code</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">    </span><span class="c1">&#39; 右侧为返回值</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">    </span><span class="n">func</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="k">end</span><span class="w"> </span><span class="k">function</span>
+</code></pre></div>
+<p>例如定义一个返回 1 的函数</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="kd">function</span><span class="w"> </span><span class="nf">A</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">    </span><span class="nb">msgbox</span><span class="w"> </span><span class="s2">&quot;x&quot;</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">    </span><span class="n">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="k">end</span><span class="w"> </span><span class="k">function</span>
+</code></pre></div>
+<p>函数只能出现在赋值语句的右边、或者表达式中，函数<strong>不能直接使用</strong>，如果必须直接使用函数，则必须使用 call 语句调用，并取消返回值</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">call</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="_15">子程序</h3>
+<p>没有返回值的函数称为子程序，子程序不能在表达式中使用。尽管在定义子程序的时候，参数列表要加括号，但在调用子程序的时候，参数列表不加括号。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="kd">function</span><span class="w"> </span><span class="nf">func</span><span class="p">()</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="w">    </span><span class="nb">msgbox</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">end</span><span class="w"> </span><span class="k">function</span>
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">func</span>
+</code></pre></div>
+<h3 id="_16">内置函数</h3>
+<p>VBS 库中预定义了大量有用的内置函数，需要使用时查阅手册即可。</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>作用</th>
+<th>函数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lcase</td>
+<td>将字符串转换成小写</td>
+<td>ucase</td>
+<td>将字符串转换成大写</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_17">面向对象</h2>
+<p>WSH 是用来解析 VBS 的宿主，本身包含了几个常用对象：</p>
+<ol>
+<li>scripting.filesystemobject 提供一整套文件系统操作函数</li>
+<li>scripting.dictionary 用来返回存放键值对的字典对象</li>
+<li>wscript.shell 提供一套读取系统信息的函数，如读写注册表、查找指定文件的路径、读取 DOS 环境变量，读取链接中的设置</li>
+<li>wscript.network 提供网络连接和远程打印机管理的函数</li>
+</ol>
+<p>通过 wscript 还可以进行输出</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">i</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1">&#39; Do While 循环</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a><span class="k">Do</span><span class="w"> </span><span class="k">While</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">5</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="w">    </span><span class="n">WScript</span><span class="p">.</span><span class="n">Echo</span><span class="w"> </span><span class="n">i</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="w">    </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="k">Loop</span>
+</code></pre></div>
+<h3 id="_18">打开记事本</h3>
+<p>可以通过对象实现启动程序</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">objshell</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="k">set</span><span class="w"> </span><span class="n">objshell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="n">objshell</span><span class="p">.</span><span class="n">run</span><span class="w"> </span><span class="s2">&quot;notepad&quot;</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="k">set</span><span class="w"> </span><span class="n">objshell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nothing</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a><span class="c1">&#39; 设置对象变量为空</span>
+</code></pre></div>
+<p>其中 createobject() 用于创建对象，set 将一个对象引用（除字符串、数值、布尔值之外的变量）赋给变量。</p>
+<h3 id="_19">调用成员</h3>
+<p>正确引用的对象本身内置有函数和变量，通过 <code>.</code> 来调用函数。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">objshell</span><span class="p">.</span><span class="n">run</span><span class="w"> </span><span class="s2">&quot;file&quot;</span>
+</code></pre></div>
+<p>run 在运行解析时，遇到空格会停止。因此需要使用<strong>三个双引号</strong>输入路径</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">wsh</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="k">set</span><span class="w"> </span><span class="n">wsh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="n">wsh</span><span class="p">.</span><span class="n">run</span><span class="w"> </span><span class="s2">&quot;&quot;&quot;D:\Program Files (x86)\360\360Chrome\Chrome\Application\360chrome.exe&quot;&quot;&quot;</span>
+</code></pre></div>
+<p>run 有三个参数</p>
+<ol>
+<li>程序路径</li>
+<li>
+<p>窗口形式：</p>
+<ul>
+<li>0 后台运行；</li>
+<li>1 正常运行；</li>
+<li>2 激活程序并最小化；</li>
+<li>3 激活程序并最大化；</li>
+</ul>
+</li>
+<li>
+<p>脚本等待或继续执行。如果为 true 就等待当前程序退出再继续执行</p>
+</li>
+</ol>
+<p>并且 run 有返回值，0 表示成功执行，不为 0 则为错误代码</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">objshell</span><span class="p">.</span><span class="n">run</span><span class="w"> </span><span class="n">path</span>
+</code></pre></div>
+<h3 id="_20">异常处理</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">On</span><span class="w"> </span><span class="k">Error</span><span class="w"> </span><span class="k">Resume</span><span class="w"> </span><span class="k">Next</span>
+</code></pre></div>
+<p>这行语句告诉 vbs 在运行时跳过发生错误的语句，执行跟在它后面的语句。发生错误时，该语句将会把相关的错误号、错误描述和相关源代码压入错误堆栈。</p>
+<p>使用 err 对象处理错误。它具有两个方法：clear, raise 以及五个属性 description, helpcontext, helpfile, number, source 。它不用引用实例，可以直接使用</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="c1">&#39; 跳过错误语句</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">on</span><span class="w"> </span><span class="k">error</span><span class="w"> </span><span class="k">resume</span><span class="w"> </span><span class="k">next</span>
+<a id="__codelineno-27-3" name="__codelineno-27-3" href="#__codelineno-27-3"></a>
+<a id="__codelineno-27-4" name="__codelineno-27-4" href="#__codelineno-27-4"></a><span class="c1">&#39; 除以 0 错误</span>
+<a id="__codelineno-27-5" name="__codelineno-27-5" href="#__codelineno-27-5"></a><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span>
+<a id="__codelineno-27-6" name="__codelineno-27-6" href="#__codelineno-27-6"></a><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<a id="__codelineno-27-7" name="__codelineno-27-7" href="#__codelineno-27-7"></a><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">b</span>
+<a id="__codelineno-27-8" name="__codelineno-27-8" href="#__codelineno-27-8"></a>
+<a id="__codelineno-27-9" name="__codelineno-27-9" href="#__codelineno-27-9"></a><span class="c1">&#39; 如果错误码不为 0，就汇报错误</span>
+<a id="__codelineno-27-10" name="__codelineno-27-10" href="#__codelineno-27-10"></a><span class="k">if</span><span class="w"> </span><span class="nb">err</span><span class="p">.</span><span class="n">number</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-27-11" name="__codelineno-27-11" href="#__codelineno-27-11"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="nb">err</span><span class="p">.</span><span class="n">number</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">err</span><span class="p">.</span><span class="n">description</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="nb">err</span><span class="p">.</span><span class="n">source</span>
+<a id="__codelineno-27-12" name="__codelineno-27-12" href="#__codelineno-27-12"></a><span class="k">end</span><span class="w"> </span><span class="k">if</span>
+</code></pre></div>
+<h3 id="_21">修改注册表</h3>
+<h4 id="_22">读注册表的关键词和值</h4>
+<p>可以通过把关键词的完整路径传递给 wshshell 对象的 regread 方法获取</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="k">set</span><span class="w"> </span><span class="n">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ws</span><span class="p">.</span><span class="n">regread</span><span class="p">(</span><span class="s2">&quot;HKLM\Software\7-Zip\Path&quot;</span><span class="p">)</span>
+<a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">v</span>
+</code></pre></div>
+<h4 id="_23">写注册表</h4>
+<p>使用 wshshell 对象的 regwrite 方法</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="k">set</span><span class="w"> </span><span class="n">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ws</span><span class="p">.</span><span class="n">regwrite</span><span class="p">(</span><span class="n">path</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="s2">&quot;jj&quot;</span><span class="p">,</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>上述代码将 <code>path\jj</code> 这个键值改成了<code>hello</code>，注意这个键值一定要预先存在。对于不存在的键值，也可以创建</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;...&quot;</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="k">set</span><span class="w"> </span><span class="n">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ws</span><span class="p">.</span><span class="n">regwrite</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nenboy&quot;</span><span class="p">)</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ws</span><span class="p">.</span><span class="n">regread</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">val</span>
+</code></pre></div>
+<h4 id="_24">删除关键字和值</h4>
+<p>使用 regdelete 方法</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="n">val</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ws</span><span class="p">.</span><span class="n">regdelete</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre></div>
+<p>如果要删除关键词的值的话，一定要在路径最后加上 <code>\</code>，否则会删除整个关键词。</p>
+<h3 id="_25">模拟按键</h3>
+<p>这个命令的作用就是模拟键盘操作，将一个或多个按键指令发送到指定 Windows 窗口来控制应用程序运行。</p>
+<p>首先创建一个对象，然后通过 SendKeys 发送字符串，表示按键</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">Set</span><span class="w"> </span><span class="n">WshShell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WScript</span><span class="p">.</span><span class="nb">CreateObject</span><span class="p">(</span><span class="s2">&quot;WScript.Shell&quot;</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;x&quot;</span>
+</code></pre></div>
+<p>可发送的字符串包含</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="c1">&#39; 基本键：直接用该按键字符本身来表示</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;xyz&quot;</span><span class="w">     </span>
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a><span class="c1">&#39; 特殊按键：</span>
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="c1">&#39; Shift 对应 + </span>
+<a id="__codelineno-33-6" name="__codelineno-33-6" href="#__codelineno-33-6"></a><span class="c1">&#39; Ctrl 对应 ^ </span>
+<a id="__codelineno-33-7" name="__codelineno-33-7" href="#__codelineno-33-7"></a><span class="c1">&#39; Alt 对应 % </span>
+<a id="__codelineno-33-8" name="__codelineno-33-8" href="#__codelineno-33-8"></a><span class="c1">&#39; 使用 () 表示同时发送</span>
+<a id="__codelineno-33-9" name="__codelineno-33-9" href="#__codelineno-33-9"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;^e&quot;</span><span class="w">      </span><span class="c1">&#39; 发送 Ctrl + E</span>
+<a id="__codelineno-33-10" name="__codelineno-33-10" href="#__codelineno-33-10"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;^(ec)&quot;</span><span class="w">   </span><span class="c1">&#39; 发送 Ctrl + (E + C)</span>
+<a id="__codelineno-33-11" name="__codelineno-33-11" href="#__codelineno-33-11"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;^ec&quot;</span><span class="w">     </span><span class="c1">&#39; 发送 Ctrl + E + C</span>
+<a id="__codelineno-33-12" name="__codelineno-33-12" href="#__codelineno-33-12"></a><span class="c1">&#39; 其余特殊按键用 {} 包含即可，例如 {DOWN}, {UP}, {LEFT}, {ENTER}, {SPACE}</span>
+<a id="__codelineno-33-13" name="__codelineno-33-13" href="#__codelineno-33-13"></a>
+<a id="__codelineno-33-14" name="__codelineno-33-14" href="#__codelineno-33-14"></a><span class="c1">&#39; 重复发送</span>
+<a id="__codelineno-33-15" name="__codelineno-33-15" href="#__codelineno-33-15"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;{x 10}&quot;</span><span class="w">  </span><span class="c1">&#39; 发送 10 个 x</span>
+</code></pre></div>
+<h2 id="_26">文件系统</h2>
+<p>FileSystemObject(FSO) 表示文件系统对象。它包含的常见对象有：</p>
+<table>
+<thead>
+<tr>
+<th>对象</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drive</td>
+<td>包含储存设备的信息，包括硬盘、光驱、ram 盘、网络驱动器</td>
+</tr>
+<tr>
+<td>Drives</td>
+<td>提供一个物理和逻辑驱动器的列表</td>
+</tr>
+<tr>
+<td>File</td>
+<td>检查和处理文件</td>
+</tr>
+<tr>
+<td>Files</td>
+<td>提供一个文件夹中的文件列表</td>
+</tr>
+<tr>
+<td>Folder</td>
+<td>检查和处理文件夹</td>
+</tr>
+<tr>
+<td>Folders</td>
+<td>提供文件夹中子文件夹的列表</td>
+</tr>
+<tr>
+<td>Textstream</td>
+<td>读写文本文件</td>
+</tr>
+</tbody>
+</table>
+<p>常见方法有：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BulidPath</td>
+<td>把文件路径信息添加到现有的文件路径上</td>
+<td>CopyFile</td>
+<td>复制文件</td>
+</tr>
+<tr>
+<td>CopyFolder</td>
+<td>复制文件夹</td>
+<td>CreateFolder</td>
+<td>创建文件夹</td>
+</tr>
+<tr>
+<td>CreateTextFile</td>
+<td>创建文本并返回一个 TextStream 对象</td>
+<td>DeleteFile</td>
+<td>删除文件</td>
+</tr>
+<tr>
+<td>DeleteFolder</td>
+<td>删除文件夹及其中所有内容</td>
+<td>DriveExits</td>
+<td>确定驱动器是否存在</td>
+</tr>
+<tr>
+<td>FileExits</td>
+<td>确定一个文件是否存在</td>
+<td>FolderExists</td>
+<td>确定某文件夹是否存在</td>
+</tr>
+<tr>
+<td>GetAbsolutePathName</td>
+<td>返回一个文件夹或文件的绝对路径</td>
+<td>GetBaseName</td>
+<td>返回一个文件或文件夹的基本路径</td>
+</tr>
+<tr>
+<td>GetDrive</td>
+<td>返回一个 drive 对象</td>
+<td>GetDriveName</td>
+<td>返回一个驱动器的名字</td>
+</tr>
+<tr>
+<td>GetExtensionName</td>
+<td>返回扩展名</td>
+<td>GetFile</td>
+<td>返回一个 file 对象</td>
+</tr>
+<tr>
+<td>GetFileName</td>
+<td>返回文件夹中文件名称</td>
+<td>GetFolder</td>
+<td>返回一个文件夹对象</td>
+</tr>
+<tr>
+<td>GetParentFolderName</td>
+<td>返回一个文件夹的父文件夹</td>
+<td>GetSpecialFolder</td>
+<td>返回指向一个特殊文件夹的对象指针</td>
+</tr>
+<tr>
+<td>GetTempName</td>
+<td>返回一个可以被 createtextfile 使用的随机产生的文件或文件夹的名称</td>
+<td>MoveFile</td>
+<td>移动文件</td>
+</tr>
+<tr>
+<td>MoveFolder</td>
+<td>移动文件夹</td>
+<td>OpenTextFile</td>
+<td>打开一个存在的文件并返回一个 TextStream 对象</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fso">fso 对象</h3>
+<p>fso 不是 wsh 的一部分，需要建立对象</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a><span class="p">...</span><span class="n">code</span>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a>
+<a id="__codelineno-34-5" name="__codelineno-34-5" href="#__codelineno-34-5"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nothing</span>
+</code></pre></div>
+<p>最后释放对象。</p>
+<h3 id="_27">文件夹操作</h3>
+<h4 id="_28">检查文件夹</h4>
+<p>在创建前，需要检查该文件夹是否存在</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="c1">&#39; 初始化</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">fs</span><span class="p">,</span><span class="w"> </span><span class="nv">s</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="c1">&#39; 判断是否存在</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fs</span><span class="p">.</span><span class="n">folderexists</span><span class="p">(</span><span class="s2">&quot;c:\Users\lenovo\Desktop\new&quot;</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-35-7" name="__codelineno-35-7" href="#__codelineno-35-7"></a><span class="w">    </span><span class="c1">&#39; 存在就删除文件夹</span>
+<a id="__codelineno-35-8" name="__codelineno-35-8" href="#__codelineno-35-8"></a><span class="w">    </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;is available&quot;</span>
+<a id="__codelineno-35-9" name="__codelineno-35-9" href="#__codelineno-35-9"></a><span class="w">    </span><span class="n">fs</span><span class="p">.</span><span class="n">deletefolder</span><span class="p">(</span><span class="s2">&quot;c:\Users\lenovo\Desktop\new&quot;</span><span class="p">)</span>
+<a id="__codelineno-35-10" name="__codelineno-35-10" href="#__codelineno-35-10"></a><span class="k">else</span>
+<a id="__codelineno-35-11" name="__codelineno-35-11" href="#__codelineno-35-11"></a><span class="w">    </span><span class="c1">&#39; 不存在就创建</span>
+<a id="__codelineno-35-12" name="__codelineno-35-12" href="#__codelineno-35-12"></a><span class="w">    </span><span class="n">s</span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;not exist&quot;</span>
+<a id="__codelineno-35-13" name="__codelineno-35-13" href="#__codelineno-35-13"></a><span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="nb">folder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">.</span><span class="n">createfolder</span><span class="p">(</span><span class="s2">&quot;c:\Users\lenovo\Desktop\new&quot;</span><span class="p">)</span>
+<a id="__codelineno-35-14" name="__codelineno-35-14" href="#__codelineno-35-14"></a><span class="k">end</span><span class="w"> </span><span class="k">if</span>
+<a id="__codelineno-35-15" name="__codelineno-35-15" href="#__codelineno-35-15"></a>
+<a id="__codelineno-35-16" name="__codelineno-35-16" href="#__codelineno-35-16"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nothing</span>
+</code></pre></div>
+<h4 id="_29">复制移动</h4>
+<p>复制函数是子进程，不能通过 <code>()</code> 调用，而要用 <code>,</code> 分隔参数</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">fs</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a><span class="c1">&#39; 复制文件夹，注意目标位置 data 应该不存在，否则会出错</span>
+<a id="__codelineno-36-5" name="__codelineno-36-5" href="#__codelineno-36-5"></a><span class="n">fs</span><span class="p">.</span><span class="n">copyfolder</span><span class="w"> </span><span class="s2">&quot;c:\data&quot;</span><span class="p">,</span><span class="s2">&quot;d:\data&quot;</span>
+<a id="__codelineno-36-6" name="__codelineno-36-6" href="#__codelineno-36-6"></a>
+<a id="__codelineno-36-7" name="__codelineno-36-7" href="#__codelineno-36-7"></a><span class="c1">&#39; 使用强制覆盖，增加 true 参数（注意目标目录不能是源目录的子目录）</span>
+<a id="__codelineno-36-8" name="__codelineno-36-8" href="#__codelineno-36-8"></a><span class="n">fs</span><span class="p">.</span><span class="n">copyfolder</span><span class="w"> </span><span class="s2">&quot;e:\Desktop\Cuda&quot;</span><span class="p">,</span><span class="s2">&quot;e:\Desktop\Duda&quot;</span><span class="p">,</span><span class="no">true</span>
+<a id="__codelineno-36-9" name="__codelineno-36-9" href="#__codelineno-36-9"></a>
+<a id="__codelineno-36-10" name="__codelineno-36-10" href="#__codelineno-36-10"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nothing</span>
+</code></pre></div>
+<p>移动操作类似，还可以使用通配符</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">fs</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span><span class="w"> </span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="n">fs</span><span class="p">.</span><span class="n">movefolder</span><span class="w"> </span><span class="s2">&quot;c:\data&quot;</span><span class="p">,</span><span class="s2">&quot;d:\data&quot;</span>
+<a id="__codelineno-37-5" name="__codelineno-37-5" href="#__codelineno-37-5"></a><span class="n">fs</span><span class="p">.</span><span class="n">movefolder</span><span class="w"> </span><span class="s2">&quot;c:\data\te*&quot;</span><span class="p">,</span><span class="s2">&quot;d:\working&quot;</span>
+<a id="__codelineno-37-6" name="__codelineno-37-6" href="#__codelineno-37-6"></a>
+<a id="__codelineno-37-7" name="__codelineno-37-7" href="#__codelineno-37-7"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nothing</span>
+</code></pre></div>
+<p>在目标路径最后没有添加 <code>\</code>，这样如果 <code>d:\working</code> 目录不存在，windows 就不会为我们自动创建这个目录。</p>
+<h4 id="_30">文件夹对象</h4>
+<p>可以使用 folder 文件夹对象</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">fs</span><span class="p">,</span><span class="w"> </span><span class="nv">f</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span>
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a><span class="k">set</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">.</span><span class="n">getfolder</span><span class="p">(</span><span class="s2">&quot;c:\data&quot;</span><span class="p">)</span>
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a><span class="c1">&#39; 执行删除、复制和移动操作</span>
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a><span class="n">f</span><span class="p">.</span><span class="n">delete</span>
+<a id="__codelineno-38-8" name="__codelineno-38-8" href="#__codelineno-38-8"></a><span class="n">f</span><span class="p">.</span><span class="n">copy</span><span class="w"> </span><span class="s2">&quot;d:\working&quot;</span><span class="p">,</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-38-9" name="__codelineno-38-9" href="#__codelineno-38-9"></a><span class="n">f</span><span class="p">.</span><span class="n">move</span><span class="w"> </span><span class="s2">&quot;d:\temp&quot;</span>
+</code></pre></div>
+<h4 id="_31">特殊文件夹</h4>
+<p>访问系统文件夹</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="k">set</span><span class="w"> </span><span class="n">wshshell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="c1">&#39; 获得环境变量</span>
+<a id="__codelineno-39-5" name="__codelineno-39-5" href="#__codelineno-39-5"></a><span class="k">set</span><span class="w"> </span><span class="n">osdir</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wshshell</span><span class="p">.</span><span class="n">expandenvironmentstrings</span><span class="p">(</span><span class="s2">&quot;%systemroot%&quot;</span><span class="p">)</span>
+<a id="__codelineno-39-6" name="__codelineno-39-6" href="#__codelineno-39-6"></a>
+<a id="__codelineno-39-7" name="__codelineno-39-7" href="#__codelineno-39-7"></a><span class="k">set</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">.</span><span class="n">getfolder</span><span class="p">(</span><span class="n">osdir</span><span class="p">)</span>
+<a id="__codelineno-39-8" name="__codelineno-39-8" href="#__codelineno-39-8"></a>
+<a id="__codelineno-39-9" name="__codelineno-39-9" href="#__codelineno-39-9"></a><span class="n">wscript</span><span class="p">.</span><span class="n">echo</span><span class="w"> </span><span class="n">f</span>
+</code></pre></div>
+<p>还可以使用 getspecialfolder() 获得文件夹</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span>
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a><span class="k">set</span><span class="w"> </span><span class="n">wfolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">.</span><span class="n">getspecialfolder</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w">  </span><span class="c1">&#39; 返回 windows 目录</span>
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a><span class="k">set</span><span class="w"> </span><span class="n">wfolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">.</span><span class="n">getspecialfolder</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">  </span><span class="c1">&#39; 返回 system32\</span>
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a><span class="k">set</span><span class="w"> </span><span class="n">wfolder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">.</span><span class="n">getspecialfolder</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">  </span><span class="c1">&#39; 返回临时目录</span>
+</code></pre></div>
+<h3 id="_32">文件操作</h3>
+<h4 id="_33">文件属性</h4>
+<p>在 windows 中，文件的属性一般用数字来表示：</p>
+<table>
+<thead>
+<tr>
+<th>数字</th>
+<th>作用</th>
+<th>数字</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>normal，即普通文件未设置任何属性</td>
+<td>1</td>
+<td>只读文件</td>
+</tr>
+<tr>
+<td>2</td>
+<td>隐藏文件</td>
+<td>4</td>
+<td>系统文件</td>
+</tr>
+<tr>
+<td>16</td>
+<td>文件夹或目录</td>
+<td>32</td>
+<td>存档文件</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>链接或快捷方式</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>通过 Attributes 方法获得文件属性</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="k">set</span><span class="w"> </span><span class="n">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span>
+<a id="__codelineno-41-2" name="__codelineno-41-2" href="#__codelineno-41-2"></a><span class="k">set</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fs</span><span class="p">.</span><span class="n">getfile</span><span class="p">(</span><span class="s2">&quot;d:\index.txt&quot;</span><span class="p">)</span>
+<a id="__codelineno-41-3" name="__codelineno-41-3" href="#__codelineno-41-3"></a><span class="nb">msgbox</span><span class="w"> </span><span class="n">f</span><span class="p">.</span><span class="n">Attributes</span>
+</code></pre></div>
+<p>注意 msgbox 显示的结果往往不是上面说明的数字，而是有关属性代表数字的和。</p>
+<h4 id="_34">创建文件</h4>
+<p>创建前一般需要检查文件是否存在</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">set</span><span class="w"> </span><span class="n">fso</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="k">if</span><span class="w"> </span><span class="n">fso</span><span class="p">.</span><span class="n">fileexists</span><span class="p">(</span><span class="s2">&quot;c:\kk.txt&quot;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="w">    </span><span class="nb">msgbox</span><span class="w"> </span><span class="s2">&quot;文件已存在&quot;</span>
+<a id="__codelineno-42-5" name="__codelineno-42-5" href="#__codelineno-42-5"></a><span class="k">else</span>
+<a id="__codelineno-42-6" name="__codelineno-42-6" href="#__codelineno-42-6"></a><span class="w">    </span><span class="k">set</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fso</span><span class="p">.</span><span class="n">createtextfile</span><span class="p">(</span><span class="s2">&quot;c:\kk.txt&quot;</span><span class="p">)</span>
+<a id="__codelineno-42-7" name="__codelineno-42-7" href="#__codelineno-42-7"></a><span class="k">end</span><span class="w"> </span><span class="k">if</span>
+</code></pre></div>
+<p>如需要强制覆盖已存在的文件，则在文件名后加 true 参数。</p>
+<h4 id="_35">复制、移动、删除</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">set</span><span class="w"> </span><span class="n">fso</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;scripting.filesystemobject&quot;</span><span class="p">)</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="n">fso</span><span class="p">.</span><span class="n">copyfile</span><span class="w"> </span><span class="s2">&quot;c:\kk.txt&quot;</span><span class="p">,</span><span class="s2">&quot;d:\1\kk.txt&quot;</span><span class="p">,</span><span class="no">true</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="n">fso</span><span class="p">.</span><span class="n">movefile</span><span class="w"> </span><span class="s2">&quot;c:\kk.txt&quot;</span><span class="p">,</span><span class="s2">&quot;d:\&quot;</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="n">fso</span><span class="p">.</span><span class="n">deletefile</span><span class="w"> </span><span class="s2">&quot;c:\kk.txt&quot;</span>
+</code></pre></div>
+<h4 id="_36">文件读写</h4>
+<p>首先要打开文件</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="k">set</span><span class="w"> </span><span class="n">ts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fso</span><span class="p">.</span><span class="n">opentextfile</span><span class="p">(</span><span class="s2">&quot;c:\kk.txt&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="no">true</span><span class="p">)</span>
+</code></pre></div>
+<p>其中第二个参数是访问模式，1 为只读、2 为写入、8 为追加。第三个参数指定如文件不存在则创建。</p>
+<p>有多种读取方式</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ffile</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="w">      </span><span class="c1">&#39; 读 20 个字符</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="n">line</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ffile</span><span class="p">.</span><span class="n">readline</span><span class="w">       </span><span class="c1">&#39; 读一行</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="n">contents</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ffile</span><span class="p">.</span><span class="n">readall</span><span class="w">    </span><span class="c1">&#39; 全部读取</span>
+</code></pre></div>
+<p>使用 skip(x) 跳过 x 个字符；skipline 跳过一行</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="n">ffile</span><span class="p">.</span><span class="n">skip</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="n">ffile</span><span class="p">.</span><span class="n">skipline</span>
+</code></pre></div>
+<p>写入方法包括</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="n">ffile</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span><span class="w">        </span><span class="c1">&#39; 写入 hello</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="n">ffile</span><span class="p">.</span><span class="n">writeline</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span><span class="w">       </span><span class="c1">&#39; 写入 hi 然后换行</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="n">ffile</span><span class="p">.</span><span class="n">writeblanklines</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w">    </span><span class="c1">&#39; 写入 2 个空行</span>
+</code></pre></div>
+<p>读写完成后要使用 close 方法关闭文件</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="n">ffile</span><span class="p">.</span><span class="n">close</span>
+</code></pre></div>
+<h4 id="_37">指针变量</h4>
+<p>通过 atendofstream 属性循环检测是否到达文件末尾。例如：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="k">do</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">ffile</span><span class="p">.</span><span class="n">atendofstream</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">    </span><span class="n">ffile</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="k">loop</span>
+</code></pre></div>
+<p>通过 atendofline 属性检测是否到了行末尾</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="k">do</span><span class="w"> </span><span class="k">while</span><span class="w"> </span><span class="n">ffile</span><span class="p">.</span><span class="n">atendofline</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="no">true</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="w">    </span><span class="n">ffile</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="k">loop</span>
+</code></pre></div>
+<p>还有 Column 属性获得当前字符位置的列号，line 属性获得文件当前行号。</p>
+<h2 id="_38">实践样例</h2>
+<h3 id="_39">记事本输入</h3>
+<p>打开记事本输入 Hello World 保存的脚本</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="kd">Dim</span><span class="w"> </span><span class="nv">WshShell</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="k">Set</span><span class="w"> </span><span class="n">WshShell</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WScript</span><span class="p">.</span><span class="nb">CreateObject</span><span class="p">(</span><span class="s2">&quot;WScript.Shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">Run</span><span class="w"> </span><span class="s2">&quot;notepad&quot;</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="c1">&#39; 脚本暂停 2 秒，给 notepad 一个打开的时间，时间太短可能导致后面的字符无法进入编辑区</span>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="n">WScript</span><span class="p">.</span><span class="n">Sleep</span><span class="w"> </span><span class="mi">2000</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="c1">&#39; 获得焦点</span>
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">AppActivate</span><span class="w"> </span><span class="s2">&quot;无标题 - 记事本&quot;</span><span class="w"> </span>
+<a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>
+<a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a><span class="c1">&#39; 输入文本</span>
+<a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;Hello World&quot;</span>
+<a id="__codelineno-51-14" name="__codelineno-51-14" href="#__codelineno-51-14"></a>
+<a id="__codelineno-51-15" name="__codelineno-51-15" href="#__codelineno-51-15"></a><span class="c1">&#39; Alt + F4 退出记事本</span>
+<a id="__codelineno-51-16" name="__codelineno-51-16" href="#__codelineno-51-16"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="err">“%{F4}” </span>
+<a id="__codelineno-51-17" name="__codelineno-51-17" href="#__codelineno-51-17"></a>
+<a id="__codelineno-51-18" name="__codelineno-51-18" href="#__codelineno-51-18"></a><span class="n">WshShell</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="err">“{RIGHT}{ENTER}”</span>
+</code></pre></div>
+<p>Fn 是由硬件驱动直接控制的，不能通过键盘模拟。</p>
+<h3 id="qq">快速登陆 QQ</h3>
+<p>假设 QQ 号码是：10001，密码是：123456，隐身登陆：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="k">set</span><span class="w"> </span><span class="n">ws</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-52-2" name="__codelineno-52-2" href="#__codelineno-52-2"></a>
+<a id="__codelineno-52-3" name="__codelineno-52-3" href="#__codelineno-52-3"></a><span class="n">ws</span><span class="p">.</span><span class="n">run</span><span class="w"> </span><span class="s2">&quot;C:\Progra~1\Tencent\QQ\QQ.exe&quot;</span><span class="p">,</span><span class="mi">0</span>
+<a id="__codelineno-52-4" name="__codelineno-52-4" href="#__codelineno-52-4"></a>
+<a id="__codelineno-52-5" name="__codelineno-52-5" href="#__codelineno-52-5"></a><span class="c1">&#39; 等待开启</span>
+<a id="__codelineno-52-6" name="__codelineno-52-6" href="#__codelineno-52-6"></a><span class="n">wscript</span><span class="p">.</span><span class="n">Sleep</span><span class="w"> </span><span class="mi">2000</span>
+<a id="__codelineno-52-7" name="__codelineno-52-7" href="#__codelineno-52-7"></a>
+<a id="__codelineno-52-8" name="__codelineno-52-8" href="#__codelineno-52-8"></a><span class="c1">&#39; 获得焦点</span>
+<a id="__codelineno-52-9" name="__codelineno-52-9" href="#__codelineno-52-9"></a><span class="n">ws</span><span class="p">.</span><span class="n">AppActivate</span><span class="w"> </span><span class="s2">&quot;QQ用户登录&quot;</span>
+<a id="__codelineno-52-10" name="__codelineno-52-10" href="#__codelineno-52-10"></a>
+<a id="__codelineno-52-11" name="__codelineno-52-11" href="#__codelineno-52-11"></a><span class="n">ws</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;10001&quot;</span>
+<a id="__codelineno-52-12" name="__codelineno-52-12" href="#__codelineno-52-12"></a><span class="n">ws</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;{TAB}&quot;</span>
+<a id="__codelineno-52-13" name="__codelineno-52-13" href="#__codelineno-52-13"></a><span class="n">ws</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;123456&quot;</span>
+<a id="__codelineno-52-14" name="__codelineno-52-14" href="#__codelineno-52-14"></a><span class="n">ws</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;{ENTER}&quot;</span>
+</code></pre></div>
+<h3 id="_40">文本自动保存</h3>
+<p>创建一个文本文件，每隔一段时间保存</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="kd">dim</span><span class="w"> </span><span class="nv">wsh</span><span class="p">,</span><span class="w"> </span><span class="nv">autosave</span><span class="p">,</span><span class="w"> </span><span class="nv">filename</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a>
+<a id="__codelineno-53-3" name="__codelineno-53-3" href="#__codelineno-53-3"></a><span class="c1">&#39; 保存间隔</span>
+<a id="__codelineno-53-4" name="__codelineno-53-4" href="#__codelineno-53-4"></a><span class="n">autosave</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5000</span>
+<a id="__codelineno-53-5" name="__codelineno-53-5" href="#__codelineno-53-5"></a>
+<a id="__codelineno-53-6" name="__codelineno-53-6" href="#__codelineno-53-6"></a><span class="k">set</span><span class="w"> </span><span class="n">wsh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">wscript</span><span class="p">.</span><span class="nb">createobject</span><span class="p">(</span><span class="s2">&quot;wscript.shell&quot;</span><span class="p">)</span>
+<a id="__codelineno-53-7" name="__codelineno-53-7" href="#__codelineno-53-7"></a><span class="n">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inputbox</span><span class="p">(</span><span class="s2">&quot;输入需要编辑的文本文件名：&quot;</span><span class="p">)</span>
+<a id="__codelineno-53-8" name="__codelineno-53-8" href="#__codelineno-53-8"></a>
+<a id="__codelineno-53-9" name="__codelineno-53-9" href="#__codelineno-53-9"></a><span class="c1">&#39; 打开记事本</span>
+<a id="__codelineno-53-10" name="__codelineno-53-10" href="#__codelineno-53-10"></a><span class="n">wsh</span><span class="p">.</span><span class="n">run</span><span class="w"> </span><span class="s2">&quot;notepad&quot;</span>
+<a id="__codelineno-53-11" name="__codelineno-53-11" href="#__codelineno-53-11"></a><span class="n">wscript</span><span class="p">.</span><span class="n">sleep</span><span class="w"> </span><span class="mi">200</span>
+<a id="__codelineno-53-12" name="__codelineno-53-12" href="#__codelineno-53-12"></a>
+<a id="__codelineno-53-13" name="__codelineno-53-13" href="#__codelineno-53-13"></a><span class="c1">&#39; 注意这里激活的窗口名要与实际创建的新记事本的标题相同</span>
+<a id="__codelineno-53-14" name="__codelineno-53-14" href="#__codelineno-53-14"></a><span class="c1">&#39; 在 win10 中是 “无标题 - 记事本”</span>
+<a id="__codelineno-53-15" name="__codelineno-53-15" href="#__codelineno-53-15"></a><span class="c1">&#39; 在 win11 中是 “无标题”</span>
+<a id="__codelineno-53-16" name="__codelineno-53-16" href="#__codelineno-53-16"></a><span class="n">wsh</span><span class="p">.</span><span class="n">appactivate</span><span class="w"> </span><span class="s2">&quot;无标题&quot;</span>
+<a id="__codelineno-53-17" name="__codelineno-53-17" href="#__codelineno-53-17"></a>
+<a id="__codelineno-53-18" name="__codelineno-53-18" href="#__codelineno-53-18"></a><span class="c1">&#39; 按 Ctrl + s, Shift 切换输入法</span>
+<a id="__codelineno-53-19" name="__codelineno-53-19" href="#__codelineno-53-19"></a><span class="n">wsh</span><span class="p">.</span><span class="n">sendkeys</span><span class="w"> </span><span class="s2">&quot;^s&quot;</span>
+<a id="__codelineno-53-20" name="__codelineno-53-20" href="#__codelineno-53-20"></a><span class="n">wscript</span><span class="p">.</span><span class="n">sleep</span><span class="w"> </span><span class="mi">200</span>
+<a id="__codelineno-53-21" name="__codelineno-53-21" href="#__codelineno-53-21"></a><span class="n">wsh</span><span class="p">.</span><span class="n">sendkeys</span><span class="w"> </span><span class="s2">&quot;+&quot;</span>
+<a id="__codelineno-53-22" name="__codelineno-53-22" href="#__codelineno-53-22"></a><span class="n">wscript</span><span class="p">.</span><span class="n">sleep</span><span class="w"> </span><span class="mi">200</span>
+<a id="__codelineno-53-23" name="__codelineno-53-23" href="#__codelineno-53-23"></a>
+<a id="__codelineno-53-24" name="__codelineno-53-24" href="#__codelineno-53-24"></a><span class="c1">&#39; 输入文件名，回车并保存</span>
+<a id="__codelineno-53-25" name="__codelineno-53-25" href="#__codelineno-53-25"></a><span class="n">wsh</span><span class="p">.</span><span class="n">sendkeys</span><span class="w"> </span><span class="n">filename</span>
+<a id="__codelineno-53-26" name="__codelineno-53-26" href="#__codelineno-53-26"></a><span class="n">wscript</span><span class="p">.</span><span class="n">sleep</span><span class="w"> </span><span class="mi">200</span>
+<a id="__codelineno-53-27" name="__codelineno-53-27" href="#__codelineno-53-27"></a><span class="n">Wsh</span><span class="p">.</span><span class="n">SendKeys</span><span class="w"> </span><span class="s2">&quot;{ENTER}&quot;</span>
+<a id="__codelineno-53-28" name="__codelineno-53-28" href="#__codelineno-53-28"></a><span class="n">WScript</span><span class="p">.</span><span class="n">Sleep</span><span class="w"> </span><span class="n">autosave</span>
+<a id="__codelineno-53-29" name="__codelineno-53-29" href="#__codelineno-53-29"></a>
+<a id="__codelineno-53-30" name="__codelineno-53-30" href="#__codelineno-53-30"></a><span class="c1">&#39; 注意这里加 * 是因为修改内容后文件标题会改变</span>
+<a id="__codelineno-53-31" name="__codelineno-53-31" href="#__codelineno-53-31"></a><span class="c1">&#39; 另外获取焦点的顺序不能改，否则焦点会丢失</span>
+<a id="__codelineno-53-32" name="__codelineno-53-32" href="#__codelineno-53-32"></a><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">wsh</span><span class="p">.</span><span class="n">appactivate</span><span class="w"> </span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">wsh</span><span class="p">.</span><span class="n">appactivate</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="o">+</span><span class="n">filename</span><span class="p">))</span><span class="o">=</span><span class="no">true</span><span class="w">  </span>
+<a id="__codelineno-53-33" name="__codelineno-53-33" href="#__codelineno-53-33"></a><span class="w">    </span><span class="n">wsh</span><span class="p">.</span><span class="n">sendkeys</span><span class="w"> </span><span class="s2">&quot;^s&quot;</span><span class="w">         </span>
+<a id="__codelineno-53-34" name="__codelineno-53-34" href="#__codelineno-53-34"></a><span class="w">    </span><span class="n">wscript</span><span class="p">.</span><span class="n">sleep</span><span class="w"> </span><span class="n">autosave</span>
+<a id="__codelineno-53-35" name="__codelineno-53-35" href="#__codelineno-53-35"></a><span class="k">wend</span>
+<a id="__codelineno-53-36" name="__codelineno-53-36" href="#__codelineno-53-36"></a>
+<a id="__codelineno-53-37" name="__codelineno-53-37" href="#__codelineno-53-37"></a><span class="c1">&#39; 退出脚本</span>
+<a id="__codelineno-53-38" name="__codelineno-53-38" href="#__codelineno-53-38"></a><span class="n">wscript</span><span class="p">.</span><span class="n">quit</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

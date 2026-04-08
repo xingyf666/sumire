@@ -1,0 +1,4103 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>超限插值 - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              超限插值
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        样条曲线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="样条曲线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        样条函数的动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        张力样条
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="张力样条">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指数样条
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多项式样条
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        几何样条曲线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="几何样条曲线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $F^r$ 连续样条曲线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $G^r$ 连续样条曲线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最小范数几何样条曲线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        切向连续样条曲线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        曲率连续样条曲线
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="曲率连续样条曲线">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bezier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        曲率连续样条的 Bezier 表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gamma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $\gamma$ 样条
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manning 样条
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nu" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $\nu$ 样条
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#beta" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $\beta$ 样条
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        几何样条曲面
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="几何样条曲面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gr_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $G^r$ 连续曲面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g1-bezier" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $G^1$ 连续 Bezier 曲面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多片曲面
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多片曲面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $N$ 顶点问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gregory" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gregory 面片
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多曲面片方案
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="多曲面片方案">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单曲面片方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        混合曲面片方法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="混合曲面片方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般形式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c1-browns-square" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $C^1$ Brown's square
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c2-browns-square" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $C^2$ Brown's square
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        分割方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gordon-coons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gordon-Coons 曲面
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gordon-Coons 曲面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gordon-coons_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩形上的 Gordon-Coons 曲面
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="矩形上的 Gordon-Coons 曲面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#c0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $C^0$ 连续面片复形
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $C^1$ 连续面片复形
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        双 3 次面片
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gordon" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gordon 曲面
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gordon-coons_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三角形上的 Gordon-Coons 曲面
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        光顺曲线曲面
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="光顺曲线曲面">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基于优化的方法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检测问题位置
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="检测问题位置">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        曲线映射法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        曲面映射法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        检测错误连接
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复合问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="复合问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bezier_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复合 Bezier 单纯形
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="复合 Bezier 单纯形">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bezier_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复合 Bezier 曲线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bezier_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复合 Bezier 单纯形
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bezier_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        复合张量积 Bezier
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#s-patch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S-patch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="S-patch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bezier_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三角 Bezier 曲面片
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="三角 Bezier 曲面片">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bernstein" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        三角域 Bernstein 基函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bezier_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bezier 三角曲面片
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重心分割
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        方向导数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bezier_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有理 Bezier 三角曲面片
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s-patch_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        S-patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#s-patch_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        有理 S-patch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#g1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $G^1$ 补洞
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球面表示
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bezier_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        混合 Bezier
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nrubs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        转换为 NRUBS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        符号运算
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">超限插值</h1>
+<h2 id="_2">样条曲线</h2>
+<h3 id="_3">样条函数的动机</h3>
+<p>通常不希望曲率变化过快，这样才足够光滑 smooth 。大多数经典插值方法具有振荡趋势，例如 8 次多项式插值的效果</p>
+<p>![[image-20251204101810054.png|300]]</p>
+<p>一种改善方案是将区间分割为多个子区间，然后构造分段逼近曲线。这种想法在设计数值积分格式时取得了成功。例如局部的梯形法和 Simpson 法。如果希望曲线更光滑，例如可以令分段多项式以 1 阶导数连续的方式衔接。假设我们希望函数 $s$ 满足</p>
+<ul>
+<li>$s\in C^2[a,b]$</li>
+<li>$s(x_{i})=r,i=0,\dots,N$</li>
+<li>$s''''(x)=0$</li>
+</ul>
+<p>根据最后一条，我们可以在每个子区间上取 3 次多项式。</p>
+<blockquote>
+<p>[!definition]
+由 $n$ 次多项式组成的分段函数称为 spline function 如果它 $n-1$ 次差分连续；subspline function 如果它至少连续，但是不如 spline 光滑。</p>
+</blockquote>
+<p>3 次样条函数是对被强制通过给定点的细杆中线的逼近。这种杆的弯曲能量 $E$ 与它的曲率 $\kappa$ 的平方的积分成正比，即弹力是最小化问题的解
+$$
+E=c\int_{0}^l\kappa^2ds,\quad \kappa = \frac{|X'\times X''|}{|X'|^3}
+$$
+其中 $l,ds$ 是细杆长度和弧长，$c$ 是依赖材料性质的常数。对于函数 $y=y(x)$，位置向量可以写成
+$$
+X=
+\begin{pmatrix}
+x \
+p(x)
+\end{pmatrix},\quad
+|X'|=\sqrt{ 1+(y')^2 },\quad
+ds=\sqrt{ 1+(y')^2 }dx
+$$
+于是
+$$
+E = c\int_{0}^l \frac{(y'')^2}{(1+(y')^2)^{5/2}}dx\approx c\int_{0}^l(y'')^2dx
+$$
+其中假设 $|y'|\ll1$ 。使用变分可以证明
+$$
+\int f(y,y',y'',x)dx
+$$
+最小化的必要条件是 Euler-Lagrange 方程
+$$
+f_{y}- \frac{d}{dx}(f_{y'})+ \frac{d^2}{dx^2}(f_{y''})=0
+$$
+于是能量最小化的 E-L 方程为
+$$
+\frac{d^2}{dx^2}(y'')=y''''=0
+$$
+这表明解必然是 3 次多项式。</p>
+<blockquote>
+<p>[!note]
+3 次样条的这一性质被称为最小化曲率性质 minimal curvature property 。</p>
+</blockquote>
+<p>可以证明 $2m+1$ 次样条 $s(x)$ 最小化积分
+$$
+\int_{a}^b[f^{(m+1)}(x)]^2dx
+$$
+其中 $f\in C^m[a,b]$ 至多 $m+1$ 阶平方导数可积，满足插值条件
+$$
+f(x_{k})=s(x_{k})=y_{k},\quad k=0,\cdots,N
+$$
+以及下面两类边界条件之一</p>
+<ul>
+<li>$s^{(i)}(a)=f_{a}^i,s^{(i)}(b)=f_{b}^i,i=m+1,\cdots,2m$</li>
+<li>$s^{(i)}(a)=f^{(i)}(a),s^{(i)}(b)=f^{(i)}(b),i=1,\cdots,m$</li>
+</ul>
+<h3 id="_4">张力样条</h3>
+<p>常见的样条有振荡趋势，为了解决这一问题，可以考虑力学分析，求解微分方程。Schweikert 观察到张力参数可以用作抑制振荡的光顺参数。</p>
+<h4 id="_5">指数样条</h4>
+<p>3 次样条最小化积分
+$$
+\int_{0}^l|X''(t)|^2dt
+$$
+可以拉伸两端来增加张力，从而减小弧长。Schweikert 最小化
+$$
+\int_{0}^l|X''(t)|^2dt + p^2\int_{0}^l|X'(t)|^2dt
+$$
+自由参数 $p\geq 0$ 影响整条曲线，因此是一种全局张力参数。这对于经典样条是一个缺点。可以调整为局部控制的光顺
+$$
+\int_{0}^l|X''(t)|^2dt+\sum_{k=1}^Np_{k}^2\int_{t_{k-1}}^{t_{k}}|X'(t)|^2dt
+$$
+对应的 E-L 方程定义在每个子区间上
+$$
+X_{k}''''(t)-p_{k}^2X_{k}''(t)=0
+$$
+令 $c_{k}=p_{k}\Delta_{k-1},\tau=\frac{t-t_{k-1}}{\Delta_{k-1}},\Delta_{k}=t_{k+1}-t_{k}$，则 $\tau$ 作为局部参数有
+$$
+\ddddot{X}<em>{k}(\tau)-c</em>{k}^2\ddot{X}<em>{k}(\tau)=0
+$$
+该方程的解是
+$$
+X</em>{k}(\tau) = a_{k}+b_{k}\tau+\bar{c}<em>{k}e^{c</em>{k}\tau}+\bar{d}<em>{k}e^{-c</em>{k}\tau}
+$$
+可以重写为
+$$
+\begin{aligned}
+X_{k}(\tau)&amp;=A_{k}(1-\tau)+B_{k}(\tau)+C_{k}\theta_{k}(1-\tau)+D_{k}\theta_{k}(\tau)\
+\theta_{k}(\tau)&amp;= \frac{\sinh c_{k}\tau-\tau \sinh c_{k}}{\sinh c_{k}-c_{k}}
+\end{aligned}
+$$
+数值上后者更好，尤其是在 $p_{k}\to 0,p_{k}\to \infty$ 的情况下。</p>
+<blockquote>
+<p>[!note]
+注意 $p_{k}=0$ 时，解应当退化为 3 次函数，但是似乎 $X_{k}$ 的形式不能退化为 3 次函数——事实上，此时 $\bar{c}<em>{k},\bar{d}</em>{k}$ 将是无穷。</p>
+</blockquote>
+<p>设目标函数为
+$$
+X(t)=\sum_{k=1}^NX_{k}(\tau)
+$$
+插值 $P_{k}$，其中 $t$ 是全局参数，$\tau$ 是局部参数。于是
+$$
+X(t_{k-1})=X_{k}(0)=P_{k-1}=A_{k},\quad X(t_{k})=X_{k}(1)=P_{k}=B_{k}
+$$
+得到 $A_{k},B_{k}$ 。对 $X_{k}(\tau)$ 求导得到
+$$
+\begin{aligned}
+P_{k-1}' &amp;= X'(t_{k-1}^+)= \frac{1}{\Delta_{k-1}}\dot{X}<em>{k}(0)\
+&amp;= \frac{1}{\Delta t</em>{k-1}}(-A_{k}+B_{k}-C_{k}\dot{\theta}<em>{k}(1)+D</em>{k}\dot{\theta}<em>{k}(0))\
+P</em>{k}' &amp;= X'(t_{k}^-)= \frac{1}{\Delta_{k-1}}\dot{X}<em>{k}(1)\
+&amp;= \frac{1}{\Delta t</em>{k-1}}(-A_{k}+B_{k}-C_{k}\dot{\theta}<em>{k}(0)+D</em>{k}\dot{\theta}<em>{k}(1)) 
+\end{aligned}
+$$
+其中 $P</em>{k}'$ 是未知的导数。整理得到
+$$
+\begin{aligned}
+C_{k} &amp;= -\frac{(P_{k-1}-P_{k})(\dot{\theta}<em>{k}(1)+1)+(P</em>{k}'+P_{k-1}'\dot{\theta}<em>{k}(1))\Delta t</em>{k-1}}{N_{k}}\
+D_{k} &amp;= \frac{(P_{k-1}-P_{k})(\dot{\theta}<em>{k}(1)+1)+(P</em>{k}'\dot{\theta}<em>{k}(1)+P</em>{k-1}')\Delta t_{k-1}}{N_{k}}\
+N_{k} &amp;= [\dot{\theta}<em>{k}(1)]^2-1
+\end{aligned}
+$$
+根据连续性条件
+$$
+X''(t</em>{k}^-) = \frac{1}{(\Delta t_{k-1})^2}\ddot{X}<em>{k}(1)= \frac{1}{(\Delta t</em>{k})^2}\ddot{X}<em>{k+1}(0)=X''(t</em>{k}^+)
+$$
+上述等式得到
+$$
+\ddot{\theta}<em>{k}(1)(\Delta t</em>{k})^2D_{k}=\ddot{\theta}<em>{k+1}(1)(\Delta t</em>{k-1})^2C_{k+1}
+$$
+代入 $C_{k},D_{k}$ 表达式得到
+$$
+\begin{aligned}
+&amp;f_{k}P_{k-1}'+(\dot{\theta}<em>{k+1}(1)g</em>{k}+\dot{\theta}<em>{k}(1)f</em>{k})P_{k}'+g_{k}P_{k+1}'=g_{k}R_{k+1}+f_{k}R_{k}\
+&amp;f_{k} =\ddot{\theta}<em>{k}(1)\Delta t</em>{k}N_{k+1},\quad g_{k}=\ddot{\theta}<em>{k+1}(1)\Delta t</em>{k-1}N_{k}\
+&amp;R_{k} = \frac{P_{k}-P_{k-1}}{\Delta t_{k-1}}(\dot{\theta}<em>{k}(1)+1)
+\end{aligned}
+$$
+如果引入恰当的边界条件，得到一个方阵系统，对应的矩阵是三对角占优阵，因此非奇异。求解系统得到 $P</em>{k}'$，代回得到 $C_{k},D_{k}$ 。</p>
+<blockquote>
+<p>[!note]
+积分能量 $\int_{0}^l|X''(t)+pX'(t)|^2dt$ 具有相同的物理含义。</p>
+</blockquote>
+<p>我们还可以以 2 阶导数为未知量。重写表达式为
+$$
+\begin{aligned}
+X_{k}(\tau)&amp;=A_{k}(1-\tau)+B_{k}(\tau)+C_{k}\theta_{k}(1-\tau)+D_{k}\theta_{k}(\tau)\
+\theta_{k}(\tau)&amp;= \frac{\sinh c_{k}\tau}{c_{k}^2\sinh c_{k}}
+\end{aligned}
+$$
+则系数为
+$$
+\begin{aligned}
+A_{k}&amp;= P_{k-1}- \frac{P_{k-1}''}{p_{k}^2},\quad B_{k}=P_{k}- \frac{P_{k}''}{p_{k}^2}\
+C_{k}&amp;= (\Delta t_{k-1})^2P_{k-1}'',\quad D_{k}=(\Delta t_{k-1})^2P_{k}''
+\end{aligned}
+$$
+关于 1 阶导的连续性得到
+$$
+X'(t_{k}^-)=\frac{1}{\Delta t_{k-1}}\dot{X}<em>{k}(1)=\frac{1}{\Delta t</em>{k}}\dot{X}<em>{k+1}(0)=X'(t</em>{k}^+)
+$$
+则 $P_{k}''$ 满足
+$$
+\begin{aligned}
+&amp;F_{k}P_{k-1}''+(G_{k}+G_{k+1})P_{k}''+F_{k+1}P_{k+1}'' =r_{k+1}-r_{k}\
+&amp;F_{k}= \left( \frac{1}{c_{k}}-\frac{1}{\sinh c_{k}} \right) \frac{1}{p_{k}},\quad G_{k}=\left( \coth c_{k}-\frac{1}{c_{k}} \right) \frac{1}{p_{k}}\
+&amp;r_{k}=(P_{k}-P_{k-1}) \frac{1}{\Delta t_{k-1}}
+\end{aligned}
+$$
+这样得到三对角占优<strong>对称</strong>阵。</p>
+<h4 id="_6">多项式样条</h4>
+<p>相较于多项式样条，指数样条很难计算。为此我们考虑分段积分
+$$
+\sum_{k=1}^Np_{k}\int_{t_{k-1}}^{t_{k}}|X''(t)|^2dt+\sum_{k=0}^N\nu_{k}|X'(t_{k})|^2
+$$
+这里相当于将 2 阶导数改为分段，1 阶导数变为离散。如果 $p_{k}=1,\nu_{k}=0$，则得到 3 次样条；如果 $\nu_{k}=0$，则得到积分加权 3 次样条；如果 $p_{k}=1$，则得到 Nielson $\nu$ 样条。</p>
+<p>假设分段样条为
+$$
+X_{k}(\tau)=P_{k-1}H_{00}(\tau)+P_{k-1}'H_{10}(\tau)+P_{k}H_{01}(\tau)+P_{k}'H_{11}(\tau)
+$$
+其中 $H_{ik}(\tau)$ 是经典 Hermite 多项式
+$$
+\begin{aligned}
+H_{00}(t) &amp;= 2t^3-3t^2+1,\quad H_{01}(t)=-2t^3+3t^2\
+H_{10}(t) &amp;= t^3-2t^3+t,\quad H_{11}(t)=t^3-t^2
+\end{aligned}
+$$
+于是未知导数 $P_{k}'$ 满足
+$$
+2c_{k}P_{k-1}'+(\nu_{k}+4c_{k}+4c_{k+1})P_{k}'+2c_{k+1}P_{k+1}'=6c_{k+1}r_{k+1}+6c_{k}r_{k}
+$$
+自然边界条件为
+$$
+p_{1}X_{1}''(0)-\nu_{0}X_{1}'(0)=0,\quad p_{N}X_{N}''(1)+\nu_{N}X_{N}'(1)=0
+$$
+周期边界条件为
+$$
+X_{1}(0)=X_{N}(1),\quad X_{1}'(0)=X_{N}'(1),\quad p_{1}X_{1}''(0)-p_{N}X_{N}''(1)=(\nu_{0}+\nu_{N})X_{1}'(0)
+$$
+对于非负的张力参数 $p_{k},\nu_{k}$，得到三对角占优非对称阵。</p>
+<p>注意目标能量只要求 $C^1$ 连续，并且我们给出的分段多项式基于 Hermite 多项式，因此最终解也是 $C^1$
+；不过由于 2 阶导满足
+$$
+p_{k+1}X''(t_{k}^+)-p_{k}X''(t_{k}^-)=\nu_{k}X'(t_{k})
+$$
+只要 $p_{k}=p_{k+1},|X'(t_{k})|\neq 0$，则 $X(t)$ 在 $t_{k}$ 曲率连续，因此 $\nu$ 样条曲率连续。此外</p>
+<ul>
+<li>随着 $p_{k}\to \infty$，$X(t)$ 趋于线性</li>
+<li>随着 $\nu_{k}\to \infty$，$X(t)$ 在 $t_{k}$ 出现拐角（$|X'(t)|\to 0$）</li>
+</ul>
+<blockquote>
+<p>[!note]
+对于插值函数，选择
+$$
+p_{k}=\left[ 1+\left( \frac{y_{k+1}(x)-y_{k}(x)}{\Delta t_{k}} \right)^2 \right]^{-m}
+$$
+其中 $m=3$，此时 $\int(y'')^2dx$ 逼近曲率的 $L_{2}$ 范数。若取 $m=0,p_{k}=1$，则得到 $\nu$ 样条。</p>
+</blockquote>
+<p>由于 $f(t)$ 是分段 3 次，对积分能量分部积分再利用 $f'''(t)$ 是分段常数，可以得到等价 2 次型
+$$
+Q(Y')=A^TY'+\frac{1}{2}Y'^THY'
+$$
+其中
+$$
+\begin{aligned}
+Y' &amp;= (y_{0}',\dots,y_{N}')^T,\quad A=(a_{0},\cdots,a_{N})^T\
+a_{i} &amp;= -3S_{i}c_{i}-3S_{i+1}c_{i+1},\quad S_{i}= \frac{\Delta y_{i}}{\Delta t_{i}},\quad \Delta y_{i}=y_{i+1}-y_{i}
+\end{aligned}
+$$
+而 $H$ 是三对角对称阵，满足
+$$
+H_{i,i+1}=H_{i+1,i}=c_{i+1},\quad H_{i,i}=\frac{1}{2}\nu_{i}+2a_{i}+2a_{i+1}
+$$
+现在可以通过约束 $y'$ 的范围来施加凸性和单调性条件。</p>
+<blockquote>
+<p>[!note]
+还可以选择 3 阶导数能量
+$$
+\int_{0}^l|X'''(t)|^2dt
+$$
+将得到指数样条和 3 次多项式样条的混合
+$$
+X_{k}(\tau)=a_{k}+b_{k}\tau+c_{k}\tau^2+d_{k}\tau^3+\lambda_{k}e^{p_{k}\Delta_{k-1}\tau}+\mu_{k}e^{-p_{k}\Delta t_{k-1}\tau}
+$$
+这将得到 $\kappa,\tau,\kappa',\tau'$ 连续的曲线。</p>
+</blockquote>
+<h2 id="_7">几何样条曲线</h2>
+<p>考虑到 $C^r$ 连续性有如下局限性</p>
+<ol>
+<li>条件过于严苛</li>
+<li>关于重参数化不具有不变性</li>
+</ol>
+<p>因此有必要扩展 $C^r$ 连续性条件。</p>
+<h3 id="fr">$F^r$ 连续样条曲线</h3>
+<p>设两条参数曲线 $X(u),Y(t)$ 是 $\mathbb{R}^d$ 空间中在正则点 $P=X(u_{1})=Y(t_{0})$ 处连续相接。切向连续条件为
+$$
+Y'(t_{0}^+)=\omega_{11} X'(u_{1}^-),\quad \omega_{11}&gt;0
+$$
+对公共切向的其它几何要求导出额外的自由度，即设计参数 design parameter 。</p>
+<p>对于 $C^2,C^3$ 连续曲线，2 阶和 3 阶导数涉及曲率和挠率的几何不变性。曲率连续性等价于
+$$
+Y''(t_{0}^+) = \omega_{11}^2X''(u_{1}^-)+\omega_{12}X'(u_{1}^-)\tag{K}
+$$
+挠率连续性等价于
+$$
+Y'''(t_{0}^+) = \omega_{11}^3X'''(u_{1}^-)+\omega_{13}X''(u_{1}^-)+\omega_{23}X'(u_{1}^-)\tag{K}
+$$
+为了避免除零问题，还要假设导函数线性无关。其中 $(K)$ 可以解释为</p>
+<blockquote>
+<p>[!note]
+切向速度 $\omega_{12}X'$ 不影响垂直于切向的方向，即不改变曲率。</p>
+</blockquote>
+<p>对于 $d\geq r&gt;3$，则 Frenet-Serret 公式为
+$$
+\begin{aligned}
+\dot{e}<em>{1} &amp;=  \kappa</em>{1}e_{2}\
+\dot{e}<em>{2} &amp;= -\kappa</em>{1}e_{1} + \kappa_{2}e_{3} \
+\dot{e}<em>{3} &amp;= -\kappa</em>{2}e_{2} + \kappa_{3}e_{4} \
+\vdots \
+\dot{e}<em>{d-1} &amp;= -\kappa</em>{d-2}e_{d-2}+\kappa_{d-1}e_{d} \
+\dot{e}<em>{d} &amp;= -\kappa</em>{d-1}e_{d-1}
+\end{aligned}
+$$
+其中 $\kappa_{i}$ 与参数化无关，称为曲率。它们唯一确定了曲线的定向和位置。如果 $X^{(\rho)},Y^{(\rho)},\rho=0,\cdots,r-1$ 线性无关，则前 $r-1$ 个 $\kappa_{i}$ 连续当且仅当
+$$
+\begin{aligned}
+Y(t_{0}^+) &amp;= X(u_{1}^-)\
+Y^{(n)}(t_{0}^+) &amp;=\omega_{11}^n X^{(n)}(u_{1}^-)+\sum_{i=2}^n\omega_{i-1,i} X^{(i-1)}(u_{1}^-),\quad n=1,\cdots,r
+\end{aligned}
+$$
+这称为 Frenet $C^r$ 连续，简记为 $F^r$ 连续。在 $d=2,3$ 时，$\kappa_{1},\kappa_{2}$ 分别退化为曲率和挠率，多余的曲率全部为零。将该条件写成矩阵形式
+$$
+Y^+=AX^-\tag{F}
+$$
+其中 $A$ 称为连接矩阵 connection matrix 。</p>
+<p>已经证明几何样条的局部基函数的存在性可以通过研究连接矩阵得到。并且</p>
+<blockquote>
+<p>[!theorem]
+如果连接矩阵 $A$ 全正，则存在类似于 B 样条基函数的局部支撑非负归一化基。</p>
+<p>[!note]
+对于曲面，还可以定义更抽象的 $T^r$ 连续性，其考虑欧氏曲率的商 $\frac{\kappa_{2}}{\kappa_{1}}, \frac{\kappa_{3}}{\kappa_{1}}$ 等。</p>
+</blockquote>
+<h3 id="gr">$G^r$ 连续样条曲线</h3>
+<blockquote>
+<p>[!definition]
+设两条参数曲线 $X(u),Y(t)$ 是 $\mathbb{R}^d$ 空间中在正则点 $P=X(u_{1})=Y(t_{0})$ 处连续相接。称两条曲线 $G^r$ 连续，如果存在代数曲线在 $P$ 以 $r$ 阶接触 contact $X(u),Y(t)$，即在 $P$ 处的 Taylor 级数前 $r$ 项一致。</p>
+</blockquote>
+<p>要考虑 Taylor 级数，首先做容许保定向的重参数化，则 $G^r$ 连续性意味着
+$$
+\frac{d^\rho}{dt^\rho}Y(t)\bigg|<em>{t</em>{0}^+} = \frac{d^\rho}{dt^\rho}X(u(t))\bigg|<em>{t</em>{0}^-},\quad \rho=0,\cdots,r
+$$
+即重参数化后 $C^r$ 连续。</p>
+<blockquote>
+<p>[!note]
+$G^1$ 连续可以通过线性参数变换得到 $C^1$ 连续；$G^2$ 连续可以通过 2 次参数变换得到 $C^2$ 连续。这对于 CAGD 很重要，因为线性参数变换不改变非有理曲线的多项式次数。</p>
+</blockquote>
+<p>由于 $C^r$ 连续意味着关于弧长参数 $C^r$ 连续
+$$
+\frac{d^\rho}{ds^\rho}Y(t)\bigg|<em>{s</em>{0}^+=s(t_{0}^+)} = \frac{d^\rho}{dt^\rho}X(u(t))\bigg|<em>{s</em>{0}^-=s(t_{0}^-)},\quad \rho=0,\cdots,r
+$$
+因此 $G^r$ 连续也被称为弧长连续性 arc length continuity 。</p>
+<p>利用求导链式法则替换 $C^r$ 连续等式。例如对于 $G^3$ 连续，有
+$$
+\begin{aligned}
+Y'(t_{0}^+) &amp;=\omega_{1} X'(u_{1}^-),\quad \omega_{11}&gt;0\
+Y''(t_{0}^+) &amp;= \omega_{1}^2X''(u_{1}^-)+\omega_{2}X'(u_{1}^-)\
+Y'''(t_{0}^+) &amp;= \omega_{1}^3X'''(u_{1}^-)+3\omega_{1}\omega_{2}X''(u_{1}^-)+\omega_{3}X'(u_{1}^-)
+\end{aligned}
+$$
+更高阶的连续性方程为
+$$
+Y^{(r)}(t_{0}^+) = \sum_{i=1}^r\alpha_{ri}X^{(i)}(u_{1}^-),\quad \omega_{\rho} = \frac{d^\rho}{dt^\rho}u(t)\bigg|<em>{t=t</em>{0}^-}
+$$
+其中 $\alpha_{11}=\omega_{1},\alpha_{j0}=0,\alpha_{jk}=0,j&lt;k$，以及
+$$
+\begin{aligned}
+\alpha_{jk} &amp;= \omega_{1}\alpha_{j-1,k-1}+E\alpha_{j-1,k}\
+E\omega_{j}&amp;=\omega_{j+1},\quad E(\omega_{j}\omega_{k})=\omega_{j+1}\omega_{k}+\omega_{j}\omega_{k+1}
+\end{aligned}
+$$
+其中 $E$ 是下标平移算子。</p>
+<blockquote>
+<p>[!note]
+已经将 visual smoothness 对应 $C^r$ 连续，因此通常将 visually $C^r$ 连续对应 $G^r$ 连续。</p>
+</blockquote>
+<p>注意到 $G^r$ 连续在 $r\leq 2$ 时与 $(F)$ 一致；而 $r&gt;2$ 时 $G^r$ 连续更加严格：$G^r$ 连续意味着 $\kappa_{i}$ 的连续性，反之不一定。例如扭矢连续曲线必须满足
+$$
+\omega_{13}=3\omega_{11}\omega_{12}
+$$
+才能满足 3 阶接触。尽管更严格，但是它不依赖空间维数，例如可以构造平面上的 $G^4$ 连续曲线（$F^r$ 连续要求 $r\leq d$）。</p>
+<p>接触 contact 的概念可以从微分几何角度解释。使用 Frenet-Serret 公式，有
+$$
+\begin{aligned}
+\dot{X} &amp;= e_{1}\
+\ddot{X} &amp;= \kappa_{1}e_{2}\
+\dddot{X} &amp;= -\kappa_{1}^2e_{1}+\dot{\kappa}<em>{1}e</em>{2}+\kappa_{1}\kappa_{2}e_{3}\
+\ddddot{X} &amp;= -3\kappa_{1}\dot{\kappa}<em>{1}e</em>{1}+(\ddot{\kappa}<em>{1}-\kappa</em>{1}^3-\kappa_{1}\kappa_{2}^2)e_{2}+(2\dot{\kappa}<em>{1}\kappa</em>{2}+\kappa_{1}\dot{\kappa}<em>{2})e</em>{3}+\kappa_{1}\kappa_{2}\kappa_{3}e_{4}
+\end{aligned}
+$$
+因此 $X,Y$ 的 $\rho$ 阶导数可以通过曲率 $\kappa_{i}$ 及其导数构造。由于 $G^r$ 连续意味着关于弧长参数 $C^r$ 连续，因此可以有如下几何解释</p>
+<ul>
+<li>对于平面曲线，$G^r$ 连续等价于切向和法向 $e_{1},e_{2}$，以及 $\kappa,\kappa^{(\rho)},\rho&lt;r-2$ 连续</li>
+<li>对于空间曲线，$G^r$ 连续等价于 Frenet 标架 $e_{1},e_{2},e_{3}$，以及 $\kappa,\kappa^{(\rho)},\rho&lt;r-2$ 和 $\tau,\tau^{(\rho)},\rho&lt;r-3$ 连续</li>
+</ul>
+<p>另一方面，$(F)$ 表明 $r=3$ 时，由于通常 $\omega_{13}\neq 3\omega_{11}\omega_{12}$，因此只有曲率 $\kappa_{\rho}$ 连续，但是其导数不一定连续。因此 $F^r$ 连续曲线的微分不变量 $\kappa_{i}$ 只有 $C^0$ 连续。</p>
+<h3 id="_8">最小范数几何样条曲线</h3>
+<p>张力样条使用的积分加权泛函可以推广到高阶样条
+$$
+\sum_{k=1}^Np_{k}\int_{t_{k-1}}^{t_{k}}|X^{(L)}(t)|^2dt+\sum_{k=0}^N\sum_{l=1}^{L-1}\nu_{k,l}|X^{(l)}(t)|^2
+$$
+在每个节点满足光顺性条件
+$$
+\begin{aligned}
+X^{(\epsilon)}(t_{k}^+) &amp;= X^{(\epsilon)}(t_{k}^-),\quad \epsilon=0,\cdots,L-1\
+p_{k+1}X^{(\epsilon)}(t_{k}^+)-p_{k}X^{(\epsilon)}(t_{k}^-) &amp;= \nu_{k,2L-\epsilon-1}(-1)^{L-\epsilon}X^{(2L-\epsilon-1)}(t_{k}),\quad \epsilon=L,\cdots,2l-2
+\end{aligned}
+$$
+取 $p_{k}=p,k=1,\cdots,N$ 得到 Hagen 几何样条曲线。</p>
+<h3 id="_9">切向连续样条曲线</h3>
+<p>设有两条切向连续的 Bezier 曲线
+$$
+\begin{aligned}
+X(u) &amp;= \sum_{k=0}^nb_{k}B_{k}^n(\mu),\quad u=(1-\mu)u_{0}+\mu u_{1}\
+Y(t) &amp;= \sum_{k=0}^{\bar{n}}\bar{b}<em>{k}B</em>{k}^{\bar{n}}(\bar{\mu}),\quad t=(1-\bar{\mu})t_{0}+\bar{\mu}t_{1}
+\end{aligned}
+$$
+则求导后比较系数得到
+$$
+\begin{aligned}
+\bar{b}<em>{0} &amp;= b</em>{n}\
+(1+qN_{1}\omega_{11})b_{n} &amp;= qN_{1}\omega_{11}b_{n-1}+\bar{b}<em>{1}\
+\Delta t&amp;=t</em>{1}-t_{0},\quad \Delta u=u_{1}-u_{0}\
+q&amp;=\frac{\Delta t}{\Delta u},\quad N_{1}=\frac{n}{\bar{n}}
+\end{aligned}
+$$
+因此 $\bar{b}<em>{0}=b</em>{n}$ 以 $1:qN_{1}\omega_{11}$ 分割线段 $b_{n-1}\bar{b}_{1}$ 。</p>
+<p>![[image-20251204230143555.png|500]]</p>
+<p>令 $a_{1}=|\Delta b_{n-1}|=|b_{n}-b_{n-1}|,\bar{a}<em>{1}=|\Delta \bar{b}</em>{0}|=|\bar{b}<em>{1}-\bar{b}</em>{0}|$，有
+$$
+a_{1}:\bar{a}<em>{1} = 1:qN</em>{1}\omega_{11}
+$$
+若 $b_{n},b_{n-1}$ 给定，则下一个 Bezier 点为
+$$
+\bar{b}<em>{1} = b</em>{n} +qN_{1}\omega_{11}\Delta b_{n-1}
+$$
+其中 $\omega_{11}$ 就是一个自由设计参数。</p>
+<h3 id="_10">曲率连续样条曲线</h3>
+<h4 id="bezier">曲率连续样条的 Bezier 表示</h4>
+<p>代入 $(F)$ 然后求导比较系数得到
+$$
+\begin{aligned}
+(1+qN_{2}\omega_{11}^2\gamma)b_{n-1} &amp;= qN_{2}\omega_{11}^2\gamma b_{n-2}+s\
+(\gamma+q)\bar{b}<em>{1} &amp;= qs+\gamma \bar{b}</em>{2}
+\end{aligned}
+$$
+其中 $s$ 是一个辅助点，以及
+$$
+\gamma = \frac{1+qN_{1}\omega_{11}}{N_{1}\omega_{11}\left( 1+q \frac{N_{2}}{N_{1}}\omega_{11} \right) + N_{1} \frac{\Delta t}{\bar{n}-1}\omega_{12}}
+$$
+是一个设计参数，以及 $N_{2}=\frac{n(n-1)}{\bar{n}(\bar{n}-1)}$ 。注意到 $b_{n-1},\bar{b}<em>{1}$ 对两段的划分比例相同，因此 $b</em>{n-2},\bar{b}<em>{2}$ 到 $\bar{b}</em>{0}=b_{n}$ 处切线的距离 $a_{2},\bar{a}<em>{2}$ 的比例满足
+$$
+a</em>{2}:\bar{a}<em>{2}=1:q^2N</em>{2}\omega_{11}^2
+$$
+即这里构成两个相似三角形。</p>
+<p>![[image-20251204230627245.png|500]]</p>
+<p>给定 $b_{n},b_{n-1},b_{n-2}$，则 $\bar{b}<em>{1}$ 在前面给出，而
+$$
+\bar{b}</em>{2}=b_{n}-q^2N_{2}\omega_{11}^2\Delta b_{n-2}+\mu \Delta b_{n-1}
+$$
+其中 $\mu=\mu(\omega_{12})$ 。由于 $\omega_{11},\omega_{12}$ 都是自由设计参数，因此最终 $\bar{b}_{2}$ 落在一条平行线上。</p>
+<p>![[image-20251204231847847.png|500]]</p>
+<p>显然 $\bar{b}<em>{2}$ 和直线 $g$ 在密切平面上，由 $\Delta b</em>{n-1},\Delta b_{n-2}$ 张成。此外，由于
+$$
+\frac{|Y''\times Y'|}{|Y'|^3} = \frac{|X''\times X'|}{|X'|^3}
+$$
+代入 Bezier 表示得到
+$$
+\frac{|\Delta \bar{b}<em>{0}\times \Delta \bar{b}</em>{1}|}{|\bar{a}<em>{1}|^3} = \frac{\bar{n}(n-1)}{n(\bar{n}-1)} \frac{|\Delta b</em>{n-2}\times \Delta b_{n-1}|}{|a_{1}|^3}
+$$
+这表明 $b_{n-2},\cdots,\bar{b}<em>{2}$ 不仅落在同一平面上，还是一个凸多边形的顶点。这说明 $b</em>{n-2},\bar{b}<em>{2}$ 落在切线的同一侧。并且上式等价于
+$$
+\frac{|(\bar{b}</em>{0},\bar{b}<em>{1},\bar{b}</em>{2})|}{\bar{a}<em>{1}^3} = \frac{\bar{n}(n-1)}{n(\bar{n}-1)} \frac{|(b</em>{n},b_{n-1},b_{n-2})|}{a_{1}^3}
+$$
+说明了左右两个三角形的面积关系。</p>
+<p>![[image-20251204232443026.png|500]]</p>
+<h4 id="gamma">$\gamma$ 样条</h4>
+<p>将 3 次样条曲线段表示为 $X_{i}(\mu)=\sum_{k=0}^3b_{3i+k}B_{k}^3(\mu)$，由于 $C^1$ 连续有 $\omega_{i,11}=1$，得到 $\gamma$ 样条的连续性条件
+$$
+\begin{aligned}
+(1+q_i)b_{3i} &amp;= q_{i}b_{3i-1}+b_{3i+1}\
+(1+q_{i}\gamma_{i})b_{3i-1} &amp;= q_{i}\gamma_{i}b_{3i-2}+d_{i}\
+(\gamma_{i}+q_{i})b_{3i+1} &amp;= q_{i}d_{i}+\gamma_{i}b_{3i+2}
+\end{aligned}
+$$
+其中 $d_{i}$ 是辅助点。如下图所示，左右两段 3 次样条曲线的控制点按照一定比例分布。</p>
+<p>![[image-20251205151601748.png|500]]</p>
+<p>我们将连续性条件改写为
+$$
+\begin{aligned}
+\Delta_{i,1}b_{3i+1} &amp;= (\Delta t_{i}+\Delta t_{i+1}\gamma_{i+1})d_{i}+\Delta t_{i-1}\gamma_{i}d_{i+1}\
+\Delta_{i,1}b_{3i+2} &amp;= \Delta t_{i+1}\gamma_{i+1}d_{i}+(\Delta t_{i-1}\gamma_{i}+\Delta t_{i})d_{i+1}\
+\Delta_{i,1} &amp;= \Delta t_{i-1}\gamma_{i}+\Delta t_{i}+\Delta t_{i+1}\gamma_{i+1}
+\end{aligned}
+$$
+上式给出从 $\gamma$ 样条的控制点 ${d_{i}}$ 和节点向量 ${t_{i}}$ 出发计算 Bezier 点的方法；反之，可以从 Bezier 点出发得到控制点和节点向量。最后，我们将其表示为
+$$
+X(t)=\sum_{i}d_{i}G_{i}^3(t)
+$$
+其中 $G_{i}^3(t)$ 称为几何 B 样条，只依赖节点向量。</p>
+<h4 id="manning">Manning 样条</h4>
+<p>Manning 在 1974 年找到一种曲率连续 3 次样条的表示。设
+$$
+X_{i}(u) = R_{i,0}+uR_{i,1}+u^2R_{i,2}+u^3R_{i,3},\quad u\in[0,1]
+$$
+使用 Hermite 多项式可以得到
+$$
+\begin{aligned}
+X_{i}(u) &amp;= P_{i}+uX_{i^+}'+u^2[3(P_{i+1}-P_{i})-2X_{i^+}'-X_{i+1^-}']\
+&amp;+u^3[X_{i^+}'+X_{i+1^-}'-2(P_{i+1}-P_{i})]
+\end{aligned}
+$$
+于是
+$$
+\begin{aligned}
+P_{i} &amp;= X_{i}(0) =R_{i,0}\
+P_{i+1} &amp;= X_{i}(1) =R_{i,0}+R_{i,1}+R_{i,2}+R_{i,3}\
+X_{i^+}' &amp;= X_{i}'(0^+) =R_{i,1}\
+X_{i+1^-}' &amp;= X_{i}'(1^-) =R_{i,1}+2R_{i,2}+3R_{i,3}
+\end{aligned}
+$$
+于是未知导数可以通过三对角阵解出。</p>
+<h4 id="nu">$\nu$ 样条</h4>
+<p>Nielson $\nu$ 样条最小化高阶张力样条能量 $L=2$ 的情况，即要满足
+$$
+\begin{aligned}
+X(t_{i}^+) &amp;= X(t_{i}^-)\
+X'(t_{i}^+) &amp;= X'(t_{i}^-)\
+X''(t_{i}^+) &amp;= X''(t_{i}^-)+\nu_{i}X'(t_{i}^-)
+\end{aligned}
+$$
+因此 $\nu$ 样条是曲率连续的 $C^1$ 样条，也即 $G^2$ 连续样条，满足 $\omega_{i,11}=1,\nu_{i}=\omega_{i,12}$ 。因此 $\nu$ 样条是插值 $\gamma$ 样条。并且
+$$
+\nu_{i} = \frac{2}{\Delta t_{i}}(1+q_{i})\left( \frac{1}{\gamma_{i}}-1 \right)
+$$
+给出到 $\gamma$ 样条的变换。</p>
+<h4 id="beta">$\beta$ 样条</h4>
+<p>Barsky 在 1981 年给出一类局部支撑的曲率连续 3 次样条。他从连续性条件
+$$
+\begin{aligned}
+X_{i}(0) &amp;= X_{i-1}(1)\
+X_{i}'(0) &amp;= \beta_{1}X_{i-1}'(1)\
+X_{i}''(0) &amp;= \beta_{1}^2X_{i-1}''(1)+\beta_{2}X_{i}'(1)
+\end{aligned}
+$$
+出发，其中 $\beta_{1},\beta_{2}$ 是全局设计参数。使用均匀节点 $t_{i}=i$，每段 $\beta$ 样条表示为
+$$
+X_{i}(u)=\sum_{k=-3}^0V_{i+k}B_{k}(u)
+$$
+其中 $B_{k}(u)=B_{k}(\beta_{1},\beta_{2},u)$ 是满足连续性条件的分段 3 次多项式，并且有支撑集 $(t_{k},t_{k+3})$ 。在每一段节点区间上有
+$$
+B_{k}(u) =
+\begin{cases}
+\frac{1}{\beta}[2u^3], &amp; t\in[t_{i},t_{i+1}] \
+\frac{1}{\beta}[2+6\beta_{1}u+(3\beta_{2}+6\beta_{1}^2)u^2 \
+\quad -(2\beta_{2}+2\beta_{1}^2+2\beta_{1}+2)u^3], &amp; t\in[t_{i+1},t_{i+2}] \
+\frac{1}{\beta}[(\beta_{2}+4\beta_{1}^2+4\beta_{1})+(6\beta_{1}^3-6\beta_{1})u-(3\beta_{2}+6\beta_{1}^3+6\beta_{1}^2)u^2 \
+\quad+(2\beta_{2}+2\beta_{1}^3+2\beta_{1}^2+2\beta_{1})u^3], &amp; t\in[t_{i+2,t_{i+3}}] \
+\frac{1}{\beta}[2\beta_{1}^3-6\beta_{1}^3u+6\beta_{1}^3u^2-2\beta_{1}^3u^3], &amp; t\in[t_{i+3},t_{i+4}]
+\end{cases}
+$$
+其中
+$$
+\beta=2\beta_{1}^3+4\beta_{1}^2+4\beta_{1}+\beta_{2}+2
+$$
+我们将 $B_{k}(u)$ 称为均匀形状 $\beta$ B 样条，它是特殊的 $\nu$ 样条，也是 $\gamma$ 样条。连续性条件给出
+$$
+\begin{aligned}
+\beta_{1} &amp;= q_{i}=\frac{\Delta t_{i}}{\Delta t_{i-1}}=\mathrm{const}\
+\beta_{2} &amp;=q_{i}\Delta t_{i}\nu_{i}=2(1+q_{i})\left( \frac{1}{\gamma_{i}}-1 \right)=\mathrm{const}\
+\end{aligned}
+$$
+因此 $\beta_{1}$ 不是自由的设计参数；$\beta_{2}$ 与 $\gamma_{i}$ 的联系给出了到 $\gamma$ 样条的变换。</p>
+<h2 id="_11">几何样条曲面</h2>
+<h3 id="gr_1">$G^r$ 连续曲面</h3>
+<p>曲面 $X(u,v),Y(s,t)$ 在正则点（$X_{u}\times X_{v}\neq0,Y_{s}\times Y_{t}\neq0$）$P=X(\bar{u},\bar{v})=Y(\bar{s},\bar{t})$ 处 $r$ 阶几何连续，即可以通过重参数化达到 $C^r$ 连续。记
+$$
+\begin{aligned}
+a_{\mu \nu} = \frac{\partial^r}{\partial s^\mu \partial t^\nu}u(s,t)\bigg|<em>{(s,t)=(\bar{s},\bar{t})},\quad r=\mu+\nu\
+b</em>{\mu \nu} = \frac{\partial^r}{\partial s^\mu \partial t^\nu}v(s,t)\bigg|<em>{(s,t)=(\bar{s},\bar{t})},\quad r=\mu+\nu
+\end{aligned}
+$$
+则 $G^1,G^2,G^3$ 连续性充要条件为
+$$
+\begin{aligned}
+Y' &amp;= \Omega</em>{11}X'\
+Y'' &amp;= \Omega_{22}X'' + \Omega_{12}X'\
+Y''' &amp;= \Omega_{33}X'''+\Omega_{23}X''+\Omega_{13}X'
+\end{aligned}
+$$
+其中 $\Omega_{ij}$ 是 $a_{\mu \nu},b_{\mu \nu}$ 构建的矩阵，例如
+$$
+\Omega_{11} = 
+\begin{pmatrix}
+a_{10} &amp; b_{10} \
+a_{01} &amp; b_{01}
+\end{pmatrix},\quad
+\Omega_{22} = 
+\begin{pmatrix}
+a_{10}^2 &amp; 2a_{10}b_{10} &amp; b_{10}^2 \
+a_{10}a_{01} &amp; a_{10}b_{01}+a_{01}b_{10} &amp; b_{10}b_{01} \
+a_{01}^2 &amp; 2a_{01}b_{01} &amp; b_{01}^2
+\end{pmatrix},\quad
+\Omega_{12} = 
+\begin{pmatrix}
+a_{20} &amp; b_{20} \
+a_{11} &amp; b_{11} \
+a_{02} &amp; b_{02}
+\end{pmatrix}
+$$
+注意到 $Y'=\Omega_{11}X'$ 求导得到 $G^2$ 连续条件。</p>
+<p>几何连续性条件的几何意义如下</p>
+<ol>
+<li>$G^1$ 连续点具有相同切平面</li>
+<li>$G^2$ 连续点具有相同切平面、相同 Dupin 标形，曲率符号相同或具有相同主曲率方向和半径或具有相同法曲率或具有相同第二基本形式；$G^2$ 连续意味着相同的 Gaussian 和平均曲率</li>
+</ol>
+<p>由于法曲率相同需要考虑所有切线方向，因此 $G^2$ 连续的几何解释并不方便。然而我们有</p>
+<blockquote>
+<p>[!theorem] 3-Tangents Theorem
+如果两张 $C^2$ 连续曲面在点 $P$ 处 $G^1$ 连续，则 $G^2$ 连续等价于在 $P$ 处两两线性无关的切向上法曲率相同。</p>
+</blockquote>
+<p>考虑具有公共边界的两张曲面 $X(u,v),Y(s,t)$，则沿着公共边界上位置、切向相同，于是 $G^r$ 连续条件可以简化为
+$$
+\begin{aligned}
+Y_{s} &amp;= b(v)X_{u} + c(v)X_{v},\quad b(v)&gt; 0,(0,t)\leftrightarrow(1,v)\
+Y_{ss} &amp;= b(v)^2X_{uu}+2b(v)c(v)X_{uv}+c(v)^2X_{vv}\
+&amp;+ e(v)X_{u}+f(v)X_{v}
+\end{aligned}
+$$
+对于 $G^2$ 连续性，我们有</p>
+<blockquote>
+<p>[!theorem] Linkage Curve Theorem
+如果两张 $C^2$ 连续曲面具有公共 $C^1$ 边界 $C(t)$，点 $P=C(t_{0})$ 处与 $C'(t_{0})$ 线性无关的切向上具有相同法曲率，则两张曲面之间 $G^2$ 连续。</p>
+</blockquote>
+<h3 id="g1-bezier">$G^1$ 连续 Bezier 曲面</h3>
+<p>考虑两张沿边界次数相同的 Bezier 曲面
+$$
+\begin{aligned}
+X(u,v) &amp;= \sum_{i}^m\sum_{j}^n b_{ij}B_{i}^m(u)B_{j}^n(v)\
+Y(s,t) &amp;= \sum_{i}^\bar{m}\sum_{j}^n \bar{b}<em>{ij}B</em>{i}^\bar{m}(s)B_{j}^n(t)
+\end{aligned}
+$$
+重写 $G^1$ 连续条件为
+$$
+\alpha(v) Y_{s} + \beta(v)X_{u}+\gamma(v) X_{v} = 0
+$$
+由于 $X_{v}$ 关于 $v$ 的次数更低，因此通常选择 $\gamma(v)$ 次数比 $\alpha(v),\beta(v)$ 高一次，从而可以通过比较系数求解方程。例如选择 $\alpha=-1,\beta=\beta,\gamma=(1-v)\gamma_{0}+v\gamma_{1}$ 。于是
+$$
+vB_{j}^{n-1}(v)= \frac{j+1}{n}B_{j+1}^n(v),\quad (1-v)B_{j}^{n-1}(v)= \frac{n-j}{n}B_{j}^n(v)
+$$
+代入 $G^1$ 连续条件 $v=t,u=1,s=0$ 得到
+$$
+\begin{aligned}
+&amp;\bar{m} \sum_{j}^n \Delta_{1} \bar{b}<em>{0,j}B</em>{j}^n(v) = m\beta \sum_{j}^n\Delta_{1} b_{m-1,j}B_{j}^n(v)\
+&amp;+ \gamma_{0}\sum_{j}^n(n-j)\Delta_{2}b_{m,j}B_{j}^n(v) + \gamma_{1}\sum_{j}^nj\Delta_{2}b_{m,j-1}B_{j}^n(v)
+\end{aligned}
+$$
+其中 $\Delta_{1},\Delta_{2}$ 表示关于第 $1,2$ 个下标的差分。比较系数得到
+$$
+\bar{m}\Delta_{1}\bar{b}<em>{0,j} = m\beta \Delta</em>{1} b_{m-1,j}+ \gamma_{0}(n-j)\Delta_{2}b_{m,j} + \gamma_{1}j\Delta_{2}b_{m,j-1} \tag{E1}
+$$
+利用边界条件 $\bar{b}<em>{0,j}=b</em>{m,j}$ 即可解出内侧控制点 $\bar{b}_{1,j}$ 。</p>
+<p>![[image-20251126143306728.png|500]]</p>
+<p>此外，还可以使用行列式形式
+$$
+\det(Y_{s},X_{u},X_{v})=0
+$$
+记公共边界曲线为 $S(t)$，相邻 Bezier 控制点为 $R_{j},T_{k}$，则
+$$
+\begin{aligned}
+X'(t) &amp;= \sum_{i}^R R_{i}'B_{i}^R(t),\quad R_{i}'=R_{i}-S_{i}\
+S'(t) &amp;= \sum_{j}^S S_{j}'B_{j}^S(t),\quad S_{j}'=S_{j+1}-S_{j}\
+Y'(t) &amp;= \sum_{k}^T T_{k}'B_{k}^T(t),\quad T_{k}'=T_{k}-S_{k}
+\end{aligned}
+$$
+于是有 $\Phi(t)=\det(X'(t),S'(t),Y'(t))=0$，其中
+$$
+\begin{aligned}
+\Phi(t) &amp;=\sum_{l}^D\Phi_{l}B_{l}^D(t),\quad R+S+T=D\
+\Phi_{l} &amp;= \sum_{i+j+k=l}
+\frac{\binom{R}{i}\binom{S}{j}\binom{T}{k}}{\binom{D}{l}}\det(R_{i}',S_{j}',T_{k}')
+\end{aligned}
+$$
+这里利用了 Bezier 基函数的乘积公式
+$$
+\prod_{k=1}^\alpha B_{i_{k}}^{n_{k}}(t) = \frac{\prod_{k=1}^\alpha\binom{n_{k}}{i_{k}}}{\binom{|n|}{|i|}}B_{|i|}^{|n|}(t),\quad |n|=\sum_{k}n_{k},|i|=\sum_{k}|i_{k}|
+$$
+利用系数全为零得到
+$$
+\sum_{i+j+l}\det(R_{i}^<em>,S_{j}^</em>,T_{k}^<em>)=0,\quad
+R_{i}^</em>=\binom{R}{i}R_{i}',\quad 
+S_{j}^<em>=\binom{S}{j}S_{j}',\quad
+T_{k}^</em>=\binom{T}{k}T_{k}'
+$$
+这 $D+1$ 个方程相互独立，因此是最少的条件，从而避免了大量的设计参数。</p>
+<p>给定公共边界曲线 $S(t)$ 和切向场 $Q(t)$，则面片 $Y$ 沿着边界 $G^1$ 连续条件为
+$$
+D_{q}Y=k(t)Q(t)+h(t)S'(t)
+$$
+其中 $D_{q}$ 表示沿着 $q$ 切向的方向导数。假设 $X,Y,S,Q,k,h$ 都是多项式，取
+$$
+Q(t) = (1-t)Q_{0}+tQ_{1}
+$$
+在两端点处
+$$
+\begin{aligned}
+D_{q}Y\bigg|<em>{t=0} &amp;= k</em>{0}Q_{0}+h_{0}S_{0}'\
+D_{q}Y\bigg|<em>{t=1} &amp;= k</em>{1}Q_{1}+h_{1}S_{1}'
+\end{aligned}
+$$
+因此 $k,h$ 至少是满足边界条件的线性函数。</p>
+<h3 id="_12">多片曲面</h3>
+<h4 id="n">$N$ 顶点问题</h4>
+<p>解决 $N$ 边补洞问题的前提是匹配边界曲线和切向，通常在两条边界曲线交点处的切平面可以自由选择，这确保解的存在性。但是对 $N$ 顶点问题，公共点 $P$ 和边界曲线 $K_{i}$ 都预先指定，导致问题很难解决。</p>
+<p>考虑使用 $N$ 张矩形面片实现 $G^1$ 连续的问题。即使对这种特殊情况，依然存在无法解决的 vertex enclosure problem 。首先要区分 $N$ 为奇偶的情形，因为考虑到扭矢，并不能保证端点 $G^1$ 连续。如果 $P$ 处所有边界曲线 $K_{i}$ 具有相同切平面，则</p>
+<ul>
+<li>$N$ 为奇时存在正确的扭矢</li>
+<li>$N$ 为偶时不一定</li>
+</ul>
+<p>考虑下图的 $N$ 顶点</p>
+<p>![[image-20251126225540634.png|500]]</p>
+<p>则 $G^1$ 连续条件为
+$$
+\frac{\partial X_{i+1}}{\partial v_{i+1}}\bigg|<em>{v</em>{i+1}=0} = \beta_{i}(v_{i})\frac{\partial X_{i}}{\partial u_{i}}+\gamma_{i}(v_{i})\frac{\partial X_{i}}{\partial v_{i}}\bigg|<em>{u</em>{i}=0},\quad \beta_{i}(v_{i})&lt;0
+$$
+然后沿着公共边界曲线参数方向 $u_{i+1},v_{i}$ 求偏导
+$$
+\frac{\partial}{\partial u_{i+1}} \left( \frac{\partial X_{i+1}}{\partial v_{i+1}} \right)\bigg|<em>{v</em>{i+1}=0} = \frac{\partial}{\partial v_{i}}\left( \beta_{i}(v_{i})\frac{\partial X_{i}}{\partial u_{i}}+\gamma_{i}(v_{i})\frac{\partial X_{i}}{\partial v_{i}} \right)\bigg|<em>{v</em>{i+1}=0}
+$$
+进而得到
+$$
+\frac{\partial^2X_{i+1}}{\partial u_{i+1}\partial v_{i+1}} =
+\frac{\partial \beta_{i}(v_{i})}{\partial v_{i}} \frac{\partial X_{i}}{\partial u_{i}} + 
+\beta_{i}(v_{i}) \frac{\partial^2X_{i}}{\partial u_{i}\partial v_{i}} +
+\frac{\partial \gamma_{i}(v_{i})}{\partial v_{i}} \frac{\partial X_{i}}{\partial v_{i}} +
+\gamma_{i}(v_{i}) \frac{\partial^2X_{i}}{\partial v_{i}^2}
+$$
+记 $T_{i}$ 表示扭矢，则
+$$
+-\beta_{i}T_{i}+T_{i+1} = R_{i},\quad
+R_{i} = 
+\beta_{i}'\frac{\partial X_{i}}{\partial u_{i}} + 
+\gamma_{i}' \frac{\partial X_{i}}{\partial v_{i}} +
+\gamma_{i} \frac{\partial^2X_{i}}{\partial v_{i}^2}\bigg|<em>{(u</em>{i},v_{i})=(0,0)}
+$$
+于是 $N$ 个扭矢条件共同得到
+$$
+\begin{pmatrix}
+-\beta_{1} &amp; 1 \
+ &amp; -\beta_{2} &amp; 1 \
+ &amp;  &amp; \ddots &amp; \ddots \
+ &amp;  &amp;  &amp; -\beta_{N-1} &amp;  1 \
+1 &amp;  &amp;  &amp;  &amp; -\beta_{N} 
+\end{pmatrix}
+\begin{pmatrix}
+T_{1} \
+T_{2} \
+\vdots \
+T_{N}
+\end{pmatrix} = 
+\begin{pmatrix}
+R_{1} \
+R_{2} \
+\vdots \
+R_{N}
+\end{pmatrix}
+$$
+记其中的矩阵为 $B$，则
+$$
+\det B=(-1)^N\left( \prod_{i=1}^N\beta_{i}-1 \right)
+$$
+由于 $\beta_{i}&lt;0$，如果 $N$ 是奇数，则 $\det B\neq 0$，因此存在唯一解。反之，如果 $N$ 是偶数，则可能存在奇异情形。</p>
+<p>回顾 $G^1$ 连续 Bezier 方程 $(E1)$，由于公共顶点 $P$ 周围的边界控制点 $C_{i}$ 以及扭矢点 $T_{i}$ 都与 $G^1$ 连续条件相关，则 $j=0,1$ 对应的角点和扭矢方程为
+$$
+\begin{aligned}
+&amp;(C_{i+1}-P)+\beta_{i}(C_{i-1}-P) -\gamma_{i}^0(C_{i}-P) = 0\
+&amp;(T_{i}-C_{i})+\beta_{i}(T_{i-1}-C_{i})-\gamma_{i}^0 \frac{m-1}{m}(D_{i}-C_{i})+\gamma_{i}^1 \frac{1}{m}(P-C_{i}) =0
+\end{aligned}\tag{E2}
+$$
+其中下标 $0=N，1=N+1,\cdots$ 循环。于是如果边界曲线 $K_{i}$ 不满足上述方程，则不存在 $P$ 周围 $G^1$ 连续的面片。</p>
+<p>![[image-20251126231617561.png|500]]</p>
+<p>方程 $(E2)$ 说明边界控制点 $C_{i}$ 与 $P$ 共平面；从 $C_{1},C_{2}$ 出发，可以决定其余的 $C_{i}-P$，然而在返回到边界 $K_{N},K_{1}$ 时，会得到新的 $C_{1}-P,C_{2}-P$ 。于是我们得到相容性条件
+$$
+\begin{aligned}
+(C_{1}-P)^<em> &amp;= F_{1}(\beta_{i},\gamma_{i}^0)(C_{1}-P) + G_{1}(\beta_{i},\gamma_{i}^0)(C_{2}-P)\
+(C_{2}-P)^</em> &amp;= F_{2}(\beta_{i},\gamma_{i}^0)(C_{1}-P) + G_{2}(\beta_{i},\gamma_{i}^0)(C_{2}-P)
+\end{aligned}
+$$
+其中 $F,G$ 是关于参数 $\beta_{i},\gamma_{i}^0$ 的函数。通常 $P,C_{1},C_{2}$ 不共线，此时 $F,G$ 是线性多项式，且满足
+$$
+F_{1}=1,F_{2}=0,G_{1}=0,G_{2}=1
+$$
+考虑 $(E2)$ 式一叉乘消去 $\gamma$ 的项得到
+$$
+\beta_{i} = \frac{[(C_{i+1}-P)\times(C_{i}-P)]\cdot N}{[(C_{i}-P)\times(C_{i-1}-P)]\cdot N}
+$$
+其中 $N$ 是顶点法向。于是
+$$
+\prod_{i=1}^N\beta_{i} = 1
+$$
+假设 $C_{i},\beta_{i},\gamma_{i}^0$ 确定，接下来需要选择 $D_{i},T_{i}$ 以确保 $(E2)$ 式二。将其重写为
+$$
+\begin{pmatrix}
+1 &amp; 0 &amp; \cdots &amp; 0 &amp; \beta_{1} \
+\beta_{2} &amp; 1 &amp;  &amp; 0 &amp; 0 \
+\vdots &amp;  &amp;  &amp;  &amp; \vdots \
+0 &amp; 0 &amp;  \beta_{N-1} &amp; 1 &amp; 0 \
+0 &amp; 0 &amp; \cdots &amp; \beta_{N} &amp; 1
+\end{pmatrix}
+\begin{pmatrix}
+T_{1} \
+T_{2} \
+\vdots \
+T_{N-1} \
+T_{N}
+\end{pmatrix} = 
+\begin{pmatrix}
+R_{1} \
+R_{2} \
+\vdots \
+R_{N-1} \
+R_{N}
+\end{pmatrix}
+$$
+其中
+$$
+R_{i}=(1+\beta_{i})C_{i}-\gamma_{i}^0 \frac{m-1}{m}(C_{i}-D_{i})+\gamma_{i}^1 \frac{1}{m}(C_{i}-P)
+$$
+则当 $N$ 为奇数，系数矩阵行列式为 $2$，存在唯一解。而 $N$ 为偶数时，需要满足额外的角点相容性条件
+$$
+\sum_{i=1}^N(-1)^{i-1}\left[ \prod_{k=1}^i\beta_{k} \right]^{-1}R_{i}=0
+$$
+这表明解存在当且仅当 $K_{i}$ 在 $P$ 兼容相同的第二基本形式。</p>
+<p>为了保证 $G^1$ 连续条件的影响具有局部性，需要至少使用双 5 次张量积曲面，防止不同顶点耦合。只有考虑矩形网格的 4 顶点情形时，双 3 次曲面才能满足上述相容性条件。此时可取所有
+$$
+\gamma_{i}^0=\gamma_{i}^1=0
+$$
+因为每个顶点处都是成对 $G^1$ 的边界曲线。但是如果该 4 顶点嵌入一般网格，且 $\gamma_{i}^0=0$，则 $\beta(v)$ 需要取更高次多项式来满足相容性和局部性。</p>
+<p>对于 $N\neq 4$ 的情况，设置所有 $\gamma_{i}^0=0$ 会导致可能出现退化的奇异情形。要保证局部性，有两种做法</p>
+<ol>
+<li>细分面片，例如划分为 4 边面片</li>
+<li>首先对边界曲线升次，再构造高次曲面</li>
+</ol>
+<p>由于前者更为复杂，后者显得比较优越。</p>
+<h4 id="gregory">Gregory 面片</h4>
+<p>Gregory 提供称为 Gregory squares 的形式，它是 Coons 面片的修正。角点的扭矢向量替换为混合 2 阶导数的凸组合。这允许两个相邻边界的跨界导数可以独立指定。考虑将双 3 次 Bezier 面片内部 4 个固定控制点改为 4 个变量，每个都是两个给定点的凸组合
+$$
+\begin{aligned}
+P_{11}(u,v) &amp;= \frac{uP_{110}+vP_{111}}{u+v},\quad P_{12}(u,v) = \frac{uP_{120}+(1-v)P_{121}}{u+1-v}\
+P_{21}(u,v) &amp;= \frac{(1-u)P_{210}+vP_{211}}{1-u+v},\quad P_{22}(u,v) = \frac{(1-u)P_{220}+(1-v)P_{221}}{1-u+1-v}
+\end{aligned}
+$$
+边界控制点不变，足因此 Gregory 面片由 20 个控制点确定，内部控制点是关于 $(u,v)$ 的函数。如果内部 8 个控制点
+$$
+P_{ij0}=P_{ij1},\quad 0\leftrightarrow u,1\leftrightarrow v
+$$
+则 Gregory 面片退化为双 3 次 Bezier 面片。通常 Gregory 面片具有有理形式，并且它是一类特殊的双 7 次有理 Bezier 面片，但是它可以先计算出内部控制点，然后使用双 3 次 Bezier 面片的计算方式简化计算。</p>
+<p>![[image-20251127172706344.png|500]]</p>
+<blockquote>
+<p>[!note]
+Gregory 曲面片在角点处扭矢不连续。</p>
+</blockquote>
+<h3 id="_13">多曲面片方案</h3>
+<p>可用的多曲面片方案可以分为三类：</p>
+<ol>
+<li>单曲面片方案</li>
+<li>混合曲面片方案</li>
+<li>分割方案</li>
+</ol>
+<p>我们将不同方案总结为表格，其中</p>
+<ul>
+<li>Data 列表示插值数据，大写字母表示<ul>
+<li><code>P</code> 多边形</li>
+<li><code>N</code> 法向</li>
+<li><code>T</code> 切向</li>
+<li><code>II</code> 曲率</li>
+<li><code>M</code> 曲线网</li>
+<li><code>A</code> 跨边界导数</li>
+<li><code>K</code> 跨边界曲率</li>
+</ul>
+</li>
+<li>小写字母表示对数据的限制<ul>
+<li><code>k</code> 扭矢相容性</li>
+<li><code>g</code> 没有封闭曲面</li>
+<li><code>e</code> 约束 <code>N,II</code> 的变量</li>
+</ul>
+</li>
+<li>插值数据满足如下链条 <code>K=&gt;A=&gt;M=&gt;T=&gt;N</code></li>
+<li>Side 列给出单曲面片边界的个数，<code>N</code> 表示允许任意数量边界</li>
+<li>Degree 列给出最大多项式次数。对于有理情形，使用 <code>/</code> 分隔分子与分母的次数。对于过渡方法，将待过渡多项式次数与插值次数用 <code>+</code> 相连</li>
+<li>Factor 列给出因子函数 $\alpha,\beta,\gamma$ 的次数。对于过渡方法，用方括号包含混合函数的次数，圆括号包含有理参数的次数</li>
+</ul>
+<h4 id="_14">单曲面片方法</h4>
+<p>在 <code>[Sab 68][Pet 90 b]</code> 中 $G^1$ 连续方程被替换为
+$$
+N\cdot Y_{s}=N\cdot X_{u}=N\cdot X_{v}=0
+$$
+其中 $N(t)$ 是沿着公共边界曲线定义的法向量，并在 Factor 列中给出了 $N(t)$ 的定义方式。</p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Sides</th>
+<th>Degree</th>
+<th>Factors</th>
+<th>Literature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pe</td>
+<td>4</td>
+<td><code>(3,3)</code></td>
+<td><code>0,0,1</code></td>
+<td><code>[Bee 86]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>4</td>
+<td><code>(6,6)</code></td>
+<td><code>0,3,2</code></td>
+<td><code>[Sar 87, 89]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>3,4</td>
+<td><code>4,(4,4)</code></td>
+<td><code>1,1,3</code></td>
+<td><code>[Pet 91]</code></td>
+</tr>
+<tr>
+<td>IIe</td>
+<td>4</td>
+<td><code>(3,3)</code></td>
+<td>$X_{v}(N_{0}\times N_{1})$</td>
+<td><code>[Sab 68]</code></td>
+</tr>
+<tr>
+<td>Ne</td>
+<td>3,4</td>
+<td><code>3,(3,3)</code></td>
+<td>$(1-t)N_{0}+t\omega N_{1}$</td>
+<td><code>[Pet 90b]</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_15">混合曲面片方法</h4>
+<p>混合曲面片方法首先构造 $N$ 张曲面片分别插值一部分边界数据，通常是位置和导数信息。这些曲面片的凸组合得到插值所有边界数据的单张 $N$ 边曲面片。对于 $C^{r-1}$ 数据，凸组合得到角点处的 $C^r$ 不连续。因此对于给定的边界曲线和沿着边界曲线的切平面，角点的 2 阶混合导数不需要一致，避免扭矢问题。</p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Sides</th>
+<th>Degree</th>
+<th>Factors</th>
+<th>Literature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Agk</td>
+<td>4</td>
+<td><code>(3,3)</code></td>
+<td></td>
+<td><code>[Coo 67]</code></td>
+</tr>
+<tr>
+<td>Ag</td>
+<td>3</td>
+<td><code>2(3+3)</code></td>
+<td><code>(1/1)</code></td>
+<td><code>[Barn 73]</code></td>
+</tr>
+<tr>
+<td>Ag</td>
+<td>4</td>
+<td><code>(4,4)/1</code></td>
+<td></td>
+<td><code>[Gre 74]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>4</td>
+<td><code>(4,4)/1</code></td>
+<td><code>1,1,1</code></td>
+<td><code>[Chi 83]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>3</td>
+<td><code>1+2</code></td>
+<td><code>[4/2]1,1,1</code></td>
+<td><code>[Herr 85]</code></td>
+</tr>
+<tr>
+<td>Ak</td>
+<td>5</td>
+<td><code>3+2</code></td>
+<td><code>[6/6](1/1)</code></td>
+<td><code>[Char 84]</code></td>
+</tr>
+<tr>
+<td>Kk</td>
+<td>N</td>
+<td><code>3+4/8</code></td>
+<td><code>[3(n-2)/3(n-1)](1/1)</code></td>
+<td><code>[Gre 89a]</code></td>
+</tr>
+<tr>
+<td>A</td>
+<td>3</td>
+<td><code>3+3</code></td>
+<td><code>[2/2](1/1)</code></td>
+<td><code>[Nie 87c]</code></td>
+</tr>
+<tr>
+<td>K</td>
+<td>3</td>
+<td><code>7+5</code></td>
+<td><code>[4/4](1/1)</code></td>
+<td><code>[Hag 89]</code></td>
+</tr>
+</tbody>
+</table>
+<h5 id="_16">一般形式</h5>
+<p>给定插值或逼近算子 $I_{i}$，它的凸组合形式为
+$$
+IP(u,v) = \sum_{i=1}^n\alpha_{i}(u,v)I_{i}P(u,v),\quad (u,v)\in D
+$$
+其中 $\alpha_{i}(u,v)$ 满足</p>
+<ul>
+<li>正性 $\alpha_{i}(u,v)\geq 0$</li>
+<li>权性 $\sum_{i=1}^n\alpha_{i}(u,v)=1$</li>
+</ul>
+<p>凸组合曲面基本性质</p>
+<ol>
+<li>误差可控：若 $|I_{i}P(u,v)-P(u,v)|&lt;\epsilon_{i}$，则 $|IP(u,v)-P(u,v)|&lt;\max(\epsilon_{i})$</li>
+<li>几何凸包：$\min_{i}(I_{i}P(u,v))\leq IP(u,v)\leq\max_{i}(I_{i}P(u,v))$</li>
+<li>插值性质：若 $I_{i}P(\bar{u},\bar{v})=\bar{P}$，则 $IP(\bar{u},\bar{v})=\bar{P}$</li>
+</ol>
+<h5 id="c1-browns-square">$C^1$ Brown's square</h5>
+<p>曲面形式
+$$
+B^1(u,v) = \alpha(u,v)I_{u}P(u,v)+\beta(u,v)I_{v}P(u,v)
+$$
+其中 $I_{u},I_{v}$ 分别是 $u,v$ 方向的双 3 次 Coons 曲面插值算子，而
+$$
+\alpha(u,v)= \frac{v^2(1-v)^2}{u^2(1-u)^2+v^2(1-v)^2},\quad \beta(u,v)=1-\alpha(u,v)
+$$
+于是有</p>
+<blockquote>
+<p>[!theorem]
+$B^1(u,v)$ 在 $[0,1]^2$ 边界插值 $P(u,v)$ 及其 1 阶偏导。</p>
+</blockquote>
+<h5 id="c2-browns-square">$C^2$ Brown's square</h5>
+<p>曲面形式
+$$
+B^2(u,v) = \alpha(u,v)I_{u}P(u,v)+\beta(u,v)I_{v}P(u,v)
+$$
+其中 $I_{u},I_{v}$ 分别是 $u,v$ 方向的双 5 次 Coons 曲面插值算子，而
+$$
+\alpha(u,v)= \frac{v^3(1-v)^3}{u^3(1-u)^3+v^3(1-v)^3},\quad \beta(u,v)=1-\alpha(u,v)
+$$
+于是有</p>
+<blockquote>
+<p>[!theorem]
+$B^2(u,v)$ 在 $[0,1]^2$ 边界插值 $P(u,v)$ 及其 1、2 阶偏导。</p>
+</blockquote>
+<h4 id="_17">分割方法</h4>
+<p>这类方法首先将 $N$ 边洞划分成三角形或矩形洞。这样每张曲面片可以单独插值一条边界上的数据，不需要考虑其它边界。剩余的自由度可以用来强制内部连接处的 $C^1,G^1$ 连续性。</p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Sides</th>
+<th>Degree</th>
+<th>Factors</th>
+<th>Literature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>3</td>
+<td>3</td>
+<td><code>0,0,0</code></td>
+<td><code>[Clo 65]</code></td>
+</tr>
+<tr>
+<td>T</td>
+<td>3</td>
+<td>2</td>
+<td><code>0,0,0</code></td>
+<td><code>[Pow 77]</code></td>
+</tr>
+<tr>
+<td>N</td>
+<td>3</td>
+<td>4</td>
+<td><code>0,0,1</code></td>
+<td><code>[Far 83a]</code></td>
+</tr>
+<tr>
+<td>T</td>
+<td>3</td>
+<td>4</td>
+<td><code>1,1,2</code></td>
+<td><code>[Pip 87]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>3,4</td>
+<td>4</td>
+<td><code>1,1,1</code></td>
+<td><code>[Shi 87,91]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>3</td>
+<td>4</td>
+<td></td>
+<td><code>[Jen 87]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>3,4</td>
+<td>3</td>
+<td><code>1,1,2</code> <code>1,1,1</code></td>
+<td><code>[Pet 90a]</code></td>
+</tr>
+<tr>
+<td>M</td>
+<td>$N&gt;4$</td>
+<td>4</td>
+<td><code>2,2,3</code> <code>1,1,1</code></td>
+<td><code>[Pet 90a]</code></td>
+</tr>
+<tr>
+<td>N</td>
+<td>N</td>
+<td>5</td>
+<td><code>0,0,1</code></td>
+<td><code>[Jon 88]</code></td>
+</tr>
+</tbody>
+</table>
+<p>分割方法会产生更多的曲面片，但是通常次数更低，并且对数据的要求更少，不过其内部边界处曲率不连续。混合方法能得到相同数量的子曲面片，但是通常次数更高，并且基本是有理的。由于多项式的位置、导数、曲率更容易计算，所以一般倾向于多项式而非有理。</p>
+<p>然而，大多数方法的等参线、着色、高斯曲率的图像都不令人满意。例如</p>
+<ul>
+<li>存在振荡问题，即便是单张曲面的内部。并且，经常出现平坦点，曲面片沿着边界甚至存在高斯曲率符号的不连续</li>
+<li>曲率倾向于集中在顶点和边界附近。因为曲率的非均匀分布和边界上平坦点的存在会延续到内部</li>
+</ul>
+<h2 id="gordon-coons">Gordon-Coons 曲面</h2>
+<p>解决边界曲线插值问题的一种思路是使用混合函数 blending function 扩展曲线复形。考虑 $\mathbb{R}^2$ 上给定的函数值 $F_{0},F_{1}$，则插值直线为
+$$
+F(x)=(1-x)F_{0}+xF_{1},\quad x\in[0,1]
+$$
+其中 $f_{0}(x)=1-x,f_{1}(x)=x$ 就是混合函数。为了保证插值端点，混合函数应当满足
+$$
+f_{i}(k) = 
+\begin{cases}
+1, &amp; i=k \
+0, &amp; i\neq k
+\end{cases}
+$$
+使用 Hermite 多项式插值 $F_{0},F_{1}$ 得到下图</p>
+<p>![[image-20251202233915112.png]]</p>
+<h3 id="gordon-coons_1">矩形上的 Gordon-Coons 曲面</h3>
+<h4 id="c0">$C^0$ 连续面片复形</h4>
+<p>考虑 4 条直线，端点为 $F_{ik},i,k=0,1$ 。首先构造插值端点的边界曲线，例如在 $x$ 方向上插值端点
+$$
+\begin{aligned}
+P_{x}F(x,0) &amp;= f_{0}(x)F_{00}+f_{1}(x)F_{10}\
+P_{x}F(x,1) &amp;= f_{0}(x)F_{01}+f_{1}(x)F_{11}
+\end{aligned}
+$$
+然后在 $y$ 方向上插值
+$$
+P_{y}P_{x}F= f_{0}(y)[f_{0}(x)F_{00}+f_{1}(x)F_{10}]+f_{1}(y)[f_{0}(x)F_{01}+f_{1}(x)F_{11}]
+$$
+也可以按照 $y,x$ 顺序插值得到 $P_{x}P_{y}F$ 。如果这种构造有意义，最后的结果应该与插值顺序无关，实际上容易验证 $P_{y}P_{x}F=P_{x}P_{y}F$ 。</p>
+<p>考虑一般边界曲线，则 $y,x$ 方向上插值得到 $P_{y}F,P_{x}F$ 通常不相等，需要做某些修正。例如在 $x=0,1$ 的边界上
+$$
+\begin{aligned}
+P_{y}F(0,y)&amp;=f_{0}(y)F_{00}+f_{1}(y)F_{01}\
+P_{y}F(1,y)&amp;=f_{0}(y)F_{10}+f_{1}(y)F_{11}
+\end{aligned}
+$$
+要修正后插值边界 $F(0,y),F(1,y)$，则应该分别有
+$$
+\begin{aligned}
+P_{y}F(0,y)\implies P_{y}F(0,y) +F(0,y)-P_{y}F(0,y)\
+P_{y}F(1,y)\implies P_{y}F(1,y) +F(1,y)-P_{y}F(1,y)
+\end{aligned}
+$$
+注意该修正项不影响 $x\neq 0,1$ 的内部插值，记为 $F-P_{y}F$ 。我们希望在 $x=0,1$ 端点上分别使用两个修正项，沿着 $x$ 方向插值
+$$
+P_{x}(F-P_{y}F) = P_{x}F-P_{x}P_{y}F
+$$
+对 $P_{y}F$ 的最终修正为
+$$
+P_{y}F \implies P_{y}F + P_{x}F-P_{x}P_{y}F
+$$
+类似地，对 $P_{x}F$ 的最终修正为
+$$
+P_{x}F \implies P_{x}F + P_{y}F - P_{y}P_{x}F
+$$
+注意到 $P_{x}P_{y}F=P_{y}P_{x}F$，因此这是一个有效的插值曲面。</p>
+<p>![[image-20251203003338252.png]]</p>
+<p>插值曲面可以重写为布尔和的形式
+$$
+\begin{aligned}
+QF&amp;=(P_{u}\oplus P_{v})F = P_{u}F+P_{v}F-P_{u}P_{v}F\
+&amp;= (f_{0}(u),f_{1}(u))
+\begin{pmatrix}
+F(0,v) \
+F(1,v)
+\end{pmatrix} + (F(u,0),F(u,1))
+\begin{pmatrix}
+f_{0}(v) \
+f_{1}(v)
+\end{pmatrix}\
+&amp;- (f_{0}(u),f_{1}(u))
+\begin{pmatrix}
+F_{00} &amp; F_{01} \
+F_{10} &amp; F_{11}
+\end{pmatrix}
+\begin{pmatrix}
+f_{0}(v) \
+f_{1}(v)
+\end{pmatrix}
+\end{aligned}
+$$
+Coons 公式完全由混合函数 $f_{i}$ 确定。</p>
+<h4 id="c1">$C^1$ 连续面片复形</h4>
+<p>由于 Coons 曲面完全由混合函数确定，因此要满足 $G^1$ 连续，则混合函数在边界上的导数不能影响曲面片的导数。事实上，考虑 $QF$ 的偏导形式
+$$
+\begin{aligned}
+(QF)<em>{u} &amp;= (f</em>{0}'(u),f_{1}'(u))
+\begin{pmatrix}
+F(0,v) \
+F(1,v)
+\end{pmatrix} + (F'(u,0),F'(u,1))
+\begin{pmatrix}
+f_{0}(v) \
+f_{1}(v)
+\end{pmatrix}\
+&amp;- (f_{0}'(u),f_{1}'(u))
+\begin{pmatrix}
+F_{00} &amp; F_{01} \
+F_{10} &amp; F_{11}
+\end{pmatrix}
+\begin{pmatrix}
+f_{0}(v) \
+f_{1}(v)
+\end{pmatrix}\
+(QF)<em>{v} &amp;= (f</em>{0}(u),f_{1}(u))
+\begin{pmatrix}
+F'(0,v) \
+F'(1,v)
+\end{pmatrix} + (F(u,0),F(u,1))
+\begin{pmatrix}
+f_{0}'(v) \
+f_{1}'(v)
+\end{pmatrix}\
+&amp;- (f_{0}(u),f_{1}(u))
+\begin{pmatrix}
+F_{00} &amp; F_{01} \
+F_{10} &amp; F_{11}
+\end{pmatrix}
+\begin{pmatrix}
+f_{0}'(v) \
+f_{1}'(v)
+\end{pmatrix}
+\end{aligned}
+$$
+其中关于混合函数的导数都应该为零，即
+$$
+f_{i}'(k) =0,\quad i,k=0,1
+$$
+得到
+$$
+\begin{aligned}
+(QF)<em>{u} &amp;= (F'(u,0),F'(u,1))
+\begin{pmatrix}
+f</em>{0}(v) \
+f_{1}(v)
+\end{pmatrix}\
+(QF)<em>{v} &amp;= (f</em>{0}(u),f_{1}(u))
+\begin{pmatrix}
+F'(0,v) \
+F'(1,v)
+\end{pmatrix}
+\end{aligned}
+$$
+也就是沿着 $v=0$ 的边界曲线，每一点处关于 $v$ 方向的偏导只依赖两端点处的偏导 $P_{v}(0,0),P_{v}(1,0)$ 。对于其它边界也同理。</p>
+<p>![[image-20251203154758619.png|500]]</p>
+<p>设两张插值曲面为 $I,II$，它们有公共 $v$ 边界曲线 $P_{I}(1,v),P_{II}(0,v)$ 。于是要有
+$$
+P_{Iu}(1,i) = cP_{IIu}(0,i),\quad c&gt;0,i=0,1
+$$
+即它们沿着边界有公共切向。</p>
+<p>在给定边界曲线的条件下，我们要找到满足如下条件的混合函数</p>
+<ul>
+<li>沿着边界重建边界</li>
+<li>沿着边界导数为零</li>
+</ul>
+<p>经典 3 次 Hermite 多项式
+$$
+f_{0}(t)=1-3t^2+2t^3,\quad f_{1}(t)=3t^2-2t^3
+$$
+恰好满足 $f_{i}(k)=\delta_{ik},f_{i}'(k)=0$；在给定边界切向场的条件下，我们要找到满足如下条件的混合函数</p>
+<ul>
+<li>沿着边界为零</li>
+<li>沿着边界重建给定切向</li>
+</ul>
+<p>经典 3 次 Hermite 多项式
+$$
+g_{0}(t) =t-2t^2+t^3,\quad g_{1}(t)=-t^2+t^3
+$$
+恰好满足 $g_{i}(k)=0,g_{i}'(k)=\delta_{ik}$ 。因此可以构造插值
+$$
+\begin{aligned}
+P_{u}F &amp;= 
+(f_{0}(u),f_{1}(u),g_{0}(u),g_{1}(u))
+\begin{pmatrix}
+P(0,v) \
+P(1,v) \
+P_{u}(0,v) \
+P_{u}(1,v)
+\end{pmatrix}\
+P_{v}F &amp;= (P(u,0),P(u,1),P_{v}(u,0),P_{v}(u,1))
+\begin{pmatrix}
+f_{0}(v) \
+f_{1}(v) \
+g_{0}(v) \
+g_{1}(v)
+\end{pmatrix}
+\end{aligned}
+$$
+以及修正项
+$$
+\begin{aligned}
+P_{u}P_{v}F &amp;= (f_{0}(u),f_{1}(u),g_{0}(u),g_{1}(u))
+P
+\begin{pmatrix}
+f_{0}(v) \
+f_{1}(v) \
+g_{0}(v) \
+g_{1}(v)
+\end{pmatrix}\
+P &amp;= 
+\begin{pmatrix}
+P(0,0) &amp; P(0,1) &amp; P_{v}(0,0) &amp; P_{v}(0,1) \
+P(1,0) &amp; P(1,1) &amp; P_{v}(1,0) &amp; P_{v}(1,1) \
+P_{u}(0,0) &amp; P_{u}(0,1) &amp; P_{uv}(0,0) &amp; P_{uv}(0,1) \
+P_{u}(1,0) &amp; P_{u}(1,1) &amp; P_{uv}(1,0) &amp; P_{uv}(1,1)
+\end{pmatrix}
+\end{aligned}
+$$
+最终合并为
+$$
+\begin{aligned}
+Q(u,v) &amp;= (1,f_{0}(u),f_{1}(u),g_{0}(u),g_{1}(u))
+\bar{P}
+\begin{pmatrix}
+1 \
+f_{0}(v) \
+f_{1}(v) \
+g_{0}(v) \
+g_{1}(v)
+\end{pmatrix}\
+\bar{P} &amp;= 
+\begin{pmatrix}
+0 &amp; P(u,0) &amp; P(u,1) &amp; P_{v}(u,0) &amp; P_{v}(u,1) \
+P(0,v) \
+P(1,v)  &amp;  &amp; -P\
+P_{u}(0,v) \
+P_{u}(1,v)
+\end{pmatrix}
+\end{aligned}
+$$
+由此定义的插值可交换当且仅当混合偏导可交换
+$$
+P_{uv}(i,j) = P_{vu}(i,j),\quad i,j=0,1
+$$
+矩阵 $B$ 右下 $2$ 阶子矩阵元素称为扭矢向量 twist vectors，通常需要估计这些扭矢。</p>
+<p>![[image-20251203160049425.png|500]]</p>
+<p>一种直接方法是将所有扭矢设为零，然后交互式地调整直到达到要求。也可以从给定的边界数据估计扭矢。</p>
+<ul>
+<li>Adini 扭矢向量：首先构造插值向量 4 个端点的双线性曲面片，然后用该曲面片在中心端点 $(u_{k},v_{j})$ 的混合偏导作为估计值</li>
+<li>Bessel 扭矢：构造 4 张双线性 Coons 曲面片，然后用 $(u_{k},v_{j})$ 处的 4 个混合偏导关于 4 个参数距离加权平均作为估计值。例如 $\alpha_{k}=\frac{u_{k}-u_{k-1}}{u_{k+1}-u_{k-1}},\beta=\frac{v_{k}-v_{k-1}}{v_{k+1}-v_{k-1}}$ 作为距离参数</li>
+</ul>
+<p>![[image-20251203163630667.png|500]]</p>
+<h4 id="3">双 3 次面片</h4>
+<p>使用前面所述的经典 Hermite 多项式，可以得到如下形式的混合函数
+$$
+(f_{0}(u),f_{1}(u),g_{0}(u),g_{1}(u)) = 
+(u^3,u^2,u,1)
+\begin{pmatrix}
+2 &amp; 2 &amp; 1 &amp; 1 \
+-3 &amp; 3 &amp; -3 &amp; -1 \
+ &amp;  &amp; 1 \
+1
+\end{pmatrix} = u^TK
+$$
+于是得到插值曲面
+$$
+Q = u^TKPK^Tv
+$$
+将 $Q$ 写成 Bezier 曲面片
+$$
+Q = \sum_{k=0}^3\sum_{i=0}^3b_{ik}B_{i}^3(u)B_{k}^3(v) = u^TLBL^Tv
+$$
+其中 $B={b_{ik}}$，以及
+$$
+L = 
+\begin{pmatrix}
+-1 &amp; 3 &amp; 3 &amp; 1 \
+3 &amp; -6 &amp; 3 \
+-3 &amp; 3 \
+1
+\end{pmatrix}
+$$
+经过比较得到 $P=K^{-1}LBL^T(K^T)^{-1}$ 。</p>
+<h4 id="gordon">Gordon 曲面</h4>
+<p>设给定曲线网
+$$
+\begin{aligned}
+&amp;f(u_{i},v),\quad i=0,\cdots,n\
+&amp;f(u,v_{k}),\quad k=0,\dots,m
+\end{aligned}
+$$
+则 Gordon 插值曲面是布尔和
+$$
+(P_{u}\oplus P_{v})f = P_{u}f+P_{v}f-PuP_{v}f
+$$
+其中
+$$
+P_{u}f=\sum_{i=0}^nf(u_{i},v)g_{i}(v),\quad P_{v}f=\sum_{k=0}^mf(u,v_{k})h_{k}(v)
+$$
+其中 $g_{i},h_{k}$ 是混合函数。</p>
+<h3 id="gordon-coons_2">三角形上的 Gordon-Coons 曲面</h3>
+<p>Gordon-Coons 曲面可以用于 3 边和 5 边参数域。考虑标准三角形 $(1,0),(0,1),(1,1)$ 。首先插值 $x$ 轴方向
+$$
+P_{x}F = \frac{1-x-y}{1-y}F(0,y) + \frac{x}{1-y}F(1-y,y)
+$$
+在边界上有
+$$
+\begin{aligned}
+P_{x}F &amp;= F(1-y,y),\quad x+y=1\
+P_{x}F &amp;= F(0,y),\quad x=0\
+P_{x}F &amp;= (1-x)F_{00}+xF_{10},\quad y=0
+\end{aligned}
+$$
+类似地，在 $y$ 轴方向
+$$
+P_{y}F = \frac{1-x-y}{1-x}F(x,0)+ \frac{y}{1-x}F(x,1-x)
+$$
+在边界上有
+$$
+\begin{aligned}
+P_{y}F &amp;= F(x,0),\quad y=0\
+P_{y}F &amp;= (1-y)F_{00}+yF_{01},\quad x=0
+\end{aligned}
+$$
+最后在平行于 $y=1-x$ 的直线上插值
+$$
+P_{y=1-x}F = \frac{x}{x+y}F(x+y,0)+ \frac{y}{x+y}F(0,x+y)
+$$
+组合得到
+$$
+Q(x,y) = \frac{1}{2}(P_{x}F+P_{y}F+P_{y=1-x}F-LF)
+$$
+其中 $LF$ 在边界上有
+$$
+\begin{aligned}
+LF\big|<em>{x=0} &amp;= (1-y)F</em>{00}+yF_{01}\
+LF\big|<em>{y=0} &amp;= (1-x)F</em>{00}+xF_{10}\
+LF\big|<em>{y=1-x} &amp;= xF</em>{10}+yF_{01}
+\end{aligned}
+$$
+于是
+$$
+LF = (1-x-y)F_{00}+xF_{10}+yF_{01}
+$$
+代回得到最终的插值曲面。</p>
+<p>![[image-20251203171753341.png|500]]</p>
+<h2 id="_18">光顺曲线曲面</h2>
+<h3 id="_19">基于优化的方法</h3>
+<p>由于添加能量项可能导致非线性问题，需要慎重选择。对于曲线</p>
+<ul>
+<li>弯曲 bending $\int|f''(t)|dt$</li>
+<li>弯曲能量 $E=\int\kappa^2ds$</li>
+<li>急动度 jerk $R=\int|X'''(t)|dt$</li>
+<li>张力 tension $\sigma=\int|f''(t)|^2dt+\alpha^2\int|f'(t)|^2dt$</li>
+<li>离散张力 $\sigma=\int|f''(t)|^2dt+\sum_{i=1}^{n-1}\nu_{i}|f'(t_{i})|^2$</li>
+<li>$\sigma=\int|f'''(t)|^2dt+\sum_{i=1}^{n-1}\nu_{i}|f'(t_{i})|^2+\sum_{i=1}^{n-1}\eta_{i}^2|f''(t_{i})|^2$</li>
+<li>$\sigma=\int\left( \frac{\tau^2}{\kappa^2}+ \frac{\kappa'^2}{\kappa^4} \right)^{1/2}ds$</li>
+</ul>
+<p>对于曲面</p>
+<ul>
+<li>弯曲能量 $U=\iint[(f_{xx}+f_{yy})^2-2(1-\nu)(f_{xx}f_{yy}-f_{xy}^2)]dxdy$</li>
+<li>近似弯曲能量 $U=\iint(\kappa_{1}^2+\kappa_{2}^2)dudv$</li>
+<li>急动度 $U=\alpha \iint| \frac{\partial^3X}{\partial u^3}|^2dudv+\beta \iint| \frac{\partial^3X}{\partial v^3}|^2dudv$</li>
+<li>光顺度量 $U=\iint| \frac{\partial c}{\partial u}\times \frac{\partial c}{\partial v}|dudv$</li>
+</ul>
+<p>其中指标函数为
+$$
+c(u,v) = 
+\begin{cases}
+K(u,v)N(u,v)\quad \mathrm{or} \
+X(u,v)+ \frac{H(u,v)}{K(u,v)}N(u,v)\quad \mathrm{or} \
+[K(u,v)+H(u,v)^2]N(u,v)
+\end{cases}
+$$
+其中 $N,K,H$ 表示单位法向、Gaussian 曲率、平均曲率。</p>
+<p>如果曲线或曲面使用 Bezier 或 B 样条形式，则 TPB 样条（Tensor Product B-spline）的最小化光顺性问题可以通过标准非线性优化方法实现。例如对于曲线，可以最小化
+$$
+(1-\alpha)\sum_{i=1}^n(X(t_{i})-P_{i})^2+\alpha\left[ (1-\beta)\int_{a}^b|X''|^2ds+\beta \int_{a}^b|X'''|^2ds \right]
+$$
+曲面也类似，其中的积分需要使用数值积分方法。将光顺与插值相结合得到
+$$
+U = \frac{1}{2}EI\int_{a}^b\kappa^2(s)ds+ \frac{1}{2}\sum_{i=0}^nc_{i}(P_{i}-P_{i}^<em>)^2
+$$
+其中 $E$ 是弹性模量，$I$ 是惯性矩，$c_{i}$ 是刚度系数，$P_{i}$ 是给定点，$P_{i}^</em>$ 是校正点。扩展到曲线网得到
+$$
+U = \frac{1}{2}\sum_{i=1}^m\sum_{j=1}^n\alpha_{ij}|P_{ij}-Q_{ij}|^2+ \frac{1}{2}EI\left[ \sum_{i=1}^m\int_{C_{i}}\kappa_{u}^2ds_{u}+\sum_{j=1}^n\int_{D_{j}}\kappa_{v}^2ds_{v} \right]
+$$
+另一种方案将曲率积分替换为 2 阶偏导。</p>
+<h3 id="_20">检测问题位置</h3>
+<p>我们首先描述问题 undesirable 的概念。曲线的 undesirable segment 例如</p>
+<ul>
+<li>曲线段应该是凸的，但是存在弯曲 inflection</li>
+<li>曲线段应该只有一个 inflection，但是有更多</li>
+</ul>
+<p>下图分别展示了这两种情况</p>
+<p>![[image-20251208001449485.png|500]]</p>
+<p>曲面的 undesirable segment 例如</p>
+<ul>
+<li>曲面片应该是凸的（正 Gaussian 曲率），但是存在曲率变号</li>
+<li>曲面片应该有负 Gaussian 曲率，但是存在曲率变号</li>
+<li>曲面片的 Gaussian 曲率应该只有一次变换，但存在多次</li>
+</ul>
+<p>检测曲面问题一般使用</p>
+<ul>
+<li>等值线法 isoline：开销大</li>
+<li>反射线法 reflection line：斑马纹</li>
+<li>映射法 mapping</li>
+</ul>
+<h4 id="_21">曲线映射法</h4>
+<p>给定一点 $P$ 不在平面曲线 $X(t)$ 及其切线上，则过 $X(t)$ 上任意一点的切线，可以得到 $P$ 的反射点 $Y_{2}$，于是可以得到 2-orthotomic
+$$
+Y_{2}(t) = P+2[(X(t)-P)\cdot N(t)]N(t)
+$$
+其中 $N(t)$ 是与 $X(t)$ 正交的单位法向。替换其中的因子 2 为 $k$，就得到 $k$ orthotomic 。</p>
+<p>![[image-20251208003413671.png|300]]</p>
+<blockquote>
+<p>[!theorem]
+令 $X(t)$ 是 $C^3$ 正则参数化平面曲线，$P$ 不在 $X(t)$ 及其切线上。关于 $P$ 的 $k$ orthotomic 在 $t=t_{0}$ 处奇异（尖点）当且仅当 $X(t)$ 在 $t=t_{0}$ 存在弯曲 inflection 。</p>
+<p>[!note]
+如果 $P$ 在 $X(t)$ 的切线上，则 $k$ orthotomic 经过 $P$，因此在此处奇异。</p>
+</blockquote>
+<p>例如下图展示一条非凸曲线的 10-orthotomic</p>
+<p>![[image-20251208004535884.png|500]]</p>
+<h4 id="_22">曲面映射法</h4>
+<p>给定一点 $P$ 不在曲面 $X(u,v)$ 及其切平面上，则过 $X(u,v)$ 上任意一点的切平面，可以得到 $P$ 的反射点 $Y_{2}$，于是可以得到 $k$ orthotomic
+$$
+Y(u,v)=P+k[(X(u,v)-P)\cdot N(u,v)]N(u,v)
+$$</p>
+<p>我们有</p>
+<blockquote>
+<p>[!theorem]
+令 $X(u,v)$ 是 $C^3$ 正则参数化曲面，$P$ 不在 $X(u,v)$ 及其切平面上。关于 $P$ 的 $k$ orthotomic 在 $(u_{0},v_{0})$ 处奇异当且仅当 $X(u,v)$ 在 $(u_{0},v_{0})$ 的 Gaussian 曲率为零或变号。</p>
+</blockquote>
+<h3 id="_23">检测错误连接</h3>
+<p>检测边界光顺性的方法是等照度 isophotes，即斑马纹。若 $L$ 是入射光方向，$N$ 是给定曲面的法向，则沿着等照度有
+$$
+N\cdot L=c
+$$
+其中 $c$ 是实常数。</p>
+<blockquote>
+<p>[!theorem]
+若两张曲面沿着曲线 $X$ 有 $C^k$ 连续，则等照度在 $X$ 上只有 $C^{k-1}$ 连续。</p>
+</blockquote>
+<h2 id="_24">复合问题</h2>
+<h3 id="bezier_1">复合 Bezier 单纯形</h3>
+<h4 id="_25">基本概念</h4>
+<p>复合函数的简单应用包括</p>
+<ul>
+<li>求值 evaluation：与常函数复合</li>
+<li>重参数化 reparameterization：变量复合</li>
+<li>细分 subdivision：线性变量复合</li>
+</ul>
+<p>不超过 $k$ 次的多项式 $f(u)$ 可以表示为 Bernstein-Bezier 形式
+$$
+f(u)=\sum_{p=0}^kC_{p}B_{p}^k(u) = \sum_{p=0}^kC_{p}\binom{k}{p}u^p(1-u)^{k-p}
+$$
+我们省略索引范围
+$$
+f(u)=\sum_{p}C_{p}B_{p}^k(u)
+$$
+于是 $d$ 维空间中的 Bezier 曲线为
+$$
+S(u)=\sum_{p}V_{p}B_{p}^k(u)
+$$
+推广 $m$ 次 $n$ 变量 Bernstein 基函数
+$$
+B_{I}^m(u)= \binom{m}{I}u^I = \frac{m!}{i_{0}!\cdots i_{n}!}u_{0}^{i_{0}}\cdots u_{n}^{i_{n}}
+$$
+注意其中只有 $n$ 个自由变量。</p>
+<p>我们需要将 Bernstein 多项式定义在仿射 affine 空间中。于是考虑点集 ${P_{i}}<em>{i=0}^n$ 的仿射组合
+$$
+\sum</em>{i}\alpha_{i}P_{i},\quad \sum_{i}\alpha_{i}=1
+$$
+如果 ${P_{i}}_{i=0}^n$ 中任何一个点都不是其它点的仿射组合，则称该点集中的点处于一般位置。</p>
+<blockquote>
+<p>[!note]
+一个 $n$ 维仿射空间中至多有 $n+1$ 个处于一般位置的点。</p>
+</blockquote>
+<p>设 $P_{0},\cdots,P_{k},k\leq n$ 是仿射空间 $\mathcal{A}$ 中的一般位置，则它们的凸包称为一个 $k$ 单纯形，这些点称为该单纯形的顶点。设 $\mathcal{S}$ 是 $\mathcal{A}$ 中的 $n$ 单纯形，则每个 $u\in \mathcal{A}$ 都可以唯一表示为
+$$
+u = \sum_{i}u_{i}P_{i}
+$$
+其中 $(u_{0},\cdots,u_{n})$ 称为 $u$ 相对于 $\mathcal{S}$ 的重心坐标。于是可以定义 $\mathcal{S}$ 上的 Bernstein 多项式
+$$
+B_{I}^m(u)= B_{I}^m(u_{0},\cdots,u_{n})=\binom{m}{I}u^I
+$$
+首先有</p>
+<blockquote>
+<p>[!lemma]
+$$
+B_{I}^m(u)B_{J}^k(u) = \frac{\binom{m}{I}\binom{k}{J}}{\binom{m+k}{I+J}}B_{I+J}^{m+k}(u)
+$$</p>
+</blockquote>
+<p>最后，我们用 $n$ 维 Bezier 单纯形代表
+$$
+S(u)=\sum_{I}V_{I}B_{I}^m(u),\quad u\in \mathcal{S}
+$$
+其中 $I\in \mathbb{Z}_{+}^n$ 取遍所有多重指标。</p>
+<h4 id="bezier_2">复合 Bezier 曲线</h4>
+<p>给定 $m$ 次 Bezier 曲线 $S(t)=\sum_{I}V_{I}B_{I}^m(t)$ 以及 $k$ 次多项式函数 $f(u)=\sum_{i}C_{i}B_{i}^k(u)$，我们要计算
+$$
+\tilde{S}(u)=S(f(u))=\sum_{J}\tilde{V}<em>{J}B</em>{J}^{mk}(u)
+$$
+该问题的关键是如下定理</p>
+<blockquote>
+<p>[!theorem]
+令 $f:\mathbb{R}\to \mathbb{R},S:\mathbb{R}\to \mathbb{R}^d$ 具有 Bernstein-Bezier 形式，则
+$$
+\tilde{S}(u) = \sum_{i}B_{i}^{m-s}(f(u))\sum_{r}V_{i,r}^{[s]}B_{r}^{ks}(u)
+$$
+其中 $s\in{0,\cdots,m}$ 可以任取，$V_{i,r}^{[s]},i=0,\cdots,m-s,r=0,\cdots,ks$ 递归定义为
+$$
+V_{i,r} =
+\begin{cases}
+V_{i}, &amp; s=0 \
+\frac{1}{\binom{ks}{r}}\sum_{j}\binom{k(s-1)}{j}\binom{k}{r-j}W_{i,j,r-j}^{[s]},  &amp; \mathrm{otherwise}
+\end{cases}
+$$
+其中
+$$
+W_{i,j,r-j}^{[s]}=(1-C_{r-j})V_{i,j}^{[s-1]}+C_{r-j}V_{i+1,j}^{[s-1]}
+$$</p>
+</blockquote>
+<p>下图给出了复合公式的几何解释</p>
+<p>![[image-20260113213131576.png|400]]</p>
+<p>即先计算子三角形 $\sum_{r}V_{i,r}^{[s]}B_{r}^{ks}(u)$，然后计算复合部分。</p>
+<blockquote>
+<p>[!corollary]
+复合（重参数化）曲线 $\tilde{S}$ 的控制网格满足
+$$
+\tilde{V}<em>{r}=V</em>{0,r}^{[m]},\quad r=0,\cdots,mk
+$$</p>
+</blockquote>
+<p>当 $s=m$ 时，复合公式中的 $B_{i}^{m-s}(f(u))$ 项消去。</p>
+<p>虽然上述公式容易递归实现，但是缺少几何直觉。考虑一种变体算法：开花。定义
+$$
+\Delta_{i}(a_{1},\cdots,a_{l}) = 
+\begin{cases}
+(1-a_{1})V_{i}+a_{1}V_{i+1}, &amp; l=1 \
+(1-a_{l})\Delta_{i}(a_{1},\cdots,a_{l-1})+a_{l}\Delta_{i+1}(a_{1},\cdots,a_{l-1}) &amp; \mathrm{otherwise}
+\end{cases}
+$$
+可以将其直观地展现为如下递归关系
+$$
+\begin{matrix}
+&amp;&amp;&amp;\bbox[red]{a_{1}a_{2}a_{3}}\
+&amp;&amp; 1-a_{3}\nearrow &amp;&amp; \nwarrow a_{3}\
+&amp;&amp;\bbox[red]{0a_{1}a_{2}} &amp;&amp; 1a_{1}a_{2}\
+&amp; 1-a_{2}\nearrow &amp;&amp; \nwarrow a_{2}\quad  1-a_{2}\nearrow &amp;&amp; \nwarrow a_{2}\
+&amp;\bbox[red]{00a_{1}} &amp;&amp; 0a_{1}1 &amp;&amp; 11a_{1}\
+1-a_{1}\nearrow &amp;&amp; \nwarrow a_{1}\quad 1-a_{1}\nearrow &amp;&amp; \nwarrow a_{1}\quad 1-a_{1}\nearrow &amp;&amp; \nwarrow a_{1}\
+\bbox[red]{000} &amp;&amp; 001 &amp;&amp; 011 &amp;&amp; 111
+\end{matrix}
+$$
+其中 $000,001,011,111$ 分别表示不同的控制点。</p>
+<h4 id="bezier_3">复合 Bezier 单纯形</h4>
+<blockquote>
+<p>[!theorem]
+令 $f:\mathbb{R}^n\to \mathbb{R}^N,S:\mathbb{R}^N\to \mathbb{R}^d$ 是 $k,m$ 次 $n,N$ 维 Bezier 单纯形，分别表示为
+$$
+\begin{aligned}
+f(u) &amp;= \sum_{I}C_{I}B_{I}^k(u)\
+S(t) &amp;= \sum_{J}V_{J}B_{J}^m(t)
+\end{aligned}
+$$
+则对任意 $s\in{0,\cdots,m}$，有
+$$
+\tilde{S}(u)=\sum_{I}B_{I}^{m-s}(f(u))\sum_{R}V_{I,R}^{[s]}B_{R}^{ks}(u)
+$$
+其中 $V_{I,R}^{[s]},|I|=m-s,|R|=ks$ 递归定义为
+$$
+V_{I,R}^{[s]}=
+\begin{cases}
+V_{I}, &amp; s=0 \
+\frac{1}{\binom{ks}{R}}\sum_{J}\binom{k(s-1)}{J}\binom{k}{R-J}W_{I,J,R-J}^{[s]}, &amp; \mathrm{otherwise}
+\end{cases}
+$$
+其中
+$$
+W_{I,J,R-J}^{[s]} = \sum_{\alpha=0}^NC_{R-J}^{\alpha}V_{I+e_{\alpha},J}^{[s-1]}
+$$
+其中 $C_{R-J}^\alpha$ 是 $C_{R-J}$ 相对于 $S$ 的重心坐标，$e_{\alpha}$ 是只有 $\alpha$ 为 1 的多重指标。</p>
+<p>[!corollary]
+$$
+\tilde{S}(u)=\sum_{|R|=mk}\tilde{V}<em>{R}B</em>{R}^{mk}(u),\quad \tilde{V}<em>{R}=V</em>{0,R}^{[m]}
+$$</p>
+</blockquote>
+<h3 id="bezier_4">复合张量积 Bezier</h3>
+<p>考虑平面 Bezier 曲线 $K(t):\mathbb{R}\to \mathbb{R}^2$ 和张量积 Bezier 曲面 $F(u,v):\mathbb{R}^2\to \mathbb{R}^d$ 的复合问题。</p>
+<p>![[image-20260114211829494.png|400]]</p>
+<p>Bernstein 多项式具有如下性质</p>
+<ul>
+<li>递归公式 $B_{I}^N(t)=(1-t)B_{I}^{N-1}(t)+tB_{I-1}^{N-1}(t)$</li>
+<li>权性 $\sum_{I}B_{I}^N(t)=0$</li>
+<li>乘积公式 $\prod_{k=1}^\alpha B_{I_{k}}^{N_{k}}(t)=\frac{\prod_{k=1}^\alpha\binom{N_{k}}{I_{k}}}{\binom{|N|}{|I|}}B_{|I|}^{|N|}(t)$</li>
+</ul>
+<p>注意多个 Bernstein 多项式乘积还是一个 Bernstein 多项式。</p>
+<p>张量积 Bezier 表示称为 TPB 表示。首先有如下定理</p>
+<blockquote>
+<p>[!theorem]
+令 $K(t):\mathbb{R}\to \mathbb{R}^2$ 是 $N$ 次平面 Bezier 曲线
+$$
+K(t)=\sum_{i}k_{i}B_{i}^N(t)
+$$
+令 $F(u,v):\mathbb{R}^2\to \mathbb{R}^d$ 是 $d$ 维 TPB 曲面
+$$
+F(u,v)=\sum_{i}\sum_{j}b_{i,j}B_{i}^l(u)B_{j}^m(v)
+$$
+则有
+$$
+F(t)=F(K(t))=\sum_{R=0}^{rN}B_{R}B_{R}^{rN}(t),\quad \forall r=\alpha+\beta,\alpha\in{0,\cdots,l},\beta={0,\cdots,m}
+$$
+其中
+$$
+\begin{aligned}
+B_{R} &amp;= \sum_{|I|=R}C_{R}^{\alpha,\beta}(N,I)F^{\alpha,\beta}\
+F^{\alpha,\beta} &amp;= \sum_{i=0}^{l-\alpha}\sum_{j=0}^{m-\beta}b_{i,j}^{i+\alpha,j+\beta}B_{i}^{l-\alpha}(u(t))B_{j}^{m-\beta}(v(t))
+\end{aligned}
+$$</p>
+</blockquote>
+<h2 id="s-patch">S-patch</h2>
+<h3 id="bezier_5">三角 Bezier 曲面片</h3>
+<h4 id="_26">基本概念</h4>
+<p>张量积 Bezier 曲面保持了 Bezier 曲线的诸多性质，但是不具有基函数性质，即
+$$
+\begin{aligned}
+\mathrm{span}(B_{i,n}(t)) &amp;= \pi_{n}(\mathbb{R}^1)\
+\mathrm{span}(B_{i,n}(u)B_{i,m}(v)) &amp;\subset \pi_{n+m}(\mathbb{R}^2)
+\end{aligned}
+$$
+不过我们有
+$$
+\mathrm{span}(J_{i,n}(P)) = \pi_{n}(\mathbb{R}^2)
+$$
+其中 $J_{i,n}(P)$ 是三角域上的 Bernstein 基函数。</p>
+<p>给定非奇异三角形 $T=(P_{0},P_{1},P_{2})$，令逆时针方向面积为正，三角形有向面积记为
+$$
+\mathrm{area}(P_{0},P_{1},P_{2}) = 
+\begin{vmatrix}
+x_{0} &amp; x_{1} &amp; x_{2} \
+y_{0} &amp; y_{1} &amp; y_{2} \
+1 &amp; 1 &amp; 1
+\end{vmatrix}
+$$
+则任意 $P\in\mathbb{R}^2$ 可以表示为
+$$
+\begin{cases}
+P = uP_{0}+vP_{1}+wP_{2} \
+u+v+w = 1
+\end{cases}
+$$
+并且 $u,v,w$ 分别满足
+$$
+u = \frac{\mathrm{area}(P_{1},P_{2},P)}{\mathrm{area}(P_{0},P_{1},P_{2})},\quad
+v = \frac{\mathrm{area}(P_{0},P,P_{2})}{\mathrm{area}(P_{0},P_{1},P_{2})},\quad
+w = \frac{\mathrm{area}(P_{0},P_{1},P)}{\mathrm{area}(P_{0},P_{1},P_{2})}
+$$
+于是 $F(P)=F(uP_{0}+vP_{1}+wP_{2})=f(u,v,w)$ 。</p>
+<h4 id="bernstein">三角域 Bernstein 基函数</h4>
+<p>设 $T=(P_{0},P_{1},P_{2})$ 非奇异，将 $(u+v+w)^n=1$ 展开
+$$
+\sum_{i+j+k=n} \frac{n!}{i!j!k!}u^iv^jw^k = 1 \implies J_{i,j,k}^n(u,v,w) = \frac{n!}{i!j!k!}u^iv^jw^k
+$$
+定义多元指标
+$$
+\begin{aligned}
+\alpha&amp;=(\alpha_{0},\alpha_{1},\alpha_{2})\in \mathbb{Z}^3\
+\alpha! &amp;= \alpha_{0}!\alpha_{1}!\alpha_{2}!\
+|\alpha| &amp;= \alpha_{0}+\alpha_{1}+\alpha_{2}
+\end{aligned}
+$$
+对于 $X=(x_{0},x_{1},x_{2})\in \mathbb{R}^3$，定义
+$$
+\begin{aligned}
+X^\alpha &amp;= x_{0}^{\alpha_{0}}x_{1}^{\alpha_{1}}x_{2}^{\alpha_{2}},\quad\binom{n}{\alpha} = \frac{n!}{\alpha!}\
+X(P) &amp;= (u,v,w)
+\end{aligned}
+$$
+则 $J_{\alpha}^n(P)=\binom{n}{\alpha}X^\alpha(P)$ 。</p>
+<p>基函数 $J_{\alpha}^n(P)$ 具有如下性质</p>
+<ul>
+<li>正性 $J_{\alpha}^n(P)\geq 0$</li>
+<li>角点性质 $J_{\alpha}^n(P_{0})=\begin{cases}1,&amp;\alpha=(n,0,0)\0,&amp;\alpha\neq(n,0,0)\end{cases}$</li>
+<li>权性 $\sum_{|\alpha|=n}J_{\alpha}^n(P)=1$</li>
+<li>递推公式 $J_{i,j,k}^n=uJ_{i-1,j,k}^{n-1}+vJ_{i,j-1,k}^{n-1}+wJ_{i,j,k-1}^{n-1}$</li>
+<li>升阶公式 $J_{i,j,k}^n=\frac{i+1}{n+1}J_{i+1,j,k}^{n+1}+\frac{j+1}{n+1}J_{i,j+1,k}^{n+1}+\frac{k+1}{n+1}J_{i,j,k+1}^{n+1}$</li>
+<li>完全基函数：记 $B_{n}={J_{i,j,k}^n(u,v,w):i+j+k=n}$，则 $B_{n}$ 是 $\mathbb{R}^2$ 上的线性无关基</li>
+</ul>
+<h4 id="bezier_6">Bezier 三角曲面片</h4>
+<p>给定 $\mathbb{R}^3$ 中的点集 ${Q_{i,j,k}:i+j+k=n}$，则
+$$
+B^n(P)=B^n(u,v,w)=\sum_{i+j+k=n}Q_{i,j,k}J_{i,j,k}^n(P)
+$$
+称为 $T$ 上的 $n$ 次 Bezier 三角曲面片。</p>
+<p>![[image-20260109221418788.png|400]]</p>
+<p>Bezier 三角曲面片具有</p>
+<ul>
+<li>仿射不变性</li>
+<li>凸包性</li>
+<li>插值角点与边界曲线</li>
+</ul>
+<p>可以用<strong>指标位移算子</strong> $E_{0},E_{1},E_{2}$ 表示
+$$
+B^n(P) = (uE_{0}+vE_{1}+wE_{2})^nQ_{0,0,0}
+$$
+这种表示可以方便地处理控制点索引。</p>
+<p>根据基函数升阶公式有
+$$
+B^n(P) = \sum_{i+j+k=n}Q_{i,j,k}J_{i,j,k}^n(P) = 
+\sum_{i+j+k=n+1} \frac{iQ_{i-1,j,k}+jQ_{i,j-1,k}+kQ_{i,j,k-1}}{n+1}J_{i,j,k}^{n+1}(P)
+$$
+随着升阶，控制点收敛于曲面。</p>
+<h4 id="_27">重心分割</h4>
+<p>考虑将一张三角面片划分为子三角面片。一种划分方式如下</p>
+<p>![[image-20260109230144630.png|300]]</p>
+<p>设 $C$ 的重心坐标为 $(u_{c},v_{c},w_{c})$，则任意 $P$，其在 $T,T_{0}$ 的重心坐标为 $(u,v,w),(u_{0},v_{0},w_{0})$，则
+$$
+\begin{aligned}
+P &amp;= u_{0}C+v_{0}P_{1}+w_{0}P_{2}\
+C &amp;= u_{c}P_{0}+v_{c}P_{1}+w_{c}P_{2}
+\end{aligned}
+$$
+于是
+$$
+P=u_{0}u_{c}P_{0}+(u_{0}v_{c}+v_{0})P_{1}+(u_{0}w_{c}+w_{0})P_{2}
+$$
+必然有
+$$
+\begin{cases}
+u = u_{0}u_{c} \
+v = u_{0}v_{c}+v_{0} \
+w = u_{0}w_{c}+w_{0}
+\end{cases}
+$$
+令 $E=(E_{0},E_{1},E_{2})$，则
+$$
+\begin{aligned}
+B^n(P) &amp;= ((u,v,w)E)^nQ_{0,0,0}\
+&amp;= ((u_{c},v_{c},w_{c})Eu_{0}+v_{0}E_{1}+w_{0}E_{2})^nQ_{0,0,0}\
+&amp;= \sum_{i+j+k=n}(u_{c}E_{0}+v_{c}E_{1}+w_{c}E_{2})^iQ_{0,j,k}J_{i,j,k}^{n,T_{0}}(u_{0},v_{0},w_{0})
+\end{aligned}
+$$
+一般取 $C=\left( \frac{1}{3}, \frac{1}{3}, \frac{1}{3} \right)$，不过这种划分方法存在奇异性，不收敛。</p>
+<p>另一种划分方式为</p>
+<p>![[image-20260109230848663.png|300]]</p>
+<p>可以类似地得到
+$$
+Q_{i,j,k}^l = 
+\begin{cases}
+\frac{1}{2^{n-i}}E_{0}^i(E_{0}+E_{1})^j(E_{0}+E_{2})^kQ_{0,0,0}, &amp; l=0 \
+\frac{1}{2^{n-j}}(E_{1}+E_{0})^iE_{1}^j(E_{1}+E_{2})^kQ_{0,0,0}, &amp; l=1 \
+\frac{1}{2^{n-k}}(E_{2}+E_{0})^i(E_{2}+E_{1})^jE_{2}^kQ_{0,0,0}, &amp; l=2 \
+\frac{1}{2^{n}}(E_{1}+E_{2})^i(E_{2}+E_{0})^j(E_{0}+E_{1})^kQ_{0,0,0}, &amp; l=3
+\end{cases}
+$$
+其中 $l$ 上标对应子三角形索引。</p>
+<h4 id="_28">方向导数</h4>
+<p>考虑两个不同的重心坐标点 $Q_{1}=(u_{1},v_{1},w_{1}),Q_{2}=(u_{2},v_{2},w_{2})$，则
+$$
+z = Q_{1}-Q_{2}=(u_{1}-u_{2},v_{1}-v_{2},w_{1}-w_{2})=(\lambda,\mu,\gamma)
+$$
+满足
+$$
+\begin{cases}
+z = \lambda P_{0}+\mu P_{1}+\gamma P_{2} \
+\lambda+\mu+\gamma=0
+\end{cases}
+$$
+称 $(\lambda,\mu,\gamma)$ 为 $z$ 关于 $T$ 的零心坐标。定义 $z$ 方向导数
+$$
+\begin{aligned}
+D_{z}F(P) &amp;= \lim_{ t \to 0 } \frac{F(P+tz)-F(P)}{t}\
+&amp;= \lim_{ t \to 0 } \frac{f(u+t\lambda,v+t\mu,w+t\gamma)-f(u,v,w)}{t}\
+&amp;= \lambda f_{u}+\mu f_{v}+\gamma f_{w}\
+&amp;= \sum_{|\alpha|=1}(\lambda,\mu,\gamma)^\alpha \partial_{\alpha}f
+\end{aligned}
+$$
+可以归纳证明
+$$
+D_{z}^rF(P) = \left( \lambda \frac{\partial}{\partial u}+\mu \frac{\partial}{\partial v}+ \gamma \frac{\partial}{\partial w} \right)^rf = \sum_{|\alpha|=r}J_{\alpha}^r(\lambda,\mu,\gamma)\partial_{\alpha}f
+$$
+其中 $J_{\alpha}^r$ 是 $r$ 次 Bernstein 基函数。</p>
+<p>![[image-20260111235241686.png|300]]</p>
+<p>根据方向导数公式
+$$
+\begin{aligned}
+D_{z}^rJ_{\alpha}^n(u,v,w) &amp;= \sum_{|\beta|=r}J_{\beta}^r(\lambda,\mu,\gamma)\partial_{\beta}J_{\alpha}^n(u,v,w)\
+&amp;= \sum_{|\beta|=r}J_{\beta}^r(\lambda,\mu,\gamma) \frac{n!}{\alpha!}\partial^\beta (u,v,w)^\alpha\
+&amp;= \sum_{|\beta|=r}J_{\beta}^r(\lambda,\mu,\gamma) \frac{n!}{\alpha!} (u,v,w)^{\alpha-\beta}\
+&amp;= \frac{n!}{(n-r)!}\sum_{|\beta|=r}J_{\beta}^r(\lambda,\mu,\gamma)J_{\alpha-\beta}^{n-r}(u,v,w)
+\end{aligned}
+$$
+因此对于 Bezier 三角片有
+$$
+\begin{aligned}
+D_{z}^rB^n(P) &amp;= \sum_{|\alpha|=n}Q_{\alpha}\frac{n!}{(n-r)!}\sum_{|\beta|=r}J_{\beta}^r(\lambda,\mu,\gamma)J_{\alpha-\beta}^{n-r}(u,v,w)\
+&amp;= \frac{n!}{(n-r)!}\sum_{|\delta|=n-r}J_{\delta}^{n-r}(u,v,w)\sum_{|\beta|=r}Q_{\delta+\beta}J_{\beta}^r(\lambda,\mu,\gamma),\quad \delta=\alpha-\beta\
+&amp;= \frac{n!}{(n-r)!}\sum_{|\delta|=n-r}J_{\delta}^{n-r}(u,v,w)(\lambda E_{0}+\mu E_{1}+\gamma E_{2})^rQ_{\delta}\
+&amp;= \frac{n!}{(n-r)!}(uE_{0}+vE_{1}+wE_{2})^{n-r}(\lambda E_{0}+\mu E_{1}+\gamma E_{2})^rQ_{\delta}
+\end{aligned}
+$$
+表示为位移算子形式。</p>
+<h4 id="bezier_7">有理 Bezier 三角曲面片</h4>
+<p>有理三角 Bezier 三角曲面片一般形式为
+$$
+b^n(P) = \frac{B^n(P)}{w^n(P)}=\frac{\sum_{|\alpha|=n}w_{\alpha}Q_{\alpha}J_{\alpha}^n(P)}{\sum_{|\alpha|=n}w_{\alpha}J_{\alpha}^n(P)}
+$$
+利用乘积形式求导
+$$
+U^n(P) = w^n(P)b^n(P) = B^n(P)
+$$
+于是
+$$
+D_{z}U^n(P) = b^n(P)D_{z}w^n(P)+w^n(P)D_{z}b^n(P) \implies D_{z}b^n(P) = \frac{D_{z}U^n(P) - b^n(P)D_{z}w^n(P)}{w^n(P)}
+$$
+即为求导公式。</p>
+<h3 id="s-patch_1">S-patch</h3>
+<p>![[image-20260112002014077.png|500]]</p>
+<h3 id="s-patch_2">有理 S-patch</h3>
+<h3 id="g1">$G^1$ 补洞</h3>
+<h3 id="_29">球面表示</h3>
+<h3 id="bezier_8">混合 Bezier</h3>
+<h3 id="nrubs">转换为 NRUBS</h3>
+<h2 id="_30">符号运算</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

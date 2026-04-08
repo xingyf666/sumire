@@ -1,0 +1,2303 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>量子信息与量子计算（下） - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              量子信息与量子计算（下）
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量子电路
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子电路">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        单量子比特操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        受控操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量子傅里叶变换及其应用
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子傅里叶变换及其应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量子傅里叶变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相位估计
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        求阶应用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        因子分解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        周期查找
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        离散对数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        隐含子群
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量子搜索
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子搜索">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量子搜索算法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="量子搜索算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#oracle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Oracle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        算法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        几何可视化
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量子模拟
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        量子计数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#np" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NP 完全问题的加速
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        无结构数据库搜索
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最优性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        黑盒算法的极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">量子信息与量子计算（下）</h1>
+<h2 id="_2">量子电路</h2>
+<p>已知的相关量子算法，核心是量子搜索和量子傅里叶变换。量子计数算法是量子搜索和量子傅里叶变换的结合，能够比经典计算机算法更快地估计搜索问题解的个数。</p>
+<p>![[image-20240507115630407.jpeg|775]]</p>
+<h3 id="_3">单量子比特操作</h3>
+<p>单量子比特是形如 $|\psi\rangle=a|0\rangle+b|1\rangle$ 的向量，满足 $|a|^2+|b|^2=1$ 。量子比特上的操作必须保范数，因此是 2 阶酉矩阵。泡利矩阵是其中最重要的矩阵
+$$
+X = 
+\begin{bmatrix}
+0  &amp; 1 \
+1 &amp; 0 
+\end{bmatrix},\quad 
+Y = 
+\begin{bmatrix}
+0 &amp; -i \
+i &amp; 0
+\end{bmatrix},\quad
+Z = 
+\begin{bmatrix}
+1 &amp; 0  \
+0 &amp; -1
+\end{bmatrix}
+$$
+另外三个量子门非常常见
+$$
+H = \frac{1}{\sqrt{ 2 }}
+\begin{bmatrix}
+1 &amp; 1 \
+1 &amp; -1
+\end{bmatrix},\quad
+S = 
+\begin{bmatrix}
+1 &amp; 0 \
+0 &amp; i
+\end{bmatrix},\quad
+T = 
+\begin{bmatrix}
+1 &amp; 0 \
+0 &amp; e^{i\pi/4}
+\end{bmatrix}
+$$
+分别是阿达玛门、相位门和 $\frac{\pi}{8}$ 门，满足
+$$
+H=\frac{X+Z}{\sqrt{ 2 }},\quad S=T^2
+$$
+其中 $T$ 被称为 $\frac{\pi}{8}$ 门是因为可以提取一个 $e^{i\pi/8}$ 全局相位，得到对角元均为 $e^{\pm i\pi/8}$ 的门。</p>
+<blockquote>
+<p>[!exercise]
+找到布洛赫球面上对应于不同泡利矩阵的归一化特征向量的点。</p>
+</blockquote>
+<p>由于泡利矩阵的特征对为
+$$
+\begin{aligned}
+\sigma_1 &amp;=
+\begin{bmatrix}
+0 &amp; 1\
+1 &amp; 0
+\end{bmatrix},\quad 
+\begin{cases}
+\lambda_1=1,\quad |v_1\rangle=\frac{1}{\sqrt{2}}(|0\rangle+|1\rangle)\
+\lambda_2 = -1,\quad |v_2\rangle = \frac{1}{\sqrt{2}}(|0\rangle-|1\rangle)
+\end{cases}
+\
+\sigma_2 &amp;=
+\begin{bmatrix}
+0 &amp; -i\
+i &amp; 0
+\end{bmatrix},\quad
+\begin{cases}
+\lambda_1=1,\quad |v_1\rangle=\frac{1}{\sqrt{2}}(|0\rangle+i|1\rangle)\
+\lambda_2 = -1,\quad |v_2\rangle = \frac{1}{\sqrt{2}}(|0\rangle-i|1\rangle)
+\end{cases}
+\
+\sigma_3 &amp;=
+\begin{bmatrix}
+1 &amp; 0\
+0 &amp; -1
+\end{bmatrix},\quad 
+\begin{cases}
+\lambda_1=1,\quad |v_1\rangle=|0\rangle\
+\lambda_2 = -1,\quad |v_2\rangle = |1\rangle
+\end{cases}
+\end{aligned}
+$$
+将它们分别表示为布洛赫球面上的点 $(\varphi,\theta)$，得到
+$$
+\sigma_{1}:\begin{cases}
+|v_{1}\rangle=\left( 0, \frac{\pi}{2}\right) \
+|v_{2}\rangle=\left( \pi, \frac{\pi}{2}\right)
+\end{cases},\quad
+\sigma_{2}:\begin{cases}
+|v_{1}\rangle=\left( \frac{\pi}{2}, \frac{\pi}{2}\right) \
+|v_{2}\rangle=\left( \frac{3\pi}{2}, \frac{\pi}{2}\right)
+\end{cases},\quad
+\sigma_{3}:\begin{cases}
+|v_{1}\rangle=\left( \varphi, 0 \right) \
+|v_{2}\rangle=\left( \varphi, \pi \right)
+\end{cases}
+$$
+注意 $\sigma_{3}$ 对应两极，因此 $\varphi$ 的值可以任取。
+![[image-20240528140808610.png|350]]</p>
+<p>泡利矩阵出现在指数中时产生了三类有用的酉矩阵，即关于 $\hat{x},\hat{y},\hat{z}$ 的旋转算子，定义为
+$$
+\begin{aligned}
+R_{x}(\theta) &amp;= e^{-i\theta X/2}=\cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}X=
+\begin{bmatrix}
+\cos \frac{\theta}{2} &amp; -i\sin \frac{\theta}{2} \
+-i\sin \frac{\theta}{2} &amp; \cos \frac{\theta}{2}
+\end{bmatrix}\
+R_{y}(\theta) &amp;= e^{-i\theta Y/2}=\cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}Y=
+\begin{bmatrix}
+\cos \frac{\theta}{2} &amp; -\sin \frac{\theta}{2} \
+\sin \frac{\theta}{2} &amp; \cos \frac{\theta}{2}
+\end{bmatrix}\
+R_{z}(\theta) &amp;= e^{-i\theta Z/2}=\cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}Z=
+\begin{bmatrix}
+e^{-i\theta/2} &amp; 0 \
+0 &amp; e^{i\theta/2}
+\end{bmatrix}
+\end{aligned}
+$$
+显然除了一个全局相位，$\frac{\pi}{8}$ 门满足 $T=R_{z}\left( \frac{\pi}{4} \right)$ ​ 。</p>
+<blockquote>
+<p>[!exercise]
+令 $x$ 为实数，$A$ 为满足 $A^2=I$ 的矩阵，证明
+$$
+e^{iAx}=\cos (x)I+i\sin (x)A
+$$
+利用这一结果验证 $R_{x},R_{y},R_{z}$ 成立。</p>
+</blockquote>
+<p>利用泰勒展开重组（解答似乎有问题，本书并未通过泰勒展开给出矩阵指数的定义，仅仅给出了正规算子的指数定义）
+$$
+\begin{align}
+e^{iAx} &amp;= I+ixA-\frac{1}{2}x^2A^2-\frac{1}{6}ix^3A^3+\cdots \
+&amp;= \left( I-\frac{1}{2}x^2A^2+\frac{1}{24}x^4A^4+\cdots \right)+i\left( xA-\frac{1}{6}x^3A^3+\frac{1}{120}x^5A^5\cdots \right) \
+&amp;= \left( 1-\frac{1}{2}x^2+\frac{1}{24}x^4+\cdots \right)I+i\left( x-\frac{1}{6}x^3+\frac{1}{120}x^5+\cdots \right)A \
+&amp;= \cos(x)I+i\sin(x)A
+\end{align}
+$$
+其中利用 $A^2=I$ 约去了高阶项。</p>
+<blockquote>
+<p>[!exercise]
+给定一个 $\varphi$，将阿达玛门 $H$ 表示为旋转算子 $R_x,R_y,e^{i\varphi}$ 的积。</p>
+</blockquote>
+<p>考虑 $H$ 作用在 $R_{x},R_{y},R_{z}$ 特征向量上的结果
+$$
+\sigma_{1}^z\to \sigma_{1}^x,\quad \sigma_{2}^x\to \sigma_{2}^z,\quad \sigma_{1}^y\to\sigma_{2}^y
+$$
+因此从几何上看，$H$ 等价于绕着 $y$ 轴旋转 $\frac{\pi}{2}$ 然后绕 $x$ 轴旋转 $\pi$，因此写成
+$$
+H = R_{x}(\pi)R_{y}\left( \frac{\pi}{2} \right)e^{i\varphi}
+$$
+展开后容易得到 $\varphi=\frac{3\pi}{2}$ 。</p>
+<p>若 $\hat{n}=(n_{x},n_{y},n_{z})$ 是三维空间中的单位实向量，则可定义</p>
+<p>$$
+R_{\hat{n}}(\theta)=e^{-i\theta \hat{n}\cdot \vec{\sigma}/2}=\cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}(n_{x}X+n_{y}Y+n_{z}Z)
+$$
+其中 $\vec{\sigma}$ 表示泡利矩阵组成的向量 $(X,Y,Z)$ 。</p>
+<blockquote>
+<p>[!exercise]
+证明 $(\hat{n}\cdot \vec{\sigma})^2=I$，并由此证明上面定义等式成立。</p>
+</blockquote>
+<p>直接展开得到
+$$
+\begin{aligned}
+(\hat{n}\cdot \vec{\sigma})^2&amp;=(n_{x}X+n_{y}Y+n_{z}Z)^2\
+&amp;=n_{x}^2X^2+n_{y}^2Y^2+n_{z}^2Z^2+n_{x}n_{y}XY+n_{y}n_{x}YX+n_{x}n_{z}XZ+n_{z}n_{x}ZX+n_{y}n_{z}YZ+n_{z}n_{y}ZY\
+&amp;=I+n_{x}n_{y}(XY+YX)+n_{x}n_{z}(XY+XZ)+n_{y}n_{z}(YZ+ZY)
+\end{aligned}
+$$
+注意到括号中和均为零，即证。</p>
+<blockquote>
+<p>[!exercise] 旋转的布洛赫球解释
+假设单量子比特态可由布洛赫向量 $\vec{\lambda}$ 表示，则旋转 $R_{\hat{n}}(\theta)$ 对该状态的作用是在布洛赫球面上关于 $\vec{n}$ 轴旋转 $\theta$ 角。</p>
+</blockquote>
+<p>容易验证 $R_{x},R_{y},R_{z}$ 是绕 $x,y,z$ 轴的旋转。然后考虑 $R_{\hat{n}}(\theta)$ 的分解：假设 $\hat{n}\neq z$，首先考虑一个将 $\hat{n}=(\varphi_{n},\theta_{n})$ 旋转到 $z$ 轴的变换 $A$，它可由两个旋转构成</p>
+<ol>
+<li>绕 $z$ 轴旋转 $-\varphi_{n}$ 角；</li>
+<li>绕 $y$ 轴旋转 $-\theta_{n}$ 角；</li>
+</ol>
+<p>于是有
+$$
+R_{\hat{n}}(\theta)v=A^{-1}[AR_{\hat{n}}(\theta)A^{-1}]Av=A^{-1}[R_{y}(-\theta_{n})R_{z}(-\varphi_{n})R_{\hat{n}}(\theta)R_{z}(\varphi_{n})R_{y}(\theta_{n})]Av
+$$
+需要验证
+$$
+R_{y}(-\theta_{n})R_{z}(-\varphi_{n})R_{\hat{n}}(\theta)R_{z}(\varphi_{n})R_{y}(\theta_{n}) = R_{z}(\theta)
+$$
+即需要
+$$
+R_{\hat{n}}(\theta) = R_{z}(\varphi_{n})R_{y}(\theta_{n})R_{z}(\theta)R_{y}(-\theta_{n})R_{z}(-\varphi_{n})
+$$
+考虑泡利矩阵的性质
+$$
+\begin{align}
+[X,Y]&amp;=2iZ,\quad [Y,Z]=2iX,\quad [Z,X]=2iY \
+XY&amp;=iZ,\quad YZ=iX,\quad ZX=iY
+\end{align}
+$$
+首先展开第一部分
+$$
+\begin{align}
+R_{y}(\theta_{n})R_{z}(\theta)R_{y}(-\theta_{n}) &amp;= \left[\cos \frac{\theta_{n}}{2}I-i\sin \frac{\theta_{n}}{2}Y \right]\left[ \cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}Z \right]\left[ \cos \frac{\theta_{n}}{2}I+i\sin \frac{\theta_{n}}{2}Y \right] \
+&amp;= \cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}[-i\sin \theta_{n}YZ+\cos \theta_{n} Z] \
+&amp;= \cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}[\sin \theta_{n}X+\cos \theta_{n}Z]
+\end{align}
+$$
+这里实际上已经出现绕轴 $(\sin \theta_{n},0,\cos \theta_{n})$ 的旋转。同理展开第二部分
+$$
+R_{z}(\varphi_{n})R_{y}(\theta_{n})R_{z}(\theta)R_{y}(-\theta_{n})R_{z}(-\varphi_{n}) = \cos \frac{\theta}{2}I-i\sin \frac{\theta}{2}[\cos \varphi_{n}\sin \theta_{n}X+ \sin \varphi_{n}\sin \theta_{n}Y+\cos \theta_{n}Z]
+$$
+其中 $(\cos \varphi_{n}\sin \theta_{n},\sin \varphi_{n}\sin \theta_{n},\cos \theta_{n})$ 就是 $\hat{n}$ 轴。</p>
+<blockquote>
+<p>[!exercise]
+证明 $XYX=-Y$，并得到 $XR_{y}(\theta)X=R_{y}(-\theta)$ 。</p>
+</blockquote>
+<p>利用 $XY=-YX,X^2=I$ 直接展开验证即可。</p>
+<blockquote>
+<p>[!exercise]
+对实数 $\alpha,\theta$，三维实单位向量 $\vec{n}$，任意单量子比特酉算子可表示为
+$$
+U=\exp(i\alpha)R_{\vec{n}}(\theta)
+$$
+并求出阿达玛门 $H$ 和 $S=\mathrm{diag}(1,i)$ 对应的 $\alpha,\theta,\vec{n}$ 。</p>
+</blockquote>
+<p>将右式展开得到
+$$
+e^{i\alpha}
+\begin{bmatrix}
+\cos \frac{\theta}{2}-i\sin \frac{\theta}{2}n_{z} &amp; -i\sin \frac{\theta}{2}n_{x}-\sin \frac{\theta}{2}n_{y} \
+-i\sin \frac{\theta}{2}n_{x}+\sin \frac{\theta}{2}n_{y} &amp; \cos \frac{\theta}{2}+i\sin \frac{\theta}{2}n_{z}
+\end{bmatrix}
+$$
+容易验证这确实是酉矩阵。不妨设 $U=[u_{ij}]$，于是有
+$$
+\begin{align}
+u_{11}+u_{22}&amp;=2e^{i\alpha}\cos \frac{\theta}{2} \
+u_{12}+u_{21}&amp;=-2ie^{i\alpha}\sin \frac{\theta}{2}n_{x} \
+u_{12}-u_{21}&amp;=-2e^{i\alpha}\sin \frac{\theta}{2}n_{y} \
+u_{11}-u_{22}&amp;=-2ie^{i\alpha}\sin \frac{\theta}{2}n_{z}
+\end{align}
+$$
+若 $u_{12}=u_{21},u_{11}=u_{22}$，则 $U$ 为对角阵，容易求解；若两个等式至多有一个成立，不妨设 $u_{11}=u_{22}$，则 $n_{z}=0$ 成立，利用中间两式之比可以算出 $\frac{n_{x}}{n_{y}}$，利用 $n$ 为单位向量可算出 $n$，利用 1,3 式之比可以算出 $\theta$，进而算出 $\alpha$ 。</p>
+<blockquote>
+<p>[!theorem] 单量子比特的 $Z-Y$ 分解
+假设 $U$ 是单量子比特上的酉算子，则存在实数 $\alpha,\beta,\gamma,\delta$ 使得
+ $$
+U = e^{i\alpha}R_{z}(\beta)R_{y}(\gamma)R_{z}(\delta)
+$$</p>
+</blockquote>
+<p>由于 $U$ 是酉算子，其行列正交，则存在实数 $\alpha,\beta,\gamma,\delta$ 使得
+$$
+U = \begin{bmatrix}
+e^{i(\alpha-\beta/2-\delta/2)}\cos \frac{\gamma}{2} &amp; -e^{i(\alpha-\beta/2+\delta/2)}\sin \frac{\gamma}{2} \
+e^{i(\alpha+\beta/2-\delta/2)}\sin \frac{\gamma}{2} &amp; e^{i(\alpha+\beta/2+\delta/2)}\cos \frac{\gamma}{2}
+\end{bmatrix}
+$$
+由旋转矩阵定义和乘法即证。</p>
+<blockquote>
+<p>[!exercise] 
+证明任何单量子比特酉算子均可表示为上述形式。</p>
+</blockquote>
+<p>令 $\lambda=\beta+\delta,\mu=\beta-\delta$，将原式变换为
+$$
+U = e^{i\alpha}
+\begin{bmatrix}
+e^{-i\lambda/2}\cos \frac{\gamma}{2} &amp; -e^{-i\mu/2}\sin \frac{\gamma}{2} \
+e^{i\mu/2}\sin \frac{\gamma}{2} &amp; e^{i\lambda/2}\cos \frac{\gamma}{2}
+\end{bmatrix}
+$$
+不妨设 $U=[u_{ij}]$，于是有
+$$
+\begin{align}
+u_{11}+u_{22}&amp;=2e^{i\alpha}\cos \frac{\gamma}{2}\cos \frac{\lambda}{2} \
+u_{12}+u_{21}&amp;=2ie^{i\alpha}\sin \frac{\gamma}{2}\sin \frac{\mu}{2} \
+u_{12}-u_{21}&amp;=-2e^{i\alpha}\sin \frac{\gamma}{2}\cos \frac{\mu}{2} \
+u_{11}-u_{22}&amp;=-2ie^{i\alpha}\sin \frac{\gamma}{2}\sin \frac{\lambda}{2}
+\end{align}
+$$
+两两相除即可解得 $\gamma,\mu,\lambda,\alpha$，即证。</p>
+<blockquote>
+<p>[!exercise] 旋转 $X-Y$ 分解
+用 $R_{x}$ 代替 $R_{z}$ 得到酉算子的分解式。</p>
+</blockquote>
+<p>考虑形式 $U= e^{i\alpha}R_{x}(\beta)R_{y}(\gamma)R_{x}(\delta)$，则右边展开同上可证。</p>
+<blockquote>
+<p>[!exercise]
+假设 $\hat{m},\hat{n}$ 是互不平行的三维实单位向量，证明存在 $\alpha,\beta_{k},\gamma_{k}$ 使得任意单量子比特酉算子可被表示为
+$$
+U = e^{i\alpha}R_{\hat{n}}(\beta_{1})R_{\hat{m}}(\gamma_{1})R_{\hat{n}}(\beta_{2})R_{\hat{m}}(\gamma_{2})\cdots
+$$</p>
+</blockquote>
+<p>没有找到解答，只找到证明存在酉算子不能分解为前面的 3 个旋转复合的形式。考虑 $\hat{n}=\hat{z}$，则容易证明
+$$
+U' = e^{i\alpha}R_{\hat{n}}(\beta_{1})R_{\hat{m}}(\gamma_{1})R_{\hat{n}}(\beta_{2})
+$$
+对应 $(1,1)$ 元素的模为
+$$
+\sqrt{ \cos^2\frac{\gamma_{1}}{2}+\hat{m}<em>{z}^2\sin^2 \frac{\gamma</em>{2}}{2} }
+$$
+只要 $U$ 对应的 $(1,1)$ 元素模小于此值，则必然不存在上述分解。</p>
+<blockquote>
+<p>[!corollary]
+设 $U$ 是作用在单量子比特上的酉门，则单量子比特上存在酉算子 $A,B,C$ 使得 $ABC=I$ 且 $U=e^{i\alpha}AXBXC$，其中 $\alpha$ 是全局相位因子。</p>
+</blockquote>
+<p>设 $A=R_{z}(\beta)R_{y}\left( \frac{\gamma}{2} \right),B=R_{y}\left( -\frac{\gamma}{2} \right)R_{z}\left( -\frac{\delta+\beta}{2} \right),C=R_{z}\left( \frac{\delta-\beta}{2} \right)$，于是 $ABC = I$，并且
+$$
+XBX = XR_{y}\left( -\frac{\gamma}{2} \right)XXR_{z}\left( -\frac{\delta+\beta}{2} \right)X=R_{y}\left( \frac{\gamma}{2} \right)R_{z}\left( \frac{\delta+\beta}{2} \right)
+$$
+则有
+$$
+AXBXC = R_{z}(\beta)R_{y}\left( \frac{\gamma}{2} \right)R_{y}\left( \frac{\gamma}{2} \right)R_{z}\left( \frac{\delta+\beta}{2} \right)R_{z} \left( \frac{\delta-\beta}{2} \right)=R_{z}(\beta)R_{y}(\gamma)R_{z}(\delta)
+$$
+代回即证。</p>
+<blockquote>
+<p>[!exercise] 
+求出阿达玛门 $H$ 对应的 $A,B,C,\alpha$ 。</p>
+</blockquote>
+<p>根据</p>
+<p>$$
+H = \begin{bmatrix}
+e^{i(\alpha-\beta/2-\delta/2)}\cos \frac{\gamma}{2} &amp; -e^{i(\alpha-\beta/2+\delta/2)}\sin \frac{\gamma}{2} \
+e^{i(\alpha+\beta/2-\delta/2)}\sin \frac{\gamma}{2} &amp; e^{i(\alpha+\beta/2+\delta/2)}\cos \frac{\gamma}{2}
+\end{bmatrix}
+$$
+不妨取 $\beta=0,\gamma=\frac{\pi}{2}$，于是</p>
+<p>$$
+H = \frac{1}{\sqrt{ 2 }} e^{i(\alpha-\delta/2)}
+\begin{bmatrix}
+1 &amp; -e^{i\delta} \
+1 &amp; e^{i\delta}
+\end{bmatrix}
+$$
+再取 $\delta=\pi$，于是只需要 $\alpha=\frac{\pi}{2}$ 即可。再根据推论构造 $A,B,C$ 即可。</p>
+<blockquote>
+<p>[!exercise] 电路恒等
+运用著名恒等关系检查简化电路很有用处：
+$$
+HXH = Z,\quad HYH = -Y,\quad HZH = X
+$$</p>
+</blockquote>
+<p>通过矩阵乘法容易验证等式。</p>
+<blockquote>
+<p>[!exercise] 
+在忽略全局相位的情况下 $HTH=R_{x}\left( \frac{\pi}{4} \right)$ 。</p>
+</blockquote>
+<p>考虑矩阵乘积</p>
+<p>$$
+HTH = 
+\frac{1}{\sqrt{ 2 }}\begin{bmatrix}
+1  &amp; 1 \
+1 &amp; -1
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 0 \
+0 &amp; e^{i\pi/4}
+\end{bmatrix}
+\frac{1}{\sqrt{ 2 }}
+\begin{bmatrix}
+1 &amp; 1 \
+1 &amp; -1
+\end{bmatrix} = \frac{1}{2}
+\begin{bmatrix}
+1+e^{i\pi/4} &amp; 1-e^{i\pi/4} \
+1-e^{i\pi/4} &amp; 1+e^{i\pi/4}
+\end{bmatrix} =  \
+e^{i\pi/8}
+\begin{bmatrix}
+\cos \frac{\pi}{8} &amp; -i\sin \frac{\pi}{8} \
+-i\sin \frac{\pi}{8}  &amp; \cos \frac{\pi}{8}
+\end{bmatrix} = e^{i\pi/8}R_{x}\left( \frac{\pi}{4} \right)
+$$
+即证。</p>
+<blockquote>
+<p>[!exercise] 单量子比特运算组合
+布洛赫表示对旋转结合提供了一种可见效果的方法。
+1. 证明如果先绕轴 $\hat{n}<em>{1}$ 旋转 $\beta</em>{1}$ 角，再绕 $\hat{n}<em>{2}$ 旋转 $\beta</em>{2}$ 角，则整个旋转过程可表示为绕 $n_{12}$ 旋转 $\beta_{12}$​ 角，其中
+    $$
+    \begin{align}
+    c_{12}&amp;=c_1c_2-s_1s_2\hat{n}<em>1\cdot\hat{n}_2\
+    s</em>{12}\hat{n}<em>{12} &amp;= s</em>{1}c_{2}\hat{n}<em>{1}+c</em>{1}s_{2}\hat{n}<em>{2}+s</em>{1}s_{2}\hat{n}<em>{2}\times \hat{n}</em>{1}
+    \end{align}
+    $$</p>
+<ol>
+<li>证明若 $\beta_{1}=\beta_{2}$ 且 $\hat{n}<em>{1}=\hat{z}$，则等式可简化为
+    $$
+    \begin{align}
+    c</em>{12}&amp;=c^2-s^2\hat{z}\cdot \hat{n}<em>{2}\
+    s</em>{12}\hat{n}<em>{12}&amp;=sc(\hat{z}+\hat{n}</em>{2})+s^2\hat{n}_{2}\times \hat{z}
+    \end{align}
+    $$
+    这里 $c=c_1,s=s_1$ 。</li>
+</ol>
+</blockquote>
+<p>利用矩阵表示
+$$
+\begin{align}
+U_{1}&amp;=R_{\hat{n}<em>{2}}(\beta</em>{2})R_{\hat{n}<em>{1}}(\beta</em>{1})= \left[ \cos \frac{\beta_{2}}{2}I-i \sin \frac{\beta_{2}}{2} (\hat{n}<em>{2}\cdot \vec{\sigma}) \right]\left[ \cos \frac{\beta</em>{1}}{2}I-i \sin \frac{\beta_{1}}{2} (\hat{n}<em>{1}\cdot \vec{\sigma}) \right] \
+&amp;= \left[ \cos \frac{\beta</em>{2}}{2}\cos \frac{\beta_{1}}{2}I-\sin \frac{\beta_{2}}{2}\sin \frac{\beta_{1}}{2}(\hat{n}<em>{2}\cdot \vec{\sigma})(\hat{n}</em>{1}\cdot \vec{\sigma}) \right]-i \left[ \cos \frac{\beta_{2}}{2} \sin \frac{\beta_{1}}{2}(\hat{n}<em>{1}\cdot \vec{\sigma}) + \cos \frac{\beta</em>{1}}{2} \sin \frac{\beta_{2}}{2}(\hat{n}<em>{2}\cdot \vec{\sigma}) \right] \
+&amp;=[c</em>{1}c_{2}-s_{1}s_{2} (\hat{n}<em>{1}\cdot \hat{n}</em>{2})]I-(\hat{n}<em>{2}\times \hat{n}</em>{1})\cdot(YZ,ZX,XY)-i[c_{2}s_{1}(\hat{n}<em>{1}\cdot \vec{\sigma})+c</em>{1}s_{2}(\hat{n}_{2}\cdot \vec{\sigma})]
+\end{align}
+$$
+最后一步利用 $X^2=Y^2=Z^2=I$ 以及 $XY=-YX$ 得到。由于 $2iZ=[X,Y]=XY-YX=2XY$，代回即证。</p>
+<p>常见单量子比特门符号总结如下，用 $/$ 表示一束量子比特</p>
+<p>![[image-20240530165859577.jpeg|325]]</p>
+<h3 id="_4">受控操作</h3>
+<p>典型的受控操作是受控非门 $CNOT:|x\rangle|y\rangle\mapsto|x\rangle|y\oplus x\rangle$，矩阵表示为
+$$
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \
+0 &amp; 1 &amp; 0 &amp; 0 \
+0 &amp; 0 &amp; 0 &amp; 1  \
+0 &amp; 0 &amp; 1 &amp; 0
+\end{bmatrix}
+$$
+受控非门的量子门记号如下
+![[image-20240621165416103.jpeg|108]]</p>
+<h2 id="_5">量子傅里叶变换及其应用</h2>
+<p>量子计算机在因子分解问题上可以指数级地快于已知的最好经典算法。而量子傅里叶变换是对量子振幅进行傅里叶变换的有效量子算法，它没有加速经典的傅里叶变换，但是解决了<strong>相位估计</strong>问题——即估计酉算子在特定条件下的特征值。</p>
+<h3 id="_6">量子傅里叶变换</h3>
+<p>离散傅里叶变换以复向量 $x_0,\cdots,x_{N-1}$ 作为输入，变换得到
+$$
+y_k = \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}x_je^{2\pi ijk/N}
+$$
+量子傅里叶变换是定义在一组标准正交基 $|0\rangle,\cdots,|N-1\rangle$ 上的线性算子
+$$
+|j\rangle \mapsto \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}e^{2\pi ijk/N}|k\rangle
+$$
+对任意态的作用为
+$$
+\sum_{j=0}^{N-1}x_j|j\rangle \mapsto \sum_{k=0}^{N-1}y_k|k\rangle
+$$
+其中 $y_k$ 是 $x_j$ 离散傅里叶变换后的振幅。</p>
+<blockquote>
+<p>[!exercise] 
+证明量子傅里叶变换是酉变换。</p>
+</blockquote>
+<p>将变换系数提取为矩阵 $U$，通过共轭转置可得逆变换作用为
+$$
+|k\rangle \mapsto \frac{1}{\sqrt{N}}\sum_{j=0}^{N-1}e^{-2\pi ikj/N}|j\rangle
+$$
+验证 $U^\dagger U=I$ 即证。</p>
+<p>取 $N=2^n$，且 $|0\rangle,\cdots,|2^n-1\rangle$ 是 $n$ 量子比特的量子计算机的基。将状态 $|j\rangle$ 写成二进制
+$$
+j=j_12^{n-1}+\cdots+ j_n2^0
+$$
+用 $0.j_lj_{l+1}\cdots j_m$ 表示二进制小数。于是量子傅里叶变换的乘积形式为
+$$
+|j\rangle = |j_1,\cdots,j_n\rangle =\frac{(|0\rangle+e^{2\pi i0.j_n}|1\rangle)(|0\rangle+e^{2\pi i0.j_{n-1}j_n}|1\rangle)\cdots(|0\rangle+e^{2\pi i0.j_1j_2\cdots j_n}|1\rangle)}{2^{n/2}}
+$$
+它甚至可以当做量子傅里叶变换的定义，因为它<strong>直接给出了量子电路的构造方式</strong>。代数证明为
+$$
+\begin{aligned}
+|j\rangle &amp;\mapsto \frac{1}{2^{n/2}}\sum_{k=0}^{2^n-1}e^{2\pi ijk/2^n}|k\rangle \
+&amp;=\frac{1}{2^{n/2}}\sum_{k_1=0}^{1}\cdots\sum_{k_n=0}^{1}e^{2\pi ij\sum_l^n k_l2^{-l}}|k_1\cdots k_n\rangle \
+&amp;=\frac{1}{2^{n/2}}\sum_{k_1=0}^{1}\cdots\sum_{k_n=0}^{1}\bigotimes_{l=0}^ne^{2\pi ij k_l2^{-l}}|k_l\rangle \
+&amp;=\frac{1}{2^{n/2}}\bigotimes_{l=0}^n\left[\sum_{k_l=0}^{1}e^{2\pi ij k_l2^{-l}}|k_l\rangle\right] \
+&amp;=\frac{1}{2^{n/2}}\bigotimes_{l=0}^n\left[|0\rangle+e^{2\pi ij 2^{-l}}|1\rangle\right] \
+&amp;=\frac{(|0\rangle+e^{2\pi i0.j_n}|1\rangle)(|0\rangle+e^{2\pi i0.j_{n-1}j_n}|1\rangle)\cdots(|0\rangle+e^{2\pi i0.j_1j_2\cdots j_n}|1\rangle)}{2^{n/2}}
+\end{aligned}
+$$
+其中将 $k/2^{n}$ 看做 $2^n$ 个二进制小数，对应 $|k_1\cdots k_n\rangle$ 的全部可能得量子态。最后一步转换利用了 $e^{2\pi i}=1$，因此 $j/2^l$ 的整数部分可以略去。</p>
+<p>使用旋转门
+$$
+R_k = 
+\begin{bmatrix}
+1 &amp; 0\
+0 &amp; e^{2\pi i/2^k}
+\end{bmatrix}
+$$
+配合阿达玛门可以构建量子傅里叶变换的电路。图中 $|j_1\rangle$ 执行阿达玛门得到
+$$
+\frac{1}{\sqrt{2}}(|0\rangle+e^{2\pi i0.j_1}|1\rangle)
+$$
+注意其中 $0.j_1$ 的含义。之后执行 $n-1$ 个受控旋转门，分别受控于 $|j_2\rangle,\cdots,|j_n\rangle$，因此总计算量为 $n+(n-1)+\cdots+1=(n+1)n/2$；最后还需要翻转乘积顺序，计算量为 $n/2$，每个交换门可由 3 个受控非门构成。因此总计算量 $\Theta(n^2)$ 比经典离散傅里叶算法 $\Theta(n2^n)$ 快指数级。</p>
+<p>![[Screenshot_20240226_192947.jpg|800]]</p>
+<blockquote>
+<p>[!exercise] 经典快速傅里叶变换
+假设在经典计算机上对一个 $2^n$ 维的复向量进行傅里叶变换，则离散傅里叶变换的原始定义需要 $\Theta(2^{2n})$ 个基本算术运算。借鉴量子傅里叶变换的形式，找到一种方法将这一数量级降为 $\Theta(n2^n)$ 。</p>
+<p>[!exercise] 
+将受控 $R_k$ 门分解为单量子比特门和受控非门。</p>
+<p>[!exercise] 
+给出逆量子傅里叶变换的量子电路。</p>
+<p>[!exercise] 近似量子傅里叶变换 
+量子傅里叶变换的量子电路构造，表面上所用到的门的精度需为量子比特数目的指数级。然而，多项式规模的量子电路不需要这样的精度。例如，令 $U$ 是 $n$ 个量子比特上的理想傅里叶变换，$V$ 是以精度 $\Delta=1/p(n)$ 作用受控 $R_k$ 门后得到的结果，其中 $p(n)$ 是某个多项式。证明误差 $E(U,V)=\max_{|\psi\rangle}|(U-V)|\psi\rangle|$ 大小为 $\Theta(n^2/p(n))$，且每个门的多项式精度足以保证输出的多项式精度。</p>
+</blockquote>
+<h3 id="_7">相位估计</h3>
+<p>假设酉算子 $U$ 对应特征向量 $|u\rangle$ 的特征值为 $e^{2\pi i\varphi}$，其中 $\varphi$ 未知。 假设有一个黑盒 oracle，能够制备 $|u\rangle$ 以及执行 $U^{2^j}$ 操作。</p>
+<blockquote>
+<p>[!remark] 
+黑盒的存在说明相位估计不是完整的量子算法，而是与其他子程序结合后，可以完成有意义计算任务的子程序或模块。</p>
+</blockquote>
+<p>量子相位估计使用两个寄存器。第一个包含初始态为 $|0\rangle$ 的 t 个量子比特，第二个初始态为 $|u\rangle$，其量子比特数足够多。首先应用下面电路</p>
+<p>![[Screenshot_20240226_202505.jpg|600]]</p>
+<p>得到最终状态为
+$$
+\frac{1}{2^{t/2}}\left(|0\rangle+e^{2\pi i2^{t-1}\varphi}|1\rangle \right)\left(|0\rangle+e^{2\pi i2^{t-2}\varphi}|1\rangle \right)\cdots \left(|0\rangle+e^{2\pi i2^0\varphi}|1\rangle \right)=\frac{1}{2^{t/2}}\sum_{k=0}^{2^t-1}e^{2\pi i\varphi k}|k\rangle
+$$
+此过程中我们忽略对第二寄存器的描述，因为 $U|u\rangle=e^{2\pi i\varphi}|u\rangle$，其状态总是不变。</p>
+<blockquote>
+<p>[!exercise] 
+证明上图中受控 $U$ 将 $|j\rangle|u\rangle$ 变为 $|j\rangle U^j|u\rangle$（注意 $|u\rangle$ 不需要是 $U$ 的特征向量）。</p>
+</blockquote>
+<p>接下来将逆量子傅里叶变换应用到第一寄存器，最后用计算基测量第一寄存器的状态。事实上，若 $\varphi=0.\varphi_1\cdots \varphi_t$，则第一阶段后得到
+$$
+\frac{1}{2^{t/2}}\left(|0\rangle+e^{2\pi i 0.\varphi_t}|1\rangle \right)\left(|0\rangle+e^{2\pi i0.\varphi_{t-1}\varphi_t}|1\rangle \right)\cdots \left(|0\rangle+e^{2\pi i0.\varphi_1\varphi_2\cdots\varphi_t}|1\rangle \right)
+$$
+应用逆量子傅里叶变换立即得到 $|\varphi_1\varphi_2\cdots\varphi_t\rangle$，然后通过计算基测量得到 $\varphi$ 的估计。总结为
+$$
+\frac{1}{2^{t/2}}\sum_{j=0}^{2^t-1}e^{2\pi i\varphi j}|j\rangle|u\rangle \mapsto |\tilde\varphi\rangle|u\rangle
+$$
+其中 $|\tilde\varphi\rangle$ 是相位估计值。</p>
+<p>如果 $\varphi$ 不能展开为 $t$ 位二进制小数。令 $b$ 是 $0,2^t-1$ 之间的整数，满足 $b/2^t=0.b_1\cdots b_t&lt;\varphi$ 是最大的近似值，只需证明 $\tilde\varphi$ 接近 $b$ 即可。直接对第一阶段后的结果作用逆量子傅里叶变换得到
+$$
+\frac{1}{2^t}\sum_{k,l=0}^{2^t-1}e^{-2\pi ikl/2^t} e^{2\pi i\varphi k}|l\rangle
+$$
+令 $\alpha_l$ 是 $|(b+l)(\mathrm{mod}\ 2^t)\rangle$ 的振幅（用 $l$ 作为到 $b$ 的距离），则
+$$
+\alpha_l = \frac{1}{2^t}\sum_{k=0}^{2^t-1}\left(e^{2\pi i(\varphi-(b+l)/2^t)} \right)^k = \frac{1}{2^t}\left(\frac{1-e^{2\pi i(2^t\varphi-(b+l))}}{1-e^{2\pi i(\varphi-(b+l)/2^t}}\right) = \frac{1}{2^t}\left(\frac{1-e^{2\pi i(2^\delta-l))}}{1-e^{2\pi i(\delta-l/2^t)}}\right)
+$$
+其中 $\delta=\varphi-b/2^t$ 。由于 $|1-e^{i\theta}|\le 2$ 恒成立，因此
+$$
+|\alpha_l| \le \frac{2}{2^t|1-e^{2\pi i(\delta-l/2^t)}|}
+$$
+又 $|1-e^{i\theta}|\ge 2|\theta|/\pi,\theta\in[-\pi,\pi]$，于是
+$$
+|\alpha_l| \le \frac{1}{2^{t+1}(\delta-l/2^t)}
+$$
+若测量结果为 $m$​，则
+$$
+\begin{aligned}
+p(|m-b|&gt;e) &amp;= \sum_{-2^{t-1}&lt;l\le-(e+1)}|\alpha_l|^2+\sum_{e+1\le l\le 2^t-1}|\alpha_l|^2\
+&amp;\le \frac{1}{4}\left[ \sum_{-2^{t-1}&lt;l\le-(e+1)}\frac{1}{(l-2^t\delta)^2}+\sum_{e+1\le l\le 2^t-1}\frac{1}{(l-2^t\delta)^2}\right]\
+&amp;\le \frac{1}{4}\left[ \sum_{-2^{t-1}&lt;l\le-(e+1)}\frac{1}{l^2}+\sum_{e+1\le l\le 2^t-1}\frac{1}{(l-1)^2}\right]\
+&amp;\le \frac{1}{2}\sum_{l=e}^{2^{t-1}-1}\frac{1}{l^2}\
+&amp;\le \frac{1}{2}\int_{e}^{2^{t-1}-1}\frac{1}{l^2}dl\
+&amp;\le \frac{1}{2(e-1)}
+\end{aligned}
+$$
+如果需要 $\varphi$ 近似精度达到 $2^{-n}$，取 $e=2^{t-n}-1$ 即可，此时获得此精度的概率至少为 $1-1/2(2^{t-n}-1) = 1-\epsilon(t)$ 。</p>
+<blockquote>
+<p>[!exercise] 
+假设不能制备 $|u\rangle$，而是使用 $|\psi\rangle=\sum_uc_u|u\rangle$ 替代。相位估计算法对输入 $|0\rangle|\psi\rangle$ 输出 $\sum_uc_u|\tilde{\varphi}_u\rangle|u\rangle$，其中 $\tilde\varphi_u$ 对应 $u$ 的相位估计值。给定 $t$，则 $\tilde\varphi_u$ 能够精确到 $n$ 比特的近似量的概率至少为 $|c_u|^2(1-\epsilon)$ 。</p>
+</blockquote>
+<p>量子相位估计算法流程为</p>
+<p>![[Screenshot_20240226_212811.jpg|600]]</p>
+<blockquote>
+<p>[!exercise] 
+设 $U$ 是特征值为 $\pm1$ 的酉变换，作用于状态 $|\psi\rangle$ 上。利用相位估计，构造一个量子电路，使得 $|\psi\rangle$ 坍缩到 $U$ 的两个特征空间之一。</p>
+</blockquote>
+<h3 id="_8">求阶应用</h3>
+<h3 id="_9">因子分解</h3>
+<h3 id="_10">周期查找</h3>
+<h3 id="_11">离散对数</h3>
+<h3 id="_12">隐含子群</h3>
+<h2 id="_13">量子搜索</h2>
+<p>假设给定一张包含一些城市的地图，希望确定经过所有城市的最短路径。最简单的算法就是遍历所有的路径，如果有 $N$ 条路径，则需要 $O(N)$ 次操作。然而 Grover 算法能够将其加速到 $O(\sqrt{N})$ 次操作。</p>
+<h3 id="_14">量子搜索算法</h3>
+<h4 id="oracle">Oracle</h4>
+<p>假设在 $N=2^n$ 个元素的空间搜索，对应到索引 $0,1,\cdots,N-1$，存放在 $n$ 个比特中。假设搜索问题有 $1\le M\le N$ 个解，可定义 $f:{0,1,\cdots,N-1}$ 使得当 $x$ 是解时 $f(x)=1$，否则 $f(x)=0$ 。</p>
+<p>若存在量子 oracle，称为黑盒。它是一个酉算子 $O$，使得
+$$
+|x\rangle|q\rangle \xrightarrow{O} |x\rangle|q\oplus f(x)\rangle
+$$
+其中 $|x\rangle$ 是索引寄存器，oracle 比特 $q$ 是单量子比特。我们将 $q$ 初始设为
+$$
+\frac{|0\rangle-|1\rangle}{\sqrt{2}}
+$$
+则 $f(x)=1$ 时 $q$ 不变，而 $f(x)=0$ 时 $|0\rangle,|1\rangle$ 相位互换。因此
+$$
+|x\rangle\left(\frac{|0\rangle-|1\rangle}{\sqrt{2}}\right) \xrightarrow{O} (-1)^{f(x)}|x\rangle\left(\frac{|0\rangle-|1\rangle}{\sqrt{2}}\right)
+$$
+注意到 oracle 量子比特的状态没有改变，因此我们之后会将其忽略。简写为
+$$
+|x\rangle\xrightarrow{O}(-1)^{f(x)}|x\rangle
+$$
+因此 oracle 通过改变解的相位，标记搜索问题的解。</p>
+<h4 id="_15">算法</h4>
+<p>算法开始于状态 $|0\rangle^{\otimes n}$，用阿达玛变换使计算机处于均匀叠加态
+$$
+|\psi\rangle = \frac{1}{\sqrt{N}}\sum_{x=0}^{N-1}|x\rangle
+$$
+量子搜索算法由反复地作用 Grover 迭代算子的程序构成，记 $G$ 为迭代算子。</p>
+<p>Grover 迭代可分为 4 步：</p>
+<ol>
+<li>作用 oracle $O$</li>
+<li>作用阿达玛变换 $H^{\otimes n}$</li>
+<li>执行条件相位偏移，使得除 $|0\rangle$ 以外的每个计算基矢态获得 $-1$ 的相位偏移
+$$
+|x\rangle \to -(-1)^{\delta_{x0}}|x\rangle
+$$</li>
+<li>作用阿达玛变换 $H^{\otimes n}$</li>
+</ol>
+<p>Grover 迭代中阿达玛变换需要 $n=\log(N)$ 次操作，条件相位偏移需要 $O(n)$ 个门实现。oracle 调用的代价取决于具体的应用，Grover 只需调用一次。</p>
+<p>![[Screenshot_20240226_230815.jpg|600]]</p>
+<blockquote>
+<p>[!exercise] 
+证明在 Grover 迭代中，对应相位偏移的酉算子是 $2|0\rangle\langle 0|-I$ 。</p>
+</blockquote>
+<p>注意到 2,3,4 步合并效果为
+$$
+H^{\otimes n}(2|0\rangle\langle0|-I)H^{\otimes n} = 2|\psi\rangle\langle\psi|-I
+$$
+因此 $G=(2|\psi\rangle\psi|-I)O$ 就是 Grover 算子。</p>
+<blockquote>
+<p>[!exercise] 
+证明操作 $2|\psi\rangle\langle\psi|-I$ 作用在一般状态 $\sum_k\alpha_k|k\rangle$ 上得到
+$$
+\sum_k[-\alpha_k+2\langle\alpha\rangle]|k\rangle
+$$
+其中 $\langle\alpha\rangle=\sum_k\alpha_k/N$ 是均值，因此 $2|\psi\rangle\langle\psi|-I$ 被称为关于均值的反演操作。</p>
+</blockquote>
+<h4 id="_16">几何可视化</h4>
+<p>我们注意到 $G=(2|\psi\rangle\psi|-I)O$，它可以被视为二维空间中的旋转，这个空间由初始态 $|\psi\rangle$ 和搜索问题中解的均匀叠加态张成。令 $\sum_x'$ 表示所有解的和，$\sum_x''$ 表示非解元素的和。定义归一化状态
+$$
+\begin{aligned}
+|\alpha\rangle &amp;= \frac{1}{\sqrt{N-M}}\sum_x''|x\rangle\
+|\beta\rangle &amp;= \frac{1}{\sqrt{M}}\sum_x'|x\rangle
+\end{aligned}
+$$
+显然 $|\alpha\rangle,|\beta\rangle$ 正交。并且初始态可表示为
+$$
+|\psi\rangle = \sqrt{\frac{N-M}{N}}|\alpha\rangle + \sqrt{\frac{M}{N}}|\beta\rangle
+$$
+操作 $O$ 将所有解向量翻转，因此它相当于将 $|\psi\rangle$ 关于 $|\alpha\rangle$ 反射；同理 $2|\psi\rangle\langle\psi|-I$ 相当于关于 $|\psi\rangle$ 反射。并且这两个反射的乘积恰好是一个旋转。</p>
+<p>令 $\cos\frac{\theta}{2}=\sqrt{(N-M)/N}$，使得 $|\psi\rangle=\cos\theta/2|\alpha\rangle+\sin\theta/2|\beta\rangle$，于是
+$$
+G|\psi\rangle = \cos\frac{3\theta}{2}|\alpha\rangle+\sin\frac{3\theta}{2}|\beta\rangle
+$$</p>
+<p>因此旋转角为 $\theta$ 。连续作用 $G$ 将使态变为
+$$
+G^k|\psi\rangle = \cos\left(\frac{2k+1}{2}\theta\right)|\alpha\rangle+\sin\left(\frac{2k+1}{2}\theta\right)|\beta\rangle
+$$
+差不多经过 $O(\sqrt{N/M})$ 次旋转，就可以得到接近于 $|\beta\rangle$ 的状态。</p>
+<blockquote>
+<p>[!remark] 
+注意到应用 Grover 迭代的次数取决于解的个数 $M$，这就导致我们应该先估计出解的个数，然后进行搜索。</p>
+</blockquote>
+<p>![[Screenshot_20240227_131625.jpg|300]]</p>
+<blockquote>
+<p>[!exercise] 
+证明在 $|\alpha\rangle,|\beta\rangle$ 基下，可以把 Grover 迭代写成
+$$
+G = 
+\begin{bmatrix}
+\cos\theta&amp; -\sin\theta\
+\sin\theta&amp; \cos\theta
+\end{bmatrix},\quad \sin\theta=\frac{2\sqrt{M(N-M)}}{N}
+$$
+其中 $\theta\in[0,\pi/2]$ 。</p>
+</blockquote>
+<h3 id="_17">量子模拟</h3>
+<h3 id="_18">量子计数</h3>
+<p>量子计数可用于判断解的存在性，它应用相位估计来估计 Grover 迭代算子 $G$ 的特征值，进而使我们可以确定解的个数 $M$ 。取 $|\alpha\rangle,|\beta\rangle$ 张成的空间，设 $|a\rangle,|b\rangle$ 是其中 $G$ 的特征向量。设 $\theta$ 是 $G$ 作用的旋转角，则 $e^{i\theta},e^{i(2\pi-\theta)}$ 是对应的两个特征值。将搜索空间扩展到 $2N$，并确保 $\sin^2(\theta/2)=M/2N$ 。量子计数的相位估计电路如下：</p>
+<p>![[Screenshot_20240227_132651.jpg|600]]</p>
+<p>该电路估计 $\theta$ 精确到 $m$ 位，成功概率至少为 $1-\epsilon$ 。与相位估计算法一样，满足
+$$
+t = m+\lceil \log(2+1/2\epsilon)\rceil
+$$
+足以在扩展后的搜索空间中实现 Grover 迭代。</p>
+<h3 id="np">NP 完全问题的加速</h3>
+<h3 id="_19">无结构数据库搜索</h3>
+<h3 id="_20">最优性</h3>
+<h3 id="_21">黑盒算法的极限</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,2982 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Advanced Covering - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#advanced-covering" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced Covering
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本介绍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        术语
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="术语">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#circuit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Circuit
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gn-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $G^n$ Boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#guide-points-and-guide-curves" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guide Points and Guide Curves
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#position-and-tangency-gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Position and Tangency Gaps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tolerance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tolerance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conflict-constraint" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conflict (constraint)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flattening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Flattening
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-projection-plane" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Projection Plane
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#initial-surface" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Surface
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本步骤
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高级覆盖指导
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="高级覆盖指导">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        投影约束不交
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        投影约束具有一致控制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        投影约束不越过初始面边界
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        在覆盖电路投影内修剪初始面
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#acovr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovr
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="acovr">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acovr_enum" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovr_enum
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="acovr_enum">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        头文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acovr_conflict_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovr_conflict_type
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acovr_continuity_level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovr_continuity_level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acovr_tol_type" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovr_tol_type
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acover_opts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acover_opts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="acover_opts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        头文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成员函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_conflict
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_constrained_boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_constrained_boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_final_surf_check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_final_surf_check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_initial_face" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_initial_face
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_max_spans" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_max_spans
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get_num_conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        get_num_conflicts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_plane_normal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        *_plane_normal
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#report_max_gap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        report_max_gap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_final_surf_check" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_final_surf_check
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#set_flattening" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        set_flattening
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acovr_edge_cstrn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovr_edge_cstrn
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="acovr_edge_cstrn">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        头文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成员函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acovr_gap_report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovr_gap_report
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="acovr_gap_report">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        头文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        成员函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acovrapi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acovrapi
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="acovrapi">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        头文件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api_advanced_cover" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        api_advanced_cover
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#api_advanced_cover_no_stitch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        api_advanced_cover_no_stitch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acover_report_gaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        acover_report_gaps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="advanced-covering"><a href="https://doc.spatial.com/get_doc_page/articles/a/d/v/Advanced_Covering_e42a.html">Advanced Covering</a></h1>
+<h2 id="_1">基本介绍</h2>
+<p>高级覆盖 Advanced Covering 包将强大的可变形建模技术 <a href="https://doc.spatial.com/get_doc_page/articles/a/c/i/Component~ACIS_Deformable_Modeling_a9a6.html">Deformable Modeling</a> 集成到一个简单易用的高级界面中。使用高级覆盖可以以满足约束的方式将 face 放在 edge 的回路上。该算法使初始曲面（默认情况下为平面）变形，直到它位于指定的边上。高级覆盖可以生成沿边界与相邻面 $G^1$ 连续的覆盖。</p>
+<p>![[ACovering.assets/image-20231011092551032.png]]</p>
+<h3 id="_2">术语</h3>
+<h4 id="circuit">Circuit</h4>
+<p>电路 circuit 是形成封闭 loop 的 edge 的集合。对于高级覆盖，loop 不能自相交。</p>
+<ul>
+<li>对于 <code>api_advanced_cover</code> ，电路上的边可以位于一组面上，也可以位于一组 wire 上。电路中的每个边必须是 wire 或 sheet 边界；也就是说，它必须只有一个 coedge 。给定一个明确电路（即每个顶点有且只有两个有效边的电路）上的边，<code>api_advanced_cover</code> 将自动找到要覆盖的电路。</li>
+<li>对于 <code>api_advanced_cover_no_stitch</code>，它将覆盖包括 wire 和 face 边界的边的电路。它在电路中创建复制边，并且不会将生成的面缝合到原始边上。</li>
+</ul>
+<h4 id="gn-boundaries">$G^n$ Boundaries</h4>
+<p>符号 $G^n$ 描述跨越边界的光滑度。对于曲面，边界通常是一组曲线。对于曲线，边界始终是一组点。电路中两条边界曲线之间的交点至少是 $G^0$ 连续。</p>
+<h4 id="guide-points-and-guide-curves">Guide Points and Guide Curves</h4>
+<p>引导点和引导曲线是不属于 covering 边界的约束，它们不是最终模型拓扑的一部分。引导约束只能约束位置，属于 $G^0$ 约束。</p>
+<h4 id="position-and-tangency-gaps">Position and Tangency Gaps</h4>
+<p>间隙 Gaps 是边界处的跳跃。位置跳跃是坐标的跳跃，而切线跳跃是斜率的跳跃。</p>
+<h4 id="tolerance">Tolerance</h4>
+<p>公差是用户指定的边界处的允许间隙或引导约束。与间隙一样，位置和切线有单独的公差。</p>
+<h4 id="conflict-constraint">Conflict (constraint)</h4>
+<p>边界约束可能会发生冲突 Conflict，这可能会妨碍满足容差。例如，如果两个相邻边界约束在其交汇处具有不同的切线，则生成的曲面法线必须与两者正交，因此可以唯一确定。这可能与其他切线约束冲突。</p>
+<h4 id="flattening">Flattening</h4>
+<p>平整 flattening 参数用来控制 $G^1$ 约束对覆盖曲面的影响。例如，切除锥体顶部，进行 $G^1$ 覆盖来产生光滑的“鼻锥”。当平整参数为零，得到的横截面大致为抛物线；当平整参数较大（0.4 至 0.7）时，横截面的中心将是平坦的，靠近外部产生尖锐的“肩部”满足切向约束。</p>
+<h4 id="initial-projection-plane">Initial Projection Plane</h4>
+<p>高级覆盖算法从初始投影平面开始。要覆盖的边界将投影到此平面中，以确定覆盖曲面中的哪些点应与相应的边界点相关联。初始平面会影响约束引起的 $G^1$ 形状；通常 $G^1$ 约束使覆盖面沿着初始平面的法线方向凸起。通过选择不同的初始平面，可以调整生成的覆盖曲面的形状。可以用初始曲面来替代初始投影平面。</p>
+<h4 id="initial-surface">Initial Surface</h4>
+<p>可以指定初始曲面形状，而不是初始投影平面。高级覆盖算法会将此曲面变形到边界几何图形上，同时尝试保持其粗略形状。指定初始曲面对于覆盖不可投影的边界电路或会导致“双值”覆盖曲面（相对于初始平面）也很有用。从与所需覆盖曲面大致相同的初始曲面开始，高级覆盖能够产生最佳效果。</p>
+<h3 id="_3">基本步骤</h3>
+<p>使用高级覆盖的基本步骤是：</p>
+<ol>
+<li>在电路中查找要覆盖的边或要重新覆盖的面。</li>
+<li>创建一个选项对象 <code>acovr_options</code>，包含约束连续性、约束容差、最大 B 样条 spans、投影平面或曲面以及平整参数（仅限 $G^1$）</li>
+<li>使用适当的签名调用 <code>api_advanced_cover</code></li>
+</ol>
+<p>高级覆盖使用的一般算法是：</p>
+<ol>
+<li>用户指定可投影到平面的边界电路。</li>
+<li>高级覆盖计算一张投影平面，用它作为 <code>acovr_options</code> 中的覆盖曲面的初始猜测。</li>
+<li>或者，可以通过 <code>set_initial_face</code> 设置样条曲面。初始样条曲面通过投影平面或指定的曲面创建。在每个方向上至多添加 <code>max_spans</code> 个节点，此参数通过 <code>set_max_spans</code> 设置。</li>
+<li>边界和引导几何投影到初始曲面上，并使覆盖曲面变形，以便投影点被拉到边界和引导几何上。当满足容差时，或者达到用户指定的最大 spans 数，或者当边界电路约束冲突阻止进一步减小间隙时，算法终止。覆盖曲面是 B 样条，最多具有用户指定的 <code>max_spans</code> 节点数。</li>
+<li>覆盖曲面被缝合回 ACIS 模型中。位置跳跃大于 <code>SPAresabs</code> 的边被转换为容差边。</li>
+<li>作为 sheet 边界的边的几何将会变为覆盖面的 coedge 的集合。这将同时更改边和顶点几何，但是确保 edge 和 face 没有间隙。</li>
+</ol>
+<h3 id="_4">高级覆盖指导</h3>
+<p>覆盖的工作原理是将初始覆盖面变形到用户输入的电路和引导上。引导点和引导曲线以及覆盖电路必须按照一定规则布局，这些规则控制它们在初始覆盖曲面上的投影。默认的初始覆盖面是最佳拟合平面。大多数情况下，覆盖电路的平面是显然的。下文用约束来指代引导和覆盖电路。</p>
+<p>![[ACovering.assets/image-20231017205658516.png]]</p>
+<h4 id="_5">投影约束不交</h4>
+<p>在初始曲面上，引导不能投影相交或者投影到覆盖电路上。如下图要求覆盖曲面同时通过引导点和电路。如果引导几乎位于电路边界，则在投影到电路中心的辅助引导能更好地反映设计意图。</p>
+<p>![[ACovering.assets/image-20231017210703471.png]]</p>
+<h4 id="_6">投影约束具有一致控制</h4>
+<p>按 $z$ 深度对初始面、引导曲线和覆盖电路进行排序约束不应产生中间覆盖凸起。</p>
+<p>![[ACovering.assets/image-20231017211005756.png]]</p>
+<h4 id="_7">投影约束不越过初始面边界</h4>
+<p>此规则仅适用于用户指定的初始面。覆盖电路平面中的默认初始面或用户指定的初始平面会自动计算适当的边界。</p>
+<p>![[ACovering.assets/image-20231017211150092.png]]</p>
+<h4 id="_8">在覆盖电路投影内修剪初始面</h4>
+<p>使用初始面时，在要覆盖的电路投影的 5-10% 内修剪初始面。这导致更快的性能和更小的覆盖面边缘的间隙。但是，请确保不要在电路投影边界内进行修剪。</p>
+<h2 id="acovr">acovr</h2>
+<h3 id="acovr_enum">acovr_enum</h3>
+<h4 id="_9">头文件</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">*******************************************************************</span><span class="w"> </span><span class="o">/</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="cm">/*    Copyright (c) 1989-2020 by Spatial Corp.                     */</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cm">/*    All rights reserved.                                         */</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="cm">/*    Protected by U.S. Patents 5,257,205; 5,351,196; 6,369,815;   */</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="cm">/*                              5,982,378; 6,462,738; 6,941,251    */</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="cm">/*    Protected by European Patents 0503642; 69220263.3            */</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="cm">/*    Protected by Hong Kong Patent 1008101A                       */</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1">// bmt 07-Feb-03 Naming consitency: acover ==&gt; acovr in enums</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">//</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="c1">// bmt 22-Oct-03 extend enums acovr_continuity_level, acovr_tol_type for G2</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="c1">//</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="c1">// bmt 29-Oct-03 add acovr_conflict_type enum</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="c1">//</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="cp">#ifndef ACOVR_ENUM_H</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="cp">#define ACOVR_ENUM_H</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="nc">acovr_continuity_level</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">        </span><span class="n">acovr_default_continuity</span><span class="p">,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="n">acovr_G0</span><span class="p">,</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="n">acovr_G1</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="k">enum</span><span class="w"> </span><span class="nc">acovr_tol_type</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p">{</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="n">acovr_pos</span><span class="p">,</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="n">acovr_tan</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="p">};</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="k">enum</span><span class="w"> </span><span class="nc">acovr_conflict_type</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="p">{</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="w">    </span><span class="n">unknown_conflict</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">    </span><span class="n">G1_edge_edge_conflict</span><span class="p">,</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="n">G2_edge_edge_conflict</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="p">};</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="cp">#endif </span><span class="c1">// ACOVR_ENUM_H</span>
+</code></pre></div>
+<h4 id="acovr_conflict_type">acovr_conflict_type</h4>
+<p>指定用于指定引用的冲突类型。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>unknown_conflict</code></td>
+<td>未知冲突</td>
+</tr>
+<tr>
+<td><code>G1_edge_edge_conflict</code></td>
+<td>相邻边不是 $G^1$，与用户输入的切向数据冲突</td>
+</tr>
+<tr>
+<td><code>G2_edge_edge_conflict</code></td>
+<td>相邻边不是 $G^2$，与用户输入的切向数据冲突</td>
+</tr>
+</tbody>
+</table>
+<h4 id="acovr_continuity_level">acovr_continuity_level</h4>
+<p>指定将由边约束强制施加的连续性（$G^0$ 或 $G^1$）约束。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>acovr_default_continuity</code></td>
+<td>默认连续性</td>
+</tr>
+<tr>
+<td><code>acovr_G0</code></td>
+<td>$G^0$ 连续性</td>
+</tr>
+<tr>
+<td><code>acovr_G1</code></td>
+<td>$G^1$ 连续性</td>
+</tr>
+</tbody>
+</table>
+<h4 id="acovr_tol_type">acovr_tol_type</h4>
+<p>指定间隙 gap 的类型。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>acovr_pos</code></td>
+<td>位置</td>
+</tr>
+<tr>
+<td><code>acovr_tan</code></td>
+<td>切向</td>
+</tr>
+</tbody>
+</table>
+<h3 id="acover_opts">acover_opts</h3>
+<p>使用高级覆盖的选项。此类用于配置覆盖。它允许指定约束连续性、约束公差、样条覆盖曲面跨度的最大数量以及覆盖算法的形状参数。在问题配置期间，可以查询 <code>acovr_options</code> 对象以确定其当前状态。覆盖后，可以查询对象以确定约束的满足程度。在对 <code>acovr_options</code> 对象进行任何更改之前，必须调用 <code>set_default_constraint</code> 。</p>
+<h4 id="_10">头文件</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="cm">/*    Copyright (c) 1989-2020 by Spatial Corp.                     */</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="cm">/*    All rights reserved.                                         */</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="cm">/*    Protected by U.S. Patents 5,257,205; 5,351,196; 6,369,815;   */</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="cm">/*                              5,982,378; 6,462,738; 6,941,251    */</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="cm">/*    Protected by European Patents 0503642; 69220263.3            */</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="cm">/*    Protected by Hong Kong Patent 1008101A                       */</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="c1">// bmt 07-Feb-03  1. Doc templates</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1">//                2. num_spans ==&gt; max_spans</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1">//                3. remove default_tolerance method (never released)</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1">//                4. add set_boundary_constraint() methods taking acovr_continuity_level</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="c1">//</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1">// bmt 10-Feb-03  1. name change: acover_options ==&gt; acovr_options</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1">//                2. Doc revisions</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="c1">//</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="c1">// bmt 24-Feb-03  1. add set_guide() &amp; set_guides() methods which take a tol</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="c1">//                2. add get_guide_tol() method</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="c1">//</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="c1">// bmt 24-Jun-04 add get/set methods for final check</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="c1">//</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="cp">#if !defined(AC_INT_OPTIONS_CLASS)</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="cp">#define AC_INT_OPTIONS_CLASS</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;logical.h&quot;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dcl_adm.h&quot;</span><span class="c1"> // DECL_COVR           // DECL_COVR</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acis.hxx&quot;</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acovr_enum.hxx&quot;</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>
+<a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a><span class="k">class</span><span class="w"> </span><span class="nc">acovr_edge_constraint</span><span class="p">;</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a><span class="k">class</span><span class="w"> </span><span class="nc">acovr_gap_report</span><span class="p">;</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a><span class="k">class</span><span class="w"> </span><span class="nc">adv_cover_options</span><span class="p">;</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a><span class="k">class</span><span class="w"> </span><span class="nc">FACE</span><span class="p">;</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a><span class="k">class</span><span class="w"> </span><span class="nc">EDGE</span><span class="p">;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a><span class="k">class</span><span class="w"> </span><span class="nc">ENTITY</span><span class="p">;</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="k">class</span><span class="w"> </span><span class="nc">ENTITY_LIST</span><span class="p">;</span>
+<a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="k">class</span><span class="w"> </span><span class="nc">SPAunit_vector</span><span class="p">;</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a>
+<a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="k">class</span><span class="w"> </span><span class="nc">DECL_ADM</span><span class="w"> </span><span class="n">acovr_options</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">ACIS_OBJECT</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41" href="#__codelineno-1-41"></a><span class="p">{</span>
+<a id="__codelineno-1-42" name="__codelineno-1-42" href="#__codelineno-1-42"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43" href="#__codelineno-1-43"></a><span class="w">    </span><span class="n">adv_cover_options</span><span class="w"> </span><span class="o">*</span><span class="n">m_ac_opts</span><span class="p">;</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a><span class="w">    </span><span class="c1">// users should call clone method instead of copy constuctor or operator =</span>
+<a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a><span class="w">    </span><span class="n">acovr_options</span><span class="p">(</span><span class="n">acovr_options</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">acovr_options</span><span class="p">);</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46" href="#__codelineno-1-46"></a><span class="w">    </span><span class="n">acovr_options</span><span class="w"> </span><span class="o">&amp;</span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">acovr_options</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">acovr_options</span><span class="p">);</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47" href="#__codelineno-1-47"></a>
+<a id="__codelineno-1-48" name="__codelineno-1-48" href="#__codelineno-1-48"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49" href="#__codelineno-1-49"></a><span class="w">    </span><span class="n">acovr_options</span><span class="p">();</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50" href="#__codelineno-1-50"></a><span class="w">    </span><span class="o">~</span><span class="n">acovr_options</span><span class="p">();</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51" href="#__codelineno-1-51"></a>
+<a id="__codelineno-1-52" name="__codelineno-1-52" href="#__codelineno-1-52"></a><span class="w">    </span><span class="n">acovr_options</span><span class="w"> </span><span class="o">*</span><span class="nf">clone</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53" href="#__codelineno-1-53"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="k">operator</span><span class="o">==</span><span class="p">(</span><span class="n">acovr_options</span><span class="w"> </span><span class="o">&amp;</span><span class="n">in_ac_opt</span><span class="p">);</span>
+<a id="__codelineno-1-54" name="__codelineno-1-54" href="#__codelineno-1-54"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="k">operator</span><span class="o">!=</span><span class="p">(</span><span class="n">acovr_options</span><span class="w"> </span><span class="o">&amp;</span><span class="n">in_ac_opt</span><span class="p">);</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55" href="#__codelineno-1-55"></a><span class="w">    </span><span class="c1">// user options</span>
+<a id="__codelineno-1-56" name="__codelineno-1-56" href="#__codelineno-1-56"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_max_spans</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">max_spans</span><span class="p">);</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57" href="#__codelineno-1-57"></a>
+<a id="__codelineno-1-58" name="__codelineno-1-58" href="#__codelineno-1-58"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">get_max_spans</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-59" name="__codelineno-1-59" href="#__codelineno-1-59"></a>
+<a id="__codelineno-1-60" name="__codelineno-1-60" href="#__codelineno-1-60"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_flattening</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">flattening</span><span class="p">);</span>
+<a id="__codelineno-1-61" name="__codelineno-1-61" href="#__codelineno-1-61"></a>
+<a id="__codelineno-1-62" name="__codelineno-1-62" href="#__codelineno-1-62"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_flattening</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-63" name="__codelineno-1-63" href="#__codelineno-1-63"></a>
+<a id="__codelineno-1-64" name="__codelineno-1-64" href="#__codelineno-1-64"></a><span class="w">    </span><span class="c1">// advanced user options</span>
+<a id="__codelineno-1-65" name="__codelineno-1-65" href="#__codelineno-1-65"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_initial_face</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FACE</span><span class="w"> </span><span class="o">*</span><span class="n">face</span><span class="p">);</span>
+<a id="__codelineno-1-66" name="__codelineno-1-66" href="#__codelineno-1-66"></a>
+<a id="__codelineno-1-67" name="__codelineno-1-67" href="#__codelineno-1-67"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">FACE</span><span class="w"> </span><span class="o">*</span><span class="nf">get_initial_face</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-68" name="__codelineno-1-68" href="#__codelineno-1-68"></a>
+<a id="__codelineno-1-69" name="__codelineno-1-69" href="#__codelineno-1-69"></a><span class="w">    </span><span class="c1">// constraint specifications</span>
+<a id="__codelineno-1-70" name="__codelineno-1-70" href="#__codelineno-1-70"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_default_constraint</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">acovr_edge_constraint</span><span class="w"> </span><span class="o">&amp;</span><span class="n">default_values</span><span class="p">);</span>
+<a id="__codelineno-1-71" name="__codelineno-1-71" href="#__codelineno-1-71"></a>
+<a id="__codelineno-1-72" name="__codelineno-1-72" href="#__codelineno-1-72"></a><span class="w">    </span><span class="n">acovr_edge_constraint</span><span class="w"> </span><span class="nf">get_default_constraint</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-73" name="__codelineno-1-73" href="#__codelineno-1-73"></a>
+<a id="__codelineno-1-74" name="__codelineno-1-74" href="#__codelineno-1-74"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_boundary_constraint</span><span class="p">(</span><span class="n">EDGE</span><span class="w"> </span><span class="o">*</span><span class="n">bdry_edge</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">acovr_edge_constraint</span><span class="w"> </span><span class="o">&amp;</span><span class="n">constraint</span><span class="p">);</span>
+<a id="__codelineno-1-75" name="__codelineno-1-75" href="#__codelineno-1-75"></a>
+<a id="__codelineno-1-76" name="__codelineno-1-76" href="#__codelineno-1-76"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_boundary_constraint</span><span class="p">(</span><span class="n">EDGE</span><span class="w"> </span><span class="o">*</span><span class="n">bdry_edge</span><span class="p">,</span><span class="w"> </span><span class="n">acovr_continuity_level</span><span class="w"> </span><span class="n">continuity</span><span class="p">);</span>
+<a id="__codelineno-1-77" name="__codelineno-1-77" href="#__codelineno-1-77"></a>
+<a id="__codelineno-1-78" name="__codelineno-1-78" href="#__codelineno-1-78"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_boundary_constraints</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bdry_edges</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">acovr_edge_constraint</span><span class="w"> </span><span class="o">&amp;</span><span class="n">constraint</span><span class="p">);</span>
+<a id="__codelineno-1-79" name="__codelineno-1-79" href="#__codelineno-1-79"></a>
+<a id="__codelineno-1-80" name="__codelineno-1-80" href="#__codelineno-1-80"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_boundary_constraints</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bdry_edges</span><span class="p">,</span><span class="w"> </span><span class="n">acovr_continuity_level</span><span class="w"> </span><span class="n">continuity</span><span class="p">);</span>
+<a id="__codelineno-1-81" name="__codelineno-1-81" href="#__codelineno-1-81"></a>
+<a id="__codelineno-1-82" name="__codelineno-1-82" href="#__codelineno-1-82"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_guides</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">constraining_ents</span><span class="p">);</span>
+<a id="__codelineno-1-83" name="__codelineno-1-83" href="#__codelineno-1-83"></a>
+<a id="__codelineno-1-84" name="__codelineno-1-84" href="#__codelineno-1-84"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_guides</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">constraining_ents</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tolerance</span><span class="p">);</span>
+<a id="__codelineno-1-85" name="__codelineno-1-85" href="#__codelineno-1-85"></a>
+<a id="__codelineno-1-86" name="__codelineno-1-86" href="#__codelineno-1-86"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_guide</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ENTITY</span><span class="w"> </span><span class="o">*</span><span class="n">constraining_ent</span><span class="p">);</span><span class="w"> </span><span class="c1">// use default tolerance</span>
+<a id="__codelineno-1-87" name="__codelineno-1-87" href="#__codelineno-1-87"></a>
+<a id="__codelineno-1-88" name="__codelineno-1-88" href="#__codelineno-1-88"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_guide</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ENTITY</span><span class="w"> </span><span class="o">*</span><span class="n">constraining_ent</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">tolerance</span><span class="p">);</span>
+<a id="__codelineno-1-89" name="__codelineno-1-89" href="#__codelineno-1-89"></a>
+<a id="__codelineno-1-90" name="__codelineno-1-90" href="#__codelineno-1-90"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_guide_tol</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ENTITY</span><span class="w"> </span><span class="o">*</span><span class="n">constraining_ent</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-91" name="__codelineno-1-91" href="#__codelineno-1-91"></a>
+<a id="__codelineno-1-92" name="__codelineno-1-92" href="#__codelineno-1-92"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">get_constrained_boundaries</span><span class="p">(</span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">oboundaries</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// Get boundary edges</span>
+<a id="__codelineno-1-93" name="__codelineno-1-93" href="#__codelineno-1-93"></a>
+<a id="__codelineno-1-94" name="__codelineno-1-94" href="#__codelineno-1-94"></a><span class="w">    </span><span class="n">acovr_edge_constraint</span><span class="w"> </span><span class="nf">get_boundary_constraint</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EDGE</span><span class="w"> </span><span class="o">*</span><span class="n">bdy_ent</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-95" name="__codelineno-1-95" href="#__codelineno-1-95"></a>
+<a id="__codelineno-1-96" name="__codelineno-1-96" href="#__codelineno-1-96"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">get_guide_curves</span><span class="p">(</span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">guide_edges</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// Get edges defining guide curves</span>
+<a id="__codelineno-1-97" name="__codelineno-1-97" href="#__codelineno-1-97"></a>
+<a id="__codelineno-1-98" name="__codelineno-1-98" href="#__codelineno-1-98"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">get_guide_points</span><span class="p">(</span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">guide_vertices</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// Get vertices defining guide points</span>
+<a id="__codelineno-1-99" name="__codelineno-1-99" href="#__codelineno-1-99"></a>
+<a id="__codelineno-1-100" name="__codelineno-1-100" href="#__codelineno-1-100"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">report_max_gap</span><span class="p">(</span><span class="n">acovr_gap_report</span><span class="w"> </span><span class="o">&amp;</span><span class="n">gr</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w"> </span><span class="c1">// Report max gap of all boundary constraints</span>
+<a id="__codelineno-1-101" name="__codelineno-1-101" href="#__codelineno-1-101"></a>
+<a id="__codelineno-1-102" name="__codelineno-1-102" href="#__codelineno-1-102"></a><span class="w">    </span><span class="n">logical</span><span class="w"> </span><span class="nf">input_plane_specified</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-103" name="__codelineno-1-103" href="#__codelineno-1-103"></a>
+<a id="__codelineno-1-104" name="__codelineno-1-104" href="#__codelineno-1-104"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_plane_normal</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SPAunit_vector</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dir</span><span class="p">);</span>
+<a id="__codelineno-1-105" name="__codelineno-1-105" href="#__codelineno-1-105"></a>
+<a id="__codelineno-1-106" name="__codelineno-1-106" href="#__codelineno-1-106"></a><span class="w">    </span><span class="n">SPAunit_vector</span><span class="w"> </span><span class="nf">get_plane_normal</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-107" name="__codelineno-1-107" href="#__codelineno-1-107"></a>
+<a id="__codelineno-1-108" name="__codelineno-1-108" href="#__codelineno-1-108"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">get_num_conflicts</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-109" name="__codelineno-1-109" href="#__codelineno-1-109"></a>
+<a id="__codelineno-1-110" name="__codelineno-1-110" href="#__codelineno-1-110"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">get_conflict</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">EDGE</span><span class="w"> </span><span class="o">*&amp;</span><span class="n">ed1</span><span class="p">,</span><span class="w"> </span><span class="n">EDGE</span><span class="w"> </span><span class="o">*&amp;</span><span class="n">ed2</span><span class="p">,</span><span class="w"> </span><span class="n">acovr_conflict_type</span><span class="w"> </span><span class="o">&amp;</span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-111" name="__codelineno-1-111" href="#__codelineno-1-111"></a>
+<a id="__codelineno-1-112" name="__codelineno-1-112" href="#__codelineno-1-112"></a><span class="w">    </span><span class="n">logical</span><span class="w"> </span><span class="nf">get_final_surf_check</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-113" name="__codelineno-1-113" href="#__codelineno-1-113"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_final_surf_check</span><span class="p">(</span><span class="n">logical</span><span class="w"> </span><span class="n">new_final_check</span><span class="p">);</span>
+<a id="__codelineno-1-114" name="__codelineno-1-114" href="#__codelineno-1-114"></a>
+<a id="__codelineno-1-115" name="__codelineno-1-115" href="#__codelineno-1-115"></a><span class="w">    </span><span class="c1">// for internal use only</span>
+<a id="__codelineno-1-116" name="__codelineno-1-116" href="#__codelineno-1-116"></a><span class="w">    </span><span class="n">adv_cover_options</span><span class="w"> </span><span class="o">*</span><span class="nf">get_adv_cover_options</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-117" name="__codelineno-1-117" href="#__codelineno-1-117"></a>
+<a id="__codelineno-1-118" name="__codelineno-1-118" href="#__codelineno-1-118"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_use_R10_algorithm</span><span class="p">(</span><span class="n">logical</span><span class="w"> </span><span class="n">use</span><span class="p">);</span>
+<a id="__codelineno-1-119" name="__codelineno-1-119" href="#__codelineno-1-119"></a>
+<a id="__codelineno-1-120" name="__codelineno-1-120" href="#__codelineno-1-120"></a><span class="w">    </span><span class="n">logical</span><span class="w"> </span><span class="nf">get_use_R10_algorithm</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-1-121" name="__codelineno-1-121" href="#__codelineno-1-121"></a><span class="p">};</span>
+<a id="__codelineno-1-122" name="__codelineno-1-122" href="#__codelineno-1-122"></a>
+<a id="__codelineno-1-123" name="__codelineno-1-123" href="#__codelineno-1-123"></a><span class="cp">#endif </span><span class="c1">// AC_INT_OPTIONS_CLAS</span>
+</code></pre></div>
+<h4 id="_11">成员函数</h4>
+<table>
+<thead>
+<tr>
+<th>acover_opts.hxx</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>返回类型</td>
+<td>名称</td>
+<td>功能</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#aaccdc4fe6d32688cc982df6b9de8d44e">acovr_options</a> ()</td>
+<td>构造函数</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html">acovr_options</a> *</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a1604ea683f5446f80b46eb48c911f78d">clone</a> () const</td>
+<td>深拷贝方法</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html">acovr_edge_constraint</a></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a01b976be5b546108a5cf7ca24e33fbde">get_boundary_constraint</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classEDGE.html">EDGE</a> *bdy_ent) const</td>
+<td>返回边界 edge 的约束</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#af45eaaeef28a690ec68afd525750b525">get_conflict</a> (int n, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classEDGE.html">EDGE</a> <em>&amp;ed1, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classEDGE.html">EDGE</a> </em>&amp;ed2, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#gac987d4b873fd766172d2463d5990082f">acovr_conflict_type</a> &amp;type) const</td>
+<td>返回第 n 个约束冲突的说明</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a0acfc9000ccdb39156cde51a49742a20">get_constrained_boundaries</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;oboundaries) const</td>
+<td>检索边界边的列表</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html">acovr_edge_constraint</a></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a699d5e441b7423b7b7b159f126e982c1">get_default_constraint</a> () const</td>
+<td>返回默认约束的副本</td>
+</tr>
+<tr>
+<td>logical</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#ad1d739a0ea86f288e7cc882ff5a9a719">get_final_surf_check</a> () const</td>
+<td>返回高级覆盖是否检查候选覆盖曲面的正确性</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#afcd6194b83684c3387877d22d16143c1">get_flattening</a> () const</td>
+<td>返回平展参数的值</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a17067cfc4f8c128b551846af4a38226f">get_guide_curves</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;guide_edges) const</td>
+<td>检索定义引导曲线的边</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a1a6496b92ff247b92f1ae0a6f8027c23">get_guide_points</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;guide_vertices) const</td>
+<td>检索定义引导点的顶点</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#ab6c298cf35853ad9bc28ac67e2ecd1b6">get_guide_tol</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY.html">ENTITY</a> *constraining_ent) const</td>
+<td>返回引导点（顶点）或引导曲线（边）的 $G^0$ 容差</td>
+</tr>
+<tr>
+<td>const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> *</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#adc18074047e1dd709aad8e27ad56f803">get_initial_face</a> () const</td>
+<td>返回指向初始 face 的指针</td>
+</tr>
+<tr>
+<td>int</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a06ed8e559f0e90f412d729a0ea767b52">get_max_spans</a> () const</td>
+<td>返回指定的最大范围数</td>
+</tr>
+<tr>
+<td>int</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#ac779ace0bc42fb0cb88fa75f2d3e3299">get_num_conflicts</a> () const</td>
+<td>返回找到的约束冲突数</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classSPAunit__vector.html">SPAunit_vector</a></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a70f6fbfb1f17cffe51b2a78e56407e86">get_plane_normal</a> () const</td>
+<td>返回 <code>plane_normal</code> 参数的当前值</td>
+</tr>
+<tr>
+<td>logical</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#ab24281563c47e1d718deee509baf4059">input_plane_specified</a> () const</td>
+<td>如果已设置 <code>plane_normal</code> 参数返回 <code>TRUE</code> ，否则返回 <code>FALSE</code></td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#acec329e1f0da2eb0eca473b56d6aa0a0">report_max_gap</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html">acovr_gap_report</a> &amp;gr) const</td>
+<td>检索位置 （$G^0$） 和角度 （$G^1$） 的最大间隙</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a1801efa64acdae67a76e9108158e4375">set_boundary_constraint</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classEDGE.html">EDGE</a> *bdry_edge, const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html">acovr_edge_constraint</a> &amp;constraint)</td>
+<td>覆盖特定边界边的默认连续性和公差规范</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#af4b072a72b78bd9ef4911ce4fcbf5e91">set_boundary_constraint</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classEDGE.html">EDGE</a> *bdry_edge, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga7203bcafee47a949c53a13d3706e4872">acovr_continuity_level</a> continuity)</td>
+<td>覆盖特定边界边的默认连续性规范</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#afffeabf5ee5437cbed871d9632e7f09e">set_boundary_constraints</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;bdry_edges, const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html">acovr_edge_constraint</a> &amp;constraint)</td>
+<td>覆盖边界边列表的默认连续性和公差规范</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#aee42c03e03ff8f0b16ff9600d4f541f7">set_boundary_constraints</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;bdry_edges, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga7203bcafee47a949c53a13d3706e4872">acovr_continuity_level</a> continuity)</td>
+<td>覆盖边界边列表的默认连续性规范</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a54290fad55f102cd9e13029a261a8003">set_default_constraint</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html">acovr_edge_constraint</a> &amp;default_values)</td>
+<td>指定默认连续性和容差</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#af5c2dfad2ff6de87672039dc16c6ba46">set_final_surf_check</a> (logical new_final_check)</td>
+<td>设置高级覆盖是否检查候选覆盖曲面的正确性</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a7e583f31089e094fb0d795b0f917e70b">set_flattening</a> (double flattening)</td>
+<td>设置平展参数的值</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a10eee059d7be3c89e66ac7af499c7e99">set_guide</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY.html">ENTITY</a> *constraining_ent)</td>
+<td>指定引导点（顶点）或引导曲线（边）。使用默认 $G^0$ 容差。指定的任何边都必须包含在 ACIS 实体中</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a87a5791b21b1ff0889a8e8c3aedcc516">set_guide</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY.html">ENTITY</a> *constraining_ent, double tolerance)</td>
+<td>指定引导点（顶点）或引导曲线（边）。指定的任何边都必须包含在 ACIS 实体中</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#abe566a582d035c286af5d556b72edada">set_guides</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;constraining_ents)</td>
+<td>指定引导点（顶点）或引导曲线（边）的列表。使用默认 $G^0$ 容差。指定的任何边都必须包含在 ACIS 实体中</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#af0816326a137a0802dfb67652ef7f590">set_guides</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> &amp;constraining_ents, double tolerance)</td>
+<td>指定引导点（顶点）或引导曲线（边）的列表。指定的任何边都必须包含在 ACIS 实体中</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a0edf96056fc24b9f7e31a1784872b69f">set_initial_face</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> *face)</td>
+<td>选取初始样条曲面</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a20a1bac42706338cc1b28428da9cd7d1">set_max_spans</a> (int max_spans)</td>
+<td>设置覆盖曲面中的最大跨度数</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#aa35342ca86d29ca69dfdff694c7d11bd">set_plane_normal</a> (const <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classSPAunit__vector.html">SPAunit_vector</a> &amp;dir)</td>
+<td>定义初始投影平面</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html#a2de157cab06d794bee4a5fc7d937daf0">~acovr_options</a> ()</td>
+<td>析构函数</td>
+</tr>
+</tbody>
+</table>
+<h4 id="clone">clone</h4>
+<p>此方法为 <code>acovr_options</code> 工厂提供基础，它使用用户指定的设置。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">acovr_options</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nf">clone</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="get_conflict">get_conflict</h4>
+<p>边界约束几何可能会无意中与用户输入的相切或曲率数据发生冲突。此函数返回第 n 个此类冲突的描述</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kt">void</span><span class="w">  </span><span class="n">get_conflict</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w">                      </span><span class="c1">// 要查询的冲突</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="n">EDGE</span><span class="w"> </span><span class="o">*&amp;</span><span class="n">ed1</span><span class="p">,</span><span class="w">                 </span><span class="c1">// 第一条边;在连接两条边的顶点处发生冲突</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="n">EDGE</span><span class="w"> </span><span class="o">*&amp;</span><span class="n">ed2</span><span class="p">,</span><span class="w">                 </span><span class="c1">// 第二条边;在连接两条边的顶点处发生冲突</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="n">acovr_conflict_type</span><span class="w"> </span><span class="o">&amp;</span><span class="n">type</span><span class="w">   </span><span class="c1">// 冲突类型</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="get_constrained_boundaries">get_constrained_boundaries</h4>
+<p>此方法使用通过 <code>set_edge_constraint</code> 或 <code>set_edge_constraints</code> 方法应用约束到所有边的列表来覆盖“边界”列表。 由于在高级覆盖过程中，边通常替换为容错边，因此在 <code>acovr_options</code> 对象用于 <code>api_advanced_cover</code> 调用后，此方法将“边界”设置为空列表。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">void</span><span class="w">  </span><span class="nf">get_constrained_boundaries</span><span class="w"> </span><span class="p">(</span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="o">&amp;</span><span class="n">oboundaries</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="get_final_surf_check">get_final_surf_check</h4>
+<p>默认情况下，将检查候选覆盖面，如果损坏，则会拒绝。如果 final_surf_check 标志为 false，则不会进行此检查；如果此标志为假，则高级覆盖可能会产生不良曲面。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">logical</span><span class="w"> </span><span class="nf">get_final_surf_check</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="_initial_face">*_initial_face</h4>
+<p>初始面通过复制 face 的几何来获得。通过 <code>NULL</code> 参数调用，可以取消设置初始面。返回 <code>NULL</code> 表示未设置 ，此时 <code>initial_face</code> 将从投影平面获得初始表面。如果设置了初始面，则会忽略 <code>plane_normal</code> 参数。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">const</span><span class="w"> </span><span class="n">FACE</span><span class="o">*</span><span class="w"> </span><span class="nf">get_initial_face</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_initial_face</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">FACE</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">face</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="_max_spans">*_max_spans</h4>
+<p>这是一个整数，用于控制覆盖曲面在每个方向上可以具有的最大 B 样条跨度数。较小的值会导致缺少自由度的曲面，可能产生较大的间隙，而较大的值可能会导致具有许多控制点的曲面，从而对性能产生负面影响。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">get_max_spans</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_max_spans</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">max_spans</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="get_num_conflicts">get_num_conflicts</h4>
+<p>边界约束几何可能会无意中与用户输入的相切或曲率数据发生冲突。此函数返回找到的冲突数。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">get_num_conflicts</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="_plane_normal">*_plane_normal</h4>
+<p>仅当设置了 <code>plane_normal</code> 参数时，即 <code>input_plane_specified</code> 返回 <code>TRUE</code>，才应调用此方法。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">SPAunit_vector</span><span class="w"> </span><span class="nf">get_plane_normal</span><span class="w"> </span><span class="p">()</span><span class="w">  </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_plane_normal</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SPAunit_vector</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dir</span><span class="p">);</span>
+</code></pre></div>
+<p>由于边界电路将投影到该平面中，因此只需要一个法向，与平面的绝对位置无关。高级覆盖根据边界电路的形状自动计算默认初始平面；如果此默认平面不令人满意，则应设置 <code>plane_normal</code> 参数。通常，发生这种情况是因为默认算法选取的平面将导致双值覆盖曲面，或者因为包含边界电路的模型具有边界电路不遵守的对称性（仅限 $G^1$ 覆盖）。例如，考虑对被平面斜切片的圆柱执行 $G^1$ 覆盖。高级覆盖尝试通过在初始曲面的法线方向上向上推覆盖曲面来满足 $G^1$ 约束。切片圆柱体的默认平面将与切片平面具有相同的法线；在这种情况下$G^1$ 约束将导致覆盖面沿圆柱轴线凸起。当法线向量设置为与轴重合时，形状会更自然；在这种情况下，凸起沿轴线，曲面之间的过渡非常平滑。</p>
+<h4 id="report_max_gap">report_max_gap</h4>
+<p>不考虑引导曲线间隙。出于性能原因，报告的间隙 gap 是高级覆盖试图重合的点之间的间隙 gap 。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">report_max_gap</span><span class="w"> </span><span class="p">(</span><span class="n">acovr_gap_report</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">gr</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+</code></pre></div>
+<h4 id="set_final_surf_check">set_final_surf_check</h4>
+<p>默认情况下，将检查候选覆盖面，如果损坏，则会拒绝。如果 final_surf_check 标志为 false，则不会进行此检查；如果此标志为假，则高级覆盖可能会产生不良曲面。该选项主要对覆盖失败情况进行诊断；用户可以放宽容差，检查输入约束（切线与位置）是否存在冲突，或两者兼而有之。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_final_surf_check</span><span class="w"> </span><span class="p">(</span><span class="n">logical</span><span class="w"> </span><span class="n">new_final_check</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="set_flattening">set_flattening</h4>
+<p>平整参数是正数，控制 $G^1$ 约束对覆盖面形状的影响。当 $G^1$ 约束强制覆盖面和初始曲面的形状发生较大变化时，平整参数控制 $G^1$ 约束的影响区域。较大的（0.7左右）平整参数将导致覆盖面的“旋转”（斜率与初始表面的偏差）控制在 $G^1$ 约束边缘附近，从而产生平整的内部，其形状接近 $G^0$ 覆盖。较小的平整参数将导致 $G^1$ 约束的效果扩散，产生更圆的内部。当在圆柱顶部执行 $G^1$ 覆盖时，圆顶的高度完全由平整参数控制。较小的值产生高而圆的圆顶，较大的值产生短而平的圆顶。通常，当所有 $G^1$ 约束的支撑面已经接近于初始曲面相切时，应使用较小的值（0.1 左右），而当支撑面接近垂直时，应使用较大的值（0.4 到 0.7）（如圆柱顶部的情况）。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_flattening</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">flattening</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="acovr_edge_cstrn">acovr_edge_cstrn</h3>
+<p>此头文件定义高级覆盖的边约束，用于指定特定边上的连续性要求。</p>
+<h4 id="_12">头文件</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="cm">/*    Copyright (c) 1989-2020 by Spatial Corp.                     */</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="cm">/*    All rights reserved.                                         */</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="cm">/*    Protected by U.S. Patents 5,257,205; 5,351,196; 6,369,815;   */</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="cm">/*                              5,982,378; 6,462,738; 6,941,251    */</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="cm">/*    Protected by European Patents 0503642; 69220263.3            */</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="cm">/*    Protected by Hong Kong Patent 1008101A                       */</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1">// bmt 07-Feb-03  added set_tol(), get_tol() methods to acovr_edge_constraint</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="c1">// bmt 10-Feb-03 Fix sentry</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="c1">// bmt 11-Feb-03 Doc revision</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="c1">//</span>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="cp">#ifndef ACOVR_EDGE_CSTRN_H</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="cp">#define ACOVR_EDGE_CSTRN_H</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dcl_adm.h&quot;</span><span class="c1">      // DECL_ADM              // DECL_ADM</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acovr_enum.hxx&quot;</span><span class="c1"> // acovr enumerations  // acovr enumerations</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="cp">#define ACOVR_DEFAULT_POS_GAP_SPEC 1.e-3</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="cp">#define ACOVR_DEFAULT_TAN_GAP_SPEC 0.00872664625997164788 </span><span class="c1">// radians = 0.5 degrees</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a><span class="k">class</span><span class="w"> </span><span class="nc">DECL_ADM</span><span class="w"> </span><span class="n">acovr_edge_constraint</span>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="p">{</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a>
+<a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="w">    </span><span class="n">acovr_continuity_level</span><span class="w"> </span><span class="n">cty_level</span><span class="p">;</span>
+<a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pos_tol</span><span class="p">;</span>
+<a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">tan_tol</span><span class="p">;</span>
+<a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a>
+<a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">    </span><span class="o">~</span><span class="n">acovr_edge_constraint</span><span class="p">();</span>
+<a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a>
+<a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">    </span><span class="n">acovr_edge_constraint</span><span class="p">();</span>
+<a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a>
+<a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="w">    </span><span class="n">acovr_continuity_level</span><span class="w"> </span><span class="nf">get_continuity</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a>
+<a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_pos_tol</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a>
+<a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_tan_tol</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a>
+<a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_tol</span><span class="p">(</span><span class="n">acovr_tol_type</span><span class="w"> </span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a>
+<a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_continuity</span><span class="p">(</span><span class="n">acovr_continuity_level</span><span class="w"> </span><span class="n">icl</span><span class="p">);</span>
+<a id="__codelineno-13-43" name="__codelineno-13-43" href="#__codelineno-13-43"></a>
+<a id="__codelineno-13-44" name="__codelineno-13-44" href="#__codelineno-13-44"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_pos_tol</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">gap_tol</span><span class="p">);</span>
+<a id="__codelineno-13-45" name="__codelineno-13-45" href="#__codelineno-13-45"></a>
+<a id="__codelineno-13-46" name="__codelineno-13-46" href="#__codelineno-13-46"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_tan_tol</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">gap_tol</span><span class="p">);</span>
+<a id="__codelineno-13-47" name="__codelineno-13-47" href="#__codelineno-13-47"></a>
+<a id="__codelineno-13-48" name="__codelineno-13-48" href="#__codelineno-13-48"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_tol</span><span class="p">(</span><span class="n">acovr_tol_type</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">gap_tol</span><span class="p">);</span>
+<a id="__codelineno-13-49" name="__codelineno-13-49" href="#__codelineno-13-49"></a><span class="p">};</span>
+<a id="__codelineno-13-50" name="__codelineno-13-50" href="#__codelineno-13-50"></a>
+<a id="__codelineno-13-51" name="__codelineno-13-51" href="#__codelineno-13-51"></a><span class="cp">#endif </span><span class="c1">// ADVCOVR_EDGE_CSTRN_H</span>
+</code></pre></div>
+<h4 id="_13">成员函数</h4>
+<table>
+<thead>
+<tr>
+<th>acovr_edge_cstrn.hxx</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>返回类型</td>
+<td>名称</td>
+<td>功能</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#ad6cd26567fe2c4ac44c2a3958ad77905">acovr_edge_constraint</a> ()</td>
+<td>构造函数</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga7203bcafee47a949c53a13d3706e4872">acovr_continuity_level</a></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a315c81bb5366092a0f8fff2f28a978a5">get_continuity</a> () const</td>
+<td>获得连续性</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a2179fd8aa111ab12023974df83335183">get_pos_tol</a> () const</td>
+<td>获得位置间隙容差</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a8ca7f99eade7185dc89eff505652ce53">get_tan_tol</a> () const</td>
+<td>获得切向间隙容差</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a283b8f1da9a140bf78cc93cc8dc03dea">get_tol</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga23b8d44f574cd7857d8c81fb127dddc8">acovr_tol_type</a> type) const</td>
+<td>返回指定间隙公差类型（位置或切线）的公差值</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#adbe9509a82dbfa424086d54ac19eae56">set_continuity</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga7203bcafee47a949c53a13d3706e4872">acovr_continuity_level</a> icl)</td>
+<td>设置连续性级别</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a42a219964ff3e7e751bf3afc684b7263">set_pos_tol</a> (double gap_tol)</td>
+<td>设置位置间隙容差值</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a423ad7aeb368787e84ce755d03dd57f5">set_tan_tol</a> (double gap_tol)</td>
+<td>设置切线间隙容差值</td>
+</tr>
+<tr>
+<td>void</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a14c5365d5f4f8e2403768c144b81593c">set_tol</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga23b8d44f574cd7857d8c81fb127dddc8">acovr_tol_type</a> type, double gap_tol)</td>
+<td>为指定的间隙公差类型（位置或切线）设置公差值</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__edge__constraint.html#a70fe885face0bad554e3f9f9c562a3da">~acovr_edge_constraint</a> ()</td>
+<td>析构函数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="acovr_gap_report">acovr_gap_report</h3>
+<p>此头文件定义用于存储测量一个或多个边上的间隙的查询结果。</p>
+<h4 id="_14">头文件</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="cm">/*    Copyright (c) 1989-2020 by Spatial Corp.                     */</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="cm">/*    All rights reserved.                                         */</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="cm">/*    Protected by U.S. Patents 5,257,205; 5,351,196; 6,369,815;   */</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="cm">/*                              5,982,378; 6,462,738; 6,941,251    */</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="cm">/*    Protected by European Patents 0503642; 69220263.3            */</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="cm">/*    Protected by Hong Kong Patent 1008101A                       */</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="c1">// bmt 11-Feb-03 Doc revision</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="c1">//</span>
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="cp">#ifndef ADVCOVR_GAPREPORT_H</span>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="cp">#define ADVCOVR_GAPREPORT_H</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>
+<a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dcl_adm.h&quot;</span><span class="c1"> // DECL_ADM           // DECL_ADM</span>
+<a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acovr_enum.hxx&quot;</span>
+<a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="k">class</span><span class="w"> </span><span class="nc">DECL_ADM</span><span class="w"> </span><span class="n">acovr_gap_report</span>
+<a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="p">{</span>
+<a id="__codelineno-14-18" name="__codelineno-14-18" href="#__codelineno-14-18"></a>
+<a id="__codelineno-14-19" name="__codelineno-14-19" href="#__codelineno-14-19"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-14-20" name="__codelineno-14-20" href="#__codelineno-14-20"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">pos_gap</span><span class="p">;</span>
+<a id="__codelineno-14-21" name="__codelineno-14-21" href="#__codelineno-14-21"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">tan_gap</span><span class="p">;</span>
+<a id="__codelineno-14-22" name="__codelineno-14-22" href="#__codelineno-14-22"></a>
+<a id="__codelineno-14-23" name="__codelineno-14-23" href="#__codelineno-14-23"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-14-24" name="__codelineno-14-24" href="#__codelineno-14-24"></a><span class="w">    </span><span class="o">~</span><span class="n">acovr_gap_report</span><span class="p">();</span>
+<a id="__codelineno-14-25" name="__codelineno-14-25" href="#__codelineno-14-25"></a>
+<a id="__codelineno-14-26" name="__codelineno-14-26" href="#__codelineno-14-26"></a><span class="w">    </span><span class="n">acovr_gap_report</span><span class="p">();</span>
+<a id="__codelineno-14-27" name="__codelineno-14-27" href="#__codelineno-14-27"></a>
+<a id="__codelineno-14-28" name="__codelineno-14-28" href="#__codelineno-14-28"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_pos_gap</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-14-29" name="__codelineno-14-29" href="#__codelineno-14-29"></a>
+<a id="__codelineno-14-30" name="__codelineno-14-30" href="#__codelineno-14-30"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_tan_gap</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-14-31" name="__codelineno-14-31" href="#__codelineno-14-31"></a>
+<a id="__codelineno-14-32" name="__codelineno-14-32" href="#__codelineno-14-32"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="nf">get_gap</span><span class="p">(</span><span class="n">acovr_tol_type</span><span class="w"> </span><span class="n">type</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-14-33" name="__codelineno-14-33" href="#__codelineno-14-33"></a>
+<a id="__codelineno-14-34" name="__codelineno-14-34" href="#__codelineno-14-34"></a><span class="w">    </span><span class="c1">// for internal use only</span>
+<a id="__codelineno-14-35" name="__codelineno-14-35" href="#__codelineno-14-35"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_pos_gap</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">gap_size</span><span class="p">);</span>
+<a id="__codelineno-14-36" name="__codelineno-14-36" href="#__codelineno-14-36"></a>
+<a id="__codelineno-14-37" name="__codelineno-14-37" href="#__codelineno-14-37"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_tan_gap</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">gap_size</span><span class="p">);</span>
+<a id="__codelineno-14-38" name="__codelineno-14-38" href="#__codelineno-14-38"></a>
+<a id="__codelineno-14-39" name="__codelineno-14-39" href="#__codelineno-14-39"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">set_gap</span><span class="p">(</span><span class="n">acovr_tol_type</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">gap_size</span><span class="p">);</span>
+<a id="__codelineno-14-40" name="__codelineno-14-40" href="#__codelineno-14-40"></a><span class="p">};</span>
+<a id="__codelineno-14-41" name="__codelineno-14-41" href="#__codelineno-14-41"></a>
+<a id="__codelineno-14-42" name="__codelineno-14-42" href="#__codelineno-14-42"></a><span class="cp">#endif </span><span class="c1">// ADVCOVR_GAPREPORT_H</span>
+</code></pre></div>
+<h4 id="_15">成员函数</h4>
+<table>
+<thead>
+<tr>
+<th>acovr_gap_report.hxx</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>返回类型</td>
+<td>名称</td>
+<td>功能</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html#a7419d84c331360765cb131d5f816de64">acovr_gap_report</a> ()</td>
+<td>构造函数</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html#a85b2acf3de739aa1d3cd3ffa8cb98835">get_gap</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga23b8d44f574cd7857d8c81fb127dddc8">acovr_tol_type</a> type) const</td>
+<td>返回指定间隙（位置、切线或曲率）的值</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html#ad6de3155fd577855a97fdbbc82e9cbe2">get_pos_gap</a> () const</td>
+<td>返回位置间隙</td>
+</tr>
+<tr>
+<td>double</td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html#a7fdb321f0891acc8ff9c8b6f523e4bc4">get_tan_gap</a> () const</td>
+<td>返回切线间隙</td>
+</tr>
+<tr>
+<td></td>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__gap__report.html#a72ac4938ed801973da8e6e4c5e2e2633">~acovr_gap_report</a> ()</td>
+<td>析构函数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="acovrapi">acovrapi</h3>
+<p>高级覆盖方法具有如下限制：</p>
+<ul>
+<li>覆盖电路必须可以投影到初始曲面上</li>
+<li>电路中的每个边都必须有单个 coedge</li>
+<li>电路不能有分支</li>
+<li>电路不能自相交</li>
+<li>不能创建双值覆盖曲面，即覆盖曲面上任何两个点都不能投影到初始曲面上的同一点</li>
+</ul>
+<h4 id="_16">头文件</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1">// $Id: acovrapi.hxx,v 1.5 2002/07/29 15:44:52 btomas Exp $</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="cm">/*    Copyright (c) 1989-2020 by Spatial Corp.                     */</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="cm">/*    All rights reserved.                                         */</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="cm">/*    Protected by U.S. Patents 5,257,205; 5,351,196; 6,369,815;   */</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="cm">/*                              5,982,378; 6,462,738; 6,941,251    */</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="cm">/*    Protected by European Patents 0503642; 69220263.3            */</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="cm">/*    Protected by Hong Kong Patent 1008101A                       */</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="cm">/*******************************************************************/</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="c1">// bmt 11-Feb-03 - Doc revision + name change: acover_options ==&gt; acovr_options</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1">// bmt 31-Oct-03 - added api_advanced_cover_no_stitch()</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="c1">//</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="cp">#ifndef ADV_COVER_API</span>
+<a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a><span class="cp">#define ADV_COVER_API</span>
+<a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a><span class="c1">// For user convenience, we #include all required header files here</span>
+<a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acover_opts.hxx&quot;</span>
+<a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acovr_enum.hxx&quot;</span>
+<a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;acovr_gap_report.hxx&quot;</span>
+<a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>
+<a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dcl_adm.h&quot;</span>
+<a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a>
+<a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="k">class</span><span class="w"> </span><span class="nc">outcome</span><span class="p">;</span>
+<a id="__codelineno-15-24" name="__codelineno-15-24" href="#__codelineno-15-24"></a><span class="k">class</span><span class="w"> </span><span class="nc">EDGE</span><span class="p">;</span>
+<a id="__codelineno-15-25" name="__codelineno-15-25" href="#__codelineno-15-25"></a><span class="k">class</span><span class="w"> </span><span class="nc">FACE</span><span class="p">;</span>
+<a id="__codelineno-15-26" name="__codelineno-15-26" href="#__codelineno-15-26"></a><span class="k">class</span><span class="w"> </span><span class="nc">AcisOptions</span><span class="p">;</span>
+<a id="__codelineno-15-27" name="__codelineno-15-27" href="#__codelineno-15-27"></a>
+<a id="__codelineno-15-28" name="__codelineno-15-28" href="#__codelineno-15-28"></a><span class="cp">#ifndef NULL</span>
+<a id="__codelineno-15-29" name="__codelineno-15-29" href="#__codelineno-15-29"></a><span class="cp">#define NULL 0</span>
+<a id="__codelineno-15-30" name="__codelineno-15-30" href="#__codelineno-15-30"></a><span class="cp">#endif</span>
+<a id="__codelineno-15-31" name="__codelineno-15-31" href="#__codelineno-15-31"></a>
+<a id="__codelineno-15-32" name="__codelineno-15-32" href="#__codelineno-15-32"></a><span class="n">DECL_ADM</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="n">api_advanced_cover</span><span class="p">(</span><span class="n">FACE</span><span class="w"> </span><span class="o">*&amp;</span><span class="n">result_face</span><span class="p">,</span><span class="w"> </span><span class="n">EDGE</span><span class="w"> </span><span class="o">*</span><span class="n">edge_in_circuit</span><span class="p">,</span><span class="w"> </span><span class="n">acovr_options</span><span class="w"> </span><span class="o">*</span><span class="n">aco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">AcisOptions</span><span class="w"> </span><span class="o">*</span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<a id="__codelineno-15-33" name="__codelineno-15-33" href="#__codelineno-15-33"></a>
+<a id="__codelineno-15-34" name="__codelineno-15-34" href="#__codelineno-15-34"></a><span class="n">DECL_ADM</span><span class="w"> </span><span class="n">outcome</span><span class="w"> </span><span class="n">api_advanced_cover</span><span class="p">(</span><span class="n">FACE</span><span class="w"> </span><span class="o">*</span><span class="n">target_face</span><span class="p">,</span><span class="w"> </span><span class="n">acovr_options</span><span class="w"> </span><span class="o">*</span><span class="n">aco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">AcisOptions</span><span class="w"> </span><span class="o">*</span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<a id="__codelineno-15-35" name="__codelineno-15-35" href="#__codelineno-15-35"></a>
+<a id="__codelineno-15-36" name="__codelineno-15-36" href="#__codelineno-15-36"></a><span class="n">DECL_ADM</span><span class="w"> </span><span class="n">outcome</span>
+<a id="__codelineno-15-37" name="__codelineno-15-37" href="#__codelineno-15-37"></a><span class="n">api_advanced_cover_no_stitch</span><span class="p">(</span><span class="n">FACE</span><span class="w"> </span><span class="o">*&amp;</span><span class="n">result_face</span><span class="p">,</span><span class="w"> </span><span class="n">ENTITY_LIST</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="n">edges</span><span class="p">,</span><span class="w"> </span><span class="n">acovr_options</span><span class="w"> </span><span class="o">*</span><span class="n">aco</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">AcisOptions</span><span class="w"> </span><span class="o">*</span><span class="n">opts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span>
+<a id="__codelineno-15-38" name="__codelineno-15-38" href="#__codelineno-15-38"></a>
+<a id="__codelineno-15-39" name="__codelineno-15-39" href="#__codelineno-15-39"></a><span class="c1">// global function to report all gaps on an edge</span>
+<a id="__codelineno-15-40" name="__codelineno-15-40" href="#__codelineno-15-40"></a><span class="cm">/*</span>
+<a id="__codelineno-15-41" name="__codelineno-15-41" href="#__codelineno-15-41"></a><span class="cm">// tbrv.</span>
+<a id="__codelineno-15-42" name="__codelineno-15-42" href="#__codelineno-15-42"></a><span class="cm">*/</span>
+<a id="__codelineno-15-43" name="__codelineno-15-43" href="#__codelineno-15-43"></a><span class="n">DECL_ADM</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">acover_report_gaps</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">EDGE</span><span class="w"> </span><span class="o">*</span><span class="n">ed</span><span class="p">,</span><span class="w"> </span><span class="n">acovr_gap_report</span><span class="w"> </span><span class="o">&amp;</span><span class="n">gr</span><span class="p">);</span><span class="w"> </span><span class="c1">// Report the gaps on this edge</span>
+<a id="__codelineno-15-44" name="__codelineno-15-44" href="#__codelineno-15-44"></a>
+<a id="__codelineno-15-45" name="__codelineno-15-45" href="#__codelineno-15-45"></a><span class="cp">#endi</span>
+</code></pre></div>
+<h4 id="api_advanced_cover">api_advanced_cover</h4>
+<table>
+<thead>
+<tr>
+<th>1</th>
+<th><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classoutcome.html">outcome</a> <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga1fe94a2ada0e6cfc0ac692c8a4c34f9e">api_advanced_cover</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> <em>&amp;result_face, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classEDGE.html">EDGE</a> </em>edge_in_circuit, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html">acovr_options</a> <em>aco=NULL, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classAcisOptions.html">AcisOptions</a> </em>opts=NULL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>函数名</td>
+<td>api_advanced_cover</td>
+</tr>
+<tr>
+<td>函数说明</td>
+<td>计算覆盖边电路的新曲面并将其添加到实体中</td>
+</tr>
+<tr>
+<td>函数归类</td>
+<td>高级 Cover 接口函数</td>
+</tr>
+<tr>
+<td>优先级</td>
+<td>1</td>
+</tr>
+<tr>
+<td>返回类型</td>
+<td>outcome</td>
+</tr>
+<tr>
+<td>返回说明</td>
+<td>保存 API 运行错误码</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>说明</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> *&amp;result_face</td>
+<td>返回新的 face</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classEDGE.html">EDGE</a> *edge_in_circuit</td>
+<td>要覆盖的电路中的 edge</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html">acovr_options</a> *aco=NULL</td>
+<td>acovr 选项</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classAcisOptions.html">AcisOptions</a> *opts=NULL</td>
+<td>ACIS 选项</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>public</td>
+</tr>
+<tr>
+<td>补充说明</td>
+<td>指定的电路形成给定 face 中的洞。ACIS 使用输入 edge 找到包含它的自由边或 wire 的电路。然后计算包含其中边的覆盖曲面。使用此曲面创建新 face，将其放入模型。这个 face 通过 <code>result_face</code> 参数返回。注意必须传入 <code>NULL</code> 作为参数。如果有需要，边界电路中的边将根据需要具有容差性，以避免间隙误差。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>2</th>
+<th><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classoutcome.html">outcome</a> <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga67829ae368dc2925e6936f0e4e2451de">api_advanced_cover</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> <em>target_face, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html">acovr_options</a> </em>aco=NULL, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classAcisOptions.html">AcisOptions</a> *opts=NULL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>函数名</td>
+<td>api_advanced_cover</td>
+</tr>
+<tr>
+<td>函数说明</td>
+<td>计算覆盖边电路的新曲面并将其添加到实体中</td>
+</tr>
+<tr>
+<td>函数归类</td>
+<td>高级 Cover 接口函数</td>
+</tr>
+<tr>
+<td>优先级</td>
+<td>1</td>
+</tr>
+<tr>
+<td>返回类型</td>
+<td>outcome</td>
+</tr>
+<tr>
+<td>返回说明</td>
+<td>保存 API 运行错误码</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>说明</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> *target_face</td>
+<td>要重新覆盖的 face</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html">acovr_options</a> *aco=NULL</td>
+<td>acovr 选项</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classAcisOptions.html">AcisOptions</a> *opts=NULL</td>
+<td>ACIS 选项</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>public</td>
+</tr>
+<tr>
+<td>补充说明</td>
+<td>通过计算新表面重新覆盖现有 face 的外边界环路。找到外环后，ACIS 计算包含边的覆盖曲面，并替换 <code>target_face</code> 中的现有几何。将新曲面添加到模型后，边界电路中的边将根据需要具有容差性，以避免间隙误差。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="api_advanced_cover_no_stitch">api_advanced_cover_no_stitch</h4>
+<table>
+<thead>
+<tr>
+<th>3</th>
+<th><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classoutcome.html">outcome</a> <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/group__ACISADVCOVR.html#ga91cf80e75ca10dd660954ddc3bb15409">api_advanced_cover_no_stitch</a> (<a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> <em>&amp;result_face, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> const &amp;edges, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html">acovr_options</a> </em>aco=NULL, <a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classAcisOptions.html">AcisOptions</a> *opts=NULL)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>函数名</td>
+<td>api_advanced_cover_no_stitch</td>
+</tr>
+<tr>
+<td>函数说明</td>
+<td>计算覆盖边电路的新曲面并将其添加到实体中</td>
+</tr>
+<tr>
+<td>函数归类</td>
+<td>高级 Cover 接口函数</td>
+</tr>
+<tr>
+<td>优先级</td>
+<td>1</td>
+</tr>
+<tr>
+<td>返回类型</td>
+<td>outcome</td>
+</tr>
+<tr>
+<td>返回说明</td>
+<td>保存 API 运行错误码</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>说明</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classFACE.html">FACE</a> *&amp;result_face</td>
+<td>返回新的 face</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classENTITY__LIST.html">ENTITY_LIST</a> const &amp;edges</td>
+<td>构成电路的边的列表（按任意顺序排列）</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classacovr__options.html">acovr_options</a> *aco=NULL</td>
+<td>acovr 选项</td>
+</tr>
+<tr>
+<td><a href="https://doc.spatial.com/get_doc_page/qref/ACIS/html/classAcisOptions.html">AcisOptions</a> *opts=NULL</td>
+<td>ACIS 选项</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>public</td>
+</tr>
+<tr>
+<td>补充说明</td>
+<td>新产生的 face 独立于所有现有拓扑。此函数通过覆盖指定电路的边来创建 face 。边必须形成闭合电路。如果两个顶点直接的距离小于相应边的两个位置约束容差，则视为重合，以确定电路闭合。输入边可以来自任意所有者 owner，产生的 face 不会被缝合到任何现有拓扑：所有输入边都会被复制。</td>
+</tr>
+</tbody>
+</table>
+<h4 id="acover_report_gaps">acover_report_gaps</h4>
+<table>
+<thead>
+<tr>
+<th>4</th>
+<th>outcome acover_report_gaps (const EDGE *ed, acovr_gap_report &amp;gr)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>函数名</td>
+<td>acover_report_gaps</td>
+</tr>
+<tr>
+<td>函数说明</td>
+<td>/</td>
+</tr>
+<tr>
+<td>函数归类</td>
+<td>高级 Cover 接口函数</td>
+</tr>
+<tr>
+<td>优先级</td>
+<td>1</td>
+</tr>
+<tr>
+<td>返回类型</td>
+<td>outcome</td>
+</tr>
+<tr>
+<td>返回说明</td>
+<td>保存 API 运行错误码</td>
+</tr>
+<tr>
+<td>参数</td>
+<td>说明</td>
+</tr>
+<tr>
+<td>const EDGE *ed</td>
+<td>\</td>
+</tr>
+<tr>
+<td>acovr_gap_report &amp;gr</td>
+<td>\</td>
+</tr>
+<tr>
+<td>访问权限</td>
+<td>public</td>
+</tr>
+<tr>
+<td>补充说明</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

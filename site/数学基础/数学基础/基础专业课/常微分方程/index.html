@@ -1,0 +1,2302 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>常微分方程 - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              常微分方程
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一阶微分方程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一阶线性微分方程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        通解
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常数变易法
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一阶非线性微分方程
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶非线性微分方程">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        变量分离方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        齐次方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        恰当方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        积分因子法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重要的非线性微分方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数法
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="参数法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#y" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可解出 $y$ 的微分方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#x" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可解出 $x$ 的微分方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一阶非线性微分方程
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        奇解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="奇解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        存在性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包络
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        习题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般理论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一般理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一阶微分方程初值问题
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="一阶微分方程初值问题">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#peano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Peano 存在性定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#picard" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Picard 存在唯一性定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cauchy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cauchy 存在性定理
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不动点迭代
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解的延拓与整体解
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="解的延拓与整体解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解的延拓
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解的整体存在性
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        比较定理与解的存在区间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        解的连续依赖性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        高阶微分方程组
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        线性微分方程组
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微分方程的稳定性理论
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        微分方程的几何理论
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">常微分方程</h1>
+<h2 id="_2">一阶微分方程</h2>
+<h3 id="_3">一阶线性微分方程</h3>
+<p>考虑形式
+$$
+\frac{dy}{dx} = p(x)y+q(x)
+$$
+若 $q(x)\neq 0$，称为非齐次微分方程；否则，称为齐次微分方程。</p>
+<h4 id="_4">通解</h4>
+<p>若 $q= 0$，则可以变量分离
+$$
+\frac{1}{y}dy = pdx
+$$
+于是
+$$
+\ln|y| = \int pdx+C_{1}
+$$
+因此
+$$
+y = Ce^{\int pdx}
+$$
+若 $q\neq 0$，首先移项得到
+$$
+y'-py = q
+$$
+假设 $q= 0$，则根据齐次方程的解形式，有
+$$
+ye^{-\int pdx}=C
+$$
+两边同时求导得到
+$$
+(ye^{-\int pdx})'=(y'-py)e^{-\int pdx}=0
+$$
+这启发我们在原方程两端同乘 $e^{-\int pdx}$ 得到
+$$
+\left( ye^{-\int pdx} \right)' = qe^{-\int p dx}
+$$
+于是
+$$
+ye^{-\int p dx} = \int qe^{-\int p dx}+C
+$$
+最终有
+$$
+y = e^{\int p dx}\left( \int qe^{-\int p dx}+C \right)
+$$
+上述方法实际上是将方程转换为如下形式
+$$
+Y' =\frac{dY(x,y)}{dx}=g(x)
+$$
+于是可以两端同时积分得到
+$$
+Y = \int gdx
+$$
+再将 $Y$ 中关于 $x$ 的部分移到右端得到 $y$ 的表达式。</p>
+<h4 id="_5">常数变易法</h4>
+<p>由于非齐次方程的解将齐次方程的解 $Ce^{\int pdx}$ 中的常数 $C$ 变为 $C(x)$ 。常数变易法考虑解形式
+$$
+y(x)=C(x)y_{1}(x),\quad \frac{dy_{1}}{dx}=p(x)y_{1}
+$$
+其中 $y_{1}$ 是齐次方程的解。将解形式代入非齐次方程
+$$
+C'y_{1}+Cy_{1}' = pCy_{1}+q
+$$
+消去左右相同的项得到
+$$
+C' =  \frac{q}{y_{1}} \implies C = \int \frac{q}{y_{1}}dx+C_{1}
+$$
+容易验证 $y_{1}=e^{\int pdx}$ 时，$y=Cy_{1}$ 就是非齐次方程的特解，于是
+$$
+y^* = y+y_{1}
+$$
+就是非齐次方程的通解。</p>
+<h3 id="_6">一阶非线性微分方程</h3>
+<h4 id="_7">变量分离方程</h4>
+<p>变量分离方程形如
+$$
+\frac{dy}{dx}= f(x)g(y)
+$$
+容易转换为
+$$
+\frac{1}{g(y)}dy = f(x)dx,\quad g(y)\neq 0
+$$
+于是
+$$
+G(x,y)=\int \frac{1}{g(y)}dy - \int f(x)dx +C = 0
+$$
+根据隐函数定理解出 $y(x)$ 。注意若存在 $y_{0}$ 使得 $g(y_{0})=0$，则 $y=y_{0}$ 显然是解，称为平衡点或奇点。</p>
+<blockquote>
+<p>[!note]
+还需要考虑解的存在区间，避免 $g(y)=0$ 的情况。</p>
+</blockquote>
+<h4 id="_8">齐次方程</h4>
+<p>设 $f(x,y)$ 是零次齐次函数，即 $f(tx,ty)=f(x,y),t\neq 0$，则
+$$
+\frac{dy}{dx} = f(x,y)
+$$
+称为齐次方程。若 $x\neq 0$，则可以重写为
+$$
+\frac{dy}{dx} = f\left( 1,\frac{y}{x} \right) = g\left( \frac{y}{x} \right)
+$$
+做代换 $u=\frac{y}{x}$，则
+$$
+g(u)=\frac{dy}{dx} = \frac{d(ux)}{dx} = x\frac{du}{dx}+u
+$$
+得到变量分离方程，可解。</p>
+<p>对于如下形式的方程
+$$
+y' = f\left( \frac{ax+by+c_{1}}{cx+dy+c_{2}} \right)
+$$
+首先计算分子分母对应直线的交点 $(\alpha,\beta)$，满足
+$$
+\begin{cases}
+a\alpha+b\beta=-c_{1} \
+c\alpha+d\beta=-c_{2}
+\end{cases}
+$$
+然后做变量代换 $\xi=x-\alpha,\eta=y-\beta$ 得到
+$$
+\eta' = f\left( \frac{a\xi+b\eta}{c\xi+d\eta} \right)
+$$
+进一步代换 $u=\frac{\eta}{\xi},\eta=u\xi$ 得到
+$$
+\xi \frac{du}{dx}+u \frac{d\xi}{dx} = f\left( \frac{a+bu}{c+du} \right) = g(u)
+$$
+注意到 $\frac{d\xi}{dx}=1$，则
+$$
+(x-\alpha) \frac{du}{dx} = g(u)-u
+$$
+得到变量分离方程，可解。</p>
+<h4 id="_9">恰当方程</h4>
+<p>考虑隐函数方程
+$$
+F(x,y) = C
+$$
+取全微分得到
+$$
+F_{x}dx+F_{y}dy=0
+$$
+改写为一般形式
+$$
+M(x,y)dx+N(x,y)dy=0
+$$
+称为恰当方程或全微分方程。</p>
+<p>若 $F$ 具有二阶连续偏导，则
+$$
+\frac{\partial M}{\partial y}= \frac{\partial^2F}{\partial x\partial y} = \frac{\partial^2F}{\partial y\partial x} = \frac{\partial N}{\partial x}
+$$
+根据 Green 公式，等式
+$$
+F(x,y) = \int_{L} M(x,y)dx+N(x,y)dy
+$$
+成立，且与路径 $L$ 无关，则可以取矩形路径
+$$
+\begin{aligned}
+(x_{0},y_{0})\to(x_{0},y)\to(x,y):\int_{x_{0}}^xM(s,y)ds+\int_{y_{0}}^yN(x_{0},t)dt &amp;= C\
+(x_{0},y_{0})\to(x,y_{0})\to(x,y):\int_{x_{0}}^xM(s,y_{0})ds+\int_{y_{0}}^yN(x,t)dt &amp;= C
+\end{aligned}
+$$
+都是恰当方程的解。</p>
+<p>在实际求解过程中，可以先假设
+$$
+F(x,y) = \int M(x,y)dx+\psi(y)
+$$
+然后根据
+$$
+\psi'(y) = N(x,y)-\int\frac{\partial M}{\partial y}dx
+$$
+计算 $\psi(y)$ 。</p>
+<h4 id="_10">积分因子法</h4>
+<p>非恰当方程可以通过添加非零因子函数变为恰当方程。于是</p>
+<blockquote>
+<p>[!definition]
+若存在非零因子 $\mu(x,y)$ 使得
+$$
+\mu(x,y)M(x,y)dx+\mu(x,y)N(x,y)dy=0
+$$
+成为恰当方程，则称 $\mu(x,y)$ 是该方程的积分因子。</p>
+</blockquote>
+<p>若 $\mu(x,y)$ 是积分因子，$f(x,y)=C$ 是方程的解，则对任意连续函数 $F(\xi)$ 有
+$$
+\mu F(f)(Mdx+Ndy) = F(f)(\mu Mdx+\mu Ndy) = F(f)df = dF
+$$
+因此 $\mu F(f)$ 是积分因子，对应的解是 $F(f)=C$ 。这意味着存在无穷多个积分因子。</p>
+<p>根据这一构造，我们可以考虑将方程分成两部分
+$$
+\begin{cases}
+M_{1}dx+N_{1}dy=0 \
+M_{2}dx+N_{2}dy=0
+\end{cases}
+$$
+如果分别有积分因子 $\mu_{1},\mu_{2}$，以及对应的解 $f_{1}=C_{1},f_{2}=C_{2}$，即
+$$
+\begin{cases}
+df_{1} = \mu_{1}(M_{1}dx+N_{1}dy) \
+df_{2}= \mu_{2}(M_{2}dx+N_{2}dy)
+\end{cases}
+$$
+对任意可微函数 $F_{1}(\xi),F_{2}(\xi)$ 有 $\mu_{1}F_{1}(f_{1}),\mu_{2}F_{2}(f_{2})$ 是积分因子，对应的解是 $F_{1}(f_{1}),F_{2}(f_{2})$，则如果
+$$
+\mu_{1}F_{1}(f_{1})=\mu_{2}F_{2}(f_{2})
+$$
+那么
+$$
+(M_{1}+M_{2})dx+(N_{1}+N_{2})dy=0
+$$
+以 $\mu_{1}F_{1}(f_{1})$ 为积分因子。</p>
+<blockquote>
+<p>[!note]
+其实这相当于找到两个部分的相同积分因子作为两者之和的积分因子。</p>
+</blockquote>
+<p>根据恰当方程的判定条件
+$$
+\frac{\partial \mu N}{\partial x} = \frac{\partial \mu M}{\partial y} \implies 
+\frac{1}{\mu}\left( N \frac{\partial \mu}{\partial x}-M  \frac{\partial \mu}{\partial y} \right) = \frac{\partial M}{\partial y}- \frac{\partial N}{\partial x}
+$$
+于是上述等式成立是 $\mu(x,y)$ 作为积分因子的充要条件。虽然这个方程很难求解，但是我们只需要一个积分因子，所以可以考虑特殊情况。例如设 $\mu(x,y)=\mu(x)$，则
+$$
+\frac{1}{\mu} \frac{d\mu}{dx} = \frac{\frac{\partial M}{\partial y}- \frac{\partial N}{\partial x}}{N}
+$$
+如果右端是仅与 $x$ 相关的函数，则可以变量分离求解。</p>
+<h4 id="_11">重要的非线性微分方程</h4>
+<p><strong>Bernoulli 方程</strong> 形如 $y'+g(x)y+h(x)y^\alpha=0,\alpha\neq 0,1$，具有积分因子 $(1-\alpha)y^{-\alpha}$，于是
+$$
+(y^{1-\alpha})'+(1-\alpha)gy^{1-\alpha}+(1-\alpha)h=0
+$$
+令 $z=y^{1-\alpha}$ 得到一阶线性微分方程
+$$
+z'+(1-\alpha)gz+(1-\alpha)h = 0
+$$
+于是只要 $z\neq 0$，则 $y=z^{1/(1-\alpha)}$ 是方程的解。显然，当 $\alpha&gt;0$ 时，$y=0$ 也是解。</p>
+<p><strong>Riccati 方程</strong> 形如 $y'+g(x)y+h(x)y^2=k(x)$，它在诸多应用中都有出现，但是一般很难求解。设 $\phi$ 是一个特解，令 $u=y-\phi$，则
+$$
+u'+(g+2\phi h)u+hu^2=0
+$$
+转换为 Bernoulli 方程求解。</p>
+<h3 id="_12">参数法</h3>
+<p>考虑一般形式的一阶微分方程
+$$
+F(x,y,y') = 0
+$$
+将 $F(x,y,z)$ 看作空间曲面，满足
+$$
+\begin{cases}
+x=x(s,t) \
+y=y(s,t) \
+z=z(s,t)
+\end{cases}
+$$
+我们尝试找到参数域上的曲线 $s=s(t)$，使得
+$$
+\frac{dy}{dx} = z(s(t),t) \implies dy(s(t),t)=z(s(t),t)dx(s(t),t)
+$$
+则积分方程
+$$
+\begin{cases}
+x=x(s(t),t) \
+y=y(s(t),t)
+\end{cases}
+$$
+解出的 $y=y(x)$ 是方程的解。</p>
+<h4 id="y">可解出 $y$ 的微分方程</h4>
+<p>若方程可表示为
+$$
+y=f(x,y')
+$$
+记 $z=y'$，则 $F(x,y,z)=0$ 有参数表示
+$$
+\begin{cases}
+x=x \
+y=f(x,z) \
+z=z
+\end{cases}
+$$
+由 $dy=zdx$ 得到
+$$
+f_{x}dx+f_{z}dz=zdx \implies (f_{x}-z)dx+f_{z}dz=0
+$$
+若该方程有解 $z=z(x)$，则
+$$
+y = f(x,z(x))
+$$
+就是方程的解。</p>
+<blockquote>
+<p>[!note]
+注意不需要求解 $\frac{dy}{dx}=z(x)$ 计算 $y$，而是直接用 $f(x,z(x))$ 作为解。因为 $z(x)$ 中原本就带有一个常数 $C$，求解前者会得到 $Cx+C'$，这是二阶微分方程 $y'=f_{x}+f_{z}z'=f_{x}+f_{z}y''$ 的解。</p>
+</blockquote>
+<h4 id="x">可解出 $x$ 的微分方程</h4>
+<p>若方程可表示为
+$$
+x=f(y,y')
+$$
+若方程可表示为
+$$
+y=f(x,y')
+$$
+记 $z=y'$，则 $F(x,y,z)=0$ 有参数表示
+$$
+\begin{cases}
+x=f(y,z) \
+y=y \
+z=z
+\end{cases}
+$$
+由 $dy=zdx$ 得到
+$$
+f_{y}z+f_{z}z' = 1
+$$
+利用 $z'=\frac{dz}{dy} \frac{dy}{dx}=z \frac{dz}{dy}$ 得到
+$$
+f_{y}z+f_{z} z\frac{dz}{dy} =1
+$$
+若该方程有解 $z=z(y)$，则
+$$
+x = f(y,z(y))
+$$
+就是方程的解。</p>
+<h4 id="_13">一阶非线性微分方程</h4>
+<p>一般非线性微分方程没有寻找参数表示的规律，只能结合方程的结构进行处理，例如
+$$
+y^2+y'^2=1
+$$
+注意 $F(x,y,z)=y^2+z^2-1=0$ 的结构，可以取参数表示
+$$
+\begin{cases}
+x=s \
+y=\sin t \
+z=\cos t
+\end{cases}
+$$
+由 $dy=zdx$ 得到 $\cos tdt=\cos tds$，因此 $\cos t=0$ 或 $dt=ds$，解得
+$$
+t = k\pi+\frac{\pi}{2},k\in \mathbb{N}\quad \mathrm{or}\quad s=t+C 
+$$
+进而 $y=\sin(x+C)$ 或 $y=\pm 1$ 是两个解。</p>
+<h3 id="_14">奇解</h3>
+<h4 id="_15">存在性</h4>
+<blockquote>
+<p>[!definition]
+设 $y=\phi(x)$ 是区间 $J$ 上的一阶微分方程
+$$
+F(x,y,y')=0
+$$
+的特解，积分曲线 $\Gamma={(x,\phi(x)):x\in J}$ 上每一点 $M$ 的任意邻域内，存在方程的另一个解在 $M$ 处与 $\Gamma$ 相切，则称 $y=\phi(x)$ 是方程的奇解。</p>
+<p>[!theorem] 必要条件
+设 $F(x,y,z)$ 以及 $F_{y},F_{z}$ 在 $G$ 上连续。若 $y=\phi(x),x\in J$ 是奇解，且 $(x,\phi(x),\phi'(x))\in G,x\in J$，则 $y=\phi(x)$ 满足
+$$
+\begin{cases}
+F(x,y,y')=0 \
+F_{z}(x,y,y')=0
+\end{cases}
+$$</p>
+<p>[!theorem] 充分条件
+设 $F(x,y,z)$ 在 $G$ 上二阶连续可微。若求解
+$$
+\begin{cases}
+F(x,y,y')=0 \
+F_{z}(x,y,y')=0
+\end{cases}
+$$
+得到 $y=\phi(x),x\in J$ 是 $F(x,y,y')=0$ 的解，并且
+$$
+\begin{cases}
+F_{y}(x,\phi,\phi')\neq 0 \
+F_{zz}(x,\phi,\phi')\neq 0, &amp; x\in J \
+F_{z}(x,\phi,\phi')=0
+\end{cases}
+$$
+则 $y=\phi(x)$ 是奇解。</p>
+</blockquote>
+<h4 id="_16">包络</h4>
+<blockquote>
+<p>[!definition] 
+设单参数 $C$ 的曲线族
+$$
+K(C):V(x,y,C)=0
+$$
+其中 $V$ 在 $D$ 上连续可微。若对于平面上的连续可微曲线 $\Gamma$，以及任意 $Q\in \Gamma$ 存在 $K(C^*)$ 经过 $Q$ 且与 $\Gamma$ 相切，并且在 $Q$ 的邻域内不同于 $\Gamma$，则称 $\Gamma$ 是 $K(C)$ 的包络。</p>
+<p>[!theorem] 包络是奇解
+设微分方程 $F(x,y,y')=0$ 有解 $V(x,y,C)=0$，且其包络为 $\Gamma:y=\phi(x)$，则 $y=\phi(x)$ 是方程的奇解。</p>
+</blockquote>
+<p>由于包络上每一点都是 $F=0$ 的解，因此它是奇解。</p>
+<blockquote>
+<p>[!theorem] 必要条件
+设 $\Gamma$ 是 $V$ 的包络，并且
+$$
+\Gamma:
+\begin{cases}
+x=f(C) \
+y=g(C)
+\end{cases}
+$$
+中 $f,g$ 对 $C$ 连续可微，则
+$$
+\begin{cases}
+V(x,y,C)=0 \
+V_{C}(x,y,C)=0
+\end{cases}
+$$</p>
+</blockquote>
+<p>只需要证明包络的切向是解的切向，即 $(f',g')$ 与 $(-V_{y},V_{x})$ 共线。</p>
+<blockquote>
+<p>[!theorem] 充分条件
+设求解
+$$
+\begin{cases}
+V(x,y,C)=0 \
+V_{C}(x,y,C)=0
+\end{cases}
+$$
+得到的连续可微且不包含于 $V$ 的曲线
+$$
+\Gamma:\begin{cases}
+x=f(C) \
+y=g(C)
+\end{cases}
+$$
+满足 $(f',g')\neq 0,(V_{x},V_{y})\neq (0,0)$，则 $\Gamma$ 是 $V$ 的包络。</p>
+</blockquote>
+<p>对 $\Gamma$ 上一点，利用隐函数定理得到 $V(x,y,C)=0$ 在该点的切向 $-\frac{V_{x}}{V_{y}}$，证明 $\Gamma$ 在该点的切向 $(f',g')$ 与其共线。</p>
+<h3 id="_17">习题</h3>
+<p>Ex 8. 设 $M(x,y),N(x,y)$ 是 $m$ 次齐次函数，即
+$$
+M(tx,ty)=t^mM(x,y),\quad N(tx,ty)=t^mN(x,y),\quad m&gt;1,t\neq 0
+$$
+若 $Mdx+Ndy=0$ 是恰当方程，则 $F(x,y)=xM+yN=C$ 是通解。</p>
+<p>首先取全微分得到
+$$
+(M+xM_{x}+yN_{x})dx+(xM_{y}+N+yN_{y})dy=0
+$$
+由恰当方程条件，有 $M_{y}=N_{x}$，代入得到
+$$
+(M+xM_{x}+yM_{y})dx+(xN_{x}+N+yN_{y})dy=0
+$$
+注意到
+$$
+\begin{aligned}
+xM_{x}+yM_{y}&amp;=\frac{dM(tx,ty)}{dt}= mt^{m-1}M\
+xN_{x}+yN_{y}&amp;=\frac{dN(tx,ty)}{dt}= mt^{m-1}N\
+\end{aligned}
+$$
+令 $t=1$，代回得到
+$$
+(1+m)(Mdx+Ndy) = 0
+$$
+因此 $F(x,y)=C$ 满足恰当方程。</p>
+<blockquote>
+<p>[!theorem] Gronwall
+设 $y(x),A(x)$ 是 $[a,b]$ 上的非负连续函数，存在常数 $C_{0}\geq 0$ 使得
+$$
+0\leq y(x)\leq C_{0}+\int_{a}^xA(t)y(t)dt,\quad x\in[a,b]
+$$
+则有
+$$
+0\leq y(x)\leq C_{0}e^{\int_{a}^xA(t)dt},\quad x\in[a,b]
+$$</p>
+</blockquote>
+<p>设 $f(x)=C_{0}+\int_{a}^xA(t)y(t)dt\geq y(x)$，则有
+$$
+F'=\left( fe^{-\int_{a}^xAdt} \right)' = (f'-Af)e^{-\int_{a}^xAdt} \leq (f'-Ay)e^{-\int_{a}^xAdt} = 0
+$$
+因此 $F(x)$ 单调递减，从而
+$$
+F(a) \geq F(x) = f(x)e^{-\int_{a}^xA(t)dt}\geq y(x)e^{-\int_{a}^xA(t)dt}
+$$
+于是
+$$
+y(x) \leq F(a)e^{\int_{a}^xA(t)dt}
+$$
+即证。</p>
+<h2 id="_18">一般理论</h2>
+<h3 id="_19">一阶微分方程初值问题</h3>
+<blockquote>
+<p>[!definition]
+在区间 $I=[a,b]$ 上给定连续函数列 ${f_{n}(x)}$，若对任意 $\epsilon&gt;0$，存在 $\delta&gt;0$ 使得
+$$
+|x-x'|&lt;\delta \implies \forall n,|f_{n}(x)-f_{n}(x')|&lt;\epsilon
+$$
+则称 ${f_{n}(x)}$ 在 $I$ 上等度连续。若存在 $K$ 使得
+$$
+|f_{n}(x)|\leq K,\quad \forall x\in I,\forall n
+$$
+则称 ${f_{n}(x)}$ 在 $I$ 上一致有界。</p>
+<p>[!lemma]
+设 $A\subset I$ 稠密。若 ${f_{n}(x)}$ 在 $I$ 上等度连续，且任意 $x\in A$，${f_{n}(x)}$ 收敛，则 ${f_{n}(x)}$ 在 $I$ 上一致收敛且极限函数 $f(x)$ 在 $I$ 上连续。</p>
+</blockquote>
+<p>对任意 $x\in I$ 取 $x_{0}\in A,|x-x_{0}|&lt;\delta$，于是
+$$
+\begin{aligned}
+|f_{n}(x)-f_{m}(x)| &amp;\leq |f_{n}(x)-f_{n}(x_{0})|+|f_{n}(x_{0})-f_{m}(x_{0})|+|f_{m}(x_{0})-f_{m}(x)|\
+&amp;\leq \epsilon+\epsilon+\epsilon
+\end{aligned}
+$$
+其中第一、三项利用等度连续，第二项利用 ${f_{n}(x_{0})}$ 收敛。设 $f(x)$ 为极限函数，则
+$$
+\begin{aligned}
+|f(x)-f(x_{0})|&amp;\leq |f(x)-f_{n}(x)|+|f_{n}(x)-f_{n}(x_{0})|+|f_{n}(x_{0})-f(x_{0})|\
+&amp;\leq \epsilon+\epsilon+\epsilon
+\end{aligned}
+$$
+其中第一、三项利用 ${f_{n}(x)},{f_{n}(x_{0})}$ 收敛，第二项利用等度连续。</p>
+<blockquote>
+<p>[!theorem] Ascoli-Arzela
+有限闭区间 $I$ 上一致有界、等度连续的函数列 ${f_{n}(x)}$ 至少存在一个 $I$ 上一致收敛的子序列 ${f_{n_{k}}(x)}$，且极限函数 $f(x)$ 在 $I$ 上连续。</p>
+</blockquote>
+<p>记 $A={x_{n}}$ 是 $I$ 中所有有理数的集合，则对固定的 $x=x_{1}$，可以从 ${f_{n}(x_{1})}$ 抽出一个收敛的子序列 ${f_{1n}(x_{1})}$，对应的函数列 ${f_{1n}(x)}$ 还是一致有界、等度连续；然后，对固定的 $x=x_{2}$，从 ${f_{1n}(x)}$ 中抽出一个收敛的子序列 ${f_{2n}(x_{2})}$，对应的函数列 ${f_{2n}(x)}$ 还是一致有界、等度连续。进而可以不断抽出函数列 ${f_{mn}(x)}$ 一致有界、等度连续，并且对任意 $x\in A$ 都收敛。取对角线序列 ${f_{nn}(x)}$ 一致有界、等度连续，则根据构造 ${f_{nn}(x_{k})}$ 都收敛，由引理即证。</p>
+<h4 id="peano">Peano 存在性定理</h4>
+<h4 id="picard">Picard 存在唯一性定理</h4>
+<h4 id="cauchy">Cauchy 存在性定理</h4>
+<h3 id="_20">不动点迭代</h3>
+<h3 id="_21">解的延拓与整体解</h3>
+<h4 id="_22">解的延拓</h4>
+<h4 id="_23">解的整体存在性</h4>
+<h3 id="_24">比较定理与解的存在区间</h3>
+<h3 id="_25">解的连续依赖性</h3>
+<h3 id="_26">高阶微分方程组</h3>
+<h2 id="_27">线性微分方程组</h2>
+<h2 id="_28">微分方程的稳定性理论</h2>
+<h2 id="_29">微分方程的几何理论</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

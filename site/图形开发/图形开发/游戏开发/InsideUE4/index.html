@@ -1,0 +1,2447 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>InsideUE4 - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#insideue4" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              InsideUE4
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        准备工作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="准备工作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        关联账户
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译源码
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="编译源码">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        版本对应关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不兼容问题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rider
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础概念
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基础概念">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        项目结构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        代码规范
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="代码规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名规范
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标准库
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        现代 C++ 语法
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        默认构造
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编译系统
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gameplay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GamePlay 架构
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GamePlay 架构">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor-component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actor 和 Component
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Actor 和 Component">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#actor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Actor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#component" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Component
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        父子关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#childactorcomponent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ChildActorComponent
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#level-world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level 和 World
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Level 和 World">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Level
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#world" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        World
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#worldcontextgameinstance-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WorldContext、GameInstance 和 Engine
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="WorldContext、GameInstance 和 Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#worldcontext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WorldContext
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gameinstance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameInstance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engine
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pawn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pawn
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#controller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Controller
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Controller">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#acontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AController
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplayerstate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APlayerState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        总体架构
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aplayercontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        APlayerController
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aaicontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AAIController
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gamemode-gamestate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameMode 和 GameState
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameMode 和 GameState">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gamemode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameMode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gamestate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameState
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gamesession" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameSession
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Player
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Player">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#uplayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UPlayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ulocalplayer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ULocalPlayer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unetconnection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNetConnection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gameinstance_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameInstance
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="GameInstance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gameinstance_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GameInstance
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#savegame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaveGame
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subsystems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subsystems
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="insideue4">InsideUE4</h1>
+<h2 id="_1">准备工作</h2>
+<h3 id="_2">关联账户</h3>
+<p>首先必须将虚幻引擎账户与 GitHub 账户关联，然后才可以访问源码。</p>
+<p>![[image-20250610150309134.png]]</p>
+<h3 id="_3">编译源码</h3>
+<p>下载源码后，先点击 <code>Setup.bat</code> 在点击 <code>GenerateProjectFiles.bat</code>，然后打开项目，使用默认选项 <code>DevelopmentEditor</code> 等待编译完成。</p>
+<h4 id="_4">版本对应关系</h4>
+<p><strong><a href="https://zhida.zhihu.com/search?content_id=116607435&amp;content_type=Article&amp;match_order=1&amp;q=VS2012&amp;zhida_source=entity">VS2012</a> (<a href="https://zhida.zhihu.com/search?content_id=116607435&amp;content_type=Article&amp;match_order=1&amp;q=Visual+C%2B%2B&amp;zhida_source=entity">Visual C++</a> 11.0)</strong></p>
+<ul>
+<li>UE4.0 可以使用 VS2012</li>
+<li>UE4.7 Windows 平台最低需求 <a href="https://zhida.zhihu.com/search?content_id=116607435&amp;content_type=Article&amp;match_order=1&amp;q=VS2013&amp;zhida_source=entity">VS2013</a></li>
+</ul>
+<p><strong>VS2013 (Visual C++ 12.0)</strong></p>
+<ul>
+<li>UE4.0 可以使用 VS2013</li>
+<li>UE4.7 Windows 平台最低需求 VS2013</li>
+<li>UE4.10 launcher 版引擎不再支持 VS2013</li>
+</ul>
+<p><strong>VS2015 (Visual C++ 14.0)</strong></p>
+<ul>
+<li>UE4.9 可以使用 VS2015(Beta)，默认禁用了对 VS2015 的支持</li>
+<li>UE4.10 正式支持 VS2015</li>
+<li>UE4.17 最低需求 <a href="https://zhida.zhihu.com/search?content_id=116607435&amp;content_type=Article&amp;match_order=1&amp;q=VS2015+Update3&amp;zhida_source=entity">VS2015 Update3</a></li>
+</ul>
+<p><strong>VS2015 Update3(Visual C++ 14.0)</strong></p>
+<ul>
+<li>UE4.13 支持 VS2015 Update3</li>
+<li>UE4.22 停止对 VS2015 Update3 的支持</li>
+</ul>
+<p><strong><a href="https://zhida.zhihu.com/search?content_id=116607435&amp;content_type=Article&amp;match_order=1&amp;q=VS2017&amp;zhida_source=entity">VS2017</a> (Visual C++ 15.0)</strong></p>
+<ul>
+<li>UE4.14 支持 VS2017</li>
+<li>UE4.20 默认使用 VS2017</li>
+</ul>
+<p><strong><a href="https://zhida.zhihu.com/search?content_id=116607435&amp;content_type=Article&amp;match_order=1&amp;q=VS2019&amp;zhida_source=entity">VS2019</a> (Visual C++ 16.0)</strong></p>
+<ul>
+<li>UE4.22 添加对 VS2019 的支持，可以在 Editor 中设置为默认 IDE</li>
+<li>UE4.24 对 VS2019 16.3 兼容有问题，不要使用</li>
+</ul>
+<h4 id="_5">不兼容问题</h4>
+<p>如果 UE4 项目显示不兼容，可以先删除项目目录中的</p>
+<ul>
+<li>Binaries</li>
+<li>Intermediate</li>
+<li>.vs 文件夹</li>
+</ul>
+<p>重新运行 <code>GenerateProjectFiles.bat</code> 打开新的 <code>UE4.sln</code> 项目。</p>
+<h4 id="rider">Rider</h4>
+<p>使用 Rider 编译 UE4，首先可以通过 File 下的 Settings 从离线文件安装插件</p>
+<p>![[image-20250611130557362.png|800]]</p>
+<h2 id="_6">基础概念</h2>
+<h3 id="_7">项目结构</h3>
+<p>在游戏 Games 文件夹下</p>
+<ul>
+<li>Config 保存配置</li>
+<li>Source 是代码部分</li>
+</ul>
+<p>还有未显示在项目中的其它文件夹</p>
+<ul>
+<li>Binaries 编译二进制文件</li>
+<li>Content 保存所有资源和蓝图</li>
+<li>DerivedDataCache (DDC) 保存引擎针对平台特化后的资源版本</li>
+<li>Intermediate 临时文件</li>
+<li>Saved 自动保存文件，包括配置、日志、硬件信息</li>
+</ul>
+<p>![[image-20250610154427476.png]]</p>
+<h3 id="_8">编译类型</h3>
+<p>UE4 包含网络模式和编辑器，因此工程部署时会有 Server 和 Client；开发时还有 Editor 和 Stand-alone 之分；还可以选择是否为 Engine 和 Game 生成调试信息，以及是否在游戏中内嵌控制台。编译选项因此分为</p>
+<ul>
+<li>状态选项</li>
+<li>目标选项</li>
+</ul>
+<p>两者可以组合</p>
+<p>![[image-20250610155029558.png|600]]</p>
+<p>![[image-20250610155116225.png|600]]</p>
+<p>一般选择 DebugEditor 加载游戏项目，当需要最简化流程时使用 Debug 运行。</p>
+<h3 id="_9">代码规范</h3>
+<h4 id="_10">命名规范</h4>
+<ul>
+<li>命名（如类型或变量）中的每个单词需大写首字母，单词间通常无下划线</li>
+<li>类型名前缀需使用额外的大写字母，用于区分其和变量命名。例如：<code>FSkin</code> 为类型名，而 <code>Skin</code> 则是 <code>FSkin</code> 的实例。<ul>
+<li>模板类的前缀为 T</li>
+<li>继承自 <code>UObject</code> 的类前缀为 U</li>
+<li>继承自 <code>AActor</code> 的类前缀为 A</li>
+<li>继承自 <code>SWidget</code> 的类前缀为 S</li>
+<li>抽象类的前缀为 I</li>
+<li>Epic 提供的概念类型的类（用作 <code>TModels</code> 的第一个参数），其前缀为 C</li>
+<li>枚举的前缀为 E</li>
+<li>布尔变量必须以 b 为前缀（例如 <code>bPendingDestruction</code> 或 <code>bHasFadedIn</code>）</li>
+<li>其他多数类均以 F 为前缀，而部分子系统则以其他字母为前缀</li>
+<li>Typedefs 应以任何与其类型相符的字母为前缀：<ul>
+<li>若为结构体的 Typedefs，则使用 F；</li>
+<li>若为 <code>Uobject</code> 的Typedefs，则使用 U，以此类推；</li>
+<li>特别模板实例化的Typedef不再是模板，并应加上相应前缀，例如 <code>typedef TArray&lt;FMytype&gt; FArrayOfMyTypes;</code></li>
+</ul>
+</li>
+<li>C# 中省略前缀</li>
+</ul>
+</li>
+<li>类型模板参数和基于这些模板参数的嵌套类型别名<strong>不受上述前缀规则的约束</strong>，因为类型的类别是未知的<ul>
+<li>一般在描述性术语后添加一个 Type 后缀</li>
+<li>通过使用 In 前缀，将模板参数与别名区分开来</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">InElementType</span><span class="o">&gt;</span><span class="w">        </span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">TContainer</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">ElementType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">InElementType</span><span class="p">;</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="p">};</span>
+</code></pre></div>
+<ul>
+<li>宏应该全部大写，用下划线隔开，并以 <code>UE_</code> 作为前缀（参见命名空间）</li>
+<li>若函数参数通过引用传递，同时该值会写入函数，建议以"Out"做为函数参数命名的前缀（非必需）。此操作将明确表明传入该参数的值将被函数替换</li>
+<li>若 In 或 Out 参数同样为布尔，以 b 作为 In/Out 的前缀，如 <code>bOutResult</code></li>
+</ul>
+<blockquote>
+<p>[!note] 
+多数情况下，UnrealHeaderTool 需要正确的前缀，因此添加前缀至关重要。</p>
+</blockquote>
+<h4 id="_11">标准库</h4>
+<table>
+<thead>
+<tr>
+<th>标准库</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>atomic</code></td>
+<td>应在新代码中使用，在迁移旧代码时也应该使用</td>
+</tr>
+<tr>
+<td><code>type_traits</code></td>
+<td>应在旧版 UE 特性（trait）和标准特性重叠的地方使用</td>
+</tr>
+<tr>
+<td><code>initializer_list</code></td>
+<td>必须用于支持初始化器（initializer）语法</td>
+</tr>
+<tr>
+<td><code>regex</code></td>
+<td>可以直接使用，但其使用应封装在仅和编辑器有关的代码中</td>
+</tr>
+<tr>
+<td><code>limits</code></td>
+<td><code>std::numeric_limits</code> 可以完整使用。</td>
+</tr>
+<tr>
+<td><code>cmath</code></td>
+<td>这个头文件中只有浮点比较函数可以使用</td>
+</tr>
+<tr>
+<td><code>cstring</code></td>
+<td>如果能产生明显的性能改进，建议使用 <code>memcpy()</code> 和 <code>memset()</code> 而不是 <code>FMemory::Memcpy</code> 和 <code>FMemory::Memset</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="c">现代 C++ 语法</h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">语法</th>
+<th style="text-align: left;">解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>static_assert</code></td>
+<td style="text-align: left;">需要编译时断言时，此关键字有效</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>override final</code></td>
+<td style="text-align: left;">推荐使用此类关键字</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>nullptr</code></td>
+<td style="text-align: left;">几乎所有情况下均使用 <code>nullptr</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>auto</code></td>
+<td style="text-align: left;">不应使用，也包括结构化绑定；除非需要匿名函数变量、迭代器、模板</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>range-for</code></td>
+<td style="text-align: left;">可以使用</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>lambda</code></td>
+<td style="text-align: left;">可以使用</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>enum class</code></td>
+<td style="text-align: left;">公开到蓝图的枚举必须基于 <code>uint8</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>move</code></td>
+<td style="text-align: left;">移动语义均有效</td>
+</tr>
+</tbody>
+</table>
+<h4 id="_12">默认构造</h4>
+<p>可以直接在类中定义默认参数</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">UCLASS</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">UTeaOptions</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">UObject</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="p">{</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">GENERATED_BODY</span><span class="p">()</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">int32</span><span class="w"> </span><span class="n">MaximumNumberOfCupsPerDay</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">CupWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">11.5f</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="n">FString</span><span class="w"> </span><span class="n">TeaType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TEXT</span><span class="p">(</span><span class="s">&quot;Earl Grey&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="n">UPROPERTY</span><span class="p">()</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="n">EDrinkingStyle</span><span class="w"> </span><span class="n">DrinkingStyle</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">EDrinkingStyle</span><span class="o">::</span><span class="n">PinkyExtended</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="p">};</span>
+</code></pre></div>
+<p>这更适用于游戏代码而非引擎代码。</p>
+<h3 id="_13">编译系统</h3>
+<ul>
+<li>UnrealBuildTool 自定义工具，编译逐个模块并处理依赖</li>
+<li>UnrealHeaderTool 代码解析工具，用于将宏生成反射信息</li>
+</ul>
+<p>一般 UBT 会先调用 UHT 解析代码，然后用平台编译工具编译，最后启动 Editor 或 Game 。</p>
+<h2 id="gameplay">GamePlay 架构</h2>
+<p>![[image-20250611140045721.jpeg]]</p>
+<h3 id="actor-component">Actor 和 Component</h3>
+<ul>
+<li>几乎所有对象继承自 UObject，后者提供基础的垃圾回收、反射、元数据、序列化等</li>
+<li>世界由 Actor 构建</li>
+<li>每个 Actor 包含多个 Component</li>
+<li>通过 Controller 控制 Actor (Pawn) 的行为</li>
+</ul>
+<h4 id="actor">Actor</h4>
+<p>Actor 派生自 UObject，并且可以相互嵌套，具有定时调用函数</p>
+<p>![[image-20250610164535792.png|300]]</p>
+<p>为了表示更广泛的对象，例如游戏状态、玩家状态等，Actor 并不直接具有 Transform，而是在 <code>SceneComponent</code> 中封装 Transform 。不过大部分 Actor 都可以通过获取 <code>SceneComponent</code> 来得到 Transform 。</p>
+<h4 id="component">Component</h4>
+<p>UActorComponent 封装了所属的 Actor，而</p>
+<ul>
+<li><code>TSet&lt;UActorComponent*&gt; OwnedComponents</code> 保存 Actor 拥有的所有 Component，其中会有一个 SceneComponent 作为根组件；</li>
+<li><code>TArray&lt;UActorComponent*&gt; InstanceComponents</code> 保存 Actor 拥有的实例化 Component</li>
+</ul>
+<p>一个 Actor 要放入 Level，就必须实例化 <code>USceneComponent</code> 作为根组件。</p>
+<p>![[image-20250610165121665.png|500]]</p>
+<p>SceneComponent 提供两大能力</p>
+<ul>
+<li>Transform</li>
+<li>SceneComponent 相互嵌套</li>
+</ul>
+<p>相对的，ActorComponent 却不能嵌套。</p>
+<p>![[image-20250610171237713.jpeg|500]]</p>
+<h4 id="_14">父子关系</h4>
+<p>Actor 之间的嵌套关系通过 Component 确定，即通过 <code>Child::AttachToActor</code> 或 <code>Child::AttachToComponent</code> 来创建父子连接。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AActor::AttachToActor</span><span class="p">(</span><span class="n">AActor</span><span class="o">*</span><span class="w"> </span><span class="n">ParentActor</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FAttachmentTransformRules</span><span class="o">&amp;</span><span class="w"> </span><span class="n">AttachmentRules</span><span class="p">,</span><span class="w"> </span><span class="n">FName</span><span class="w"> </span><span class="n">SocketName</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RootComponent</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">ParentActor</span><span class="p">)</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="n">USceneComponent</span><span class="o">*</span><span class="w"> </span><span class="n">ParentDefaultAttachComponent</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ParentActor</span><span class="o">-&gt;</span><span class="n">GetDefaultAttachComponent</span><span class="p">();</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ParentDefaultAttachComponent</span><span class="p">)</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">        </span><span class="p">{</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">            </span><span class="n">RootComponent</span><span class="o">-&gt;</span><span class="n">AttachToComponent</span><span class="p">(</span><span class="n">ParentDefaultAttachComponent</span><span class="p">,</span><span class="w"> </span><span class="n">AttachmentRules</span><span class="p">,</span><span class="w"> </span><span class="n">SocketName</span><span class="p">);</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">        </span><span class="p">}</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">AActor::AttachToComponent</span><span class="p">(</span><span class="n">USceneComponent</span><span class="o">*</span><span class="w"> </span><span class="n">Parent</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">FAttachmentTransformRules</span><span class="o">&amp;</span><span class="w"> </span><span class="n">AttachmentRules</span><span class="p">,</span><span class="w"> </span><span class="n">FName</span><span class="w"> </span><span class="n">SocketName</span><span class="p">)</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">{</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">RootComponent</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Parent</span><span class="p">)</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">        </span><span class="n">RootComponent</span><span class="o">-&gt;</span><span class="n">AttachToComponent</span><span class="p">(</span><span class="n">Parent</span><span class="p">,</span><span class="w"> </span><span class="n">AttachmentRules</span><span class="p">,</span><span class="w"> </span><span class="n">SocketName</span><span class="p">);</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
+</code></pre></div>
+<p>注意 <code>AttachToActor</code> 调用了 <code>AttachToComponent</code> 。</p>
+<blockquote>
+<p>[!note]
+由于 Actor 可以具有多个 SceneComponent，因此也具有多个 Transform，不能简单地处理 Actor 的父子关系。因此，实际上 Actor 只作为容器，提供创建、销毁、网格复制、事件触发等逻辑功能，而父子关系维护交给 Component，因此其实是<strong>不同 Actor 的 SceneComponent 之间有父子关系</strong>。</p>
+</blockquote>
+<h4 id="childactorcomponent">ChildActorComponent</h4>
+<p>ChildActorComponent 提供在 Component 下叠加 Actor 的能力。</p>
+<h3 id="level-world">Level 和 World</h3>
+<h4 id="level">Level</h4>
+<p>Level 派生自 UObject，它允许 </p>
+<ul>
+<li>ALevelScriptActor 提供脚本支持，AInfo 提供规则属性，两者都派生自 AActor</li>
+<li>在 Level 保存的 Actors 中，第一个元素就是 AWorldSettings，它派生自 AInfo，并且还单独保存在 WorldSettings 变量中</li>
+</ul>
+<p>之所以将 WorldSettings 保存在第一个，是因为 UE 会将网格 Actors 排在后面，从而加速网格复制；而 WorldSettings 几乎不变，因此放在开头；而 LevelScriptActor 代表关卡蓝图，允许复制，可能被排在后面。</p>
+<p>![[image-20250610190603259.png|500]]</p>
+<h4 id="world">World</h4>
+<p>World 派生自 UObject，它包含多个 Level，其中 Persistent 表示在最开始加载到 World，只有一个；Streaming 表示后续动态加载。在 Levels 中保存当前已经加载的所有 Level，StreamingLevels 保存整个 World 的 Levels 配置列表。</p>
+<p>![[image-20250610192145647.png|500]]</p>
+<h3 id="worldcontextgameinstance-engine">WorldContext、GameInstance 和 Engine</h3>
+<h4 id="worldcontext">WorldContext</h4>
+<p>World 有很多种类型</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">EWorldType</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="nc">Type</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">None</span><span class="p">,</span><span class="w">       </span><span class="c1">// An untyped world, in most cases this will be the vestigial worlds of streamed in sub-levels</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">        </span><span class="n">Game</span><span class="p">,</span><span class="w">       </span><span class="c1">// The game world</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">        </span><span class="n">Editor</span><span class="p">,</span><span class="w">     </span><span class="c1">// A world being edited in the editor</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">        </span><span class="n">PIE</span><span class="p">,</span><span class="w">        </span><span class="c1">// A Play In Editor world</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">        </span><span class="n">Preview</span><span class="p">,</span><span class="w">    </span><span class="c1">// A preview world for an editor tool</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">        </span><span class="n">Inactive</span><span class="w">    </span><span class="c1">// An editor world that was loaded but not currently being edited in the level editor</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="p">}</span>
+</code></pre></div>
+<p>UE 使用 WorldContext 管理不同的世界</p>
+<p>![[image-20250610193039434.png|500]]</p>
+<p>它保存当前 World 的信息，在需要切换时，就传入 WorldContext 参数。通常，独立运行的游戏只有唯一 WorldContext，而编辑器模式下需要给编辑器和 PIE (Play In Editor) 分别一个 WorldContext 。</p>
+<blockquote>
+<p>[!note]
+Level 的切换信息并不放在 World 中，因为一个 World 只有一个 PersistentLevel，而切换 PersistentLevel 时，引擎会删掉之前的 World 重新创建，因此用 WorldContext 管理，可以避免重新构建 Level 。</p>
+</blockquote>
+<h4 id="gameinstance">GameInstance</h4>
+<p>GameInstance 保存当前 WorldContext 和整个游戏信息，因此用它保存与 Level 无关的逻辑和数据，防止 Level 切换导致数据丢失。</p>
+<p>![[image-20250610194028901.png|500]]</p>
+<h4 id="engine">Engine</h4>
+<p>Engine 派生出编辑器 Engine 和游戏 Engine，它们都管理 GameInstance 。事实上，编辑器本身也可以看作是游戏。</p>
+<blockquote>
+<p>[!note]
+GEngine 是 UEngine 的实例，是全局变量。</p>
+</blockquote>
+<p>![[image-20250610194452736.png|800]]</p>
+<p>在基类中保存所有的 WorldContext，也就保存了所有 World 。由于 UE4 不支持同时运行多个 World，所以每一时刻的 GameInstance 都唯一。</p>
+<h3 id="pawn">Pawn</h3>
+<p>Pawn 派生自 Actor，它提供交互反馈，游戏业务逻辑就编写在这里。它提供 3 块基本的模板方法接口</p>
+<ul>
+<li>可被 Controller 控制</li>
+<li>PhysicsCollision 表示</li>
+<li>MovementInput 的基本响应接口</li>
+</ul>
+<p>注意 Actor 也具有 InputComponent 来处理输入。</p>
+<p>![[image-20250610195637361.png|400]]</p>
+<p>从 Pawn 又派生出 </p>
+<ul>
+<li>DefaultPawn 默认 Pawn，自带移动、碰撞、网格</li>
+<li>SpectatorPawn 提供观战能力，无重力漫游，且关闭网格显示</li>
+<li>Character 人形的 Pwan，带有人形移动组件 CharacterMovementComponent、尽量贴合的 CapsuleComponent、带有骨骼蒙皮</li>
+</ul>
+<p>![[image-20250610200825748.png|600]]</p>
+<h3 id="controller">Controller</h3>
+<p>对于游戏，需要抽象出三部分</p>
+<ul>
+<li>显示：游戏 UI、显示的画面或手柄输入振动等玩家直接交互的载体</li>
+<li>数据：Mesh, Material, Actor, Level 等各种元素组织起来的内存数据表示</li>
+<li>算法：各种渲染算法、物理模拟、AI 寻路等</li>
+</ul>
+<p>这样就得到 MVC 模式</p>
+<p>![[image-20250611093609868.png|500]]</p>
+<h4 id="acontroller">AController</h4>
+<p>我们希望控制器能够</p>
+<ul>
+<li>与一个或多个 Pawn 对应</li>
+<li>可控制多个实例</li>
+<li>可挂载释放</li>
+<li>能够脱离 Pawn 存在</li>
+<li>可以创建或销毁 Pawn</li>
+<li>根据配置自动生成</li>
+<li>响应事件</li>
+<li>持续运行</li>
+<li>具有状态</li>
+<li>具有可扩展能力</li>
+<li>保存数据状态</li>
+<li>可移动</li>
+<li>可探查世界中的对象</li>
+<li>可同步</li>
+</ul>
+<p>由于 Pawn 是 Actor 子类，希望独立于 Pawn，就意味着至少不依赖 Actor，因此控制器不能仅仅是 Component；如果直接从 UObject 派生，那么要实现移动，就还需要附加 Component 。因此从 Actor 派生出 Controller 是最佳选择，此时 Controller 与 Pawn 是平级关系，只在运行时引用关联，提高了灵活性。</p>
+<blockquote>
+<p>[!note]
+Controller 不能层级嵌套，考虑到其“控制”概念，很难区分层级。</p>
+</blockquote>
+<p>Controller 在其默认构造中禁用了显示，也可以开启。并且 Controller 可以保存位置信息，以便</p>
+<ul>
+<li>控制 Pawn 移动</li>
+<li>在当前位置重新生成 Pawn</li>
+</ul>
+<p>UE 还提供了 bAttachToPawn，默认关闭。如果开启该选项，可以让 Controller 跟随 Pawn 移动。</p>
+<blockquote>
+<p>[!note]
+Controller 用于实现可替换逻辑或智能决策，例如自动追击功能；而 Pawn 实现其自身的固有逻辑，例如移动、动画、碰撞检测等。并且 Controller 生命周期一般更长，例如玩家死亡时，Pawn 会被销毁，然后由 Controller 重建。</p>
+</blockquote>
+<h4 id="aplayerstate">APlayerState</h4>
+<p>PlayerState 动态保存<strong>真正的玩家状态</strong>，它与 Pawn、Controller 平级。</p>
+<blockquote>
+<p>[!note]
+注意 AInfo 派生自 AActor 。</p>
+</blockquote>
+<p>![[image-20250611104240777.png|300]]</p>
+<h4 id="_15">总体架构</h4>
+<p>UE 在 Pawn 这个层级演化出最基本的完善结构</p>
+<p>![[image-20250611104709488.png]]</p>
+<h4 id="aplayercontroller">APlayerController</h4>
+<p>PlayerController 实现了大量功能</p>
+<ul>
+<li>Camera 管理</li>
+<li>Input 系统</li>
+<li>UPlayer 关联</li>
+<li>HUD 显示：即 UI 显示</li>
+<li>Level 切换</li>
+<li>Voice：聊天语音控制</li>
+</ul>
+<p>PlayerController 是玩家直接控制的实体。以马里奥游戏为例</p>
+<ul>
+<li>Pawn 是马里奥实体，处理与金币碰撞的信息，上报给 PlayerController</li>
+<li>玩家通过 PlayerController 控制马里奥移动，根据碰撞信息更新 PlayerState</li>
+<li>PlayerState 保存玩家信息</li>
+</ul>
+<p>因此 PlayerController 只需要在控制 Pawn 的同时处理输入信息。此外，如果有特殊的操作逻辑，例如按特殊按键可以增加金币，则可以通过 PlayerController 处理，在其成员变量中保存每次增加金币的数量。</p>
+<blockquote>
+<p>[!note]
+注意 PlayerController 根据关卡的不同，可以替换。如果是联机游戏，那么只有 PlayerState 会被同步，本地不会有 PlayerContorller 。</p>
+</blockquote>
+<p>可以认为 PlayerController 代表玩家意志，PlayerState 代表玩家状态。</p>
+<p>![[image-20250611104949324.png|400]]</p>
+<h4 id="aaicontroller">AAIController</h4>
+<p>AI 玩家使用 AIController 作为载体，它包含一些必要组件</p>
+<ul>
+<li>Navigation 用于智能寻路</li>
+<li>AI 组件，启动行为树</li>
+<li>Task 系统，让 AI 完成任务，也是实现 GameplayAbilities 系统的接口</li>
+</ul>
+<p>以及前面 PlayerController 的部分组件。</p>
+<p>![[image-20250611110401557.png|600]]</p>
+<h3 id="gamemode-gamestate">GameMode 和 GameState</h3>
+<h4 id="gamemode">GameMode</h4>
+<p>UE 中 World 更多的是逻辑概念，代表玩法；Level 是资源场景表示。一个 World 就是一个 Game，玩法称为 Mode，于是 GameMode 从 AInfo 派生出来，承担游戏逻辑。</p>
+<p>![[image-20250611110845073.png|600]]</p>
+<p>GameMode 包括如下功能</p>
+<ul>
+<li>Class 登记：记录游戏基本类型信息，有需要时通过 UClass 反射构建 Pawn 。Controller 类的登记也位于此处，因此 GameMode 比 Controller 更高一级</li>
+<li>管理 Pawn 的生成和释放 (Spawn)</li>
+<li>游戏进度</li>
+<li>Level 切换或 World 切换</li>
+<li>多人游戏同步</li>
+</ul>
+<p>一个 World 中只有一个 GameMode，多个 Level 包含一个 PersistentLevel 和多个 StreamingLevel，即使它们配置不同的 GameMode 类，UE 也只会为 PersistentLevel 创建 GameMode 。</p>
+<h4 id="gamestate">GameState</h4>
+<p>GameState 保存游戏状态数据</p>
+<p>![[image-20250611111752756.png|400]]</p>
+<h4 id="gamesession">GameSession</h4>
+<p>网络联机游戏中针对 Session 使用的方便的管理类，不储存数据。</p>
+<h3 id="player">Player</h3>
+<h4 id="uplayer">UPlayer</h4>
+<p>UPlayer 直接从 UOBject 派生，它管理玩家使用的不同 PlayerController</p>
+<blockquote>
+<p>[!note] 
+Actor 必须存在于 World 中，而 Player 能够在 World 切换时不变，因此 Player 不能从 Actor 派生；此外，Player 也不需要摆放在 Level 中，也不需要 Component 组装。</p>
+</blockquote>
+<p>![[image-20250611112210151.png|400]]</p>
+<h4 id="ulocalplayer">ULocalPlayer</h4>
+<p>本地玩家从 UPlayer 直接派生</p>
+<p>![[image-20250611112751844.png|800]]</p>
+<h4 id="unetconnection">UNetConnection</h4>
+<p>UE 中网络连接也是 Player</p>
+<p>![[image-20250611113315279.png|800]]</p>
+<h3 id="gameinstance_1">GameInstance</h3>
+<h4 id="gameinstance_2">GameInstance</h4>
+<p>GameInstance 管理全局游戏数据，包括 WorldContext, LocalPlayer 等，它直接派生自 UObject 。</p>
+<p>![[image-20250611113427561.png]]</p>
+<p>一般只有一个 GameInstance，但如果用户同时打开多个窗口，就可能需要多个运行实例。</p>
+<p>GameInstance 中可以实现如下功能</p>
+<ul>
+<li>World 和 Level 切换发生在 Engine，而 GameInstance 作为全局变量，也可以管理 World 切换</li>
+<li>动态添加删除 Players</li>
+<li>控制 UI</li>
+<li>全局配置</li>
+<li>额外的第三方配置</li>
+</ul>
+<h4 id="savegame">SaveGame</h4>
+<p>得益于 UObject 的序列化机制，只需要继承 USaveGame，并添加需要的属性字段，这个结构就可以序列化保存下来。</p>
+<h3 id="subsystems">Subsystems</h3>
+<p>Subsystems 是在 GamePlay 框架基础上的增强功能。它提供 5 个类构成的框架，从它们派生子类，就得到自动实例化和释放的类。</p>
+<p>![[image-20250611140141474.jpeg|800]]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

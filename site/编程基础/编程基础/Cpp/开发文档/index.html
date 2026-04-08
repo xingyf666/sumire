@@ -1,0 +1,3421 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>开发文档 - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              开发文档
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../about.md" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../about.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 规范
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++ 规范">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        头文件
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="头文件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        防护机制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        前向声明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内联函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        包含名称及顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        作用域
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="作用域">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名空间
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        内部链接
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        非成员、静态成员和全局函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静态变量和全局变量
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="静态变量和全局变量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        销毁
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        初始化
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常见模式
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#thread_local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        thread_local 变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        构造函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        隐式转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可复制和可移动类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构与类
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pair-tuple" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构与 Pair 或 Tuple
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        继承
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作符重载
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        存取控制
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        声明顺序
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="函数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        输入输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        编写短函数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数重载
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        默认参数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        尾随返回类型
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        C++ 特性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="C++ 特性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        右值引用
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        友元
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        异常
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#noexcept" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        noexcept
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        运行时类信息
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类型转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#streams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streams
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        递增和递减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#const" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        const
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#constexpr-constinit-consteval" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        constexpr, constinit, consteval
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预处理宏
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#0-nullptrnull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        0 和 nullptr/NULL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sizeof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sizeof
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类型推导
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="类型推导">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数模板参数推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        局部变量类型推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        返回类型推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参数类型推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda 初始捕获
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构化绑定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类模板参数推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        指定初始设定项
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lambda_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lambda 表达式
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        模板元编程
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#concept-requires" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        concept 和 requires
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        别名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch 语句
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="命名">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        一般命名规则
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        文件名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类型名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        变量名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        公共变量名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        类数据成员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        结构数据成员
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        常量名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        函数名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        命名空间名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        枚举名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        宏名
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        例外情况
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">开发文档</h1>
+<h2 id="c">C++ 规范</h2>
+<h3 id="_2">头文件</h3>
+<h4 id="_3">防护机制</h4>
+<p>头文件应当具有防护机制，以防止多次包含。宏的命名按照路径，例如 <code>foo/src/bar/baz.h</code> 应当具有如下防护符号</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#ifndef FOO_BAR_BAZ_H_</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="cp">#define FOO_BAR_BAZ_H_</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="p">...</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="cp">#endif </span><span class="c1">// FOO_BAR_BAZ_H_</span>
+</code></pre></div>
+<h4 id="_4">前向声明</h4>
+<p>尽可能避免前向声明，而是直接引入头文件。</p>
+<p>前向声明尚未定义，例如在类、函数、变量定义前进行声明</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// In a C++ source file:</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">B</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">FuncInB</span><span class="p">();</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">extern</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">variable_in_b</span><span class="p">;</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">ABSL_DECLARE_FLAG</span><span class="p">(</span><span class="n">flag_in_b</span><span class="p">);</span>
+</code></pre></div>
+<p>优势：</p>
+<ul>
+<li>前向声明可以节省编译时间，减少不必要的重复编译。</li>
+<li>前向声明会隐藏依赖，允许用户在头文件修改时跳过重新编译。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>前向声明会使自动工具难以发现定义符号的模块。</li>
+<li>前向声明可能会被对库的后续更改破坏。函数和模板的前向声明可以防止标头所有者对其 API 进行其他兼容的更改，例如扩大参数类型、添加具有默认值的模板参数或迁移到新的命名空间。</li>
+<li>命名空间中的前向声明导致未定义行为。</li>
+<li>可能很难确定是否需要前瞻声明或完整声明。</li>
+<li>在一个头文件中进行多个前向声明会更繁琐。</li>
+<li>构建代码以启用前向声明（例如，使用指针成员而不是对象成员）可能会使代码更慢、更复杂。</li>
+</ul>
+<h4 id="_5">内联函数</h4>
+<p>仅当函数较小（例如，10 行或更少）时，才以内联方式定义函数。</p>
+<p>优势：</p>
+<ul>
+<li>内联函数可以生成更有效的目标代码，只要内联函数很小。可以随意使用内联访问器和突变体，以及其他简短的性能关键型功能。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>过度使用内联实际上会使程序变慢。根据函数的大小，内联它可能会导致代码大小增加或减少。内联非常小的访问器函数通常会减小代码大小，而内联非常大的函数会显著增加代码大小。在现代处理器上，由于更好地使用指令缓存，较小的代码通常运行得更快。</li>
+</ul>
+<p>原则：</p>
+<ul>
+<li>如果函数的长度超过 10 行，则不要内联该函数。当心析构函数，由于隐式成员和基析构函数调用，它们通常比它们看起来更长！</li>
+<li>使用循环或 switch 语句的函数不进行内联。</li>
+</ul>
+<p>即使函数被声明为内联，它们也并不总是内联的；例如，虚拟函数和递归函数通常不内联。</p>
+<h4 id="_6">包含名称及顺序</h4>
+<p>头文件包含顺序：相关头文件、C 系统头文件、C++ 标准库头文件、其它库头文件、项目头文件。</p>
+<p>例如 <code>/src/foo/internal/fooserver.cc</code> 中的头文件包含顺序</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// 与 fooserver.cc 直接相关的头文件</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foo/server/fooserver.h&quot;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1">// C 头文件</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/types.h&gt;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c1">// C++ 头文件</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string&gt;</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="c1">// 项目头文件</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base/basictypes.h&quot;</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base/commandlineflags.h&quot;</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foo/server/bar.h&quot;</span>
+</code></pre></div>
+<p>有时，与系统相关的代码需要条件包含。这样的代码可以将条件包含放在其他包含之后。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;foo/public/fooserver.h&quot;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;base/port.h&quot;</span><span class="c1">  // For LANG_CXX11.</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cp">#ifdef LANG_CXX11</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;initializer_list&gt;</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="cp">#endif  </span><span class="c1">// LANG_CXX11</span>
+</code></pre></div>
+<h3 id="_7">作用域</h3>
+<h4 id="_8">命名空间</h4>
+<p>除少数例外情况外，请将代码放在命名空间中。命名空间应具有基于项目名称的唯一名称，并可能基于其路径。不要使用 using-指令。不要使用内联命名空间。</p>
+<p>优势：</p>
+<ul>
+<li>命名空间提供了一种防止大型程序中名称冲突的方法，同时允许大多数代码使用合理的短名称。</li>
+<li>内联命名空间自动将其名称放在封闭作用域中。例如</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">outer</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="kr">inline</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">inner</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">();</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace inner</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span><span class="w">  </span><span class="c1">// namespace outer</span>
+</code></pre></div>
+<p>内联命名空间主要用于实现跨版本的兼容性。</p>
+<p>缺陷：</p>
+<ul>
+<li>命名空间可能会令人困惑，因为它们使弄清楚名称引用的定义机制变得复杂。</li>
+<li>内联命名空间可能造成混淆，因为名称实际上并不局限于声明它们的命名空间。它们仅作为某些较大版本控制策略的一部分有用。</li>
+<li>在某些情况下，有必要通过符号的完全限定名称反复引用符号。对于深度嵌套的命名空间，这可能会增加很多混乱。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>遵循命名空间名称的规则。</li>
+<li>使用注释终止多行命名空间。</li>
+<li>在包含、gflags 定义/声明和来自其它命名空间的类的前向声明之后，命名空间应当包含整个源文件</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1">// In the .h file</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">mynamespace</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="c1">// All declarations are within the namespace scope.</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="c1">// Notice the lack of indentation.</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">Foo</span><span class="p">();</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="p">};</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="p">}</span><span class="w"> </span><span class="c1">// namespace mynamespace</span>
+</code></pre></div>
+<p>在源文件中也应当包含所有定义</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1">// In the .cc file</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">mynamespace</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="c1">// Definition of functions is within scope of the namespace.</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kt">void</span><span class="w"> </span><span class="nf">MyClass::Foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">...</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="p">}</span><span class="w"> </span><span class="c1">// namespace mynamespace</span>
+</code></pre></div>
+<ul>
+<li>不要在命名空间中声明任何内容，包括标准库类的前向声明。在命名空间中声明实体是未定义的行为，即不可移植。若要从标准库声明，请包括相应的头文件。</li>
+<li>不能使用 using 使命名空间中的所有名称都可用。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1">// Forbidden -- This pollutes the namespace.</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">foo</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>不要在头文件中的命名空间范围内使用命名空间别名，除非在显式标记的仅限内部的命名空间中使用，因为导入到头文件中的命名空间中的任何内容都将成为该文件导出的公共 API 的一部分。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// Shorten access to some commonly used names (in a .h file).</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">librarian</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">impl</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1">// 内部可以使用别名</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">sidetable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="nn">pipeline_diagnostics</span><span class="o">::</span><span class="nn">sidetable</span><span class="p">;</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span><span class="w"> </span><span class="c1">// namespace impl</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">my_inline_function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="c1">// 函数内部也可以使用</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">baz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">::</span><span class="nn">foo</span><span class="o">::</span><span class="nn">bar</span><span class="o">::</span><span class="nn">baz</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="p">...</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="p">}</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="p">}</span><span class="w"> </span><span class="c1">// namespace librarian</span>
+</code></pre></div>
+<ul>
+<li>不要使用内联命名空间。</li>
+</ul>
+<h4 id="_9">内部链接</h4>
+<p>对于 <code>.cc</code> 文件中不需要从外部引用的定义，使用未命名空间将其包含。这样如果两个不同的文件声明了相同的内容，它们依然是独立的。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">namespace</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="p">}</span><span class="w"> </span><span class="c1">// namespace</span>
+</code></pre></div>
+<p>不要在 <code>.h</code> 文件中使用内部链接。</p>
+<h4 id="_10">非成员、静态成员和全局函数</h4>
+<p>建议将非成员函数放在命名空间中，少使用完全全局函数。不要简单地使用类对静态成员进行分组。类的静态方法通常应与类的实例或类的静态数据密切相关。</p>
+<p>优势：</p>
+<ul>
+<li>将非成员函数放在命名空间中可避免污染全局命名空间。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>非成员和静态成员函数作为新类的成员可能更有意义，特别是当它们访问外部资源或具有重要依赖关系时。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>非成员函数不应依赖外部变量，并且应几乎总是存在于命名空间中。</li>
+<li>不要创建类只为了给静态成员进行分组，这与使用通用前缀没有什么不同。</li>
+<li>如果定义了非成员函数，并且仅在其文件中需要该函数，使用内部链接限制其作用域。</li>
+</ul>
+<h4 id="_11">局部变量</h4>
+<p>应当将函数变量放在尽可能小的作用域中，并在声明时初始化变量。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// Bad -- initialization separate from declaration.</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">g</span><span class="p">();</span><span class="w"> </span><span class="c1">// Good -- declaration has initialization.</span>
+</code></pre></div>
+<p>如果变量是一个对象，在循环过程中会反复调用构造函数和析构函数</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1">// Inefficient implementation:</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">Foo</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"> </span><span class="c1">// My ctor and dtor get called 1000000 times each.</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">DoSomething</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span>
+</code></pre></div>
+<p>将循环中使用的变量放在外部会更高效</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Foo</span><span class="w"> </span><span class="n">f</span><span class="p">;</span><span class="w"> </span><span class="c1">// My ctor and dtor get called once each.</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1000000</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span><span class="n">f</span><span class="p">.</span><span class="n">DoSomething</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="_12">静态变量和全局变量</h4>
+<p>禁止使用具有静态储存持续时间（static 修饰）的对象，除非它们具有平凡析构，即析构函数不执行任何操作。更正式地说，该类型没有用户定义的或虚析构函数，所有基类和非静态成员都可析构。静态本地变量可以使用动态初始化（new）。不建议对静态类成员变量或命名空间范围的变量使用动态初始化，但在有限的情况下允许使用。</p>
+<p>优势：</p>
+<ul>
+<li>全局和静态变量对于大量应用程序非常有用。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>使用动态初始化或具有非平凡析构函数的全局和静态变量会产生复杂性，导致难以找到的错误。</li>
+</ul>
+<h5 id="_13">销毁</h5>
+<p>只对于具有平凡析构的对象使用静态类型。基本类型都是平凡析构，它们的数组也是平凡析构，例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"> </span><span class="c1">// allowed</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">X</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">const</span><span class="w"> </span><span class="n">X</span><span class="w"> </span><span class="n">kX</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">}};</span><span class="w"> </span><span class="c1">// allowed</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">kMessages</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;world&quot;</span><span class="p">};</span><span class="w"> </span><span class="c1">// allowed</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="p">}</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="c1">// allowed: constexpr guarantees trivial destructor</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kArray</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}};</span>
+</code></pre></div>
+<p>注意标有 <code>constexpr</code> 的变量具有平凡析构。相对的，大部分对象都不是平凡析构</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1">// bad: non-trivial destructor</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">kFoo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;foo&quot;</span><span class="p">;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1">// bad for the same reason, even though kBar is a reference (the</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="c1">// rule also applies to lifetime-extended temporary objects)</span>
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">kBar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StrCat</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;b&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;c&quot;</span><span class="p">);</span>
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="kt">void</span><span class="w"> </span><span class="nf">bar</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">    </span><span class="c1">// bad: non-trivial destructor</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">kData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">}};</span>
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>引用不是对象，因此它们不受此约束，但是对动态初始化的约束仍然适用。特别地，可以对动态内存进行本地静态引用</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="k">static</span><span class="w"> </span><span class="n">T</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+</code></pre></div>
+<h5 id="_14">初始化</h5>
+<p>常量初始化应当声明常量构造函数。例如下面是有问题的初始化</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c1">// Some declarations used below.</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="kt">time_t</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="kt">time_t</span><span class="o">*</span><span class="p">);</span><span class="w"> </span><span class="c1">// not constexpr!</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="nf">f</span><span class="p">();</span><span class="w"> </span><span class="c1">// not constexpr!</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Bar</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="c1">// Problematic initializations.</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="kt">time_t</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">time</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span><span class="w"> </span><span class="c1">// initializing expression not a constant expression</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">Foo</span><span class="w"> </span><span class="nf">y</span><span class="p">(</span><span class="n">f</span><span class="p">());</span><span class="w"> </span><span class="c1">// ditto</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="n">Bar</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="c1">// chosen constructor Bar::Bar() not constexpr</span>
+</code></pre></div>
+<p>正确的写法是</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Bar</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="n">Bar</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="c1">// 通过常量构造函数创建常量初始化</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="k">constexpr</span><span class="w"> </span><span class="n">Bar</span><span class="w"> </span><span class="n">b</span><span class="p">;</span>
+</code></pre></div>
+<h5 id="_15">常见模式</h5>
+<ul>
+<li>全局字符串：如果需要全局或静态字符串常量，考虑使用 <code>constexpr</code> 字符数组或字符指针，指向字符串文本。</li>
+<li>映射、集合和其他动态容器：如果需要静态的固定集合，不能将标准库中的动态容器用作静态变量，因为它们具有重要的析构函数。考虑使用平凡类型的数组。如果确实需要动态容器，应当使用本地静态指针。</li>
+<li>智能指针：智能指针在销毁过程中执行清除，因此不能作为全局或静态变量。最好使用普通指针，并且永远不要删除它。</li>
+<li>自定义类型的静态变量：如果需要自定义，则需要指定普通析构函数和 <code>constexpr</code> 构造函数。</li>
+<li>如果这些方法都失败了，可以动态创建对象，并且不使用函数局部静态指针或引用。例如</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">impl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="k">new</span><span class="w"> </span><span class="n">T</span><span class="p">(</span><span class="n">args</span><span class="p">...);</span>
+</code></pre></div>
+<h4 id="thread_local">thread_local 变量</h4>
+<p>不在函数中定义的局部线程变量必须使用编译时常量进行初始化，优先于其它定义局部线程变量的方法。</p>
+<p>可以使用说明符声明变量</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">thread_local</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+</code></pre></div>
+<p>这样的变量实际上是对象的集合，当不同的线程访问它时，实际上在访问不同的对象。它们与静态变量类似，可以在命名空间范围、函数内部或作为静态类成员声明，但不能作为普通类成员声明。</p>
+<p>优势：</p>
+<ul>
+<li>局部线程变量的初始化与静态变量类似，但是必须针对每个线程单独初始化。这意味着在函数中声明的变量是安全的，但其它变量会受到与静态变量相同的初始化顺序问题影响。</li>
+<li>在其线程终止之前不会被销毁，因此不存在静态变量的销毁顺序问题。</li>
+<li>它是创建局部线程变量的唯一标准支持。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>访问变量可能会触发执行不可预测且无法控制的其它代码。</li>
+<li>它实际上是全局变量，具有全局变量的所有缺点。</li>
+<li>变量消耗的内存随着线程数增加。</li>
+<li>非静态成员不能是局部线程变量。</li>
+<li>如果变量具有复杂的析构函数，可能导致释放后使用的错误。</li>
+</ul>
+<p>局部线程变量如果位于类或命名空间中，必须使用编译时的常量进行初始化。使用 <code>ABSL_CONST_INIT</code> 来强制执行</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">ABSL_CONST_INIT</span><span class="w"> </span><span class="k">thread_local</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+</code></pre></div>
+<p>函数内的局部线程变量没有安全问题，但是在线程退出期间仍存在释放后使用的风险。可以使用函数作用域模拟类或命名空间的作用域，例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">Foo</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">MyThreadLocalFoo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="w">    </span><span class="k">thread_local</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ComplicatedInitialization</span><span class="p">();</span>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>通过静态引用返回创建具有局部作用域的全局变量。每当线程退出时，局部线程变量都会被销毁。如果此类变量的析构函数引用了任何其他变量，可能造成难以发现的释放后使用错误。</p>
+<h3 id="_16">类</h3>
+<h4 id="_17">构造函数</h4>
+<p>应当避免在构造函数中调用虚方法，避免在初始化失败时无法报错。</p>
+<p>优势：</p>
+<ul>
+<li>无需担心类是否已经初始化。</li>
+<li>通过调用构造函数初始化可能易于与标准容器或算法一起使用。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>如果调用虚函数，则这些调用将不会在子类中实现。将来对类的修改可能会引入此问题。</li>
+<li>没有简单的方法报错，除了使程序崩溃或使用异常（禁止）。</li>
+<li>如果初始化失败，需要通过状态检查机制（例如 <code>bool IsValid()</code>）判断。</li>
+<li>不能获得构造函数的地址，因此构造函数中完成的任何工作不能轻易地传递给另一个线程。</li>
+</ul>
+<h4 id="_18">隐式转换</h4>
+<p>不要定义隐式转换，将 explicit 关键字用于转换运算符和单参数构造。</p>
+<p>隐式转换允许在需要不同类型（目标类型）的情况下使用一种类型（源类型）的对象，例如将 int 参数传递给 double 参数的函数。使用 explicit 关键字应用于构造函数或转换运算符，以确保仅当目标类型显式使用时才能使用它。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Foo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="w">    </span><span class="k">explicit</span><span class="w"> </span><span class="n">Foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">y</span><span class="p">);</span>
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a><span class="p">};</span>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">Func</span><span class="p">(</span><span class="n">Foo</span><span class="w"> </span><span class="n">f</span><span class="p">);</span>
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a><span class="n">Func</span><span class="p">({</span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mf">3.14</span><span class="p">});</span><span class="w"> </span><span class="c1">// Error</span>
+</code></pre></div>
+<p>这里表明 Foo 对象的构造必须显式进行。</p>
+<p>优势：</p>
+<ul>
+<li>隐式转换可以消除显式命名类型的需要。</li>
+<li>隐式转换可以是重载的简单替换方法。</li>
+<li>列表初始化语法是一种简洁有力的初始化方式。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>隐式转换会隐藏类型不匹配的错误。</li>
+<li>隐式转换会使代码更难阅读，尤其是重载的情况下。</li>
+<li>采用单个参数的构造函数可能意外地使用隐式类型转换。因此无法判断它是否用来隐式转换。</li>
+<li>隐式转换可能导致调用点不明确，尤其是存在双向隐式转换时。</li>
+<li>如果目标类型是隐式的，则列表初始化可能出现问题，尤其是列表只有一个元素时。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>必须在类定义中标记类型转换运算符和单个参数的构造函数。复制和移动构造函数不执行类型转换，因此不需要修饰。</li>
+<li>隐式转换有时对于设计为可互换的类型时是必要的。</li>
+<li>不能使用单个参数调用的构造函数和采用单个 <code>std::initializer_list</code> 参数的构造函数可以省略 explicit 修饰。</li>
+</ul>
+<h4 id="_19">可复制和可移动类型</h4>
+<p>类的公共 API 必须明确该类是可复制的、仅移动的，还是不可复制的或不可移动的。</p>
+<p>优势：</p>
+<ul>
+<li>可复制和可移动类型的对象可以按值传递和返回，这使得 API 更简单、更安全、更通用。与通过指针或引用传递对象不同，不存在所有权、生存期、可变性和类似问题混淆的风险。</li>
+<li>可以防止客户端与实现之间的非本地交互，从而更容易被编译器理解、维护和优化。</li>
+<li>此类对象可与需要按值传递的通用 API 一起使用，例如大多数容器，并且在类型组合方面提供额外的灵活性。</li>
+<li>复制/移动构造函数和赋值运算通常比自定义方法更容易正确定义，因为它们可由编译器隐式生成，可以使用 <code>=default</code> 定义。它们通常也更有效，因为不需要堆分配内存或单独的初始化和分配步骤，并且它们有资格进行优化。</li>
+<li>移动操作允许隐式且高效地将资源从右值对象中转移出去。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>某些类型不需要可复制。对具有多态的基类执行复制操作非常危险，默认的复制操作可能不正确。</li>
+<li>复制构造函数隐式调用，可能导致调用过程被遗漏。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>每个类的公共接口都必须明确该类支持哪些复制和移动操作。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Copyable</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a><span class="w">  </span><span class="n">Copyable</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Copyable</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="w">  </span><span class="n">Copyable</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Copyable</span><span class="o">&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="w">  </span><span class="c1">// 上面对复制构造的声明抑制了隐式的移动构造，如果需要移动构造，就要显式地声明</span>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a><span class="p">};</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a><span class="k">class</span><span class="w"> </span><span class="nc">MoveOnly</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a><span class="w">  </span><span class="n">MoveOnly</span><span class="p">(</span><span class="n">MoveOnly</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a><span class="w">  </span><span class="n">MoveOnly</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">MoveOnly</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">default</span><span class="p">;</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a><span class="w">  </span><span class="c1">// 上面对移动构造的声明隐式地删除了复制构造，当然我们也可以显式地写出来：</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a><span class="w">  </span><span class="n">MoveOnly</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MoveOnly</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a><span class="w">  </span><span class="n">MoveOnly</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MoveOnly</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a><span class="p">};</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a><span class="k">class</span><span class="w"> </span><span class="nc">NotCopyableOrMovable</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a><span class="w">  </span><span class="c1">// 不可复制、不可移动</span>
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a><span class="w">  </span><span class="n">NotCopyableOrMovable</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">NotCopyableOrMovable</span><span class="o">&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a><span class="w">  </span><span class="n">NotCopyableOrMovable</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">NotCopyableOrMovable</span><span class="o">&amp;</span><span class="p">)</span>
+<a id="__codelineno-23-24" name="__codelineno-23-24" href="#__codelineno-23-24"></a><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-23-25" name="__codelineno-23-25" href="#__codelineno-23-25"></a>
+<a id="__codelineno-23-26" name="__codelineno-23-26" href="#__codelineno-23-26"></a><span class="w">  </span><span class="c1">// 上面的声明隐式地禁止了移动操作，当然我们也可以显式地写出来：</span>
+<a id="__codelineno-23-27" name="__codelineno-23-27" href="#__codelineno-23-27"></a><span class="w">  </span><span class="n">NotCopyableOrMovable</span><span class="p">(</span><span class="n">NotCopyableOrMovable</span><span class="o">&amp;&amp;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-23-28" name="__codelineno-23-28" href="#__codelineno-23-28"></a><span class="w">  </span><span class="n">NotCopyableOrMovable</span><span class="o">&amp;</span><span class="w"> </span><span class="k">operator</span><span class="o">=</span><span class="p">(</span><span class="n">NotCopyableOrMovable</span><span class="o">&amp;&amp;</span><span class="p">)</span>
+<a id="__codelineno-23-29" name="__codelineno-23-29" href="#__codelineno-23-29"></a><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="k">delete</span><span class="p">;</span>
+<a id="__codelineno-23-30" name="__codelineno-23-30" href="#__codelineno-23-30"></a><span class="p">};</span>
+</code></pre></div>
+<p>只有当这些声明或删除显而易见时，才可以省略它们：</p>
+<ul>
+<li>如果类没有 <code>private</code> 部分，例如 <code>struct</code> 或者只有接口的基类，则可复制性/可移动性可以通过 <code>public</code> 数据成员的性质来确定。</li>
+<li>如果基类显然不可复制或不可移动，则派生类自然同理。</li>
+<li>如果显式声明或删除复制构造函数或赋值操作，则另一种复制操作就不明显，应当具体声明；移动操作同理。</li>
+</ul>
+<p>可复制类型的移动操作是一种性能优化，并且是 bug 和复杂性的潜在来源，因此要避免定义它们，除非能极大地提高效率。最好为基类设置 <code>protected</code> 构造函数和析构函数，或者提供纯虚函数使基类抽象化。避免从具体类中派生。</p>
+<h4 id="_20">结构与类</h4>
+<p>仅携带数据的被动对象使用 <code>struct</code>，其它都使用 <code>class</code> 。允许 <code>struct</code> 中提供构造函数、析构函数和帮助方法。</p>
+<h4 id="pair-tuple">结构与 Pair 或 Tuple</h4>
+<p>每当元素可以具有有意义的名称时，应当使用 <code>struct</code> 而不是 <code>pair</code> 或 <code>tuple</code> 。</p>
+<h4 id="_21">继承</h4>
+<p>组合通常比继承更合适。使用继承时，声明为 <code>public</code> 。</p>
+<p>优势：</p>
+<ul>
+<li>继承通过重用基类代码来减小代码大小。由于继承是编译时声明，因此可以由编译器检查错误。接口继承可以强制类公开特定 API，编译器可以检查派生类未定义 API 的必要方法时的错误。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>由于实现子类的代码分布在基类和子类之间，因此可能更难理解实现。子类不能重写非虚拟函数，因此子类不能更改实现。</li>
+<li>多继承存在许多问题，通常会带来更高的性能开销，并且可能导致“菱形”继承模式的风险。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>所有继承都应该是 <code>public</code>，除非将基类的实例作为派生类的成员，才使用 <code>private</code> 继承。如果不打算将类作为基类，可以在类声明前添加 <code>final</code> 修饰。</li>
+<li>不要过度使用继承，使用组合更合适。只有当子类能够被称为基类的一个特例时，才使用继承。</li>
+<li>数据成员应当为 <code>private</code>；需要子类访问的成员函数应当避免使用 <code>protected</code> 。</li>
+<li>使用 <code>final</code> 或 <code>override</code> 显式注释对虚函数或许析构函数的重载，注意重载时不要声明 <code>virtual</code> 。因为标记为 <code>override</code> 或 <code>final</code> 并且不是对基类虚函数重载的函数将不会编译，这有助于捕获常见错误。</li>
+<li>允许多重继承，但是尽量不要进行多重实现的继承。</li>
+</ul>
+<h4 id="_22">操作符重载</h4>
+<p>明智地使用操作符重载。</p>
+<p>优势：</p>
+<ul>
+<li>操作符重载可以使用户定义类型的行为与内置类型相同，从而简化代码。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>提供正确、一致且清晰的操作符重载需要谨慎，否则可能导致混淆和错误。</li>
+<li>过度使用操作符可能导致代码混淆，尤其是重载语义不符合约定时。</li>
+<li>操作符可能在直觉上被认为是简单操作，导致随意使用时隐含的高额开销。</li>
+<li>如果重载的参数类型错误，可能会隐式调用另一个重载函数，导致错误难以发现。</li>
+<li>重载 <code>&amp;</code> 等一元操作符或 <code>&amp;&amp;</code>,<code>||</code>,<code>,</code> 可能出现问题。</li>
+<li>操作符通常在类外定义，因此存在不同文件引入同一运算的不同定义的风险。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>只有当重载运算符的含义显而易见且与内置运算一致时，才进行重载。</li>
+<li>只在自定义的类型上定义操作符，避免定义为模板。</li>
+<li>建议将 <code>const</code> 修饰的二元运算符定义为非成员函数。如果它定义为成员函数，则隐式转换只应用于右侧参数。例如 <code>a+b</code> 调用 <code>a</code> 的 <code>+</code> 运算，将 <code>b</code> 作为参数传入，隐式转换只作用于 <code>b</code> 。</li>
+<li>不要刻意避免运算符重载。例如使用 <code>==</code> 优先于 <code>Equals()</code>；反之，不要仅仅因为其它库需要运算符重载而进行重载。</li>
+<li>不要重载 <code>&amp;&amp;</code>,<code>||</code>,<code>,</code>,<code>&amp;</code> 运算符。</li>
+</ul>
+<h4 id="_23">存取控制</h4>
+<p>类成员数据应当设为 <code>private</code>，除非它们是常量。代价是必要时提供 <code>const</code> 修饰的访问器。</p>
+<h4 id="_24">声明顺序</h4>
+<p>类定义通常以 <code>public:</code> 开头，然后是 <code>protected:</code>，然后是 <code>privated:</code>，如果某个部分是空的，就省略。每个部分中相似类型的声明组合在一起，按照如下顺序：</p>
+<ul>
+<li>类型和类型别名；</li>
+<li>（可选，仅适用于 <code>struct</code>）非 <code>static</code> 数据成员；</li>
+<li>静态常量；</li>
+<li>工厂函数；</li>
+<li>构造函数和赋值运算；</li>
+<li>析构函数；</li>
+<li>其它所有函数；</li>
+<li>其它所有成员。</li>
+</ul>
+<p>不要将大型方法定义内联到类定义中。通常，只有微不足道或非常短且对性能很重要的方法需要内联。</p>
+<h3 id="_25">函数</h3>
+<h4 id="_26">输入输出</h4>
+<ul>
+<li>首选通过返回值输出而不是参数输出：它们提高了可读性，并通常提供相同或更好的性能。</li>
+<li>最好按值返回，否则按引用返回。避免返回指针，除非它可以为 <code>null</code> 。</li>
+<li>必选输入参数通常应为值或 <code>const</code> 引用，必选输出和输入/输出参数通常为引用（不能为空）。通常使用 <code>std::optional</code> 表示可选的按值输入，如果必选参数为引用时使用 <code>const</code> 指针。使用非 <code>const</code> 指针表示可选输出和可选输入/输出参数。</li>
+<li>避免定义需要超出生命周期的 <code>const</code> 引用参数的函数。</li>
+<li>对函数参数排序时，所有仅输入的参数放在所有输出参数的前面。</li>
+</ul>
+<h4 id="_27">编写短函数</h4>
+<p>建议小而集中的函数，如果一个函数超过 40 行，应当考虑将其分解。</p>
+<h4 id="_28">函数重载</h4>
+<p>可以写一个函数接受 <code>const std::string &amp;</code> 然后重载使其接受 <code>const char *</code>，但更建议使用 <code>std::string_view</code> 替代。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">Analyze</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="o">&amp;</span><span class="n">text</span><span class="p">);</span>
+<a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">Analyze</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">text</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">textlen</span><span class="p">);</span>
+<a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="p">};</span>
+</code></pre></div>
+<p>优势：</p>
+<ul>
+<li>重载可以允许同名函数采用不同参数来使代码更直观。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>如果一个函数仅被参数类型重载，可能需要了解 C++ 的复杂匹配规则才能知道发生了什么。</li>
+<li>如果派生类仅重载函数的某些变体，则会导致代码难以理解。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>当变体之间没有语义差异时，可以使用重载。</li>
+</ul>
+<h4 id="_29">默认参数</h4>
+<p>当保证默认值始终具有相同的值时，允许在非虚函数上使用默认参数。</p>
+<p>优势：</p>
+<ul>
+<li>使用默认参数的函数允许偶尔覆盖默认值。与重载函数相比，默认参数具有更简洁的语法，并提供了“必选”和“可选”之间的明确区别。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>默认参数是实现重载函数语义的另一种方法，因此不重载函数的所有原因都适用。</li>
+<li>虚函数中参数的默认值由目标对象的静态类型确定，不能保证该函数的所有重载都声明相同的默认值。</li>
+<li>默认参数在每个调用节点重新计算，可能使生成的代码膨胀。</li>
+<li>函数指针存在默认参数时会造成混淆，因为函数签名通常与调用签名不匹配。使用函数重载可以避免这些问题。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>禁止在虚函数中使用默认参数。</li>
+<li>除非默认参数可以提高函数声明的可读性，否则使用函数重载。</li>
+</ul>
+<h4 id="_30">尾随返回类型</h4>
+<p>C++ 允许两种不同形式的函数声明</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="kt">int</span><span class="p">;</span>
+</code></pre></div>
+<p>新的语法允许使用 <code>auto</code> 返回，然后尾随返回类型。</p>
+<p>优势：</p>
+<ul>
+<li>尾随返回类型时显式指定 lambda 表达式返回类型的唯一方式。</li>
+<li>有时在参数列表出现后指定返回类型会更易读。尤其是在模板参数中</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">decltype</span><span class="p">(</span><span class="n">declval</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&amp;&gt;</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">declval</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&amp;&gt;</span><span class="p">())</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="p">);</span>
+</code></pre></div>
+<p>这时通过尾随返回会更加清晰</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">U</span><span class="o">&gt;</span>
+<a id="__codelineno-27-2" name="__codelineno-27-2" href="#__codelineno-27-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">add</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="w"> </span><span class="n">u</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">decltype</span><span class="p">(</span><span class="n">t</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">u</span><span class="p">);</span>
+</code></pre></div>
+<p>使用方法：</p>
+<ul>
+<li>大多数情况下应当使用旧版的函数声明，仅在需要时使用尾随返回类型。</li>
+</ul>
+<h3 id="c_1">C++ 特性</h3>
+<h4 id="_31">右值引用</h4>
+<p>右值引用是一种只能绑定到临时对象的引用类型。例如声明</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">f</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span>
+</code></pre></div>
+<p>当标记 <code>&amp;&amp;</code> 应用于函数参数中的非限定模板参数时，将应用特殊的模板参数推导规则。此引用称为转发引用。</p>
+<p>优势：</p>
+<ul>
+<li>定义移动构造函数，可以移动值而不是复制值，可能导致性能的重大改进。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a><span class="c1">// 移动构造只会导致简单的指针操作，而非复制大量数据</span>
+<a id="__codelineno-29-2" name="__codelineno-29-2" href="#__codelineno-29-2"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">v1</span><span class="p">;</span>
+<a id="__codelineno-29-3" name="__codelineno-29-3" href="#__codelineno-29-3"></a><span class="k">auto</span><span class="w"> </span><span class="n">v2</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">v1</span><span class="p">));</span>
+</code></pre></div>
+<ul>
+<li>右值引用使实现可移动但不可复制的类型成为可能。例如有些类不应当被复制，但是需要作为参数传递或放在容器中时。</li>
+<li>对于 <code>std::unique_ptr</code> 等标准库类型是必要的。</li>
+<li>可以将参数转发到另一个函数，并且无论其参数是否为临时对象或常量都有效。这称为完美转发。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>右值引用未被广泛理解，引用折叠和转发引用的特殊规则有些模糊。</li>
+<li>右值引用常被误用。</li>
+</ul>
+<p>使用方法：</p>
+<p>不要使用右值引用，除非有以下情况：</p>
+<ul>
+<li>定义移动构造和移动赋值；</li>
+<li>将转发引用于 <code>std::forward</code> 结合使用，以支持完美转发；</li>
+<li>定义成对的重载，例如 <code>Foo&amp;&amp;</code> 和 <code>const Foo&amp;</code> 两种参数。</li>
+</ul>
+<h4 id="_32">友元</h4>
+<p>友元通常应在同一文件中定义，以便读者不必在另一个文件中查找类的私有成员的用法。常见的用法是对 <code>Foo</code> 声明 <code>FooBuilder</code> 为友元，这样后者可以正确构造 <code>Foo</code> 的内部状态。</p>
+<h4 id="_33">异常</h4>
+<p>不使用 C++ 异常。</p>
+<p>优势：</p>
+<ul>
+<li>异常允许更高级别的应用程序决定如何处理深度嵌套函数中不应该发生的故障。</li>
+<li>大多数现代语言都使用异常。</li>
+<li>某些第三方 C++ 库使用异常，关闭它们会导致库的集成变得困难。</li>
+<li>异常是构造函数失败的唯一途径。我们可以使用工厂函数或 <code>Init()</code> 方法来模拟，但是这些分别需要堆分配或新的“无效”状态。</li>
+<li>异常在测试框架中非常方便。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>使用 <code>throw</code> 添加到现有函数时，必须检查其所有传递调用方。它们要么必须至少做出基本的异常安全保证，要么永远不会发现异常导致程序中断。例如 <code>f</code> 调用 <code>h</code>，<code>h</code> 调用 <code>g</code>，而 <code>h</code> 抛出异常被 <code>f</code> 捕获，此时 <code>g</code> 中代码就需要谨慎处理，防止内存没有正确释放。</li>
+<li>异常使程序的控制流难以通过查看代码来评估：函数可能在意想不到的地方返回。</li>
+<li>异常安全需要大量的编程实践。</li>
+<li>开启异常会向生成的每个二进制文件添加数据，从而增加编译时间，并可能增加地址空间压力。</li>
+<li>异常的可用性可能会鼓励开发人员在不合适的时候抛出，或者在不安全时从中恢复。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>从表面上看，使用异常的好处大于成本，尤其是在新项目中。但是，对于现有代码，引入异常会对所有依赖代码产生影响。如果异常可以传播到新项目之外，那么新项目集成到现有的无异常代码中也会成为问题。</li>
+</ul>
+<h4 id="noexcept">noexcept</h4>
+<p><code>noexcept</code> 说明符用于指定函数是否会引发异常。如果异常从标记为 <code>noexcept</code> 的函数中产生，程序将通过 <code>std::terminate</code> 崩溃。修饰表达式的 <code>noexcept</code> 运算符执行编译时检查，如果表达式没有异常，则会返回 <code>true</code> 。</p>
+<p>优势：</p>
+<ul>
+<li>在某些情况下，将移动构造指定为 <code>noexcept</code> 可以提高性能，例如若 <code>T</code> 的移动构造函数声明为 <code>noexcept</code>，则 <code>std::vector&lt;T&gt;::resize()</code> 将会移动构造而非复制。</li>
+<li>在启用异常的环境中，指定 <code>noexcept</code> 可以触发编译器优化。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>如果禁用了异常，则使用 <code>noexcept</code> 不能保证正确。</li>
+<li>很难撤销 <code>noexcept</code>，因为它以难以检测的方式消除了调用者可能依赖的保证。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>如果 <code>noexcept</code> 准确地反映了函数的预期语义，则可以在对性能有用时使用。</li>
+<li>如果完全禁用异常，则首选无条件 <code>noexcept</code> 。</li>
+</ul>
+<h4 id="_34">运行时类信息</h4>
+<p>运行时类信息（RTTI）允许在运行时查询对象的 C++ 类，这是通过使用 <code>typeid</code> 或 <code>dynamic_cast</code> 来完成的。</p>
+<p>优势：</p>
+<ul>
+<li>RTTI 的标准替代方案需要修改或重新设计所讨论的类层次结构。有时，这种修改是不可行的。</li>
+<li>RTTI 在某些单元测试中很有用。例如在工厂类的测试中。它在管理对象与其模拟之间的关系时也很有用。</li>
+<li>RTTI 在考虑多个抽象对象时很有用。例如</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">Base::Equal</span><span class="p">(</span><span class="n">Base</span><span class="o">*</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">Derived::Equal</span><span class="p">(</span><span class="n">Base</span><span class="o">*</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a><span class="w">  </span><span class="n">Derived</span><span class="o">*</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Derived</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">other</span><span class="p">);</span>
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">that</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">nullptr</span><span class="p">)</span>
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a><span class="p">}</span>
+</code></pre></div>
+<p>缺陷：</p>
+<ul>
+<li>在运行时查询对象的类型通常意味着类层次结构的设计问题。</li>
+<li>RTTI 的无节制使用使代码难以维护。可能导致基于类型的决策树或 switch 语句分散在整个代码中，在进一步修改时必须检查所有语句。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>可以在单元测试中自由使用，但在其它代码中尽可能避免使用。如果需要编写基于类的不同行为的代码，应该考虑替代方案：<ul>
+<li>首选虚方法；</li>
+<li>如果要在对象外部处理，考虑双重调度方法，例如 Visitor 设计模式。</li>
+</ul>
+</li>
+<li>当程序的逻辑保证基类的给定实例实际上是特定派生类的实例时，可以在对象上自由使用 <code>dynamic_cast</code> 。这种情况通常可以考虑 <code>static_cast</code> 作为替代。</li>
+<li>基于类型的决策树强烈说明代码问题</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">typeid</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">D1</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">typeid</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">D2</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">typeid</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">typeid</span><span class="p">(</span><span class="n">D3</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-31-6" name="__codelineno-31-6" href="#__codelineno-31-6"></a><span class="p">...</span>
+</code></pre></div>
+<ul>
+<li>当将其它子类添加到类层次结构中时，此类代码通常会中断。此外，当子类的属性发生更改时，很难找到并修改所有受影响的代码段。</li>
+<li>不要手动实现类似 RTTI 的解决方法。</li>
+</ul>
+<h4 id="_35">类型转换</h4>
+<p>C++ 引入了不同于 C 的强制转换系统，用于区分强制转换操作的类型。</p>
+<p>优势：</p>
+<ul>
+<li>C 转换的问题在于操作的模糊性：有时在进行转换 <code>(int)3.5</code>，有时进行强制转换 <code>(int)"hello"</code> 。括号初始化和 C++ 强制转换通常有助于避免这种歧义。此外，代码中的 C++ 强制转换更容易被搜索到。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>C++ 强制转换语法冗长且繁琐。</li>
+</ul>
+<p>使用方法：</p>
+<p>通常不要使用 C 样式强制转换。当需要显式类型转换时，使用 C++ 样式的强制转换。</p>
+<ul>
+<li>使用大括号初始化来转换算术类型 <code>int64_t{x}</code> 。这是最安全的方法，因为如果转换可能导致信息丢失，那么编译就不能通过。</li>
+<li>用 <code>absl::implicit_case</code> 安全地向上转换类型层次结构。</li>
+<li>当需要显式强制转换时，使用 <code>static_cast</code> 执行与 C 样式等价的强制转换。</li>
+<li>使用 <code>const_cast</code> 来移除 <code>const</code> 限定符。</li>
+<li>用 <code>reinterpret_cast</code> 对指针类型以及整数到其它类型的不安全转换。</li>
+</ul>
+<h4 id="streams">Streams</h4>
+<p>在适当的情况下使用 steam，并坚持简单的用法。仅对表示值的类型重载 <code>&lt;&lt;</code> 操作符，且只写入用户可见的值，而不写入任何实现细节。</p>
+<p>优势：</p>
+<ul>
+<li>流式操作符提供易学习、可移植、可重用和可扩展的 API，相较之下 <code>printf</code> 甚至不支持 <code>std::string</code>，很难可移植使用。</li>
+<li>通过 <code>std::cin,std::cout,std::cerr,std::clog</code> 提供控制台 I/O 的一流支持。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>可以通过改变流的状态，这种改变是持续性的，因此代码行为可能收到先前操作的影响。</li>
+<li>由于上述问题，代码和数据在流中的混合方式以及运算符重载的使用很难精确控制输出。</li>
+<li>通过 <code>&lt;&lt;</code> 建立的输出的方式将输出顺序融入到代码中，并且对本地化支持有限。</li>
+<li>许多 <code>&lt;&lt;</code> 重载会给编译器带来很高的解析和语义分析的成本。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>仅当流是工作的最佳工具时，才使用流。通常日志记录库是比 <code>std::cerr,std::clog</code> 更好的选择。</li>
+<li>避免将流用于面向外部用户或处理不受信任数据的 I/O 。</li>
+<li>避免使用流 API 中有状态部分（错误状态除外），例如 <code>imbue(),xalloc(),register_callback()</code> 。使用显式格式设置函数，例如 <code>absl::StreamFormat()</code> 而不是流操作器或格式设置标志。</li>
+<li>仅当类型表示值时，才重载 <code>&lt;&lt;</code> 运算符，并且只输出该值，不应暴露实现细节。如果需要打印对象内部进行调试，定义 <code>DebugString()</code> 函数。</li>
+</ul>
+<h4 id="_36">递增和递减</h4>
+<p>使用递增和递减运算符的前缀形式 <code>++i</code>，除非需要后缀语义。</p>
+<p>优势：</p>
+<ul>
+<li>后缀递增/递减表达式的计算结果与修改前相同，可能导致代码更紧凑但是更难阅读。</li>
+<li>前缀形式通常更具可读性，效率永远不会降低，并且可以更搞钱，因为不需要复制值。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>在 C 语言传统中使用后缀增量，尤其是在 <code>for</code> 循环中。</li>
+</ul>
+<h4 id="const">const</h4>
+<p>在 API 中，只要有意义就使用 <code>const</code>；对于 <code>const</code> 的某些用途，使用 <code>constexpr</code> 是更好的选择。</p>
+<p>优势：</p>
+<ul>
+<li>更容易理解变量的使用方式。</li>
+<li>允许编译器进行更好的类型检查，并生成更好的代码。</li>
+<li>帮助人们了解多线程程序中无需锁定即可安全使用的函数。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>如果将一个 <code>const</code> 变量传递给一个函数，该函数原型中必须有一个 <code>const</code>，这对于调用库函数可能产生问题。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>强烈建议在有意义和准确的地方使用 <code>const</code> 。</li>
+<li>对于按值传递的函数参数，不建议使用 <code>const</code> 声明。</li>
+<li>除非方法改变了对象的逻辑状态，否则使用 <code>const</code> 声明。</li>
+</ul>
+<h4 id="constexpr-constinit-consteval">constexpr, constinit, consteval</h4>
+<p>优势：</p>
+<ul>
+<li>使用 <code>constexpr</code> 可以定义具有浮点表达式的常量，而不仅仅是文字；定义用户定义类型的常量；以及使用函数调用定义常量。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>过早将某些内容标记为 <code>constexpr</code> 可能会导致后期修改时的迁移问题。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>用 <code>constexpr</code> 定义真常量（编译/链接时固定）或确保常量初始化。</li>
+<li>用 <code>constinit</code> 确保非常量变量的常量初始化。</li>
+<li>用 <code>consteval</code> 定义不得在运行时调用的代码。</li>
+<li>不要使用 <code>constexpr</code> 或 <code>consteval</code> 强制内联。</li>
+</ul>
+<h4 id="_37">预处理宏</h4>
+<p>避免定义宏，尤其是在头文件中。首选内联函数、枚举和 <code>const</code> 变量。使用与项目相关的前缀命名宏。不要使用宏定义 C++ API 片段。</p>
+<p>缺陷：</p>
+<ul>
+<li>宏意味着看到的代码与编译器看到的代码不同，可能会引入意外行为，特别是宏具有全局范围。</li>
+<li>当宏用于 C++ API 片段时，问题更为严重。当开发人员错误地使用接口时，编译器发出的每条错误都必须解释宏是如何形成接口的。例如避免以下模式</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">WOMBAT_TYPE</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a><span class="w">  </span><span class="c1">// ...</span>
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a><span class="w">  </span><span class="n">EXPAND_PUBLIC_WOMBAT_API</span><span class="p">(</span><span class="n">Foo</span><span class="p">)</span>
+<a id="__codelineno-32-6" name="__codelineno-32-6" href="#__codelineno-32-6"></a>
+<a id="__codelineno-32-7" name="__codelineno-32-7" href="#__codelineno-32-7"></a><span class="w">  </span><span class="n">EXPAND_WOMBAT_COMPARISONS</span><span class="p">(</span><span class="n">Foo</span><span class="p">,</span><span class="w"> </span><span class="o">==</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="p">)</span>
+<a id="__codelineno-32-8" name="__codelineno-32-8" href="#__codelineno-32-8"></a><span class="p">};</span>
+</code></pre></div>
+<p>使用方法：</p>
+<ul>
+<li>不要使用宏内联性能关键代码，而应使用内联函数。</li>
+<li>不要使用宏来储存常量，而应使用 <code>const</code> 变量。</li>
+<li>不要使用宏“缩写”长变量名，而是使用引用。</li>
+<li>不要在 .h 文件中定义宏。</li>
+<li>在使用之前 <code>#define</code> 宏，使用之后 <code>#undef</code> 宏。</li>
+<li>在使用自定义宏替换现有宏时，不要只 <code>#undef</code> 现有宏，而是选择一个可能唯一的名称。</li>
+<li>尽量不要使用扩展到不平衡的 C++ 构造的宏。</li>
+<li>不使用 <code>##</code> 生成函数/类/变量名。</li>
+</ul>
+<p>强烈建议不要从头文件导出宏，即在头文件末尾没有执行 <code>#undef</code> 操作。如果需要导出宏，确保宏具有全局唯一名称。</p>
+<h4 id="0-nullptrnull">0 和 <code>nullptr/NULL</code></h4>
+<p>使用方法：</p>
+<ul>
+<li>对于指针使用 <code>nullptr</code>，这提供了类型安全。</li>
+<li>对于字符使用 <code>'\0'</code> 而不是 <code>0</code> 结尾。使用正确的类型可使代码更具可读性。</li>
+</ul>
+<h4 id="sizeof">sizeof</h4>
+<p>在获取特定变量的大小时使用 <code>sizeof(var)</code> 而不是 <code>sizeof(type)</code> 。如果有人更改变量类型，<code>sizeof(var)</code> 将会自动更新。只对于与任何特定变量无关的代码使用 <code>sizeof(type)</code> 。</p>
+<h4 id="_38">类型推导</h4>
+<p>仅当类型推导能够让不熟悉代码的读者更熟悉代码，或者让代码更安全时，才使用类型推导。不要仅仅为了避免编写显式类型而使用。</p>
+<p>优势：</p>
+<ul>
+<li>C++ 类型名称可能很长且繁琐，尤其是设计模板或命名空间时。</li>
+<li>当 C++ 类型名称在单个声明或小代码区域中重复时，类型推导有助于提高可读性。</li>
+<li>有时让类型被推导会更安全，因为可以避免意外复制或类型转换的可能性。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>当类型是显式的时，C++ 代码通常更清晰，尤其是当类型推导依赖代码中很远处的信息时。例如</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">.</span><span class="n">add_foo</span><span class="p">();</span>
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">y</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+</code></pre></div>
+<p>如果 <code>y</code> 的类型不是很明确，或者前面声明了很多行，则不容易看出返回类型。</p>
+<ul>
+<li>不容易判断是引用还是复制。</li>
+<li>如果将推导类型作为接口的一部分，那么在更改值时可能还更改了类型，从而导致激进的 API 更改。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>使用类型推导只是为了使代码更清晰或更安全。</li>
+</ul>
+<h5 id="_39">函数模板参数推导</h5>
+<p>函数模板参数推导几乎都可行。类型推导是与函数模板交互的默认方式，因为它允许函数模板像多个重载函数一样工作。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">f</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">t</span><span class="p">);</span>
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>
+<a id="__codelineno-34-4" name="__codelineno-34-4" href="#__codelineno-34-4"></a><span class="n">f</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w">  </span><span class="c1">// Invokes f&lt;int&gt;(0)</span>
+</code></pre></div>
+<h5 id="_40">局部变量类型推导</h5>
+<p>局部变量可以使用类型推导，使代码更清晰。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">WidgetWithBellsAndWhistles</span><span class="o">&gt;</span><span class="w"> </span><span class="n">widget</span><span class="w"> </span><span class="o">=</span>
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">WidgetWithBellsAndWhistles</span><span class="o">&gt;</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">);</span>
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a><span class="n">absl</span><span class="o">::</span><span class="n">flat_hash_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span>
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a><span class="w">                    </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">WidgetWithBellsAndWhistles</span><span class="o">&gt;&gt;::</span><span class="n">const_iterator</span>
+<a id="__codelineno-35-5" name="__codelineno-35-5" href="#__codelineno-35-5"></a><span class="w">    </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_map_</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-35-6" name="__codelineno-35-6" href="#__codelineno-35-6"></a><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="o">&gt;</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
+</code></pre></div>
+<p>就可以简写为</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">widget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">WidgetWithBellsAndWhistles</span><span class="o">&gt;</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span><span class="w"> </span><span class="n">arg2</span><span class="p">);</span>
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_map_</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">};</span>
+</code></pre></div>
+<p>类型有时包含有用信息和目标的混合。在许多情况下，容器类型甚至 key 类型都不相关，但 value 的类型可能很有用。这种情况可以使用</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_map_</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">key</span><span class="p">);</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">my_map_</span><span class="p">.</span><span class="n">end</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a><span class="w">  </span><span class="n">WidgetWithBellsAndWhistles</span><span class="o">&amp;</span><span class="w"> </span><span class="n">widget</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">;</span>
+<a id="__codelineno-37-3" name="__codelineno-37-3" href="#__codelineno-37-3"></a><span class="w">  </span><span class="c1">// Do stuff with `widget`</span>
+<a id="__codelineno-37-4" name="__codelineno-37-4" href="#__codelineno-37-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>显式地定义局部变量，对迭代器使用类型推导。</p>
+<h5 id="_41">返回类型推导</h5>
+<p>仅当函数体的 <code>return</code> 语句数量非常少并且其它代码很少的时候，才使用返回类型推导。仅当函数或 lambda 的范围非常小的时候使用，因为具有推导返回类型的函数不顶用抽象边界：实现就是接口。特别是，头文件中的公共函数几乎不应该有推导的返回类型。</p>
+<h5 id="_42">参数类型推导</h5>
+<p>应当谨慎使用 lambda 的 <code>auto</code> 参数类型，因为实际类型由调用 lambda 的代码确定，而非 lambda 的定义确定。因此，显式类型总是更清晰，除非 lambda 被显式调用得非常接近它的定义位置，或者被传递给常见的接口。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="c1">// Sort `vec` in decreasing order</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a><span class="n">std</span><span class="o">::</span><span class="n">sort</span><span class="p">(</span><span class="n">vec</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="w"> </span><span class="n">vec</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span><span class="w"> </span><span class="p">[](</span><span class="k">auto</span><span class="w"> </span><span class="n">lhs</span><span class="p">,</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">lhs</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">rhs</span><span class="p">;</span><span class="w"> </span><span class="p">});</span>
+</code></pre></div>
+<h5 id="lambda">Lambda 初始捕获</h5>
+<p>初始化捕获由更具体的样式规则（类模板参数推导）确定，该规则很大程度上取代了类型推导的一般规则。</p>
+<h5 id="_43">结构化绑定</h5>
+<p>结构化绑定可以通过为较大对象的元素提供有意义的名称来提供额外的信息。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="n">iter</span><span class="p">,</span><span class="w"> </span><span class="n">success</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_map</span><span class="p">.</span><span class="n">insert</span><span class="p">({</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">});</span>
+<a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">success</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="w">  </span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">second</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>不过注意除非 API 强制使用，否则不应该使用 pair 或 tuple 类型。</p>
+<p>如果绑定的对象时结构，则提供于用法相关的名称可以更有帮助。如果它与绑定名称不匹配，建议使用注释</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a><span class="k">auto</span><span class="w"> </span><span class="p">[</span><span class="cm">/*field_name1=*/</span><span class="n">bound_name1</span><span class="p">,</span><span class="w"> </span><span class="cm">/*field_name2=*/</span><span class="n">bound_name2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+<p>与函数参数注释一样，这可以使工具检测字段的顺序是否错误。</p>
+<h4 id="_44">类模板参数推导</h4>
+<p>仅对已明确选择支持类模板参数推导的模板使用。</p>
+<p>类模板参数推导（CTAD）发生在使用命名模板的类型声明变量时，并且未提供模板参数列表。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">};</span><span class="w">  </span><span class="c1">// `a` is a std::array&lt;int, 3&gt;</span>
+</code></pre></div>
+<p>这种推导可以是显式或隐式的。显式推导类似于具有尾随返回类型的函数声明</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-42-2" name="__codelineno-42-2" href="#__codelineno-42-2"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">class</span><span class="w"> </span><span class="nc">T</span><span class="p">,</span><span class="w"> </span><span class="k">class</span><span class="p">...</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;</span>
+<a id="__codelineno-42-3" name="__codelineno-42-3" href="#__codelineno-42-3"></a><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="p">...)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">sizeof</span><span class="p">...(</span><span class="n">U</span><span class="p">)</span><span class="o">&gt;</span><span class="p">;</span>
+<a id="__codelineno-42-4" name="__codelineno-42-4" href="#__codelineno-42-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>优势：</p>
+<ul>
+<li>CTAD 有时可以让代码省略模板。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>从构造函数生成的隐式推导可能不完全正确。</li>
+<li>存在与 <code>auto</code> 相同的缺点。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>不要将 CTAD 与给定模板一起使用，除非模板的维护者通过提供至少一个明确的推导来选择支持 CTAD 的使用。</li>
+<li>必须遵循类型推导的一般规则。</li>
+</ul>
+<h4 id="_45">指定初始设定项</h4>
+<p>初始值设定项允许通过显式命名聚合的字段来初始化聚合</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">Point</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-43-2" name="__codelineno-43-2" href="#__codelineno-43-2"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<a id="__codelineno-43-3" name="__codelineno-43-3" href="#__codelineno-43-3"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<a id="__codelineno-43-4" name="__codelineno-43-4" href="#__codelineno-43-4"></a><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="p">;</span>
+<a id="__codelineno-43-5" name="__codelineno-43-5" href="#__codelineno-43-5"></a><span class="p">};</span>
+<a id="__codelineno-43-6" name="__codelineno-43-6" href="#__codelineno-43-6"></a>
+<a id="__codelineno-43-7" name="__codelineno-43-7" href="#__codelineno-43-7"></a><span class="n">Point</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-43-8" name="__codelineno-43-8" href="#__codelineno-43-8"></a><span class="w">    </span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-43-9" name="__codelineno-43-9" href="#__codelineno-43-9"></a><span class="w">    </span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span>
+<a id="__codelineno-43-10" name="__codelineno-43-10" href="#__codelineno-43-10"></a><span class="w">    </span><span class="c1">// z will be 0.0</span>
+<a id="__codelineno-43-11" name="__codelineno-43-11" href="#__codelineno-43-11"></a><span class="p">};</span>
+</code></pre></div>
+<p>显式列出的字段将按照指定方式进行初始化，而其它字段的初始化方式与传统聚合初始化表达式 <code>Point{1.0, 2.0}</code> 中的初始化方式相同。</p>
+<p>优势：</p>
+<ul>
+<li>指定的初始值设定项可以生成方便且高度可读的聚合表达式。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>虽然指定的初始值设定项一直是 C 标准的一部分，但是 C++20 之前 C++ 不支持。</li>
+<li>C++ 标准中的规则比 C 和编译器扩展中的规则更严格，要求指定的初始值设定项的显示顺序与字段在结构定义中的显示顺序相同。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>仅以符合 C++20 的形式使用指定的初始值设定项：初始值设定项的显示顺序与字段在结构定义中的显示顺序相同。</li>
+</ul>
+<h4 id="lambda_1">Lambda 表达式</h4>
+<p>在适当的情况下使用 lambda 表达式。当 lambda 将转义当前范围时，应当使用显式捕获。</p>
+<p>优势：</p>
+<ul>
+<li>Lambda 比其它定义后传递给 STL 算法的函数对象方法更简洁易读。</li>
+<li>适当使用默认捕获可以消除冗余。</li>
+<li>Lambda 与 <code>std::function,std::bind</code> 可以组合用作通用回调机制。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>Lambda 中的变量捕获可能是空指针的错误来源。</li>
+<li>默认按值捕获可能产生误导，不能防止空指针错误。按值捕获指针不会导致深拷贝，因此与按引用捕获具有相同的生命周期问题。</li>
+<li>捕获实际上声明了新的变量，但是难以被识别。</li>
+<li>初始化捕获本质上依赖类型推导，存在许多与 auto 相同的缺点。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span>
+<a id="__codelineno-44-2" name="__codelineno-44-2" href="#__codelineno-44-2"></a><span class="p">[</span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">foo</span><span class="p">)]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-44-3" name="__codelineno-44-3" href="#__codelineno-44-3"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-44-4" name="__codelineno-44-4" href="#__codelineno-44-4"></a><span class="p">}</span>
+<a id="__codelineno-44-5" name="__codelineno-44-5" href="#__codelineno-44-5"></a>
+<a id="__codelineno-44-6" name="__codelineno-44-6" href="#__codelineno-44-6"></a><span class="p">[</span><span class="n">foo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">})]</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-44-7" name="__codelineno-44-7" href="#__codelineno-44-7"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-44-8" name="__codelineno-44-8" href="#__codelineno-44-8"></a><span class="p">}</span>
+</code></pre></div>
+<ul>
+<li>Lambda 的使用可能会失控：嵌套过长的匿名函数会使代码难以理解。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>适当情况下可以使用 lambda 表达式。如果 lambda 可能离开当前范围，首选显式捕获。例如</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a><span class="p">{</span>
+<a id="__codelineno-45-2" name="__codelineno-45-2" href="#__codelineno-45-2"></a><span class="w">  </span><span class="n">Foo</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+<a id="__codelineno-45-3" name="__codelineno-45-3" href="#__codelineno-45-3"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-45-4" name="__codelineno-45-4" href="#__codelineno-45-4"></a><span class="w">  </span><span class="n">executor</span><span class="o">-&gt;</span><span class="n">Schedule</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Frobnicate</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-45-5" name="__codelineno-45-5" href="#__codelineno-45-5"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-45-6" name="__codelineno-45-6" href="#__codelineno-45-6"></a><span class="p">}</span>
+<a id="__codelineno-45-7" name="__codelineno-45-7" href="#__codelineno-45-7"></a><span class="c1">// BAD! The fact that the lambda makes use of a reference to `foo` and</span>
+<a id="__codelineno-45-8" name="__codelineno-45-8" href="#__codelineno-45-8"></a><span class="c1">// possibly `this` (if `Frobnicate` is a member function) may not be</span>
+<a id="__codelineno-45-9" name="__codelineno-45-9" href="#__codelineno-45-9"></a><span class="c1">// apparent on a cursory inspection. If the lambda is invoked after</span>
+<a id="__codelineno-45-10" name="__codelineno-45-10" href="#__codelineno-45-10"></a><span class="c1">// the function returns, that would be bad, because both `foo`</span>
+<a id="__codelineno-45-11" name="__codelineno-45-11" href="#__codelineno-45-11"></a><span class="c1">// and the enclosing object could have been destroyed.</span>
+</code></pre></div>
+<p>这种写法容易在 foo 销毁以后产生错误。正确的方式是</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a><span class="p">{</span>
+<a id="__codelineno-46-2" name="__codelineno-46-2" href="#__codelineno-46-2"></a><span class="w">  </span><span class="n">Foo</span><span class="w"> </span><span class="n">foo</span><span class="p">;</span>
+<a id="__codelineno-46-3" name="__codelineno-46-3" href="#__codelineno-46-3"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-46-4" name="__codelineno-46-4" href="#__codelineno-46-4"></a><span class="w">  </span><span class="n">executor</span><span class="o">-&gt;</span><span class="n">Schedule</span><span class="p">([</span><span class="o">&amp;</span><span class="n">foo</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">Frobnicate</span><span class="p">(</span><span class="n">foo</span><span class="p">);</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-46-5" name="__codelineno-46-5" href="#__codelineno-46-5"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-46-6" name="__codelineno-46-6" href="#__codelineno-46-6"></a><span class="p">}</span>
+<a id="__codelineno-46-7" name="__codelineno-46-7" href="#__codelineno-46-7"></a><span class="c1">// BETTER - The compile will fail if `Frobnicate` is a member</span>
+<a id="__codelineno-46-8" name="__codelineno-46-8" href="#__codelineno-46-8"></a><span class="c1">// function, and it&#39;s clearer that `foo` is dangerously captured by</span>
+<a id="__codelineno-46-9" name="__codelineno-46-9" href="#__codelineno-46-9"></a><span class="c1">// reference.</span>
+</code></pre></div>
+<ul>
+<li>仅当 lambda 的生存期明显短于任何潜在的捕获时，才使用默认引用捕获 <code>&amp;</code> 。</li>
+<li>仅使用默认按值捕获 <code>=</code> 用于为短 lambda 绑定几个变量。出现在非静态类成员函数中并引用非静态类成员的 lambda 必须显式捕获 <code>this</code> 或用 <code>&amp;</code> 捕获。</li>
+<li>仅使用捕获来得到封闭范围中的变量。不要使用带有初始值设定项的捕获引入新的名称。</li>
+</ul>
+<h4 id="_46">模板元编程</h4>
+<p>避免复杂的模板编程。</p>
+<p>优势：</p>
+<ul>
+<li>模板元编程允许极其灵活的接口，它们具有类型安全和高性能。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>模板元编程使用的技术晦涩难懂。以复杂方式使用模板的代码通常不可读，并且难以调试和维护。</li>
+<li>模板元编程通常会导致极差的编译时错误信息。</li>
+<li>大规模重构非常困难。</li>
+</ul>
+<h4 id="concept-requires">concept 和 requires</h4>
+<p>谨慎使用 <code>concept</code> 。避免在头文件引入新的 <code>concept</code>，除非它被标记为库的内部内容。不要定义编译器未强制执行的概念。比起模板元编程，更建议使用约束，并且避免使用 <code>template&lt;Concept T&gt;</code>，而使用 <code>requires(Concept&lt;T&gt;)</code> 。</p>
+<p>优势：</p>
+<ul>
+<li>概念允许编译器在涉及模板时生成更好的错误信息。</li>
+<li>概念可以减少定义和使用编译时约束所需的模板，通常可以提高代码的清晰度。</li>
+<li>约束提供了模板和 SFINAE 难以实现的技术。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>概念会使代码更复杂难懂。</li>
+<li>概念会增加代码耦合、刚性和僵化。</li>
+<li>大规模重构非常困难。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>存在等价概念时，应该优先使用标准库的预定义概念。例如 <code>std::integral</code> 应该在 C++20 中使用。</li>
+<li>首选现代约束语法 <code>requires(Condition)</code>，避免使用遗留的模板元编程结构 <code>std::enable_if&lt;Condition&gt;</code> 以及 <code>template&lt;Conecpt T&gt;</code> 语法。</li>
+<li>不要手动重新实现任何现有概念或特征。例如使用 <code>requires(std::default_initializable&lt;T&gt;)</code> 而不是 <code>requires(requires { T v; })</code> 。</li>
+<li>新的 <code>concept</code> 声明应该很少，并且只能在库中定义，以便不会在 API 边界中公开。</li>
+<li>不要定义与函数体重复的概念，也不要强加在阅读代码体或生成的错误消息时显而易见的 <code>requires</code>，例如</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span><span class="w">     </span><span class="c1">// Bad - redundant with negligible benefit</span>
+<a id="__codelineno-47-2" name="__codelineno-47-2" href="#__codelineno-47-2"></a><span class="k">concept</span><span class="w"> </span><span class="nc">Addable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">copyable</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="k">requires</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">b</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-47-3" name="__codelineno-47-3" href="#__codelineno-47-3"></a><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="n">Addable</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span>
+<a id="__codelineno-47-4" name="__codelineno-47-4" href="#__codelineno-47-4"></a><span class="n">T</span><span class="w"> </span><span class="n">Add</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">z</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">z</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>最好将代码保留为普通模板，除非使用概念可以带来重大改进。</p>
+<ul>
+<li>不要使用任何主要好处来自语义约束的概念。</li>
+</ul>
+<h4 id="_47">别名</h4>
+<p>公共别名用于 API 用户的便利。</p>
+<p>有几种方法创建别名</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a><span class="k">using</span><span class="w"> </span><span class="n">Bar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Foo</span><span class="p">;</span>
+<a id="__codelineno-48-2" name="__codelineno-48-2" href="#__codelineno-48-2"></a><span class="k">typedef</span><span class="w"> </span><span class="n">Foo</span><span class="w"> </span><span class="n">Bar</span><span class="p">;</span><span class="w">  </span><span class="c1">// But prefer `using` in C++ code.</span>
+<a id="__codelineno-48-3" name="__codelineno-48-3" href="#__codelineno-48-3"></a><span class="k">using</span><span class="w"> </span><span class="o">::</span><span class="n">other_namespace</span><span class="o">::</span><span class="n">Foo</span><span class="p">;</span>
+<a id="__codelineno-48-4" name="__codelineno-48-4" href="#__codelineno-48-4"></a><span class="k">using</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="nc">MyEnumType</span><span class="p">;</span><span class="w">  </span><span class="c1">// Creates aliases for all enumerators in MyEnumType.</span>
+</code></pre></div>
+<p>最好使用 <code>using</code> 而不是 <code>typedef</code>，它提供于其余部分更一致的语法，并且适用于模板。</p>
+<p>优势：</p>
+<ul>
+<li>别名可以通过简化长名称或复杂名称来提高可读性。</li>
+<li>别名可以通过在一个位置命名 API 中重复使用的类型来减少重复。</li>
+</ul>
+<p>缺陷：</p>
+<ul>
+<li>别名会增加引用它的头文件中 API 的实体数量，从而增加复杂性。</li>
+<li>可能造成命名冲突。</li>
+</ul>
+<p>使用方法：</p>
+<ul>
+<li>不要仅仅为了节省输入，在公共 API 中使用别名。</li>
+<li>定义别名时，需要记录新名称的意义。</li>
+<li>不要将命名空间别名放在公共 API 中。</li>
+</ul>
+<h4 id="switch">Switch 语句</h4>
+<p>如果不是以枚举值为条件，<code>switch</code> 语句始终应具有 <code>default</code> 情形。如果没有默认情况，应该输出错误。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a><span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">var</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-2" name="__codelineno-49-2" href="#__codelineno-49-2"></a><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-3" name="__codelineno-49-3" href="#__codelineno-49-3"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-49-4" name="__codelineno-49-4" href="#__codelineno-49-4"></a><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-49-5" name="__codelineno-49-5" href="#__codelineno-49-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-49-6" name="__codelineno-49-6" href="#__codelineno-49-6"></a><span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-7" name="__codelineno-49-7" href="#__codelineno-49-7"></a><span class="w">    </span><span class="p">...</span>
+<a id="__codelineno-49-8" name="__codelineno-49-8" href="#__codelineno-49-8"></a><span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-49-9" name="__codelineno-49-9" href="#__codelineno-49-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-49-10" name="__codelineno-49-10" href="#__codelineno-49-10"></a><span class="w">  </span><span class="k">default</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-49-11" name="__codelineno-49-11" href="#__codelineno-49-11"></a><span class="w">    </span><span class="n">LOG</span><span class="p">(</span><span class="n">FATAL</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Invalid value in switch statement: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">var</span><span class="p">;</span>
+<a id="__codelineno-49-12" name="__codelineno-49-12" href="#__codelineno-49-12"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-49-13" name="__codelineno-49-13" href="#__codelineno-49-13"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="_48">命名</h3>
+<h4 id="_49">一般命名规则</h4>
+<p>使用描述对象的用途或意义的名称。描述性应当与名称的可见范围成正比。模板参数应遵循其类别的命名样式：</p>
+<ul>
+<li>类型模板参数使用类型名称的规则；</li>
+<li>非类型模板参数使用变量名称的规则；</li>
+</ul>
+<p>下面展示了一组命名方式的对比：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a><span class="c1">// 好的命名方式</span>
+<a id="__codelineno-50-2" name="__codelineno-50-2" href="#__codelineno-50-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-3" name="__codelineno-50-3" href="#__codelineno-50-3"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-50-4" name="__codelineno-50-4" href="#__codelineno-50-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">CountFooErrors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">foos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-5" name="__codelineno-50-5" href="#__codelineno-50-5"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Clear meaning given limited scope and context</span>
+<a id="__codelineno-50-6" name="__codelineno-50-6" href="#__codelineno-50-6"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">foo</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">foos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-7" name="__codelineno-50-7" href="#__codelineno-50-7"></a><span class="w">      </span><span class="p">...</span>
+<a id="__codelineno-50-8" name="__codelineno-50-8" href="#__codelineno-50-8"></a><span class="w">      </span><span class="o">++</span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-50-9" name="__codelineno-50-9" href="#__codelineno-50-9"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-50-10" name="__codelineno-50-10" href="#__codelineno-50-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
+<a id="__codelineno-50-11" name="__codelineno-50-11" href="#__codelineno-50-11"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-50-12" name="__codelineno-50-12" href="#__codelineno-50-12"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">DoSomethingImportant</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-13" name="__codelineno-50-13" href="#__codelineno-50-13"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">fqdn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">  </span><span class="c1">// Well-known abbreviation for Fully Qualified Domain Name</span>
+<a id="__codelineno-50-14" name="__codelineno-50-14" href="#__codelineno-50-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-50-15" name="__codelineno-50-15" href="#__codelineno-50-15"></a><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-50-16" name="__codelineno-50-16" href="#__codelineno-50-16"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kMaxAllowedConnections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">  </span><span class="c1">// Clear meaning within context</span>
+<a id="__codelineno-50-17" name="__codelineno-50-17" href="#__codelineno-50-17"></a><span class="p">};</span>
+<a id="__codelineno-50-18" name="__codelineno-50-18" href="#__codelineno-50-18"></a>
+<a id="__codelineno-50-19" name="__codelineno-50-19" href="#__codelineno-50-19"></a><span class="c1">// 不好的命名方式</span>
+<a id="__codelineno-50-20" name="__codelineno-50-20" href="#__codelineno-50-20"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-21" name="__codelineno-50-21" href="#__codelineno-50-21"></a><span class="w"> </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-50-22" name="__codelineno-50-22" href="#__codelineno-50-22"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">CountFooErrors</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">foos</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-23" name="__codelineno-50-23" href="#__codelineno-50-23"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">total_number_of_foo_errors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">  </span><span class="c1">// Overly verbose given limited scope and context</span>
+<a id="__codelineno-50-24" name="__codelineno-50-24" href="#__codelineno-50-24"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">foo_index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">foo_index</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">foos</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">foo_index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">  </span><span class="c1">// Use idiomatic `i`</span>
+<a id="__codelineno-50-25" name="__codelineno-50-25" href="#__codelineno-50-25"></a><span class="w">      </span><span class="p">...</span>
+<a id="__codelineno-50-26" name="__codelineno-50-26" href="#__codelineno-50-26"></a><span class="w">      </span><span class="o">++</span><span class="n">total_number_of_foo_errors</span><span class="p">;</span>
+<a id="__codelineno-50-27" name="__codelineno-50-27" href="#__codelineno-50-27"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-50-28" name="__codelineno-50-28" href="#__codelineno-50-28"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">total_number_of_foo_errors</span><span class="p">;</span>
+<a id="__codelineno-50-29" name="__codelineno-50-29" href="#__codelineno-50-29"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-50-30" name="__codelineno-50-30" href="#__codelineno-50-30"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">DoSomethingImportant</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-50-31" name="__codelineno-50-31" href="#__codelineno-50-31"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cstmr_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">  </span><span class="c1">// Deletes internal letters</span>
+<a id="__codelineno-50-32" name="__codelineno-50-32" href="#__codelineno-50-32"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-50-33" name="__codelineno-50-33" href="#__codelineno-50-33"></a><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-50-34" name="__codelineno-50-34" href="#__codelineno-50-34"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">...;</span><span class="w">  </span><span class="c1">// Unclear meaning within broad scope</span>
+<a id="__codelineno-50-35" name="__codelineno-50-35" href="#__codelineno-50-35"></a><span class="p">};</span>
+</code></pre></div>
+<h4 id="_50">文件名</h4>
+<p>文件名应全部小写，可以包含下划线或短划线。例如</p>
+<ul>
+<li><code>my_useful_class.cc</code></li>
+<li><code>my-useful-class.cc</code></li>
+<li><code>myusefulclass.cc</code></li>
+<li><code>myusefulclass_test.cc</code></li>
+</ul>
+<p>C++ 文件应以 <code>.cc</code> 结尾，头文件以 <code>.h</code> 结尾。依赖于特定点，以文本方式包含的文件以 <code>.inc</code> 结尾。</p>
+<h4 id="_51">类型名</h4>
+<p>类型名以大写字母开头，每个新单词有一个大写字母，不带下划线。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a><span class="c1">// classes and structs</span>
+<a id="__codelineno-51-2" name="__codelineno-51-2" href="#__codelineno-51-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">UrlTable</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span>
+<a id="__codelineno-51-3" name="__codelineno-51-3" href="#__codelineno-51-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">UrlTableTester</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span>
+<a id="__codelineno-51-4" name="__codelineno-51-4" href="#__codelineno-51-4"></a><span class="k">struct</span><span class="w"> </span><span class="nc">UrlTableProperties</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span>
+<a id="__codelineno-51-5" name="__codelineno-51-5" href="#__codelineno-51-5"></a>
+<a id="__codelineno-51-6" name="__codelineno-51-6" href="#__codelineno-51-6"></a><span class="c1">// typedefs</span>
+<a id="__codelineno-51-7" name="__codelineno-51-7" href="#__codelineno-51-7"></a><span class="k">typedef</span><span class="w"> </span><span class="n">hash_map</span><span class="o">&lt;</span><span class="n">UrlTableProperties</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="w"> </span><span class="n">PropertiesMap</span><span class="p">;</span>
+<a id="__codelineno-51-8" name="__codelineno-51-8" href="#__codelineno-51-8"></a>
+<a id="__codelineno-51-9" name="__codelineno-51-9" href="#__codelineno-51-9"></a><span class="c1">// using aliases</span>
+<a id="__codelineno-51-10" name="__codelineno-51-10" href="#__codelineno-51-10"></a><span class="k">using</span><span class="w"> </span><span class="n">PropertiesMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hash_map</span><span class="o">&lt;</span><span class="n">UrlTableProperties</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
+<a id="__codelineno-51-11" name="__codelineno-51-11" href="#__codelineno-51-11"></a>
+<a id="__codelineno-51-12" name="__codelineno-51-12" href="#__codelineno-51-12"></a><span class="c1">// enums</span>
+<a id="__codelineno-51-13" name="__codelineno-51-13" href="#__codelineno-51-13"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UrlTableError</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+<h4 id="_52">变量名</h4>
+<p>变量和数据成员的名称为小写，带有下划线。类（不是结构）的数据成员带有尾随下划线。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a><span class="n">a_local_variable</span><span class="p">,</span><span class="w"> </span><span class="n">a_struct_data_member</span><span class="p">,</span><span class="w"> </span><span class="n">a_class_data_member_</span>
+</code></pre></div>
+<h4 id="_53">公共变量名</h4>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">table_name</span><span class="p">;</span><span class="w">  </span><span class="c1">// OK - snake_case.</span>
+<a id="__codelineno-53-2" name="__codelineno-53-2" href="#__codelineno-53-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">tableName</span><span class="p">;</span><span class="w">   </span><span class="c1">// Bad - mixed case.</span>
+</code></pre></div>
+<h4 id="_54">类数据成员</h4>
+<p>类数据成员（静态和非静态）的命名方式与普通的非成员变量类似，但是带有尾部下划线。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">TableInfo</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-54-2" name="__codelineno-54-2" href="#__codelineno-54-2"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-54-3" name="__codelineno-54-3" href="#__codelineno-54-3"></a><span class="w"> </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-54-4" name="__codelineno-54-4" href="#__codelineno-54-4"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">table_name_</span><span class="p">;</span><span class="w">          </span><span class="c1">// OK - underscore at end.</span>
+<a id="__codelineno-54-5" name="__codelineno-54-5" href="#__codelineno-54-5"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">Pool</span><span class="o">&lt;</span><span class="n">TableInfo</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">pool_</span><span class="p">;</span><span class="w">    </span><span class="c1">// OK.</span>
+<a id="__codelineno-54-6" name="__codelineno-54-6" href="#__codelineno-54-6"></a><span class="p">};</span>
+</code></pre></div>
+<h4 id="_55">结构数据成员</h4>
+<p>结构的数据成员，包括静态和非静态，命名方式与普通的非成员变量类似。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a><span class="k">struct</span><span class="w"> </span><span class="nc">UrlTableProperties</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-55-2" name="__codelineno-55-2" href="#__codelineno-55-2"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+<a id="__codelineno-55-3" name="__codelineno-55-3" href="#__codelineno-55-3"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">num_entries</span><span class="p">;</span>
+<a id="__codelineno-55-4" name="__codelineno-55-4" href="#__codelineno-55-4"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">Pool</span><span class="o">&lt;</span><span class="n">UrlTableProperties</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">pool</span><span class="p">;</span>
+<a id="__codelineno-55-5" name="__codelineno-55-5" href="#__codelineno-55-5"></a><span class="p">};</span>
+</code></pre></div>
+<h4 id="_56">常量名</h4>
+<p>声明 <code>constexpr</code> 或 <code>const</code> 变量，其值在程序持续时间内不变，以 <code>k</code> 作为前缀，后跟大小写混合。极少数情况下，可以用下划线分隔，不使用大写分隔。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kDaysInAWeek</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span>
+<a id="__codelineno-56-2" name="__codelineno-56-2" href="#__codelineno-56-2"></a><span class="k">const</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">kAndroid8_0_0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">24</span><span class="p">;</span><span class="w">  </span><span class="c1">// Android 8.0.0</span>
+</code></pre></div>
+<p>所有具有静态持续时间的变量都以这种方式命名，包括模板的不同实例可能具有不同值的变量。对于其它储存类的变量，此约定可选。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ComputeFoo</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">suffix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a><span class="w">  </span><span class="c1">// 可选是否遵循常量名约定</span>
+<a id="__codelineno-57-3" name="__codelineno-57-3" href="#__codelineno-57-3"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">kPrefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;prefix&quot;</span><span class="p">;</span>
+<a id="__codelineno-57-4" name="__codelineno-57-4" href="#__codelineno-57-4"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">prefix</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;prefix&quot;</span><span class="p">;</span>
+<a id="__codelineno-57-5" name="__codelineno-57-5" href="#__codelineno-57-5"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-57-6" name="__codelineno-57-6" href="#__codelineno-57-6"></a><span class="p">}</span>
+<a id="__codelineno-57-7" name="__codelineno-57-7" href="#__codelineno-57-7"></a>
+<a id="__codelineno-57-8" name="__codelineno-57-8" href="#__codelineno-57-8"></a><span class="kt">void</span><span class="w"> </span><span class="nf">ComputeFoo</span><span class="p">(</span><span class="n">absl</span><span class="o">::</span><span class="n">string_view</span><span class="w"> </span><span class="n">suffix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-57-9" name="__codelineno-57-9" href="#__codelineno-57-9"></a><span class="w">  </span><span class="c1">// 变量值随着函数调用的不同而改变，不应当使用常量名约定</span>
+<a id="__codelineno-57-10" name="__codelineno-57-10" href="#__codelineno-57-10"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">kCombined</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">absl</span><span class="o">::</span><span class="n">StrCat</span><span class="p">(</span><span class="n">kPrefix</span><span class="p">,</span><span class="w"> </span><span class="n">suffix</span><span class="p">);</span>
+<a id="__codelineno-57-11" name="__codelineno-57-11" href="#__codelineno-57-11"></a><span class="w">  </span><span class="p">...</span>
+<a id="__codelineno-57-12" name="__codelineno-57-12" href="#__codelineno-57-12"></a><span class="p">}</span>
+</code></pre></div>
+<h4 id="_57">函数名</h4>
+<p>通常函数以大写字母开头，每个单词首字母大写。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a><span class="n">AddTableEntry</span><span class="p">()</span>
+<a id="__codelineno-58-2" name="__codelineno-58-2" href="#__codelineno-58-2"></a><span class="n">DeleteUrl</span><span class="p">()</span>
+<a id="__codelineno-58-3" name="__codelineno-58-3" href="#__codelineno-58-3"></a><span class="n">OpenFileOrDie</span><span class="p">()</span>
+</code></pre></div>
+<p>访问器和赋值器可以像变量一样命名，例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">count</span><span class="p">();</span>
+<a id="__codelineno-59-2" name="__codelineno-59-2" href="#__codelineno-59-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">set_count</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">);</span>
+</code></pre></div>
+<h4 id="_58">命名空间名</h4>
+<p>命名空间名均小写，单词之间用下划线分隔。顶层命名空间名称基于项目名称。避免嵌套命名空间与已知顶层命名空间冲突。</p>
+<h4 id="_59">枚举名</h4>
+<p>枚举应当像常量一样命名，而不是宏。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a><span class="k">enum</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">UrlTableError</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-60-2" name="__codelineno-60-2" href="#__codelineno-60-2"></a><span class="w">  </span><span class="n">kOk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-60-3" name="__codelineno-60-3" href="#__codelineno-60-3"></a><span class="w">  </span><span class="n">kOutOfMemory</span><span class="p">,</span>
+<a id="__codelineno-60-4" name="__codelineno-60-4" href="#__codelineno-60-4"></a><span class="w">  </span><span class="n">kMalformedInput</span><span class="p">,</span>
+<a id="__codelineno-60-5" name="__codelineno-60-5" href="#__codelineno-60-5"></a><span class="p">};</span>
+</code></pre></div>
+<h4 id="_60">宏名</h4>
+<p>通常不应使用宏。如果绝对需要它们，应使用全大写字母和下划线以及项目前缀命名。例如</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a><span class="cp">#define MYPROJECT_ROUND(x) ...</span>
+</code></pre></div>
+<h4 id="_61">例外情况</h4>
+<p>如果要命名类似于现有 C 或 C++ 实体的内容，可以遵循现有的命名约定方案。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a><span class="c1">// 根据 open() 的形式命名</span>
+<a id="__codelineno-62-2" name="__codelineno-62-2" href="#__codelineno-62-2"></a><span class="n">bigopen</span><span class="p">()</span>
+<a id="__codelineno-62-3" name="__codelineno-62-3" href="#__codelineno-62-3"></a><span class="c1">// typedef</span>
+<a id="__codelineno-62-4" name="__codelineno-62-4" href="#__codelineno-62-4"></a><span class="n">uint</span>
+<a id="__codelineno-62-5" name="__codelineno-62-5" href="#__codelineno-62-5"></a><span class="c1">// 根据 pos 的形式命名</span>
+<a id="__codelineno-62-6" name="__codelineno-62-6" href="#__codelineno-62-6"></a><span class="n">bigpos</span>
+<a id="__codelineno-62-7" name="__codelineno-62-7" href="#__codelineno-62-7"></a><span class="c1">// 根据 STL 的形式命名</span>
+<a id="__codelineno-62-8" name="__codelineno-62-8" href="#__codelineno-62-8"></a><span class="n">sparse_hash_map</span>
+<a id="__codelineno-62-9" name="__codelineno-62-9" href="#__codelineno-62-9"></a><span class="c1">// 根据 INT_MAX 命名的常量</span>
+<a id="__codelineno-62-10" name="__codelineno-62-10" href="#__codelineno-62-10"></a><span class="n">LONGLONG_MAX</span>
+</code></pre></div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
