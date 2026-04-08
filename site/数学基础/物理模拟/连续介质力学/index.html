@@ -1,0 +1,2444 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>连续介质力学 - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              连续介质力学
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        可变形体运动学
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="可变形体运动学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        拉格朗日观点
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="拉格朗日观点">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        静力平衡的思考
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        欧拉观点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标量场与矢量场
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="标量场与矢量场">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对时间的导数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矢量线
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        流面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        势流
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        张量分析初步
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="张量分析初步">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        坐标变换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基矢量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义矢量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        并积
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        张量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        逆变基矢量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        协变分量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        度规张量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        不定乘
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        标量不变量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        张量面
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        变形理论
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="变形理论">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        随体坐标系的基矢量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        相对伸长因数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应变张量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应变张量的协变分量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主轴与主分量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        主分量之间的关系
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        计算主分量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        体积膨胀因数
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        位移矢量
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        应变率张量
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        连续介质微元中的速度分布
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矢量场性质
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动力学概念和方程
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简单模型
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">连续介质力学</h1>
+<h2 id="_2">可变形体运动学</h2>
+<h3 id="_3">拉格朗日观点</h3>
+<p>连续介质的运动规律
+$$
+x^i = x^i(\xi^1,\xi^2,\xi^3,t)
+$$
+其中 $\xi^i$ 是初始坐标，因此 $x^i$ 实际上是 $\xi^i$ 处的点在 $t$ 时刻的位置，将 $\xi^i,t$ 称为拉格朗日变量。</p>
+<p>在研究变形体力学时，我们希望利用微积分，因此假设连续运动规律中的函数连续可微。当然，许多情况下会产生不连续的运动，例如激波。假设 $x^i$ 在每个 $t$ 时刻都是单值，因此 Jacobi 行列式
+$$
+\Delta= 
+\left|\frac{\partial x^i(\xi^1,\xi^2,\xi^3,t)}{\partial(\xi^1,\xi^2,\xi^2)}\right|  \neq 0
+$$
+从而可以得到反函数
+$$
+\xi^i =\xi^i(x^1,x^2,x^3,t)
+$$
+我们将 $x^i$ 称为参考坐标系，而 $\xi^i$ 称为随体坐标系。</p>
+<ul>
+<li>参考坐标系是固定选取的坐标系</li>
+<li>随体坐标系跟随连续介质运动并拉伸变形，使得连续介质中的点相对随体坐标系不变</li>
+</ul>
+<p>每当讨论连续介质运动时，必须区分介质中不同的点，因此要使用拉格朗日坐标。</p>
+<p>在欧氏空间中，连续介质的点相对于参考系的径矢对时间的偏导
+$$
+\vec{v} = \frac{\partial \vec{r}(\xi^1,\xi^2,\xi^3,t)}{\partial t}
+$$
+称为连续介质点的速度，它是相对于参考系的速度。</p>
+<blockquote>
+<p>[!note] 
+由于介质相对随体坐标系静止，因此相对随体坐标系速度为零。</p>
+</blockquote>
+<p>引入记号
+$$
+\frac{\partial \vec{r}}{\partial x^i} = \vec{e}<em>{i},\quad \frac{\partial \vec{r}}{\partial \xi^i}=\hat{e}</em>{i}
+$$
+分别称为参考系和随体坐标系的基矢量。如果 $x^i$ 是笛卡尔坐标系，则记
+$$
+\vec{e}<em>{1}=i,\quad \vec{e}</em>{2}=j,\quad \vec{e}<em>{3}=k
+$$
+分别为沿 $x,y,z$ 的单位矢量。将速度沿着基矢量分解
+$$
+\vec{v} = \frac{\partial \vec{r}}{\partial t} = \frac{\partial x^i}{\partial t}\vec{e}</em>{i} = v^i\vec{e}<em>{i}
+$$
+从而
+$$
+v^i = \frac{\partial x^i(\xi^1,\xi^2,\xi^3,t)}{\partial t}
+$$
+称为 $\vec{v}$ 在基 $\vec{e}</em>{i}$ 下的分量。</p>
+<h4 id="_4">静力平衡的思考</h4>
+<p>如果一个系统的重力势能达到最小值，则它一定处于平衡态。这是因为如果它不平衡，则重力势能一定可以转换为动能，这与重力势能达到最小值矛盾。</p>
+<blockquote>
+<p>[!note]
+反过来不能证明平衡态一定重力势能最小。</p>
+</blockquote>
+<p>利用这一点，可以证明一些数学命题。例如将军饮马问题及其变种</p>
+<p>![[image-20250824134714642.png]]</p>
+<h3 id="_5">欧拉观点</h3>
+<p>现在假设不考虑连续介质点的运动历史，而是考虑给定几何点处不同时刻发生的现象。连续介质的运动规律为
+$$
+x^i = x^i(\xi^1,\xi^2,\xi^3,t)
+$$
+其中 $\xi^i$ 是拉格朗日变量。如前所述，反函数
+$$
+\xi^i =\xi^i(x^1,x^2,x^3,t)
+$$
+就得到关于欧拉变量的运动规律。它表明固定的位置 $x^i$ 在不同时刻经过的介质点 $\xi^i$ 。</p>
+<h3 id="_6">标量场与矢量场</h3>
+<h4 id="_7">对时间的导数</h4>
+<p>以温度场 $T$ 与速度场 $v$ 为例。如果用拉格朗日变量给出
+$$
+T(\vec{\xi},t)=T(\xi^1,\xi^2,\xi^3,t)
+$$
+则连续介质点的温度变化为
+$$
+\frac{\partial T(\vec{\xi},t)}{\partial t}
+$$
+但如果用欧拉变量给出
+$$
+T(\vec{x},t)=T(x^1,x^2,x^3,t)
+$$
+就需要做变量变换
+$$
+\frac{\partial T(\vec{\xi},t)}{\partial t} = \frac{\partial T(\vec{x},t)}{\partial t}+\frac{\partial T(\vec{x},t)}{\partial x^i}\frac{\partial x^i}{\partial t} = \frac{\partial T(\vec{x},t)}{\partial t}+v^i\frac{\partial T(\vec{x},t)}{\partial x^i}
+$$
+我们将</p>
+<ul>
+<li>$\partial T(\vec{\xi},t) /\partial t$ 称为<strong>随体导数</strong>，记为 $dT / dt$</li>
+<li>$\partial T(\vec{x},t) /\partial t$ 称为<strong>局部导数</strong>，记为 $\partial T / \partial t$</li>
+</ul>
+<p>于是
+$$
+\frac{dT}{dt} = \frac{\partial T}{\partial t}+v^i \frac{\partial T}{\partial x^i}
+$$
+其中随体导数和局部导数之差称为<strong>对流导数</strong>。利用梯度矢量表示为
+$$
+v^i \frac{\partial T}{\partial x^i} = \vec{v}\cdot \nabla T
+$$
+因此对流导数是沿着 $\vec{v}$ 方向运动时 $T$ 的空间温度变化（这里空间坐标通过参考系得到）。于是随体导数分为</p>
+<ul>
+<li>温度场随时间的变化</li>
+<li>温度场随空间的变化</li>
+</ul>
+<p>除非沿着等温面移动，否则对流导数始终不为零。</p>
+<p>类似的可以得到加速度对应的随体导数
+$$
+\frac{d\vec{v}}{dt} = \frac{\partial \vec{v}}{\partial t}+ \vec{v}\cdot \nabla \vec{v}
+$$
+注意只有在笛卡尔坐标系中成立（基向量与时间无关）。</p>
+<p>如果欧拉变量下所有表征过程的量不依赖时间，则称为<strong>定常过程</strong>。例如</p>
+<ul>
+<li>$T=T(x)$ 是定常温度场</li>
+<li>$T=T(x,t)$ 是非定常温度场</li>
+</ul>
+<p>对应的 $\partial T /\partial t=0$，此时随体导数只剩下对流部分。</p>
+<h4 id="_8">矢量线</h4>
+<p>对任何矢量场，都可以引入矢量线。给定 $t_{0}$ 时刻，矢量线是一族曲线，它们在空间中每一点的切向方向与该点在 $t_{0}$ 时刻的矢量方向一致。速度场的矢量线称为流线。</p>
+<blockquote>
+<p>[!note]
+流线一经画出，就可以知道速度矢量 $\vec{v}$ 在每一点的方向。通常可以通过实验确定流线。</p>
+</blockquote>
+<p>沿着流线取微元
+$$
+d\vec{r} = dx^i\vec{e}<em>{i}
+$$
+则流线与速度矢量
+$$
+\vec{v} = v^i\vec{e}</em>{i}
+$$
+平行当且仅当 $d\vec{r}=\vec{v}d\lambda$，其中 $d\lambda$ 是标量参数。在每条流线 $\mathcal{L}$ 上，该参数可以看作 $\lambda(s,\mathcal{L})$ 的微分，其中 $s$ 是沿流线的弧长。于是
+$$
+\frac{dx^i}{v^i} = d\lambda \implies \frac{dx^i}{d\lambda}=v^i(\vec{x},t)
+$$
+这就是流线的微分方程。它们与连续介质点的运动规律方程
+$$
+\frac{dx^i}{dt} = v^i(\vec{x},t)
+$$
+注意到该方程两侧都有时间变量，而流线方程只有右侧与时间相关。这意味着<strong>流线与轨迹一般不重合</strong>。</p>
+<p>我们考虑流线与轨迹的例子。若刚体内每一条线段在运动过程中与自身平行，则称为<strong>平动</strong>。</p>
+<ul>
+<li>在平动过程中，刚体所有点的速度在给定时刻的大小、方向都相同。因此，这时的流线总是直线；</li>
+<li>然而，刚体可以沿着任意轨迹平动；</li>
+</ul>
+<p>所以刚体平动时，流线与轨迹一般不重合。但也有两者重合的例子</p>
+<ul>
+<li>如果刚体做变速直线运动，此时流线与轨迹重合，而运动本身是非定常的；</li>
+<li>如果刚体绕不动轴做变角速度旋转，则流线与轨迹也重合；</li>
+</ul>
+<p>事实上，只要速度方向不随时间变化，流线与轨迹就重合。</p>
+<p>流线的微分方程可以写成
+$$
+\frac{dx^2}{dx^1} = \frac{v^2}{v^1},\quad \frac{dx^3}{dx^1}=\frac{v^3}{v^1}
+$$
+由于参数 $t$ 给定，因此这是关于 $x^1$ 的常微分方程组，解的存在唯一性由方程右侧函数的连续可微性保证。</p>
+<h4 id="_9">流面</h4>
+<p>经过任意曲线 $C$ 的上每一点都可以引流线。如果 $C$ 不是流线，那么这些流线构成一张曲面，曲面上每一点的速度都在其切平面上。这样的曲面称为流面，而任意矢量场中作出的流面称为矢量面。根据流面的性质
+$$
+\nabla f\cdot \vec{v}=0
+$$
+进而得到确定流面 $f=const$ 的偏微分方程。如果 $C$ 是封闭的，则这些流线构成流管；任意矢量场中作出的管状曲面称为矢量管。</p>
+<p>![[image-20250606220622822.png|300]]</p>
+<h4 id="_10">势流</h4>
+<p>如果存在函数 $\varphi(\vec{x},t)$ 使得
+$$
+v^i = \frac{\partial \varphi}{\partial x^i}
+$$
+则速度场 $\vec{v}$ 称为位势场，$\varphi$ 称为速度势，相应的流动称为<strong>势流</strong>。如果矢量场 $\vec{A}$ 是位势场，则存在函数 $\Phi(\vec{x},t)$ 使得
+$$
+\vec{A}=\nabla \Phi(\vec{x},t)
+$$
+显然势流的速度 $\vec{v}$ 垂直于等势面 $\varphi=const$ 。</p>
+<p>取全微分得到
+$$
+d\varphi = \frac{\partial \varphi}{\partial x^i}dx^i = v^idx^i
+$$
+该式成立是势流存在的充要条件。根据斯托克斯定理，全微分满足
+$$
+0 =\oint_{C}v^1dx+v^2dy+v^3dz = \iint_{S}
+\begin{vmatrix}
+n^1 &amp; n^2 &amp; n^3 \
+\frac{\partial}{\partial x} &amp; \frac{\partial}{\partial y} &amp; \frac{\partial}{\partial z} \
+v^1 &amp; v^2 &amp; v^3
+\end{vmatrix}dS
+$$
+也就是
+$$
+\frac{\partial v^2}{\partial x}= \frac{\partial v^1}{\partial y},\quad \frac{\partial v^3}{\partial x}= \frac{\partial v^1}{\partial z},\quad \frac{\partial v^3}{\partial y}=\frac{\partial v^2}{\partial z}
+$$
+这就是势流的充要条件。</p>
+<p>以常速度 $u_{0}$ 沿 $x$ 轴平动，则 $v^1=u_{0},v^2=v^3=0$，速度势为
+$$
+\frac{\partial \varphi}{\partial x^1}=u_{0},\quad \frac{\partial \varphi}{\partial x^2}=\frac{\partial \varphi}{\partial x^3}=0\implies 
+\varphi=u_{0}x^1+const
+$$
+这意味着</p>
+<ul>
+<li>只能在差一个常数的意义下确定势函数</li>
+<li>平动存在势函数</li>
+</ul>
+<p>势函数的好处是它能够用一个函数的偏导确定运动，而一般的运动需要 $v^i(\vec{x},t)$ 三个函数。</p>
+<p>若令
+$$
+\varphi = -\frac{Q}{4\pi r},\quad r=\sqrt{ |\vec{x}| },Q=Q(t)
+$$
+则等势面是球面，而速度沿着径向，流线是从原点出发的射线。$Q$ 的符号决定了速度的方向</p>
+<ul>
+<li>$Q&gt;0$ 时，流体从原点向周围流动，称为空间点源；</li>
+<li>$Q&lt;0$ 时，流体流入原点，称为空间点汇；</li>
+</ul>
+<p>速度大小为
+$$
+v=|(\nabla \varphi)_{r}| =\left|\frac{\partial \varphi}{\partial r}\right|=\frac{|Q|}{4\pi r^2}
+$$
+它在 $r\to \infty$ 时趋于零，在 $r\to 0$ 时趋于无穷大，两者都是临界点。</p>
+<p>![[image-20250606220704126.png|500]]</p>
+<p>要计算单位时间内流过半径为 $r$ 的球面 $S$ 的流体体积。设单位时间内流过球面微元 $d\sigma$ 的流体体积为 $vd\sigma$，则总体积为
+$$
+\int_{S}vd\sigma=v\int_{S}d\sigma=4\pi r^2v=|Q|
+$$
+注意这里利用 $v$ 在球面上为常数。只要 $\vec{v}=\vec{v}(r)$，且 $\vec{v}$ 垂直于球面 $S$ 时上式恒成立。因此半径不同但是球心位于原点的球面上的单位流体体积为常数 $Q$，后者称为点源或点汇的<strong>流量</strong>或<strong>强度</strong>。</p>
+<h3 id="_11">张量分析初步</h3>
+<h4 id="_12">坐标变换</h4>
+<p>考虑两个坐标系 $\zeta^i,\eta^i$，满足
+$$
+\zeta^i=\zeta^i(\vec{\eta})
+$$
+这种关系称为坐标变换。</p>
+<blockquote>
+<p>[!note]
+互为单值连续映射的坐标变换组成群。</p>
+</blockquote>
+<p>取微分得到
+$$
+d\zeta^i = \frac{\partial \zeta^i}{\partial \eta^j}d\eta^j
+$$
+于是在给定点，$d\zeta^i,d \eta^j$ 之间满足线性关系。引入记号
+$$
+\frac{\partial \zeta^i}{\partial \eta^j} =a^i_{j},\quad (a_{j}^i)= \mathbf{A}
+$$
+其中上标表示行，下标表示列。根据单值映射条件，$\Delta=|\mathbf{A}|\neq 0$，因此可以反求出
+$$
+d \eta^i = \frac{\partial \eta^i}{\partial \zeta^j}d\zeta^j
+$$
+再引入
+$$
+\frac{\partial \eta^i}{\partial \zeta^j}=b_{j}^i,\quad \mathbf{B}=(b_{j}^i)
+$$
+显然 $\mathbf{A},\mathbf{B}$ 互为逆矩阵，即
+$$
+a_{j}^ib_{k}^j = \frac{\partial \zeta^i}{\partial \eta^j} \frac{\partial \eta^j}{\partial \zeta^k} = \frac{\partial \zeta^i}{\partial \zeta^k} = \delta_{k}^i
+$$
+也就是 Kronecker 符号。</p>
+<h4 id="_13">基矢量</h4>
+<p>在坐标系 $\zeta^i$ 中考虑坐标为 $\zeta^i$ 的点与邻近坐标 $\zeta^i+d\zeta^i$ 的矢量
+$$
+d\vec{r} = \frac{\partial \vec{r}}{\partial \zeta^i} d\zeta^i = d\zeta^i\vec{e}<em>{i}
+$$
+其中 $\vec{e}</em>{i}$ 称为基矢量。</p>
+<p>![[image-20250606220814295.png|400]]</p>
+<p>显然，坐标系 $\zeta^i$ 的基矢量 $\vec{e}<em>{i}$ 在该坐标系中的分量分别是
+$$
+(1,0,0),\quad (0,1,0),\quad (0,0,1)
+$$
+基矢量既可以在坐标系 $\zeta^i$ 下引入，也可以在坐标系 $\eta^i$ 下引入，但是同一点的基矢量在不同坐标系中并不相同。我们有
+$$
+d\vec{r}=d \eta^j\vec{e}</em>{j}' = d\zeta^i \vec{e}<em>{i} = \frac{\partial \zeta^i}{\partial \eta^j}d \eta^j\vec{e}</em>{i}
+$$
+对比得到
+$$
+\vec{e}<em>{j}' = \frac{\partial \zeta^i}{\partial \eta^j}\vec{e}</em>{i} = \vec{e}<em>{i}a</em>{j}^i
+$$
+对于 $d\vec{r}$ 的分量，根据前面的坐标变换得到
+$$
+d \eta^i= \frac{\partial \eta^i}{\partial \zeta^j}d\zeta^j= b_{j}^id\zeta^j
+$$
+因此</p>
+<ul>
+<li>基矢量 $\vec{e}_{i}$ 根据 $\mathbf{A}$ 变换</li>
+<li>微分 $d\zeta^j$ 根据 $\mathbf{B}$ 变换</li>
+</ul>
+<p>这意味着 $d\vec{r}$ 关于坐标变换不变
+$$
+d\vec{r} = d \eta^j\vec{e}<em>{j}'=b</em>{i}^jd\zeta^i\vec{e}<em>{s}a</em>{j}^s = \delta_{i}^sd\zeta^i\vec{e}<em>{s} = d\zeta^i\vec{e}</em>{i}
+$$
+基矢量与坐标分量的变换恰好抵消。</p>
+<blockquote>
+<p>[!note]
+基矢量形式的变换称为<strong>协变</strong>；坐标分量形式的变换称为<strong>逆变</strong>。协变与逆变的变换互逆。</p>
+</blockquote>
+<h4 id="_14">定义矢量</h4>
+<p>引入对象
+$$
+\mathbf{A} = A^i\vec{e}<em>{i}
+$$
+其分量 $A^i$ 在坐标变换时满足
+$$
+(A')^i= b</em>{j}^iA^j
+$$
+如果
+$$
+\mathbf{A}=A^j\vec{e}<em>{j}=(A')^i\vec{e}</em>{i}'
+$$
+则称 $\mathbf{A}$ 为矢量。矢量的分量 $A^i$ 与基矢量 $\vec{e}_{i}$ 的变换互逆，从而保证 $\mathbf{A}$ 的不变性。</p>
+<h4 id="_15">并积</h4>
+<p>通过基矢量引入更复杂的对象
+$$
+\mathbf{T} = T^{ij}\vec{e}<em>{i}\vec{e}</em>{j} = T^{ij}\vec{E}<em>{ij}
+$$
+其中 $\vec{E}</em>{ij}$ 称为基矢量 $\vec{e}<em>{i},\vec{e}</em>{j}$ 的并积。可以将多个矢量并积，基矢量的并积线性无关，即
+$$
+\vec{T}=0 \Leftrightarrow T^{ij}=0,\quad \forall i,j
+$$
+并积是矢量的一种运算，结果是新的对象，它们构成线性空间。根据基矢量的变换可得
+$$
+\vec{e}<em>{i}'\vec{e}</em>{j}'=a_{i}^pa_{j}^q\vec{e}<em>{p}\vec{e}</em>{q}
+$$
+可以将 $\vec{e}<em>{i}\vec{e}</em>{j}$ 写成矩阵 $\mathbf{E}_{ij}$ 形式。</p>
+<h4 id="_16">张量</h4>
+<p>利用并积引入张量。首先要求 $\mathbf{T}$ 关于坐标系变换不变，即
+$$
+T^{ij}\vec{e}<em>{i}\vec{e}</em>{j} = (T')^{ij}\vec{e}<em>{i}'\vec{e}</em>{j}'
+$$
+然后根据并积变换规则有
+$$
+(T')^{ij}=b_{p}^ib_{q}^jT^{pq}
+$$
+此时 $\mathbf{T}$ 称为二阶张量。由于 $T^{ij}$ 以逆变方式变换，则称为<strong>张量的逆变分量</strong>。</p>
+<p>一般情况下，张量 $\mathbf{T}$ 的所有分量各不相同。但是</p>
+<ul>
+<li>若某两个角标交换后，$\mathbf{T}$ 相应的分量不变，则称 $\mathbf{T}$ 对称</li>
+<li>若相应分量变号，则称 $\mathbf{T}$ 反对称</li>
+</ul>
+<p>由于张量关于坐标变换不变，因此其对称性/反对称性也关于坐标变换不变。</p>
+<p>任意两个张量 $\mathbf{A},\mathbf{B}$ 组成
+$$
+\mathbf{A}+\mathbf{B},\quad \mathbf{A}-\mathbf{B}
+$$
+也是张量。于是可以构造
+$$
+\begin{aligned}
+\mathbf{T}<em>{0} &amp;= \frac{1}{2}(T^{ij}+T^{ji})\vec{e}</em>{i}\vec{e}<em>{j}\
+\mathbf{T}</em>{1} &amp;= \frac{1}{2}(T^{ij}-T^{ji})\vec{e}<em>{i}\vec{e}</em>{j}
+\end{aligned}
+$$
+分别是对称和反对称张量。</p>
+<h4 id="_17">逆变基矢量</h4>
+<p>考虑二阶张量 $\varkappa=\varkappa^{ij}\vec{e}<em>{i}\vec{e}</em>{j}$，在某个坐标系 $\zeta^i$ 中引入矢量
+$$
+\vec{e}^i = \varkappa^{ij}\vec{e}<em>{j}
+$$
+类似地，在坐标系 $\eta^i$ 中引入
+$$
+(\vec{e}')^p = (\varkappa')^{pq}\vec{e}</em>{q}
+$$
+注意这里两个新矢量构造都利用了爱因斯坦求和约定。根据坐标变换公式有
+$$
+(\vec{e}')^p = (\varkappa')^{pq}\vec{e}<em>{q}'= b</em>{i}^pb_{j}^q \varkappa^{ij} a_{q}^s\vec{e}<em>{s} = \delta</em>{j}^sb_{i}^p\varkappa^{ij} \vec{e}<em>{s} = b</em>{i}^p\varkappa^{ij} \vec{e}<em>{j} = b</em>{i}^p\vec{e}^i
+$$
+其中利用了 $\mathbf{A},\mathbf{B}$ 互逆。上式是逆变形式，因此 $\vec{e}^i$ 称为<strong>逆变基矢量</strong>。</p>
+<blockquote>
+<p>[!note]
+任意二阶张量都可以导出逆变基矢量。协变基矢量只与坐标系有关，而逆变基矢量同时与坐标系和张量有关。</p>
+</blockquote>
+<p>若 $\det(\varkappa^{ij})\neq 0$，则得到协变基矢量与逆变基矢量的互逆关系。在 $\zeta^i,\eta^i$ 两个坐标系下分别为
+$$
+\vec{e}<em>{j} = \varkappa</em>{ji}\vec{e}^i,\quad (\vec{e}')<em>{j}=\varkappa</em>{ji}'(\vec{e}')^i
+$$
+其中
+$$
+\varkappa_{ij} = \frac{k_{ji}}{\det(\varkappa^{ij})},\quad \varkappa_{ij}\varkappa^{jk}=\delta_{i}^k
+$$
+构成逆矩阵，$k_{ij}$ 是 $\varkappa^{ij}$ 的代数余子式。</p>
+<blockquote>
+<p>[!note]
+回忆逆矩阵的构造方式 $\mathbf{A}^<em>\mathbf{A}=|\mathbf{A}|\mathbf{I}$，其中 $\mathbf{A}^</em>=(k_{ji})$ 是代数余子式的矩阵。根据矩阵乘法，$\mathbf{A}^<em>$ 的行元素是 $\mathbf{A}$ 列元素的代数余子式；如果 $\mathbf{A}^</em>$ 的第一行与 $\mathbf{A}$ 的第二列相乘，相当于将 $\mathbf{A}$ 用第二列替换掉第一列后计算行列式，因此结果为零。于是 $\mathbf{A}^*\mathbf{A}$ 只剩下对角线元素。</p>
+</blockquote>
+<p>利用 $\vec{e}<em>{j},\vec{e}^i$ 的变换公式得到
+$$
+\varkappa</em>{ji}'(\vec{e}')^i = \vec{e}<em>{j}' = a</em>{j}^i\vec{e}<em>{i} = a</em>{j}^i\varkappa_{ik}\vec{e}^k = a_{j}^i\varkappa_{ik} a_{s}^k (\vec{e}')^s
+$$
+对比两端得到
+$$
+\varkappa'<em>{ji} = a</em>{j}^pa_{i}^q\varkappa_{pq}
+$$
+因此 $\varkappa_{ij}$ 满足协变变换，而相应的并积 $\vec{e}^i\vec{e}^j$ 满足逆变变换。此外
+$$
+\varkappa_{ij}\vec{e}^i\vec{e}^j = \varkappa_{ij}\varkappa^{ip}\vec{e}<em>{p}\varkappa^{jq}\vec{e}</em>{q} = \delta_{i}^q \varkappa^{ip}\vec{e}<em>{p}\vec{e}</em>{q} = \varkappa^{qp}\vec{e}<em>{p}\vec{e}</em>{q} 
+$$
+因此 $\varkappa_{ji}$ 称为 $\varkappa$ 在逆变基 $\vec{e}^i$ 中的协变分量。</p>
+<blockquote>
+<p>[!note]
+简单起见，此后我们都认为 $\varkappa$ 是对称张量。</p>
+</blockquote>
+<h4 id="_18">协变分量</h4>
+<p>任意矢量 $\vec{A}$ 都有
+$$
+\vec{A}=A^j\vec{e}<em>{j} = A^j\varkappa</em>{ij}\vec{e}^i=A_{i}\vec{e}^i
+$$
+注意这里利用了 $\varkappa$ 对称。由于 $\vec{e}^i$ 是逆变矢量，因此 $A_{i}$ 满足协变关系，称为矢量 $\vec{A}$ 在逆变基 $\vec{e}^i$ 中的<strong>协变分量</strong>。</p>
+<p>应用于任意阶张量，例如四阶张量
+$$
+\begin{aligned}
+\mathbf{T} &amp;= T^{ijkl}\vec{e}<em>{i}\vec{e}</em>{j}\vec{e}<em>{k}\vec{e}</em>{l}\
+&amp;= T^{ijkl}\varkappa_{ip}\vec{e}^p\varkappa_{jq}\vec{e}^q\varkappa_{km}\vec{e}^m\varkappa_{ln}\vec{e}^n\
+&amp;= T_{pqmn}\vec{e}^p\vec{e}^q\vec{e}^m\vec{e}^n\
+&amp;= T^{ijkl}\varkappa_{jp}\varkappa_{kq}\vec{e}<em>{i}\vec{e}^p\vec{e}^q\vec{e}</em>{l}\
+&amp;= T_{pq}^{il}\vec{e}<em>{i}\vec{e}^p\vec{e}^q\vec{e}</em>{l}
+\end{aligned}
+$$
+其中 $T_{pqmn}$ 称为张量 $\mathbf{T}$ 的协变分量，$T_{pq}^{il}$ 称为混合分量，其角标 $p,q$ 是协变的，$i,l$ 是逆变的。</p>
+<blockquote>
+<p>[!note]
+我们使用的符号通常意味着下标是协变的，而上标则是逆变的。</p>
+</blockquote>
+<h4 id="_19">度规张量</h4>
+<p>考虑在空间中确定长度。矢量的长度通过内积获得，例如
+$$
+g_{ij} = \vec{e}<em>{i}\cdot \vec{e}</em>{j},\quad ds^2=|d\vec{r}|^2=d\vec{r}\cdot d\vec{r}=d\zeta^i\vec{e}<em>{i}\cdot d\zeta^i\vec{e}</em>{i}=d\zeta^id\zeta^jg_{ij}
+$$
+任何矢量的长度平方为
+$$
+|\vec{A}|^2=A^iA^jg_{ij}
+$$
+从而长度可以通过分量与基矢量的标量积 $g_{ij}$ 表示。显然长度关于坐标变换不变，例如
+$$
+g_{pq}'d \eta^p d\eta^q =|d\vec{r}|^2= g_{ij}d\zeta^id\zeta^j=g_{ij} a_{i}^pa_{j}^qd \eta^p d \eta^q
+$$
+注意 $d \eta^i=b_{j}^id \zeta^j$ 是逆变（从 $\zeta^i$ 变换到 $\eta^i$），但是这里应用的是逆变换。因此
+$$
+g_{pq}'= a_{p}^ia_{q}^jg_{ij}
+$$
+具有协变形式，其中 $g^{ij}$ 称为张量 $\mathbf{g}=g_{ij}\vec{e}^i\vec{e}^j$ 的协变分量，而 $\mathbf{g}$ 称为<strong>基本度规张量</strong>。</p>
+<p>显然 $\mathbf{g}$ 是对称张量，相对于坐标增量 $d\zeta^i$ 的二次型
+$$
+ds^2=d\zeta^id\zeta^jg_{ij}
+$$
+称为基本二次型，它定义了度规——空间中邻近点的距离。任何常系数二次型可以化为正则形式，即在每个选定点都存在坐标 $x^i$ 使得
+$$
+ds^2=dx^i dx^i
+$$
+而张量 $\mathbf{g}$ 的矩阵化为单位阵。一般不能在整个空间完成这种变换，如果可以，则相应的空间称为欧氏空间，反之称为非欧氏空间。对于 $n$ 维空间，如果存在坐标实变换，使得
+$$
+ds^2=\alpha_{i}(dx^i)^2,\quad \alpha_{i}=\pm 1,i=1,\cdots,n
+$$
+且至少有一个 $\alpha_{i}$ 的符号与其它不同，则该空间称为伪欧氏空间。</p>
+<p>引入矩阵 $(g_{ij})$ 的逆矩阵 $(g^{ij})$，则其元素按照逆变形式变换，进而引入逆变基矢量
+$$
+\vec{e}^i =g^{ij}\vec{e}<em>{j}
+$$
+注意 $g</em>{ij}$ 的对称性导出 $g^{ij}$ 的对称性。考虑基本度规张量 $\mathbf{g}$ 的混变分量
+$$
+g_{j}^i = \vec{e}^j\cdot \vec{e}<em>{p} = g^{ji}\vec{e}</em>{i}\cdot \vec{e}<em>{p} = g^{ij}g</em>{ip}=\delta_{p}^j
+$$
+因此基矢量 $\vec{e}^1$ 与 $\vec{e}<em>{2},\vec{e}</em>{3}$ 张成的平面垂直，在 $\vec{e}<em>{1}$ 上的投影为 1；注意 $\vec{e}</em>{i},\vec{e}^i$ 都不是正交基。</p>
+<p>逆变基矢量满足
+$$
+\vec{e}^1= \frac{\vec{e}<em>{2}\times \vec{e}</em>{3}}{\vec{e}<em>{1}\cdot(\vec{e}</em>{2}\times \vec{e}<em>{3})},\quad \vec{e}^2= \frac{\vec{e}</em>{3}\times \vec{e}<em>{1}}{\vec{e}</em>{1}\cdot(\vec{e}<em>{2}\times \vec{e}</em>{3})},\quad \vec{e}^3= \frac{\vec{e}<em>{1}\times \vec{e}</em>{2}}{\vec{e}<em>{1}\cdot(\vec{e}</em>{2}\times \vec{e}<em>{3})}
+$$
+协变基矢量满足
+$$
+\vec{e}</em>{1}= \frac{\vec{e}^2\times \vec{e}^3}{\vec{e}^1\cdot(\vec{e}^2\times \vec{e}^3)},\quad \vec{e}<em>{2}= \frac{\vec{e}^3\times \vec{e}^1}{\vec{e}^1\cdot(\vec{e}^2\times \vec{e}^3)},\quad \vec{e}</em>{3}= \frac{\vec{e}^1\times \vec{e}^2}{\vec{e}^1\cdot(\vec{e}^2\times \vec{e}^3)}
+$$
+在正交坐标系中，$\vec{e}^i=\vec{e}_{i}$，此时矢量与张量的协变分量与逆变分量相同。</p>
+<h4 id="_20">不定乘</h4>
+<p>设有矢量 $\mathbf{A}=A^i\vec{e}<em>{i}$ 与张量 $\mathbf{T}=T</em>{j}^k\vec{e}<em>{k}\vec{e}^j$ 在形式上组成
+$$
+\begin{aligned}
+\mathbf{B} &amp;= A^i\vec{e}</em>{i}T_{j}^k\vec{e}<em>{k}\vec{e}^j\
+&amp;= A^iT</em>{j}^k\vec{e}<em>{i}\vec{e}</em>{k}\vec{e}^j\
+\mathbf{B}^<em> &amp;= T_{j}^k\vec{e}<em>{k}\vec{e}^jA^i\vec{e}</em>{i}\
+&amp;= T_{j}^k\vec{e}<em>{k}g^{jm}\vec{e}</em>{m}A^ig_{in}\vec{e}^{n}\
+&amp;=T^{km}A_{n}\vec{e}<em>{k}\vec{e}</em>{m}\vec{e}^n\
+&amp;=T^{ik}A_{j}\vec{e}<em>{i}\vec{e}</em>{k}\vec{e}^j
+\end{aligned}
+$$
+显然 $\mathbf{B},\mathbf{B}^</em>$ 都是张量，但 $\mathbf{B}\neq\mathbf{B}^<em>$ 。这种运算称为矢量的</em><em>不定乘</em>*，和并积类似，只不过后者是协变矢量的运算，而不定乘允许协变矢量与逆变矢量的运算，两者可以相互转换。例如
+$$
+\begin{aligned}
+\mathcal{D} &amp;= g^{ij}g^{pq}g^{rs}\cdots \vec{e}<em>{i}\vec{e}</em>{j}\vec{e}<em>{p}\vec{e}</em>{q}\vec{e}<em>{r}\vec{e}</em>{s}\cdots\
+&amp;= g_{ij}g_{pq}g_{rs}\cdots\vec{e}^i\vec{e}^j\vec{e}^p\vec{e}^q\vec{e}^r\vec{e}^s\cdots\
+&amp;= \delta_{j}^i\delta_{p}^q\delta_{s}^r\cdots\vec{e}<em>{i}\vec{e}^j\vec{e}</em>{p}\vec{e}^q\vec{e}_{r}\vec{e}^s\cdots
+\end{aligned}
+$$
+因此基本度规张量 $\mathbf{g}$ 导出的协变矢量和逆变矢量做不定乘，会得到以 $\delta$ 为分量的张量，其分量在任何坐标系下都相同。这是由于协变矢量的变换与逆变矢量的变换相互抵消。</p>
+<h4 id="_21">标量不变量</h4>
+<p>张量的分量通常与坐标系有关，但我们可以寻找函数 $\Phi(T_{j}^i)$，它以张量的分量为变量，但是与坐标系选择无关，即
+$$
+\Phi(T_{j}^i) = \Phi((T')_{j}^i)
+$$
+这种函数称为张量的不变量。</p>
+<blockquote>
+<p>[!note]
+注意张量关于坐标系也是无关的，而不变量则是张量分量关于坐标系无关。</p>
+</blockquote>
+<p>例如矢量
+$$
+A^i\vec{e}<em>{i}=\vec{A}=A</em>{j}\vec{e}^j=A^ig_{ij}\vec{e}^j
+$$
+做标量积
+$$
+\vec{A}\cdot \vec{A}= A^i\vec{e}<em>{i}\cdot A^j\vec{e}</em>{j} = A^iA^jg_{ij} = A^iA_{i}
+$$
+因此该表达式是不变量，表示 $\vec{A}$ 的长度平方。</p>
+<p>取任意二阶张量
+$$
+\mathbf{T} = T^{ij}\vec{e}<em>{i}\vec{e}</em>{j}
+$$
+则关于基本度规张量 $\mathbf{g}$ 的分量缩并
+$$
+T^{ij}g_{ij} = T^{ij}g_{ji}=T_{i}^i
+$$
+这也是一个不变量。</p>
+<h4 id="_22">张量面</h4>
+<p>在坐标系 $\zeta^i$ 下考虑点 $O$ 附近的微元
+$$
+d\vec{r}=d\zeta^i\vec{e}<em>{i}
+$$
+以及对称张量
+$$
+\mathbf{T}=T^{ij}\vec{e}</em>{i}\vec{e}<em>{j} = T</em>{ij}\vec{e}^i\vec{e}^j
+$$
+则利用协变分量与逆变分量可以抵消变换，得到 $T_{ij}d\zeta^id\zeta^j$ 是不变量，可以取
+$$
+T_{ij}d\zeta^id\zeta^j = T'<em>{ij}d \eta^i d \eta^j=c
+$$
+若在 $O$ 的邻域内 $c=const$ 而 $T</em>{ij}$ 取在 $O$ 的值，则上式确定的二次曲面称为<strong>张量面</strong>，而 $d\zeta^i,d \eta^i$ 称为张量面上的<strong>坐标</strong>。</p>
+<p>利用坐标变换将张量面化为
+$$
+T_{11}(dx^1)^2+T_{22}(dx^2)^2+T_{33}(dx^3)^2=c
+$$
+坐标系 $x^i$ 中存在正交坐标系，因此空间中每一点都可以引入正交坐标轴，使得只有 $T_{ii}\neq 0$，则这些坐标轴称为张量的<strong>主轴</strong>，沿主轴方向的笛卡尔坐标称为张量 $\mathbf{T}$ 在 $O$ 的<strong>主坐标系</strong>。此时
+$$
+T^{ii} = T_{ii} = T^i_{i}=T_{i}
+$$
+这里不对 $i$ 求和。于是二阶张量 $\mathbf{T}$ 只有 3 个分量，称为<strong>主分量</strong>。</p>
+<h3 id="_23">变形理论</h3>
+<p>设刚体相对于观察者坐标系 $x^i$ 运动，取初始时刻 $t_{0}$ 和任意某个时刻 $t$ 的两个位置。</p>
+<h4 id="_24">随体坐标系的基矢量</h4>
+<p>物体的每一点 $M$ 都可以与随体坐标系 $\xi^i$ 相联系，随体坐标系与物体一起运动，其基矢量在不同时刻也不同。在 $t$ 时刻
+$$
+ds=|d\vec{r}|,\quad ds^2=g_{ij}d\xi^id\xi^j,\quad g_{ij}=\vec{e}<em>{i}\cdot \vec{e}</em>{j}
+$$
+而在 $t'$ 时刻
+$$
+ds'=|d\vec{r}'|,\quad ds'^2=g_{ij}'d\xi^id\xi^j,\quad g_{ij}'=\vec{e}<em>{i}'\cdot \vec{e}</em>{j}'
+$$
+注意点 $M,M'$ 在随体坐标系中不同时刻 $t,t'$ 的坐标不变，但分量 $g_{ij},g_{ij}'$ 不同。</p>
+<h4 id="_25">相对伸长因数</h4>
+<p>定义比值
+$$
+l = \frac{ds-ds'}{ds'} = \frac{ds}{ds'}-1
+$$
+称为相对伸长因数。如果 $l$ 在可变形介质中的每个点与每个方向都是无穷小量，则变形称为无穷小的。如果 $l$ 取有限值，则变形就是有限的。</p>
+<blockquote>
+<p>[!note]
+根据定义，刚体的所有 $l$ 都为零。</p>
+</blockquote>
+<p>只要考虑连续介质完全任意的两个位置，就可以引入变形与相对伸长因数 $l$，并且已知 $g_{ij},g_{ij}'$ 与 $d\vec{r}$ 的方向，就可以对任何 $d\vec{r}$ 计算 $l$ 。</p>
+<h4 id="_26">应变张量</h4>
+<p>引入记号
+$$
+\epsilon_{ij}= \frac{1}{2}(g_{ij}-g_{ij}')
+$$
+于是
+$$
+ds^2-ds'^2= 2\epsilon_{ij} d\xi^id\xi^j
+$$
+因此 $\epsilon_{ij}$ 可以视为张量的协变分量。考虑两个张量
+$$
+\mathcal{E}= \epsilon_{ij}\vec{e}^i\vec{e}^j,\quad \mathcal{E}'=\epsilon_{ij}(\vec{e}')^i(\vec{e}')^j
+$$
+称为应变张量。使用基本度规张量 $\mathbf{g}$ 来构造混变分量与逆变分量
+$$
+\epsilon_{j}^i = \epsilon_{jk} g^{ki},\quad \epsilon^{ij}=\epsilon_{k}^ig^{kj}
+$$
+两个应变分量构造出的混变分量与逆变分量一般并不相同。</p>
+<h4 id="_27">应变张量的协变分量</h4>
+<p>将初始时刻 $t_{0}$ 的基矢量记为 $\mathring{e}<em>{i}$，而 $t$ 时刻的基矢量记为 $\hat{e}</em>{i}$，考虑应变张量
+$$
+\hat{\mathcal{E}}= \epsilon_{ij}\hat{e}^i\hat{e}^j,\quad \mathring{\mathcal{E}}=\epsilon_{ij}\mathring{e}^i\mathring{e}^j
+$$
+则有
+$$
+\begin{aligned}
+\hat{g}<em>{ij} &amp;= \hat{e}</em>{i}\cdot \hat{e}<em>{j} = |\hat{e}</em>{i}||\hat{e}<em>{j}|\cos \psi</em>{ij}\
+\mathring{g}<em>{ij} &amp;= \mathring{e}</em>{i}\cdot \mathring{e}<em>{j} = |\mathring{e}</em>{i}||\mathring{e}<em>{j}|\cos \mathring{\psi}</em>{ij}
+\end{aligned}
+$$
+于是
+$$
+\frac{|\hat{e}<em>{i}|}{|\mathring{e}</em>{i}|}= \frac{|\partial \vec{r} / \partial \xi^i|}{|\partial \vec{r}<em>{0} / \partial \xi^i|} = \frac{|d\vec{r}</em>{i}|}{|d\vec{r}<em>{0}|} = \frac{ds</em>{i}}{ds_{0i}}=l_{i}+1
+$$
+其中 $ds$ 是沿着坐标线 $\xi^i$ 的线微元，$l_{i}$ 是沿 $\xi^i$ 方向的相对伸长因数。综上得到
+$$
+\hat{g}<em>{ij} = |\mathring{e}</em>{i}||\mathring{e}<em>{j}|(1+l</em>{i})(1+l_{j})\cos \psi_{ij}
+$$
+于是
+$$
+2\epsilon_{ij} = [(1+l_{i})(1+l_{j})\cos \psi_{ij}-\cos \mathring{\psi}<em>{ij}]|\mathring{e}</em>{i}||\mathring{e}<em>{j}|
+$$
+根据该公式可以得到 $\epsilon</em>{ij}$ 的几何解释。</p>
+<p>若角标相同
+$$
+2\epsilon_{ii} = [(1+l_{i})^2-1]\mathring{g}<em>{ii}
+$$
+从而
+$$
+l</em>{i} = \sqrt{ 1+ \frac{2\epsilon_{ii}}{\mathring{g}<em>{ii}} }-1
+$$
+如果变形很小，则 $\epsilon</em>{ii}$ 很小，将上式展开得到
+$$
+l_{i} \approx \frac{\epsilon_{ii}}{\mathring{g}<em>{ii}}
+$$
+如果初始状态的随体坐标系取笛卡尔坐标系，则 $\mathring{g}</em>{ii}=1$，故
+$$
+l_{i} \approx \epsilon_{ii}
+$$
+因此在无穷小变形的情形下，应变张量对角元等于相对伸长因数。</p>
+<p>若在初始状态选择 $\mathring{e}<em>{i}$ 相互垂直，则 $\mathring{\psi}</em>{ij}=\frac{\pi}{2}$，令
+$$
+\psi_{ij}= \frac{\pi}{2}-\chi_{ij}
+$$
+于是
+$$
+2\epsilon_{ij} =|\hat{e}<em>{i}||\hat{e}</em>{j}|\sin \chi_{ij} \implies \sin \chi_{ij} = \frac{2\epsilon_{ij}}{\sqrt{ \hat{g}<em>{ii}\hat{g}</em>{jj} }}
+$$
+如果变形无穷小，并且初始随体坐标系是笛卡尔坐标系，则 $\mathring{g}<em>{ii}=1,\hat{g}</em>{ii}\approx 1$，故
+$$
+\sin \chi_{ij} \approx 2\epsilon_{ij} \implies \chi_{ij} \approx 2\epsilon_{ij}
+$$
+因此变形后直角不再是直角，应变张量的非对角元描述坐标轴的倾斜。</p>
+<h4 id="_28">主轴与主分量</h4>
+<p>每一点都可以求出正交坐标系 $\eta^i$，使得二次型 $\epsilon_{ij}d\xi^id\xi^j$ 化为
+$$
+\epsilon_{ij}d\xi^id\xi^j = \epsilon_{11}'(d \eta^1)^2+ \epsilon_{22}'(d \eta^2)^2+\epsilon_{33}'(d \eta^3)^2
+$$</p>
+<h4 id="_29">主分量之间的关系</h4>
+<h4 id="_30">计算主分量</h4>
+<h4 id="_31">体积膨胀因数</h4>
+<h4 id="_32">位移矢量</h4>
+<h3 id="_33">应变率张量</h3>
+<h3 id="_34">连续介质微元中的速度分布</h3>
+<h3 id="_35">矢量场性质</h3>
+<h2 id="_36">动力学概念和方程</h2>
+<h2 id="_37">简单模型</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

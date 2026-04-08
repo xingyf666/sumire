@@ -1,0 +1,1982 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>碰撞检测 - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              碰撞检测
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        直线与圆锥
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="直线与圆锥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        数学推导
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预备知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="预备知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        介绍
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义圆锥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        表示无穷
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义直线、射线和线段
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        与直线求交
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="与直线求交">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-c_2neq-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case $c_{2}\neq 0$
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-c_20c_1neq-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case $c_{2}=0,c_{1}\neq 0$
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-c_20c_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Case $c_{2}=0,c_{1}=0$
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        限制高度范围
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球与圆锥
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="球与圆锥">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        预备知识
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="预备知识">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义球
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        定义圆锥
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球与无限圆锥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球与无限截断圆锥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球与有限圆锥
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球与有限截断圆锥
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球组碰撞
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="球组碰撞">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球组定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        球-球组碰撞
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        胶囊体-球组碰撞
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">碰撞检测</h1>
+<h2 id="_2">直线与圆锥</h2>
+<h3 id="_3">数学推导</h3>
+<p>令 $\vec{e}$ 为发射点，$\hat{s}$ 是单位向量，则有直线方程
+$$
+\vec{p}(t) = \vec{e}+t\hat{s}
+$$
+再考虑一个放置在 $xy$ 平面上的圆锥，圆心位于原点，半径为 $r_{0}$，轴向为 $\hat{a}$，顶点位于 $H\hat{a},H&gt;0$ 。假设我们只有半径不超过 $r_{1}&lt;r_{0}$ 的一部分高度为 $h$ 的圆锥，于是
+$$
+H = \frac{hr_{0}}{r_{0}-r_{1}}
+$$
+容易得到沿着轴向，半径满足
+$$
+r(z) = r_{0} + \frac{r_{1}-r_{0}}{h}z
+$$
+于是直线与圆锥相交当且仅当
+$$
+\begin{aligned}
+z &amp;= \vec{p}(t)\cdot \hat{a},\quad 0 \leq z \leq h\
+&amp;|\vec{p}(t)-z\hat{a}|^2 = r^2(z)
+\end{aligned}
+$$
+代入直线方程
+$$
+z = t\hat{s}\cdot \hat{a}+\vec{e}\cdot \hat{a}
+$$
+再代入第二式
+$$
+|\vec{e}+t\hat{s}-(t\hat{s}\cdot \hat{a}+\vec{e}\cdot \hat{a})\hat{a}|^2 = \left( r_{0} + \frac{r_{1}-r_{0}}{h}(t\hat{s}\cdot \hat{a}+\vec{e}\cdot \hat{a}) \right)^2
+$$
+我们可以将其整理为关于 $t$ 的二次方程
+$$
+At^2+Bt+C = 0
+$$
+它可能有两个解，需要验证对应的 $z$ 是否在高度范围内。</p>
+<h3 id="_4">预备知识</h3>
+<h4 id="_5">介绍</h4>
+<p>使用浮点算术时，舍入误差会导致无法得到正确的结果，因此需要对这些特殊情况进行处理。</p>
+<h4 id="_6">定义圆锥</h4>
+<p>无限单边实体圆锥具有顶点 $V$ 和单位方向 $\vec{D}$，以及半顶角 $\theta\in\left[ 0,\frac{\pi}{2} \right]$ 。点 $X$ 在圆锥内当且仅当 $X-V$ 与 $\vec{D}$ 的夹角小于半顶角
+$$
+\vec{D}\cdot\frac{(X-V)}{|X-V|} \geq \cos \theta,\quad X\neq V
+$$
+注意只需要去掉分母就可以兼容 $X=V$ 的情况
+$$
+\vec{D}\cdot(X-V) \geq |X-V|\cos \theta
+$$
+为了避免计算平方根（向量模长），可以先平方
+$$
+Q(X) = (\vec{D}\cdot(X-V))^2-\gamma^2|X-V|^2=(X-V)^TM(X-V)\geq 0,\quad \vec{D}\cdot(X-V)\geq 0
+$$
+其中 $\gamma=\cos \theta,M=\vec{D}\vec{D}^T-\gamma^TI$ 是对称矩阵。</p>
+<p>![[image-20250619144421617.png|300]]</p>
+<p>点 $X$ 的相对高度 $h=\vec{D}\cdot(X-V)$ 。有限圆锥可以截断，得到 $[h_{\min},h_{\max}]$，进而将圆锥分为</p>
+<ul>
+<li>无限圆锥 $h_{\min}=0,h_{\max}=+\infty$</li>
+<li>无限截断圆锥 $h_{\min}&gt;0,h_{\max}=+\infty$</li>
+<li>有限截断圆锥 $h_{\min}=0,h_{\max}&lt;+\infty$</li>
+<li>圆台 $h_{\min}&gt;0,h_{\max}&lt;+\infty$</li>
+</ul>
+<p>我们用“圆锥”统称这些不同的情况。</p>
+<h4 id="_7">表示无穷</h4>
+<p>虽然可以使用 <code>std::numeric_limits::infinity()</code> 或者 <code>std::numeric_limits::max()</code> 表示无穷，但是前者对于一般的算术系统不一定存在，而后者在处理平方时会产生溢出问题。我们可以直接使用 <code>-1</code> 表示无穷高度。如果确实需要无穷的概念，可以使用双射
+$$
+y = \frac{x}{1+|x|}\in[-1,1],\quad x=\frac{y}{1-|y|}\in[-\infty,+\infty]
+$$
+如果想要比较 $x_{0},x_{1}$，可以将其映射为 $y_{0},y_{1}$ 再比较。由于该双射将有理数映射到有理数，因此在任意精度的算术下，转换为 $y$ 后比较都不存在误差。</p>
+<blockquote>
+<p>[!note]
+这种方法也可以应用于涉及形式 $z=x+y\sqrt{ d }$ 的情况，其中 $x,y,d&gt; 0$ 是有理数。</p>
+</blockquote>
+<h4 id="_8">定义直线、射线和线段</h4>
+<p>直线定义为 $X(t) = P+t\vec{U}$，射线约束 $t\geq 0$，线段约束 $t\in[0,t_{\max}]$ 。如果指定端点 $E_{0},E_{1}$，则 $X(t)=(1-t)E_{0}+tE_{1}$ 。</p>
+<h3 id="_9">与直线求交</h3>
+<p>根据前面的推导，$Q(X)=0$ 描述了圆锥的边界。将直线方程代入得到
+$$
+\begin{aligned}
+&amp;c_{2}t^2+2c_{1}t+c_{0}=0\
+c_{2} &amp;= \vec{U}^TM\vec{U} = (\vec{D}\cdot \vec{U})^2-\gamma^2(\vec{U}\cdot \vec{U})\
+c_{1} &amp;= \vec{U}^TM\vec{\Delta} = (\vec{D}\cdot \vec{U})(\vec{D}\cdot \vec{\Delta})-\gamma^2(\vec{U}\cdot \vec{\Delta})\
+c_{0} &amp;= \vec{\Delta}^TM\vec{\Delta} = (\vec{D}\cdot \vec{\Delta})^2-\gamma^2(\vec{\Delta}\cdot \vec{\Delta})\
+\vec{\Delta}&amp;= P-V
+\end{aligned}
+$$
+高度条件 $h_{\min}\leq \vec{D}\cdot(X(t)-\vec{V})\leq h_{\max}$ 变为
+$$
+h_{\min}\leq t(\vec{D}\cdot \vec{U})+(\vec{D}\cdot \vec{\Delta})\leq h_{\max}
+$$
+要获得满足线性约束的二次多项式的根。</p>
+<blockquote>
+<p>[!note] 
+选择 $\vec{U}$ 的方向，使得 $\vec{D}\cdot \vec{U}\geq 0$ 可以方便地减少分支情况。</p>
+</blockquote>
+<h4 id="case-c_2neq-0">Case $c_{2}\neq 0$</h4>
+<p>此时方程还是 2 次，形式根为
+$$
+t=\frac{-c_{1}\pm \sqrt{ \delta }}{c_{2}},\quad \delta=c_{1}^2-c_{0}c_{2}
+$$
+如果 $\delta&lt;0$，则不相交；如果 $\delta=0$，则 $t=-\frac{c_{1}}{c_{2}}$ 是重根，有两种可能</p>
+<ul>
+<li>直线与圆锥相切</li>
+<li>直线经过顶点 $V$</li>
+</ul>
+<p>如果 $\delta&gt;0$，则有互异实根。</p>
+<p>![[image-20250619153652903.png]]</p>
+<h4 id="case-c_20c_1neq-0">Case $c_{2}=0,c_{1}\neq 0$</h4>
+<p>如果 $c_{2}=0$，此时 $(\vec{D}\cdot \vec{U})^2-\gamma^2(\vec{U}\cdot \vec{U})=0$，意味着 $\vec{U}$ 恰好沿着圆锥边界。如果 $c_{1}\neq 0$，则多项式具有单根
+$$
+t = -\frac{c_{0}}{2c_{1}}
+$$
+如果只考虑一侧的圆锥，则需要排除错误的交点。</p>
+<p>![[image-20250619153927241.png|500]]</p>
+<h4 id="case-c_20c_10">Case $c_{2}=0,c_{1}=0$</h4>
+<p>此时有
+$$
+\begin{cases}
+(\vec{D}\cdot \vec{U})^2-\gamma^2(\vec{U}\cdot \vec{U})=0\
+(\vec{D}\cdot \vec{U})(\vec{D}\cdot \vec{\Delta})-\gamma^2(\vec{U}\cdot \vec{\Delta})=0
+\end{cases} \implies
+(\vec{U}\cdot \vec{U})(\vec{D}\cdot \vec{\Delta}) = (\vec{U}\cdot \vec{\Delta})(\vec{D}\cdot \vec{U})
+$$
+后者是直线经过顶点 $V$ 的必要条件。如果 $c_{0}=0$，则直线在圆锥上；否则，可以认为将圆锥上的直线向外侧平移得到当前直线，与圆锥不相交。</p>
+<p>![[image-20250619154106587.png|200]]</p>
+<h3 id="_10">限制高度范围</h3>
+<p>计算出 $t$ 后，可以得到 $h=t(\vec{D}\cdot \vec{U})+(\vec{D}\cdot \vec{\Delta})$ 。如果 $\vec{D}\cdot \vec{U}&gt;0$，则给定高度可以反求
+$$
+t = \frac{h-\vec{D}\cdot \vec{\Delta}}{\vec{D}\cdot \vec{U}}
+$$
+于是 $t,h$ 同增或同减，如果 $t_{0}&lt;t_{1}$，则 $h_{0}&lt;h_{1}$ 。如果 $\vec{D}\cdot \vec{U}=0$，则直线垂直于轴，高度 $h=\vec{D}\cdot \vec{\Delta}$ 恒定。基本思想是计算 $[h_{0},h_{1}]$ 作为相交集，让它与 $[h_{\min},h_{\max}]$ 相交。</p>
+<h2 id="_11">球与圆锥</h2>
+<h3 id="_12">预备知识</h3>
+<h4 id="_13">定义球</h4>
+<p>球具有中心 $C$ 和半径 $r&gt;0$，它是所有满足 $|X-C|=r$ 的点的集合。实体球定义为 ${X:|X-C|\leq r}$ 。</p>
+<h4 id="_14">定义圆锥</h4>
+<p>无限圆锥的参数表示为
+$$
+X(h,\phi) = V+h\vec{D}+(h\tan\theta)(\cos \phi \vec{W}<em>{0}+\sin \phi \vec{W}</em>{1}),\quad h\in[0,+\infty),\phi\in[0,2\pi]
+$$
+其中 ${\vec{W}<em>{0},\vec{W}</em>{1},\vec{D}}$ 构成右手正交基。无限实体圆锥的参数表示为
+$$
+X(h,\phi,\rho) = V+h\vec{D}+\rho(\cos \phi \vec{W}<em>{0}+\sin \phi \vec{W}</em>{1}),\quad h\in[0,+\infty),\phi\in[0,2\pi],\rho\in[0,h\tan \theta]
+$$
+判断球与圆锥相交等价于使用闵可夫斯基和，将球缩小为中心 $C$，让球半径扩展圆锥得到 sphere-swept volume 。</p>
+<blockquote>
+<p>[!note]
+后面我们使用 $\vec{A}$ 而非 $\vec{D}$ 作为圆锥的轴向。</p>
+</blockquote>
+<h3 id="_15">球与无限圆锥</h3>
+<p>考虑下图中间的超圆锥 supercone，它具有表达式
+$$
+\vec{A}\cdot( X-U ) \geq |X-U|\cos \theta,\quad U=V- \frac{r}{\sin \theta}\vec{A}
+$$
+其中 $U$ 就是超圆锥的顶点。首先检测中心 $C$ 是否在超圆锥中，如果不是则不交；否则，进行进一步的检测。</p>
+<blockquote>
+<p>[!note]
+使用平方形式的约束来避免开根。</p>
+</blockquote>
+<p>![[image-20250619161022878.png|600]]</p>
+<p>上图中
+$$
+M=V-r\sin \theta \vec{A},\quad E=V-rA
+$$
+显然 $M$ 是恰好放置在顶点的球的球心。我们按照如下顺序检查</p>
+<ol>
+<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
+<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;-r$</li>
+<li>$C$ 在经过 $M$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-M)\geq 0$ 或 $\vec{A}\cdot(C-V)\geq -r\sin \theta$</li>
+<li>现在 $C$ 在蓝色或黄色区域，检查 $|C-M|^2\leq r^2$</li>
+</ol>
+<h3 id="_16">球与无限截断圆锥</h3>
+<p>下图中
+$$
+Q = V+h_{\min}\vec{A},\quad E=Q-r\vec{A},\quad M=Q-r\sin \theta \vec{A}
+$$
+并且 $K$ 是 $h_{\min}$ 平面的边缘，定义了蓝色区域。</p>
+<p>![[image-20250619161058110.png|600]]</p>
+<p>要检查 $C$ 位于蓝色还是黄色区域，定义
+$$
+\begin{aligned}
+\vec{\Delta} &amp;= C-Q\
+\vec{A}^\perp &amp;= \frac{\vec{\Delta}-(\vec{A}\cdot \vec{\Delta})\vec{A}}{|\vec{\Delta}-(\vec{A}\cdot \vec{\Delta})\vec{A}|} = \frac{\vec{\Delta}-(\vec{A}\cdot \vec{\Delta})\vec{A}}{|\vec{A}\times \vec{\Delta}|}
+\end{aligned}
+$$
+得到
+$$
+K = Q+h_{\min}\tan \theta \vec{A}^{\perp},\quad C=Q+(\vec{A}\cdot \vec{\Delta})\vec{A}+|\vec{A}\times \vec{\Delta}|\vec{A}^{\perp}
+$$
+即我们去掉纵向的分量，将 $Q$ 沿着水平方向移动到 $K$，就得到 $K$ 的表达式。</p>
+<p>![[image-20250619161134774.png|400]]</p>
+<p>我们按照如下顺序检查</p>
+<ol>
+<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
+<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;h_{\min}-r$</li>
+<li>$C$ 在经过 $M$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-M)\geq 0$ 或 $\vec{A}\cdot(C-V)\geq h_{\min}-r\sin \theta$</li>
+<li>判断紫色区域，检查 $d=|\vec{A}\times \vec{\Delta}|\leq h_{\min}\tan \theta$</li>
+<li>现在 $C$ 在蓝色或黄色区域，检查到 $K$ 的距离 $|C-K|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\min}\tan \theta)^2\leq r^2$</li>
+</ol>
+<h3 id="_17">球与有限圆锥</h3>
+<p>下图中
+$$
+E=V-r\vec{A},\quad M=V-r\sin \theta \vec{A},\quad \bar{Q}=\vec{V}+h_{\max}\vec{A},\quad \bar{E}=\bar{Q}+r\vec{A},\quad \bar{M}=\vec{Q}-r\sin \theta \vec{A}
+$$
+计算 $\bar{K}$ 的方法与之前完全相同。</p>
+<p>![[image-20250619161206697.png|600]]</p>
+<p>我们按照如下顺序检查</p>
+<ol>
+<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
+<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;-r$</li>
+<li>$C$ 在经过 $\bar{E}$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-\bar{E})&gt; 0$ 或 $\vec{A}\cdot(C-V)&gt;h_{\max}+r$</li>
+<li>$C$ 在经过 $M,\bar{M}$ 且垂直于 $\vec{A}$ 的两个平面之间 $\vec{A}\cdot(C-M)\geq 0,\vec{A}\cdot(C-\bar{M})\leq 0$ 或 $-r\sin \theta\leq\vec{A}\cdot(C-V)\leq h_{\max}-r\sin \theta$</li>
+<li>下方的蓝色区域，检查 $|C-M|^2\leq r^2$</li>
+<li>判断紫色区域，检查 $d=|\vec{A}\times \vec{\Delta}|\leq h_{\max}\tan \theta$</li>
+<li>现在 $C$ 在上方蓝色或黄色区域，检查到 $\bar{K}$ 的距离 $|C-\bar{K}|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\max}\tan \theta)^2\leq r^2$</li>
+</ol>
+<h3 id="_18">球与有限截断圆锥</h3>
+<p>组合无限截断圆锥和有限圆锥的判定方法确定。</p>
+<p>![[image-20250619161240215.png|600]]</p>
+<p>我们按照如下顺序检查</p>
+<ol>
+<li>$C$ 在超圆锥外 $\vec{A}\cdot( C-U ) \geq |C-U|\cos \theta$</li>
+<li>$C$ 在经过 $E$ 且垂直于 $\vec{A}$ 的平面以下 $\vec{A}\cdot(C-E)&lt; 0$ 或 $\vec{A}\cdot(C-V)&lt;h_{\min}-r$</li>
+<li>$C$ 在经过 $\bar{E}$ 且垂直于 $\vec{A}$ 的平面以上 $\vec{A}\cdot(C-\bar{E})&gt; 0$ 或 $\vec{A}\cdot(C-V)&gt;h_{\max}+r$</li>
+<li>$C$ 在经过 $M,\bar{M}$ 且垂直于 $\vec{A}$ 的两个平面之间 $\vec{A}\cdot(C-M)\geq 0,\vec{A}\cdot(C-\bar{M})\leq 0$ 或 $h_{\min}-r\sin \theta\leq\vec{A}\cdot(C-V)\leq h_{\max}-r\sin \theta$</li>
+<li>判断紫色区域，检查 $|\vec{A}\times \vec{\Delta}'|\leq h_{\max}\tan \theta$ 和 $|\vec{A}\times \vec{\Delta}|\leq h_{\min}\tan \theta$</li>
+<li>检查下方蓝色或黄色区域，检查到 $K$ 的距离 $|C-K|^2=(\vec{A}\cdot \vec{\Delta})^2+(|\vec{A}\times \vec{\Delta}|-h_{\min}\tan \theta)^2\leq r^2$</li>
+<li>检查上方蓝色或黄色区域，检查到 $\bar{K}$ 的距离 $|C-\bar{K}|^2=(\vec{A}\cdot \vec{\Delta}')^2+(|\vec{A}\times \vec{\Delta}'|-h_{\max}\tan \theta)^2\leq r^2$</li>
+</ol>
+<h2 id="_19">球组碰撞</h2>
+<h3 id="_20">球组定义</h3>
+<p>球组是两个球组成的形状，通过两个球心位置和对应半径完全定义。对应于球组的圆锥半顶角 $\theta$ 满足
+$$
+\sin \theta = \frac{R_{1}-R_{0}}{|C_{1}-C_{0}|}
+$$
+退化情况</p>
+<ul>
+<li>当 $|R_{1}-R_{0}|\geq|C_{1}-C_{0}|$ 时，$|\sin \theta|\geq 1$，因此球组退化为最大半径的球；</li>
+<li>当 $|R_{1}-R_{0}|&lt;\epsilon$ 时，认为球组退化为胶囊体 </li>
+</ul>
+<p>通常取 $\epsilon=10^{-6}$ 。</p>
+<p>![[image-20250619104416521.png|150]]</p>
+<h3 id="-">球-球组碰撞</h3>
+<p>可以直接将球的半径加在球组上，然后执行新球组与点的碰撞。对于给定点 $P$，沿着平行于指定径向投影得到 $P_{c}$ 。由于投影方向不明确，因此首先投影到 $C_{0}C_{1}$ 上，得到
+$$
+Q = C_{0}+(P-C_{0})\cdot \frac{C_{1}-C_{0}}{|C_{1}-C_{0}|}(C_{1}-C_{0})
+$$
+然后根据半顶角 $\theta$ 计算
+$$
+\begin{aligned}
+P_{c} &amp;= Q+ |P-Q|\tan \theta \cdot\frac{C_{1}-C_{0}}{|C_{1}-C_{0}|}\
+s_{C} &amp;= \frac{|Q-C_{0}|}{|C_{1}-C_{0}|}
+\end{aligned}
+$$
+如果 $s_{c}\in[0,1]$，则检查 $|P-P_{c}|$ 与 $R_{eff}=R_{0}+s_{C}(R_{1}-R_{0})$ 的大小来判断；否则 $P$ 与单个球碰撞检测。</p>
+<p>![[image-20250619105128157.png|200]]</p>
+<h3 id="-_1">胶囊体-球组碰撞</h3>
+<p>可以直接将胶囊体的半径加在球组上，然后执行新球组与线段的碰撞。我们需要找到 $C_{0}C_{1}$ 到 $P_{0}P_{1}$ 沿着径向的最短距离。令
+$$
+\begin{aligned}
+P_{s} &amp;= (1-s)C_{0}+sC_{1}\
+P_{t} &amp;= (1-t)P_{0}+tP_{1}
+\end{aligned}
+$$
+以 $C_{0}C_{1}$ 为 $z$ 轴建立坐标系 $(\vec{x},\vec{y},\vec{z})$，记径向为 $\hat{n}$，则它同时是球组表面某个点的法向，则必有
+$$
+\begin{aligned}
+&amp;\hat{n}\cdot (P_{1}-P_{0}) = 0\
+&amp;\hat{n} = \hat{x}\cos \theta \sin \alpha +\hat{y}\cos \theta \cos \alpha -\hat{z}\sin \theta
+\end{aligned}
+$$
+我们取
+$$
+\hat{z}=\frac{C_{1}-C_{0}}{|C_{1}-C_{0}|},\quad \hat{y} = \frac{(P_{1}-P_{0})\times \hat{z}}{|(P_{1}-P_{0})\times \hat{z}|},\quad \hat{x}=\hat{y}\times \hat{z}
+$$
+如果 $P_{0}P_{1},C_{0}C_{1}$ 几乎平行，则后两个向量直接取零。因此根据 $\hat{n}$ 满足的等式
+$$
+\begin{aligned}
+0 &amp;= \hat{n}\cdot(P_{1}-P_{0})\
+&amp;= \hat{x}\cdot(P_{1}-P_{0})\cos \theta \sin \alpha +\hat{y}\cdot(P_{1}-P_{0})\cos \theta \cos \alpha -\hat{z}\cdot(P_{1}-P_{0})\sin \theta\
+&amp;= \hat{x}\cdot(P_{1}-P_{0})\cos \theta \sin \alpha -\hat{z}\cdot(P_{1}-P_{0})\sin \theta
+\end{aligned}
+$$
+其中利用了 $\hat{y}$ 与 $P_{1}-P_{0}$ 垂直。进而有
+$$
+\sin \alpha = \frac{\hat{z}\cdot(P_{1}-P_{0})}{\hat{x}\cdot(P_{1}-P_{0})}\tan \theta = - \frac{\tan \theta}{\tan \theta'}
+$$
+其中 $\theta'$ 是 $P_{1}-P_{0}$ 与 $\hat{z}$ 的夹角，因此上式有解当且仅当 $\theta\leq \theta'$ 。</p>
+<p>![[image-20250619140001218.png|800]]</p>
+<blockquote>
+<p>[!note]
+注意当 $|\sin \alpha|&lt;1$ 时，$\alpha$ 可能有两个值，对应的 $\hat{n}$ 也有两个。</p>
+</blockquote>
+<p>考虑 $P_{1}-P_{0}$ 与 $\hat{n}$ 张成的平面，平面法向为
+$$
+\hat{n}<em>{p} = \frac{\hat{n}\times(P</em>{1}-P_{0})}{|\hat{n}\times(P_{1}-P_{0})|}
+$$
+该平面与 $C_{0}C_{1}$ 的交点就是 $P_{s}$，于是
+$$
+0 = (P_{s}-P_{0})\cdot \hat{n}<em>{p} = (C</em>{0}+s(C_{1}-C_{0})-P_{0})\cdot \hat{n}<em>{p} \implies s = \frac{\hat{n}</em>{p}\cdot(P_{0}-C_{0})}{\hat{n}<em>{p}\cdot(C</em>{1}-C_{0})}
+$$
+由于 $(P_{s}-P_{t})\cdot(P_{0}-P_{1})=0$，则有
+$$
+[P_{s}-(P_{0}+t(P_{1}-P_{0}))]\cdot(P_{1}-P_{0})=0 \implies t = \frac{(P_{1}-P_{0})\cdot(P_{s}-P_{0})}{|P_{0}-P_{1}|^2}
+$$
+从而我们得到 $P_{s},P_{t}$ 的位置。对于 $s,t$ 的取值，分情况讨论</p>
+<ul>
+<li>$t\in[0,1]$，只需要考虑以 $P_{s}$ 为球心，$R_{eff}=R_{0}+s(R_{1}-R_{0})$ 为半径的球，挤出 $P_{t}$ 点即可</li>
+<li>否则，说明最佳挤出点在线段外，只需要挤出端点 $t=\mathrm{Clamp(t,0,1)}$，使用[[#球-球组碰撞]]方案</li>
+</ul>
+<p>注意由于 $\hat{n}$ 可能有两个，此时分别算出分离结果，然后取 $|P_{s}-P_{t}|$ 较大的解，也就是穿透深度最小的解。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

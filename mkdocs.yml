@@ -1,9 +1,9 @@
-# MkDocs Configuration for Personal Site
+# MkDocs Configuration for Sumire
 # Documentation: https://squidfunk.github.io/mkdocs-material/
 
 site_name: Sumire
-site_description: 个人主页 · 博客 · 作品集
-site_author: Master
+site_description: 个人知识库
+site_author: xingyf666
 
 # 主题配置
 theme:
@@ -37,20 +37,34 @@ theme:
 
 # 仓库链接
 repo_name: xingyf666/sumire
-repo_url: https://github.com/xyf/my-site
+repo_url: https://github.com/xingyf666/sumire
 
 # 导航结构
 nav:
-  - home: index.md
+  - 主页: index.md
   - 关于:
-      - about/index.md
-  - 博客:
-      - blog/index.md
-      - blog/first-post.md
-  - 项目:
-      - projects/index.md
-  - 链接:
-      - links.md
+      - about.md
+  - 编程基础:
+      - 编程基础/index.md
+      - 编程基础/高性能计算/index.md
+      - 编程基础/构建工具/index.md
+      - 编程基础/编程语言/index.md
+  - 工具教程:
+      - 工具教程/index.md
+      - 工具教程/AI服务/index.md
+      - 工具教程/笔记工具/index.md
+      - 工具教程/建模工具/index.md
+  - 数学基础:
+      - 数学基础/index.md
+      - 数学基础/几何/index.md
+      - 数学基础/代数/index.md
+  - 图形开发:
+      - 图形开发/index.md
+      - 图形开发/渲染框架/index.md
+      - 图形开发/游戏开发/index.md
+      - 图形开发/几何框架/index.md
+  - 随机自学:
+      - 随机自学/index.md
 
 # Markdown 扩展
 markdown_extensions:
@@ -62,6 +76,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.mark
+  - pymdownx.critic
+  - pymdownx.tasklist:
+      custom_checkbox: true
 
 # 搜索配置
 plugins:

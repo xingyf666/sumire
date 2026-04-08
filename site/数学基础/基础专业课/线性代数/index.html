@@ -1,0 +1,2857 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Linear Algebra - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linear-algebra" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Linear Algebra
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vector-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vector spaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Vector spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Subspaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#span-and-linear-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Span and linear independence
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bases
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dimension" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dimension
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear maps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Linear maps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#null-spaces-and-ranges" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Null spaces and ranges
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-matrix-of-a-linear-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The matrix of a linear map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#duality" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Duality
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Duality">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dual-vector-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual vector spaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dual-linear-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dual linear maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-null-space-and-range-of-the-dual-of-a-linear-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The null space and range of the dual of a linear map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matrix-ranks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matrix ranks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#eigen-and-invariant-subspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eigen and invariant subspaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Eigen and invariant subspaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#invariant-subspaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Invariant subspaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#existence-of-eigenvalues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Existence of eigenvalues
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#upper-trianglular-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Upper-trianglular matrices
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eigenspaces-and-diagonal-matrices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Eigenspaces and diagonal matrices
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators-on-complex-vector-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operators on complex vector spaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operators on complex vector spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalized-eigenvectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalized eigenvectors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nilpotent-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Nilpotent operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operator-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operator decomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jordan-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jordan basis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inner-product-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inner product spaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Inner product spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inner-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inner products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#norms-induced-from-inner-product" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Norms induced from inner product
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#norms-and-induced-inner-products" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Norms and induced inner-products
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#orthonormal-bases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orthonormal bases
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#operators-on-inner-product-spaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operators on inner-product spaces
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Operators on inner-product spaces">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adjoint-and-self-adjoint-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adjoint and self-adjoint operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal operators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-spectral-theorems" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The spectral theorems
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isometries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Isometries
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#singular-value-decomposition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Singular value decomposition
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trace-and-determinant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trace and determinant
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="linear-algebra">Linear Algebra</h1>
+<h2 id="vector-spaces">Vector spaces</h2>
+<p><strong>Definition B.1.</strong> 一个域 <em>field</em> $\mathbb{F}$ 是一个带有 $+\ *$ 运算的集合，满足</p>
+<ul>
+<li>交换律 <em>communicativity</em> $a+b=b+a,\ ab=ba$ </li>
+<li>结合律 <em>associativity</em> $a+(b+c)=(a+b)+c,\ a(bc)=(ab)c$ </li>
+<li>单位元 <em>identity</em> $a+0=a,\ 1a = a$</li>
+<li>可逆性 <em>invertibility</em> $a+(-a)=0,\ aa^{-1}=1$ </li>
+<li>分配律 <em>distributivity</em> $a(b+c)=ab+ac$ </li>
+</ul>
+<p><strong>Definition B.2.</strong> 一个域 $\mathbb{F}$ 上的向量空间或线性空间是一个带有 $+\ \times$ 运算的集合 $V$，分别为向量加法和数乘，满足
+$$
+\forall u,v\in V,\ a,b\in \mathbb{F}
+$$</p>
+<ul>
+<li>交换律 <em>communicativity</em> $u+v=v+u$ </li>
+<li>结合律 <em>associativity</em> $(u+v)+w=u+(v+w)$ </li>
+<li>相容性 <em>compatibility</em> $(ab)u = a(bu)$ </li>
+<li>加法元 <em>additive identity</em> $u+0=u$ </li>
+<li>加法逆 <em>additive inverse</em> $u+(-u) = 0$ </li>
+<li>乘法元 <em>multiplicative identity</em> $1u=u$ </li>
+<li>分配律 <em>distributive laws</em> 
+$$
+\left{
+\begin{aligned}
+(a+b)u &amp;= au + bu\
+a(u+v) &amp;= au + av
+\end{aligned}
+\right.
+$$
+集合 $V$ 中的元素称为向量，域 $\mathbb{F}$ 中的元素称为标量.</li>
+</ul>
+<p><strong>Definition B.3.</strong> 一个实向量空间或复向量空间是一个 $\mathbb{F}=\mathbb{R}$ 和 $\mathbb{F}=\mathbb{C}$ 的空间.</p>
+<h3 id="subspaces">Subspaces</h3>
+<p><strong>Definition B.6.</strong> 如果向量空间 $V$ 的子集 $U$ 是一个向量空间，就称 $U$ 是一个子空间 <em>subspace</em> .</p>
+<p><strong>Definition B.7.</strong> 设 $U_1,\cdots,U_m$ 是 $V$ 的子集，则它们的和 <em>sum</em> 定义为
+$$
+U_1+\cdots+U_m = \left{\sum_{j=1}^mu_j:u_j\in U_j \right}
+$$
+显然这是包含 $U_1,\cdots,U_m$ 的最小向量空间.</p>
+<p><strong>Definition B.10.</strong> 若 $\forall u\in U_1+\cdots+U_m$，有唯一分解
+$$
+u=\sum_{j=1}^m u_j,\quad u_j\in U_j
+$$
+则称 $U_1+\cdots+U_m$ 是一个直和 <em>direct sum</em>，记为 $U_1\oplus\cdots\oplus U_m$；容易证明，它是直和当且仅当 $0$ 的分解在 $U_j$ 中各分量都为 $0$ .</p>
+<p><strong>Theorem B.13.</strong> 若 $U,W\in V$ 是子空间，则 $U+W$ 是直和当且仅当 $U\cap W={0}$ .</p>
+<h3 id="span-and-linear-independence">Span and linear independence</h3>
+<p><strong>Notation 15.</strong> 对于集合 $S$，定义向量空间
+$$
+\mathbb{F}^S = {f:S\to\mathbb{F} }
+$$
+可以看出 $\mathbb{F}^n$ 是上面向量空间的特殊情况，因为可以定义
+$$
+f:{1,2,\cdots,n }\mapsto\mathbb{F}
+$$
+即 $n$ 可以看做 ${1,2,\cdots,n}$，而 $\mathbb{F}^n$ 中的元素看做是函数 $f$，它将每一个指标 $i\in{1,2,\cdots,n}$ 对应到 $\mathbb{F}$ 中的元素.</p>
+<p><strong>Definition B.18</strong> 一列向量 ${v_i}$ 的线性组合 <em>linear combination</em> 是具有形式 $\sum_ia_iv_i,\ a_i\in\mathbb{F}$ 的向量.</p>
+<p><strong>Definition B.21.</strong> 一列向量 ${v_i}$ 的扩张 <em>span</em> 是其中向量全部线性组合的集合
+$$
+\mathrm{span}(v_1,\cdots,v_m) = \left{\sum_{i=1}^ma_iv_i:a_i\in \mathbb{F} \right}
+$$
+特别的，空集的扩张是 ${0}$ 。我们称 $(v_1,\cdots,v_m)$ 张成 $V$ 若 $V = \mathrm{span}(v_1,\cdots,v_m)$ .</p>
+<p><strong>Definition B.23.</strong> 若向量空间 $V$ 由有限个向量张成，则称它有有限维 <em>finite dimensional</em>，否则称它有无限维 <em>infinite dimensional</em> .</p>
+<p><strong>Definition B.25.</strong> 向量空间 $V$ 中的一列向量 $(v_1,\cdots,v_m)$ 线性无关 <em>linearly independent</em> 当且仅当
+$$
+\sum_{i=1}^ma_iv_i = 0\quad \Rightarrow\quad a_i=0,\quad i=1,2,\cdots,m
+$$
+否则称它们线性相关.</p>
+<p><strong>Lemma B.30</strong> (Linear dependence lemma). 设 $(v_1,\cdots,v_m)$ 线性相关，则存在 $j\in{1,2,\cdots,m}$ 使得</p>
+<ul>
+<li>$v_j\in\mathrm{span}(v_1,\cdots,v_{j-1})$ </li>
+<li>若将 $v_j$ 从中移除，则剩余向量张成的空间仍为 $\mathrm{span}(v_1,\cdots,v_m)$ </li>
+</ul>
+<p><strong>Lemma B.31.</strong> 有限维向量空间中线性无关的向量列的长度不大于张成该空间的线性无关向量个数.</p>
+<h3 id="bases">Bases</h3>
+<p><strong>Definition B.32.</strong> 向量空间 $V$ 的一个基 <em>basis</em> 是一列张成 $V$ 的线性无关向量.</p>
+<p><strong>Definition B.33.</strong> 在 $\mathbb{F}^n$ 中的标准基 <em>standard basis</em> 是 $(1,0,\cdots,0)^T,\cdots,(0,0,\cdots,1)^T$ .</p>
+<p><strong>Lemma B.35.</strong> 向量列 $(v_1,\cdots,v_n)$ 是 $V$ 中的基当且仅当 $\forall u\in V$，有唯一分解
+$$
+\quad u=\sum_{i=1}^na_iv_i,\quad a_i\in\mathbb{F}
+$$</p>
+<p><strong>Lemma B.36.</strong> 任意张成 $V$ 的向量列都可以削减为一个基.</p>
+<p><strong>Lemma B.37.</strong> 有限维空间中的线性无关向量组总是可以扩张为一组基.</p>
+<h3 id="dimension">Dimension</h3>
+<p><strong>Lemma B.38.</strong> 任意有限维向量空间的两个基有相同长度.</p>
+<p>$Proof.$ 实际上，由 Lemma B.31 我们知道线性无关向量组的长度不大于张成它的向量组的长度，于是容易得证.</p>
+<p><strong>Definition B.39.</strong> 有限维向量空间 $V$ 的维数 <em>dimension</em> 记为 $\dim V$，等于基的长度.</p>
+<p><strong>Lemma B.40.</strong> 张成有限维向量空间 $V$ 的长度为 $\dim V$ 的向量组构成基.</p>
+<p><strong>Lemma B.41.</strong> 有限维向量空间 $V$ 中长度为 $\dim V$ 的线性无关组都是基.</p>
+<h2 id="linear-maps">Linear maps</h2>
+<p><strong>Definition B.42.</strong> 两个向量空间 $V,W$ 间的线性映射 <em>linear map</em> /线性变换 <em>linear transformation</em> 是一个函数 $T:V\to W$，满足</p>
+<ul>
+<li>$\forall u,v,\in V,\ T(u+v)=Tu+Tv$ </li>
+<li>$\forall a\in\mathbb{F},\forall v\in V,\ T(av)=a(Tv)$ </li>
+</ul>
+<p>其中 $\mathbb{F}$ 是标量域。特别的，如果 $W=V$，则称 $T$ 为一个线性算子 <em>linear operator</em> .</p>
+<p><strong>Notation 16.</strong> 全体 $V$ 到 $W$ 的映射记为 $\mathcal{L}(V,W)$，全体 $V$ 上的线性算子记为 $\mathcal{L}(V)$ .</p>
+<p><strong>Lemma B.45.</strong> 集合 $\mathcal{L}(V,W)$ 带有数乘 $(aT)v=a(Tv)$ 和向量加法 $(S+T)v=Sv+Tv$ 构成一个向量空间.</p>
+<p><strong>Definition B.46.</strong> 单位映射 <em>identity map</em> 记为 $I$，将任意元素映射到它自身 $Iv=v$ .</p>
+<p><strong>Definition B.47.</strong> 复线性泛函 <em>complex linear functional</em> 是一个线性映射 $T:V\to\mathbb{C}$，将 $\mathbb{C}$ 作为 $V$ 的 <em>underlying field</em>；而实线性泛函 <em>real linear functional</em> 是一个映射 $T:V\to\mathbb{R}$ 使得对 $\mathbb{F}=\mathbb{R}$ 符合线性映射的定义.</p>
+<p><strong>Lemma B.48.</strong> 令 $V$ 为一个复向量空间和其上的复线性泛函 $f$，则实部 $\mathrm{Re} f(x)=u(x)$ 满足
+$$
+\forall x\in V,\quad f(x) =u(x)-iu(ix)
+$$
+$Proof.$ 注意到 $z=\mathrm{Re}(z)-i\mathrm{Re}(iz)$，取 $z=f(x)$ 就有
+$$
+f(x) = \mathrm{Re}(f(x))-i\mathrm{Re}(if(x)) = u(x)-i\mathrm{Re}(f(ix)) = u(x)-iu(ix)
+$$
+其中第二步是根据数乘性质得到的.</p>
+<p><strong>Lemma B.49.</strong> 令 $V$ 为一个复向量空间和其上的实线性泛函 $u:V\to\mathbb{R}$，则 $f(x) =u(x)-iu(ix)$ 是复线性泛函.</p>
+<p>$Proof.$ 类似地有
+$$
+f(ix) = u(ix) - iu(i^2x) = u(ix) + iu(x) = i(u(x)-iu(ix)) = if(x)
+$$
+从而证明了关于 $i$ 数乘关系，且关于实数的数乘和向量加法由实线性泛函保证，即证.</p>
+<h3 id="null-spaces-and-ranges">Null spaces and ranges</h3>
+<p><strong>Definition B.50.</strong> 线性映射 $T\in \mathcal{L}(V,W)$ 的核空间 <em>null space</em> 是 $V$ 的子集
+$$
+\mathrm{null}\ T = {v\in V:Tv=0} 
+$$
+即是在 $T$ 下映到 $0$ 的向量集.</p>
+<p><strong>Theorem B.52.</strong> 线性映射 $T\in \mathcal{L}(V,W)$ 是单射当且仅当 $\mathrm{null}\ T={0}$ .</p>
+<p><strong>Definition B.53.</strong> 线性映射 $T\in \mathcal{L}(V,W)$ 的像空间 <em>range space</em> 是 $W$ 的子集
+$$
+\mathrm{range}\ T={Tv:v\in V}
+$$
+即是在 $T$ 下映到的向量集.</p>
+<p><strong>Theorem B.55.</strong> 像空间是 $W$ 的子空间.</p>
+<p><strong>Theorem B.56</strong> (The counting theroem or the fundamental theroem of linear maps). 若 $V$ 是有限维向量空间， $T\in \mathcal{L}(V,W)$，则像空间是 $W$ 的有限维子空间，并且
+$$
+\dim V = \dim \mathrm{null}\ T + \dim \mathrm{range}\ T
+$$
+容易看出，核空间也是 $V$ 的子空间，有一组基；像空间的基对应到 $V$ 中的线性无关组，它们共同构成 $V$ 的一组基.</p>
+<p><strong>Theorem B.57.</strong> 对于算子 $T\in \mathcal{L}(V)$，下面陈述等价：</p>
+<ul>
+<li>$T$ 可逆</li>
+<li>$T$ 是单射</li>
+<li>$T$ 是双射</li>
+</ul>
+<h3 id="the-matrix-of-a-linear-map">The matrix of a linear map</h3>
+<p><strong>Definition B.58.</strong> 线性映射 $T\in \mathcal{L}(V,W)$ 的矩阵由 $V,W$ 的基确定，表示为
+$$
+M_T = M(T,(v_1,\cdots,v_n),(w_1,\cdots,w_m))
+$$
+它是一个 $m\times n$ 矩阵 $A(T)$，其元素 $a_{i,j}\in\mathbb{F}$ 满足
+$$
+\forall j=1,2,\cdots,n,\quad Tv_j = \sum_{i=1}^ma_{i,j}w_i
+$$
+这也就意味着 $T(v_1,\cdots,v_n)=(w_1,\cdots,w_m)A$ .</p>
+<h3 id="duality">Duality</h3>
+<h4 id="dual-vector-spaces">Dual vector spaces</h4>
+<p><strong>Deifinition B.60.</strong> 向量空间 $V$ 的对偶空间 <em>dual space</em> 是其上所有线性泛函的向量空间 $V^{\prime}=\mathcal{L}(V,F)$ .</p>
+<p>也就是所有形如 $\varphi:V\to\mathbb{F}$ 的函数的集合，其中 $\mathbb{F}$ 是 $V$ 使用的数域，它们构成一个向量空间 $V^\prime$ .</p>
+<p><strong>Definition B.61.</strong> 对于 $V$ 的基 $v_1,\cdots,v_n$，它的对偶基 <em>dual basis</em> 是 $\varphi_1,\cdots,\varphi_n$ 满足
+$$
+\varphi_j(v_k) = \left{
+\begin{aligned}
+1\quad k=j\
+0\quad k\neq j
+\end{aligned}
+\right.
+$$
+换言之，只有当 $\varphi_j(v_k)$ 的两个下标相同它才取非零值 $1$ .</p>
+<p><strong>Lemma B.63.</strong> 有限维向量空间 $V$ 满足 $\dim V^\prime = \dim V$ .</p>
+<p><strong>Definition B.64.</strong> 向量空间 $V$ 的重对偶空间 <em>double dual space</em> 为 $V^{\prime\prime}=(V^{\prime})^\prime$ .</p>
+<p><strong>Lemma B.65.</strong> 函数 $\Lambda:V\to V^{\prime\prime}$ 定义为
+$$
+\forall v\in V,\ \forall \varphi\in V^\prime,\quad (\Lambda v)(\varphi) = \varphi(v)
+$$
+是一个线性双射。其将向量 $v\in V$ 映到一个函数 $\Lambda v\in V^{\prime\prime}$， $\Lambda v$ 是 $V^\prime$ 上的线性泛函，它将 $\varphi\in V^\prime$ 映到 $\varphi(v)\in \mathbb{F}$ .</p>
+<h4 id="dual-linear-maps">Dual linear maps</h4>
+<p><strong>Definition B.66.</strong> 线性映射 $T:V\to W$ 的对偶映射 <em>dual map</em> 是线性映射 $T^\prime:W^\prime\to V^\prime$ 定义为
+$$
+\forall \psi\in W^\prime,\quad T^{\prime}(\psi) = \psi \circ T
+$$
+映射关系 $\psi:W\to\mathbb{F}$，因此有 $\psi\circ T:V\to\mathbb{F}$，即 $\psi\in W^\prime,\ \psi\circ T\in V^{\prime}$，这确实是正确的映射关系.</p>
+<p><strong>Theorem B.68.</strong> $T^\prime$ 的矩阵是 $T$ 的矩阵的转置.</p>
+<p>$Proof.$ 我们不妨假设对 $T:v\mapsto w,\ T^\prime:\psi\mapsto\varphi$ 有变换矩阵
+$$
+\begin{aligned}
+T(v_1,\cdots,v_n) &amp;= (w_1,\cdots,w_m)A\
+T^\prime (\psi_1,\cdots,\psi_m) &amp;= (\varphi_1,\cdots,\varphi_n)C
+\end{aligned}
+$$
+根据 $T^{\prime}(\psi)=\psi\circ T$，考虑上面的式子
+$$
+\psi_k\circ T(v_1,\cdots,v_n) = \psi_k(w_1,\cdots,w_m)A = (0,\cdots,1_k,\cdots,0)A = (a_{k1},\cdots,a_{kn})\
+$$
+注意第二步用到了 $\psi_k(w_k)=1$，其它均为 $0$ 的性质；根据第二个变换，注意到 $T^\prime(\psi_k) = \sum_{i=1}^nc_{ik}\varphi_i$，则有
+$$
+T^\prime(\psi_k)(v_1,\cdots,v_n) = \left(\sum_{i=1}^nc_{ik}\varphi_i\right)(v_1,\cdots,v_n) = \left(\sum_{i=1}^nc_{ik}\varphi_i(v_1),\cdots,\sum_{i=1}^nc_{ik}\varphi_i(v_n)\right) = (c_{1k},\cdots,c_{nk})
+$$
+类似地使用 $\varphi_i(v_i)=1$，其它均为 $0$ 的性质。上下两式相同，于是 $A=C^T$ .</p>
+<p><strong>Definition B.69.</strong> 线性映射 $T:V\to W$ 的重对偶映射 <em>double dual map</em> 是线性映射 $T^{\prime\prime}:V^{\prime\prime}\to W^{\prime\prime}$ 定义为 $T^{\prime\prime}=(T^\prime)^\prime$ .</p>
+<p><strong>Theorem B.70.</strong> 对于 $T\in \mathcal{L}(V)$ 和 $\Lambda:V\to V^{\prime\prime}$ 有
+$$
+T^{\prime\prime}\circ \Lambda = \Lambda\circ T
+$$
+$Proof.$ 根据定义我们有 $T^{\prime\prime}\circ \Lambda:V\to V^{\prime\prime}$，根据 $T^{\prime}(\varphi) = \varphi\circ T$ 有第二步
+$$
+\forall v\in V,\quad (T^{\prime\prime}\circ \Lambda)v = (T^\prime)^\prime\Lambda v = \Lambda v\circ T^\prime
+$$
+我们得到 $\Lambda v\circ T^\prime\in V^{\prime\prime}$，它是 $V^\prime$ 的对偶空间，由于 $T^\prime\varphi\in V^\prime$，根据 $(\Lambda v)(\varphi)=\varphi(v)$ 就有
+$$
+\forall \varphi\in V^\prime,\quad (\Lambda v\circ T^\prime)\varphi = (\Lambda v)(T^\prime\varphi) = (T^\prime\varphi)v = (\varphi \circ T)v = \varphi(Tv) = (\Lambda Tv)(\varphi) = (\Lambda\circ T)v\varphi
+$$
+于是 $(T^{\prime\prime}\circ \Lambda)v\varphi = (\Lambda\circ T)v\varphi$，因而 $T^{\prime\prime}\circ \Lambda = \Lambda\circ T$ .</p>
+<p><strong>Corollary B.71.</strong> 对于 $T\in \mathcal{L}(V)$，若 $V$ 是有限维，则重对偶映射为
+$$
+T^{\prime\prime}=\Lambda\circ T\circ \Lambda^{-1}
+$$
+这是 Theorem B.70 和 Lemma B.65 的直接推论.</p>
+<h4 id="the-null-space-and-range-of-the-dual-of-a-linear-map">The null space and range of the dual of a linear map</h4>
+<p><strong>Definition B.72.</strong> 子空间 $U\subset V$ 的零化子 <em>annihilator</em> 定义为
+$$
+U^0 = {\varphi\in V^\prime:\forall u\in U,\ \varphi(u)=0 }
+$$
+零化子是将 $U$ 映到 ${0}$ 的对偶映射 $\varphi\in V^\prime$ 的集合，即 $\varphi:U\to {0}$ .</p>
+<p><strong>Lemma B.75.</strong> 零化子 $U^0\subset V^\prime$ 是子空间.</p>
+<p><strong>Lemma B.77.</strong> 设 $V$ 有限维，则有
+$$
+\dim U+\dim U^0=\dim V
+$$
+$Proof.$ 子空间的维数和其零化子的维数和就是 $V$ 的维数。我们先取 $U$ 中的基 $u_1,\cdots,u_m$，然后将其扩张为 $V$ 中的基 $u_1,\cdots,u_n$，则它们对应 $V^\prime$ 中的基 $\varphi_1,\cdots,\varphi_n$ 。根据对偶基的定义，只有下标相同的作用才非零，于是 $\varphi_{m+1},\cdots,\varphi_n\in U^0$， 它们就是 $U^0$ 的基，因此有 $\dim U+\dim U^0=\dim V$ .</p>
+<p><strong>Lemma B.78.</strong> 任意线性映射 $T\in \mathcal{L}(V,W)$ 满足
+$$
+\mathrm{null}\ T^\prime = (\mathrm{range}\ T)^0
+$$
+$Proof.$ 我们知道 $\mathrm{range}\ T\subset W$，则 $(\mathrm{range}\ T)^0\subset W^\prime$，它是将 $\mathrm{range}\ T$ 映到 $0$ 的映射 $\psi\in W^\prime$ 的集合；另一方面， $\mathrm{null}\ T^\prime \subset W^\prime$，它是被 $T^\prime$ 映到 $0$ 的映射 $\psi\in W^\prime$ 的集合.</p>
+<p><strong>Lemma B.79.</strong> 有限维向量空间 $V,W$ 上的任意线性映射 $T\in \mathcal{L}(V,W)$ 满足
+$$
+\dim \mathrm{null}\ T^\prime = \dim \mathrm{null}\ T + \dim W - \dim V
+$$
+$Proof.$ 根据先前的引理 $\mathrm{null}\ T^\prime = (\mathrm{range}\ T)^0$ 有 
+$$
+\dim \mathrm{null}\ T^\prime = \dim (\mathrm{range}\ T)^0 = \dim W - \dim \mathrm{range}\ T
+$$
+又知道 $\dim \mathrm{range}\ T = \dim V - \dim\mathrm{null}\ T$，因此 
+$$
+\dim W - \dim \mathrm{range}\ T = \dim W - \dim V + \dim\mathrm{null}\ T
+= \dim \mathrm{null}\ T + \dim W - \dim V
+$$
+注意 $\mathrm{range}\ T\subset W$，因此 Lemma B.77 要应用在 $W$ 上.</p>
+<p><strong>Note.</strong> 事实上，如果稍微改写上面的等式，会得到一个较为直观的结果。由于 $\dim W=\dim W^\prime$，于是
+$$
+\dim \mathrm{null}\ T^\prime = \dim \mathrm{null}\ T + \dim W - \dim V = \dim \mathrm{null}\ T + \dim W^\prime - \dim V
+$$
+多次移项就得到下式
+$$
+\dim W^\prime - \dim \mathrm{null}\ T^\prime = \dim V - \dim \mathrm{null}\ T
+$$
+这样两边的关系就更加清晰：$\mathrm{null}\ T^\prime \subset W^\prime,\ \mathrm{null}\ T\subset V$，两个空间中剩余的维数相同.</p>
+<p><strong>Corollary B.80.</strong>  有限维向量空间 $V,W$ 上的任意线性映射 $T\in \mathcal{L}(V,W)$ 满射当且仅当 $T^\prime$ 是单射.</p>
+<p>$Proof.$ 事实上，容易看出
+$$
+\mathrm{null}\ T^\prime = {0}\quad \Leftrightarrow\quad \dim \mathrm{null}\ T^\prime = 0\quad \Leftrightarrow\quad \dim \mathrm{null}\ T = \dim V - \dim W
+$$
+左边蕴含 $T^\prime$ 是单射，右边蕴含 $T$ 是满射.</p>
+<p><strong>Lemma B.81.</strong> 有限维向量空间 $V,W$ 上的任意线性映射 $T\in \mathcal{L}(V,W)$ 满足
+$$
+\dim \mathrm{range}\ T^\prime = \dim\mathrm{range}\ T
+$$
+$Proof.$ 在这里我们就看到改写式子的直观性
+$$
+\dim \mathrm{range}\ T^\prime= \dim W^\prime - \dim \mathrm{null}\ T^\prime = \dim V - \dim \mathrm{null}\ T = \dim\mathrm{range}\ T 
+$$
+也就说明了 Lemma B.79 的本质是 $T,T^\prime$ 像空间的维数相同.</p>
+<p><strong>Lemma B.82.</strong> 有限维向量空间 $V,W$ 上的任意线性映射 $T\in \mathcal{L}(V,W)$ 满足
+$$
+\mathrm{range}\ T^\prime = (\mathrm{null}\ T)^0
+$$
+$Proof.$ 此引理的证明类似于 Lemma B.78，实际上 $\mathrm{null}\ T^\prime = (\mathrm{range}\ T)^0$ 与上式完全是互补的.</p>
+<p><strong>Corollary B.83.</strong> 有限维向量空间 $V,W$ 上的任意线性映射 $T\in \mathcal{L}(V,W)$ 单射当且仅当 $T^\prime$ 是满射.</p>
+<p>$Proof.$ 证明类似于 Corollary B.80，不再赘述.</p>
+<h4 id="matrix-ranks">Matrix ranks</h4>
+<p><strong>Definition B.84.</strong> 矩阵 $A\in\mathbb{F}^{m\times n}:\mathbb{F}^n\to\mathbb{F}^m$ 的列空间 <em>column space</em> 或者像空间是其列向量的全部线性组合，它的行空间 <em>row space</em> 是 $A^T$ 的列空间，它的核空间 <em>null space / kernel</em> 是将 $A$ 看做线性算子的核空间，其左核空间 <em>left null space</em> 是 $A^T$ 的核空间.</p>
+<p><strong>Definition B.85.</strong> 矩阵 $A\in\mathbb{F}^{m\times n}$ 的列秩 <em>column rank</em> 和行秩 <em>row rank</em> 是其列空间和行空间的维数.</p>
+<p><strong>Lemma B.86.</strong> 记 $A_T$ 为线性算子 $T\in \mathcal{L}(V,W)$ 的矩阵，则 $A_T$ 的列秩是 $\mathrm{range}\ T$ 的维数.</p>
+<p>$Proof.$ 根据定义有 $T(v_1,\cdots,v_n) = (w_1,\cdots,w_m)A_T$，我们有
+$$
+Tv_j = \sum_{i=1}^ma_{ij}w_i = A_{Tj}\cdot (w_1,\cdots,w_m)^T,\quad \mathrm{range}\ T = \mathrm{span} (Tv_1,\cdots,Tv_k)
+$$
+其中我们假设 $Tv_1,\cdots,Tv_k$ 是基，于是左边得到 $n$ 个线性方程，用向量内积形式表示
+$$
+\begin{matrix}
+Tv_1 = A_{T1}\cdot (w_1,\cdots,w_m)^T\
+Tv_2 = A_{T2}\cdot (w_1,\cdots,w_m)^T\
+\vdots\
+Tv_n = A_{Tn}\cdot (w_1,\cdots,w_m)^T
+\end{matrix}
+$$
+其中 $A_{Tj}$ 表示 $A_T$ 的第 $j$ 列，对于 $Tv_j$ 的线性组合就有
+$$
+0 = c_1Tv_1+\cdots+c_nTv_n = (c_1A_{T1}+\cdots+c_nA_{T_n})\cdot(w_1,\cdots,w_m)^T
+$$
+注意到右边是 $w_j$ 的线性组合，而 $w_1,\cdots,w_m$ 线性无关，因此只能有
+$$
+c_1Tv_1+\cdots+c_nTv_n = 0\quad \Leftrightarrow\quad c_1A_{T1}+\cdots+c_nA_{T_n} = 0
+$$
+因为 $w_1,\cdots,w_m$ 的任何部分组都线性无关，因此上式可以推广到任意 $Tv_j$ 的部分线性组合，从而 $Tv_j,A_{Tj}$ 只能同步线性无关，它们张成的空间维数相同.</p>
+<p><strong>Theorem B.87.</strong> 任意 $A\in\mathbb{F}^{m\times n}$ 的行秩等于列秩.</p>
+<p>$Proof.$ 定义线性映射 $T:\mathbb{F}^n\to\mathbb{F}^m,\ Tx=Ax$，显然有 $A$ 是 $T$ 在标准基下的矩阵，用 $\mathrm{rank_c}A$ 表示列秩，则有
+$$
+\mathrm{rank_c}A = \dim \mathrm{range}\ T = \dim\mathrm{range}\ T^\prime = \mathrm{rank_c}A^T
+$$
+其中 $T,T^\prime$ 的矩阵互为转置推得最后一步.</p>
+<p><strong>Definition B.88.</strong> 矩阵的秩 <em>rank</em> 是它的列秩.</p>
+<p><strong>Theorem B.89</strong> (Fundamental theroem of linear algebra). 矩阵 $A\in\mathbb{F}^{m\times n}:\mathbb{F}^n\to\mathbb{F}^m$ 的列空间和行空间维数 $r\le \min(m,n)$；它的核空间和左核空间维数为 $n-r$ 和 $m-r$；另外有
+$$
+\mathrm{F}^m = \mathrm{range}\ A\oplus \mathrm{null}\ A^T\
+\mathrm{F}^n = \mathrm{range}\ A^T\oplus \mathrm{null}\ A
+$$
+其中 $\mathrm{range}\ A\perp \mathrm{null}\ A^T,\ \mathrm{range}\ A^T\perp \mathrm{null}\ A$ .</p>
+<p>$Proof.$ 我们只证明第二个等式，对于 $x\in\mathrm{null}\ A$，有 $Ax=0$，取 $A$ 的行向量 $a_i^T$ 就有
+$$
+\left(\begin{matrix}
+a_1^T\
+a_2^T\
+\vdots\
+a_m^T
+\end{matrix}\right) x = 0
+$$
+也就是说 $x\perp a_j^T$，根据 $\mathrm{range}\ A^T = \mathrm{span}(a_1^T,\cdots,a_m^T)$，因此 $x\perp \mathrm{range}\ A^T$，直和关系容易得到.</p>
+<h2 id="eigen-and-invariant-subspaces">Eigen and invariant subspaces</h2>
+<h3 id="invariant-subspaces">Invariant subspaces</h3>
+<p><strong>Definition B.90.</strong> 在线性算子 $T\in \mathcal{L}(V)$ 作用下的子空间 $U\subset V$ 不变 <em>invariant</em> 若 $u\in U\Rightarrow Tu\in U$ .</p>
+<p><strong>Definition B.92.</strong> 线性算子 $T\in \mathcal{L}(V)$ 满足 $Tv=\lambda v,\ v\neq 0$，则称 $\lambda\in\mathbb{F}$ 为特征值 <em>eigenvalue</em>， $v\in V$ 为对应的特征向量 <em>eigenvector</em> .</p>
+<p><strong>Lemma B.93.</strong> 若 $V$ 有限维，则 $\lambda\in\mathbb{F}$ 为特征值当且仅当 $T-\lambda I$ 不是单射.</p>
+<p><strong>Lemma B.95.</strong> 设 $\lambda_1,\cdots,\lambda_m$ 是 $T\in \mathcal{L}(V)$ 的互异特征值，对应有特征向量 $v_1,\cdots,v_m$，则它们线性无关.</p>
+<p><strong>Lemma B.96.</strong> 若 $V$ 有限维，则其上的算子至多有 $\dim V$ 个互异特征值.</p>
+<p><strong>Definition B.97.</strong> 线性算子 $T\in \mathcal{L}(V)$ 下的不变子空间为 $U\subset V$，则约束算子 <em>restriction operator</em> $T|_U\in \mathcal{L}(U)$ 定义为
+$$
+\forall u\in U,\quad T|_U(u) = Tu
+$$
+也就是将作用空间变为子空间 $U$ .</p>
+<h3 id="existence-of-eigenvalues">Existence of eigenvalues</h3>
+<p><strong>Notation 17.</strong>  线性算子 $T\in \mathcal{L}(V)$，多项式 $p\in\mathbb{P(F)}$ 定义为
+$$
+p(z) = a_0+a_1z+\cdots+a_mz^m,\quad z\in\mathbb{F}
+$$
+则 $p(T)$ 是一个算子
+$$
+p(T) = a_0I+a_1T+\cdots+a_mT^m
+$$
+其中 $I=T^0$ 为单位算子；容易证明，可以类似于普通多项式来定义算子多项式的运算，它符合普通多项式的各种性质.</p>
+<p><strong>Theorem B.101</strong> (Existence of eigenvalues). 有限维非零复向量空间 $V$ 上的线性算子 $T$ 有特征值.</p>
+<p>$Proof.$ 任取非零向量 $v\in V$，则有 $v,Tv,\cdots,T^nv$ 线性相关，于是
+$$
+0 = a_0v+a_1Tv+\cdots+a_nT^nv = (a_0+a_1T+\cdots+a_nT^n)v
+$$
+根据代数基本定理，多项式 $a_0+a_1T+\cdots+a_nT^n$ 有根，因此
+$$
+c(T-\lambda_1I)(T-\lambda_2I)\cdots(T-\lambda_nI)v = 0
+$$
+因此存在某个 $\lambda_i$ 使得 $T-\lambda_i I$ 不是单射，从而 $\lambda_i$ 就是特征值.</p>
+<h3 id="upper-trianglular-matrices">Upper-trianglular matrices</h3>
+<p><strong>Theorem B.102.</strong> 线性算子 $T\in \mathcal{L}(V)$， $v_1,\cdots,v_n$ 是 $V$ 的基，则下面陈述等价：</p>
+<ul>
+<li>$T$ 关于该基的矩阵是上三角阵</li>
+<li>$Tv_j\in\mathrm{span}(v_1,\cdots,v_j)$ </li>
+<li>$\mathrm{span}(v_1,\cdots,v_j)$ 是 $T$ 下的不变子空间</li>
+</ul>
+<p><strong>Theorem B.104.</strong> 任意有限维非零复向量空间 $V$ 上的线性算子 $T$ 关于 $V$ 的某个基的矩阵是上三角阵.</p>
+<p><strong>Theorem B.105.</strong> 线性算子 $T\in \mathcal{L}(V)$ 关于 $V$ 的某个基的矩阵是上三角阵，则 $T$ 可逆当且仅当矩阵对角元非零.</p>
+<p><strong>Theorem B.106.</strong> 线性算子 $T\in \mathcal{L}(V)$ 关于 $V$ 的某个基的矩阵是上三角阵，则 $T$ 的特征值就是对角元素.</p>
+<h3 id="eigenspaces-and-diagonal-matrices">Eigenspaces and diagonal matrices</h3>
+<p><strong>Definition B.108.</strong> 特征值 $\lambda\in\mathbb{F}$ 对应的特征空间 <em>eigenspace</em> 为 $E(\lambda,T) = \mathrm{null}\ (T-\lambda I)$ .</p>
+<p><strong>Lemma B.109.</strong> 若 $V$ 有限维，设 $\lambda_1,\cdots,\lambda_m$ 是 $T\in \mathcal{L}(V)$ 的互异特征值，则
+$$
+E(\lambda_1,T)+\cdots+E(\lambda_m,T)
+$$
+是直和，并且
+$$
+\dim E(\lambda_1,T)+\cdots+\dim E(\lambda_m,T) \le \dim V
+$$
+此引理和下面定理的证明在以后补充.</p>
+<p><strong>Theorem B.111</strong> (Conditions of diagonalizability). 若 $V$ 有限维，设 $\lambda_1,\cdots,\lambda_m$ 是 $T\in \mathcal{L}(V)$ 的互异特征值，则下面陈述等价：</p>
+<ul>
+<li>$T$ 可对角化 <em>diagonalizable</em> </li>
+<li>$V$ 有一个 $T$ 的特征向量构成的基</li>
+<li>存在一维子空间 $U_1,\cdots,U_n\subset V$，每一个都在 $T$ 下不变，使得 $V=U_1\oplus\cdots\oplus U_n$ </li>
+<li>$V=E(\lambda_1,T)\oplus\cdots\oplus E(\lambda_m,T)$ </li>
+<li>$\dim V = \dim E(\lambda_1,T)+\cdots+\dim E(\lambda_m,T)$ </li>
+</ul>
+<p><strong>Corollary B.112.</strong> 算子 $T\in \mathcal{L}(V)$ 可对角化若 $T$ 有 $\dim V$ 个互异特征值.</p>
+<h2 id="operators-on-complex-vector-spaces">Operators on complex vector spaces</h2>
+<h3 id="generalized-eigenvectors">Generalized eigenvectors</h3>
+<p><strong>Lemma B.113.</strong> 对于线性算子 $T\in \mathcal{L}(V)$ 有
+$$
+{0}\subset \mathrm{null}\ T^0\subset \mathrm{null}\ T^1\subset \cdots\subset \mathrm{null}\ T^k\subset \cdots
+$$
+此引理说明了核空间的包含关系：随着算子 $T$ 的重复作用，“越来越多“ 的元素被映射到 $0$ .</p>
+<p><strong>Lemma B.114.</strong> 若线性算子 $T\in \mathcal{L}(V)$ 满足 $\mathrm{null}\ T^m = \mathrm{null}\ T^{m+1}$，则
+$$
+\mathrm{null}\ T^m = \mathrm{null}\ T^{m+1} = \cdots
+$$
+$Proof.$ 这说明 $\forall v\in \mathrm{range}\ T^m,\ v\neq 0$ 有 $Tv\neq 0$，此时 $T$ 对 $\mathrm{range}\ T^m$ 的作用变成了单射，非零元素在 $T$ 作用下总是非零，因此核空间中的元素不再增加.</p>
+<p><strong>Lemma B.115.</strong> 线性算子 $T\in \mathcal{L}(V)$ 满足
+$$
+\mathrm{null}\ T^n = \mathrm{null}\ T^{n+1} = \cdots
+$$
+其中 $n=\dim V$ .</p>
+<p>$Proof.$ 如果上面的引理在 $m\le n$ 有 $\mathrm{null}\ T^m = \mathrm{null}\ T^{m+1}$，那么显然成立；否则，这就意味着有真包含关系
+$$
+{0}\subsetneq \mathrm{null}\ T^0\subsetneq \mathrm{null}\ T^1\subsetneq \cdots\subsetneq \mathrm{null}\ T^n\subsetneq \mathrm{null}\ T^{n+1}
+$$
+根据子空间的性质， $\mathrm{null}\ T^{n+1}$ 中必有 $n+1$ 个线性无关的向量，这是不可能的.</p>
+<p><strong>Theorem B.116.</strong> 线性算子 $T\in \mathcal{L}(V)$ 满足
+$$
+V = \mathrm{null}\ T^n\oplus \mathrm{range}\ T^n
+$$
+其中 $n=\dim V$ .</p>
+<p>$Proof.$ 我们已经说明 $T$ 对 $\mathrm{range}\ T^n$ 的作用变成了单射，注意到 $V-\mathrm{range}\ T^n$ 中的所有元素经过 $T^n$ 作用都映到 $0$，所以我们有
+$$
+\mathrm{null}\ T^n =( V-\mathrm{range}\ T^n) \cup {0} \quad \Rightarrow\quad V = \mathrm{null}\ T^n + \mathrm{range}\ T^n
+$$
+并且它们显然只相交于 $0$，故是直和.</p>
+<p><strong>Definition B.119.</strong> 线性算子 $T\in \mathcal{L}(V)$ 对应特征值 $\lambda$ 的广义特征向量 <em>generalized eigenvector</em> 是非零向量 $v\in V$ 满足
+$$
+\exists j\in \mathbb{N}^+\quad \mathrm{s.t.}\quad (T-\lambda I)^jv = 0
+$$
+这里与一般特征向量 $Tv=\lambda v$ 看起来不太一样，但其更加本质。实际上我们也是用这种方式 $(T-\lambda I)v=0$ 来定义一般特征向量的.</p>
+<p><strong>Definition B.119.</strong> 线性算子 $T\in \mathcal{L}(V)$ 对应特征值 $\lambda$ 的广义特征空间 <em>generalized eigenspace</em> 记为 $G(\lambda,T)$，是全体广义特征向量和零向量的集合.</p>
+<p><strong>Lemma B.120.</strong> 广义特征空间 $G(\lambda,T)$ 满足
+$$
+\forall T\in \mathcal{L}(V),\ \forall \lambda\in\mathbb{F},\quad G(\lambda,T)=\mathrm{null}\ (T-\lambda I)^{n}
+$$
+其中 $n=\dim V$ .</p>
+<p>$Proof.$ 这里运用了之前的核空间性质：只要有 $\mathrm{null}\ T^m = \mathrm{null}\ T^{m+1}$，那么更高次的作用下核空间都相同。而 $\mathrm{null}\ T^n$ 就是最大的核空间，因此上面直接使用了 $\mathrm{null}\ (T-\lambda I)^{n}$ .</p>
+<p><strong>Definition B.121.</strong> 算子 $T$ 特征值 $\lambda$ 的代数重数 <em>algebraic multiplicity</em> 是其广义特征空间的维数
+$$
+m_a(\lambda) = \dim G(\lambda, T) = \dim \mathrm{null}\ (T-\lambda I)^{n}
+$$
+几何重数 <em>geometric multiplicity</em> 是其特征空间的维数
+$$
+m_g(\lambda) = \dim E(\lambda,T) = \dim \mathrm{null}\ (T-\lambda I)
+$$
+指数 <em>index</em> 是最小的整数 $k$ 使得
+$$
+\mathrm{null}\ (T-\lambda I)^k = \mathrm{null}\ (T-\lambda I)^{k+1}
+$$
+即它是达到最大核空间所需的最小作用次数.</p>
+<p><strong>Corollary B.122.</strong> 几何重数和代数重数满足
+$$
+1\le m_g(\lambda)\le m_a(\lambda)
+$$
+$Proof.$ 显然特征空间至少是一维的，并且 $E(\lambda,T)\subset G(\lambda,T)$，即证.</p>
+<p><strong>Definition B.123.</strong> 算子 $T$ 的特征值 $\lambda$ 是残缺的 <em>defective</em> 当 $m_g(\lambda)&lt;m_a(\lambda)$，如果 $T$ 有残缺特征值，则称 $T$ 残缺.</p>
+<p><strong>Lemma B.125.</strong> 线性算子 $T\in \mathcal{L}(V)$ 互异特征值的广义特征向量线性无关.</p>
+<p>$Proof.$ 令 $(\lambda_i,v_i)$ 为 $T$ 的广义特征对，定义
+$$
+w = (T-\lambda_1 I)^kv_1
+$$
+其中 $k$ 是使得 $w\neq 0$ 的最大整数，因此 $(T-\lambda_1 I)w = 0$，则 $w$ 是 $T$ 的特征向量，于是就有
+$$
+\forall j\in\mathbb{N}^+,\ \forall \lambda\in\mathbb{F},\quad (T-\lambda I)^jw = (\lambda_1-\lambda)^jw
+$$
+仍然记 $n=\dim V$，定义算子多项式
+$$
+p(T) = (T-\lambda_1 I)^k(T-\lambda_2 I)^n\cdots(T-\lambda_m I)^n
+$$
+假设 $m$ 个广义特征向量满足 $\sum_{i=1}^ma_iv_i=0$，因为其余 $m-1$ 个向量 $v_i$ 在 $(T-\lambda_i I)^n$ 作用下为 $0$，则有
+$$
+0 = p(T)\sum_{i=1}^ma_iv_i = p(T)a_1v_1
+$$
+展开算子，应用 $(T-\lambda I)^jw = (\lambda_1-\lambda)^jw$ 得到
+$$
+\begin{aligned}
+0 &amp;= a_1(T-\lambda_1 I)^k(T-\lambda_2 I)^n\cdots(T-\lambda_m I)^nv_1\
+&amp;= a_1(T-\lambda_2 I)^n\cdots(T-\lambda_m I)^nw\
+&amp;= a_1(\lambda-\lambda_2)^n\cdots(\lambda-\lambda_m)^nw
+\end{aligned}
+$$
+则 $a_1 = 0$；类似地定义 $w_j = (T-\lambda_j I)^kv_j$，同理于上面可以得到 $a_j=0$，于是我们得到所有 $a_i=0$，则 $v_1,\cdots,v_m$ 线性无关.</p>
+<h3 id="nilpotent-operators">Nilpotent operators</h3>
+<p><strong>Definition B.126.</strong> 算子 $N\in \mathcal{L}(V)$ 称为是幂零的 <em>nilpotent</em> 若 $\exists k\in\mathbb{N}^+,\ N^k=0$ .</p>
+<p><strong>Lemma B.128.</strong> 幂零算子 $N\in \mathcal{L}(V)$ 满足
+$$
+N^{\dim V} = 0
+$$
+$Proof.$ 我们知道 $N^{\dim V}$ 必然已经达到最大核空间，又由于幂零性质，最大核空间就是 $V$，于是 $N^{\dim V} = 0$ .</p>
+<p><strong>Lemma B.129.</strong> 任意幂零算子 $N\in \mathcal{L}(V)$ 有一个严格上三角阵 $M$ .</p>
+<p>$Proof.$ 设 $n=\dim V$，我们取 $\mathrm{null}\ N$ 的基，然后将其扩张为 $\mathrm{null}\ N^k,\ k=2,\cdots,n$ 的基，于是就得到由这个基构成的矩阵
+$$
+U = (u_1,\cdots,u_n)
+$$
+实际上由于最大核空间就是 $V$，因此一定能得到它的基；然后我们就有 $N$ 关于这一基的矩阵
+$$
+N(u_1,\cdots,u_n) = (u_1,\cdots,u_n)M
+$$
+记 $M$ 的第 $j$ 列为 $M_j$，由于 $u_1\in\mathrm{null}\ N$，这意味着 $Nu_1=0,\ M_1=0$，考虑第一个出现在 $\mathrm{null}\ N^2-\mathrm{null}\ N$ 中的 $u_j$，则它前面所有 $u_i\in\mathrm{null}\ N$ 都蕴含 $M_i=0$，就有
+$$
+M = (0_1,0_2,\cdots,0_{j-1},\cdots)
+$$
+对于 $M_j$，我们知道 $Nu_j\in\mathrm{null}\ N$，因此它可以被前面 $\mathrm{null}\ N$ 中的基 $u_1,\cdots,u_{j-1}$ 线性表示
+$$
+Nu_j = \sum_{i=1}^{j-1}c_iu_i,\quad \Rightarrow\quad M_j = (c_1,\cdots,c_{j-1},0,\cdots,0)^T
+$$
+注意到只有前 $j-1$ 个分量不全为 $0$，以此类推就得到 $M$ 是一个上三角阵.</p>
+<p><strong>Lemma B.130.</strong> 若算子 $N\in \mathcal{L}(V)$ 幂零，则 $I+N$ 有平方根，即 $\exists M\in \mathcal{L}(V),\ M^2=N$ .</p>
+<p>$Proof.$ 我们直接设法计算出平方根。由定义有 $m\in\mathbb{N}^+,\ N^m=0$，考虑算子
+$$
+M = I+\sum_{i=1}^{m-1}a_iN^{i}\quad \Rightarrow\quad I+N=M^2 = \left(I+\sum_{i=1}^{m-1}a_iN^{i}\right)^2
+$$
+可以解出
+$$
+2a_1 = 1,\ 2a_2+a_1^2=0,\ 2a_3+2a_1a_2=0,\ \cdots
+$$
+于是可以唯一确定各项系数.</p>
+<h3 id="operator-decomposition">Operator decomposition</h3>
+<p><strong>Lemma B.131.</strong> 算子多项式 $p(T)$ 满足 $\mathrm{null}\ p(T)$ 和 $\mathrm{range}\ p(T)$ 都是 $T$ 下的不变子空间.</p>
+<p>$Proof.$ 只需要证明 $\forall v\in \mathrm{null}\ p(T),\ Tv\in\mathrm{null}\ p(T)$，而由于
+$$
+p(T)(Tv) = T(p(T)v) = T0 = 0
+$$
+得证；类似的， $\forall v\in \mathrm{range}\ p(T),\ \exists u\in V,\ v=p(T)u$，则有
+$$
+Tv = T(p(T)u) = p(T)(Tu) \in \mathrm{range}\ p(T)
+$$
+其中 $Tu\in V$，因此有最后一步.</p>
+<p><strong>Theorem B.132</strong> (Decomposition operators on complex vector spaces). 设 $V$ 为复向量空间， $T\in \mathcal{L}(V)$， $\lambda_1,\cdots,\lambda_m$ 是 $T$ 的全部互异特征值，则</p>
+<ul>
+<li>$V=G(\lambda_1,T)\oplus\cdots\oplus G(\lambda_m,T)$ </li>
+<li>每一个 $G(\lambda_j,T)$ 都是 $T$ 下的不变子空间</li>
+<li>每一个 $(T-\lambda_j I)|_{G(\lambda_j,T)}$ 是幂零算子</li>
+</ul>
+<p>$Proof.$ 后两个结论由前面的引理和定义分别得证；对第一个结论，设 $n=\dim V$，然后进行归纳。当 $n=1$，显然；假设对维数小于 $n$ 的向量空间成立，则取特征值 $\lambda_1$，由于 $V = \mathrm{null}\ T^n\oplus \mathrm{range}\ T^n$，应用到 $T-\lambda_1I$ 有
+$$
+V=G(\lambda_1,T)\oplus U,\quad U=\mathrm{range}\ (T-\lambda_1 I)^n
+$$
+若 $U$ 是空集，即证；否则由 $p(T) = (T-\lambda_1 I)^n$，因此 $U=\mathrm{range}\ p(T)$ 是不变子空间。限制映射 $T|_U$ 有互异特征值 $\lambda_2,\cdots,\lambda_m$，并且它们不为 $\lambda_1$ 。由于 $\dim G(\lambda_1,T)\ge 1$，则 $\dim U&lt; n$，因此可以应用归纳假设
+$$
+U = G(\lambda_2,T|_U)\oplus\cdots\oplus G(\lambda_m,T|_U)
+$$
+这样我们只需要证明 $G(\lambda_j,T|_U)=G(\lambda_j,T),\ j=2,\cdots,m$，事实上我们有
+$$
+G(\lambda_j,T) =  V\cap G(\lambda_j,T) = G(\lambda_j,T)\cap (G(\lambda_1,T)\oplus U) = G(\lambda_j,T|_U)
+$$
+这里运用了 $U\cap G(\lambda_j,T|_U) = G(\lambda_j,T|_U)$ .</p>
+<p><strong>Corollary B.134.</strong> 设 $V$ 为复向量空间， $T\in \mathcal{L}(V)$，则存在由 $T$ 的广义特征向量构成的基.</p>
+<p><strong>Definition B.135.</strong> 分块对角阵 <em>block diagonal matrix</em> $A$ 是一个方阵，具有形式
+$$
+\left(
+\begin{matrix}
+A_1 &amp; &amp; 0\
+&amp; \ddots &amp;\
+0 &amp; &amp; A_m
+\end{matrix}
+\right)
+$$
+其中 $A_1,\cdots,A_m$ 都是方阵.</p>
+<p><strong>Theorem B.136.</strong> 设 $V$ 为复向量空间， $T\in \mathcal{L}(V)$， $\lambda_1,\cdots,\lambda_m$ 是 $T$ 的全部互异特征值，有重数 $d_1,\cdots,d_m$，则存在 $V$ 中的基对应 $T$ 作用的矩阵是一个分块对角阵，并且每一块 $A_j\in\mathbb{C}^{d_j\times d_j}$ 都是上三角阵，具有形式
+$$
+\left(
+\begin{matrix}
+\lambda_j &amp; &amp; *\
+&amp; \ddots &amp;\
+0 &amp; &amp; \lambda_j
+\end{matrix}
+\right)
+$$
+$Proof.$ 每一个 $(T-\lambda_j I)|<em>{G(\lambda_j,T)}$ 是幂零算子，因此可以选取 $G(\lambda_j,T)$ 中的基，使得其在该算子下的矩阵是严格上三角阵。于是
+$$
+T|</em>{G(\lambda_j,T)} = (T-\lambda_j I)|<em>{G(\lambda_j,T)} + \lambda_j I|</em>{G(\lambda_j,T)}
+$$
+就对应上面形式的 $A_j$，根据 $V=G(\lambda_1,T)\oplus\cdots\oplus G(\lambda_m,T)$ 即证.</p>
+<p><strong>Corollary B.138.</strong> 复向量空间 $V$ 上的算子 $T$ 都可以分解为 $T=\Lambda+N$，其中 $\Lambda$ 可对角化， $N$ 为幂零算子，且 $\Lambda N=N\Lambda$ .</p>
+<p>$Proof.$ 我们知道 $T$ 具有分块对角形式的矩阵，对角块记为 $T_1,\cdots,T_p$，并且有分解 $T_j=N_j+\Lambda_j,\ N_j=T_j-\lambda_j I_j$，显然这一分解符合要求，实际上 $\Lambda_j$ 就是对角化的 $\Lambda_j = \lambda_j I_j$，因此可以交换 $\Lambda_jN_j=N_j\Lambda_j$，而分块对角矩阵的乘法中，各块之间互不影响，即证.</p>
+<p><strong>Theorem B.140.</strong> 复向量空间 $V$ 上的可逆算子 $T$ 都有平方根.</p>
+<p>$Proof.$ 令 $\lambda_1,\cdots,\lambda_m$ 为 $T$ 的全部互异特征值，则 $N_j=(T-\lambda_j I)|<em>{G(\lambda_j,T)}$ 是幂零算子，即有 $T|</em>{G(\lambda_j,T)} = \lambda_j I+N_j$ 。由于 $T$ 可逆，因此 $\lambda_j\neq 0$，并且
+$$
+T|<em>{G(\lambda_j,T)} = \lambda_j(I+\dfrac{N_j}{\lambda_j})
+$$
+之前证明了对幂零算子 $N$， $I+N$ 有平方根，因此有 $R_j\in \mathcal{L}(G(\lambda_j,T)),\ R_j^2 = T|</em>{G(\lambda_j,T)}$；然后我们要将这些块组合起来：</p>
+<p>根据 $V=G(\lambda_1,T)\oplus\cdots\oplus G(\lambda_m,T)$，任意 $v\in V$ 可以被表示为 $v=\sum_{i=1}^mu_i,\ u_i\in G(\lambda_i,T)$，因此定义
+$$
+R(v) = \sum_{j=1}^mR_iu_j
+$$
+可以验证 $R\in \mathcal{L}(V)$ 且满足 $R^2=V$ .</p>
+<h3 id="jordan-basis">Jordan basis</h3>
+<p><strong>Definition B.141.</strong> $k$ 阶若当块 <em>Jordan block</em> 具有形式
+$$
+J(\lambda, k) = \left(
+\begin{matrix}
+\lambda\
+1 &amp; \lambda\
+&amp; \ddots &amp; \ddots\
+&amp; &amp; 1 &amp; \lambda
+\end{matrix}
+\right)_k
+$$
+这里和讲义上不一样，为了和教材保持一致，我将矩阵进行了转置.</p>
+<p><strong>Lemma B.145.</strong> 对于幂零算子 $N\in \mathcal{L}(V)$，存在 $v_1,\cdots,v_n\in V,\ m_1,\cdots,m_n\in\mathbb{N}$ 使得</p>
+<ul>
+<li>$v_1,Nv_1,\cdots,N^{m_1}v_1，\cdots,\ v_n,Nv_n,\cdots,N^{m_n}v_n$ 构成 $V$ 的一组基</li>
+<li>$N^{m_1+1}v_1=\cdots=N^{m_n+1}v_n=0$ </li>
+</ul>
+<p>$Proof.$ 首先我们考虑如何得到 $v_j$，实际上它们都是对应 $m_j$ 重特征值 $\lambda_j$ 的特征向量。在 Lemma B.125 中我们证明了广义特征向量线性无关，于是 $v_1,\cdots,v_n$ 也是一个线性无关组，且有 $N^{m_j+1}v_j = 0$，它们符合第二条件。</p>
+<p>然后取 $v_1$，将其扩张为 $v_1,Nv_1,\cdots,N^{m_1}v_1$，我们证明这是一个线性无关组。实际上，假设有
+$$
+c_1v_1+c_2Nv_1+\cdots+c_{m_1}N^{m_1}v_1 = 0
+$$
+两边同时作用 $N^{m_1}$ 就有 $c_1N^{m_1}v_1=0$，根据特征向量的性质有 $c_1\lambda_1^{m_1}v_1=0$，这就存在两种情况：如果 $\lambda_1=0$，那么之前的扩张就只有 $v_1$，它显然线性无关；如果 $\lambda_1\neq 0$，则只能有 $c_1=0$；代回得到
+$$
+c_2Nv_1+\cdots+c_{m_1}N^{m_1}v_1 = 0
+$$
+用同样的方法我们依次证明 $c_2,\cdots,c_{m_1}=0$，从而它们线性无关。于是可以证明每一个 $v_j,Nv_j,\cdots,N^{m_j}v_j$ 都是线性无关组，因此得到 $n$ 个它们张成的子空间 $V_1,V_2,\cdots,V_n$，证明它们是直和即可。</p>
+<p>我们只需要证明 $V_i\cap V_j={0}$，如果有非零公共元，则存在不全为零的 $\alpha_k,\beta_k$ 使得
+$$
+\alpha_1v_i+\alpha_2Nv_i+\cdots+\alpha_{m_i}N^{m_i}v_i + \beta_{1}v_j+\cdots+\beta_{m_j}N^{m_j}v_j=0
+$$
+ 两边同时作用 $N$ 使得剩余非零项有 $3$ 种可能的形式
+$$
+\begin{aligned}
+\alpha_1N^pv_i+\beta_1N^qv_j &amp;=0\
+\alpha_1N^pv_i &amp;= 0\ 
+\beta_1N^qv_j &amp;=0
+\end{aligned}
+$$
+其中 $p,q$ 不一定相同，并且 $p\le m_i,\ q\le m_j$，因此对于后两种情况，显然分别有 $\alpha_1=0$ 和 $\beta_1=0$；而对于第一种情况，不妨假设 $p\ge q$，提取公共部分得到
+$$
+N^{q}(\alpha_1N^{p-q}v_i+\beta_1 v_j)=0\quad \Rightarrow\quad \alpha_1N^{p-q}v_i+\beta_1 v_j\in \mathrm{null}\ N^q,\quad q\le m_j
+$$
+但是显然若 $\alpha_1,\beta_1\neq 0$，就有 $\alpha_1N^{p-q}v_i,\ \beta_1 v_j\notin \mathrm{null}\ N^q$，它们的和不可能在核空间中，与上式矛盾，从而只能有 $\alpha_1=\beta_1=0$ 。</p>
+<p>用同样的方法我们可以依次证明 $\alpha_k,\ \beta_k=0$，则 $0$ 是唯一的公共元，从而它们是直和.</p>
+<p><strong>Definition B.146.</strong> 线性算子 $T\in \mathcal{L}(V)$ 的若当基是 $V$ 的基，对应的矩阵有形式
+$$
+J = \left(
+\begin{matrix}
+J(\lambda_1,k_1)\
+&amp; J(\lambda_2,k_2)\
+&amp; &amp; \ddots\
+&amp; &amp;  &amp; J(\lambda_p,k_p)
+\end{matrix}
+\right)
+$$
+其中 $\lambda_j$ 可能相同.</p>
+<p><strong>Theorem B.147</strong> (Jordan). 复向量空间 $V$ 上的算子 $T$ 有若当基.</p>
+<p>$Proof.$ 考虑 $T$ 为幂零算子 $N$，则可取基 $v_1,Nv_1,\cdots,N^{m_1}v_1，\cdots,\ v_n,Nv_n,\cdots,N^{m_n}v_n$，则 $N$ 作用于每一部分有
+$$
+N:(v_j,Nv_j,\cdots,N^{m_j-1}v_j,N^{m_j}v_j) \mapsto (Nv_j,N^2v_j,\cdots,N^{m_j}v_j,0)
+$$
+即 $N$ 将其向左移动一位，然后把最后一个分量归零 <em>annihilates</em>，因此在这一部分就有
+$$
+N(v_j,Nv_j,\cdots,N^{m_j-1}v_j,N^{m_j}v_j) = (v_j,Nv_j,\cdots,N^{m_j-1}v_j,N^{m_j}v_j)M_j
+$$
+其中矩阵 $M_j=J(0,k_j)$ 是一个若当块
+$$
+M_j = \left(
+\begin{matrix}
+0\
+1 &amp; 0\
+&amp; \ddots &amp; \ddots\
+&amp; &amp; 1 &amp; 0
+\end{matrix}
+\right)<em>k
+$$
+因此对于幂零算子，若当基存在；若 $T$ 不是幂零算子，则取全部互异特征值 $\lambda_1,\cdots,\lambda_m$，有直和分解
+$$
+V=G(\lambda_1,T)\oplus\cdots\oplus G(\lambda_m,T)
+$$
+每一个 $N_j=(T-\lambda_j I)|</em>{G(\lambda_j,T)}$ 都是幂零算子，因此它们都有如上所示的若当基，添加对角部分 $\lambda_j I$ 组合就得到 $T$ 的若当基.</p>
+<h2 id="inner-product-spaces">Inner product spaces</h2>
+<h3 id="inner-products">Inner products</h3>
+<p><strong>Definition B.148.</strong> 向量空间 $V$ 上的内积 <em>inner product</em> 是一个函数 $V\times V\to \mathbb{F}$ 满足</p>
+<ul>
+<li>自反性 <em>real positivity</em> $\langle v,v\rangle \ge 0$ </li>
+<li>确定性 <em>definiteness</em> $\langle v,v\rangle =0\Leftrightarrow v=0$ </li>
+<li>加法性 <em>additivity in the first slot</em> $\langle u+v,w\rangle =\langle u,w\rangle +\langle v,w\rangle $ </li>
+<li>齐次性 <em>homogeneity in the first slot</em> $\langle au,v\rangle  = a\langle u,v\rangle $ </li>
+<li>对称共轭 <em>conjugate symmetry</em> $\langle u,v\rangle =\overline{\langle v,u\rangle }$ </li>
+</ul>
+<p>内积空间 <em>inner product space</em> 是带有内积的向量空间.</p>
+<p><strong>Corollary B.149.</strong> 内积空间上的加法性关于第二个槽也成立 $\langle u,v+w\rangle =\langle u,v\rangle +\langle u,w\rangle $ .</p>
+<p><strong>Corollary B.150.</strong> 内积齐次性关于第二个槽也成立 $\langle u,av\rangle  = \overline{a}\langle u,v\rangle $ .</p>
+<p><strong>Definition B.152.</strong> 定义在 $\mathbb{F}^n$ 上的欧几里得内积 <em>Euclidean inner space</em> 为
+$$
+\langle u,v\rangle  = \sum_{i=1}^nu_i\overline{v}_i
+$$
+这是最常用的内积.</p>
+<h3 id="norms-induced-from-inner-product">Norms induced from inner product</h3>
+<p><strong>Definition B.153.</strong> 由内积诱导的范数是一个函数 $V\to\mathbb{F}$ 满足
+$$
+|v| = \sqrt{\langle v,v\rangle }
+$$</p>
+<p><strong>Definition B.154.</strong> 对于 $p\in[1,\infty)$，向量 $v\in\mathbb{F}^n$ 的欧几里得 $l_p$ 范数为
+$$
+|v|<em>p = \left(\sum</em>{i=1}^n|v_i|^p \right)^{\frac{1}{p}}
+$$
+而 $l_{\infty}$ 范数为
+$$
+|v|_{\infty} = \max_i|v_i|
+$$</p>
+<p><strong>Theorem B.155</strong> (Equivalence of norms). 任意两个定义在有限维向量空间 $V=\mathbb{C}^n$ 上的范数 $|\cdot|_N,\ |\cdot|_M$ 满足
+$$
+\exists c_1,c_2\in\mathbb{R}^+,\quad \mathrm{s.t.}\quad \forall x\in V,\ c_1|x|_M\le |x|_N\le c_2|x|_M
+$$
+此定理说明任意两个范数都是等价的.</p>
+<p><strong>Definition B.156.</strong> 两个向量 $v,w$ 在带有 $\mathbb{F}=\mathbb{R}$ 的内积空间中的夹角是 $\theta\in[0,\pi]$ 满足
+$$
+\theta = \arccos \dfrac{\langle v,w\rangle }{|v||w|}
+$$</p>
+<p><strong>Theorem B.157</strong> (The law of cosines). 任意三角形满足
+$$
+c^2 = a^2+b^2-2ab\cos \gamma
+$$
+<center><img src="https://img2022.cnblogs.com/blog/2753091/202203/2753091-20220303194300530-13880000.png" style="zoom: 15%;" /></center></p>
+<p>容易根据向量内积证明此余弦定理.</p>
+<p><strong>Theorem B.158</strong> (The law of cosines: abstract version). 实向量空间上的任意诱导范数满足
+$$
+|u-v|^2 = |u|^2+|v|^2-2\langle u,v\rangle 
+$$
+这是抽象意义上的余弦公式，利用范数定义转化为内积即证.</p>
+<h3 id="norms-and-induced-inner-products">Norms and induced inner-products</h3>
+<p><strong>Definition B.159.</strong> 函数 $|\cdot|:V\to\mathbb{F}$ 是向量空间 $V$ 上的范数 <em>norm</em> 当且仅当</p>
+<ul>
+<li>自反性 <em>real positivity</em> $|v|\ge 0$ </li>
+<li>分离性 <em>point separation</em> $|v|=0\Leftrightarrow v=0$ </li>
+<li>齐次性 <em>absolute homogeneity</em> $|av| = a|v|$ </li>
+<li>三角不等式 <em>triangle inequality</em> $|u+v|\le |u|+|v|$ </li>
+</ul>
+<p>此函数称为半范数 <em>semi-norm</em> 如果它只不满足第二条。范数向量空间是带有范数的向量空间.</p>
+<p><strong>Lemma B.161.</strong> 由内积诱导的范数满足上述定义.</p>
+<p><strong>Theorem B.162</strong> (The parallelogram law). 平行四边形四边的平方和等于对角线的平方和.</p>
+<center><img src="https://img2022.cnblogs.com/blog/2753091/202203/2753091-20220303194355155-210977693.png" style="zoom:15%;" /></center>
+
+<p>通过运用两次余弦定理就可以证明此结论.</p>
+<p><strong>Theorem B.163</strong> (The parallelogram law: abstract version). 任意诱导范数满足
+$$
+2|u|^2+2|v|^2=|u+v|^2+|u-v|^2
+$$
+此定理是平行四边形定理的抽象，运用两次抽象余弦定理就可以证明此结论.</p>
+<p><strong>Theorem B.165.</strong> 诱导范数对于某些内积成立当且仅当平行四边形定理对任意 $u,v\in V$ 成立.</p>
+<h3 id="orthonormal-bases">Orthonormal bases</h3>
+<p><strong>Definition B.168.</strong> 向量 $u,v$ 正交 <em>orthogonal</em> 若 $\langle u,v\rangle =0$ .</p>
+<p><strong>Theorem B.170</strong> (Pythagorean). 若 $u,v$ 正交，则 $|u+v|^2=|u|^2+|v|^2$ .</p>
+<p><strong>Theorem B.171</strong> (Cauchy-Schwarz inequality). 
+$$
+|\langle u,v\rangle | \le |u||v|
+$$
+其中等号成立当且仅当 $u,v$ 线性相关.</p>
+<p><strong>Definition B.175.</strong> 一列向量 $(e_1,\cdots,e_m)$ 标准正交 <em>orthonormal</em> 若其中的向量两两正交，并且每个向量范数为 $1$ .</p>
+<p><strong>Definition B.176.</strong> 内积空间 $V$ 的标准正交基 <em>orthonormal basis</em> 是一个标准向量列，并且也是 $V$ 的基.</p>
+<p><strong>Theorem B.177.</strong> 若 $(e_1,\cdots,e_m)$ 是 $V$ 的标准正交基，则
+$$
+\forall v\in V,\quad v = \sum_{i=1}^m\langle v,e_i\rangle e_i,\quad |v|^2=\sum_{i=1}^m|\langle v,e_i\rangle |^2
+$$
+此定理较为显然，且在数值分析中也有证明.</p>
+<p><strong>Lemma B.178.</strong> 有限维内积空间都有标准正交基.</p>
+<p><strong>Theorem B.179</strong> (Schur). 有限维复向量空间上的线性算子 $T\in \mathcal{L}(V)$ 有关于标准正交基的上三角阵.</p>
+<p><strong>Definition B.180.</strong> 向量空间 $V$ 上的线性泛函是一个线性映射 $V\to\mathbb{F}$，即是 $\mathcal{L}(V,F)$ 中的元素.</p>
+<p><strong>Theorem B.181</strong> (Riesz representation theroem). 有限维向量空间 $V$ 满足
+$$
+\forall \varphi\in V^\prime,\ \exists u\in V,\quad \mathrm{s.t.}\quad \forall v\in V,\ \varphi(v)=\langle v,u\rangle 
+$$
+$Proof.$ 此定理说明线性泛函作用可以用一个内积表示。令 $(e_1,\cdots,e_n)$ 是 $V$ 的标准正交基，则
+$$
+\varphi(v) = \varphi\left(\sum_{i=1}^n\langle v,e_i\rangle e_i \right) = \sum_{i=1}^n\langle v,e_i\rangle \varphi\left(e_i \right) = \sum_{i=1}^n\langle v,\overline{\varphi\left(e_i \right)}e_i\rangle  = \langle v,\sum_{i=1}^n\overline{\varphi\left(e_i \right)}e_i\rangle 
+$$
+因此存在 $u=\sum_{i=1}^n\overline{\varphi\left(e_i \right)}e_i$ 满足要求。然后我们证明唯一性，假设有 $\varphi(v)=\langle v,u_1\rangle =\langle v,u_2\rangle $，则
+$$
+0 = \langle v,u_1\rangle  - \langle v,u_2\rangle  = \langle v,u_1-u_2\rangle 
+$$
+令 $v=u_1-u_2$，则有 $u_1-u_2=0$ .</p>
+<h2 id="operators-on-inner-product-spaces">Operators on inner-product spaces</h2>
+<h3 id="adjoint-and-self-adjoint-operators">Adjoint and self-adjoint operators</h3>
+<p><strong>Definition B.182.</strong> 内积空间上的线性映射 $T\in \mathcal{L}(V,W)$ 的伴随/共轭 <em>adjoint</em> 是一个函数 $T^<em>:W\to V$ 满足
+$$
+\forall v\in V,\ \forall w\in W,\quad \langle Tv,w\rangle  = \langle v,T^</em>w\rangle 
+$$
+也就是内积作用可交换.</p>
+<p><strong>Lemma B.184.</strong> 若 $T\in \mathcal{L}(V,W)$，则 $T^*\in \mathcal{L}(W,V)$ .</p>
+<p><strong>Theorem B.185.</strong> 共轭线性映射满足性质：</p>
+<ul>
+<li>加法性 <em>additivity</em> $\forall S,T\in \mathcal{L}(V,W),\quad (S+T)^<em>=S^</em>+T^*$ </li>
+<li>齐次共轭 <em>conjugate homogeneity</em> $\forall T\in \mathcal{L}(V,W),\ \forall a\in \mathbb{F},\quad (aT)^<em>=\overline{a}T^</em>$ </li>
+<li>共轭的共轭 <em>adjoint of adjoint</em> $\forall T\in \mathcal{L}(V,W),\quad (T^<em>)^</em>=T$ </li>
+<li>单位特征 <em>identity</em> $I^*=I$ </li>
+<li>乘积 <em>products</em> 令 $U$ 为内积空间，则 $\forall T\in \mathcal{L}(V,W),\ \forall S\in \mathcal{L}(W,V),\quad (ST)^<em>=T^</em>S^*$ </li>
+</ul>
+<p><strong>Lemma B.186.</strong> 共轭线性映射满足</p>
+<ul>
+<li>$\mathrm{null}\ T^*=(\mathrm{range}\ T)^{\perp}$ </li>
+<li>$\mathrm{range}\ T^*=(\mathrm{null}\ T)^{\perp}$ </li>
+<li>$\mathrm{null}\ T=(\mathrm{range}\ T^*)^{\perp}$ </li>
+<li>$\mathrm{range}\ T=(\mathrm{null}\ T^*)^{\perp}$ </li>
+</ul>
+<p>$Proof.$ 只证明一个。对于 $v\in \mathrm{null}\ T,\ w\in V$，有
+$$
+\langle v,T^<em>w \rangle  = \langle Tv,w \rangle  = \langle 0,w \rangle  = 0
+$$
+因此 $\mathrm{null}\ T\perp \mathrm{range}\ T^</em>$，根据它们的维数关系即有 $\mathrm{null}\ T=(\mathrm{range}\ T^*)^{\perp}$ .</p>
+<p><strong>Definition B.187.</strong> 矩阵 $A\in\mathbb{C}^{m\times n}$ 的共轭转置 <em>conjugate transpose</em> 或者 <em>Hermitian transpose</em> 是矩阵 $A^<em>\in\mathbb{C}^{n\times m}$，定义为
+$$
+(A^</em>)<em>{ij} = \overline{a</em>{ji}}
+$$
+其中 $\overline{a_{ji}}$ 表示 $a_{ji}$ 的复共轭.</p>
+<p><strong>Definition B.189.</strong> 矩阵 $U\in\mathbb{C}^{n\times n}$ 称为酉矩阵 <em>unitary</em> 若 $U^<em>U=I$；矩阵 $U\in\mathbb{R}^{n\times n}$ 称为正交矩阵 </em>orthonormal* 若 $U^TU=I$ .</p>
+<p><strong>Theorem B.190.</strong> 矩阵 $U\in\mathbb{C}^{n\times n}$ 为酉矩阵当且仅当其列向量构成 $\mathbb{C}^{n\times n}$ 上的正交基.</p>
+<p><strong>Corollary B.191.</strong> 酉矩阵不改变内积和范数，即
+$$
+\forall v,w\in \mathbb{C}^n,\quad \langle Uv,Uw\rangle  = \langle v,w\rangle 
+$$</p>
+<p><strong>Theorem B.192.</strong> 任意满足 $\det U=1$ 的酉矩阵 $U\in\mathbb{C}^{2\times 2}$ 具有形式
+$$
+U=\left(
+\begin{matrix}
+a &amp; b\
+-\overline{b} &amp; \overline{a}
+\end{matrix}
+\right)
+$$
+其中 $|a|^2+|b|^2=1$ .</p>
+<p><strong>Theorem B.193.</strong> 令 $T\in \mathcal{L}(V,W)$，设 $e_1,\cdots,e_n$ 为 $V$ 的标准正交基， $f_1,\cdots,f_m$ 为 $W$ 的标准正交基，则
+$$
+M(T^<em>,(f_1,\cdots,f_m),(e_1,\cdots,e_n)) = M^</em>(T,(e_1,\cdots,e_n),(f_1,\cdots,f_m))
+$$
+也就是在标准正交基下自共轭的矩阵是转置共轭.</p>
+<p>$Proof.$ 我们有 $T(e_1,\cdots,e_n)=(f_1,\cdots,f_m)M_T$，则有变换矩阵
+$$
+M_T = \left(
+\begin{matrix}
+\langle f_1,Te_1\rangle  &amp; \langle f_1,Te_2\rangle  &amp; \cdots &amp; \langle f_1,Te_n\rangle \
+\langle f_2,Te_1\rangle  &amp; \langle f_2,Te_2\rangle  &amp; \cdots &amp; \langle f_2,Te_n\rangle \
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\
+\langle f_m,Te_1\rangle  &amp; \langle f_m,Te_2\rangle  &amp; \cdots &amp; \langle f_m,Te_n\rangle 
+\end{matrix}
+\right)
+$$
+这实际上是利用分解 $Te_j = \sum_{i=1}^m\langle f_i,Te_j\rangle f_i$ 得到的，即将各个 $f_i$ 上的分量相加得到 $Te_j$ .</p>
+<p><strong>Lemma B.194.</strong> 设 $V$ 为复内积空间， $T\in \mathcal{L}(V)$，若
+$$
+\forall v\in V,\quad \langle Tv,v\rangle  = 0
+$$
+则 $T=0$ .</p>
+<p>$Proof.$ 特别注意，这一引理需要复空间才成立。首先我们有
+$$
+0 = \langle T(u+v), u+v\rangle  = \langle Tu, v\rangle  + \langle Tv, u\rangle 
+$$
+然后考虑共轭性质就有
+$$
+0 = \langle T(u+iv), u+iv\rangle  = \langle Tu, iv\rangle  + \langle Tiv, u\rangle  = -i\langle Tu, v\rangle  + i\langle Tv, u\rangle \quad \Rightarrow\quad 0 = -\langle Tu, v\rangle  + \langle Tv, u\rangle 
+$$
+结合两式得到 $\langle Tu, v\rangle  = 0$，根据 $u,v$ 的任意性，令 $v=Tu$ 即证.</p>
+<p><strong>Definition B.195.</strong> 算子 $T\in \mathcal{L}(V)$ 是做自共轭/伴随 <em>self-adjoint</em> 若 $T=T^*$，即
+$$
+\forall v\in V,\ \forall w\in W,\quad \langle Tv,w\rangle  = \langle v,Tw\rangle 
+$$
+也就是 $T$ 自己关于内积可交换.</p>
+<p><strong>Lemma B.196.</strong> 任意自共轭算子的特征值都是实数.</p>
+<p>$Proof.$ 令 $(\lambda,u)$ 是特征对，则有
+$$
+\lambda|u|^2 = \langle \lambda u,u\rangle  = \langle T u,u\rangle  = \langle u,T u\rangle  = \langle u,\lambda u\rangle  = \overline{\lambda}\langle u,u\rangle  = \overline{\lambda}|u|^2
+$$
+这实际上就类似于实对称矩阵特征值为实数的证明.</p>
+<p><strong>Theorem B.197.</strong> 设 $V$ 为复内积空间， $T\in \mathcal{L}(V)$，则 $T$ 是自共轭当且仅当
+$$
+\forall v\in V,\quad \langle Tv,v\rangle \in\mathbb{R}
+$$
+$Proof.$ 我们需要 $T=T^<em>$，注意到 Lemma B.194，实际上只需证明
+$$
+\forall v\in V,\quad \langle (T-T^</em>)v,v\rangle  = 0
+$$
+我们将左式展开得到
+$$
+\langle (T-T^<em>)v,v\rangle  = \langle Tv,v\rangle  - \langle T^</em>v,v\rangle  = \langle Tv,v\rangle  - \langle v,Tv\rangle 
+$$
+于是左右同步为 $0$，充要条件得证.</p>
+<p><strong>Lemma B.198.</strong> 设 $V$ 为实内积空间， $T\in \mathcal{L}(V)$，则若 $T$ 是自共轭，满足
+$$
+\forall v\in V,\quad \langle Tv,v\rangle  = 0
+$$
+就有 $T=0$ .</p>
+<p>$Proof.$ 注意此引理虽然是在实空间，但是多了自共轭条件，因此在 Lemma B.194 第一步
+$$
+0 = \langle T(u+v), u+v\rangle  = \langle Tu, v\rangle  + \langle Tv, u\rangle  = \langle Tu, v\rangle  + \langle v, Tu\rangle  = 2\langle Tu, v\rangle 
+$$
+就直接得证.</p>
+<h3 id="normal-operators">Normal operators</h3>
+<p><strong>Definition B.199.</strong> 算子 $T\in \mathcal{L}(V)$ 是正规的 <em>normal</em> 若 $TT^<em>=T^</em>T$ .</p>
+<p><strong>Corollary B.200.</strong> 任意自共轭算子都正规.</p>
+<p><strong>Exercise.</strong> $T\in \mathcal{L}(V)$ 正规，则</p>
+<ul>
+<li>$\mathrm{null}\ T = \mathrm{null}\ T^*$ </li>
+<li>$\forall k\in \mathbb{Z}^+,\quad \mathrm{null}\ T^k = \mathrm{null}\ T$ </li>
+</ul>
+<p>$Proof.$ 取 $v\in \mathrm{null}\ T$，则有
+$$
+\langle T^<em>v,T^</em>v\rangle  = \langle v,TT^<em>v\rangle  = \langle v,T^</em>Tv\rangle  = 0
+$$
+只能有 $T^<em>v=0$，从而 $v\in\mathrm{null}\ T^</em>$，反之同理；显然 $\mathrm{null}\ T\subset\mathrm{null}\ T^2$，我们又知道 $\mathrm{range}\ T\perp\mathrm{null}\ T^*=\mathrm{null}\ T$，因此
+$$
+\forall v\notin \mathrm{null}\ T,\quad Tv\notin \mathrm{null}\ T\quad \Rightarrow\quad v\notin\mathrm{null}\ T^2
+$$
+从而 $\mathrm{null}\ T^2\subset\mathrm{null}\ T$，则 $\mathrm{null}\ T=\mathrm{null}\ T^2$，根据核空间的性质即证.</p>
+<p><strong>Lemma B.201.</strong> $T\in \mathcal{L}(V)$ 正规当且仅当
+$$
+\forall v\in V,\quad |Tv|=|T^<em>v|
+$$
+$Proof.$ 我们只需要说明
+$$
+\forall v\in V,\quad \langle (TT^</em>-T^<em>T)v,v\rangle  = 0
+$$
+我们将左式展开得到
+$$
+0 = \langle TT^</em>v,v\rangle  - \langle T^<em>Tv,v\rangle  = \langle T^</em>v,T^*v\rangle  - \langle Tv,Tv\rangle 
+$$
+再由内积导出的范数定义即证（这同时也证明了上面的推论）.</p>
+<p><strong>Lemma B.202.</strong> $T\in \mathcal{L}(V)$ 正规当且仅当 $T$ 的特征向量都是 $T^*$ 的特征向量.</p>
+<p>$Proof.$ 必要性：如果 $T$ 正规，则 $T-\lambda I$ 也正规。根据上面的引理，我们取特征对 $(\lambda, u)$ 就有
+$$
+0 = |(T-\lambda I)u| = |(T-\lambda I)^<em>u| = |(T^</em>-\overline{\lambda} I)u|
+$$
+从而 $u$ 是 $T^<em>$ 的特征向量。反之，如果有公共特征向量 $u$，则取共轭转置有
+$$
+(T^</em>-\overline{\lambda} I)u = 0\quad \Rightarrow\quad (T-\lambda I)u = 0
+$$
+因此对应的特征值共轭。充分性：只要证明这些公共特征向量构成 $V$ 的基，因为这样就有
+$$
+TU = U\Lambda,\quad T^<em>U=U\Lambda^</em>
+$$
+其中 $U$ 是特征向量构成的，从而
+$$
+TT^<em>U=TU\Lambda^</em>=U\Lambda\Lambda^<em>=U\Lambda^</em>\Lambda=T^<em>U\Lambda=T^</em>TU
+$$
+由于 $U$ 可逆，则 $TT^<em>=T^</em>T$ 。这只需要证明 $T$ 可对角化，也就是对 $T$ 的任意特征对有
+$$
+(A-\lambda I)^2u = 0\quad \Rightarrow\quad (A-\lambda I)u = 0
+$$
+因为这说明广义特征值重数是 $1$，若当块只能是 $1$ 维。定义 $v=(A-\lambda I)u$ 就有
+$$
+\begin{aligned}
+\langle Au,v\rangle  &amp;= \langle u,A^*v\rangle  = \langle u, \overline{\lambda} v\rangle  = \langle \lambda u,v\rangle \
+  &amp;= \langle v+\lambda u,v\rangle  = |v|^2+ \langle \lambda u,v\rangle 
+\end{aligned}
+$$
+这意味着 $v=0$，即证.</p>
+<p><strong>Theorem B.203.</strong> 线性算子 $T\in \mathcal{L}(V)$ 定义在二维实内积空间 $V$ 上，则下面陈述等价：</p>
+<ul>
+<li>$T$ 正规，但不是自共轭</li>
+<li>$T$ 在正交基下的矩阵有形式
+$$
+M(T) = \left(
+\begin{matrix}
+a &amp; -b\
+b &amp; a
+\end{matrix}
+\right)
+$$
+其中 $b\neq 0$ .</li>
+</ul>
+<p>$Proof.$ 下推上是显然的，只要做共轭转置即证；反之，设有正交基 $(e_1,e_2)$，令
+$$
+M(T,(e_1,e_2)) = \left(
+\begin{matrix}
+a &amp; b\
+c &amp; d
+\end{matrix}
+\right)
+$$
+那么根据定义就有 $|Te_1|^2=a^2+b^2,\ |T^*e_1|^2=a^2+c^2$，于是 $b^2=c^2$，但是 $T$ 不是自共轭，因此 $b\neq c$；同理可证 $a=d$ .</p>
+<h3 id="the-spectral-theorems">The spectral theorems</h3>
+<p><strong>Theorem B.204</strong> (Complex spectral). 对于线性算子 $T\in \mathcal{L}(V),\ \mathbb{F}=\mathbb{C}$， 下面陈述等价：</p>
+<ul>
+<li>$T$ 正规</li>
+<li>$V$ 有 $T$ 特征向量构成的正交基</li>
+<li>$T$ 关于 $V$ 的一个正交基的矩阵是对角阵</li>
+</ul>
+<p><strong>Corollary B.205.</strong> 特征值是实数的正规算子 $T$ 是自共轭.</p>
+<p>$Proof.$ 令 $T=P\Lambda P^{-1}$，其中 $P$ 是特征值构成的，根据正规算子特征对性质，则 $T^<em>=P\Lambda^</em> P^{-1} = P\Lambda P^{-1}=T$ .</p>
+<p><strong>Theorem B.206</strong> (Real spectral).  对于线性算子 $T\in \mathcal{L}(V),\ \mathbb{F}=\mathbb{C}$， 下面陈述等价：</p>
+<ul>
+<li>$T$ 自共轭</li>
+<li>$V$ 有 $T$ 特征向量构成的正交基</li>
+<li>$T$ 关于 $V$ 的一个正交基的矩阵是对角阵</li>
+</ul>
+<h3 id="isometries">Isometries</h3>
+<p><strong>Definition B.207.</strong> 算子 $S\in \mathcal{L}(V)$ 是等距 <em>isometry</em> 若
+$$
+\forall v\in V,\quad |Sv|=|v|
+$$</p>
+<p><strong>Theorem B.208.</strong> 实内积空间中的算子 $S\in \mathcal{L}(V)$ 是等距当且仅当存在 $V$ 中的正交基，使得 $S$ 有分块对角阵，每一块具有如下形式之一
+$$
+(1),\quad (-1),\quad 
+\left(
+\begin{matrix}
+\cos \theta &amp; -\sin\theta\
+\sin\theta &amp; \cos\theta
+\end{matrix}
+\right)
+$$
+其中 $\theta\in(0,\pi)$ .</p>
+<p><strong>Corollary B.209.</strong> 线性算子 $S\in \mathcal{L}(V)$ 定义在二维实内积空间 $V$ 上，则下面陈述等价：</p>
+<ul>
+<li>$S$ 是等距</li>
+<li>$S$ 是单位算子或是旋转</li>
+</ul>
+<h3 id="singular-value-decomposition">Singular value decomposition</h3>
+<p><strong>Definition B.210.</strong> 算子 $T\in \mathcal{L}(V)$ 是半正定 <em>positive semidefinite</em> 若
+$$
+\forall v\in V,\quad \langle Tv,v\rangle  \ge 0
+$$
+它是正定 <em>positive definite</em> 若
+$$
+\forall v\in V,\quad \langle Tv,v\rangle  &gt; 0
+$$
+是正的 <em>positive</em> 若它半正定并且自共轭.</p>
+<p><strong>Corollary B.211.</strong> 任意线性算子 $f\in \mathcal{L}(V)$，有 $f^<em>\circ f,\ f\circ f^</em>$ 都是自共轭并且半正定.</p>
+<p>$Proof.$ 根据定义，自共轭性质是显然的；设 $(\lambda,u)$ 是 $(f^<em>\circ f)$ 的特征对，则我们有
+$$
+\lambda\langle u,u\rangle  = \langle (f^</em>\circ f)u,u \rangle  = \langle fu,fu\rangle \quad \Rightarrow\quad \lambda = \dfrac{\langle fu,fu \rangle }{\langle u,u \rangle } \ge 0
+$$
+对于 $f\circ f^*$ 也是类似的.</p>
+<p><strong>Definition B.212.</strong> 线性映射 $f$ 的奇异值 <em>singular values</em> 是 $f^*\circ f$ 非负特征值的平方根.</p>
+<p><strong>Definition B.213.</strong> 对矩阵 $A\in\mathbb{F}^{m\times n}$，分解 $A=P\Sigma Q^<em>$ 是奇异值分解 </em>singular value decomposition* (SVD) 若 $\Sigma\in\mathbb{R}^{m\times n}$ 是对角阵，而 $P,Q$ 是酉矩阵或正交阵。其中 $\Sigma$ 的对角元称为奇异值，而 $P,Q$ 的列向量称为左奇异向量和右奇异向量.</p>
+<p><strong>Theorem B.214.</strong> 任意矩阵 $A\in\mathbb{C}^{m\times n}$ 有 SVD .</p>
+<p><strong>Definition B.215.</strong> 矩阵 $A,B\in\mathbb{R}^{n\times n}$ 相似 <em>similar</em> 若存在可逆矩阵 $P$ 使得 $B=P^{-1}AP$，映射 $A\mapsto B$ 称为相似变换.</p>
+<h2 id="trace-and-determinant">Trace and determinant</h2>
+<p><strong>Definition B.216.</strong> 矩阵 $A$ 的迹 <em>trace</em> 记为 $\mathrm{tr}\  A$，是其对角元之和.</p>
+<p><strong>Lemma B.217.</strong> 矩阵的迹是其特征值重复其重数后相加的和.</p>
+<p>$Proof.$ 我们考虑矩阵行列式 $\det (\lambda I-A) = (\lambda-\lambda_1)\cdots(\lambda-\lambda_n)$，展开得到
+$$
+\det (\lambda I-A) = \lambda^n-(\lambda_1+\cdots+\lambda_n)\lambda^{n-1}+\cdots
+$$
+根据行列式的运算规则，我们知道 $\lambda^{n-1}$ 的系数就是 $-\mathrm{tr}\  A$ . </p>
+<p><strong>Definition B.218.</strong> 集合 $A$ 的置换 <em>permutation</em> 是一个双射 $\sigma:A\to A$ .</p>
+<p><strong>Definition B.219.</strong> 令 $\sigma$ 为 $A={1,2,\cdots,n}$ 的置换，数对 $(j,k),\ 1\le j\le k\le n$，  $(m_1,\cdots,m_n)$ 由 $m_i=\sigma(i)$ 给出，记 $s$ 为中 $j$ 出现在 $k$ 之后的次数。若 $s$ 为偶，置换 $\sigma$ 的符号为 $1$；若 $s$ 为奇，置换 $\sigma$ 的符号为 $-1$ .</p>
+<p><strong>Definition B.220.</strong> 由向量 $v_1,\cdots,v_n\in\mathbb{R}^n$ 张成的符号平行体 <em>signed volume of a parallelotope</em> 是一个函数 $\delta:\mathbb{R}^{n\times n}\to\mathbb{R}$ 满足</p>
+<ul>
+<li>$\delta(I)=1$ </li>
+<li>若有 $v_i=v_j,\ i\neq j$，则 $\delta(v_1,\cdots,v_n)=0$ </li>
+<li>$\delta$ 线性，即各项 $v_i$ 可以线性相加</li>
+</ul>
+<p><strong>Lemma B.222.</strong> 将一个向量倍乘加到另一个上不会改变符号体积.</p>
+<p><strong>Lemma B.223.</strong> 若 $v_1,\cdots,v_n$ 线性相关，则 $\delta(v_1,\cdots,v_n)=0$ .</p>
+<p><strong>Lemma B.224.</strong> 符号体积 $\delta$ 可交换，即
+$$
+\delta(v_1,\cdots,v_i,\cdots,v_j,\cdots,v_n) = - \delta(v_1,\cdots,v_j,\cdots,v_i,\cdots,v_n)
+$$</p>
+<p><strong>Lemma B.226.</strong> 令 $M_{\sigma}$ 为置换 $\sigma:E\to E$ 的矩阵，其中 $E$ 是标准基向量的集合，则 $\delta(M_{\sigma})=\mathrm{sgn}\ \sigma$ .</p>
+<p><strong>Definition B.227</strong> (Leibniz formula of determinants). 方阵 $A\in\mathbb{R}^{n\times n}$ 的行列式为
+$$
+\det A = \sum_{\sigma\in S_n}\mathrm{sgn}\ \sigma\prod_{i=1}^n a_{\sigma(i),i}
+$$
+即它是对称群 $S_n$ 所有置换作用于 $A$ 的行坐标后每一列关于 $\sigma$ 符号的乘积和.</p>
+<p><strong>Lemma B.228.</strong> 矩阵的行列式就是其特征值重复其重数的乘积.</p>
+<p><strong>Theorem B.229.</strong> 符号体积函数唯一，并且 $\delta = \det$ .</p>
+<p><strong>Definition B.231.</strong> 矩阵 $A\in\mathbb{R}^{n\times n}$ 的代数余子式 <em>cofactor</em> 为
+$$
+C_{ij} = (-1)^{i+j}M_{ij}
+$$
+其中 $M_{ij}$ 是矩阵 $A$ 划去 $i,j$ 行列后的行列式.</p>
+<p><strong>Theorem B.232</strong> (Laplace formula of determinants). 给定下标 $i,j\in 1,2,\cdots,n$，方阵 $A\in\mathbb{R}^{n\times n}$ 的行列式为
+$$
+\det A = \sum_{j^\prime=1}^n a_{ij^\prime}C_{ij^\prime} = \sum_{i^\prime=1}^na_{i^\prime j}C_{i^\prime j}
+$$
+此即为拉普拉斯展开式.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1995 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Inkscape - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#inkscape" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Inkscape
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基本介绍
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基本介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        安装扩展
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        基础操作
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="基础操作">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多选对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        群组操作
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        切换工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        重叠对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        矩形绘图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        星形绘图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        圆形绘图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        延长路径
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        偏移路径
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        简化路径
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        插值路径
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        旋转克隆
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        径向渐变
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘制图标
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        操作实例
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="操作实例">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        创建形状
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        参考图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        物件转换
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        多边形工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        对齐工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        路径节点
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        路径加减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        旋转剪切
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        平铺克隆
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        移动轴心
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        绘图工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        临摹位图
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        渐变工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        光晕效果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        倒影效果
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        剪裁对象
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        喷洒工具
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="inkscape">Inkscape</h1>
+<h2 id="_1">基本介绍</h2>
+<p>Inkscape 是一个开源矢量图绘制软件。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>title: &quot;Inkscape - Draw Freely. | Inkscape&quot;
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>image: &quot;https://media.inkscape.org/static/images/inkscape-og-front.svg&quot;
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>description: &quot;Inkscape is professional vector graphics software which runs on Linux, Mac OS X and Windows desktop computers.&quot;
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>url: &quot;https://inkscape.org/&quot;
+</code></pre></div>
+<h3 id="_2">安装扩展</h3>
+<p>可以在“扩展”菜单中管理安装官方扩展包，也可以在首选项中找到扩展位置</p>
+<ul>
+<li>程序扩展位置 <code>D:\Inkscape\share\inkscape\extensions</code></li>
+<li>用户扩展位置 <code>C:\Users\xyf\AppData\Roaming\inkscape\extensions</code></li>
+</ul>
+<p>将扩展移动到文件夹中，然后重启程序即可。</p>
+<p>首先安装 svg2tikz 用于导出矢量图为 tikz 代码。在<a href="https://xyz2tex.github.io/svg2tikz/install.html#inkscape-install">安装文档</a>中可以找到安装过程，直接将 <code>svg2tikz</code> 文件夹复制到用户扩展位置，然后重启。现在可以在“扩展-导出”中找到导出为 tikz 的选项</p>
+<p>![[image-20240714194653244.png]]</p>
+<p>指定输出目录后，点击“应用”即可导出到对应文件。</p>
+<h3 id="_3">基础操作</h3>
+<p>Inkscape 的基本操作逻辑与 PS 相同，例如 <code>Ctrl, Shift</code> 键的作用都一致。鼠标移动到菜单和图标上，会显示其作用和快捷键。右键页面空白处，可以设置页面属性</p>
+<p>![[image-20240714215048569.png]]</p>
+<p>左侧菜单的每个命令都对应上方的一行工具列</p>
+<p>![[image-20240714215234343.png]]</p>
+<h4 id="_4">多选对象</h4>
+<p>按住 <code>Shift</code> 多选对象，同时拖动鼠标可以补充框选多个对象。</p>
+<p>![[image-20240715134352582.png]]</p>
+<h4 id="_5">群组操作</h4>
+<p>选择多个对象，右键“群组”可以将它们划分为一个整体。也可以使用 <code>Ctrl+G</code> 构建群组，<code>Ctrl+U</code> 取消群组。如果需要单独操作群组中的对象，只需要按住 <code>Ctrl</code> 键点击或者双击，这不会取消群组。</p>
+<h4 id="_6">切换工具</h4>
+<p>工具可通过快捷键切换</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">工具</th>
+<th style="text-align: left;">快捷键</th>
+<th style="text-align: left;">工具</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">D</td>
+<td style="text-align: left;">吸管</td>
+<td style="text-align: left;">S</td>
+<td style="text-align: left;">选择</td>
+</tr>
+<tr>
+<td style="text-align: left;">N</td>
+<td style="text-align: left;">路径</td>
+<td style="text-align: left;">G</td>
+<td style="text-align: left;">渐变</td>
+</tr>
+<tr>
+<td style="text-align: left;">B</td>
+<td style="text-align: left;">钢笔</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h4 id="_7">重叠对象</h4>
+<p>如果多个对象重叠在同一位置，按住 <code>Alt</code> 键点选可以切换选中的对象。要对选中对象进行操作而不选中其它对象，只需按住 <code>Alt</code> 键拖动即可。</p>
+<h4 id="_8">矩形绘图</h4>
+<p>矩形是最常用的基本绘图单位，绘制矩形后，可以调整尺寸位置。按住 <code>Ctrl</code> 可以等比例绘制/调整矩形，按住 <code>Shift</code> 可以以起点为中心绘制或者以矩形质心为中心缩放。</p>
+<h4 id="_9">星形绘图</h4>
+<p>星形绘图和多边形绘图之间可以切换，通过调整绘图参数可以实现多样的绘图效果</p>
+<p>![[image-20240715145731102.png]]</p>
+<h4 id="_10">圆形绘图</h4>
+<p>圆形绘图可以绘制椭圆和饼图，当鼠标位于内部时，拖动节点会得到左侧的结果；当鼠标位于外部时，则会得到右侧的结果。</p>
+<p>![[image-20240715145946597.png]]</p>
+<h4 id="_11">延长路径</h4>
+<p>选中路径后，点击“钢笔工具”可以从端点开始延长路径，也可以将路径合并。</p>
+<p>![[image-20240715151639866.png]]</p>
+<h4 id="_12">偏移路径</h4>
+<p>选择“路径-向内偏移”或“路径-向外偏移”（<code>Ctrl+(, Ctrl+)</code>）可以执行偏置操作</p>
+<p>![[image-20240715151927957.png]]</p>
+<p>一般更灵活的方式是“路径-动态偏移”（<code>Ctrl+J</code>）创建动态偏移对象，双击进入节点模式，可以拖动节点控制偏移距离</p>
+<p>![[image-20240715152821827.png]]
+使用“路径-链接偏移”创建带有链接关系的偏移对象，这种对象能够移动到其它位置，同时还可以继续通过节点调整偏移值</p>
+<p>![[image-20240715153318166.png]]</p>
+<h4 id="_13">简化路径</h4>
+<p>使用“路径-简化”（<code>Ctrl+L</code>）可以减少路径上的节点数量，有时可以用来实现艺术效果。例如</p>
+<p>![[image-20240715154108172.png]]</p>
+<h4 id="_14">插值路径</h4>
+<p>使用“扩展-从路径生成-Interpolate Between Paths”可以在两条路径之间生成插值路径。</p>
+<ul>
+<li>指数参数控制插值曲线的次数，默认为 <code>1</code> 表示线性插值</li>
+<li>插值方式可选“等分”或“丢弃节点”</li>
+<li>“创建终点路径的副本”会在生成插值结果后，生成插值的两端点的拷贝</li>
+</ul>
+<p>![[image-20240715154621303.png]]</p>
+<p>设定“插值样式”和“Z-顺序”，对下面路径插值得到渐变的效果。其中后者是将三角形路径水平翻转后执行插值得到的结果，这是由于起始节点不同造成的。</p>
+<blockquote>
+<p>要查看起始节点位置，双击路径查看节点，按 <code>Tab</code> 键选中的第一个节点就是起始节点。</p>
+</blockquote>
+<p>![[image-20240715160059055.png]]</p>
+<h4 id="_15">旋转克隆</h4>
+<p>如果需要将对象沿着径向放置旋转，可以使用“平铺克隆”实现。首先将“对称”设为“简单变换”</p>
+<p>![[image-20240715192722796.png]]</p>
+<p>然后设置偏移，其中 X 偏移设为每列 <code>-100%</code>，Y 偏移设为每行 <code>-100%</code>，用于弥补平铺克隆时的平移值。</p>
+<blockquote>
+<p>如果现在创建克隆，那么所有克隆将会与原始对象重叠。</p>
+</blockquote>
+<p>![[image-20240715192743713.png]]</p>
+<p>现在可以设置旋转参数为每列 6 度，平铺 1 行 30 列，就得到下面的结果</p>
+<p>![[image-20240715193249690.png]]
+如果想要更丰富的旋转样式，点击“去除”来撤销克隆。设定参数</p>
+<ul>
+<li>平铺 8 行 10 列</li>
+<li>每行转 2 度，每列转 18 度</li>
+</ul>
+<p>现在每一组有 8 条线，这就是一列 8 行克隆，共有 10 组对应 10 列。</p>
+<p>![[image-20240715193506296.png]]</p>
+<p>现在旋转中心默认为对象中心，如果希望以指定位置为轴心，可以先移动对象轴线，然后应用旋转克隆。
+![[image-20240715193956197.png]]</p>
+<h4 id="_16">径向渐变</h4>
+<p>在填充中可以设置“径向渐变”，但这种渐变默认渐变中心位于轴心。如果需要修改渐变中心，需要切换到“渐变工具”，然后拖动 <code>X</code> 形的手柄（默认在中间方形节点位置）。</p>
+<p>![[image-20240715194319565.png]]</p>
+<h4 id="_17">绘制图标</h4>
+<p>将画布调整为 <code>24x24</code> 像素，然后设置网格单位为 <code>px</code>，间隔为 <code>0.5px</code>，此时得到 <code>48x48</code> 网格（需要在“视图”中开启“页面网格”）。现在如果将填充对象与偶数网格线对齐，将描边对象与奇数网格线对齐，笔画宽度为偶数个 <code>px</code>，以默认的 <code>96dpi</code> 导出，就可以获得清晰的位图图像而无需抗锯齿。</p>
+<p>![[image-20240715194727190.png]]</p>
+<h3 id="_18">操作实例</h3>
+<h4 id="_19">创建形状</h4>
+<p>左侧菜单栏选择矩形绘制，右键菜单选择“填充与描边”，可以看到右侧的设置界面。</p>
+<p>![[image-20240714214100097.png]]</p>
+<p>也可以通过下方的调色板设置颜色，按住 <code>Shift</code> 键选择边框颜色。</p>
+<p>![[image-20240714214229624.png]]</p>
+<h4 id="_20">参考图</h4>
+<p>将图片直接拖放到界面中即可引入参考图。在左侧确保为“选择工具”的情况下，选择上方工具栏中的“置于底层”，然后右键“锁定选取的对象”来避免干扰。</p>
+<p>![[image-20240714215423815.png]]</p>
+<p>操作时，调整对象透明度，这样能够看到下方的参考图</p>
+<p>![[image-20240714220125839.png]]</p>
+<h4 id="_21">物件转换</h4>
+<p>普通的矩形不能直接修改为梯形，因此在上方选择“路径-对象转路径”将矩形打散为一般的路径。双击矩形，左侧菜单自动切换到“节点工具”，此时可以移动对象节点</p>
+<ul>
+<li>按住 <code>Ctrl</code> 键确保水平垂直移动；</li>
+<li>可以拖动边，此时下边界会变成具有左右两个操作杆的 Bezier 曲线；</li>
+</ul>
+<p>经过调整即可得到目标形状。</p>
+<p>![[image-20240714220653292.png]]</p>
+<h4 id="_22">多边形工具</h4>
+<p>选择多边形工具，在上方工具栏可以在“多边形/星形”之间切换</p>
+<p>![[image-20240714220904513.png]]</p>
+<p>使用此工具绘制塔顶，按住 <code>Ctrl</code> 键吸附角度和对象</p>
+<p>![[image-20240714221214177.png]]</p>
+<h4 id="_23">对齐工具</h4>
+<p>在右下角菜单中找到“对齐与分布”，按住 <code>Shift</code> 依次选择塔顶和塔身，设置对齐方式为“最近选区”和“垂直居中”即可对齐。</p>
+<p>![[image-20240714221417484.png]]</p>
+<h4 id="_24">路径节点</h4>
+<p>将三角形转换为路径，双击边可以添加一个节点。点击角点，选择上方工具栏中的“使选中节点变为对称节点”，即可对称操作控制杆。</p>
+<p>![[image-20240714222057268.png]]</p>
+<h4 id="_25">路径加减</h4>
+<p>要制作窗户，首先创建一个矩形，双击控制节点，拖动圆角点可以控制圆角</p>
+<p>![[image-20240714222520391.png]]</p>
+<p>转换为路径后，转动操作轴，控制移动节点到合适的位置（默认节点的两个操作杆是共线的）</p>
+<p>![[image-20240714222852877.png]]</p>
+<p>创建一个矩形，选择上方菜单的“路径-差集”来移除多余的部分</p>
+<p>![[image-20240714223020190.png]]</p>
+<p>使用多个圆形路径合并，然后与矩形路径作差得到云朵</p>
+<p>![[image-20240715003307795.png]]</p>
+<h4 id="_26">旋转剪切</h4>
+<p>复制窗户，确保左侧为“选择工具”，点击对象时会在伸缩柄与旋转剪切柄之间切换。调整伸缩和角度后，使用路径差集构造窗户。</p>
+<p>![[image-20240714223522740.png]]</p>
+<p>选择“对象-水平翻转”创建两个窗户，用之前的方法制作门</p>
+<p>![[image-20240714224050624.png]]</p>
+<h4 id="_27">平铺克隆</h4>
+<p>制作网格状的叶片，首先创建一个基本矩形，在左上角调整宽高。选择“编辑-克隆-创建平铺克隆”，设置为 3 行 2 列后创建。</p>
+<p>![[image-20240714224502612.png]]</p>
+<p>删除基本矩形，选中所有新矩形，切换到右侧“填充与描边”界面，选择最左侧的“无绘制”来移除填充色，然后设置描边，最后右键“群组”将所有新矩形合并</p>
+<p>![[image-20240714224710252.png]]</p>
+<p>通过旋转缩放调整后，得到最终的叶片</p>
+<p>![[image-20240714225704027.png]]</p>
+<h4 id="_28">移动轴心</h4>
+<p>要将叶片进行旋转，需要找到旋转轴心。从左边和上方拉出两条参考线，在右上角选择吸附，先将叶片与参考线对齐。然后双击叶片，移动显示的轴心。</p>
+<blockquote>
+<p>使用 <code>Ctrl+D</code> 进行原地复制，然后按住 <code>Ctrl</code> 进行旋转。</p>
+</blockquote>
+<p>![[image-20240714230535138.png]]</p>
+<p>经过简单调整后得到最终的结果</p>
+<p>![[image-20240714230927409.png]]
+可以将它们整合为一个群组，然后整个移出画面备用。</p>
+<h4 id="_29">绘图工具</h4>
+<p>铅笔工具允许手绘矢量图，绘制内容将会自动平滑为路径。书法工具则可绘制具有艺术风格的效果。钢笔工具用于绘制 Bezier 曲线，左键选点，右键完成绘制。</p>
+<blockquote>
+<p>铅笔和钢笔工具要绘制曲线，需要设置描边并将填充设为空。</p>
+</blockquote>
+<p>![[image-20240715003808141.png]]
+默认情况下，每个节点处的两个控制杆共线。通过选择上方工具栏中的“使选中节点变为尖角节点”可以允许控制杆单边调整</p>
+<blockquote>
+<p>不同类型的节点样式不同，例如默认为正方形，尖角节点则为菱形。</p>
+</blockquote>
+<p>![[image-20240715004043591.png]]</p>
+<h4 id="_30">临摹位图</h4>
+<p>拖入图像后，可以右键选择“临摹位图轮廓”，右侧设置检测模式等选项，可以将位图转换为矢量图。</p>
+<p>![[image-20240715005434533.png]]</p>
+<p>应用后，可以选择“路径-打散”将转换的矢量图内容分离使用</p>
+<p>![[image-20240715005607909.png]]</p>
+<p>还可以保留原始图像中的色彩，切换到“多次扫描”，检测模式设为“颜色”，设置扫描次数指定最终分离出的对象个数。</p>
+<p>![[image-20240715010112558.png]]</p>
+<p>应用后，右键“解除群组”，可以看到扫描 4 次得到 4 张矢量图</p>
+<p>![[image-20240715010546355.png]]</p>
+<h4 id="_31">渐变工具</h4>
+<p>渐变工具必须在对象内部使用，因此给出天空和湖面的两个矩形，然后用渐变工具拉出一个渐变效果。分别点击两个端点，右侧界面切换到“填充与描边”，选择 HSV 模式，启用色相环。通过取色器获得 RGB 颜色后，将 HEX 即 16 进制结果填写到下方 <code>RGBA</code> 选项中，注意最后两位补上 <code>ff</code> 透明度。</p>
+<p>![[image-20240715012129051.png]]</p>
+<h4 id="_32">光晕效果</h4>
+<p>首先填充一个月亮，然后 <code>Ctrl+D</code> 原地复制，按住 <code>Shift+Ctrl</code> 中心放缩得到一个更大的月亮，然后减小不透明度、增大模糊度即可。</p>
+<p>![[image-20240715012849831.png]]</p>
+<h4 id="_33">倒影效果</h4>
+<p>将船只复制一份，调低透明度后翻转，放在船只下方。然后创建一个黑白过渡的遮罩，同时选中遮罩和倒影，选择“对象-蒙版-设置蒙版”即可。</p>
+<blockquote>
+<p>当多个物体重合在一个位置时，按住 <code>Alt</code> 键可以循环选中不同的物体，因此使用 <code>Shift+Alt</code> 来选中同一位置的不同物体。</p>
+</blockquote>
+<p>![[image-20240715015447369.png]]</p>
+<h4 id="_34">剪裁对象</h4>
+<p>绘制一个与页面相同大小的矩形，然后选中需要剪裁的对象，选择“对象-剪裁-设置剪裁”即可完成剪裁。</p>
+<p>![[image-20240715020700025.png]]</p>
+<h4 id="_35">喷洒工具</h4>
+<p>使用星星工具绘制 4 角星，然后缩小内半径得到星芒外观，然后使用“喷洒工具”绘制大量星星。</p>
+<p>![[image-20240715124837379.png]]</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

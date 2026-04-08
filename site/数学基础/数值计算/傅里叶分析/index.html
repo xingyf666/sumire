@@ -1,0 +1,1820 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="个人知识库">
+      
+      
+        <meta name="author" content="xingyf666">
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Fourier Analysis - Sumire</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fourier-analysis" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Sumire" class="md-header__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Sumire
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Fourier Analysis
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="切换浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../index.md" class="md-tabs__link">
+        
+  
+  
+    
+  
+  主页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../about/" class="md-tabs__link">
+          
+  
+  
+  关于
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../编程基础/index.md" class="md-tabs__link">
+          
+  
+  
+  编程基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../工具教程/index.md" class="md-tabs__link">
+          
+  
+  
+  工具教程
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../数学基础/index.md" class="md-tabs__link">
+          
+  
+  
+  数学基础
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../图形开发/index.md" class="md-tabs__link">
+          
+  
+  
+  图形开发
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../随机自学/index.md" class="md-tabs__link">
+          
+  
+  
+  随机自学
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Sumire" class="md-nav__button md-logo" aria-label="Sumire" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Sumire
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/xingyf666/sumire" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    xingyf666/sumire
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    主页
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    关于
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    关于
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    编程基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    编程基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/高性能计算/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/构建工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../编程基础/编程语言/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    工具教程
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    工具教程
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/AI服务/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/笔记工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../工具教程/建模工具/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    数学基础
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    数学基础
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/几何/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../数学基础/代数/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    图形开发
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    图形开发
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/渲染框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/游戏开发/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../图形开发/几何框架/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    随机自学
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    随机自学
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../随机自学/index.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    None
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lp-space" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        $L^p$ space
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-transforms" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fourier transforms
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#greens-function-of-the-heat-equation-in-inftyinfty" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Green's function of the heat equation in $(-\infty,+\infty)$
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fourier-solution-of-linear-pdes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fourier solution of linear PDEs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dissipation-and-dispersion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dissipation and dispersion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#phase-velocity-and-group-velocity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Phase velocity and group velocity
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="fourier-analysis">Fourier Analysis</h1>
+<p><strong>Definition F.1.</strong> Lebesgue 可测函数 $u:\mathbb{R}\to\mathbb{C}$ 的 $L^2$ 范数是非负实数或无限实数
+$$
+|u| = \left[\int_{-\infty}^{\infty}|u(x)|^2dx \right]^{\frac{1}{2}}
+$$</p>
+<p><strong>Notation 23.</strong> 用 $L^2$ 表示所有 $L^2$ 范数有限的函数集 $L^2={u:|u|&lt;\infty}$ ；类似地有
+$$
+|u|<em>1=\int</em>{-\infty}^\infty|u(x)|dx,\quad |u|<em>\infty=\sup</em>{-\infty&lt;x&lt;\infty}|u(x)|
+$$
+我们常用 $|\cdot|$ 来表示 $L^2$ 范数.</p>
+<h2 id="lp-space">$L^p$ space</h2>
+<p><strong>Definition F.2.</strong> 令 $\Omega$ 是 $\mathbb{R}^n$ 中的区域 <em>domain</em> ，即内部非空的 Lebesgue 可测子集， Lebesgue 可测函数 $f:\Omega\to\mathbb{R}$ 的 $L^p$ 范数为
+$$
+|f|<em>p = \left{
+\begin{aligned}
+&amp;\left(\int</em>\Omega|f(x)|^pdx\right)^{1/p},\quad p\in[1,+\infty)\
+&amp;\mathrm{ess}\sup{|f(x)|:x\in\Omega},\quad p=\infty
+\end{aligned}
+\right.
+$$
+其中 $dx$ 是 Lebesgue 测度， $\int_{\Omega}$ 是 Lebesgue 积分，而 $\mathrm{ess}\sup$ 是
+$$
+\mathrm{ess}\sup{|f(x)|:x\in\Omega} = \inf_{\mathrm{meas(\Omega^\prime)=0}}\sup_{x\in\Omega\backslash\Omega^\prime}|f(x)|
+$$
+全体 $L^p$ 范数有界的函数集称为 $L^p$ 空间.</p>
+<p><strong>Theorem F.3</strong> (Minkowski's Inequality). 对于 $p\in[1,\infty]$ 和 $f,g\in L^p(\Omega)$ 有
+$$
+|f+g|_p \le |f|_p+|g|_p
+$$</p>
+<p><strong>Theorem F.4</strong> (Holder's Inequality). 对于 $p,q\in[1,\infty]$ 是相伴数，即 $\frac{1}{p}+\frac{1}{q}=1$ ，则 $f\in L^p(\Omega),g\in L^q(\Omega)$ 说明 $fg\in L^1(\Omega)$ 且
+$$
+|fg|_1 \le |f|_p|g|_q
+$$</p>
+<p><strong>Theorem F.5</strong> (Schwarz's Inequality).  $f\in L^2(\Omega),g\in L^2(\Omega)$ 说明 $fg\in L^1(\Omega)$ 且
+$$
+\int_{\Omega}|fg|dx \le |f|_2|g|_2
+$$</p>
+<p><strong>Theorem F.6.</strong> 对于 $p\in[1,\infty]$ ， $L^p(\Omega)$ 是 Banach 空间.</p>
+<p><strong>Definition F.7.</strong>  Hilbert 空间是内积诱导的 Banach 空间.</p>
+<h2 id="fourier-transforms">Fourier transforms</h2>
+<p><strong>Definition F.8.</strong> 函数 $u\in L^2(\mathbb{R})$ 的傅里叶变换是 $\hat u:\mathbb{R}\to \mathbb{C}$ 满足
+$$
+\hat u(\xi) = (\mathcal{F}u)(\xi) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-i\xi x}u(x)dx
+$$</p>
+<p><strong>Example F.9.</strong> 函数 $u\in L^1(\mathbb{R})$ 的傅里叶变换同上，则 $\hat u\in\mathcal{C}<em>b(\mathbb{R})$ ，即 $\hat u$ 是有界连续函数，因为
+$$
+|\hat u(\xi)| = \frac{1}{\sqrt{2\pi}}\left|\int</em>{-\infty}^{\infty}e^{-i\xi x}u(x)dx \right| \le \int_{-\infty}^{\infty}\left|e^{-i\xi x}\right||u(x)|dx =  \int_{-\infty}^{\infty}|u(x)|dx
+$$
+因此傅里叶变换是有界线性变换.</p>
+<p><strong>Theorem F.10.</strong> 若 $u\in L^2(\mathbb{R})$ ，则它的傅里叶变换 $\hat u\in L^2(\mathbb{R})$ ，且可通过逆傅里叶变换
+$$
+u(x) = (\mathcal{F}^{-1}\hat u)(x) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{i\xi x}\hat u(\xi)d\xi
+$$</p>
+<p><strong>Definition F.11.</strong> 网格函数 $U\in L^2(\mathbb{Z})$ 的傅里叶变换是 $\hat U:\mathbb{Z}\to\mathbb{C}$ 满足
+$$
+\hat U(\xi) = (\mathcal{F}U)(\xi) = \frac{1}{\sqrt{2\pi}}\sum_{m\in\mathbb{Z}}e^{-im\xi}U_m
+$$
+逆傅里叶变换为
+$$
+U_m=\frac{1}{\sqrt{2\pi}}\int_{-\pi}^{+\pi}e^{im\xi}\hat U(\xi)d\xi
+$$
+它们实际上就是傅里叶级数展开.</p>
+<p><strong>Theorem F.12.</strong> 令 $u,v\in L^2$ 有傅里叶变换 $\hat u=\mathcal{F}u,\hat v=\mathcal{F}v$ ，则有</p>
+<p>(a) 线性性质 Linearity.</p>
+<p>(b) 平移性质 Translation.
+$$
+\mathcal{F}<a href="\xi">u(x+x_0)</a>=e^{i\xi x_0}\hat u(\xi)
+$$
+(c) 调制 Modulation.
+$$
+\mathcal{F}<a href="\xi">e^{i\xi x_0}u(x)</a>= \hat u(\xi-\xi_0)
+$$
+(d) 伸缩 Dilation.
+$$
+\mathcal{F}<a href="\xi">u(cx)</a> = \frac{1}{|c|}\hat u\left(\frac{\xi}{c} \right)
+$$
+(e) 共轭 Conjugation.
+$$
+\mathcal{F}<a href="\xi">\overline u</a> = \overline{\hat u(-\xi)}
+$$
+(c) 微分 Differentiation. 若 $u_x\in L^2$ ，则
+$$
+\mathcal{F}<a href="\xi">u_x</a> = i\xi\hat u(\xi)
+$$
+(g) 逆变换 Inversion.
+$$
+\mathcal{F}^{-1}<a href="\xi">u</a> = \hat u(-\xi)
+$$
+$Proof.$ 大部分性质可以直接验证。对于微分性质有
+$$
+\widehat{u_x}(\xi) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}e^{-i\xi x}u_x(x)dx = -\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}(-i\xi)e^{-i\xi x}u(x)dx = i\xi\hat u(\xi)
+$$
+其中利用了分部积分.</p>
+<p><strong>Definition F.13.</strong> 函数 $u(x)$ 是实函数若有 $u=\overline{u}$ ，是虚函数若有 $u=-\overline{u}$ ，是 <em>Hermitian</em> 若有 $u(x)=\overline{u(-x)}$ ，是 <em>shew-Hermitian</em> 若有 $u(x)=-\overline{u(-x)}$ .</p>
+<p><strong>Theorem F.14.</strong> 用 $\hat u=\mathcal{F}u$ 表示 $u\in L^2$ 的傅里叶变换，则</p>
+<p>(a) $u$ 是偶/奇函数当且仅当 $\hat u$ 是偶/奇函数</p>
+<p>(b) $u$ 是实/虚函数当且仅当 $\hat u$ 是 Hermitian / shew-Hermitian</p>
+<p>(c) $u$ 是实偶函数当且仅当 $\hat u$ 是实偶函数</p>
+<p>(d) $u$ 是实奇函数当且仅当 $\hat u$ 是虚奇函数</p>
+<p>(e) $u$ 是虚偶函数当且仅当 $\hat u$ 是虚偶函数</p>
+<p>(f) $u$ 是虚奇函数当且仅当 $\hat u$ 是实奇函数</p>
+<p><strong>Definition F.15.</strong> 两个函数 $u,v$ 的卷积 <em>convolution</em> 是 $u<em>v$ 定义为
+$$
+(u</em>v)(x)=(v*u)(x)=\int_{-\infty}^{\infty}u(x-y)v(y)dy = \int_{-\infty}^{\infty}u(y)v(x-y)dy
+$$
+假设积分存在.</p>
+<p><strong>Theorem F.16.</strong> 若 $u\in L^2,v\in L^1$ ，则 $u<em>v\in L^2$ ，且
+$$
+\widehat{u</em>v}(\xi) = \sqrt{2\pi}\hat u(\xi)\hat v(\xi)
+$$
+$Proof.$ 直接通过定义有
+$$
+\begin{aligned}
+\widehat{u*v}(\xi) &amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}u(y)v(x-y)dy\right)e^{-i\xi x}dx\
+&amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}u(y)v(x-y)e^{-i\xi x}dxdy\
+&amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\left(\int_{-\infty}^{\infty}u(y)v(x-y)dy\right)e^{-i\xi x}dx\
+&amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\int_{-\infty}^{\infty}u(y)v(z)e^{-i\xi (y+z)}dzdy\
+&amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}u(y)e^{-i\xi y}dz\int_{-\infty}^{\infty}v(z)e^{-i\xi z}dz\
+&amp;= \sqrt{2\pi}\hat u(\xi)\hat v(\xi)
+\end{aligned}
+$$
+其中利用了变量替换 $z=x-y$ .</p>
+<p><strong>Theorem F.17.</strong>  $u,\hat u$ 的 $L^2$ 范数可以通过 <em>Parseval</em> 等式联系起来，又叫做 <em>Plancherel</em> 定理
+$$
+\forall u\in L^1(\mathbb{R}^N)\cap L^2(\mathbb{R}^N),\quad |\hat u|=|u|
+$$
+$Proof.$ 直接计算
+$$
+\begin{aligned}
+\int |u(x)|^2dx &amp;= \int\overline{u(x)}u(x)dx = \left(\overline{u(x)}<em>u(-x) \right)(0)\
+&amp;= \frac{1}{\sqrt{2\pi}}\int\widehat{\overline{u(x)}</em>u(-x)}(\xi)f\xi\
+&amp;= \int\widehat{\overline{u(x)}}(\xi)\widehat{u(-x)}(\xi)d\xi\
+&amp;= \int\overline{\hat u(-\xi)}\hat u(-\xi)d\xi = \int|\hat u(\xi)|^2d\xi
+\end{aligned}
+$$
+第二步是利用卷积定义中取 $x=0$ 得到的，最后一步用到了积分区间的对称性。还需要说明 $\overline u<em>u\in L^2,\ \widehat{\overline{u}</em>u}= |\hat u(\xi)|^2\in L^1$ ，这里不做进一步讨论.</p>
+<p><strong>Definition F.20.</strong> 定义在 $\mathbb{R}$ 上的函数 $u$ 称为有界变差 <em>bounded variation</em> 若存在常数 $M$ 使得对任意有限 $m$ 和 $x_0&lt;x_1&lt;\cdots&lt;x_m$ 有
+$$
+\sum_{j=1}^m|u(x_j)-u(x_{j-1})|\le M
+$$</p>
+<p><strong>Theorem F.21.</strong> 令 $u\in L^2$ 则有</p>
+<p>(a) 若 $u\in L^2$ 有 $p-1$ 阶连续可微，且 $u^{(p)}\in L^2$ 有界变差，则
+$$
+\hat u(\xi) = O(|\xi|^{-p-1}),\quad |\xi|\to\infty
+$$
+(b) 若 $u\in L^2$ 无限连续可微，则
+$$
+\hat u(\xi) = O(|\xi|^{-M}),\quad |\xi|\to\infty,\ \forall M
+$$
+ 反之同样成立.</p>
+<p>(c) 若 $u$ 可以延拓为整函数使得
+$$
+\exists a&gt;0,\quad\mathrm{s.t.}\quad |u(z)|=O\left(e^{a|z|}\right),\quad |z|\to\infty
+$$
+则 $\hat u$ 有紧支集包含在 $[-a,a]$ 中，反之同样成立.</p>
+<h2 id="greens-function-of-the-heat-equation-in-inftyinfty">Green's function of the heat equation in $(-\infty,+\infty)$</h2>
+<p><strong>Lemma F.23.</strong> 原点处的 Gauss 函数的傅里叶变换是另一个 Gauss 函数.</p>
+<p>$Proof.$ 首先考虑 $f(x)=e^{-x^2}$ ，则
+$$
+\hat f(\xi)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-x^2}e^{-i\xi x}dx
+$$
+关于 $\xi$ 求导得到
+$$
+\begin{aligned}
+\dfrac{d}{d\xi}\hat f(\xi) &amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-x^2}(-ix)e^{-i\xi x}dx\
+&amp;= \frac{i}{2\sqrt{2\pi}}\int_{-\infty}^{+\infty}\dfrac{de^{-x^2}}{dx}e^{-i\xi x}dx\
+&amp;= -\frac{\xi}{2\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-x^2}e^{-i\xi x}dx\
+&amp;= -\dfrac{\xi}{2}\hat f(\xi)
+\end{aligned}
+$$
+第三步使用了分部积分。此 ODE 的唯一解为
+$$
+\hat f(\xi)=ce^{-\frac{\xi^2}{4}},\quad c=\hat f(0)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-x^2}dx=\frac{\sqrt{2}}{2}
+$$
+利用傅里叶变换的伸缩性质即证。特别地，对于 $a=1,b=0$ 的 Gauss 函数的傅里叶变换是 $a^\prime=c,b^\prime=0,c^\prime=\frac{1}{c}$ 的 Gauss 函数.</p>
+<p><strong>Lemma F.24.</strong> 对任意 $u\in L^2$ 满足
+$$
+\forall n\in\mathbb{N},\quad \lim_{x\to\pm\infty}u^{(n)}(x)=0
+$$
+我们有
+$$
+\dfrac{\widehat{d^2u}}{dx^2}=-\xi^2\hat u
+$$
+$Proof.$ 利用傅里叶变换的定义和分部积分有
+$$
+\begin{aligned}
+\sqrt{2\pi}\dfrac{\widehat{d^2u}}{dx^2} &amp;=\int_{-\infty}^{+\infty}e^{-i\xi x}\frac{d^2u}{dx^2}dx\
+&amp;= e^{-i\xi x}\frac{du}{dx}\bigg|<em>{-\infty}^{+\infty}-\int</em>{-\infty}^{+\infty}\frac{du}{dx}(-i\xi)e^{-i\xi x}dx\
+&amp;= i\xi\int_{-\infty}^{+\infty}\frac{du}{dx}e^{-i\xi x}dx\
+&amp;= i\xi(e^{-i\xi x}u)\bigg|<em>{-\infty}^{+\infty}+(i\xi)^2\int</em>{-\infty}^{+\infty}ue^{-i\xi x}dx\
+&amp;= -\xi^2\int_{-\infty}^{+\infty}ue^{-i\xi x}dx = -\xi^2\sqrt{2\pi}\hat u
+\end{aligned}
+$$
+其中利用了导数极限为零的条件，消去系数即证.</p>
+<p><strong>Theorem F.25.</strong> 热方程
+$$
+u_t=\nu u_{xx},\quad x\in(-\infty,+\infty)
+$$
+带有初值条件 $\eta(x)=e^{-\beta x^2}$ 的解为
+$$
+u(x,t)=\dfrac{1}{\sqrt{4\beta\nu t+1}}\exp({-\frac{x^2}{4\nu t+1/\beta}})
+$$
+$Proof.$ 利用引理，上式做傅里叶变换得到 ODE
+$$
+\hat u_t(\xi,t)=-\nu\xi^2\hat u(\xi,t)
+$$
+根据初值条件 $\hat u(\xi,0)=\hat\eta(\xi)$ 得到解 $\hat u(\xi,t)=e^{-\nu\xi^2t}\hat\eta(\xi)$ ，于是
+$$
+\begin{aligned}
+u(x,t)&amp;=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}\hat u(\xi,t)e^{i\xi x}d\xi\
+&amp;=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{+\infty}e^{-\nu\xi^2t}\hat\eta(\xi)e^{i\xi x}d\xi\
+&amp;=\frac{1}{2\sqrt{\pi\beta}}\int_{-\infty}^{+\infty}e^{-\xi^2(\nu t+\frac{1}{4\beta})}e^{i\xi x}d\xi\
+\end{aligned}
+$$
+定义 $C=\frac{1}{4\nu t+1/\beta}$ 得到
+$$
+\begin{aligned}
+u(x,t)&amp;=\frac{1}{2\sqrt{\pi\beta}}\int_{-\infty}^{+\infty}e^{-\frac{\xi^2}{4C}}e^{i\xi x}d\xi\
+&amp;=\frac{1}{2\sqrt{\pi\beta}}\sqrt{4\pi C}e^{-x^2C}\
+&amp;=\dfrac{1}{\sqrt{4\beta\nu t+1}}\exp({-\frac{x^2}{4\nu t+1/\beta}})
+\end{aligned}
+$$
+随着 $t$ 增大，高斯分布逐渐分散，峰值减小.</p>
+<p><strong>Corollary F.26.</strong> 初值条件 $\eta(x)=e^{-\beta(x-\overline{x})^2}$ 的傅里叶变换是解的平移，即有
+$$
+u(x,t)=\dfrac{1}{\sqrt{4\beta\nu t+1}}\exp({-\frac{(x-\overline{x})^2}{4\nu t+1/\beta}})
+$$</p>
+<p><strong>Corollary F.27.</strong> 带有初值条件
+$$
+\omega_\beta(x,0;\overline{x})=\sqrt{\frac{\beta}{\pi}}e^{\beta(x-\overline{x})^2}
+$$
+热方程的解为
+$$
+\omega_\beta(x,t;\overline{x})=\dfrac{1}{\sqrt{4\beta\nu t+\pi/\beta}}\exp({-\frac{(x-\overline{x})^2}{4\nu t+1/\beta}})
+$$</p>
+<p><strong>Definition F.28.</strong>  Green 函数
+$$
+G(x,t;\overline{x})=\lim_{\beta\to+\infty}\omega_\beta(x,t;\overline{x})=\frac{1}{\sqrt{4\pi\nu t}}\exp(-\frac{(x-\overline{x})^2}{4\nu t})
+$$
+是带有 Dirac delta 函数作为初值的热方程的解.</p>
+<h2 id="fourier-solution-of-linear-pdes">Fourier solution of linear PDEs</h2>
+<p><strong>Lemma F.29.</strong> 线性 PDE 如下
+$$
+\frac{\partial u}{\partial t} + \sum_{n=1}^Na_n\frac{\partial^nu}{\partial x^n} = 0
+$$
+单傅里叶模型为
+$$
+\frac{\partial \hat u}{\partial t}(\xi,t) + \sum_{n=1}^Na_n(i\xi)^n\hat u(\xi,t) = 0
+$$
+$Proof.$ 利用对 $u(x,t)$ 的傅里叶逆变换的偏导得到
+$$
+\begin{aligned}
+    \frac{\partial u}{\partial t}(x,t) &amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat u_t(\xi,t)e^{i\xi x}d\xi\
+    \frac{\partial^nu}{\partial x^n}(x,t) &amp;= \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat u(\xi,t)(i\xi)^ne^{i\xi x}d\xi
+\end{aligned}
+$$
+代回即证.</p>
+<p><strong>Lemma F.30.</strong> 上述 PDE 带有初值条件 $u(x,0)=\eta(x)$ 的解为
+$$
+u(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat\eta(\xi)e^{i(\xi x-\omega t)}d\xi
+$$
+其中 $\omega=\sum_{n=1}^Na_n\xi^ni^{n-1}$ .</p>
+<p>$Proof.$ 重写单傅里叶模型为
+$$
+\frac{\partial \hat u(\xi,t)}{\partial t} = -i\omega\hat u(\xi,t)
+$$
+通过 Theorem 10.51 得到 $\hat u(\xi,t) = e^{-i\omega t}\hat\eta(\xi)$ ，再做逆傅里叶变换即证.</p>
+<p><strong>Theorem F.31.</strong> 如果初值条件 $\eta(x)\in L^2$ ，则 $|u|_2$ 对任意 $t\ge0$ 都是常数.</p>
+<p>$Proof.$ 利用上面引理有
+$$
+|u(x,t)|^2 = \int_{-\infty}^{+\infty}|u(x,t)|^2dx = \int_{-\infty}^{+\infty}|\hat u(\xi,t)|^2d\xi = \int_{-\infty}^{+\infty}|\hat\eta(\xi,t)|^2d\xi = \int_{-\infty}^{+\infty}|\eta(x,t)|^2dx
+$$
+ 其中利用了 $|\hat u(\xi,t)| = |e^{-i\omega t}||\hat\eta(\xi)| = |\hat\eta(\xi)|$ 以及 Theorem F.17 .</p>
+<h2 id="dissipation-and-dispersion">Dissipation and dispersion</h2>
+<p><strong>Definition F.32.</strong> 一个 PDE 或波动问题的色散关系 <em>dispersion relation</em> 是频率 $\omega$ 和波数 $\xi$ 的关系 $\omega=\omega(\xi)$ .</p>
+<p><strong>Note.</strong> 对于带有初值条件 $u(x,0)=\eta(x)$ 的线性 PDE 的解
+$$
+u(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat\eta(\xi)e^{i(\xi x-\omega t)}d\xi,\quad \omega=\sum_{n=1}^Na_n\xi^ni^{n-1}
+$$
+将 $\omega$ 代入得到
+$$
+u(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^\infty\hat\eta(\xi)e^{(a_2\xi^2-a_4\xi^4+\cdots)t}e^{i\xi[x-(a_1-a_3\xi+\cdots)]}d\xi
+$$
+其中实数 $e^{(a_2\xi^2-a_4\xi^4+\cdots)t}$ 随着 $t$ 增大消失就意味着耗散 dissipation ，虚数 $e^{i\xi[x-(a_1-a_3\xi+\cdots)]}$ 模为 $1$ 始终不变，称为色散 dispersion .</p>
+<p><strong>Example F.33.</strong> 线性 Korteweg-deVries (KdV) 方程
+$$
+\varphi_t+c_0\varphi_x+\nu\varphi_{xxx} = 0
+$$
+根据定义直接代入 $\omega=\sum_{n=1}^Na_n\xi^ni^{n-1}$ 有色散关系 $\omega=c_0\xi-\nu\xi^3$ .</p>
+<p><strong>Example F.34.</strong>  beam 方程
+$$
+\varphi_{tt} + \gamma^2\varphi_{xxxx} = 0
+$$
+有色散关系 $\omega=\pm\gamma\xi^2$ 因为它等价于 $\varphi_t=\pm\gamma\varphi_{xx}$ .</p>
+<h2 id="phase-velocity-and-group-velocity">Phase velocity and group velocity</h2>
+<p><strong>Definition F.35.</strong> 波动方程
+$$
+\varphi(x,t) = \varphi_0e^{i\theta(x,t)} = \varphi_0e^{i\omega t}e^{i\xi x}e^{-i\theta_0}
+$$
+其中 $\varphi_0$ 称为振幅 <em>amplitude</em> ， $e^{i\omega t}$ 称为振荡 <em>oscillation</em> ， $e^{i\xi x}$ 称为散布 <em>propogation</em> ， $\theta$ 称为相位 <em>phase</em> ，常数 $\theta_0$ 称为相位偏差 <em>phase offset</em> .</p>
+<p><strong>Definition F.36.</strong> 有波数 $\xi$ 的单色光的<strong>相位</strong>速度 <em>phase velocity</em> 为
+$$
+C_p(\xi) = \frac{\omega(\xi)}{\xi}
+$$</p>
+<p>它表示使波的相位为常数的传播速度。事实上对于相位为 $\theta$ 的波函数
+$$
+\varphi(x,t) = A\cos(\omega t-\xi x),\quad \theta(x,t) = \omega t-\xi x
+$$
+相位不随时间变换，即有 $d\theta/dt = 0$ ，于是有
+$$
+0 = \frac{d(\omega t-\xi x)}{dt} = \omega - \xi \frac{dx}{dt},\quad \frac{dx}{dt} = \frac{\omega(\xi)}{\xi}
+$$
+这就是上面波速 $C_p$ 的定义.</p>
+<p><strong>Example F.37.</strong> 光的传播速度是相位速度
+$$
+C_p = \frac{\lambda}{T} = \frac{\omega}{\xi}
+$$
+即波长与周期的比值.</p>
+<p><strong>Definition F.38.</strong> 系统
+$$
+\frac{\partial u}{\partial t} + \sum_{n=1}^Na_n\frac{\partial^nu}{\partial x^n} = 0
+$$
+是双曲 <em>hyperbolic</em> 的若 PDE 是双曲的；它是耗散的 <em>dissipative</em> 若 $\omega$ 是纯虚数；它是色散的 <em>dispersive</em> 若 $\omega(\xi)\in\mathbb{R}$ 且 $\omega(\xi)/\xi$ 不是常数.</p>
+<p><strong>Definition F.39.</strong> 有波数 $\xi$ 的单色光的群速度为 <em>group velocity</em> 为
+$$
+C_g(\xi) = \frac{d\omega(\xi)}{d\xi}
+$$</p>
+<p>它表示叠加波的传播速度。考虑两束波的叠加
+$$
+\varphi = \varphi_1+\varphi_2 = \frac{H}{2}\cos(\xi_1x-\omega_1t) + \frac{H}{2}\cos(\xi_2x-\omega_2t)
+$$
+不妨取
+$$
+\xi = \frac{\xi_1+\xi_2}{2},\quad \Delta\xi = \frac{\xi_2-\xi_1}{2},\quad \omega = \frac{\omega_1+\omega_2}{2},\quad \Delta\omega = \frac{\omega_2-\omega_1}{2}
+$$
+于是有
+$$
+\varphi= H\cos\left[\frac{\Delta\xi}{2}\left(x-\frac{\Delta\omega}{\Delta\xi}\right)t \right]\cos(\xi x-\omega t)
+$$
+它的波包是第一部分，当 $\Delta\xi\to0$ 时波速就是 $C_g(\xi)$ ，此时；后半部分则是短波部分，它的波速就是 $C_p(\xi)$ .</p>
+<p><strong>Example F.40.</strong> 对于线性 PDE ，单傅里叶模型的相速度为
+$$
+C_p(\xi) = \sum_{n=1}^Na_n\xi^{n-1}i^{n-1}
+$$
+群速度为
+$$
+C_g(\xi) = \sum_{n=1}^Nna_n\xi^{n-1}i^{n-1}
+$$</p>
+<p>如图所示的波为</p>
+<p>![[image-20220604111154542.png]]</p>
+<p><strong>Lemma F.41.</strong> 群速度和相位速度有关系式
+$$
+C_g(\xi) = \frac{C_p(\xi)}{1-\xi\frac{dC_p}{d\omega}}
+$$
+$Proof.$ 根据定义有
+$$
+C_g(\xi) = \frac{d\omega}{d\xi} = \frac{d\omega}{d\frac{\omega}{C_p}} = \frac{1}{\frac{d}{d\omega}\left(\frac{\omega}{C_p}\right)}
+$$
+对分式求导得到上式.</p>
+<p><strong>Example F.42.</strong> 对于平流方程，我们有 $a_1=a,\ a_j=0,\ j&gt;1$ ，就有
+$$
+\omega = a\xi,\quad C_p = a = C_g
+$$
+因此 Lemma F.30 就得到
+$$
+u(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat\eta(\xi)e^{i\xi(x-a t)}d\xi = \eta(x-at)
+$$
+其中使用了逆傅里叶变换，因此所有的波形都是初值 $\eta(x)$ 的平移.</p>
+<p><strong>Example F.43.</strong> 对于热方程
+$$
+u_t = \nu u_{xx},\quad \nu &gt; 0
+$$
+我们有 $a_2=-\nu&lt;0,\ a_1=a_3=a_4=\cdots=0$ ，因此
+$$
+\omega = a_2\xi^2i,\quad C_p = a_2\xi i,\quad C_g=2a_2\xi i
+$$
+因此 Lemma F.30 就得到
+$$
+u(x,t) = \frac{1}{\sqrt{2\pi}}\int_{-\infty}^{\infty}\hat\eta(\xi)e^{i\xi x}e^{a_2\xi^2t}d\xi
+$$
+其中 $e^{i\xi x}$ 表示初始模式 $\xi$ 不移动，而 $e^{a_2\xi^2t}$ 表示随着时间指数递减.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.expand", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
