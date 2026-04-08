@@ -35,6 +35,11 @@ theme:
 repo_name: xingyf666/sumire
 repo_url: https://github.com/xingyf666/sumire
 
+# 数学公式配置
+extra:
+  math:
+    provider: mathjax
+
 # Markdown 扩展
 markdown_extensions:
   - pymdownx.highlight:
@@ -47,6 +52,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - tables
+  - arithmatex:
+      generic: true
 
 # 搜索配置
 plugins:
