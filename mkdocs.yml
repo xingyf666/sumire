@@ -1,0 +1,72 @@
+# MkDocs Configuration for Personal Site
+# Documentation: https://squidfunk.github.io/mkdocs-material/
+
+site_name: Master 的主页
+site_description: 个人主页 · 博客 · 作品集
+site_author: Master
+
+# 主题配置
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换深色模式
+    - scheme: slate
+      primary: blue grey
+      accent: blue
+      toggle:
+        icon: material/brightness-4
+        name: 切换浅色模式
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+# 仓库链接
+repo_name: xyf/my-site
+repo_url: https://github.com/xyf/my-site
+
+# 导航结构
+nav:
+  - home: index.md
+  - 关于:
+      - about/index.md
+  - 博客:
+      - blog/index.md
+      - blog/first-post.md
+  - 项目:
+      - projects/index.md
+  - 链接:
+      - links.md
+
+# Markdown 扩展
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.mark
+
+# 搜索配置
+plugins:
+  - search:
+      lang:
+        - en
+        - ja
+        - zh
