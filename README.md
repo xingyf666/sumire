@@ -1,4 +1,4 @@
-# Master 的个人主页
+# Sumire 个人主页
 
 使用 [MkDocs](https://www.mkdocs.org/) + [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) 构建。
 

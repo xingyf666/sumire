@@ -1,7 +1,7 @@
 # MkDocs Configuration for Personal Site
 # Documentation: https://squidfunk.github.io/mkdocs-material/
 
-site_name: Master 的主页
+site_name: Sumire
 site_description: 个人主页 · 博客 · 作品集
 site_author: Master
 
@@ -36,7 +36,7 @@ theme:
     - content.code.copy
 
 # 仓库链接
-repo_name: xyf/my-site
+repo_name: xingyf666/sumire
 repo_url: https://github.com/xyf/my-site
 
 # 导航结构
