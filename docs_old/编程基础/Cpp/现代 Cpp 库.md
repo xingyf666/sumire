@@ -4819,13 +4819,11 @@ Operation done successfully
 
 
 
-
-
 ## Catch 2
 
-在 [catch](https://github.com/catchorg/Catch2/releases) 的文档指出，对于 C++ 单元测试框架，目前已经有 Google Test, Boost. Test, CppUnit, Cute, 以及其它的一些，那么 catch 有什么优势呢，文档主要列举了以下这些优势：
+在 [catch](https://github.com/catchorg/Catch2/releases) 的文档指出，对于 C++ 单元测试框架 catch 有什么优势呢
 
-* 简单易用：只需要下载 catch. Hpp ,包含到你的工程就可以了
+* 简单易用：只需要下载 `catch.hpp` ,包含到你的工程就可以了
 * 不依赖外部库：只要你可以编译 C++11 ，有 C++ 的标准库就可以了
 * 测试 case 可以分割为 sections ：每个 setcion 都是独立的运行单元
 * 提供了 BDD 式的测试模式：可以使用 Given-When-Then section 来做 BDD 测试
@@ -4834,25 +4832,23 @@ Operation done successfully
 
 
 
-其它一些关键特性有：
+其它一些关键特性有
 
-* 可以给 test case 打 tag ，因而可以很容易的只跑某个 tag 组的 test cases
+* 可以给 test case 打 tag，因而可以很容易的只跑某个 tag 组的 test cases
 * 输出通过 reporter 对象完成，支持基本的文本和 XML 格式输出测试结果，也支持自定义 reporter
 * 支持 JUnit xml 输出，这样可以和第三方工具整合，如 CI 服务器等
-* 提供默认的 main () 函数，用户也可以使用自己的 main () 函数
-* 提供一个命令行解析工具，用户在使用自己的 main () 函数的时候可以添加命令行参数
+* 提供默认的 `main ()` 函数，用户也可以使用自己的 `main()` 函数
+* 提供一个命令行解析工具，用户在使用自己的 `main()` 函数的时候可以添加命令行参数
 * catch 软件可以做自测试
 * 提供可选的 assertion 宏，可以报告错误但不终止 test case
-* 通过内置的 Approx () 语法支持可控制精度的浮点数比较
+* 通过内置的 `approx()` 语法支持可控制精度的浮点数比较
 * 通过 Matchers 支持各种形式的比较，也支持自定义的比较方法
 
 
 
 ### 简单易用
 
-Catch 是一个 header-only 的开源库，这意味着你只需要把一个头文件放到系统或者你的工程的某个目录，编译的时候指向它就可以了。
-
-下面用一个 Catch 文档中的小例子说明如何使用 Catch ，假设你写了一个求阶乘的函数：
+Catch 是一个 header-only 的开源库，这意味着你只需要把一个头文件放到系统或者你的工程的某个目录，编译的时候指向它就可以了。假设有一个求阶乘的函数
 
 ```cpp
 int Factorial( int number ) 
@@ -4861,15 +4857,14 @@ int Factorial( int number )
 }
 ```
 
-为了简单起见，将被测函数和要测试代码放在一个文件中，你只需要在这个函数之前加入两行：
+为了简单起见，将被测函数和要测试代码放在一个文件中，你只需要在这个函数之前加入两行
 
 ```cpp
 #define CATCH_CONFIG_MAIN
 #include <catch.hpp>
 ```
 
-
-第一行的作用是由 catch 提供一个 main 函数，第二行的作用是包含测试所需要的头文件，假设最后的文件为 catchTest. Cpp ，假设相关的文件安装到了 /usr/local/include 下，下面这样编译就可以了：
+第一行的作用是由 catch 提供一个 main 函数，第二行的作用是包含测试所需要的头文件，假设最后的文件为 `catchTest.cpp`，假设相关的文件安装到了 `/usr/local/include` 下，下面这样编译就可以了
 
 ```shell
 g++ -std=c++11 -o catchTest catchTest.cpp -I/usr/local/include/
@@ -4879,7 +4874,7 @@ g++ -std=c++11 -o catchTest catchTest.cpp -I/usr/local/include/
 
 
 
-运行一下，结果为：
+运行一下，结果为
 
 ```shell
 ===============================================================================
@@ -4887,7 +4882,7 @@ No tests ran
 
 ```
 
-那么如何加入一个 test case 呢，很简单：
+那么如何加入一个 test case 呢，很简单
 
 ```cpp
 TEST_CASE() 
@@ -4896,7 +4891,7 @@ TEST_CASE()
 }
 ```
 
-当然你也可以为你的 TEST_CASE 起名字，或者加标签：
+当然你也可以为你的 TEST_CASE 起名字，或者加标签
 
 ```cpp
 TEST_CASE("Test with number big than 0", "[tag1]") 
@@ -4904,7 +4899,6 @@ TEST_CASE("Test with number big than 0", "[tag1]")
     REQUIRE(Factorial(2) == 2);
 }
 ```
-
 
 其中 "Test with number big than 0" 是 test case 的名字，全局必须唯一； "tag 1" 是标签名，需要放在 `[]` 内部，一个 test case 可以有多个标签，多个 test case 可以使用相同的标签。 REQUIRE 是一个 assert 宏，用来判断是否相等。
 
@@ -4978,16 +4972,13 @@ where options are:
 For more detailed usage please see the project docs
 ```
 
-
-一些比较常见的命令行选项的使用如下：
-
-显示 test case 总体情况：
+显示 test case 总体情况
 
 ```shell
 ./catchTest -l
 ```
 
-得到结果：
+得到结果
 
 ```shell
 All available test cases:
@@ -4997,13 +4988,13 @@ All available test cases:
 
 
 
-显示所有的标签（tags）:
+显示所有的标签（tags）
 
 ```shell
 ./catchTest -t
 ```
 
-得到结果：
+得到结果
 
 ```shell
 All available tags:
@@ -5012,7 +5003,7 @@ All available tags:
 
 
 
-运行某个 tag 下的所有 test cases ：
+运行某个 tag 下的所有 test cases
 
 ```shell
 ./catchTest [tag1]
@@ -5020,7 +5011,7 @@ All available tags:
 
 
 
-运行某个名字的 test case ：
+运行某个名字的 test case
 
 ```shell
 ./catchTest "Test with number big than 0"
@@ -5030,7 +5021,7 @@ All available tags:
 
 ### Sections
 
-一般的测试框架都采用基于类的 test fixture , 通常需要定义 setup () 和 teardown () 函数（或者在构造/析构函数中做类似的事情）。 Catch 不仅全面支持 test fixture 模式，还提供了一种 section 机制：每个 section 都是独立运行单元，比如下面：
+一般的测试框架都采用基于类的 test fixture，通常需要定义 `setup()` 和 `teardown()` 函数（或者在构造/析构函数中做类似的事情）。 Catch 不仅全面支持 test fixture 模式，还提供了一种 section 机制：每个 section 都是独立运行单元，比如
 
 ```c++
 TEST_CASE( "vectors can be sized and resized", "[vector]" ) 
@@ -5077,7 +5068,7 @@ TEST_CASE( "vectors can be sized and resized", "[vector]" )
 
 ### BDD-style
 
-将 test case 和 section 重命名就可以得到一种 BDD 模式的测试，TDD（测试驱动开发）和 BDD（行为驱动开发）是两种比较流行的开发模式。下面是一个例子：
+将 test case 和 section 重命名就可以得到一种 BDD 模式的测试，TDD（测试驱动开发）和 BDD（行为驱动开发）是两种比较流行的开发模式。例如
 
 ```cpp
 SCENARIO( "vectors can be sized and resized", "[vector]" ) 
@@ -5140,7 +5131,7 @@ SCENARIO( "vectors can be sized and resized", "[vector]" )
 
 
 
-添加参数： success 输出成功结果， reporter 指定输出格式为 compact 简洁的
+添加参数：success 输出成功结果，reporter 指定输出格式为 compact 简洁的
 
 ```shell
 ./test --reporter compact --success
@@ -5341,42 +5332,42 @@ AND_THEN( something )
 AND_GIVEN( something )
 ```
 
-其使用方式与上面相同
+其使用方式与上面相同。
 
 
 
 ### Assertion Macros
 
-上面其实已经提到了一些 assertion 宏，像 REQUIRE 等，这里全面的介绍下。常用的有 REQUIRE 系列和 CHECK 系列：
+上面其实已经提到了一些 assertion 宏，像 REQUIRE 等，这里全面的介绍下。常用的有 REQUIRE 系列和 CHECK 系列
 
 ```cpp
 REQUIRE( expression )
 CHECK( expression )
 ```
 
-REQUIRE 宏在 expression 为 false 时将会终止当前 test case ,  CHECK 在 expression 为 false 时会给出警告信息但当前 test case 继续往下执行。
+REQUIRE 宏在 expression 为 false 时将会终止当前 test case，CHECK 在 expression 为 false 时会给出警告信息但当前 test case 继续往下执行。
 
 
 
-对应的还有：
+对应的还有
 
 ```cpp
 REQUIRE_FALSE( expression )
 CHECK_FALSE( expression )
 ```
 
-REQUIRE_FALSE 宏在 expression 为 true 时将会终止当前 test case ,  CHECK_FALSE 在 expression 为 true 时会给出警告信息但当前 test case 继续往下执行。
+REQUIRE_FALSE 宏在 expression 为 true 时将会终止当前 test case，CHECK_FALSE 在 expression 为 true 时会给出警告信息但当前 test case 继续往下执行。
 
 
 
-这里有一点要指出的是，对于：
+这里有一点要指出的是，对于
 
 ```cpp
 CHECK(a == 1 && b == 2)
 CHECK( a == 2 || b == 1 )
 ```
 
-这样的语句，由于宏展开的原因， catch 不能通过编译，需要在表达式的两端加上括号：
+这样的语句，由于宏展开的原因， catch 不能通过编译，需要在表达式的两端加上括号
 
 ```cpp
 CHECK((a == 1 && b == 2))
@@ -5385,7 +5376,7 @@ CHECK((a == 2 || b == 1 ))
 
 
 
-我们在最初求阶乘的例子上进行测试，代码如下：
+我们在最初求阶乘的例子上进行测试，代码如下
 
 ```cpp
 TEST_CASE("Test with number big than 0", "[tag1]")
@@ -5397,7 +5388,7 @@ TEST_CASE("Test with number big than 0", "[tag1]")
 }
 ```
 
-编译运行得到：
+编译运行得到
 
 ```shell
 ~/work/test/catch$ ./test -r compact -s
@@ -5407,17 +5398,13 @@ test.cpp:14: passed: (Factorial(3) == 6 && Factorial(4) == 24) for: true
 Failed 1 test case, failed 1 assertion.
 ```
 
-注意到，这里 `Factorial(0) == 1` 使用的是 CHECK ，由于 `0！= 1` ，故该测试失败，但因为我们用的是 CHECK ，故这里只是给出了警告信息，没有终止 test case 。
+注意到，这里 `Factorial(0) == 1` 使用的是 CHECK，由于 `0！= 1`，故该测试失败，但因为我们用的是 CHECK，故这里只是给出了警告信息，没有终止 test case 。
 
 
 
 ### Floating point comparisons
 
-Catch 2 支持比较全面的浮点数比较，可能是作者在银行工作，这个测试框架也是针对作者写的银行业务的代码，这些代码对数值比较的要求较多。具体的说 catch 2 浮点数比较采用类 Approx ,  Approx 采用数值初始化，同时支持以下三种属性：
-
-Epsilon：相当于误差相对于原值的百分比值，比如 epsilon=0.01 ，则意味着与其比较的值在该 Approx 值的 %1 的范围均视为相等。
-
-默认值为 `std::numeric_limits::epsilon()*100` 
+Epsilon：相当于误差相对于原值的百分比值，比如 epsilon=0.01，则意味着与其比较的值在该 Approx 值的 %1 的范围均视为相等。默认值为 `std::numeric_limits::epsilon()*100` 
 
 ```cpp
 Approx target = Approx(100).epsilon(0.01);
@@ -5426,7 +5413,7 @@ Approx target = Approx(100).epsilon(0.01);
 100.5 == target; // True, because we set target to allow up to 1% difference
 ```
 
-Margin： epsilon 是一个相对的百分比值， margin 是一个绝对值，其默认值为 0 。比如：
+Margin：epsilon 是一个相对的百分比值，margin 是一个绝对值，其默认值为 0 。比如
 
 ```cpp
 Approx target = Approx(100).margin(5);
@@ -5435,7 +5422,7 @@ Approx target = Approx(100).margin(5);
 104.0 == target; // True, because we set target to allow absolute difference of at most 5
 ```
 
-scale：有时比较的两边采用不同的量级，采用 scale 后， Approx 允许的误差为： `(Approx::scale + Approx::value) * epsilon` ，其默认值为 0 。比如：
+scale：有时比较的两边采用不同的量级，采用 scale 后，Approx 允许的误差为： `(Approx::scale + Approx::value) * epsilon` ，其默认值为 0 。比如
 
 ```cpp
 Approx target = Approx(100).scale(100).epsilon(0.01);
@@ -5452,7 +5439,7 @@ Approx target1 = Approx(100).scale(100).margin(5);
 
 
 
-查看 Catch 2 的源码，可以找到 Approx 的实现如下：
+查看 Catch 2 的源码，可以找到 Approx 的实现如下
 
 ```cpp
 bool Approx::equalityComparisonImpl(const double other) const 
@@ -5471,13 +5458,13 @@ bool marginComparison(double lhs, double rhs, double margin)
 }
 ```
 
-因此我们不需要显式的设置 epsilon , scale , 或者 margin ，一般情况下使用它们的默认值就可以了：
+因此我们不需要显式的设置 `epsilon, scale, margin`，一般情况下使用它们的默认值就可以了
 
 ```cpp
 REQUIRE( 1 == Approx( 2.1 ) );
 ```
 
-Catch 2 也为用户定义了一个替代字符 _a ，这样使用时不用每次都写 Approx , 只需要在前部包含命名空间就可以了：
+Catch 2 也为用户定义了一个替代字符 `_a` ，这样使用时不用每次都写 Approx，只需要在前部包含命名空间就可以了
 
 ```cpp
 using namespace Catch::literals;
@@ -5550,7 +5537,9 @@ Matchers 顾名思义就是某个 string 或 int 或其它类型是否和 Matche
 
 内置的 string matchers 有 StartsWith, EndsWith, Contains, Equals 和 Matches，前四个是常见的 string 或 substring 的比较。
 
-例如，验证某个 string 是否以某个 string 结束：
+
+
+验证某个 string 是否以某个 string 结束
 
 ```cpp
 using Catch::Matchers::EndsWith; // or Catch::EndsWith
@@ -5560,13 +5549,13 @@ REQUIRE_THAT( str, EndsWith( "as a service" ) )
 
 
 
-EndsWith 也支持是否大小写采用大小写匹配：
+EndsWith 也支持是否大小写采用大小写匹配
 
 ```cpp
 REQUIRE_THAT( str, EndsWith( "as a service", Catch::CaseSensitive::No ) ); 
 ```
 
-也支持多个 Match 串联：
+也支持多个 Match 串联
 
 ```cpp
 REQUIRE_THAT( str, 
@@ -5576,7 +5565,7 @@ REQUIRE_THAT( str,
 
 
 
-最后一个 Matches 是 matchECMAScript 类型的正则表达式，例如：
+最后一个 Matches 是 matchECMAScript 类型的正则表达式，例如
 
 ```cpp
 using Catch::Matchers::Matches;
@@ -5588,9 +5577,7 @@ REQUIRE_THAT(std::string("this string contains 'abc' as a substring"),
 
 #### Vector matchers
 
-Vector 类型的 match 有 Contains ,  VectorContains 和 Equals 。 VectorContains 判断某个 vector 内部是否有某个元素， Contains 判断某个 vector 是否包含另外一个 vector 。
-
-下面是来自 selftest 的一个例子：
+Vector 类型的 match 有 Contains，VectorContains 和 Equals 。VectorContains 判断某个 vector 内部是否有某个元素， Contains 判断某个 vector 是否包含另外一个 vector 。
 
 ```cpp
 TEST_CASE("Vector matchers", "[matchers][vector]") {
@@ -5658,9 +5645,7 @@ TEST_CASE("Vector matchers", "[matchers][vector]") {
 
 #### Floating point matchers
 
-浮点数类型的 matchers 有两种： WithinULP 和 WithinAbs ， WithinAbs 比较两个浮点数是差的绝对值是否小于某个值； WithinULP 做 ULP 类型的检查。
-
-下面是一个例子：
+浮点数类型的 matchers 有两种：WithinULP 和 WithinAbs，WithinAbs 比较两个浮点数是差的绝对值是否小于某个值；WithinULP 做 ULP 类型的检查。
 
 ```cpp
 TEST_CASE("Floating point matchers: float", "[matchers][ULP]") 
@@ -5706,9 +5691,7 @@ TEST_CASE("Floating point matchers: float", "[matchers][ULP]")
 
 #### Custom matchers
 
-通过继承 MatchBase , 可以自定义用户的 matcher ,  Catch:: MatcherBase 这里的 T 是用户想要做 match 的数据类型。同时还需要重写 match 和 describe 两个函数。
-
-如下是一个判断某个数是否在某个范围类的自定义 matcher ：
+通过继承 MatchBase，可以自定义用户的 matcher，`Catch::MatcherBase` 这里的 T 是用户想要做 match 的数据类型。同时还需要重写 match 和 describe 两个函数。
 
 ```cpp
 // The matcher class

@@ -394,6 +394,7 @@ M-x benchmark-init/show-durations-tabulated
 查看不同组件的耗时。
 
 
+
 ### sudo
 
 当使用 `sudo` 打开 emacs 时可能不会加载配置文件，这就需要将配置文件复制到根目录下

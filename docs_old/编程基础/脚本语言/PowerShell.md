@@ -14,6 +14,19 @@
 
 
 
+### 防止乱码
+
+在配置文件 `$PROFILE` 中加入如下内容
+
+```powershell
+chcp 65001 > $null
+[Console]::InputEncoding  = [System.Text.UTF8Encoding]::new($false)
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+$OutputEncoding = [Console]::OutputEncoding
+```
+
+
+
 ## 基本命令
 
 ### 命令形式
