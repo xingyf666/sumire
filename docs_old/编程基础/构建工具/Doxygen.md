@@ -216,8 +216,6 @@ int add(int a, int b)
 
 
 
-
-
 ## 注释结构
 
 ### 特殊注释块
@@ -1356,8 +1354,6 @@ Coord add(Coord c1,Coord c2)
 ### [特殊指令](https://www.doxygen.nl/manual/commands.html#cmdimage)
 
 特殊指令直接查询文档，遇到有需要使用的命令时才查看。
-
-
 
 
 

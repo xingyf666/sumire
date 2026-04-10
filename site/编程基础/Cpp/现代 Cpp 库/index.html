@@ -7504,6 +7504,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../%E6%9E%84%E5%BB%BA%E5%B7%A5%E5%85%B7/Xmake/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Xmake
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -14534,54 +14562,53 @@
 <a id="__codelineno-189-20" name="__codelineno-189-20" href="#__codelineno-189-20"></a>Operation<span class="w"> </span><span class="k">done</span><span class="w"> </span>successfully
 </code></pre></div>
 <h2 id="catch-2">Catch 2</h2>
-<p>在 <a href="https://github.com/catchorg/Catch2/releases">catch</a> 的文档指出，对于 C++ 单元测试框架，目前已经有 Google Test, Boost. Test, CppUnit, Cute, 以及其它的一些，那么 catch 有什么优势呢，文档主要列举了以下这些优势：</p>
+<p>在 <a href="https://github.com/catchorg/Catch2/releases">catch</a> 的文档指出，对于 C++ 单元测试框架 catch 有什么优势呢</p>
 <ul>
-<li>简单易用：只需要下载 catch. Hpp ,包含到你的工程就可以了</li>
+<li>简单易用：只需要下载 <code>catch.hpp</code> ,包含到你的工程就可以了</li>
 <li>不依赖外部库：只要你可以编译 C++11 ，有 C++ 的标准库就可以了</li>
 <li>测试 case 可以分割为 sections ：每个 setcion 都是独立的运行单元</li>
 <li>提供了 BDD 式的测试模式：可以使用 Given-When-Then section 来做 BDD 测试</li>
 <li>只用一个核心的 assertion 宏来做比较。用标准的 C++ 运算符来做比较，但是可以分解表达式，记录表达式等号左侧和右侧的值</li>
 <li>可以用任何形式的字符串给测试命名，不用担心名字是否合法</li>
 </ul>
-<p>其它一些关键特性有：</p>
+<p>其它一些关键特性有</p>
 <ul>
-<li>可以给 test case 打 tag ，因而可以很容易的只跑某个 tag 组的 test cases</li>
+<li>可以给 test case 打 tag，因而可以很容易的只跑某个 tag 组的 test cases</li>
 <li>输出通过 reporter 对象完成，支持基本的文本和 XML 格式输出测试结果，也支持自定义 reporter</li>
 <li>支持 JUnit xml 输出，这样可以和第三方工具整合，如 CI 服务器等</li>
-<li>提供默认的 main () 函数，用户也可以使用自己的 main () 函数</li>
-<li>提供一个命令行解析工具，用户在使用自己的 main () 函数的时候可以添加命令行参数</li>
+<li>提供默认的 <code>main ()</code> 函数，用户也可以使用自己的 <code>main()</code> 函数</li>
+<li>提供一个命令行解析工具，用户在使用自己的 <code>main()</code> 函数的时候可以添加命令行参数</li>
 <li>catch 软件可以做自测试</li>
 <li>提供可选的 assertion 宏，可以报告错误但不终止 test case</li>
-<li>通过内置的 Approx () 语法支持可控制精度的浮点数比较</li>
+<li>通过内置的 <code>approx()</code> 语法支持可控制精度的浮点数比较</li>
 <li>通过 Matchers 支持各种形式的比较，也支持自定义的比较方法</li>
 </ul>
 <h3 id="_99">简单易用</h3>
-<p>Catch 是一个 header-only 的开源库，这意味着你只需要把一个头文件放到系统或者你的工程的某个目录，编译的时候指向它就可以了。</p>
-<p>下面用一个 Catch 文档中的小例子说明如何使用 Catch ，假设你写了一个求阶乘的函数：</p>
+<p>Catch 是一个 header-only 的开源库，这意味着你只需要把一个头文件放到系统或者你的工程的某个目录，编译的时候指向它就可以了。假设有一个求阶乘的函数</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-190-1" name="__codelineno-190-1" href="#__codelineno-190-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">Factorial</span><span class="p">(</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
 <a id="__codelineno-190-2" name="__codelineno-190-2" href="#__codelineno-190-2"></a><span class="p">{</span>
 <a id="__codelineno-190-3" name="__codelineno-190-3" href="#__codelineno-190-3"></a><span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Factorial</span><span class="p">(</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">number</span><span class="p">;</span><span class="w"> </span>
 <a id="__codelineno-190-4" name="__codelineno-190-4" href="#__codelineno-190-4"></a><span class="p">}</span>
 </code></pre></div>
-<p>为了简单起见，将被测函数和要测试代码放在一个文件中，你只需要在这个函数之前加入两行：</p>
+<p>为了简单起见，将被测函数和要测试代码放在一个文件中，你只需要在这个函数之前加入两行</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-191-1" name="__codelineno-191-1" href="#__codelineno-191-1"></a><span class="cp">#define CATCH_CONFIG_MAIN</span>
 <a id="__codelineno-191-2" name="__codelineno-191-2" href="#__codelineno-191-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;catch.hpp&gt;</span>
 </code></pre></div>
-<p>第一行的作用是由 catch 提供一个 main 函数，第二行的作用是包含测试所需要的头文件，假设最后的文件为 catchTest. Cpp ，假设相关的文件安装到了 /usr/local/include 下，下面这样编译就可以了：</p>
+<p>第一行的作用是由 catch 提供一个 main 函数，第二行的作用是包含测试所需要的头文件，假设最后的文件为 <code>catchTest.cpp</code>，假设相关的文件安装到了 <code>/usr/local/include</code> 下，下面这样编译就可以了</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-192-1" name="__codelineno-192-1" href="#__codelineno-192-1"></a>g++<span class="w"> </span>-std<span class="o">=</span>c++11<span class="w"> </span>-o<span class="w"> </span>catchTest<span class="w"> </span>catchTest.cpp<span class="w"> </span>-I/usr/local/include/
 </code></pre></div>
 <p>后面的头文件路径可以不要。</p>
-<p>运行一下，结果为：</p>
+<p>运行一下，结果为</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-193-1" name="__codelineno-193-1" href="#__codelineno-193-1"></a><span class="o">===============================================================================</span>
 <a id="__codelineno-193-2" name="__codelineno-193-2" href="#__codelineno-193-2"></a>No<span class="w"> </span>tests<span class="w"> </span>ran
 </code></pre></div>
-<p>那么如何加入一个 test case 呢，很简单：</p>
+<p>那么如何加入一个 test case 呢，很简单</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-194-1" name="__codelineno-194-1" href="#__codelineno-194-1"></a><span class="n">TEST_CASE</span><span class="p">()</span><span class="w"> </span>
 <a id="__codelineno-194-2" name="__codelineno-194-2" href="#__codelineno-194-2"></a><span class="p">{</span>
 <a id="__codelineno-194-3" name="__codelineno-194-3" href="#__codelineno-194-3"></a><span class="w">    </span><span class="n">REQUIRE</span><span class="p">(</span><span class="n">Factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
 <a id="__codelineno-194-4" name="__codelineno-194-4" href="#__codelineno-194-4"></a><span class="p">}</span>
 </code></pre></div>
-<p>当然你也可以为你的 TEST_CASE 起名字，或者加标签：</p>
+<p>当然你也可以为你的 TEST_CASE 起名字，或者加标签</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-195-1" name="__codelineno-195-1" href="#__codelineno-195-1"></a><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;Test with number big than 0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[tag1]&quot;</span><span class="p">)</span><span class="w"> </span>
 <a id="__codelineno-195-2" name="__codelineno-195-2" href="#__codelineno-195-2"></a><span class="p">{</span>
 <a id="__codelineno-195-3" name="__codelineno-195-3" href="#__codelineno-195-3"></a><span class="w">    </span><span class="n">REQUIRE</span><span class="p">(</span><span class="n">Factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
@@ -14649,30 +14676,29 @@
 <a id="__codelineno-197-54" name="__codelineno-197-54" href="#__codelineno-197-54"></a>
 <a id="__codelineno-197-55" name="__codelineno-197-55" href="#__codelineno-197-55"></a>For<span class="w"> </span>more<span class="w"> </span>detailed<span class="w"> </span>usage<span class="w"> </span>please<span class="w"> </span>see<span class="w"> </span>the<span class="w"> </span>project<span class="w"> </span>docs
 </code></pre></div>
-<p>一些比较常见的命令行选项的使用如下：</p>
-<p>显示 test case 总体情况：</p>
+<p>显示 test case 总体情况</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-198-1" name="__codelineno-198-1" href="#__codelineno-198-1"></a>./catchTest<span class="w"> </span>-l
 </code></pre></div>
-<p>得到结果：</p>
+<p>得到结果</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-199-1" name="__codelineno-199-1" href="#__codelineno-199-1"></a>All<span class="w"> </span>available<span class="w"> </span><span class="nb">test</span><span class="w"> </span>cases:
 <a id="__codelineno-199-2" name="__codelineno-199-2" href="#__codelineno-199-2"></a><span class="w">  </span>Anonymous<span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="k">case</span><span class="w"> </span><span class="m">1</span>
 <a id="__codelineno-199-3" name="__codelineno-199-3" href="#__codelineno-199-3"></a><span class="m">1</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="k">case</span>
 </code></pre></div>
-<p>显示所有的标签（tags）:</p>
+<p>显示所有的标签（tags）</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-200-1" name="__codelineno-200-1" href="#__codelineno-200-1"></a>./catchTest<span class="w"> </span>-t
 </code></pre></div>
-<p>得到结果：</p>
+<p>得到结果</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-201-1" name="__codelineno-201-1" href="#__codelineno-201-1"></a>All<span class="w"> </span>available<span class="w"> </span>tags:
 <a id="__codelineno-201-2" name="__codelineno-201-2" href="#__codelineno-201-2"></a><span class="m">0</span><span class="w"> </span>tags
 </code></pre></div>
-<p>运行某个 tag 下的所有 test cases ：</p>
+<p>运行某个 tag 下的所有 test cases</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-202-1" name="__codelineno-202-1" href="#__codelineno-202-1"></a>./catchTest<span class="w"> </span><span class="o">[</span>tag1<span class="o">]</span>
 </code></pre></div>
-<p>运行某个名字的 test case ：</p>
+<p>运行某个名字的 test case</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-203-1" name="__codelineno-203-1" href="#__codelineno-203-1"></a>./catchTest<span class="w"> </span><span class="s2">&quot;Test with number big than 0&quot;</span>
 </code></pre></div>
 <h3 id="sections">Sections</h3>
-<p>一般的测试框架都采用基于类的 test fixture , 通常需要定义 setup () 和 teardown () 函数（或者在构造/析构函数中做类似的事情）。 Catch 不仅全面支持 test fixture 模式，还提供了一种 section 机制：每个 section 都是独立运行单元，比如下面：</p>
+<p>一般的测试框架都采用基于类的 test fixture，通常需要定义 <code>setup()</code> 和 <code>teardown()</code> 函数（或者在构造/析构函数中做类似的事情）。 Catch 不仅全面支持 test fixture 模式，还提供了一种 section 机制：每个 section 都是独立运行单元，比如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-204-1" name="__codelineno-204-1" href="#__codelineno-204-1"></a><span class="n">TEST_CASE</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;vectors can be sized and resized&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[vector]&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
 <a id="__codelineno-204-2" name="__codelineno-204-2" href="#__codelineno-204-2"></a><span class="p">{</span>
 <a id="__codelineno-204-3" name="__codelineno-204-3" href="#__codelineno-204-3"></a><span class="w">    </span><span class="c1">// 共享部分代码</span>
@@ -14713,7 +14739,7 @@
 <a id="__codelineno-204-38" name="__codelineno-204-38" href="#__codelineno-204-38"></a><span class="p">}</span>
 </code></pre></div>
 <h3 id="bdd-style">BDD-style</h3>
-<p>将 test case 和 section 重命名就可以得到一种 BDD 模式的测试，TDD（测试驱动开发）和 BDD（行为驱动开发）是两种比较流行的开发模式。下面是一个例子：</p>
+<p>将 test case 和 section 重命名就可以得到一种 BDD 模式的测试，TDD（测试驱动开发）和 BDD（行为驱动开发）是两种比较流行的开发模式。例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-205-1" name="__codelineno-205-1" href="#__codelineno-205-1"></a><span class="n">SCENARIO</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;vectors can be sized and resized&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[vector]&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span>
 <a id="__codelineno-205-2" name="__codelineno-205-2" href="#__codelineno-205-2"></a><span class="p">{</span>
 <a id="__codelineno-205-3" name="__codelineno-205-3" href="#__codelineno-205-3"></a><span class="w">    </span><span class="c1">// 给定条件</span>
@@ -14770,7 +14796,7 @@
 <a id="__codelineno-205-54" name="__codelineno-205-54" href="#__codelineno-205-54"></a><span class="p">}</span>
 </code></pre></div>
 <p>其中的 GIVEN WHEN THEN 都是用于测试结果的解释。</p>
-<p>添加参数： success 输出成功结果， reporter 指定输出格式为 compact 简洁的</p>
+<p>添加参数：success 输出成功结果，reporter 指定输出格式为 compact 简洁的</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-206-1" name="__codelineno-206-1" href="#__codelineno-206-1"></a>./test<span class="w"> </span>--reporter<span class="w"> </span>compact<span class="w"> </span>--success
 </code></pre></div>
 <p>输出结果：</p>
@@ -14952,27 +14978,27 @@
 <a id="__codelineno-210-2" name="__codelineno-210-2" href="#__codelineno-210-2"></a><span class="n">AND_THEN</span><span class="p">(</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="p">)</span>
 <a id="__codelineno-210-3" name="__codelineno-210-3" href="#__codelineno-210-3"></a><span class="n">AND_GIVEN</span><span class="p">(</span><span class="w"> </span><span class="n">something</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
-<p>其使用方式与上面相同</p>
+<p>其使用方式与上面相同。</p>
 <h3 id="assertion-macros">Assertion Macros</h3>
-<p>上面其实已经提到了一些 assertion 宏，像 REQUIRE 等，这里全面的介绍下。常用的有 REQUIRE 系列和 CHECK 系列：</p>
+<p>上面其实已经提到了一些 assertion 宏，像 REQUIRE 等，这里全面的介绍下。常用的有 REQUIRE 系列和 CHECK 系列</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-211-1" name="__codelineno-211-1" href="#__codelineno-211-1"></a><span class="n">REQUIRE</span><span class="p">(</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">)</span>
 <a id="__codelineno-211-2" name="__codelineno-211-2" href="#__codelineno-211-2"></a><span class="n">CHECK</span><span class="p">(</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
-<p>REQUIRE 宏在 expression 为 false 时将会终止当前 test case ,  CHECK 在 expression 为 false 时会给出警告信息但当前 test case 继续往下执行。</p>
-<p>对应的还有：</p>
+<p>REQUIRE 宏在 expression 为 false 时将会终止当前 test case，CHECK 在 expression 为 false 时会给出警告信息但当前 test case 继续往下执行。</p>
+<p>对应的还有</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-212-1" name="__codelineno-212-1" href="#__codelineno-212-1"></a><span class="n">REQUIRE_FALSE</span><span class="p">(</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">)</span>
 <a id="__codelineno-212-2" name="__codelineno-212-2" href="#__codelineno-212-2"></a><span class="n">CHECK_FALSE</span><span class="p">(</span><span class="w"> </span><span class="n">expression</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
-<p>REQUIRE_FALSE 宏在 expression 为 true 时将会终止当前 test case ,  CHECK_FALSE 在 expression 为 true 时会给出警告信息但当前 test case 继续往下执行。</p>
-<p>这里有一点要指出的是，对于：</p>
+<p>REQUIRE_FALSE 宏在 expression 为 true 时将会终止当前 test case，CHECK_FALSE 在 expression 为 true 时会给出警告信息但当前 test case 继续往下执行。</p>
+<p>这里有一点要指出的是，对于</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-213-1" name="__codelineno-213-1" href="#__codelineno-213-1"></a><span class="n">CHECK</span><span class="p">(</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span>
 <a id="__codelineno-213-2" name="__codelineno-213-2" href="#__codelineno-213-2"></a><span class="n">CHECK</span><span class="p">(</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
-<p>这样的语句，由于宏展开的原因， catch 不能通过编译，需要在表达式的两端加上括号：</p>
+<p>这样的语句，由于宏展开的原因， catch 不能通过编译，需要在表达式的两端加上括号</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-214-1" name="__codelineno-214-1" href="#__codelineno-214-1"></a><span class="n">CHECK</span><span class="p">((</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">))</span>
 <a id="__codelineno-214-2" name="__codelineno-214-2" href="#__codelineno-214-2"></a><span class="n">CHECK</span><span class="p">((</span><span class="n">a</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">))</span>
 </code></pre></div>
-<p>我们在最初求阶乘的例子上进行测试，代码如下：</p>
+<p>我们在最初求阶乘的例子上进行测试，代码如下</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-215-1" name="__codelineno-215-1" href="#__codelineno-215-1"></a><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;Test with number big than 0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[tag1]&quot;</span><span class="p">)</span>
 <a id="__codelineno-215-2" name="__codelineno-215-2" href="#__codelineno-215-2"></a><span class="p">{</span>
 <a id="__codelineno-215-3" name="__codelineno-215-3" href="#__codelineno-215-3"></a><span class="w">    </span><span class="n">REQUIRE</span><span class="p">(</span><span class="n">Factorial</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
@@ -14981,30 +15007,28 @@
 <a id="__codelineno-215-6" name="__codelineno-215-6" href="#__codelineno-215-6"></a><span class="w">    </span><span class="n">REQUIRE</span><span class="p">((</span><span class="n">Factorial</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">Factorial</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">24</span><span class="p">));</span>
 <a id="__codelineno-215-7" name="__codelineno-215-7" href="#__codelineno-215-7"></a><span class="p">}</span>
 </code></pre></div>
-<p>编译运行得到：</p>
+<p>编译运行得到</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-216-1" name="__codelineno-216-1" href="#__codelineno-216-1"></a>~/work/test/catch$<span class="w"> </span>./test<span class="w"> </span>-r<span class="w"> </span>compact<span class="w"> </span>-s
 <a id="__codelineno-216-2" name="__codelineno-216-2" href="#__codelineno-216-2"></a>test.cpp:11:<span class="w"> </span>passed:<span class="w"> </span>Factorial<span class="o">(</span><span class="m">2</span><span class="o">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="k">for</span>:<span class="w"> </span><span class="nv">2</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span>
 <a id="__codelineno-216-3" name="__codelineno-216-3" href="#__codelineno-216-3"></a>test.cpp:13:<span class="w"> </span>failed:<span class="w"> </span>Factorial<span class="o">(</span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="k">for</span>:<span class="w"> </span><span class="nv">0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span>
 <a id="__codelineno-216-4" name="__codelineno-216-4" href="#__codelineno-216-4"></a>test.cpp:14:<span class="w"> </span>passed:<span class="w"> </span><span class="o">(</span>Factorial<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>Factorial<span class="o">(</span><span class="m">4</span><span class="o">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">24</span><span class="o">)</span><span class="w"> </span><span class="k">for</span>:<span class="w"> </span><span class="nb">true</span>
 <a id="__codelineno-216-5" name="__codelineno-216-5" href="#__codelineno-216-5"></a>Failed<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="nb">test</span><span class="w"> </span><span class="k">case</span>,<span class="w"> </span>failed<span class="w"> </span><span class="m">1</span><span class="w"> </span>assertion.
 </code></pre></div>
-<p>注意到，这里 <code>Factorial(0) == 1</code> 使用的是 CHECK ，由于 <code>0！= 1</code> ，故该测试失败，但因为我们用的是 CHECK ，故这里只是给出了警告信息，没有终止 test case 。</p>
+<p>注意到，这里 <code>Factorial(0) == 1</code> 使用的是 CHECK，由于 <code>0！= 1</code>，故该测试失败，但因为我们用的是 CHECK，故这里只是给出了警告信息，没有终止 test case 。</p>
 <h3 id="floating-point-comparisons">Floating point comparisons</h3>
-<p>Catch 2 支持比较全面的浮点数比较，可能是作者在银行工作，这个测试框架也是针对作者写的银行业务的代码，这些代码对数值比较的要求较多。具体的说 catch 2 浮点数比较采用类 Approx ,  Approx 采用数值初始化，同时支持以下三种属性：</p>
-<p>Epsilon：相当于误差相对于原值的百分比值，比如 epsilon=0.01 ，则意味着与其比较的值在该 Approx 值的 %1 的范围均视为相等。</p>
-<p>默认值为 <code>std::numeric_limits::epsilon()*100</code> </p>
+<p>Epsilon：相当于误差相对于原值的百分比值，比如 epsilon=0.01，则意味着与其比较的值在该 Approx 值的 %1 的范围均视为相等。默认值为 <code>std::numeric_limits::epsilon()*100</code> </p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-217-1" name="__codelineno-217-1" href="#__codelineno-217-1"></a><span class="n">Approx</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Approx</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="n">epsilon</span><span class="p">(</span><span class="mf">0.01</span><span class="p">);</span>
 <a id="__codelineno-217-2" name="__codelineno-217-2" href="#__codelineno-217-2"></a><span class="mf">100.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">// Obviously true</span>
 <a id="__codelineno-217-3" name="__codelineno-217-3" href="#__codelineno-217-3"></a><span class="mf">200.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">// Obviously still false</span>
 <a id="__codelineno-217-4" name="__codelineno-217-4" href="#__codelineno-217-4"></a><span class="mf">100.5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">// True, because we set target to allow up to 1% difference</span>
 </code></pre></div>
-<p>Margin： epsilon 是一个相对的百分比值， margin 是一个绝对值，其默认值为 0 。比如：</p>
+<p>Margin：epsilon 是一个相对的百分比值，margin 是一个绝对值，其默认值为 0 。比如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-218-1" name="__codelineno-218-1" href="#__codelineno-218-1"></a><span class="n">Approx</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Approx</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="n">margin</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
 <a id="__codelineno-218-2" name="__codelineno-218-2" href="#__codelineno-218-2"></a><span class="mf">100.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">// Obviously true</span>
 <a id="__codelineno-218-3" name="__codelineno-218-3" href="#__codelineno-218-3"></a><span class="mf">200.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">// Obviously still false</span>
 <a id="__codelineno-218-4" name="__codelineno-218-4" href="#__codelineno-218-4"></a><span class="mf">104.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">// True, because we set target to allow absolute difference of at most 5</span>
 </code></pre></div>
-<p>scale：有时比较的两边采用不同的量级，采用 scale 后， Approx 允许的误差为： <code>(Approx::scale + Approx::value) * epsilon</code> ，其默认值为 0 。比如：</p>
+<p>scale：有时比较的两边采用不同的量级，采用 scale 后，Approx 允许的误差为： <code>(Approx::scale + Approx::value) * epsilon</code> ，其默认值为 0 。比如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-219-1" name="__codelineno-219-1" href="#__codelineno-219-1"></a><span class="n">Approx</span><span class="w"> </span><span class="n">target</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Approx</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="n">scale</span><span class="p">(</span><span class="mi">100</span><span class="p">).</span><span class="n">epsilon</span><span class="p">(</span><span class="mf">0.01</span><span class="p">);</span>
 <a id="__codelineno-219-2" name="__codelineno-219-2" href="#__codelineno-219-2"></a><span class="mf">100.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">//  true</span>
 <a id="__codelineno-219-3" name="__codelineno-219-3" href="#__codelineno-219-3"></a><span class="mf">101.5</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target</span><span class="p">;</span><span class="w"> </span><span class="c1">//  true</span>
@@ -15016,7 +15040,7 @@
 <a id="__codelineno-219-9" name="__codelineno-219-9" href="#__codelineno-219-9"></a><span class="mf">200.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target1</span><span class="p">;</span><span class="w"> </span><span class="c1">// false</span>
 <a id="__codelineno-219-10" name="__codelineno-219-10" href="#__codelineno-219-10"></a><span class="mf">104.0</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">target1</span><span class="p">;</span><span class="w"> </span><span class="c1">// True, because we set target to allow absolute difference of at most 5</span>
 </code></pre></div>
-<p>查看 Catch 2 的源码，可以找到 Approx 的实现如下：</p>
+<p>查看 Catch 2 的源码，可以找到 Approx 的实现如下</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-220-1" name="__codelineno-220-1" href="#__codelineno-220-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">Approx::equalityComparisonImpl</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">other</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span>
 <a id="__codelineno-220-2" name="__codelineno-220-2" href="#__codelineno-220-2"></a><span class="p">{</span>
 <a id="__codelineno-220-3" name="__codelineno-220-3" href="#__codelineno-220-3"></a><span class="w">    </span><span class="c1">// First try with fixed margin, then compute margin based on epsilon, scale and Approx&#39;s value</span>
@@ -15032,10 +15056,10 @@
 <a id="__codelineno-220-13" name="__codelineno-220-13" href="#__codelineno-220-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">lhs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">rhs</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="p">(</span><span class="n">rhs</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">margin</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">lhs</span><span class="p">);</span>
 <a id="__codelineno-220-14" name="__codelineno-220-14" href="#__codelineno-220-14"></a><span class="p">}</span>
 </code></pre></div>
-<p>因此我们不需要显式的设置 epsilon , scale , 或者 margin ，一般情况下使用它们的默认值就可以了：</p>
+<p>因此我们不需要显式的设置 <code>epsilon, scale, margin</code>，一般情况下使用它们的默认值就可以了</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-221-1" name="__codelineno-221-1" href="#__codelineno-221-1"></a><span class="n">REQUIRE</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Approx</span><span class="p">(</span><span class="w"> </span><span class="mf">2.1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
-<p>Catch 2 也为用户定义了一个替代字符 _a ，这样使用时不用每次都写 Approx , 只需要在前部包含命名空间就可以了：</p>
+<p>Catch 2 也为用户定义了一个替代字符 <code>_a</code> ，这样使用时不用每次都写 Approx，只需要在前部包含命名空间就可以了</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-222-1" name="__codelineno-222-1" href="#__codelineno-222-1"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">Catch</span><span class="o">::</span><span class="nn">literals</span><span class="p">;</span>
 <a id="__codelineno-222-2" name="__codelineno-222-2" href="#__codelineno-222-2"></a><span class="n">REQUIRE</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">2.1</span><span class="n">_a</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
@@ -15068,27 +15092,26 @@
 <p>Matchers 顾名思义就是某个 string 或 int 或其它类型是否和 Matcher 所定义的条件 match 。</p>
 <h4 id="string-matchers">String matchers</h4>
 <p>内置的 string matchers 有 StartsWith, EndsWith, Contains, Equals 和 Matches，前四个是常见的 string 或 substring 的比较。</p>
-<p>例如，验证某个 string 是否以某个 string 结束：</p>
+<p>验证某个 string 是否以某个 string 结束</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-229-1" name="__codelineno-229-1" href="#__codelineno-229-1"></a><span class="k">using</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">Matchers</span><span class="o">::</span><span class="n">EndsWith</span><span class="p">;</span><span class="w"> </span><span class="c1">// or Catch::EndsWith</span>
 <a id="__codelineno-229-2" name="__codelineno-229-2" href="#__codelineno-229-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getStringFromSomewhere</span><span class="p">();</span>
 <a id="__codelineno-229-3" name="__codelineno-229-3" href="#__codelineno-229-3"></a><span class="n">REQUIRE_THAT</span><span class="p">(</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">EndsWith</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;as a service&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span>
 </code></pre></div>
-<p>EndsWith 也支持是否大小写采用大小写匹配：</p>
+<p>EndsWith 也支持是否大小写采用大小写匹配</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-230-1" name="__codelineno-230-1" href="#__codelineno-230-1"></a><span class="n">REQUIRE_THAT</span><span class="p">(</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="n">EndsWith</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;as a service&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">CaseSensitive</span><span class="o">::</span><span class="n">No</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span><span class="w"> </span>
 </code></pre></div>
-<p>也支持多个 Match 串联：</p>
+<p>也支持多个 Match 串联</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-231-1" name="__codelineno-231-1" href="#__codelineno-231-1"></a><span class="n">REQUIRE_THAT</span><span class="p">(</span><span class="w"> </span><span class="n">str</span><span class="p">,</span><span class="w"> </span>
 <a id="__codelineno-231-2" name="__codelineno-231-2" href="#__codelineno-231-2"></a><span class="w">    </span><span class="n">EndsWith</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;as a service&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span>
 <a id="__codelineno-231-3" name="__codelineno-231-3" href="#__codelineno-231-3"></a><span class="w">    </span><span class="p">(</span><span class="n">StartsWith</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;Big data&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">Contains</span><span class="p">(</span><span class="w"> </span><span class="s">&quot;web scale&quot;</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">);</span>
 </code></pre></div>
-<p>最后一个 Matches 是 matchECMAScript 类型的正则表达式，例如：</p>
+<p>最后一个 Matches 是 matchECMAScript 类型的正则表达式，例如</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-232-1" name="__codelineno-232-1" href="#__codelineno-232-1"></a><span class="k">using</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">Matchers</span><span class="o">::</span><span class="n">Matches</span><span class="p">;</span>
 <a id="__codelineno-232-2" name="__codelineno-232-2" href="#__codelineno-232-2"></a><span class="n">REQUIRE_THAT</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">(</span><span class="s">&quot;this string contains &#39;abc&#39; as a substring&quot;</span><span class="p">),</span>
 <a id="__codelineno-232-3" name="__codelineno-232-3" href="#__codelineno-232-3"></a><span class="w">                         </span><span class="n">Matches</span><span class="p">(</span><span class="s">&quot;this string CONTAINS &#39;abc&#39; as a substring&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">CaseSensitive</span><span class="o">::</span><span class="n">No</span><span class="p">));</span>
 </code></pre></div>
 <h4 id="vector-matchers">Vector matchers</h4>
-<p>Vector 类型的 match 有 Contains ,  VectorContains 和 Equals 。 VectorContains 判断某个 vector 内部是否有某个元素， Contains 判断某个 vector 是否包含另外一个 vector 。</p>
-<p>下面是来自 selftest 的一个例子：</p>
+<p>Vector 类型的 match 有 Contains，VectorContains 和 Equals 。VectorContains 判断某个 vector 内部是否有某个元素， Contains 判断某个 vector 是否包含另外一个 vector 。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-233-1" name="__codelineno-233-1" href="#__codelineno-233-1"></a><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;Vector matchers&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[matchers][vector]&quot;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <a id="__codelineno-233-2" name="__codelineno-233-2" href="#__codelineno-233-2"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">Matchers</span><span class="o">::</span><span class="n">VectorContains</span><span class="p">;</span>
 <a id="__codelineno-233-3" name="__codelineno-233-3" href="#__codelineno-233-3"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">Matchers</span><span class="o">::</span><span class="n">Contains</span><span class="p">;</span>
@@ -15150,8 +15173,7 @@
 <a id="__codelineno-233-59" name="__codelineno-233-59" href="#__codelineno-233-59"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="floating-point-matchers">Floating point matchers</h4>
-<p>浮点数类型的 matchers 有两种： WithinULP 和 WithinAbs ， WithinAbs 比较两个浮点数是差的绝对值是否小于某个值； WithinULP 做 ULP 类型的检查。</p>
-<p>下面是一个例子：</p>
+<p>浮点数类型的 matchers 有两种：WithinULP 和 WithinAbs，WithinAbs 比较两个浮点数是差的绝对值是否小于某个值；WithinULP 做 ULP 类型的检查。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-234-1" name="__codelineno-234-1" href="#__codelineno-234-1"></a><span class="n">TEST_CASE</span><span class="p">(</span><span class="s">&quot;Floating point matchers: float&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;[matchers][ULP]&quot;</span><span class="p">)</span><span class="w"> </span>
 <a id="__codelineno-234-2" name="__codelineno-234-2" href="#__codelineno-234-2"></a><span class="p">{</span>
 <a id="__codelineno-234-3" name="__codelineno-234-3" href="#__codelineno-234-3"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">Matchers</span><span class="o">::</span><span class="n">WithinAbs</span><span class="p">;</span>
@@ -15191,8 +15213,7 @@
 <a id="__codelineno-234-37" name="__codelineno-234-37" href="#__codelineno-234-37"></a><span class="p">}</span>
 </code></pre></div>
 <h4 id="custom-matchers">Custom matchers</h4>
-<p>通过继承 MatchBase , 可以自定义用户的 matcher ,  Catch:: MatcherBase 这里的 T 是用户想要做 match 的数据类型。同时还需要重写 match 和 describe 两个函数。</p>
-<p>如下是一个判断某个数是否在某个范围类的自定义 matcher ：</p>
+<p>通过继承 MatchBase，可以自定义用户的 matcher，<code>Catch::MatcherBase</code> 这里的 T 是用户想要做 match 的数据类型。同时还需要重写 match 和 describe 两个函数。</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-235-1" name="__codelineno-235-1" href="#__codelineno-235-1"></a><span class="c1">// The matcher class</span>
 <a id="__codelineno-235-2" name="__codelineno-235-2" href="#__codelineno-235-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">IntRange</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Catch</span><span class="o">::</span><span class="n">MatcherBase</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span>
 <a id="__codelineno-235-3" name="__codelineno-235-3" href="#__codelineno-235-3"></a><span class="p">{</span>

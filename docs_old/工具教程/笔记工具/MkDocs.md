@@ -286,5 +286,3 @@ material 主题提供的模板包括
 
 ![](MkDocs.assets/image-20230721105200630.png)
 
-
-
