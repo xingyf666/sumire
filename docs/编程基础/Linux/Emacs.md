@@ -740,6 +740,15 @@ sudo rm /usr/local/bin/gdb
 | `display`         | 类似 `IDE` 里面的 `watch` 功能                        |
 | `break 11 if xxx` | 条件断点                                           |
 
+也可以使用 realgud 提供鼠标交互打断点
+
+```embed
+title: "RealGUD"
+image: ""
+description: "An extensible, modular GNU Emacs front-end for interacting with external debuggers, brought to you by Rocky Bernstein and Clément Pit-Claudel."
+url: "https://github.com/realgud/realgud"
+```
+
 
 
 ### Rust
@@ -776,6 +785,29 @@ sudo npm install -g  vscode-css-languageserver
 ```
 
 目前 29 版本的 eglot 似乎还有问题。
+
+
+
+### 其它语言
+#### CMake
+
+通过 `M-x Package-Install` 安装 `cmake-mode` 即可提供语法高亮，然后还要安装 `cmake-language-server` 提供自动补全和检查
+
+```shell
+pip install cmake-language-server
+```
+
+
+
+#### Lua
+
+通过 `M-x Package-Install` 安装 `lua-mode` 即可提供语法高亮。
+
+
+
+#### Markdown
+
+通过 `M-x Package-Install` 安装 `markdown-mode` 即可提供语法高亮。
 
 
 

@@ -4981,6 +4981,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="KMP 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最长公共前后缀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        优化匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -9757,6 +9796,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="KMP 算法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        动机
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        最长公共前后缀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        优化匹配
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -11490,7 +11568,7 @@ Bellman-Ford 算法结束时，<span class="arithmatex">\(d[v]=\delta(s,v)\)</sp
 </code></pre></div>
 <p>使用邻接矩阵保存两两节点之间当前的最短路径
 $$
-\begin{matrix} \
+\begin{matrix}
  &amp; A &amp; B &amp; C &amp; D \
 A &amp; 0 &amp; 1 &amp; 1 &amp; \infty \
 B &amp; 1 &amp; 0 &amp; \infty &amp; 1 \
@@ -11504,7 +11582,7 @@ B\to A\to C = BA+AC=2 &lt; \infty= BC
 $$
 更新 <span class="arithmatex">\(BC\)</span> 得到
 $$
-\begin{matrix} \
+\begin{matrix}
  &amp; A &amp; B &amp; C &amp; D \
 A &amp; 0 &amp; 1 &amp; 1 &amp; \infty \
 B &amp; 1 &amp; 0 &amp; 2 &amp; 1 \
@@ -11514,7 +11592,7 @@ D &amp; \infty &amp; 1 &amp; 10 &amp; 0
 $$
 然后让每个节点都经过 <span class="arithmatex">\(B\)</span> 来更新路径，注意到 <span class="arithmatex">\(A\to B\to D=AB+BD=2&lt;\infty = AD\)</span>，更新 <span class="arithmatex">\(AD\)</span> 得到
 $$
-\begin{matrix} \
+\begin{matrix}
  &amp; A &amp; B &amp; C &amp; D \
 A &amp; 0 &amp; 1 &amp; 1 &amp; 2 \
 B &amp; 1 &amp; 0 &amp; 2 &amp; 1 \
@@ -11581,7 +11659,50 @@ i\times p=p_{0}\times q\times p = p_{0}\times(q\times p)
 $$
 应该在外循环遍历到 <span class="arithmatex">\(q\times p\)</span> 的时候标记，所以当前在 <span class="arithmatex">\(p_{0}\)</span> 位置就应该退出内循环。</p>
 <h3 id="kmp">KMP 算法</h3>
-<p>这是一个很好的方法</p>
+<p>这是一种字符串匹配算法，主要用于处理带有一定重复模式的字符串。</p>
+<h4 id="_85">动机</h4>
+<p>考虑如下形式的匹配字符串</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>src -&gt; abcabcda ...
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>tar -&gt; ababab
+</code></pre></div>
+<p>我们用 <code>tar</code> 匹配 <code>src</code> 中的子串时，如果逐字符匹配，在检测到 <code>c</code> 不匹配时，就只能移动一个字符</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>ab c        abcabcda ...
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>ab abab  -&gt;  ababab
+</code></pre></div>
+<p>然而，我们已经知道前面的子串匹配成功，因此可以利用这一信息跳过必然不匹配的字符，直接移动到下一个 <code>a</code> 的位置，从而节省匹配开销。</p>
+<h4 id="_86">最长公共前后缀</h4>
+<p>在已知匹配成功一部分后，我们会得到如下形式的两个字符串</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>src -&gt; abcdabc ...
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>tar -&gt; abcdabd
+</code></pre></div>
+<p>其中检测到 <code>c-d</code> 时发现不匹配。取匹配成功的子串</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>src -&gt; abcdab
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>tar -&gt; abcdab
+</code></pre></div>
+<p>注意到我们应该将 <code>tar</code> 的<strong>头部</strong>跟 <code>src</code> 的<strong>尾部</strong>匹配上，由于两个子串完全相同，因此就是寻找一个字符串的<strong>最长公共前后缀</strong>。</p>
+<p>考虑任意字符串 <span class="arithmatex">\(s=a_{0}a_{1}a_{2}a_{3}\cdots\)</span>，记 <span class="arithmatex">\(s[i,j]=a_{i}\cdots a_{j}\)</span>，定义 <span class="arithmatex">\(s[i,j]\)</span> 的最长公共前后缀的长度为 <span class="arithmatex">\(\pi(i,j)\)</span> 。可以得到如下性质</p>
+<ol>
+<li>相同字符串 <span class="arithmatex">\(\pi\)</span> 相同：若 <span class="arithmatex">\(s[0,i]=s[j,j+i]\)</span>，则 <span class="arithmatex">\(\pi(0,i)=\pi(j,j+1)\)</span></li>
+<li>递推性质：<ol>
+<li>若进一步有 <span class="arithmatex">\(s[i+1]=s[j+i+1]\)</span>，则 <span class="arithmatex">\(\pi(0,j+i+1)=\pi(0,j+i)+1\)</span></li>
+<li>若 <span class="arithmatex">\(s[i+1]\neq s[j+i+1]\)</span>，令 <span class="arithmatex">\(s'\)</span> 为用 <span class="arithmatex">\(s[j+i+1]\)</span> 替换 <span class="arithmatex">\(s[i+1]\)</span> 得到的字符串，则 <span class="arithmatex">\(\pi(0,j+i+1)=\pi'(0,i+1)\)</span></li>
+</ol>
+</li>
+</ol>
+<p>其中递推性质的两种情况可以表示为
+$$
+\begin{matrix}
+\bbox[red]{|  0 \cdots i |} &amp; \bbox[yellow]{i+1} &amp;  \cdots &amp;  j-1 &amp; \bbox[red]{| j \cdots j+i |} &amp; \bbox[yellow]{j+i+1} \
+\bbox[red]{|  0 \cdots i |} &amp; \bbox[yellow]{i+1} &amp;  \cdots &amp;  j-1 &amp; \bbox[red]{| j \cdots j+i |} &amp; \bbox[pink]{j+i+1}
+\end{matrix}
+$$
+其中红色标记为 <span class="arithmatex">\(s[0,j+i]\)</span> 的最长公共前后缀。前者显然可以直接递推；对于后者，需要左移 <span class="arithmatex">\(i\)</span>，右移 <span class="arithmatex">\(j\)</span>，匹配 <span class="arithmatex">\(s[0,i-k],s[j+k,j+i+1]\)</span> 。由于前面已经匹配了一个最长子串，则
+$$
+s[j+k,j+i+1] = s[k,i]+s[j+i+1]
+$$
+于是只要将 <span class="arithmatex">\(s[i+1]\)</span> 替换为 <span class="arithmatex">\(s[j+i+1]\)</span>，就可以将问题转换为寻找 <span class="arithmatex">\(s[0,i+1]\)</span> 的最长公共前后缀长度。</p>
+<h4 id="_87">优化匹配</h4>
+<p>由于匹配的子串一定都是 <code>tar</code> 的子串，因此我们对所有 <span class="arithmatex">\(i\)</span> 计算 <span class="arithmatex">\(\pi(0,i)\)</span> 。在得到最长公共前后缀的长度后，用匹配子串长度减去对应的 <span class="arithmatex">\(\pi\)</span> 值，就是下一次匹配时应该移动的距离。</p>
 
 
 

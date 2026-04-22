@@ -1618,13 +1618,11 @@ xmake
 
 
 
-## 绑定选项到目标
+### 绑定选项到目标
 
-我们也可以不使用 `has_config` 和 `add_defines` 去手动设置，直接使用 `add_options` 将选项绑定到指定的 target。
+直接使用 `add_options` 将选项绑定到指定的 target 。当选项被启用的时候，所有关联的设置都会自动设置到被绑定的目标中
 
-这样，当选项被启用的时候，tests 选项中所有关联的设置都会自动设置到被绑定的目标中。
-
-```
+```lua
 option("tests")
     set_description("Enable Tests")
     set_default(false)
@@ -1636,19 +1634,19 @@ target("foo")
     add_options("tests")
 ```
 
-上面的例子，当 tests 启用后，foo 目标会自动添加上 `-DTEST`。
 
 
+### 选项类型与常用接口
 
-## 选项类型与常用接口
-
-### 选项类型
+#### 选项类型
 
 - **布尔型**：开关选项，常用于启用/禁用某特性
 - **字符串型**：用于路径、模式等自定义值
 - **多值型**：通过 `set_values` 提供可选项（配合菜单）
 
-### 常用接口
+
+
+#### 常用接口
 
 - `set_default(value)`：设置默认值（支持 bool 或 string）
 - `set_showmenu(true/false)`：是否在 `xmake f --menu` 菜单中显示
@@ -1658,14 +1656,18 @@ target("foo")
 - `add_links("bar")`：启用时自动链接库
 - `add_cflags("-O2")`：启用时自动添加编译选项
 
-## 选项依赖与条件控制
+
+
+### 选项依赖与条件控制
+
+一个选项可以依赖其它选项决定是否启用
 
 - `add_deps("otheropt")`：依赖其他选项，常用于 on_check/after_check 控制
 - `before_check`/`on_check`/`after_check`：自定义检测逻辑，可动态启用/禁用选项
 
-#### 依赖示例
+例如
 
-```
+```lua
 option("feature_x")
     set_default(false)
     on_check(function (option)
@@ -1675,7 +1677,9 @@ option("feature_x")
     end)
 ```
 
-## 选项实例接口
+
+
+### 选项实例接口
 
 在 `on_check`、`after_check` 等脚本中，可以通过 option 实例接口获取和设置选项状态：
 
@@ -1687,17 +1691,21 @@ option("feature_x")
 - `option:set("defines", "FOO")` 设置配置值
 - `option:add("links", "bar")` 追加配置值
 
-## 选项与 target 的结合
+
+
+### 选项与 target 的结合
 
 - 通过 `add_options("opt1", "opt2")` 绑定选项到目标
 - 选项启用时，相关配置会自动应用到目标
 - 也可用 `has_config("opt")` 在 target 域内做条件判断
 
-## 典型示例
 
-### 1. 布尔开关选项
 
-```
+### 典型示例
+
+#### 1. 布尔开关选项
+
+```lua
 option("enable_lto")
     set_default(false)
     set_showmenu(true)
@@ -1708,9 +1716,11 @@ target("foo")
     add_options("enable_lto")
 ```
 
-### 2. 路径/字符串选项
 
-```
+
+#### 2. 路径/字符串选项
+
+```lua
 option("rootdir")
     set_default("/tmp/")
     set_showmenu(true)
@@ -1720,9 +1730,11 @@ target("foo")
     add_files("$(rootdir)/*.c")
 ```
 
-### 3. 多值菜单选项
 
-```
+
+#### 3. 多值菜单选项
+
+```lua
 option("arch")
     set_default("x86_64")
     set_showmenu(true)
@@ -1877,4 +1889,318 @@ local-repo/
 
 
 
+## 插件和任务
+
+### 基础概念
+
+- **任务 (Task)**: 自定义的构建步骤或工具，可以在项目中调用
+- **插件 (Plugin)**: 特殊的任务，通常提供更复杂的功能，通过 `set_category("plugin")` 分类
+- **菜单**: 通过 `set_menu()` 设置，让任务可以通过命令行直接调用
+
+
+
+### 创建简单任务
+
+#### 基本语法
+
+```lua
+task("taskname")
+    on_run(function ()
+        -- 任务执行逻辑
+        print("任务执行中...")
+    end)
+```
+
+
+
+#### 示例：Hello 任务
+
+```lua
+task("hello")
+    on_run(function ()
+        print("hello xmake!")
+    end)
+```
+
+这个任务只能在 `xmake.lua` 中通过 `task.run()` 调用
+
+```lua
+target("test")
+    after_build(function (target)
+        import("core.project.task")
+        task.run("hello")
+    end)
+```
+
+
+
+### 创建命令行任务
+
+#### 设置菜单
+
+通过 `set_menu()` 可以让任务通过命令行直接调用
+
+```lua
+task("echo")
+    on_run(function ()
+        import("core.base.option")
+        
+        -- 获取参数内容并显示
+        local contents = option.get("contents") or {}
+        local color = option.get("color") or "black"
+        
+        cprint("${%s}%s", color, table.concat(contents, " "))
+    end)
+    
+    set_menu {
+        usage = "xmake echo [options]",
+        description = "显示指定信息",
+        options = {
+            {'c', "color", "kv", "black", "设置输出颜色"},
+            {nil, "contents", "vs", nil, "要显示的内容"}
+        }
+    }
+```
+
+现在可以通过命令行调用
+
+```shell
+xmake echo -c red hello xmake!
+```
+
+
+
+### 任务分类
+
+#### 设置任务分类
+
+```lua
+task("myplugin")
+    set_category("plugin")  -- 分类为插件
+    on_run(function ()
+        print("这是一个插件")
+    end)
+```
+
+分类说明
+
+- **plugin**: 显示在 "Plugins" 分组中
+- **action**: 内置任务默认分类
+- **自定义**: 可以设置任意分类名称
+
+
+
+### 任务参数处理
+
+#### 参数类型
+
+```lua
+task("example")
+    on_run(function ()
+        import("core.base.option")
+        
+        -- 获取不同类型的参数
+        local verbose = option.get("verbose")        -- 布尔值
+        local color = option.get("color")            -- 键值对
+        local files = option.get("files")            -- 多值参数
+        local args = {...}                           -- 可变参数
+    end)
+    
+    set_menu {
+        options = {
+            {'v', "verbose", "k", nil, "启用详细输出"},           -- 布尔选项
+            {'c', "color", "kv", "red", "设置颜色"},              -- 键值选项
+            {'f', "files", "vs", nil, "文件列表"},                -- 多值选项
+            {nil, "args", "vs", nil, "其他参数"}                  -- 可变参数
+        }
+    }
+```
+
+
+
+#### 参数类型说明
+
+- **k**: key-only，布尔值参数
+- **kv**: key-value，键值对参数
+- **v**: value，单值参数
+- **vs**: values，多值参数
+
+
+
+### 在项目中使用任务
+
+#### 构建后执行任务
+
+```lua
+target("test")
+    set_kind("binary")
+    add_files("src/*.cpp")
+    
+    after_build(function (target)
+        import("core.project.task")
+        
+        -- 构建完成后运行代码生成任务
+        task.run("generate-code")
+        
+        -- 运行测试任务
+        task.run("run-tests")
+    end)
+```
+
+
+
+#### 自定义构建任务
+
+```lua
+-- 代码生成任务
+task("generate-code")
+    on_run(function ()
+        print("生成代码...")
+        -- 执行代码生成逻辑
+        os.exec("protoc --cpp_out=src proto/*.proto")
+    end)
+
+-- 测试任务
+task("run-tests")
+    on_run(function ()
+        print("运行测试...")
+        os.exec("xmake run test")
+    end)
+```
+
+
+
+#### 文件处理任务
+
+```lua
+task("process-assets")
+    on_run(function ()
+        import("core.base.option")
+        
+        local input_dir = option.get("input") or "assets"
+        local output_dir = option.get("output") or "build/assets"
+        
+        -- 处理资源文件
+        os.mkdir(output_dir)
+        os.cp(path.join(input_dir, "*.png"), output_dir)
+        os.cp(path.join(input_dir, "*.json"), output_dir)
+        
+        print("资源文件处理完成")
+    end)
+    
+    set_menu {
+        usage = "xmake process-assets [options]",
+        description = "处理项目资源文件",
+        options = {
+            {'i', "input", "kv", "assets", "输入目录"},
+            {'o', "output", "kv", "build/assets", "输出目录"}
+        }
+    }
+```
+
+
+
+### 复杂任务示例
+
+#### 示例 1：代码格式化任务
+
+```lua
+task("format")
+    on_run(function ()
+        import("core.base.option")
+        import("lib.detect.find_tool")
+        
+        local tool = find_tool("clang-format")
+        if not tool then
+            raise("clang-format not found!")
+        end
+        
+        local files = option.get("files") or {"src/**/*.cpp", "src/**/*.h"}
+        for _, pattern in ipairs(files) do
+            local filelist = os.files(pattern)
+            for _, file in ipairs(filelist) do
+                os.execv(tool.program, {"-i", file})
+                print("格式化文件:", file)
+            end
+        end
+    end)
+    
+    set_menu {
+        usage = "xmake format [options]",
+        description = "格式化代码文件",
+        options = {
+            {'f', "files", "vs", nil, "要格式化的文件模式"}
+        }
+    }
+```
+
+
+
+#### 示例 2：项目清理任务
+
+```lua
+task("clean-all")
+    on_run(function ()
+        local patterns = {
+            "build/**",
+            "*.log",
+            "*.tmp",
+            "*.o",
+            "*.a",
+            "*.so",
+            "*.dylib",
+            "*.exe"
+        }
+        
+        for _, pattern in ipairs(patterns) do
+            os.tryrm(pattern)
+        end
+        
+        print("项目清理完成")
+    end)
+    
+    set_menu {
+        usage = "xmake clean-all",
+        description = "清理所有构建文件和临时文件"
+    }
+```
+
+
+
+### 任务调用方式
+
+#### 1. 命令行调用
+
+```shell
+xmake taskname [options] [args...]
+```
+
+
+
+#### 2. 脚本中调用
+
+```lua
+import("core.project.task")
+
+-- 调用任务
+task.run("taskname")
+
+-- 传递参数
+task.run("taskname", {option1 = "value1"}, "arg1", "arg2")
+```
+
+
+
+#### 3. 在构建流程中调用
+
+```lua
+target("test")
+    before_build(function (target)
+        task.run("prepare")
+    end)
+    
+    after_build(function (target)
+        task.run("post-process")
+    end)
+```
 
